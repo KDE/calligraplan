@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Опис</title>
+  <para
+>Панель перегляду діаграми етапів Ґанта призначено для показу етапів у форматі монтажного столу. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Перегляд діаграми Ґанта</phrase>
+        </textobject>
+        <caption>
+          <para
+>Перегляд діаграми Ґанта</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Редагування даних</title>
+  <para
+>За допомогою контекстного меню можна редагувати опис етапу та параметри поступу. </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Код СРР</para>
+            </entry>
+            <entry>
+              <para
+>Код структури переліку робіт</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва етапу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Час початку</para>
+            </entry>
+            <entry>
+              <para
+>Час початку за розкладом.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Налаштування</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою контекстного меню можна налаштувати панель перегляду, викликавши діалогове вікно налаштовування.</para>
+              <para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Діалогове вікно налаштовування</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Діалогове вікно налаштовування</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

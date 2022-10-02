@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>Riepilogo</title
+>&WORK-IN-PROGRESS; <para
+>Questa vista riepiloga i dati sulle prestazioni per i progetti nel tuo portafoglio. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Nome</guilabel
+></entry>
+          <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Nome</entry
+><entry
+>Nome del progetto</entry
+></row>
+      <row
+><entry
+>Pianifica</entry
+><entry
+>Nome della pianificazione</entry
+></row>
+      <row
+><entry
+>Costo SPI</entry
+><entry
+>Indice prestazioni della pianificazione (basato sul costo)</entry
+></row>
+      <row
+><entry
+>Costo CPI</entry
+><entry
+>Indice prestazioni della pianificazione (basato sul costo)</entry
+></row>
+      <row
+><entry
+>Lavoro SPI</entry
+><entry
+>Indice prestazioni della pianificazione (basato sul lavoro)</entry
+></row>
+      <row
+><entry
+>Lavoro CPI</entry
+><entry
+>Indice prestazioni della pianificazione (basato sul lavoro)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>SPI indica se i progressi sono nell'assegnazione (1), in ritardo (meno di 1) o prima della pianificazione (maggiore di 1). CPI indica quanto costa ottenere i progressi effettivi. Un valore di 1 significa come previsto, meno di 1 significa che è costato più di quanto avrebbe dovuto e un valore superiore a 1 significa che il progresso ha ottenuto è stato ottenuto con un uso delle risorse inferiore a quanto previsto. </para>
+</chapter>

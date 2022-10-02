@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Beschrijving</title>
+  <para
+>De Bewerker van werk en vakantie wordt gebruikt om agenda's aan te maken, te bewerken en te verwijderen.</para
+><para
+>Agenda's definiëren de werkuren voor hulpbronnen. Agenda's kunnen ook gebruikt worden door taken met type schatting <emphasis
+>Duur</emphasis
+>. </para>
+  <para
+>Agenda's hebben een tijdzonespecificatie en u kunt dus werkuren definiëren in de locale tijd van de hulpbronnen. </para>
+  <para
+>Een agenda bestaat uit definities voor weekdagen en datums. Als de datum een definitie heeft, wordt deze definitie gebruikt. Als de status van de datum <emphasis
+>Ongedefinieerd</emphasis
+> is, wordt de definitie voor de weekdag gebruikt. Als deze ook <emphasis
+>Ongedefinieerd</emphasis
+> is, wordt de hogere agenda bekeken. </para>
+  <para
+>Een agenda kan gedefinieerd zijn als <emphasis
+>Standaard</emphasis
+> en wordt dan gebruikt door alle werkhulpmiddelen zonder een verwijzing naar een agenda. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De werkbalk biedt de middelen om agenda's aan te maken en te verwijderen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Agenda toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een agenda aan te maken. De nieuwe agenda wordt achtergevoegd op hetzelfde niveau als de geselecteerde agenda.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Subagenda toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een onderliggende agenda aan te maken. De nieuwe agenda wordt achtergevoegd op een niveau lager als de nu geselecteerde agenda.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Geselecteerde agenda verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Verwijdert de geselecteerde agenda.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Gegevens bewerken </title>
+  <para
+>Agendanaam en tijdzone kunnen inline bewerkt worden zoals <link linkend="using-the-views"
+>hier</link
+> beschreven. </para>
+  <para
+>De status van dagen en weekdagen worden bewerkt door de dag of dagen die u wilt bewerken te selecteren en te openen in het contextmenu. </para>
+  <para
+>Selecteren van <emphasis
+>Werk...</emphasis
+> opent de dialoog Werkintervallen bewerken. </para>
+  
+</sect3>
+</sect2>

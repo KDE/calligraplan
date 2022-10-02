@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Опис</title>
+  <para
+>Панель швидкодії проєкту є діаграмою керування проєктом, за допомогою якої ви можете зрозуміти поточну ситуацію у проєкті відповідно до методики освоєного обсягу. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>де </para>
+  <itemizedlist>
+    <listitem
+><para
+>БВЗР — бюджетна вартість запланованої роботи,</para
+></listitem>
+    <listitem
+><para
+>БВВР — бюджетна вартість виконаної роботи,</para
+></listitem>
+    <listitem
+><para
+>ПВВР — поточна вартість виконаної роботи.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Усі ці величини вимірюються як обсяг робіт у годинах або вартості. </para>
+  <para
+>ІШ — індекси швидкодії, де </para>
+  <itemizedlist>
+    <listitem
+><para
+>ІВР — індекс вартості роботи,</para
+></listitem>
+    <listitem
+><para
+>ІВЗ — індекс виконання плану.</para
+></listitem>
+  </itemizedlist>
+</sect2>

@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>La Vista inicial es mostra a l'inici i quan se selecciona <menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Nova</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Hi ha tres seccions per a: </para>
+<itemizedlist>
+  <listitem
+><para
+>Creació de projectes nous. Vegeu també <link linkend="creating-a-project"
+>Crear un projecte</link
+> i <link linkend="managing-resources"
+>Gestionar els recursos</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Obertura de projectes existents. Aquesta secció ofereix la possibilitat d'obrir un fitxer de projecte existent o un dels 10 projectes més recents que hàgiu obert.</para
+></listitem>
+  <listitem
+><para
+>La secció Ajuda ofereix enllaços a pàgines d'introducció, documentació i fòrums de la comunitat.</para
+></listitem>
+</itemizedlist>
+</sect2>

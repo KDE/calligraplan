@@ -1,0 +1,24 @@
+<sect2
+><title/>
+<para
+>Moltes funcions i vistes tenen ajuda i consells que es poden mostrar amb la funció <emphasis
+>guilabel
+>Què és això?</emphasis
+>. </para>
+<para
+>Podeu activar-ho amb l'element de menú <menuchoice
+><guimenu
+>Ajuda</guimenu
+><guimenuitem
+>Què és això?</guimenuitem
+></menuchoice
+> o la drecera de teclat <keycombo
+>&Maj;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>En els diàlegs s'activen prement <varname
+>?</varname
+> a la barra de títol. </para>
+</sect2>

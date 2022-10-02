@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Опис</title>
+  <para
+>Панель призначення виконавців призначено для показу запланованих призначень виконавців до завдань у форматі таблиці. <note
+><para
+>Використання цього режиму перегляду може значно уповільнити роботу програми, якщо ви працюєте із великими проєктами.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Дані</title>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назву об'єкта (групи виконавців (ресурсів), виконавця (ресурсу), завдання)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Загалом</para>
+            </entry>
+            <entry>
+              <para
+>Загальне призначення для виконавця</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Дати</para>
+            </entry>
+            <entry>
+              <para
+>Загальні призначення для виконавця на день та призначення для виконавця на завдання.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Редагування даних</title>
+  <para
+>За допомогою контекстного меню можна редагувати опис завдання та параметри поступу. </para>
+</sect3>
+</sect2>

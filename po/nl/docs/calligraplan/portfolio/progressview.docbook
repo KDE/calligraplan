@@ -1,0 +1,269 @@
+<chapter id="progress"
+><title
+>Voortgang</title>
+<sect1 id="progress-description"
+><title
+>Beschrijving</title
+>&WORK-IN-PROGRESS; <para
+>De voortgangsweergave biedt een lijst met de projecten in uw portfolio aan de linkerkant en toont voortgangsinformatie voor het geselecteerde project aan de rechterkant. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="progressview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De taken zijn opgedeeld in groepen afhankelijk van de status van de taak: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Niet gestart</para>
+            </entry>
+            <entry>
+              <para
+>Taken die nu gestart zouden moeten zijn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Actief</para>
+            </entry>
+            <entry>
+              <para
+>Taken die zijn gestart, maar nog niet zijn voltooid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beëindigd</para>
+            </entry>
+            <entry>
+              <para
+>Taken die in deze periode zijn voltooid</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Volgende periode</para>
+            </entry>
+            <entry>
+              <para
+>Taken die zijn gepland om in de volgende periode te starten.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-editing-data"
+><title
+>Gegevens bewerken </title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Voortgangsinformatie kan in-line bewerkt worden of door de dialoog takenvoortgang.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>Taakstatus</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% voltooid</para>
+            </entry>
+            <entry>
+              <para
+>Taakvoltooiing</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Geplande inspanning</para>
+            </entry>
+            <entry>
+              <para
+>De hoeveelheid gepland werk om gebruikt te worden aan het eind van de huidige periode.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Werkelijke inspanning</para>
+            </entry>
+            <entry>
+              <para
+>De hoeveelheid gedaan werk.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Resterende inspanning</para>
+            </entry>
+            <entry>
+              <para
+>De resterende inspanning om de taak te voltooien.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Geplande kosten</para>
+            </entry>
+            <entry>
+              <para
+>De geplande kosten aan het eind van de huidige periode.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Werkelijke kosten</para>
+            </entry>
+            <entry>
+              <para
+>De echt gemaakte kosten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Werkelijke start</para>
+            </entry>
+            <entry>
+              <para
+>De werkelijke starttijd van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Werkelijk einde</para>
+            </entry>
+            <entry>
+              <para
+>De werkelijke eindtijd van de taak.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-configuration"
+><title
+>Configuratie</title>
+  <para
+>Met het contextmenu kan de weergave geconfigureerd worden om de boomstructuur in of uit te vouwen of het kan geconfigureerd worden met de configuratiedialoog. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>De configuratiedialoog biedt u het aanpassen van de hoeveelheid informatie die de weergave toont om in uw behoefte te voorzien.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="progressview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                </screenshot>
+              </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+</chapter>

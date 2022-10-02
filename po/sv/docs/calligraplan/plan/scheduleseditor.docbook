@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Beskrivning</title>
+  <para
+>Schemaeditorn används för att skapa, redigera, beräkna och ta bort tidplaner. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Schemaeditorn har tre delvyer som visar resultatet av schemaläggningen. </para>
+  <para
+>Delvyn med resultat visar värden som behövs för PERT-analys inklusive tidig start och avslutning, sen start och avslutning med olika typer av marginal. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Delvyn med kritisk linje visar aktiviteterna som hör till den kritiska linjen. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Delvyn med schemaläggningslogg visar en lista av meddelanden som produceras under schemaläggning. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa och ta bort tidplaner: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Lägg till tidplan</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en resursgrupp. Den nya gruppen läggs till sist i grupperna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Lägg till deltidplan</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en deltidplan. Den nya tidplanen läggs till sist som ett underliggande objekt till tidplanen som för närvarande är markerat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Ta bort</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Ta bort</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort den markerade tidplanen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Beräkna</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Beräknar den markerade tidplanen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Baslinje</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Gör den markerade tidplanen till baslinje. Förhindrar tidplanen från att beräknas om eller tas bort.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Koppla loss</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Gör den markerade deltidplanen till en topptidplan</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Redigera data</title>
+  <para
+>Data kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+>. </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Tidplanens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tillstånd</para>
+            </entry>
+            <entry>
+              <para
+>Tidplanens tillstånd. Visar en förloppsrad under schemaläggning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Riktning</para>
+            </entry>
+            <entry>
+              <para
+>Schemats riktning.</para
+><para
+>Om riktning är framåt, schemaläggs projektet med början på projektets tidigaste starttid angiven i projektets huvuddialog.Om riktning är bakåt, schemaläggs projektet med början på projektets senaste sluttid angiven i projektets huvuddialog. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Överbokning</para>
+            </entry>
+            <entry>
+              <para
+>Styr överbokning av resurser vid schemaläggning.</para
+><para
+>Om överbokning tillåts, kan en resurs bokas att arbeta mer än den är tillgänglig (på arbetsdagar). Det kan inträffa om resursen tilldelas till flera aktiviteter, eller är bokade för andra projekt. </para>
+              <para
+>Om överbokning ska undvikas, kommer inte resurser att bokas mer än de är tillgängliga. Vid resurskonflikter fördröjs aktiviteter till resursen är tillgänglig. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fördelning</para>
+            </entry>
+            <entry>
+              <para
+>Fördelning som ska användas under schemaläggningen.</para
+><para
+>Om fördelning är 'Ingen', används uppskattningen av aktiviteten som den är under schemaläggning. </para>
+              <para
+>Om fördelningen är 'PERT', beräknas uppskattningen (U) som används baserat på de inskrivna optimistiska (O), pessimistiska (P) och troligaste (T) uppskattningarna. Formeln som används är: </para>
+              <para
+>U = (O + 4 * T + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Planerad start</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd starttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Planerat slut</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd sluttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Schemaläggning</para>
+            </entry>
+            <entry>
+              <para
+>Schemaläggning använd för att beräkna projektets tidplan.</para
+><para
+>Den förvalda inbyggda schemaläggningen är Nätverksschemaläggning. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in att dela eller dra ihop trädvyn, eller anpassas med inställningsdialogrutan.</para
+><para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

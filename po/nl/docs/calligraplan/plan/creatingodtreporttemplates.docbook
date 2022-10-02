@@ -1,0 +1,1939 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Beschrijving</title>
+  <para
+>Sjablonen voor Open Document Text rapporten zijn reguliere ODT-bestanden die ontworpen kunnen worden met elke ODT tekstverwerker zoals <emphasis
+>Calligra Words</emphasis
+> of <emphasis
+>LibreOffice Writer</emphasis
+>. De gebruikte techniek is het gebruik van <emphasis
+>gebruikersveld</emphasis
+> variabelen die verwijzingen bevatten naar de informatie die opgehaald moet worden uit het project. De variabelen hebben de namen <emphasis
+>Gebruikersvelden</emphasis
+> in <emphasis
+>Writer</emphasis
+> en zijn te vinden onder <menuchoice
+><guimenu
+>Invoegen</guimenu
+><guisubmenu
+>Veld</guisubmenu
+><guimenuitem
+>Meer velden</guimenuitem
+><guimenuitem
+>Variabelen</guimenuitem
+><guimenuitem
+>Gebruikersvelden</guimenuitem
+></menuchoice
+>. In <emphasis
+>Words</emphasis
+> hebben ze de namen <emphasis
+>Custom variabelen</emphasis
+> en zijn te vinden onder <menuchoice
+><guimenu
+>Tekstbewerkingdocker</guimenu
+><guisubmenu
+>Variabele</guisubmenu
+><guimenuitem
+>Custom</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>De gemakkelijkste manier om een nieuw rapportsjabloon te maken is door het wijzigen van een bestaande omdat alle gebruikersvelden zijn gedefinieerd. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Variabelen in gebruikersvelden</title>
+  <sect4 id="variables"
+><title
+>Variabelen</title>
+    <para
+>De variabelen worden gebruikt om de generator in te schakelen om gegevens uit het project te halen. </para>
+    <para
+>Een variabele kan een referentie zijn naar een enkel gegevensveld, een referentie naar tabelgegevens of een verwijzing naar grafiekgegevens. </para
+><sect5
+><title
+>Enkelvoudig gegevensveld</title
+> <para
+>Een enkelvoudige gegevensveldvariabele heeft het volgende formaat: </para
+> <para
+><replaceable
+>gegevensgroepnaam</replaceable
+>.<replaceable
+>eigenschap</replaceable
+> = <replaceable
+>eigenschapidentifier</replaceable
+> </para
+> <para
+>waar: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>gegevensgroepnaam</replaceable
+> kan tr, project of planning  zijn (zie onderstaand).</para
+></listitem
+> <listitem
+><para
+><replaceable
+>eigenschap</replaceable
+> maakt de gebruikersveldnaam uniek.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>eigenschapidentiteit</replaceable
+> identificeert de eigenschap in de gegevensgroep.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Tabelgegevens</title
+> <para
+>Een tabel in een rapportsjabloon bestaat uit een variabele om de te gebruiken gegevenstabel te specificeren. </para
+> <para
+>De variabelenaam moet beginnen met <replaceable
+>tabel</replaceable
+> (&eg; tabelTaken) en de waarde van de variabele moet de naam van de gegevenstabel zijn (&eg; taken). </para
+> <para
+>Onmiddellijk na de variabele moet een tabel ingevoegd worden en kolommen gevuld met gebruikersveldvariabelen die specificeren welke eigenschappen opgehaald moeten worden uit de boven gespecificeerde tabel. Deze variabelen moeten namen hebben die beginnen met de naam van de bovenstaande tabelvariabele. </para
+> <para
+>Deze variabelen hebben het volgende formaat: </para
+> <para
+>tabelTaken.<replaceable
+>eigenschap</replaceable
+> = <replaceable
+>eigenschapidentifier</replaceable
+> </para
+> <para
+>waar: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>eigenschap</guilabel
+> maakt de gebruikersveldnaam uniek.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>eigenschapidentifier</guilabel
+> identificeert de eigenschap in de gegevensgroep.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Grafiekgegevens</title
+> <para
+>Een grafiek in een rapportsjabloon bestaat uit een variabele om de te gebruiken gegevens in de grafiek te specificeren. </para
+> <para
+>De variabelenaam moet beginnen met <replaceable
+>grafiek</replaceable
+> (&eg; grafiekBudgetKosten) en de waarde van de variabele specificeert de gegevensgroep en waarden om de grafiek te bevolken. </para
+> <para
+>De variabele heeft het volgende formaat (let op de puntkomma): </para
+> <para
+><replaceable
+>naam</replaceable
+> = <replaceable
+>gegevensgroep</replaceable
+>; waarden=<replaceable
+>komma-gescheiden lijst van gegevenseigenschappen</replaceable
+>; </para
+> <para
+>waar: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>naam</replaceable
+> moet beginnen met <guilabel
+>grafiek</guilabel
+> (&eg; grafiekBudgetKosten)</para
+></listitem
+> <listitem
+><para
+><replaceable
+>gegevensgroep</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>komma-gescheiden lijst met gegevenseigenschappen</guilabel
+> identificeren de eigenschappen in de gegevensgroep.</para
+></listitem
+> </itemizedlist
+> <para
+>Bijv.: </para
+> <para
+>grafiekBudget = project; waarden=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Vertaalde labels</title>
+    <para
+>Vertaalde labels stellen ons in staat algemene rapportsjablonen te produceren die in andere talen gebruikt kunnen worden. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Naam variabele</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabele waarde</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Project</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Manager</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Planning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Projectwaarden</title>
+    <para
+>Toont waarden uit het hoofdproject. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Naam variabele</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabele waarde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.naam</para>
+              </entry>
+              <entry>
+                <para
+>Naam</para>
+              </entry>
+              <entry>
+                <para
+>De naam van het project</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.beheerder</para>
+              </entry>
+              <entry>
+                <para
+>Manager</para>
+              </entry>
+              <entry>
+                <para
+>De naam van de projectbeheerder</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>BCWS-kosten</para>
+              </entry>
+              <entry>
+                <para
+>Op kosten gebaseerde geraamde kosten van gepland werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>BCWP-kosten</para>
+              </entry>
+              <entry>
+                <para
+>Op kosten gebaseerde geraamde kosten van uitgevoerd werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ACWP-kosten</para>
+              </entry>
+              <entry>
+                <para
+>Op kosten gebaseerde werkelijke kosten van uitgevoerd werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>SPI-kosten</para>
+              </entry>
+              <entry>
+                <para
+>Op kosten gebaseerde geplande prestatie-index</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>CPI-kosten</para>
+              </entry>
+              <entry>
+                <para
+>Op kosten gebaseerde prestatie-index van kosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWS-inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Op inspanning gebaseerde geraamde kosten van gepland werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWP-inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Op inspanning gebaseerde geraamde kosten van uitgevoerd werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ACWP-inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Op inspanning gebaseerde werkelijke kosten van uitgevoerd werk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>SPI-inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Op inspanning gebaseerde geplande prestatie-index</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>CPI-inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Op inspanning gebaseerde prestatie-index van kosten</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Waarden in planning</title>
+    <para
+>Waarden tonen uit de huidige planning. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Naam variabele</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabele waarde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>planning.naam</para>
+              </entry>
+              <entry>
+                <para
+>Naam</para>
+              </entry>
+              <entry>
+                <para
+>De naam van het plan</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Status</para>
+              </entry>
+              <entry>
+                <para
+>Planningstatus</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Naam</para>
+              </entry>
+              <entry>
+                <para
+>Planningsrichting</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Overboeken</para>
+              </entry>
+              <entry>
+                <para
+>Overboeken</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Verdeling</para>
+              </entry>
+              <entry>
+                <para
+>Verdeling</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Geplande start</para>
+              </entry>
+              <entry>
+                <para
+>Geplande start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Gepland einde</para>
+              </entry>
+              <entry>
+                <para
+>Gepland einde</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Planner</para>
+              </entry>
+              <entry>
+                <para
+>Planner</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Detaillering</para>
+              </entry>
+              <entry>
+                <para
+>Detaillering</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Modus</para>
+              </entry>
+              <entry>
+                <para
+>Planningsmodus (automatisch of handmatig)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Tabellen</title>
+    <para
+>Ondersteunde tabeltypen: </para>
+    <itemizedlist>
+      <listitem
+><para
+>taken</para
+></listitem>
+      <listitem
+><para
+>taakstatus</para
+></listitem>
+      <listitem
+><para
+>periodieke transacties</para
+></listitem>
+      <listitem
+><para
+>projecten</para
+></listitem>
+    </itemizedlist>
+    <para
+>Om een tabel aan te maken, plaats een variabele direct voor een tabel in uw sjabloonbestand. De variabelenaam identificeert de tabel en moet beginnen met <guilabel
+>table</guilabel
+>, &eg; <guilabel
+>tableTaakstatus</guilabel
+>. </para>
+    <para
+>De waarde van de variabele wordt gebruikt om te wijzen naar de op te halen gegevens en moet er een zijn van de ondersteunde tabellen uit bovenstaande lijst, &eg; <guilabel
+>taakstatus</guilabel
+>. </para>
+    <para
+>Daarna zet u variabelen in de tabelcellen met naam en waarde uit de onderstaande tabel. </para>
+    <para
+>Merk op dat de tabel met planning de waarde ondersteunt beschreven in <link linkend="schedule-values"
+>Waarden in planning</link
+> bovenstaand. </para>
+    <para
+>De tabellen voor projecten, taken en taakstatus ondersteunen de volgende waarden: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Naam variabele</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabele waarde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.name </para>
+              </entry>
+              <entry>
+                <para
+>Naam</para>
+              </entry>
+              <entry>
+                <para
+>De naam van de taak of het project</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>WBS-code</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Type</para>
+              </entry>
+              <entry>
+                <para
+>Type van taak</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Verantwoordelijk</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Toewijzing</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Schattingstype</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Agenda</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Schatting</para>
+              </entry>
+              <entry>
+                <para
+>Meest waarschijnlijke schatting</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisch</para>
+              </entry>
+              <entry>
+                <para
+>Optimistische verhouding</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisch</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistische verhouding</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Risico</para>
+              </entry>
+              <entry>
+                <para
+>Geschatte onzekerheid</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Voorwaarde</para>
+              </entry>
+              <entry>
+                <para
+>Type van tijdvoorwaarde</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Voorwaardelijk begin</para>
+              </entry>
+              <entry>
+                <para
+>Voorwaardelijke starttijd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Voorwaardelijk eind</para>
+              </entry>
+              <entry>
+                <para
+>Voorwaardelijke eindtijd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Actief account</para>
+              </entry>
+              <entry>
+                <para
+>Account voor lopende kosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Opstartaccount</para>
+              </entry>
+              <entry>
+                <para
+>Account voor opstartkosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Opstartkosten</para>
+              </entry>
+              <entry>
+                <para
+>De gemaakte kosten tijdens het opstarten van de taak</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Afsluitaccount</para>
+              </entry>
+              <entry>
+                <para
+>Account voor afsluitkosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Kosten van afsluiten</para>
+              </entry>
+              <entry>
+                <para
+>De gemaakte kosten tijdens het afsluiten van de taak</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Beschrijving</para>
+              </entry>
+              <entry>
+                <para
+>Taakbeschrijving</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Verwacht</para>
+              </entry>
+              <entry>
+                <para
+>Berekende meest waarschijnlijke schatting</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisch</para>
+              </entry>
+              <entry>
+                <para
+>Berekende optimistische schatting</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisch</para>
+              </entry>
+              <entry>
+                <para
+>Berekende pessimistische schatting</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Starttijd</para>
+              </entry>
+              <entry>
+                <para
+>Geplande starttijd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Eindtijd</para>
+              </entry>
+              <entry>
+                <para
+>Geplande eindtijd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Duur</para>
+              </entry>
+              <entry>
+                <para
+>Geplande tijdsduur</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Vroege start</para>
+              </entry>
+              <entry>
+                <para
+>Vroegst mogelijk begin</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Vroeg einde</para>
+              </entry>
+              <entry>
+                <para
+>Vroegst mogelijk einde</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Late start</para>
+              </entry>
+              <entry>
+                <para
+>Laatst mogelijk begin</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Laat einde</para>
+              </entry>
+              <entry>
+                <para
+>Laatst mogelijk einde</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Positieve speling</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Vrije speling</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Negatieve speling</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Start-speling</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Einde-speling</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Toewijzingen</para>
+              </entry>
+              <entry>
+                <para
+>Hulpbrontoekenningen</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Variantie (geschat)</para>
+              </entry>
+              <entry>
+                <para
+>Berekende geschatte variantie</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Variantie (duur)</para>
+              </entry>
+              <entry>
+                <para
+>Berekende variantie in tijdsduur</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisch (duur)</para>
+              </entry>
+              <entry>
+                <para
+>Berekende optimistische tijdsduur</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisch (duur)</para>
+              </entry>
+              <entry>
+                <para
+>Berekende pessimistische tijdsduur</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Status</para>
+              </entry>
+              <entry>
+                <para
+>Taakstatus zoals getoond in Taakstatusweergave</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% voltooid</para>
+              </entry>
+              <entry>
+                <para
+>Taakvoltooiing</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Geplande inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Geplande inspanning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke inspanning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Resterende inspanning</para>
+              </entry>
+              <entry>
+                <para
+>Resterende inspanning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Geplande kosten</para>
+              </entry>
+              <entry>
+                <para
+>Geplande kosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke kosten</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke kosten</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke start</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Gestart</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijk einde</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijk einde</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Beëindigd</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Planningstatus</para>
+              </entry>
+              <entry>
+                <para
+>Planningstatus</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Geraamde kosten van gepland werk (op kosten gebaseerd)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Geraamde kosten van uitgevoerd werk (op kosten gebaseerd)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Werkelijke kosten van uitgevoerd werk (op kosten gebaseerd)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Performance-index van planning (SPI)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Kritiek</para>
+              </entry>
+              <entry>
+                <para
+>Taak is kritiek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Kritieke pad</para>
+              </entry>
+              <entry>
+                <para
+>Taak is in kritieke pad</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Niet gepland</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Toewijzing ontbreekt</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Hulpbron overboekt</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Hulpbron niet beschikbaar</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Fout in voorwaarden</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Inspanning niet aan voldaan</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Planningsfout</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Nodeniveau, niveau</para>
+              </entry>
+              <entry>
+                <para
+>Niet interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Statusnotitie</para>
+              </entry>
+              <entry>
+                <para
+>Let op: Niet geïmplementeerd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Eigenaar</para>
+              </entry>
+              <entry>
+                <para
+>Moeten niet gebruikt worden en zijn niet erg interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Status</para>
+              </entry>
+              <entry>
+                <para
+>Moeten niet gebruikt worden en zijn niet erg interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabelnaam</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Tijd</para>
+              </entry>
+              <entry>
+                <para
+>Moeten niet gebruikt worden en zijn niet erg interessant</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Grafiek</title>
+  <para
+>Gebruik door plaatsen van een variabele met naam chartX (X=enige tekst om de variabelenaam uniek te maken) met een waardeproject voor de grafiek die gebruikt zal worden. </para>
+  <para
+>De variabele heeft het formaat: </para>
+  <para
+>Variabele: <varname
+>Naam: chartX (X=enige tekst) waarde: project; waarden=<replaceable
+>gegevens</replaceable
+>;</varname
+> </para>
+  <para
+>waar <replaceable
+>gegevens</replaceable
+> een kommagescheiden lijst met waarden is om ingevoegd te worden in de grafiek. </para>
+  <para
+>Mogelijke waarden van <replaceable
+>gegevens</replaceable
+> zijn: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>bcws-inspanning</guilabel
+> Geraamde kosten van gepland werk, gebaseerd op inspanning.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp-inspanning</guilabel
+> Geraamde kosten van uitgevoerd werk, gebaseerd op inspanning.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp-inspanning</guilabel
+> Werkelijke kosten van uitgevoerd werk, gebaseerd op inspanning.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi-inspanning</guilabel
+> Prestatie-index van planning, gebaseerd op inspanning.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi-inspanning</guilabel
+> Prestatie-index van kosten, gebaseerd op inspanning.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws-kosten</guilabel
+> Geraamde kosten van gepland werk, gebaseerd op kosten.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> Geraamde kosten van uitgevoerd werk, gebaseerd op kosten.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> Werkelijke kosten van uitgevoerd werk, gebaseerd op kosten.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> Prestatie-index van planning, gebaseerd op kosten.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> Prestatie-index van kosten, gebaseerd op kosten.</para
+></listitem>
+  </itemizedlist>
+  <para
+>De grafieken die u aanmaakt in uw sjabloon moeten hetzelfde aantal (of meer) kolommen hebben als het aantal waarden dat u specificeert in uw variabele. </para>
+  <para
+>Voorbeeld: </para>
+  <para
+>Variabelenaam: <varname
+>chart1</varname
+> Waarde: <varname
+>project; waarden=bcws kosten,bcwp kosten, acwp kosten;</varname
+> </para>
+  <para
+>Let op dat u geen inspannings- en kosten-gebaseerde waarden kunt mengen. Als u beiden wilt tonen, maak twee grafieken. </para>
+  <sect4 id="gantt"
+><title
+>Gantt</title>
+    <para
+>Niet ondersteund. </para>
+  </sect4>
+</sect3>
+</sect2>

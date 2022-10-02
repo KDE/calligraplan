@@ -1,0 +1,232 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Descripció</title>
+  <para
+>L'Editor de tasques és una vista que mostra les dades de les tasques en una estructura en arbre. La majoria de les dades a l'Editor de tasques es poden editar in situ. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navegar</title>
+  <para
+>Podeu navegar per l'estructura en arbre utilitzant el teclat: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Amplia una fila que es pot ampliar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Redueix un element plegable.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fletxa esquerra</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la columna anterior en la mateixa fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fletxa dreta</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la columna següent en la mateixa fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fletxa amunt</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la fila anterior en la mateixa columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fletxa avall</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la fila següent en la mateixa columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Inici</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la primera fila, primera columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fi</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'última fila, darrera columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Re Pàg</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a la primera fila visible en la mateixa columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Av Pàg</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'última fila visible en la mateixa columna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Editar les dades</title>
+  <para
+>Els elements editables s'obren per editar fent doble clic sobre l'element o, si feu servir el teclat, prement la tecla <keycap
+>F2</keycap
+> s'obrirà l'element actual. </para>
+  <para
+>En editar un element, podreu navegar cap al següent element editable de la següent manera: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;&Left;</keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'element editable anterior en la mateixa fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;&Right;</keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'element editable següent en la mateixa fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;&Up;</keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'element editable següent en les files anteriors.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;&Down;</keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Va a l'element editable següent en files successives.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Arrossegar i deixar anar / Copiar i enganxar</title>
+  <para
+>La majoria de les vistes admeten arrossegar i deixar anar, així com copia i enganxa. Els gràfics i els gràfics de Gantt es poden arrossegar cap a aplicacions que admeten imatges. Les dades de la taula empren el tipus mime &HTML;, per la qual cosa es poden descartar en qualsevol aplicació que L'admeti. Si la vista admet moure o copiar elements internament, &pex;, a l'<link linkend="task-editor"
+>Editor de tasques</link
+>, els elements també es poden moure o copiar. </para>
+</sect3>
+</sect2>

@@ -1,0 +1,146 @@
+<chapter id="scheduling"
+><title
+>Pianificazione</title>
+<sect1 id="scheduling-description"
+><title
+>Descrizione</title
+>&WORK-IN-PROGRESS; <para
+>La vista Pianificazione consente di programmare i progetti nel tuo portafoglio. I progetti sono pianificati in base alla loro priorità. </para
+><para
+>Impostare <emphasis
+>Controllo</emphasis
+> su <emphasis
+>Pianificazione</emphasis
+> per il progetto o i progetti che si desidera pianificare. Impostare <emphasis
+>Controllo</emphasis
+> su <emphasis
+>Includi</emphasis
+> per avere assegnazioni di risorse incluse nel livellamento delle risorse. Imposta <emphasis
+>Controllo</emphasis
+> su <emphasis
+>Escludi</emphasis
+> se si desidera escludere il progetto. </para>
+  <tip
+><para
+>Se i tuoi progetti condividono risorse con progetti che non fanno parte del tuo portafoglio, questi progetti devono essere inclusi per il livello delle risorse per funzionare correttamente. Vedere <xref linkend="content-editor"/> </para
+></tip>
+   <para
+>Questa vista ha tre sezioni: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Tabella dei progetti</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Nome</guilabel
+></entry>
+          <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Nome</entry
+><entry
+>Nome del progetto</entry
+></row>
+      <row
+><entry
+>Pianifica</entry
+><entry
+>Nome della pianificazione</entry
+></row>
+      <row
+><entry
+>Stato</entry
+><entry
+>Stato della pianificazione</entry
+></row>
+      <row
+><entry
+>Controllo</entry>
+        <entry
+>La pianificazione del controllo può avere i seguenti valori: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Pianificazione:</emphasis
+> Il progetto sarà pianificiato.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Includi:</emphasis
+> Le prenotazioni delle risorse saranno incluse nel livellamento delle risorse.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Escludi:</emphasis
+>Il progetto non sarà incluso.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Priorità</entry
+><entry
+>Priorità del progetto. Un numero più grande significa priorità più elevata.</entry
+></row>
+      <row
+><entry
+>Inizio obiettivo</entry
+><entry
+>Il tempo di inizio del primo progetto</entry
+></row>
+      <row
+><entry
+>Fine obiettivo</entry
+><entry
+>Il tempo di completamento dell'ultimo progetto</entry
+></row>
+      <row
+><entry
+>Descrizione</entry
+><entry
+>Descrizione del progetto</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Controllo della pianificazione</title>
+   
+</sect1>
+<sect1 id="scheduling-log"
+><title
+>Registro delle pianificazioni</title>
+   
+</sect1>
+</chapter>

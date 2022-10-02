@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Descripció</title>
+  <para
+>La vista Execució de la tasca s'utilitza per a inspeccionar la informació sobre el compliment de la tasca. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Dades</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La informació sobre el progrés es pot editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+> o emprant el diàleg de progrés de la tasca.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estat</para>
+            </entry>
+            <entry>
+              <para
+>Estat de la tasca</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% completada</para>
+            </entry>
+            <entry>
+              <para
+>Compleció de la tasca</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsable</para>
+            </entry>
+            <entry>
+              <para
+>La persona responsable d'aquesta tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Assignació</para>
+            </entry>
+            <entry>
+              <para
+>Els recursos assignats a aquesta tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>Índex de compliment de la planificació (BCWP/BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWS</para>
+            </entry>
+            <entry>
+              <para
+>Cost pressupostat de la feina planificada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWP</para>
+            </entry>
+            <entry>
+              <para
+>Cost pressupostat de la feina realitzada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ACWP</para>
+            </entry>
+            <entry>
+              <para
+>Cost real de la feina realitzada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripció</para>
+            </entry>
+            <entry>
+              <para
+>Descripció de la tasca</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Configurar</title>
+  <para
+>Utilitzant el menú contextual, la vista es podrà configurar per mostrar/ocultar el Projecte, dividir / no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

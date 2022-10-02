@@ -1,0 +1,13 @@
+<sect2
+><title/>
+<para
+><note
+><para
+>Esta vista no se muestra de forma predeterminada. Para proyectos grandes, puede afectar gravemente al rendimiento.</para
+></note>
+</para>
+<para
+>Se puede activar usando el menú de contexto <link linkend="the-view-selector"
+>Selector de vista</link
+>. </para>
+</sect2>

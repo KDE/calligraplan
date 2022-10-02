@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Beschrijving</title>
+  <para
+>De planningbewerker wordt gebruikt om planningen aan te maken, te bewerken, te berekenen en te verwijderen. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De planningbewerker heeft drie subweergaven die de resultaten tonen van de planning. </para>
+  <para
+>De subweergave Resultaat toont de waarden nodig voor PERT-analyse inclusief vroeger starten en eindigen, later starten en eindigen samen met verschillende typen van flexibel. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De subweergave Kritiek pad toont de taken die behoren tot het kritieke pad. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De subweergave Planninglog toont een lijst met berichten geproduceerd tijdens planning. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om planning aan te maken, te verwijderen en te berekenen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Plan toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een hulpbrongroep aan te maken. De nieuwe groep wordt achtergevoegd aan het eind van de groepen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Subplanning toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een subplanning aan te maken. De nieuwe planning wordt achtergevoegd op een niveau lager als de nu geselecteerde planning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>De geselecteerde planning wordt verwijderd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Berekenen</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Berekent de geselecteerde planning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Basislijn</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Maakt een basislijn van de geselecteerde planning. Voorkomt dat de planning opnieuw wordt berekend of verwijderd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Losmaken</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>De geselecteerde subplanning een topplanning maken</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Gegevens bewerken </title>
+  <para
+>Gegevens kunnen inline bewerkt worden zoals <link linkend="using-the-views"
+>hier</link
+> beschreven. </para>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van het plan.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>De status van de planning. Toont een voortgangsbalk tijdens plannen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Richting</para>
+            </entry>
+            <entry>
+              <para
+>De planningsrichting.</para
+><para
+>Als de richting van de planning Voorwaarts is, dan wordt het project gepland beginnend bij de vroegste starttijd gespecificeerd in de hoofddialoog van het project. Als de richting Achterwaarts is, dan wordt het project gepland met behulp van de laatste eindtijd gespecificeerd in de hoofddialoog van het project. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Overboeken</para>
+            </entry>
+            <entry>
+              <para
+>Bestuurt het overboeken van hulpbronnen tijdens het plannen.</para
+><para
+>Als overboeken is toegestaan, dan mag een hulpbron worden geboekt (op werkdagen) om meer te werken dan beschikbaar is. Dit kan gebeuren als de hulpbron aan meerdere taken is toegekend of geboekt zijn op andere projecten. </para>
+              <para
+>Als overboeken vermeden moet worden, dan zullen hulpbronnen niet meer geboekt worden dan ze beschikbaar zijn. Bij hulpbronconflict, zullen taken vertraagd worden totdat de hulpbron beschikbaar is. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verdeling</para>
+            </entry>
+            <entry>
+              <para
+>De te gebruiken distributie tijdens het plannen.</para
+><para
+>Als de verdeling 'Geen' is, wordt de schatting van de taak gebruikt als-is tijdens plannen. </para>
+              <para
+>Als verdeling 'PERT' is, dan wordt de schatting (E) berekend gebaseerd op de ingevoerde optimistische (O), pessimistische (P) en meest waarschijnlijke (M) schatting. De gebruikte formule hiervoor is: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Geplande start</para>
+            </entry>
+            <entry>
+              <para
+>De geplande starttijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Gepland einde</para>
+            </entry>
+            <entry>
+              <para
+>De geplande eindtijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Planner</para>
+            </entry>
+            <entry>
+              <para
+>De te gebruiken planner voor het berekenen van de projectplanning.</para
+><para
+>De standaard ingebouwde planner is de Netwerkplanner. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Configuratie</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Met het contextmenu kan de weergave geconfigureerd worden om de boomstructuur in of uit te vouwen of het kan geconfigureerd worden met de configuratiedialoog.</para
+><para
+>De configuratiedialoog biedt u het aanpassen van de hoeveelheid informatie die de weergave toont om in uw behoefte te voorzien. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

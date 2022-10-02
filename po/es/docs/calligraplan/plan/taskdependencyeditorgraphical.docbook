@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Descripción</title>
+  <para
+>El Editor de dependencias de tareas se usa para crear, editar y borrar dependencias de tareas. Para mayor comodidad, las tareas también se pueden insertar, borrar o editar.</para
+><para
+>Las tareas se ordenan según la estructura de desglose del trabajo (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Los símbolos de las tareas de resumen, de las tareas y de las metas se muestran a continuación: </para>
+  <para
+>Como la <emphasis
+>Tarea</emphasis
+> y la <emphasis
+>Meta</emphasis
+> son subelementos de la <emphasis
+>Tarea de resumen</emphasis
+>, se muestran con sangría. Además, observe que el código WBS se muestra junto al nombre. </para>
+  <para
+>En la siguiente figura, se ha insertado una dependencia <emphasis
+>Finalización-Inicio</emphasis
+> para que la <emphasis
+>Meta</emphasis
+> dependa de la <emphasis
+>Tarea</emphasis
+>. </para>
+  <para
+>Como se muestra a continuación, un elemento consta de tres áreas de selección distintas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Área del elemento</para>
+            </entry>
+            <entry>
+              <para
+>Seleccionar el elemento para editarlo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Área de inicio</para>
+            </entry>
+            <entry>
+              <para
+>Se usa para crear dependencias de <emphasis
+>Inicio-Finalización</emphasis
+> y <emphasis
+>Inicio-Inicio</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Área de finalización</para>
+            </entry>
+            <entry>
+              <para
+>Se usa para crear dependencias de <emphasis
+>Finalización-Inicio</emphasis
+> y <emphasis
+>Finalización-Finalización</emphasis
+>.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Edición de dependencias</title>
+  <para
+>Puede crear dependencias seleccionando el área de inicio (o de finalización) de la tarea que la precede y, a continuación, seleccionando el área de inicio (o de finalización) de la tarea que la sigue. </para>
+  <para
+>Esto se puede hacer usando el ratón o el teclado. </para>
+  <para
+>De forma alternativa, puede soltar el área de conexión de la tarea que la precede sobre el área de conexión de la tarea que la sigue. </para>
+  <para
+>Para editar o borrar una dependencia existente, puede abrir la dependencia seleccionándola o abrir su menú de contexto. </para>
+  <para
+>También puede abrir el menú de contexto de un área de conexión, que le permitirá editar todas las dependencias conectadas a dicha tarea. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Barra de herramientas</title>
+  <para
+>La barra de herramientas proporciona métodos para crear y borrar tareas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botón</guilabel
+></entry>
+            <entry
+><guilabel
+>Acceso rápido</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Añadir tarea</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Lista desplegable para crear una tarea o una meta. El nuevo elemento se coloca después del elemento seleccionado actualmente en el mismo nivel que él. Si no se selecciona ningún elemento, el nuevo elemento se añade en el nivel superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Añadir subtarea</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Lista desplegable para crear una subtarea o una meta. El nuevo elemento se añade como elemento secundario del elemento seleccionado actualmente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Borrar tarea</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Borrar</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Borra las tareas seleccionadas.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

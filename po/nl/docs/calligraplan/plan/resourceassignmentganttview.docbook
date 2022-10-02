@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Beschrijving</title>
+  <para
+>De Ganttweergave van hulpbrontoewijzingen toont de geplande toekenningen van taakhulpbronnen in een Gantt-grafiek. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Gegevens</title>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van het object (hulpbrongroep, hulpbron, taak)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Type</para>
+            </entry>
+            <entry>
+              <para
+>Objecttype</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Starttijd</para>
+            </entry>
+            <entry>
+              <para
+>De start van de toekenning</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Eindtijd</para>
+            </entry>
+            <entry>
+              <para
+>Het einde van de toekenning</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Gegevens bewerken </title>
+  <para
+>De taakbeschrijving en voortgang kan bewerkt worden met het contextmenu. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Configuratie</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Met het contextmenu kan de weergave geconfigureerd worden met de configuratiedialoog.</para
+><para
+>De configuratiedialoog biedt u het selecteren van welke kolommen te tonen. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Configuratiedialoog</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Configuratiedialoog</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

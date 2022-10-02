@@ -1,0 +1,23 @@
+<sect2
+><title/>
+<para
+>Muchas funciones y vistas disponen de ayuda y de sugerencias que se pueden mostrar usando la función <emphasis
+>¿Qué es esto?</emphasis
+>. </para>
+<para
+>Puede activarla usando la entrada del menú <menuchoice
+><guimenu
+>Ayuda</guimenu
+><guimenuitem
+>¿Qué es esto?</guimenuitem
+></menuchoice
+> o el acceso rápido de teclado <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>En los diálogos se activa pulsando el símbolo <varname
+>?</varname
+> existente en la barra de título del diálogo. </para>
+</sect2>

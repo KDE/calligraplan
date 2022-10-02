@@ -1,0 +1,13 @@
+<sect2
+><title/>
+<para
+><note
+><para
+>Vyn visas inte normalt. För stora projekt kan den avsevärt påverka prestanda</para
+></note>
+</para>
+<para
+>Den kan aktiveras med den sammanhangsberoende menyn <link linkend="the-view-selector"
+>Vyväljare</link
+>. </para>
+</sect2>

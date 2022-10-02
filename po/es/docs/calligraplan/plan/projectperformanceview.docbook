@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Descripción</title>
+  <para
+>La vista de desempeño del proyecto es un diagrama de gestión del proyecto donde se puede entender la situación actual del proyecto según el método del «Valor ganado». </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>donde: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS significa «Costo presupuestado del trabajo planificado»,</para
+></listitem>
+    <listitem
+><para
+>BCWP significa «Costo presupuestado del trabajo realizado»,</para
+></listitem>
+    <listitem
+><para
+>ACWP significa «Costo real del trabajo realizado».</para
+></listitem>
+  </itemizedlist>
+  <para
+>Todos ellos se consideran un esfuerzo en horas y costos. </para>
+  <para
+>PI son los índices de desempeño, donde: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI es el «Índice de desempeño del costo»,</para
+></listitem>
+    <listitem
+><para
+>SPI es el «Índice de desempeño planificado».</para
+></listitem>
+  </itemizedlist>
+</sect2>

@@ -1,0 +1,25 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Introduktion av Plan</title>
+  <sect1 id="introduction-section"
+><title
+>Introduktion</title
+>&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Definitioner</title
+>&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Sammanhangsberoende hjälp</title
+>&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>Huvudarbetsyta</title
+>&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>Använda vyerna</title
+>&using-the-views-section; </sect1>
+</chapter>

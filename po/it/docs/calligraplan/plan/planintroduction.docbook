@@ -1,0 +1,25 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Introduzione a Plan</title>
+  <sect1 id="introduction-section"
+><title
+>Introduzione</title
+>&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Definizioni</title
+>&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Aiuto contestuale</title
+>&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>Area di lavoro principale</title
+>&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>Utilizzare le viste</title
+>&using-the-views-section; </sect1>
+</chapter>

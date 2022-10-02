@@ -1,0 +1,792 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Giovanni Sora <g.sora@tiscali.it>, 2013, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"PO-Revision-Date: 2021-08-30 15:39+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+
+#: aboutdata.h:27
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr ""
+
+#: aboutdata.h:31
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998-%1, Le equipa de Plan"
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Modifica"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Vista"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Vista"
+
+#: commandlineparser.cpp:35
+#, kde-format
+msgid "File to open"
+msgstr "File de aperir"
+
+#: commandlineparser.cpp:92
+#, kde-format
+msgid "Failed to open document"
+msgstr "Falleva aperir le documento "
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Le file '%1' non existe."
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr ""
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr ""
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "URL invalide: <br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr ""
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "File non existe:<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr "Modifica con:"
+
+#: part.cpp:379
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+
+#: part.cpp:410
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr ""
+
+#: part.cpp:414
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr "Remove pacchetto de travalio"
+
+#: part.cpp:425
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "Remove pacchetto de travalio"
+msgstr[1] "Remove pacchettos de travalio"
+
+#: part.cpp:466
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Il falleva a cargar le file: <br>%1"
+
+#: part.cpp:488
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "Non un valide file de pacchetto de travalio: <br>%1"
+
+#: part.cpp:518
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr ""
+
+#: part.cpp:546
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Falleva a aperir file: %1"
+
+#: part.cpp:560
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+
+#: part.cpp:579 part.cpp:630
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr ""
+
+#: part.cpp:587
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+
+#: part.cpp:598 part.cpp:646
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "Continue"
+msgstr "Continua"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Disaccordode  formato de file"
+
+#: part.cpp:636
+#, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+
+#: part.cpp:738
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr ""
+
+#: taskcompletiondialog.cpp:32
+#, kde-format
+msgid "Task Progress"
+msgstr "Progresso de carga"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Initiate:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Terminate"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Adde Entrata"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Remove entrata"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:433
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "Modifica completion "
+
+#: taskworkpackagemodel.cpp:468
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "Arrangiamento Terminate"
+
+#: taskworkpackagemodel.cpp:489
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "Modifica effortio remanente"
+
+#: taskworkpackagemodel.cpp:502
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "Modifica effortio actual"
+
+#: taskworkpackagemodel.cpp:600
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nomine"
+
+#: taskworkpackagemodel.cpp:601
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Typo"
+
+#: taskworkpackagemodel.cpp:602
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Responsabile"
+
+#: taskworkpackagemodel.cpp:603
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Description"
+
+#: taskworkpackagemodel.cpp:606
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Initio planificate"
+
+#: taskworkpackagemodel.cpp:607
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Fin Planificate"
+
+#: taskworkpackagemodel.cpp:608
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "Assignationes de Ressource"
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Completion"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Effortio actual"
+
+#: taskworkpackagemodel.cpp:613
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Effortio Remanente"
+
+#: taskworkpackagemodel.cpp:614
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Effortio planificate"
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Initio actual"
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Initiate"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "Termination actual"
+
+#: taskworkpackagemodel.cpp:618
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Terminate"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Stato"
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Nota"
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Nomine de projectos"
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Gerente de projectos"
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#, kde-format
+msgid "Configure View..."
+msgstr "Configura vista..."
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "Remove pacchettos"
+
+#: view.cpp:88
+#, kde-format
+msgid "Remove Package"
+msgstr "Remove pacchetto"
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr "Lista"
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr "Selige list de carga"
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#: view.cpp:103
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "Configura PlanWork.."
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "Modifica..."
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "Vista..."
+
+#: view.cpp:116
+#, kde-format
+msgid "Remove document"
+msgstr "Remove documento"
+
+#: view.cpp:120
+#, kde-format
+msgid "Send Package..."
+msgstr "Invia pacchetto..."
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit Progress..."
+msgstr "Progresso de modificar ..."
+
+#: view.cpp:128
+#, kde-format
+msgid "View Description..."
+msgstr "Vide Description..."
+
+#: view.cpp:315
+#, kde-format
+msgid "This file is not editable"
+msgstr "Le file non es  modificabile"
+
+#: view.cpp:335
+#, kde-format
+msgid "No work package is selected"
+msgstr "Necun pacchetto de travalio es seligite"
+
+#: view.cpp:341
+#, kde-format
+msgid "Cannot find work package"
+msgstr "Non pote trovar pacchetto de travalio"
+
+#: view.cpp:358
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr ""
+
+#: workpackage.cpp:102
+#, kde-format
+msgid "Document is already open"
+msgstr ""
+
+#: workpackage.cpp:168 workpackage.cpp:223
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "Il falleva a cargar projecto: %1"
+
+#: workpackage.cpp:285
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr ""
+
+#: workpackage.cpp:293
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Il non pote crear le file per salveguardar"
+
+#: workpackage.cpp:307
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr ""
+
+#: workpackage.cpp:333
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"Falleva a aperir magazin:\n"
+" %1"
+
+#: workpackage.cpp:411
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Falleva salveguardar a magazin de projecto:\n"
+" %1"
+
+#: workpackage.cpp:454
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr "Remove documento"
+
+#: workpackage.cpp:463
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"Falleva a leger file: \n"
+"%1"
+
+#: workpackage.cpp:469
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"Falleva a scriber file:\n"
+" %1"
+
+#: workpackage.cpp:513
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr "Fusiona datos"
+
+#: workpackage.cpp:637
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: workpackage.cpp:660
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+
+#: workpackage.cpp:687
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+
+#: workpackage.cpp:705
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+
+#~ msgid "Progress"
+#~ msgstr "Progresso"
+
+#~ msgid "Documents"
+#~ msgstr "Documentos"
+
+#, fuzzy
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Terminate"
+
+#, fuzzy
+#~| msgid "Add Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Adde Entrata"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Remove entrata"
+
+#, fuzzy
+#~| msgid "Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Progresso"
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Documentos"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Modifica"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Vista"
+
+#, fuzzy
+#~| msgid "View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Vista"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Giovanni Sora"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "g.sora@tiscali.it"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "File de aperir"
+
+#, fuzzy
+#~| msgid "The file %1 does not exist."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Le file '%1' non existe."
+
+#, fuzzy
+#~| msgid "Invalid URL:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "URL invalide: <br>%1"
+
+#, fuzzy
+#~| msgid "File does not exist:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "File non existe:<br>%1"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Modifica con:"
+
+#, fuzzy
+#~| msgid "Failed to load file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Il falleva a cargar le file: <br>%1"
+
+#, fuzzy
+#~| msgid "Failed to open file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Falleva a aperir file: %1"
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Continua"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Nomine"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Typo"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Description"
+
+#, fuzzy
+#~| msgid "Completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Completion"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Terminate"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Status"
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "Stato"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Nota"
+
+#, fuzzy
+#~| msgid "Project Manager"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Gerente de projectos"
+
+#, fuzzy
+#~| msgid "Configure View..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Configura vista..."
+
+#, fuzzy
+#~| msgid "List"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Lista"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Modifica..."
+
+#, fuzzy
+#~| msgctxt "@verb"
+#~| msgid "View..."
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Vista..."

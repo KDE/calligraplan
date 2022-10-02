@@ -1,0 +1,1939 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Descripció</title>
+  <para
+>Les plantilles d'informe d'Open Document Text són fitxers ODT normals que poden dissenyar-se utilitzant qualsevol processador de text ODT com el <emphasis
+>Calligra Words</emphasis
+> o el <emphasis
+>LibreOffice Writer</emphasis
+>. La tècnica utilitzada és utilitzar variables de <emphasis
+>camp d'usuari</emphasis
+> per a contenir les referències a la informació que s'obtindrà des del projecte. Les variables s'anomenen <emphasis
+>Camps d'usuari</emphasis
+> en el <emphasis
+>Writer</emphasis
+> i es poden trobar a <menuchoice
+><guimenu
+>Insereix</guimenu
+><guisubmenu
+>Camp</guisubmenu
+><guimenuitem
+>Més camps</guimenuitem
+><guimenuitem
+>Variables</guimenuitem
+><guimenuitem
+>Camps d'usuari</guimenuitem
+></menuchoice
+>. En el <emphasis
+>Words</emphasis
+>, s'anomenen <emphasis
+>Variables personalitzades</emphasis
+> i es poden trobar a l'acoblador <menuchoice
+><guimenu
+>Edició de text</guimenu
+><guisubmenu
+>Variable</guisubmenu
+><guimenuitem
+>Personalitza</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>La manera més fàcil de crear una plantilla nova d'informe és modificar-ne una existent, ja que tots els camps d'usuari estan definits. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Variables del camp d'usuari</title>
+  <sect4 id="variables"
+><title
+>Variables</title>
+    <para
+>Les variables s'utilitzen per a permetre que el generador extregui les dades des del projecte. </para>
+    <para
+>Una variable pot ser una referència a un sol camp de dades, una referència a les dades a la taula o una referència a les dades al gràfic. </para
+><sect5
+><title
+>Camp de dades únic</title
+> <para
+>Una única variable del camp de dades té el següent format:</para
+> <para
+><replaceable
+>nom del grup de dades</replaceable
+>.<replaceable
+>propietat</replaceable
+> = <replaceable
+>identificador de propietat</replaceable
+></para
+> <para
+>on:</para
+> <itemizedlist
+> <listitem
+> <para
+>El <replaceable
+>nom del grup de dades</replaceable
+> pot ser «tr», projecte o planificació (vegeu a continuació).</para
+> </listitem
+> <listitem
+><para
+>La <replaceable
+>propietat</replaceable
+> fa que el nom del camp d'usuari sigui únic.</para
+> </listitem
+> <listitem
+> <para
+>La <replaceable
+>identitat de la propietat</replaceable
+> identifica la propietat en el grup de dades.</para
+> </listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Dades de la taula</title
+> <para
+>Una taula en una plantilla d'informe consisteix d'una variable per especificar la taula de dades a utilitzar.</para
+> <para
+>El nom de la variable haurà de començar amb <replaceable
+>taula</replaceable
+> (&pex;, taulaTasques) i el valor de la variable haurà de ser el nom de la taula de dades (&pex;, tasques).</para
+> <para
+>Immediatament després de la variable, s'haurà d'introduir i omplir les columnes amb les variables del camp d'usuari, les quals especificaran quines propietats cercar des de la taula especificada anteriorment. Aquestes variables hauran de tenir noms que comencin amb el nom de la variable de taula anterior.</para
+> <para
+>Aquestes variables tenen el següent format:</para
+><para
+>taulaTasques.<replaceable
+>propietat</replaceable
+> = <replaceable
+>identificador de la propietat</replaceable
+></para
+> <para
+>on:</para
+> <itemizedlist
+> <listitem
+> <para
+>La <guilabel
+>propietat</guilabel
+> fa que el nom del camp d'usuari sigui únic.</para
+></listitem
+> <listitem
+><para
+>L'<guilabel
+>identificador de la propietat</guilabel
+> identificarà la propietat en el grup de dades.</para
+> </listitem
+> </itemizedlist
+> </sect5
+><sect5
+><title
+>Dades del gràfic</title
+> <para
+>Un gràfic en una plantilla d'informe consta d'una variable per especificar les dades que s'utilitzaran en el gràfic.</para
+><para
+>El nom de la variable haurà de començar amb el <replaceable
+>gràfic</replaceable
+> (&pex;, chartBudgetCost) i el valor de la variable especifica el grup de dades i els valors per a completar el gràfic.</para
+> <para
+>La variable té el següent format (tingueu en compte els punts i comes):</para
+><para
+><replaceable
+>nom</replaceable
+> = <replaceable
+>grup de dades</replaceable
+>; values = <replaceable
+>llista de les propietats de dades separades per comes</replaceable
+>;</para
+><para
+>on:</para
+><itemizedlist
+> <listitem
+> <para
+>El <replaceable
+>nom</replaceable
+> haurà de començar amb el <guilabel
+>gràfic</guilabel
+> (&pex;, chartBudgetCost)</para
+> </listitem
+> <listitem
+> <para
+>El <replaceable
+>grup de dades</replaceable
+> </para
+> </listitem
+> <listitem
+><para
+>La <guilabel
+>llista de propietats de dades separada per comes</guilabel
+> identifica les propietats en el grup de dades.</para
+></listitem
+> </itemizedlist
+> <para
+>P. ex:</para
+> <para
+>chartBudget = project; values=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Etiquetes traduïdes</title>
+    <para
+>Les etiquetes traduïdes ens permeten produir plantilles d'informe generals que es podran utilitzar en diferents idiomes. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nom de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Valor de la variable</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Projecte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Gestor</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Valors del projecte</title>
+    <para
+>Mostra els valors del projecte principal. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nom de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Valor de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>projecte.name</para>
+              </entry>
+              <entry>
+                <para
+>Nom</para>
+              </entry>
+              <entry>
+                <para
+>El nom del projecte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.manager</para>
+              </entry>
+              <entry>
+                <para
+>Gestor</para>
+              </entry>
+              <entry>
+                <para
+>El nom del gestor del projecte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>Cost BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina planificada, en funció del cost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>Cost BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina realitzada, en funció del cost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>Cost ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost real de la feina realitzada, en funció del cost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.spicost</para>
+              </entry>
+              <entry>
+                <para
+>Cost SPI</para>
+              </entry>
+              <entry>
+                <para
+>Índex de compliment de la planificació, en funció del cost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>Cost CPI</para>
+              </entry>
+              <entry>
+                <para
+>Índex de compliment del cost, en funció del cost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina planificada, en funció de l'esforç</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina realitzada, en funció de l'esforç</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost real de la feina realitzada, en funció de l'esforç</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç SPI</para>
+              </entry>
+              <entry>
+                <para
+>Índex de compliment de la planificació, en funció de l'esforç</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>projecte.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç CPI</para>
+              </entry>
+              <entry>
+                <para
+>Índex de compliment del cost, en funció de l'esforç</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Valors de la planificació</title>
+    <para
+>Mostra els valors de la planificació actual. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nom de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Valor de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>planificació.name</para>
+              </entry>
+              <entry>
+                <para
+>Nom</para>
+              </entry>
+              <entry>
+                <para
+>El nom de la planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.state</para>
+              </entry>
+              <entry>
+                <para
+>Estat</para>
+              </entry>
+              <entry>
+                <para
+>Estat de la planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.direction</para>
+              </entry>
+              <entry>
+                <para
+>Nom</para>
+              </entry>
+              <entry>
+                <para
+>Direcció de la planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Sobreutilització</para>
+              </entry>
+              <entry>
+                <para
+>Sobreutilització</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Distribució</para>
+              </entry>
+              <entry>
+                <para
+>Distribució</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Començament planificat</para>
+              </entry>
+              <entry>
+                <para
+>Començament planificat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Finalització planificada</para>
+              </entry>
+              <entry>
+                <para
+>Finalització planificada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Planificador</para>
+              </entry>
+              <entry>
+                <para
+>Planificador</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Granularitat</para>
+              </entry>
+              <entry>
+                <para
+>Granularitat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>planificació.mode</para>
+              </entry>
+              <entry>
+                <para
+>Mode</para>
+              </entry>
+              <entry>
+                <para
+>Mode de planificació (automàtica o manual)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Taules</title>
+    <para
+>Tipus de taules admeses: </para>
+    <itemizedlist>
+      <listitem
+><para
+>tasks</para
+></listitem>
+      <listitem
+><para
+>taskstatus</para
+></listitem>
+      <listitem
+><para
+>schedules</para
+></listitem>
+      <listitem
+><para
+>projects</para
+></listitem>
+    </itemizedlist>
+    <para
+>Per a crear una taula, poseu una variable just abans d'una taula en el fitxer de plantilla. El nom de la variable identificarà la taula i haurà de començar amb <guilabel
+>table</guilabel
+>, &pex;. <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>El valor de la variable s'empra per apuntar a les dades que s'han d'obtenir i haurà de ser una de les taules admeses llistades anteriorment, &pex;. <guilabel
+>taskstatus</guilabel
+>. </para>
+    <para
+>Després col·loqueu les variables dins de les cel·les de la taula amb el nom i el valor des de la taula a continuació. </para>
+    <para
+>Recordeu que la taula de planificacions admet els valors descrits en els anteriors <link linkend="schedule-values"
+>Valors de la planificació</link
+>. </para>
+    <para
+>Les taules dels projectes, tasques i estat de les tasques admeten els següents valors: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nom de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Valor de la variable</guilabel
+></entry>
+              <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Nom</para>
+              </entry>
+              <entry>
+                <para
+>El nom de la tasca o projecte</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>Codi WBS</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Tipus</para>
+              </entry>
+              <entry>
+                <para
+>Tipus de tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Responsable</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Adjudicació</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Tipus estimat</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Calendari</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Estimat</para>
+              </entry>
+              <entry>
+                <para
+>Estimació més probable</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimista</para>
+              </entry>
+              <entry>
+                <para
+>Interval optimista</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimista</para>
+              </entry>
+              <entry>
+                <para
+>Interval pessimista</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Risc</para>
+              </entry>
+              <entry>
+                <para
+>Estima la incertesa</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Restricció</para>
+              </entry>
+              <entry>
+                <para
+>Tipus de la restricció de temps</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Començament de la restricció</para>
+              </entry>
+              <entry>
+                <para
+>Temps de començament de la restricció</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Finalització de la restricció</para>
+              </entry>
+              <entry>
+                <para
+>Temps de finalització de la restricció</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Compte operatiu</para>
+              </entry>
+              <entry>
+                <para
+>Compte per a costos operatius</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Compte inicial</para>
+              </entry>
+              <entry>
+                <para
+>Compte per al cost inicial</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Cost inicial</para>
+              </entry>
+              <entry>
+                <para
+>El deute a l'inici de la tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Compte de tancament</para>
+              </entry>
+              <entry>
+                <para
+>Compte per al cost del tancament</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Cost del tancament</para>
+              </entry>
+              <entry>
+                <para
+>El deute al tancament de la tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Descripció</para>
+              </entry>
+              <entry>
+                <para
+>Descripció de la tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Esperat</para>
+              </entry>
+              <entry>
+                <para
+>Estimació més probable calculada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimista</para>
+              </entry>
+              <entry>
+                <para
+>Estimació optimista calculada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimista</para>
+              </entry>
+              <entry>
+                <para
+>Estimació pessimista calculada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Temps de començament</para>
+              </entry>
+              <entry>
+                <para
+>El temps de començament planificat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Temps de finalització</para>
+              </entry>
+              <entry>
+                <para
+>El temps de finalització planificat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Durada</para>
+              </entry>
+              <entry>
+                <para
+>Durada planificada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Començament més primerenc</para>
+              </entry>
+              <entry>
+                <para
+>Començament possible més primerenc</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Final més primerenc</para>
+              </entry>
+              <entry>
+                <para
+>El final possible més primerenc</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Començament més tardà</para>
+              </entry>
+              <entry>
+                <para
+>Començament possible més tardà</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Final més tardà</para>
+              </entry>
+              <entry>
+                <para
+>Final possible més tardà</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Marge positiu</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Marge lliure</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Marge negatiu</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Començament del marge</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Finalització del marge</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Assignacions</para>
+              </entry>
+              <entry>
+                <para
+>Assignacions dels recursos</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Variació (est.)</para>
+              </entry>
+              <entry>
+                <para
+>Variació de l'estimació calculada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Variació (dur.)</para>
+              </entry>
+              <entry>
+                <para
+>Variació de la durada calculada</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Optimista (dur.)</para>
+              </entry>
+              <entry>
+                <para
+>Variació de la durada optimista</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Pessimista (dur.)</para>
+              </entry>
+              <entry>
+                <para
+>Variació de la durada pessimista</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Estat</para>
+              </entry>
+              <entry>
+                <para
+>Estat de la tasca, tal com es mostra a la vista Estat de la tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% completada</para>
+              </entry>
+              <entry>
+                <para
+>Compleció de la tasca</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç planificat</para>
+              </entry>
+              <entry>
+                <para
+>Esforç planificat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç real</para>
+              </entry>
+              <entry>
+                <para
+>Esforç real</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Esforç restant</para>
+              </entry>
+              <entry>
+                <para
+>Esforç restant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Cost planificat</para>
+              </entry>
+              <entry>
+                <para
+>Cost planificat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Cost real</para>
+              </entry>
+              <entry>
+                <para
+>Cost real</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Començament real</para>
+              </entry>
+              <entry>
+                <para
+>Començament real</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Iniciada</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Finalització real</para>
+              </entry>
+              <entry>
+                <para
+>Finalització real</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Finalitzada</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Estat de la planificació</para>
+              </entry>
+              <entry>
+                <para
+>Estat de la planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina planificada (en funció del cost)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost pressupostat de la feina realitzada (en funció del cost)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Cost real de la feina realitzada (en funció del cost)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Índex de compliment de la planificació</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Crítica</para>
+              </entry>
+              <entry>
+                <para
+>La tasca és crítica</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Camí crític</para>
+              </entry>
+              <entry>
+                <para
+>La tasca està en un camí crític</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>No planificada</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Manca una assignació</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Recurs sobreutilitzat</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Recurs no disponible</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Error de les restriccions</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Esforç no trobat</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Error de planificació</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Nivell del node, Nivell</para>
+              </entry>
+              <entry>
+                <para
+>No interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Nota d'estat</para>
+              </entry>
+              <entry>
+                <para
+>Nota: sense implementar</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Propietari</para>
+              </entry>
+              <entry>
+                <para
+>No s'ha d'utilitzar i no és gaire interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Estat</para>
+              </entry>
+              <entry>
+                <para
+>No s'ha d'utilitzar i no és gaire interessant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nom_de_la_taula</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Temps</para>
+              </entry>
+              <entry>
+                <para
+>No s'ha d'utilitzar i no és gaire interessant</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Gràfic</title>
+  <para
+>Utilitzeu-lo col·locant una variable amb el nom chartX (X=algun text per a crear un nom de variable que sigui únic) amb un projecte de valor abans del gràfic que s'utilitzarà. </para>
+  <para
+>La variable té aquest format: </para>
+  <para
+>Variable: <varname
+>Name: chartX (X=some text) Value: project; values=<replaceable
+>dades</replaceable
+>;</varname
+> </para>
+  <para
+>on les <replaceable
+>dades</replaceable
+> són una llista de valors separats per comes que s'inclouran en el gràfic. </para>
+  <para
+>Els valors de <replaceable
+>dades</replaceable
+> possibles són: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>Esforç BCWS</guilabel
+>: cost pressupostat de la feina planificada, en funció de l'esforç.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Esforç BCWP</guilabel
+>: cost pressupostat de la feina realitzada, en funció de l'esforç.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Esforç ACWP</guilabel
+>: cost real de la feina realitzada, en funció de l'esforç.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Esforç SPI</guilabel
+>: índex de compliment de la planificació, en funció de l'esforç.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Esforç CPI</guilabel
+>: índex de compliment del cost, en funció de l'esforç.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Cost BCWS</guilabel
+>: cost pressupostat de la feina planificada, en funció del cost.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Cost BCWP</guilabel
+>: cost pressupostat de la feina realitzada, en funció del cost.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Cost ACWP</guilabel
+>: cost real de la feina realitzada, en funció del cost.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Cost SPI</guilabel
+>: índex de compliment de la planificació, en funció del cost.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Cost CPI</guilabel
+>: índex de compliment del cost, en funció del cost.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Els gràfics que creeu a la vostra plantilla hauran de tenir el mateix (o més) nombre de columnes que el nombre de valors que especifiqueu a la vostra variable. </para>
+  <para
+>Exemple: </para>
+  <para
+>Nom de la variable: <varname
+>chart1</varname
+> Value: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Tingueu en compte que no es poden barrejar valors basats en l'esforç i el cost. Si voleu mostrar ambdós, creeu dos gràfics. </para>
+  <sect4 id="gantt"
+><title
+>Gantt</title>
+    <para
+>No admès. </para>
+  </sect4>
+</sect3>
+</sect2>

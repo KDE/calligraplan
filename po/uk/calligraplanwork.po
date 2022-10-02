@@ -1,0 +1,1338 @@
+# Translation of calligraplanwork.po to Ukrainian
+# Copyright (C) 2007-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2007, 2008.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2016, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligraplanwork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"PO-Revision-Date: 2022-03-08 09:09+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+"PlanWork — програма опрацювання робочих пакунків для інструмента планування "
+"проєктів Plan"
+
+#: aboutdata.h:27
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Програма опрацювання робочих пакунків Plan"
+
+#: aboutdata.h:31
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "© Команда Plan, 1998–%1"
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "о. Іван Петрущак"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "fr.ivan@ukrainian-orthodox.org"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "З&міни"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Переглянути"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#: commandlineparser.cpp:35
+#, kde-format
+msgid "File to open"
+msgstr "Відкрити файл"
+
+#: commandlineparser.cpp:92
+#, kde-format
+msgid "Failed to open document"
+msgstr "Не вдалося відкрити документ"
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Файла «%1» не існує."
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "Документ вже відкрито:<br>%1"
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Неможливо видобути документ зі сховища:<br>%1"
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "Некоректна адреса:<br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "Документ вже відкрито:<br> %1"
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "Файла не існує:<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr "Редагувати за допомогою:"
+
+#: part.cpp:379
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"<p>Цей робочий пакунок вже зберігається у сховищі проєкту.</p><p>Проєкт: "
+"%1<br>Завдання: %2</p><p>Бажаєте оновити поточний пакунок даними з нового?</"
+"p>"
+
+#: part.cpp:410
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "Спроба вилучення була невдалою. Не вдалося знайти робочий пакунок"
+
+#: part.cpp:414
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr ""
+"Вилучити робочий пакунок\n"
+"вилучення робочого пакунка"
+
+#: part.cpp:425
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] ""
+"Вилучити робочі пакунки\n"
+"вилучення робочих пакунків"
+msgstr[1] ""
+"Вилучити робочі пакунки\n"
+"вилучення робочих пакунків"
+msgstr[2] ""
+"Вилучити робочі пакунки\n"
+"вилучення робочих пакунків"
+msgstr[3] ""
+"Вилучити робочій пакунок\n"
+"вилучення робочого пакунка"
+
+#: part.cpp:466
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Не вдалося завантажити файл:<br>%1"
+
+#: part.cpp:488
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "Некоректний файл пакунка роботи:<br>%1"
+
+#: part.cpp:518
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Некоректний документ. У документі не міститься «maindoc.xml»."
+
+#: part.cpp:546
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Не вдалося відкрити файл: %1"
+
+#: part.cpp:560
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+"Помилка розбору синтаксису у файлі %1, рядок — %2, стовпчик — "
+"%3<br>Повідомлення помилки: %4"
+
+#: part.cpp:579 part.cpp:630
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Некоректний документ. Не вказано тип mime."
+
+#: part.cpp:587
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Некоректний документ. Очікувався тип MIME application/x-vnd.kde.plan.work, "
+"отримано %1"
+
+#: part.cpp:598 part.cpp:646
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Цей документ було створено за допомогою новішої версії PlanWork (версія "
+"синтаксису: %1)<br>Відкриття цього документа у поточній версії PlanWork "
+"призведе до втрати деякої інформації."
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "Continue"
+msgstr "Продовжити"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Невідповідність формату файла"
+
+#: part.cpp:636
+#, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr "Некоректний документ. Мав бути тип MIME %2, отримано %1"
+
+#: part.cpp:738
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "Спроба редагування була невдалою. Не вдалося знайти робочий пакунок."
+
+#: taskcompletiondialog.cpp:32
+#, kde-format
+msgid "Task Progress"
+msgstr "Поступ завдання"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Почато:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Завершено:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Додати запис"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Вилучити запис"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr "Тип: %1<nl/>Адреса: %2"
+
+#: taskworkpackagemodel.cpp:433
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr ""
+"Змінити рівень виконання\n"
+"зміну рівня виконання"
+
+#: taskworkpackagemodel.cpp:468
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr ""
+"Зробити завершеним\n"
+"позначення завершеним"
+
+#: taskworkpackagemodel.cpp:489
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr ""
+"Змінити залишковий обсяг робіт\n"
+"зміну залишкового обсягу робіт"
+
+#: taskworkpackagemodel.cpp:502
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr ""
+"Змінити поточний обсяг робіт\n"
+"зміну поточного обсягу робіт"
+
+#: taskworkpackagemodel.cpp:600
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Назва"
+
+#: taskworkpackagemodel.cpp:601
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Тип"
+
+#: taskworkpackagemodel.cpp:602
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Відповідальний"
+
+#: taskworkpackagemodel.cpp:603
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Опис"
+
+#: taskworkpackagemodel.cpp:606
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Запланований початок"
+
+#: taskworkpackagemodel.cpp:607
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Заплановане завершення"
+
+#: taskworkpackagemodel.cpp:608
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "Призначення виконавців"
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Рівень завершеності"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Поточний обсяг робіт"
+
+#: taskworkpackagemodel.cpp:613
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Залишковий обсяг робіт"
+
+#: taskworkpackagemodel.cpp:614
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Запланований обсяг робіт"
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Поточний початок"
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Почато"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "Поточне завершення"
+
+#: taskworkpackagemodel.cpp:618
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Завершено"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Стан"
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Примітка"
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Назва проєкту"
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Керування проєктами"
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#, kde-format
+msgid "Configure View..."
+msgstr "Налаштувати перегляд..."
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+"Завдання: %1<nl/>Поточне завершення: %2<nl/>Заплановане завершення: %3<nl/"
+">Стан: %4: %5"
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+"Завдання: %1<nl/>Рівень завершеності: %2%<nl/>Поточний початок: %3<nl/"
+">Заплановано: %4 – %5<nl/>Стан: %6<nl/>Проєкт: %7"
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr "Завдання: %1<nl/>Заплановано: %2—%3<nl/>Стан: %4<nl/>Проєкт: %5"
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "Вилучити пакунки"
+
+#: view.cpp:88
+#, kde-format
+msgid "Remove Package"
+msgstr "Вилучити пакунок"
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr "Список"
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr "Вибрати список завдань"
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr "Ґант"
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr "Вибрати розклад"
+
+#: view.cpp:103
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "Налаштувати PlanWork..."
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "Змінити..."
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "Переглянути..."
+
+#: view.cpp:116
+#, kde-format
+msgid "Remove document"
+msgstr "Вилучити документ"
+
+#: view.cpp:120
+#, kde-format
+msgid "Send Package..."
+msgstr "Надіслати пакунок..."
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit Progress..."
+msgstr "Змінити дані щодо поступу..."
+
+#: view.cpp:128
+#, kde-format
+msgid "View Description..."
+msgstr "Переглянути опис..."
+
+#: view.cpp:315
+#, kde-format
+msgid "This file is not editable"
+msgstr "Цей файл неможливо редагувати"
+
+#: view.cpp:335
+#, kde-format
+msgid "No work package is selected"
+msgstr "Не позначено жодного робочого пакунка"
+
+#: view.cpp:341
+#, kde-format
+msgid "Cannot find work package"
+msgstr "Не вдалося знайти робочий пакунок"
+
+#: view.cpp:358
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr "Не вдалося відкрити файл. Надсилання перервано."
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr "Не вдалося відкрити тимчасовий файл. Надсилання перервано."
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Робочий пакунок: %1"
+
+#: workpackage.cpp:102
+#, kde-format
+msgid "Document is already open"
+msgstr "Документ вже відкрито"
+
+#: workpackage.cpp:168 workpackage.cpp:223
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "Не вдалося завантажити проєкт: %1"
+
+#: workpackage.cpp:285
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr "Не можна зберігати файл з порожньою назвою"
+
+#: workpackage.cpp:293
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Неможливо створити файл для збереження"
+
+#: workpackage.cpp:307
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Запис «%1» неможливий. Носій заповнено?"
+
+#: workpackage.cpp:333
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"Не вдалося відкрити сховище:\n"
+" %1"
+
+#: workpackage.cpp:411
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Не вдалося зберегти до сховища проєктів:\n"
+" %1"
+
+#: workpackage.cpp:454
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr ""
+"Вилучити документ\n"
+"вилучення документа"
+
+#: workpackage.cpp:463
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"Не вдалося прочитати файл:\n"
+" %1"
+
+#: workpackage.cpp:469
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"Не вдалося записати до файла:\n"
+" %1"
+
+#: workpackage.cpp:513
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr "Об’єднати дані"
+
+#: workpackage.cpp:637
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+"продовжите виконання дії, дані може бути втрачено.</p>"
+msgstr[1] ""
+"<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+"продовжите виконання дії, дані може бути втрачено.</p>"
+msgstr[2] ""
+"<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+"продовжите виконання дії, дані може бути втрачено.</p>"
+msgstr[3] ""
+"<p>У робочому пакунку <b>«%2»</b> відкрито документ.</p><p>Якщо ви "
+"продовжите виконання дії, дані може бути втрачено.</p>"
+
+#: workpackage.cpp:660
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+"<p>Дані робочого пакунка <b>«%1»</b> було змінено.</p><p>Бажаєте його "
+"зберегти?</p>"
+
+#: workpackage.cpp:687
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+"<p>Робочий пакунок <b>«%1»</b></p><p>Не вдалося відкрити сховище:</p><p>%2</"
+"p>"
+
+#: workpackage.cpp:705
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+"<p>Робочий пакунок <b>«%1»</b></p><p>Не вдалося видобути файл:</p><p>%2</p>"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип MIME application/x-vnd.kde.kplato."
+#~ "work, отримано %1"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"
+#~ msgstr "%1: <emphasis>%2</emphasis><para>%3</para>"
+
+#~ msgid "Work Package Settings"
+#~ msgstr "Параметри робочого пакунка"
+
+#~ msgid ""
+#~ "Package: %1\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Пакунок: %1\n"
+#~ "Ці параметри визначають потрібну отримувачу пакунка інформацію."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr ""
+#~ "Змінити параметри пакунка\n"
+#~ "зміну параметрів пакунка"
+
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Обсяг робіт, які було виконано у цьому завданні."
+
+#~ msgid "Used effort"
+#~ msgstr "Виконаний обсяг робіт"
+
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Поступ, зокрема час початку (чи стан початку), час завершення (чи стан "
+#~ "завершення) та ступінь завершеності"
+
+#~ msgid "Progress"
+#~ msgstr "Поступ"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "Документи, долучені до цього завдання"
+
+#~ msgid "Documents"
+#~ msgstr "Документи"
+
+#~ msgid "Package Settings..."
+#~ msgstr "Параметри пакунка..."
+
+#~ msgid "Planned effort for %1: %2. Total planned effort for task: %3"
+#~ msgstr ""
+#~ "Запланований обсяг робіт для %1: %2. Загальний запланований обсяг робіт "
+#~ "для завдання: %3"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr ""
+#~ "Змінити рівень виконання завдання\n"
+#~ "зміну рівня виконання завдання"
+
+#~ msgctxt "@title:column"
+#~ msgid "Total"
+#~ msgstr "Загалом"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Used effort since previous entry"
+#~ msgstr "Обсяг виконаних робіт з часу попереднього введення"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Accumulated used effort"
+#~ msgstr "Сукупний обсяг виконаних робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "Почато:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Завершено:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Додати запис"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Вилучити запис"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Package data:\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Дані пакунка:\n"
+#~ "Ці параметри визначають потрібну отримувачу пакунка інформацію."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Обсяг робіт, які було виконано у цьому завданні."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Used effort"
+#~ msgstr "Виконаний обсяг робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Поступ, зокрема час початку (чи стан початку), час завершення (чи стан "
+#~ "завершення) та ступінь завершеності"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Поступ"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "Документи, долучені до цього завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Документи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "З&міни"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "П&ерегляд"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Переглянути"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr ""
+#~ "PlanWork — програма опрацювання робочих пакунків для інструмента "
+#~ "планування проєктів Plan"
+
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Програма опрацювання робочих пакунків Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "© Команда Plan, 1998–%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "о. Іван Петрущак"
+
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "fr.ivan@ukrainian-orthodox.org"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "Відкрити файл"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "Не вдалося відкрити документ"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Файла «%1» не існує."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package Settings"
+#~ msgstr "Параметри робочого пакунка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Документ вже відкрито:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Неможливо видобути документ зі сховища:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "Некоректна адреса:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Документ вже відкрито:<br> %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "Файла не існує:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Редагувати за допомогою:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "<p>Цей робочий пакунок вже зберігається у сховищі проєкту.</p><p>Проєкт: "
+#~ "%1<br>Завдання: %2</p><p>Бажаєте оновити поточний пакунок даними з нового?"
+#~ "</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove failed. Cannot find work package"
+#~ msgstr "Спроба вилучення була невдалою. Не вдалося знайти робочий пакунок"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Не вдалося завантажити файл:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not a valid work package file:<br>%1"
+#~ msgstr "Некоректний файл пакунка роботи:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Некоректний документ. У документі не міститься «maindoc.xml»."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Не вдалося відкрити файл: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgstr ""
+#~ "Помилка розбору синтаксису у файлі %1, рядок — %2, стовпчик — "
+#~ "%3<br>Повідомлення помилки: %4"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Некоректний документ. Не вказано тип mime."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип MIME application/x-vnd.kde.plan."
+#~ "work, отримано %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "Цей документ було створено за допомогою новішої версії PlanWork (версія "
+#~ "синтаксису: %1)<br>Відкриття цього документа у поточній версії PlanWork "
+#~ "призведе до втрати деякої інформації."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Продовжити"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Невідповідність формату файла"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип MIME application/x-vnd.kde.kplato."
+#~ "work, отримано %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit failed. Cannot find a work package."
+#~ msgstr ""
+#~ "Спроба редагування була невдалою. Не вдалося знайти робочий пакунок."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "Поступ завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Назва"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Тип"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "Відповідальний"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Опис"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "Запланований початок"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "Заплановане завершення"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Призначення виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Рівень завершеності"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "Поточний обсяг робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "Залишковий обсяг робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "Запланований обсяг робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "Поточний початок"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "Почато"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "Поточне завершення"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Завершено"
+
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "Стан"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Примітка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Назва проєкту"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Керування проєктами"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Налаштувати перегляд..."
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+#~ ">Project: %5"
+#~ msgstr ""
+#~ "Завдання: %1<nl/>Поточне завершення: %2<nl/>Заплановане завершення: %3<nl/"
+#~ ">Стан: %4: %5"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - "
+#~ "%5<nl/>Status: %6<nl/>Project: %7"
+#~ msgstr ""
+#~ "Завдання: %1<nl/>Рівень завершеності: %2%<nl/>Поточний початок: %3<nl/"
+#~ ">Заплановано: %4 – %5<nl/>Стан: %6<nl/>Проєкт: %7"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+#~ msgstr "Завдання: %1<nl/>Заплановано: %2—%3<nl/>Стан: %4<nl/>Проєкт: %5"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "Вилучити пакунки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "Вилучити пакунок"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Список"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select task list"
+#~ msgstr "Вибрати список завдань"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Ґант"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select timeline"
+#~ msgstr "Вибрати розклад"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "Налаштувати PlanWork..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Змінити..."
+
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Переглянути..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Send Package..."
+#~ msgstr "Надіслати пакунок..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Package Settings..."
+#~ msgstr "Параметри пакунка..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "Змінити дані щодо поступу..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View Description..."
+#~ msgstr "Переглянути опис..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "Цей файл неможливо редагувати"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No work package is selected"
+#~ msgstr "Не позначено жодного робочого пакунка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot find work package"
+#~ msgstr "Не вдалося знайти робочий пакунок"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not open temporary file. Sending is aborted."
+#~ msgstr "Не вдалося відкрити тимчасовий файл. Надсилання перервано."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Робочий пакунок: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "Документ вже відкрито"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr "Не вдалося завантажити проєкт: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot save to empty filename"
+#~ msgstr "Не можна зберігати файл з порожньою назвою"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Неможливо створити файл для збереження"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Запис «%1» неможливий. Носій заповнено?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Не вдалося відкрити сховище:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Не вдалося зберегти до сховища проєктів:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Не вдалося прочитати файл:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Не вдалося записати до файла:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgid_plural ""
+#~ "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgstr[0] ""
+#~ "<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+#~ "продовжите виконання дії, дані може бути втрачено.</p>"
+#~ msgstr[1] ""
+#~ "<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+#~ "продовжите виконання дії, дані може бути втрачено.</p>"
+#~ msgstr[2] ""
+#~ "<p>У робочому пакунку <b>«%2»</b> відкрито документи.</p><p>Якщо ви "
+#~ "продовжите виконання дії, дані може бути втрачено.</p>"
+#~ msgstr[3] ""
+#~ "<p>У робочому пакунку <b>«%2»</b> відкрито документ.</p><p>Якщо ви "
+#~ "продовжите виконання дії, дані може бути втрачено.</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~ "save it?</p>"
+#~ msgstr ""
+#~ "<p>Дані робочого пакунка <b>«%1»</b> було змінено.</p><p>Бажаєте його "
+#~ "зберегти?</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Робочий пакунок <b>«%1»</b></p><p>Не вдалося відкрити сховище:</p><p>"
+#~ "%2</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Робочий пакунок <b>«%1»</b></p><p>Не вдалося видобути файл:</p><p>%2</"
+#~ "p>"
+
+#~ msgid "Copyright (C) 2007-2013, The Plan Team"
+#~ msgstr "© Команда Plan, 2007–2013"
+
+#~ msgid "&Settings"
+#~ msgstr "П&араметри"
+
+#~ msgid "Edit Mode:"
+#~ msgstr "Режим редагування:"
+
+#~ msgid "Calculate"
+#~ msgstr "Обчислити"
+
+#~ msgid "Manual entry"
+#~ msgstr "Запис, доданий вручну"
+
+#~ msgid "Estimate of the remaining effort"
+#~ msgstr "Оцінка залишкового обсягу робіт"
+
+#~ msgid "Remaining effort"
+#~ msgstr "Обсяг робіт, що залишився"
+
+#~ msgid "Modify % Completed"
+#~ msgstr "Змінити % виконання"
+
+#~ msgid "Invalid work package.<br>The package does not contain a task."
+#~ msgstr ""
+#~ "Некоректний пакунок роботи.<br>У пакунку не міститься даних щодо завдання."
+
+#~ msgid ""
+#~ "This work package has been modified.\n"
+#~ "Do you want to save it before sending?"
+#~ msgstr ""
+#~ "Цей робочий пакунок було змінено.\n"
+#~ "Бажаєте зберегти його до надсилання?"
+
+#~ msgid ""
+#~ "Document is already open:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Документ вже відкрито:\n"
+#~ " %1"
+
+#~ msgid "No node in this package"
+#~ msgstr "У цьому пакунку немає вузла"
+
+#~ msgid "Project/node already exists, Merge?"
+#~ msgstr "Проєкт або вузол з такою назвою вже існує. Об’єднати?"
+
+#~ msgid "Cannot find package"
+#~ msgstr "Не вдалося знайти пакунок"
+
+#~ msgid "Could not find %1"
+#~ msgstr "Не вдалося знайти %1"
+
+#~ msgid "Failed to set workpackage, project: %1"
+#~ msgstr "Не вдалося встановити робочий пакунок, проєкт: %1"
+
+#~ msgid "No WorkPackage handles this document"
+#~ msgstr "Цим документом не керує жодних робочий пакунок"
+
+#~ msgid "Information"
+#~ msgstr "Інформація"
+
+#~ msgid "Not scheduled"
+#~ msgstr "Не заплановано"
+
+#~ msgid "No template found for: %1 "
+#~ msgstr "Не знайдено шаблона для %1 "
+
+#~ msgid "Too many templates found for: %1"
+#~ msgstr "Знайдено забагато шаблонів для %1"
+
+#~ msgid "Template %1 failed to load."
+#~ msgstr "Не вдалося завантажити шаблон %1."
+
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#~ msgid "Empty"
+#~ msgstr "Порожній"
+
+#~ msgctxt "Main document"
+#~ msgid " [main]"
+#~ msgstr " [головний]"
+
+#~ msgid " [write protected]"
+#~ msgstr " [захищений від запису]"
+
+#~ msgid "Part Handbook"
+#~ msgstr "Розділити довідник"
+
+#~ msgid "%1 Handbook"
+#~ msgstr "%1 Довідник"
+
+#~ msgid "Open Document"
+#~ msgstr "Відкрити документ"
+
+#~ msgid "Save"
+#~ msgstr "Зберегти"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Неможливо видобути файл:\n"
+#~ " %1"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Неможливо видобути файл:\n"
+#~ "%1"
+
+#~ msgid "none"
+#~ msgstr "відсутній"
+
+#~ msgid "Add Schedule %1"
+#~ msgstr "Додати розклад %1"
+
+#~ msgid "Delete Schedule %1"
+#~ msgstr "Вилучити розклад %1"

@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Beschrijving</title>
+  <para
+>De hoofdwerkruimte is normaal georganiseerd met de beeldselectie links en de gegevensweergave rechts.</para
+><para
+>Zoals gewoonlijk vindt u de menubalk en werkbalk bovenaan en de statusbalk onderaan. </para>
+  <para
+>Omdat zowel de Beeldkiezer als de Scriptsvastzetters vastzetters zijn kunnen ze verplaatst worden naar de verschillende randen, zwevend of verborgen. Om een verborgen vastzetter te tonen, gebruik het menu-item <menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Vastzetters</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>De weergavekiezer</title>
+  <para
+>De <link linkend="the-view-selector"
+>Selectorweergave</link
+> stelt u in staat om de gegevensweergave die u wilt tonen te selecteren uit de huidige getoonde weergaven. </para>
+  <para
+>Weergaven zijn gegroepeerd in categorieën voor gemakkelijker ophalen: standaard Bewerkers, Weergaven, Uitvoeren en Rapporten: </para>
+  <itemizedlist>
+    <listitem
+><para
+>Bewerkers bevatten de bewerkers die u moet definiëren en uw project plannen.</para
+></listitem>
+    <listitem
+><para
+>Weergaven bevatten weergaven die gebruikt worden voor inspectie van uw project.</para
+></listitem>
+    <listitem
+><para
+>Uitvoeren bevat weergaven die speciaal nuttig zijn tijdens het uitvoeren van uw project.</para
+></listitem>
+    <listitem
+><para
+>Rapporten bevatten weergaven voor rapportgeneratie.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Weergaven kunnen ook verplaatst worden binnen of over categorieën of toegevoegd aan of verwijderd uit de <link linkend="the-view-selector"
+>Selector weergeven</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Selector voor planning</title>
+  <para
+>De planningselector biedt u het selecteren van de planning van alle weergaven (&eg; <link linkend="task-gantt-view"
+>Gantt-weergave</link
+>) zal waarden van tonen. Taken die niet gepland zijn in de geselecteerde planning worden normaal niet getoond in een van de weergaven. (Ze worden natuurlijk in bewerkers getoond.) </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Statusbalk</title>
+  <para
+>De statusbalk toont berichten en voortgangsinformatie. Meest opmerkelijk is de nu geselecteerde planning getoond rechts op de statusbalk. Merk op dat de meeste de weergaven in de categorie <emphasis
+>Weergaven</emphasis
+> informatie tonen afhankelijk van de geselecteerde planning, dus als het project niet is gepland (<emphasis
+>Niet gepland</emphasis
+>), de meeste weergaven leeg zullen zijn. </para>
+</sect3>
+</sect2>

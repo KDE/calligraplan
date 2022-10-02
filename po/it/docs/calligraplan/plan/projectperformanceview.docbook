@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Descrizione</title>
+  <para
+>La vista delle prestazioni del progetto è un diagramma di gestione del progetto in cui è possibile comprendere la situazione reale del progetto secondo il metodo del valore realizzato. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>dove: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS significa costo preventivato del lavoro pianificato,</para
+></listitem>
+    <listitem
+><para
+>BCWP significa costo preventivato del lavoro eseguito,</para
+></listitem>
+    <listitem
+><para
+>ACWP significa costo effettivo del lavoro eseguito.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Tutti questi sono considerato come lavoro in ore e costi. </para>
+  <para
+>PI sono indici di prestazione, dove: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI è l'indice di prestazione dei costi,</para
+></listitem>
+    <listitem
+><para
+>SPI è l'indice di prestazione delle pianificazioni.</para
+></listitem>
+  </itemizedlist>
+</sect2>

@@ -1,0 +1,4265 @@
+# translation of plan.po to Slovak
+# Copyright Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2002.
+# Stanislav Visnovsky <visnovsky@kde.org>, 2003.
+# Marek Schimara <mojbordel@yahoo.co.uk>, 2006.
+# Richard Fric <Richard.Fric@kdemail.net>, 2006, 2007, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2015, 2016, 2017, 2019.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: plan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"PO-Revision-Date: 2019-10-29 13:26+0100\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.08.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4 calligraplan_shell.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Súbor"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:28
+#, kde-format
+msgid "&Edit"
+msgstr "&Upraviť"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:37 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "P&ohľad"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:44
+#, kde-format
+msgid "&Project"
+msgstr "Projekt"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:52
+#, kde-format
+msgid "&Tools"
+msgstr "&Nástroje"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:58 calligraplan_shell.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "Nastavenia"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:62 calligraplan_shell.rc:23
+#, kde-format
+msgid "&Help"
+msgstr "&Pomocník"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: calligraplan.rc:66
+#, fuzzy, kde-format
+#| msgid "&File"
+msgid "File"
+msgstr "&Súbor"
+
+#. i18n: ectx: ToolBar (edit_toolbar)
+#: calligraplan.rc:72
+#, kde-format
+msgid "Edit"
+msgstr "Upraviť"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "Hodín za rok"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "Hodín za mesiac"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "Hodín za týždeň"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "Hodín za deň"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "Generovať pracovný týždeň"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "Vytvoriť možnosti pracovného týždňa"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "Ak žiaden neexistuje"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "Vždy"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "Vytvoriť sviatky"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "Možnosti generovania sviatkov"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "V základnom kalendári"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "Ako podkalendár"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "Ako samostatný kalendár"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "Región sviatkov"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "Pondelok:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "Začiatok pracovného dňa"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "Koniec pracovného dňa"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "Utorok:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "Streda:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "Štvrtok:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "Piatok:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "Sobota:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "Nedeľa:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "Meno projektového manažéra"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "Použiť zdieľané zdroje"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "Súbor obsahujúci zdieľané zdroje"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Project description"
+msgstr "Popis projektu"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:176
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Meno zodpovedného za úlohu"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Typ obmedzenia plánovania"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:192
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Definuje, ako sa používa začiatočné obmedzenie času"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:201
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Obmedzenie počiatočného dátumu a času"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Definuje, ako sa používa koncové obmedzenie času"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:213
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Obmedzenie koncového dátumu a času"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:217
+#, kde-format
+msgid "Type of estimate"
+msgstr "Typ odhadu"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:225
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Odhadnutá časová jednotka"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:239
+#, kde-format
+msgid "Expected estimate"
+msgstr "Očakávaný odhad"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:243
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Optimistický odhad"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:247
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Pesimistický odhad"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:252
+#, kde-format
+msgid "Task description"
+msgstr "Popis úlohy"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:258
+#, kde-format
+msgid "Gradient"
+msgstr "Prechod"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:260 config/kptcolorsconfigpanel.cpp:20
+#, kde-format
+msgid "Linear"
+msgstr "Lineárne"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261 config/kptcolorsconfigpanel.cpp:21
+#, kde-format
+msgid "Flat"
+msgstr "Ploché"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:266
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Povoliť farby úrovne sumárnych úloh"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:270
+#, kde-format
+msgid "Summary task default color"
+msgstr "Predvolená farba sumárnej úlohy"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:274
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Farba sumárnej úlohy, úroveň 1"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:278
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Farba sumárnej úlohy, úroveň 2"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:282
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Farba sumárnej úlohy, úroveň 3"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:286
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Farba sumárnej úlohy, úroveň 4"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:290
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Farba úlohy v normálnom stave"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:294
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Farba úlohy v kritickom stave"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:298
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Farba úlohy v ukončenom stave"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:302
+#, kde-format
+msgid "Task color in error state"
+msgstr "Farba úlohy v chybovom stave"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:306
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Farba míľnika v normálnom stave"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:310
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Farba míľnika v kritickom stave"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:314
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Farba míľnika v ukončenom stave"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:318
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Farba míľnika v chybovom stave"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:325
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Automaticky kontrolovať nové pracovné balíky"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "Adresár, kam Plan obnoví pracovné balíky od projektových členov"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Ak je nastavené, Plan vymaže súbor po jeho načítaní"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Ak je nastavené, Plan uloží súbor po jeho načítaní"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr "Adresár, kam Plan uloží pracovné balíky keď sa balík načíta"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "Adresár, kam Plan publikuje pracovné balíky"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:346
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Najmenšia povolená jednotka trvania"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:350
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Najväčšia povolená jednotka trvania"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:357
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Cesta k dokumentácii"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:361
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Cesta k dokumentácii kontextovej pomoci"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:365
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "Kontextová pomoc musela byť preložená do jazyka"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:371
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "Použite moduly úloh z vášho súkromného zdroja"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:375
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "Zoznam ciest k modulom úloh"
+
+#. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
+#: calligraplansettings.kcfg:381
+#, fuzzy, kde-format
+#| msgid "List of paths to project templates"
+msgid "List of paths to report templates"
+msgstr "Zoznam ciest k projektovým šablónam"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:387
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "Zoznam ciest k projektovým šablónam"
+
+#. i18n: ectx: label, entry (AutoSave), group (Interface)
+#: calligraplansettings.kcfg:393
+#, kde-format
+msgid "Autosave interval"
+msgstr ""
+
+#. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
+#: calligraplansettings.kcfg:397
+#, kde-format
+msgid "Create a backup file"
+msgstr ""
+
+#: config/ConfigDialog.cpp:36
+#, kde-format
+msgid "Project Defaults"
+msgstr "Predvolené nastavenia projektu"
+
+#: config/ConfigDialog.cpp:37 kptview.cpp:635
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Práca a voľno"
+
+#: config/ConfigDialog.cpp:38
+#, kde-format
+msgid "Task Defaults"
+msgstr "Štandardné nastavenie úlohy"
+
+#: config/ConfigDialog.cpp:39
+#, kde-format
+msgid "Task Colors"
+msgstr "Farby úloh"
+
+#: config/ConfigDialog.cpp:41
+#, kde-format
+msgid "Task Modules"
+msgstr "Moduly úloh"
+
+#: config/ConfigDialog.cpp:45
+#, kde-format
+msgid "Work Package"
+msgstr "Pracovný balík"
+
+#: config/ConfigDialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "Create Project Template..."
+msgid "Project Templates"
+msgstr "Vytvoriť projektovú šablónu..."
+
+#: config/ConfigDialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Create Project Template..."
+msgid "Report Templates"
+msgstr "Vytvoriť projektovú šablónu..."
+
+#: config/ConfigDialog.cpp:60
+#, fuzzy, kde-format
+#| msgid "Documents..."
+msgctxt "@title:tab Document settings page"
+msgid "Document"
+msgstr "Dokumenty..."
+
+#: config/ConfigProjectPanel.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:39
+#, fuzzy, kde-kuit-format
+#| msgid "File to contain shared resources"
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Súbor obsahujúci zdieľané zdroje"
+
+#: config/ConfigProjectPanel.cpp:42
+#, fuzzy, kde-kuit-format
+#| msgid "Directory that contains projects that share resources"
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Všeobecné"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#: config/ConfigProjectPanel.ui:44
+#, kde-format
+msgid "Browse..."
+msgstr "Prechádzať..."
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:57
+#, kde-format
+msgid "Shared resource file:"
+msgstr "Súbor so zdieľanými zdrojmi:"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:67
+#, kde-format
+msgid "&Manager:"
+msgstr "Správca:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:90
+#, kde-format
+msgid "Use shared resources:"
+msgstr "Použiť zdieľané zdroje:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Popis"
+
+#: config/ConfigProjectTemplatesPanel.cpp:48
+#, fuzzy, kde-format
+#| msgid "Create Project Template..."
+msgid "Project Templates Path"
+msgstr "Vytvoriť projektovú šablónu..."
+
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:17
+#: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "Vložiť"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:41
+#: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: config/ConfigReportTemplatesPanel.cpp:48
+#: config/ConfigTaskModulesPanel.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Task module changed"
+msgid "Task Modules Path"
+msgstr "Modul úloh bol zmenený"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, fuzzy, kde-format
+#| msgid "List of paths to task modules"
+msgid "Use local task modules"
+msgstr "Zoznam ciest k modulom úloh"
+
+#: config/ConfigWorkVacationPanel.cpp:38
+#, kde-format
+msgid "Default"
+msgstr "Predvolené"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr "Pracovné hodiny"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Hodnoty použité pri generovaní predvolených kalendárov "
+"pre pracovné týždne a sviatky.</p><p><span style=\" font-style:italic;"
+"\">Týždenný</span> kalendár používa hodnoty zadané v časti <span style=\" "
+"font-style:italic;\">Pracovný týždeň</span>.</p><p><span style=\" font-style:"
+"italic;\">Týždenný</span> kalendár môžete generovať <span style=\" font-"
+"style:italic;\">Vždy</span> alebo iba vtedy, <span style=\" font-style:"
+"italic;\">Ak žiaden neexistuje</span>. Druhá možnosť je najbežnejšia, "
+"nakoľko bývajú kalendáre často špecifikované ako súčasť šablón alebo "
+"zdieľaných zdrojov.</p><p><span style=\" font-style:italic;\">Sviatky</span> "
+"môžete vygenerovať pre Vašu oblasť (predvolené) alebo akúkoľvek inú oblasť, "
+"ktorú si vyberiete. Sviatky môžete pridať do týždenného kalendára, ako "
+"podkalendár do týždenného kalendára alebo ako samostatný kalendár.</p><p>Ak "
+"nie je vygenerovaný týždenný kalendár, sviatky sú vložené do samostatného "
+"kalendára.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "Generovanie kalendára"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Týždeň"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
+#: kptmaindocument.cpp:1690
+#, kde-format
+msgid "Holidays"
+msgstr "Prázdniny"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "V pracovnom kalendári"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "Región sviatkov:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "Pracovný týždeň"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "Zaškrtnite, ak ide o pracovný deň"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "Zaškrtnite, ak ide o pracovný deň"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "Konverzie odhadu"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Tieto hodnoty sa použijú, ak váš odhad nie je v hodinách.\n"
+"Povedzme že Hodín za deň je 8. Ak odhadnete, že úloha potrebuje 3 dni úsilia "
+"na ukončenie, toto sa skonvertuje na 24 hodín pri plánovaní úlohy. Aktuálny "
+"čas potrebný na ukončenie je samozrejme závislý na dostupnosti osoby (alebo "
+"osôb), ktoré sú priradené na túto úlohu."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "Hodín za &rok:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "Hodín za mesiac:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "Hodín za týždeň:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Tieto hodnoty sa použijú keď odhadujete úsilie potrebné na ukončenie úlohy."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "Hodín za &deň:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Prechod:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Sumárna úloha"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Predvolené:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Použiť farby úrovne"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Úroveň 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Úroveň 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Úroveň 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Úroveň 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Úloha"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Normálne:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Kritické:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Dokončené:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Chyba:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Míľnik"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/kptconfigtaskpanelbase.ui:33 config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Osoba zodpovedná za túto úlohu.\n"
+"\n"
+"Toto nastavenie nie je obmedzené iba na členov zdrojovej skupiny - "
+"zodpovedná osoba môže byť hocikto. Môžete vybrať osobu z adresára pomocou "
+"tlačidla Vybrať."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Zodpovedná osoba:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Vložiť osobu z vášho adresára"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Vložte osobu z vášho adresára."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "&Vybrať..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Obmedzenie plánovania:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Čo najskôr"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Čo najneskôr"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Musí začať"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Musí skončiť"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Nezačať skôr než"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Nesmie skončiť neskôr ako"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Pevný úsek"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Použitie obmedzenia počiatočného času:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Aktuálny dátum a čas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Aktuálny dátum, určený čas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Určený dátum a čas"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Obmedzenie počiatočného času:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Použitie obmedzenia koncového času:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Obmedzenie koncového času:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Typ odhadu:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Úsilie"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Trvanie"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Očakávaný odhad:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Optimistický odhad:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Pesimistický odhad:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "Získať"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Skontrolovať pracovné balíky"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "Obnoviť:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "Archív"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Vymazať súbor po jeho obnove"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Archivovať súbor po jeho obnove"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "Archív:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "Publikovať"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "Publikovať:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
+#: CreateReportTemplateDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: CreateReportTemplateDialog.ui:26
+#, kde-format
+msgid "Base template:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: CreateReportTemplateDialog.ui:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu rename view"
+#| msgid "Rename"
+msgid "File name:"
+msgstr "Premenovať"
+
+#: KPlatoXmlLoader.cpp:56
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"Tento dokument nemá žiadnu verziu syntaxe.\n"
+"Otvorením v Plan môže dôjsť k strate dát."
+
+#: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
+#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#, kde-format
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: KPlatoXmlLoader.cpp:58
+#, kde-format
+msgid "File-Format Error"
+msgstr "Chyba formátu súboru"
+
+#: KPlatoXmlLoader.cpp:67
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Tento dokument bol vytvorený novšou verziou KPlato, ktorú Plan dokáže "
+"načítať.\n"
+"Verzia syntaxe: %1\n"
+"Otvorením v tejto verzii Plan dôjde k strate niektorých dát."
+
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
+#: kptmaindocument.cpp:694
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Nehodiace sa formáty súborov"
+
+#: KPlatoXmlLoader.cpp:110
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Tento dokument bol vytvorený novšou verziou KPlatoWork (verzia syntaxe: %1)\n"
+"Otvorením v tejto verzii PlanWork dôjde k strate niektorých dát."
+
+#: kptaboutdata.h:24
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:26
+#, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "Nástroj na projektové plánovanie a správu"
+
+#: kptaboutdata.h:28
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright (C) 1998-%1, Tím Plan"
+
+#: kptaboutdata.h:32
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:33
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:34
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:35
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:38
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stanislav Višňovský, Roman Paholík"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "visnovsky@kde.org, wizzardsk@gmail.com, jose1711@gmail.com"
+
+#: kptbuiltinschedulerplugin.cpp:28
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Plánovač siete"
+
+#: kptbuiltinschedulerplugin.cpp:29
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Vstavaný sieťový plánovač (PERT)"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+"<title>Sieťový (PERT) plánovač</title><para>Sieťový plánovač všeobecne "
+"plánuje úlohy podľa ich závislostí. Ak je úloha naplánovaná, je naplánovaná "
+"na plno, rezervuje alokované zdroje, ak sú dostupné. Ak nie je povolené "
+"preplánovanie, nasledovné úlohy , ktoré vyžadujú rovnaký zdroj, budú "
+"naplánované na neskôr.</para><para>Úlohy s časovým obmedzením budú "
+"naplánované ako prvé, na minimalizáciu problémov s konfliktmi zdrojov.</"
+"para><para><note>Tento plánovač nespracúva konflikty zdrojov dobre.<nl/"
+">Môžete skúsiť iný plánovač, ak je dostupný. Môžete tiež zmeniť alokáciu "
+"zdrojov alebo pridať prázdne závislosti na predídenie konfliktom.</note></"
+"para>"
+
+#: kptbuiltinschedulerplugin.cpp:250
+#, fuzzy, kde-format
+#| msgid "Scheduling constraint:"
+msgid "Scheduling started: %1"
+msgstr "Obmedzenie plánovania:"
+
+#: kptbuiltinschedulerplugin.cpp:252
+#, kde-format
+msgid "Recalculating from: %1"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:264
+#, fuzzy, kde-format
+#| msgid "Schedule Handler"
+msgid "Scheduling canceled"
+msgstr "Správca plánu"
+
+#: kptbuiltinschedulerplugin.cpp:270
+#, kde-format
+msgid "Scheduling finished at %1, elapsed time: %2 seconds"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:284
+#, kde-format
+msgid "Inserting resource bookings from project: %1"
+msgstr ""
+
+#: kptinsertfiledlg.cpp:21
+#, kde-format
+msgid "Insert File"
+msgstr "Vložiť súbor"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Aktuálny režim:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Vložiť na najvyššiu úroveň"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Vložiť ako potomka do aktuálneho uzla"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Vložiť po aktuálnom bode"
+
+#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Neplatný dokument. MIME typ musí byť uvedený."
+
+#: kptmaindocument.cpp:359
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan, "
+"získané %1"
+
+#: kptmaindocument.cpp:368
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Tento dokument bol vytvorený novšou verziou Plan (verzia syntaxe: %1)\n"
+"Otvorením v tejto verzii Plan dôjde k strate niektorých dát."
+
+#: kptmaindocument.cpp:454
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgid "Failed to save to temporary file. No resource has been specified"
+msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#: kptmaindocument.cpp:469
+#, kde-format
+msgid "Failed to open work package file"
+msgstr "Zlyhalo otvorenie súboru pracovného balíka"
+
+#: kptmaindocument.cpp:476
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#: kptmaindocument.cpp:552
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "Nie je možné vytvoriť súbor pracovného balíka na uloženie: %1"
+
+#: kptmaindocument.cpp:560
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Nedá sa zapísať '%1'. Plný disk?"
+
+#: kptmaindocument.cpp:587
+#, kde-format
+msgid "Saving..."
+msgstr "Ukladám..."
+
+#: kptmaindocument.cpp:681
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan, "
+"získané %1"
+
+#: kptmaindocument.cpp:692
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Tento dokument bol vytvorený novšou verziou PlanWork (verzia syntaxe: %1)\n"
+"Otvorením v tejto verzii PlanWork dôjde k strate niektorých dát."
+
+#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr "Vnútorná chyba, zlyhalo vloženie súboru."
+
+#: kptmaindocument.cpp:1177
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Failed to load shared resources into project %1:<nl/>Internal error, failed "
+"to insert file."
+msgstr ""
+
+#: kptmaindocument.cpp:1187
+#, fuzzy, kde-kuit-format
+#| msgid "File to contain shared resources"
+msgctxt "@info"
+msgid "Failed to load shared resources into project %1:<nl/>%2"
+msgstr "Súbor obsahujúci zdieľané zdroje"
+
+#: kptmaindocument.cpp:1357
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "Vložiť projekt"
+
+#: kptmaindocument.cpp:1437
+#, kde-format
+msgid "Group: %1"
+msgstr "Skupina: %1"
+
+#: kptmaindocument.cpp:1444
+#, kde-format
+msgid "Resource: %1"
+msgstr "Zdroj: %1"
+
+#: kptmaindocument.cpp:1449
+#, kde-format
+msgid "Calendar: %1"
+msgstr "Kalendár: %1"
+
+#: kptmaindocument.cpp:1451
+#, fuzzy
+#| msgctxt "@title:window"
+#| msgid "Shared resources"
+msgctxt "(qtundo-format)"
+msgid "Update Shared Resources"
+msgstr "Zdieľané zdroje"
+
+#. i18nc("@title:window", "Shared Resources"));
+#: kptmaindocument.cpp:1466
+#, fuzzy, kde-format
+#| msgid "Project:"
+msgctxt "@title:window"
+msgid "Project: %1"
+msgstr "Projekt:"
+
+#: kptmaindocument.cpp:1656
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr "Základ"
+
+#: kptpart.cpp:95
+#, kde-format
+msgid "Configure Plan..."
+msgstr "Nastaviť Plan..."
+
+#: kptschedulesdocker.cpp:26
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Výber plánu"
+
+#: kptview.cpp:183
+#, kde-format
+msgid "Create Project Template..."
+msgstr "Vytvoriť projektovú šablónu..."
+
+#: kptview.cpp:187
+#, kde-format
+msgid "Create New Project..."
+msgstr "Vytvoriť nový projekt..."
+
+#: kptview.cpp:199
+#, kde-format
+msgid "Show Selector"
+msgstr "Ukázať výber"
+
+#: kptview.cpp:206 kptview.cpp:247
+#, kde-format
+msgid "Edit..."
+msgstr "Editovať..."
+
+#: kptview.cpp:210
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr "Definovať konverzie odhadu..."
+
+#: kptview.cpp:214
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Definovať štruktúru WBS..."
+
+#: kptview.cpp:218
+#, kde-format
+msgid "Define Currency..."
+msgstr "Definovať menu..."
+
+#: kptview.cpp:222
+#, kde-format
+msgid "Edit Description..."
+msgstr "Upraviť popis..."
+
+#: kptview.cpp:227
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Vložiť súbor projektu..."
+
+#: kptview.cpp:231
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Shared resources"
+msgid "Update Shared Resources"
+msgstr "Zdieľané zdroje"
+
+#: kptview.cpp:236
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr "Otvoriť súbor definície správy..."
+
+#: kptview.cpp:241
+#, fuzzy, kde-format
+#| msgid "Create Project Template..."
+msgid "Create Report Template..."
+msgstr "Vytvoriť projektovú šablónu..."
+
+#: kptview.cpp:257
+#, kde-format
+msgid "Work Packages..."
+msgstr "Pracovné balíky..."
+
+#: kptview.cpp:258
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Pracovný balík dostupný"
+
+#: kptview.cpp:349
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+"<note>Táto akcia sa nedá vrátiť.</note><nl/><nl/>Vytvorte nový projekt z "
+"aktuálneho projektu s novým projektom- a identitami úloh.<nl/> Identity "
+"zdroj- a kalendár sa nemenia.<nl/>Všetky informácie rozvrhu sa odstránia.<nl/"
+"><nl/>Chcete pokračovať?"
+
+#: kptview.cpp:489
+#, kde-format
+msgid "Edit task scheduling constraints"
+msgstr "Upraviť obmedzenia plánovania úloh"
+
+#: kptview.cpp:489
+#, kde-format
+msgid "Task Constraints"
+msgstr "Obmedzenia úlohy"
+
+#: kptview.cpp:499
+#, kde-format
+msgid "Edit task cost"
+msgstr "Upraviť cenu úlohy"
+
+#: kptview.cpp:499
+#, kde-format
+msgid "Task Cost"
+msgstr "Náklady úlohy"
+
+#: kptview.cpp:548
+#, kde-format
+msgid "Generate reports"
+msgstr "Vytvoriť správy"
+
+#: kptview.cpp:554 kptview.cpp:2438
+#, kde-format
+msgid "Task Status Report"
+msgstr "Správa stavu úlohy"
+
+#: kptview.cpp:636
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Upraviť pracovné a voľné dni pre zdroje"
+
+#: kptview.cpp:638
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "Štruktúra rozpisu nákladov"
+
+#: kptview.cpp:639
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Upraviť štruktúru rozpisu nákladov."
+
+#: kptview.cpp:641
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Edit resource breakdown structure"
+msgid "Resource Breakdown Structure"
+msgstr "Upraviť štruktúru rozdelenia zdrojov"
+
+#: kptview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Upraviť štruktúru rozdelenia zdrojov"
+
+#: kptview.cpp:644 SharedResourcesDialog.cpp:58
+#, kde-format
+msgid "Resources"
+msgstr "Zdroje"
+
+#: kptview.cpp:645
+#, fuzzy, kde-kuit-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Delete resourcegroup"
+#| msgid_plural "Delete resourcegroups"
+msgctxt "@info:tooltip"
+msgid "Edit resources"
+msgstr "Odstrániť skupinu zdrojov"
+
+#: kptview.cpp:647
+#, kde-format
+msgid "Tasks"
+msgstr "Úlohy"
+
+#: kptview.cpp:648
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Upraviť štruktúru deľby práce"
+
+#: kptview.cpp:650
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Závislosti (grafika)"
+
+#: kptview.cpp:651 kptview.cpp:654
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Upraviť závislosti úlohy"
+
+#: kptview.cpp:653
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Závislosti (zoznam)"
+
+#: kptview.cpp:657 kptview.cpp:659
+#, kde-format
+msgid "Schedules"
+msgstr "Rozvrhy"
+
+#: kptview.cpp:660
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Vypočítať a analyzovať plány projektu"
+
+#: kptview.cpp:662 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Graf výkonu projektu"
+
+#: kptview.cpp:663
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Zobraziť informáciu o postupe projektu"
+
+#: kptview.cpp:665 kptviewlistdialog.cpp:101
+#, kde-format
+msgid "Task Status"
+msgstr "Stav úlohy"
+
+#: kptview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "Zobraziť informáciu o postupe úlohy"
+
+#: kptview.cpp:668
+#, kde-format
+msgid "Task Execution"
+msgstr "Vykonanie úlohy"
+
+#: kptview.cpp:669
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Zobraziť informáciu o vykonaní úlohy"
+
+#: kptview.cpp:671 kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Work Package View"
+msgstr "Zobrazenie pracovného balíka"
+
+#: kptview.cpp:672
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "Zobraziť informáciu pracovného balíka úlohy"
+
+#: kptview.cpp:674
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: kptview.cpp:675
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Zobraziť Ganttov graf"
+
+#: kptview.cpp:677
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Ganttov míľnik"
+
+#: kptview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Zobraziť Ganttov graf míľnikov"
+
+#: kptview.cpp:680 kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Priradenia prostriedkov"
+
+#: kptview.cpp:681
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Zobraziť priradenia zdrojov v tabuľke"
+
+#: kptview.cpp:683 kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Priradenia prostriedkov (Gantt)"
+
+#: kptview.cpp:684
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Zobraziť priradenia prostriedkov v Ganttovom diagrame"
+
+#: kptview.cpp:686 kptviewlistdialog.cpp:108
+#, fuzzy, kde-format
+#| msgid "Resource Editor"
+msgid "Resource Coverage"
+msgstr "Editor prostriedkov"
+
+#: kptview.cpp:687
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Inspect resource coverage"
+msgstr ""
+
+#: kptview.cpp:689 kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "Rozpis nákladov"
+
+#: kptview.cpp:690
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Zobraziť plánované a aktuálne náklady"
+
+#: kptview.cpp:692 kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "Graf výkonu úloh"
+
+#: kptview.cpp:693
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "Zobraziť stavovú informáciu výkonu úloh"
+
+#: kptview.cpp:695
+#, kde-format
+msgid "Reports Generator"
+msgstr "Generátor správ"
+
+#: kptview.cpp:696
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "Vytvoriť správy"
+
+#: kptview.cpp:698 kptview.cpp:2435 kptviewlistdialog.cpp:114
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Správa"
+
+#: kptview.cpp:699
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Zobraziť správu"
+
+#: kptview.cpp:710
+#, kde-format
+msgid "Editors"
+msgstr "Editory"
+
+#: kptview.cpp:712
+#, kde-format
+msgid "Views"
+msgstr "Pohľady"
+
+#: kptview.cpp:714
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Vykonávanie"
+
+#: kptview.cpp:716
+#, kde-format
+msgid "Reports"
+msgstr "Správy"
+
+#: kptview.cpp:1479
+#, kde-format
+msgid "Overwrite"
+msgstr ""
+
+#: kptview.cpp:1479
+#, fuzzy, kde-format
+#| msgid "Create Project Template..."
+msgctxt "@window:title"
+msgid "Report Template"
+msgstr "Vytvoriť projektovú šablónu..."
+
+#: kptview.cpp:1479
+#, kde-format
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr ""
+
+#: kptview.cpp:2014
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Nie je možné otvoriť súbor:<br/><filename>%1</filename>"
+
+#: kptview.cpp:2129
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "Zmeniť meno"
+
+#: kptview.cpp:2131
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "Zmeniť názov úlohy"
+
+#: kptview.cpp:2132
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "Zmeniť názov míľnika"
+
+#: kptview.cpp:2133
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "Zmeniť názov sumárnej úlohy"
+
+#: kptview.cpp:2134
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "Zmeniť meno projektu"
+
+#: kptview.cpp:2226
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Nenaplánované"
+
+#: kptview.cpp:2280
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr "Pracovný balík pre projekt: %1"
+
+#: kptview.cpp:2436
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Manažér:"
+
+#: kptview.cpp:2437
+#, kde-format
+msgid "Project:"
+msgstr "Projekt:"
+
+#: kptview.cpp:2439
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "z"
+
+#: kptview.cpp:2440
+#, kde-format
+msgid "Page"
+msgstr "Strana"
+
+#: kptview.cpp:2441
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Meno"
+
+#: kptview.cpp:2442
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Ukončenie (%)"
+
+#: kptviewlist.cpp:335
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Výber pohľadu</title><para>Toto je zoznam dostupných pohľadov a "
+"editorov.</para><para>Môžete konfigurovať zoznam pomocou kontextovej ponuky:"
+"<list><item>Premenovať kategórie alebo pohľady</item><item>Konfigurovať. "
+"Presunúť, odstrániť, premenovať alebo upraviť tooltip pre kategórie alebo "
+"pohľady</item><item>Vložiť kategórie a pohľady</item></list><nl/><link "
+"url='%1'>Viac...</link></para>"
+
+#: kptviewlist.cpp:357
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Výber plánu</title><para>Vyberie plán na použitie pri zobrazení "
+"údajov závislých na pláne.<nl/><note>Nenaplánované úlohy sú len zobrazené v "
+"editoroch.</note><nl/><link url='%1'>Viac...</link></para>"
+
+#: kptviewlist.cpp:606
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr "Odstránenie tejto kategórie odstráni aj všetky jej pohľady."
+
+#: kptviewlist.cpp:739
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Premenovať"
+
+#: kptviewlist.cpp:743
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Konfigurovať..."
+
+#: kptviewlist.cpp:747
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: kptviewlist.cpp:756
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Premenovať"
+
+#: kptviewlist.cpp:760
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Konfigurovať..."
+
+#: kptviewlist.cpp:764
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: kptviewlist.cpp:773
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Vložiť..."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Kategória pohľadu"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Kategória:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Pohľad je umiestnený po tomto pohľade"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Po"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:72
+#, kde-format
+msgid "The type of view"
+msgstr "Typ pohľadu"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "View type:"
+msgstr "Typ pohľadu:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Názov pohľadu"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Názov:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Popis pohľadov"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Popis:"
+
+#: kptviewlistdialog.cpp:29
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Pridať pohľad"
+
+#: kptviewlistdialog.cpp:93
+#, fuzzy, kde-format
+#| msgid "Resource Editor"
+msgid "Resource Group Editor"
+msgstr "Editor prostriedkov"
+
+#: kptviewlistdialog.cpp:94
+#, kde-format
+msgid "Resource Editor"
+msgstr "Editor prostriedkov"
+
+#: kptviewlistdialog.cpp:95
+#, kde-format
+msgid "Task Editor"
+msgstr "Editor úloh"
+
+#: kptviewlistdialog.cpp:96
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Editor práce a voľna"
+
+#: kptviewlistdialog.cpp:97
+#, kde-format
+msgid "Accounts Editor"
+msgstr "Editor účtov"
+
+#: kptviewlistdialog.cpp:98
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Editor závislostí (grafika)"
+
+#: kptviewlistdialog.cpp:99
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Editor závislostí (zoznam)"
+
+#: kptviewlistdialog.cpp:100
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Správca plánu"
+
+#: kptviewlistdialog.cpp:102
+#, kde-format
+msgid "Task View"
+msgstr "Pohľad úloh"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Gantt View"
+msgstr "Ganttov pohľad"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Ganntovo zobrazenie míľnikov"
+
+#: kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Reports generator"
+msgstr "Generátor správ"
+
+#: kptviewlistdialog.cpp:141
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+"<title>Kategória pohľadu</title><nl/>Pohľad je umiestnený pod touto "
+"kategóriou vo výbere pohľadu. <nl/>Môžete upraviť názov kategórie na "
+"vytvorenie novej kategórie."
+
+#: kptviewlistdialog.cpp:193 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:632
+#, kde-format
+msgid "Top"
+msgstr "Vrch"
+
+#: kptviewlistdialog.cpp:305
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Nastaviť pohľad"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+"<title>Kategória pohľadu</title><nl/>Pohľad je umiestnený pod touto "
+"kategóriou vo výbere pohľadu. <nl/>Vybraním inej kategórie vyberie pohľad no "
+"novej kategórie.<nl/>Môžete upraviť názov kategórie na vytvorenie novej "
+"kategórie."
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Nastaviť kategóriu"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Pridať správu"
+
+#: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "Zobraziť výber [zmenené]"
+
+#: kptviewlistdocker.cpp:62
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "Výber pohľadu"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Slov"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Viet"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Slabiky"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Čiary"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Znakov vrátane medzier"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Znakov bez medzier"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Hodnotenie čitateľnosti Flesch"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Pridať text z poznámok pod čiarou na koncových poznámok"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Automaticky obnoviť dáta"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Kategória je umiestnená po tejto kategórii"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Názov kategórie"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Popis kategórie"
+
+#: SharedResourcesDialog.cpp:30
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgctxt "@title:column"
+msgid "Action"
+msgstr "Trvanie"
+
+#: SharedResourcesDialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "Task name"
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Meno"
+
+#: SharedResourcesDialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Calendar: %1"
+msgid "Calendars"
+msgstr "Kalendár: %1"
+
+#: SharedResourcesDialog.cpp:84
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared Resource Dialog</title><para>Enables you to decide how to "
+"treat shared resources, shared resource groups and shared calendars when "
+"they have been deleted from the shared resources file.</para><para>You can "
+"select if an item shall be:<list><item><emphasis>Removed:</emphasis> Removes "
+"the item from your project too.</item><item><emphasis>Converted:</emphasis> "
+"Converts the item to local item.</item><item><emphasis>Kept:</emphasis> "
+"Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Convert"
+msgstr "Konvertovať"
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Keep"
+msgstr "Ponechať"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:40
+#, kde-format
+msgid "Mark all selected items to be removed from your project"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:43
+#, kde-format
+msgid "Mark as: Remove"
+msgstr ""
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:50
+#, kde-format
+msgid "Mark all selected items to be converted to local resources"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:53
+#, fuzzy, kde-format
+#| msgid "Convert"
+msgid "Mark as: Convert"
+msgstr "Konvertovať"
+
+#. i18n: info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:60
+#, kde-format
+msgid "Mark all selected items to be kept as shared resources"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:63
+#, kde-format
+msgid "Mark as: Keep"
+msgstr ""
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Shared resources"
+#~ msgctxt "@title:window"
+#~ msgid "Shared Resources"
+#~ msgstr "Zdieľané zdroje"
+
+#, fuzzy
+#~| msgid ""
+#~| "Shared resources has been removed from the shared resources file.\n"
+#~| "Select how they shall be treated in this project."
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Shared resources have been removed from the shared resources file.<nl/"
+#~ ">Select how they shall be treated in this project."
+#~ msgstr ""
+#~ "Zdieľané zdroje boli odstránené zo súboru so zdieľanými zdrojmi.\n"
+#~ "Vyberte, ako s nimi bude naložené v tomto projekte."
+
+#, fuzzy
+#~| msgid "Use shared resources"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Convert shared resources to local"
+#~ msgstr "Použiť zdieľané zdroje"
+
+#, fuzzy
+#~| msgid "Use shared resources"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Keep as shared resources"
+#~ msgstr "Použiť zdieľané zdroje"
+
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Zlyhalo otvorenie dočasného súboru"
+
+#~ msgid "Work Package: %1"
+#~ msgstr "Pracovný balík: %1"
+
+#~ msgctxt "1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan."
+#~ "work, získané %1"
+
+#~ msgid "Documentation"
+#~ msgstr "Dokumentácia"
+
+#~ msgid "Documentation:"
+#~ msgstr "Dokumentácia:"
+
+#~ msgid "Context help:"
+#~ msgstr "Kontextový pomocník:"
+
+#, fuzzy
+#~| msgid "Context help:"
+#~ msgid "Context language"
+#~ msgstr "Kontextový pomocník:"
+
+#~ msgid "Directory that contains projects that share resources"
+#~ msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
+
+#, fuzzy
+#~| msgid "Directory that contains projects that share resources"
+#~ msgctxt "@info:tooltip"
+#~ msgid "The directory where projects sharing the resources are placed"
+#~ msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
+
+#~ msgid "Shared projects:"
+#~ msgstr "Zdieľané projekty:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load Resource Assignments"
+#~ msgstr "Načítať priradenia prostriedkov"
+
+#~ msgid "Load Shared Projects..."
+#~ msgstr "Načítať zdieľané projekty..."
+
+#, fuzzy
+#~| msgid "Documents..."
+#~ msgid "Open Document"
+#~ msgstr "Dokumenty..."
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Insert project"
+#~ msgid "New Project"
+#~ msgstr "Vložiť projekt"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgid "Open Project..."
+#~ msgstr "Upraviť hlavný projekt..."
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgid "Introduction"
+#~ msgstr "Ďalej: Úvod"
+
+#~ msgid "Progress..."
+#~ msgstr "Plnenie..."
+
+#~ msgid "Delete Task"
+#~ msgstr "Odstrániť úlohu"
+
+#~ msgid "Description..."
+#~ msgstr "Popis..."
+
+#~ msgid "Indent Task"
+#~ msgstr "Odsadiť úlohu"
+
+#~ msgid "Unindent Task"
+#~ msgstr "Zrušiť odsadenie úlohy"
+
+#~ msgid "Move Task Up"
+#~ msgstr "Preunúť úlohu vyššie"
+
+#~ msgid "Move Task Down"
+#~ msgstr "Presunúť úlohu nižšie"
+
+#~ msgid "Edit Resource..."
+#~ msgstr "Upraviť zdroj..."
+
+#~ msgid "Edit Dependency..."
+#~ msgstr "Upraviť závislosť..."
+
+#~ msgid "Delete Dependency"
+#~ msgstr "Odstrániť závislosť"
+
+#~ msgctxt "(qtundo-format) @info:status 1=schedule name"
+#~ msgid "Calculate %1"
+#~ msgstr "Vypočítať %1"
+
+#~ msgid "Cannot baseline. The project is already baselined."
+#~ msgstr "Nie je možné znormovať. Projekt je už znormovaný."
+
+#~ msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgstr "Tento plán je znormovaný. Chcete odstrániť normovanie?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reset baseline %1"
+#~ msgstr "Resetovať základnp líniu %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Baseline %1"
+#~ msgstr "Základné %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add schedule %1"
+#~ msgstr "Pridať rozvrh %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete schedule %1"
+#~ msgstr "Vymazať rozvrh %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move schedule %1"
+#~ msgstr "Presunúť rozvrh %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add milestone"
+#~ msgstr "Pridať míľnik"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add sub-milestone"
+#~ msgstr "Pridať podmíľnik"
+
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr "Úloha, ktorá bola plánovaná, bude vymazaná. Toto zneplatní plán."
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete task"
+#~| msgid_plural "Delete tasks"
+#~ msgctxt "(qtundo-format) Delete one task"
+#~ msgid "Delete task"
+#~ msgstr "Odstráinť úlohu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task"
+#~ msgid_plural "Delete tasks"
+#~ msgstr[0] "Odstráinť úlohu"
+#~ msgstr[1] "Odstrániť úlohy"
+#~ msgstr[2] "Odstrániť úlohy"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete task"
+#~| msgid_plural "Delete tasks"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete task"
+#~ msgstr "Odstráinť úlohu"
+
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "Táto úloha bola naplánovaná. Toto zneplatní plán."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent task"
+#~ msgstr "Odsadiť úlohu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent task"
+#~ msgstr "Zrušiť odsadenie úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task up"
+#~ msgstr "Presunúť úlohu hore"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task down"
+#~ msgstr "Presunúť úlohy dolu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add task dependency"
+#~ msgstr "Pridať závislosť úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task dependency"
+#~ msgstr "Odstrániť závislosť úlohy"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete resource"
+#~| msgid_plural "Delete resources"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resource"
+#~ msgstr "Odstrániť zdroj"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete resourcegroup"
+#~| msgid_plural "Delete resourcegroups"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resourcegroup"
+#~ msgstr "Odstrániť skupinu zdrojov"
+
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr "Zdroj, ktorý bol plánovaný, bude vymazaný. Toto zneplatní plán."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] "Odstrániť zdroj"
+#~ msgstr[1] "Vymazať prostriedky"
+#~ msgstr[2] "Odstrániť zdroj"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "Odstrániť skupinu zdrojov"
+#~ msgstr[1] "Odstrániť skupiny prostriedkov"
+#~ msgstr[2] "Odstrániť skupinu zdrojov"
+
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~| msgid "Be free."
+#~ msgctxt "KDE 4 tag line"
+#~ msgid "Be free."
+#~ msgstr "Buďte slobodní."
+
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Plan je aplikácia na projektové plánovanie a správu."
+
+#~ msgid "Welcome to Plan."
+#~ msgstr "Víta vás Plan."
+
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "Tieto úvodné stránky by vám mali pomôcť pochopiť ako používať Plan a na "
+#~ "čo ho použiť."
+
+#~ msgid "A short introduction."
+#~ msgstr "Krátky úvod."
+
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Tipy ako spravovať a kontrolovať dáta."
+
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Malý kurz na začiatok."
+
+#~ msgid "Close"
+#~ msgstr "Zavrieť"
+
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Poznámka:</em> Na zobrazenie týchto stránok z inej časti Plan, zvoľte "
+#~ "položku z ponuky <em>Pomoc -> Úvod do Plan</em>."
+
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information online at <a href=\"https://userbase.kde.org/Plan\">https://"
+#~ "userbase.kde.org/Plan</a></p>"
+#~ msgstr ""
+#~ "Plan je určený na spravovanie značne veľkých projektov s viacerými "
+#~ "zdrojmi. Na umožnenie adekvátneho modelovania vášho projektu, Plan ponúka "
+#~ "rôzne typy závislostí úloh a časového ohraničenia. Obyčajne si definujete "
+#~ "svoje úlohy, odhad úsilia potrebného na vykonanie každej úlohy, alokujete "
+#~ "zdroje a potom plánujete projekt podľa siete závislostí a dostupnosti "
+#~ "zdrojov. <p>Viac informácií môžete nájsť v <a href=\"help:plan"
+#~ "\">dokumentácii</a> alebo online na <a href=\"http://www.calligra.org/plan"
+#~ "\">http://www.calligra.org/plan</a></p>"
+
+#~ msgid "Next: Tips"
+#~ msgstr "Ďalšie: Tipy"
+
+#~ msgid "Editing tips."
+#~ msgstr "Úprava tipov."
+
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<br/><b>Na</b> úpravu projektových dát je možné vybrať rôzne pohľady a "
+#~ "editory v paneli Výber zobrazenia.</br><b>Pohľady</b> sa všeobecne "
+#~ "používajú na kontrolu dát po naplánovaní projektu. Žiadne dáta sa "
+#~ "nezobrazia v pohľadoch, ak projekt nie je naplánovnaý. Plánovanie sa robí "
+#~ "v Editore plánovania.<br/><b>Môžete</b> upravovať atribúty v rôznych "
+#~ "editoroch označením položky ktorú chcete editovať (dvojklik alebo klávesa "
+#~ "F2), alebo otvoriť dialóg v kontextovej ponuke.</ul>"
+
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Ďalej: Vytvorenie jednoduchého projektu"
+
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Vytvoriť najjedonduchší projekt vôbec."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Vyberte editor úloh <em>Editory->Úlohy</em>:<ul><li>Vytvorte úlohu "
+#~ "výberom <em>Pridať úlohu</em> v paneli nástrojov.</li><li>Nastavte "
+#~ "<em>Typ odhadu</em> na <em>Trvanie</em>.</li><li>Nastavte <em>Odhad</em> "
+#~ "na <em>8 hodín</em>.</li><li>Nastavte <em>Ohraničenie</em> na <em>Čo "
+#~ "najskôr</em>.</li></ul>Vyberte editor plánov <em>Editory->Plány</em>:"
+#~ "<ul><li>Vytvorte plán výberom <em>Pridať plán</em> v paneli nástrojov.</"
+#~ "li><li>Vypočítajte plán výberom <em>Vypočítať</em> v paneli nástrojov.</"
+#~ "li></ul>Úloha by teraz mala byť nastavená na začatie %1 s trvaním 8 "
+#~ "hodín. Toto môžete skontrolovať výberom Ganttovho diagramu <em>Pohľady-"
+#~ ">Gantt</em>."
+
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Ďalej: Alokácia prostriedkov"
+
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Priradiť zdroj k úlohe."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Vyberte editor úloh <em>Editory->Úlohy</em>:<ul><li>Zadajte názov (napr. "
+#~ "'Jano') v stĺpci <em>Alokácia</em>. (Plan automaticky vytvorí zdroj s "
+#~ "názvom 'Jano' pod skupinou zdrojov 'Zdroje'.</li><li>Nastavte <em>Typ "
+#~ "odhadu</em> na <em>Úsilie</em>.</li></ul>Teraz je potrebné naplánovať "
+#~ "projekt znova s novou alokáciou:<br>Vyberte editor plánov <em>Editory-"
+#~ ">Plány</em> a vypočítajte plán výberom <em>Vypočítať</em> v paneli "
+#~ "nástrojov.<p>Úloha by mala byť naplánovaná na začatie %1 s trvaním 8 "
+#~ "hodín. Toto môžete skontrolovať výberom Ganttovho diagramu <em>Pohľady-"
+#~ ">Gantt</em>.<p>"
+
+#~ msgid "Next: Introduction"
+#~ msgstr "Ďalej: Úvod"
+
+#~ msgid "Introduction to Plan"
+#~ msgstr "Úvod do Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroups and resources"
+#~ msgstr "Vymazať skupiny zdrojov a zdroje"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgid "Resource groups"
+#~ msgstr "Zdroje"
+
+#~ msgid "Calculation"
+#~ msgstr "Výpočet"
+
+#~ msgid "Manual"
+#~ msgstr "Manuálny"
+
+#~ msgid "Immediate on change"
+#~ msgstr "Okamžite pri zmene"
+
+#~ msgid "Constraints"
+#~ msgstr "Obmedzenia"
+
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Povoliť obsadzovanie zdrojov nad limit"
+
+#~ msgid "Path:"
+#~ msgstr "Cesta:"
+
+#~ msgid "Language:"
+#~ msgstr "Jazyk:"
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Detekované nové pracovné balíky. Zlúčiť dáta s existujúcimi úlohami?"
+
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Vlastík balíka '%1' nie je prostriedok v tomto projekte. Musíte to "
+#~ "spracovať ručne."
+
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Nič na uloženie z tohto balíka"
+
+#~ msgid "Save URL:"
+#~ msgstr "Uložiť URL:"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "Vytvoriť ša&blónu z dokumentu..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "Prechod:"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "Sumárna úloha"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "Predvolené:"
+
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "Použiť farby úrovne"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "Úroveň 1"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "Úroveň 2"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "Úroveň 3"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "Úroveň 4"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "Úloha"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "Normálne:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "Kritické:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "Dokončené:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "Chyba:"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "Míľnik"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "Výpočet"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "Ručne"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "Okamžite pri zmene"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "Obmedzenia"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Povoliť obsadzovanie zdrojov nad limit"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "Všeobecné"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "Osoba zodpovedná za túto úlohu.\n"
+#~ "\n"
+#~ "Toto nastavenie nie je obmedzené iba na členov zdrojovej skupiny - "
+#~ "zodpovedná osoba môže byť hocikto. Môžete vybrať osobu z adresára pomocou "
+#~ "tlačidla Vybrať."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "Zodpovedná osoba:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Vložiť osobu z vášho adresára"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Vložte osobu z vášho adresára."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "Vybrať..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr "Obmedzenie plánovania:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "Čo najskôr"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "Čo najneskôr"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "Musí začať"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "Musí skončiť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Nezačať skôr než"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Nesmie skončiť neskôr ako"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "Pevný úsek"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "Použitie obmedzenia počiatočného času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "Aktuálny dátum a čas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "Aktuálny dátum, určený čas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "Určený dátum a čas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "Obmedzenie počiatočného času:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "Použitie obmedzenia koncového času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "Obmedzenie koncového času:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "Typ odhadu:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "Úsilie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "Trvanie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "Očakávaný odhad:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "Optimistický odhad:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "Pesimistický odhad:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Popis"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "Aktuálny režim:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "Vložiť na najvyššiu úroveň"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "Vložiť ako potomka do aktuálneho uzla"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "Vložiť po aktuálnom bode"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category of the view"
+#~ msgstr "Kategória pohľadu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "Kategória:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The view is placed after this view"
+#~ msgstr "Pohľad je umiestnený po tomto pohľade"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "Po"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "Typ pohľadu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "Typ pohľadu:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the view"
+#~ msgstr "Názov pohľadu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "Názov:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "Popis pohľadov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "Popis:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "Slová"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "Viet"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "Slabiky"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "Riadky"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "Znakov vrátane medzier"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "Znakov bez medzier"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "Hodnotenie čitateľnosti Flesch"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "Pridať text z poznámok pod čiarou na koncových poznámok"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "Automaticky obnoviť dáta"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category is placed after this category"
+#~ msgstr "Kategória je umiestnená po tejto kategórii"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the category"
+#~ msgstr "Názov kategórie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The description of the category"
+#~ msgstr "Popis kategórie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Check for work packages"
+#~ msgstr "Skontrolovať pracovné balíky"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Retrieve URL:"
+#~ msgstr "Získať URL:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete file after it has been retrieved"
+#~ msgstr "Vymazať súbor po jeho obnove"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save file after it has been retrieved"
+#~ msgstr "Uložiť súbor po jeho obnove"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save URL:"
+#~ msgstr "Uložiť URL:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name of task responsible"
+#~ msgstr "Meno zodpovedného za úlohu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr "Typ obmedzenia plánovania"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how start constraint time is used"
+#~ msgstr "Definuje, ako sa používa začiatočné obmedzenie času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "Obmedzenie počiatočného dátumu a času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how end constraint time is used"
+#~ msgstr "Definuje, ako sa používa koncové obmedzenie času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "Obmedzenie koncového dátumu a času"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "Typ odhadu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "Odhadnutá časová jednotka"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "Očakávaný odhad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "Optimistický odhad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "Pesimistický odhad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "Popis úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "Prechod"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Enable summary task level colors"
+#~ msgstr "Povoliť farby úrovne sumárnych úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "Predvolená farba sumárnej úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "Farba sumárnej úlohy, úroveň 1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "Farba sumárnej úlohy, úroveň 2"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "Farba sumárnej úlohy, úroveň 3"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "Farba sumárnej úlohy, úroveň 4"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in normal state"
+#~ msgstr "Farba úlohy v normálnom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in critical state"
+#~ msgstr "Farba úlohy v kritickom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in finished state"
+#~ msgstr "Farba úlohy v ukončenom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in error state"
+#~ msgstr "Farba úlohy v chybovom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in normal state"
+#~ msgstr "Farba míľnika v normálnom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in critical state"
+#~ msgstr "Farba míľnika v kritickom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in finished state"
+#~ msgstr "Farba míľnika v ukončenom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in error state"
+#~ msgstr "Farba míľnika v chybovom stave"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "Automaticky kontrolovať nové pracovné balíky"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Directory where Plan retrieves work packages from project members"
+#~ msgstr "Adresár, kam Plan obnoví pracovné balíky od projektových členov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will delete the file after it has been read"
+#~ msgstr "Ak je nastavené, Plan vymaže súbor po jeho načítaní"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will save the file after it has been read"
+#~ msgstr "Ak je nastavené, Plan uloží súbor po jeho načítaní"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Directory where Plan saves work packages when the package has been read"
+#~ msgstr "Adresár, kam Plan uloží pracovné balíky keď sa balík načíta"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The smallest duration unit allowed"
+#~ msgstr "Najmenšia povolená jednotka trvania"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The largest duration unit allowed"
+#~ msgstr "Najväčšia povolená jednotka trvania"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "&Súbor"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Upraviť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Zobraziť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "Projekt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "&Nástroje"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "&Nastavenia"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Help"
+#~ msgstr "&Pomocník"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "(qtundo-format) KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Buďte slobodní."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Plan je aplikácia na projektové plánovanie a správu."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Welcome to Plan."
+#~ msgstr "Víta vás Plan."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "Tieto úvodné stránky by vám mali pomôcť pochopiť ako používať Plan a na "
+#~ "čo ho použiť."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A short introduction."
+#~ msgstr "Krátky úvod."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Tipy ako spravovať a kontrolovať dáta."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Malý kurz na začiatok."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Poznámka:</em> Na zobrazenie týchto stránok z inej časti Plan, zvoľte "
+#~ "položku z ponuky <em>Pomoc -> Úvod do Plan</em>."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information in the <a href=\"help:plan\">documentation</a> or online at "
+#~ "<a href=\"http://www.calligra.org/plan\">http://www.calligra.org/plan</"
+#~ "a></p>"
+#~ msgstr ""
+#~ "Plan je určený na spravovanie značne veľkých projektov s viacerými "
+#~ "zdrojmi. Na umožnenie adekvátneho modelovania vášho projektu, Plan ponúka "
+#~ "rôzne typy závislostí úloh a časového ohraničenia. Obyčajne si definujete "
+#~ "svoje úlohy, odhad úsilia potrebného na vykonanie každej úlohy, alokujete "
+#~ "zdroje a potom plánujete projekt podľa siete závislostí a dostupnosti "
+#~ "zdrojov. <p>Viac informácií môžete nájsť v <a href=\"help:plan"
+#~ "\">dokumentácii</a> alebo online na <a href=\"http://www.calligra.org/plan"
+#~ "\">http://www.calligra.org/plan</a></p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Tips"
+#~ msgstr "Ďalšie: Tipy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editing tips."
+#~ msgstr "Úprava tipov."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<br/><b>Na</b> úpravu projektových dát je možné vybrať rôzne pohľady a "
+#~ "editory v paneli Výber zobrazenia.</br><b>Pohľady</b> sa všeobecne "
+#~ "používajú na kontrolu dát po naplánovaní projektu. Žiadne dáta sa "
+#~ "nezobrazia v pohľadoch, ak projekt nie je naplánovnaý. Plánovanie sa robí "
+#~ "v Editore plánovania.<br/><b>Môžete</b> upravovať atribúty v rôznych "
+#~ "editoroch označením položky ktorú chcete editovať (dvojklik alebo klávesa "
+#~ "F2), alebo otvoriť dialóg v kontextovej ponuke.</ul>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Ďalej: Vytvorenie jednoduchého projektu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Vytvoriť najjedonduchší projekt vôbec."
+
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Vyberte editor úloh <em>Editory->Úlohy</em>:<ul><li>Vytvorte úlohu "
+#~ "výberom <em>Pridať úlohu</em> v paneli nástrojov.</li><li>Nastavte "
+#~ "<em>Typ odhadu</em> na <em>Trvanie</em>.</li><li>Nastavte <em>Odhad</em> "
+#~ "na <em>8 hodín</em>.</li><li>Nastavte <em>Ohraničenie</em> na <em>Čo "
+#~ "najskôr</em>.</li></ul>Vyberte editor plánov <em>Editory->Plány</em>:"
+#~ "<ul><li>Vytvorte plán výberom <em>Pridať plán</em> v paneli nástrojov.</"
+#~ "li><li>Vypočítajte plán výberom <em>Vypočítať</em> v paneli nástrojov.</"
+#~ "li></ul>Úloha by teraz mala byť nastavená na začatie %1 s trvaním 8 "
+#~ "hodín. Toto môžete skontrolovať výberom Ganttovho diagramu <em>Pohľady-"
+#~ ">Gantt</em>."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Ďalej: Alokácia prostriedkov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Priradiť zdroj k úlohe."
+
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Vyberte editor úloh <em>Editory->Úlohy</em>:<ul><li>Zadajte názov (napr. "
+#~ "'Jano') v stĺpci <em>Alokácia</em>. (Plan automaticky vytvorí zdroj s "
+#~ "názvom 'Jano' pod skupinou zdrojov 'Zdroje'.</li><li>Nastavte <em>Typ "
+#~ "odhadu</em> na <em>Úsilie</em>.</li></ul>Teraz je potrebné naplánovať "
+#~ "projekt znova s novou alokáciou:<br>Vyberte editor plánov <em>Editory-"
+#~ ">Plány</em> a vypočítajte plán výberom <em>Vypočítať</em> v paneli "
+#~ "nástrojov.<p>Úloha by mala byť naplánovaná na začatie %1 s trvaním 8 "
+#~ "hodín. Toto môžete skontrolovať výberom Ganttovho diagramu <em>Pohľady-"
+#~ ">Gantt</em>.<p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Introduction"
+#~ msgstr "Ďalej: Úvod"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document has no syntax version.\n"
+#~ "Opening it in Plan may lose information."
+#~ msgstr ""
+#~ "Tento dokument nemá žiadnu verziu syntaxe.\n"
+#~ "Otvorením v Plan môže dôjsť k strate dát."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Pokračovať"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "Chyba formátu súboru"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "Tento dokument bol vytvorený novšou verziou KPlato, ktorú Plan dokáže "
+#~ "načítať.\n"
+#~ "Verzia syntaxe: %1\n"
+#~ "Otvorením v tejto verzii Plan dôjde k strate niektorých dát."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Nehodiace sa formáty súborov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Tento dokument bol vytvorený novšou verziou KPlatoWork (verzia syntaxe: "
+#~ "%1)\n"
+#~ "Otvorením v tejto verzii PlanWork dôjde k strate niektorých dát."
+
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "Nástroj na projektové plánovanie a správu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "Copyright (C) 1998-%1, Tím Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "Thomas Zander"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo Thorsen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "Raphael Langerhorst"
+
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"
+
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "Plánovač siete"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Built-in network (PERT) based scheduler"
+#~ msgstr "Vstavaný sieťový plánovač (PERT)"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>Network (PERT) Scheduler</title><para>The network scheduler "
+#~ "generally schedules tasks according to their dependencies. When a task is "
+#~ "scheduled it is scheduled in full, booking the allocated resources if "
+#~ "available. If overbooking is not allowed, subsequent tasks that requests "
+#~ "the same resource will be scheduled later in time.</para><para>Tasks with "
+#~ "time constraints will be scheduled first to minimize the problem with "
+#~ "resource conflicts</para><para><note>This scheduler does not handle "
+#~ "resource conflicts well.<nl/>You can try a different scheduler if "
+#~ "available. You may also change resource allocations or add dummy "
+#~ "dependencies to avoid the conflicts.</note></para>"
+#~ msgstr ""
+#~ "<title>Sieťový (PERT) plánovač</title><para>Sieťový plánovač všeobecne "
+#~ "plánuje úlohy podľa ich závislostí. Ak je úloha naplánovaná, je "
+#~ "naplánovaná na plno, rezervuje alokované zdroje, ak sú dostupné. Ak nie "
+#~ "je povolené preplánovanie, nasledovné úlohy , ktoré vyžadujú rovnaký "
+#~ "zdroj, budú naplánované na neskôr.</para><para>Úlohy s časovým obmedzením "
+#~ "budú naplánované ako prvé, na minimalizáciu problémov s konfliktmi "
+#~ "zdrojov.</para><para><note>Tento plánovač nespracúva konflikty zdrojov "
+#~ "dobre.<nl/>Môžete skúsiť iný plánovač, ak je dostupný. Môžete tiež zmeniť "
+#~ "alokáciu zdrojov alebo pridať prázdne závislosti na predídenie konfliktom."
+#~ "</note></para>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "Lineárny"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "Ploché"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "Vložiť súbor"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Neplatný dokument. MIME typ musí byť uvedený."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr ""
+#~ "Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan, "
+#~ "získané %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "Tento dokument bol vytvorený novšou verziou Plan (verzia syntaxe: %1)\n"
+#~ "Otvorením v tejto verzii Plan dôjde k strate niektorých dát."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the workpackage file for saving: %1"
+#~ msgstr "Nie je možné vytvoriť súbor pracovného balíka na uloženie: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Nedá sa zapísať '%1'. Plný disk?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "Ukladám..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan."
+#~ "work, získané %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Tento dokument bol vytvorený novšou verziou PlanWork (verzia syntaxe: "
+#~ "%1)\n"
+#~ "Otvorením v tejto verzii PlanWork dôjde k strate niektorých dát."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Detekované nové pracovné balíky. Zlúčiť dáta s existujúcimi úlohami?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Vlastík balíka '%1' nie je prostriedok v tomto projekte. Musíte to "
+#~ "spracovať ručne."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Nič na uloženie z tohto balíka"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Internal error, failed to insert file."
+#~ msgstr "Vnútorná chyba, zlyhalo vloženie súboru."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "Výber plánu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "Vytvoriť ša&blónu z dokumentu..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "Vytvoriť nový projekt..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "Ukázať výber"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "Upraviť hlavný projekt..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Estimate Conversions..."
+#~ msgstr "Definovať konverzie odhadu..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "Definovať štruktúru WBS..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "Vložiť súbor projektu..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "Nastaviť Plan..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "Definovať menu..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Open Report Definition File..."
+#~ msgstr "Otvoriť súbor definície správy..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Introduction to Plan"
+#~ msgstr "Úvod do Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Upraviť..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "Plnenie..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "Odstrániť úlohu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "Popis..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "Odsadiť úlohu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "Zrušiť odsadenie úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "Preunúť úlohu vyššie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "Presunúť úlohu nižšie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "Upraviť zdroj..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "Upraviť závislosť..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "Odstrániť závislosť"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid ""
+#~ "<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+#~ "from the current project with new project- and task identities.<nl/"
+#~ ">Resource- and calendar identities are not changed.<nl/>All scheduling "
+#~ "information is removed.<nl/><nl/>Do you want to continue?"
+#~ msgstr ""
+#~ "<note>Táto akcia sa nedá vrátiť.</note><nl/><nl/>Vytvorte nový projekt z "
+#~ "aktuálneho projektu s novým projektom- a identitami úloh.<nl/> Identity "
+#~ "zdroj- a kalendár sa nemenia.<nl/>Všetky informácie rozvrhu sa odstránia."
+#~ "<nl/><nl/>Chcete pokračovať?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "Správa stavu úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "Práca a voľno"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "Upraviť pracovné a voľné dni pre zdroje"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "Štruktúra rozpisu nákladov"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "Upraviť štruktúru rozpisu nákladov."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Zdroje"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "Upraviť štruktúru rozdelenia zdrojov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Úlohy"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "Upraviť štruktúru deľby práce"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "Závislosti (grafika)"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "Upraviť závislosti úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "Závislosti (zoznam)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "Rozvrhy"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "Vypočítať a analyzovať plány projektu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "Graf výkonu projektu"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "Zobraziť informáciu o postupe projektu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "Stav úlohy"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "Zobraziť informáciu o postupe úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "Vykonanie úlohy"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "Zobraziť informáciu o vykonaní úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package View"
+#~ msgstr "Zobrazenie pracovného balíka"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "Zobraziť informáciu pracovného balíka úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "Zobraziť Ganttov graf"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "Ganttov míľnik"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "Zobraziť Ganttov graf míľnikov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Priradenia prostriedkov"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "Zobraziť priradenia zdrojov v tabuľke"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "Priradenia prostriedkov (Gantt)"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "Zobraziť priradenia prostriedkov v Ganttovom diagrame"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown"
+#~ msgstr "Rozpis nákladov"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "Zobraziť plánované a aktuálne náklady"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Graf výkonu úloh"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "Zobraziť stavovú informáciu výkonu úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "Správa"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "Zobraziť správu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "Editory"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "Pohľady"
+
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "Vykonávanie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "Správy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot baseline. The project is already baselined."
+#~ msgstr "Nie je možné znormovať. Projekt je už znormovaný."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgstr "Tento plán je znormovaný. Chcete odstrániť normovanie?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "Štandardné nastavenie úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "Farby úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package"
+#~ msgstr "Pracovný balík"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr "Úloha, ktorá bola plánovaná, bude vymazaná. Toto zneplatní plán."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "Táto úloha bola naplánovaná. Toto zneplatní plán."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr "Zdroj, ktorý bol plánovaný, bude vymazaný. Toto zneplatní plán."
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "Nie je možné otvoriť súbor:<br/><filename>%1</filename>"
+
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "Nenaplánované"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Zlyhalo otvorenie dočasného súboru"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Pracovný balík: %1"
+
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package for project: %1"
+#~ msgstr "Pracovný balík pre projekt: %1"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format) @info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "Manažér:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "Projekt"
+
+#~ msgctxt "(qtundo-format) As in: Page 1 of 2"
+#~ msgid "of"
+#~ msgstr "z"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "Strana"
+
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "Meno"
+
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "Ukončenie (%)"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the list of available views and editors.</para><para>You "
+#~ "can configure the list by using the context menu:<list><item>Rename "
+#~ "categories or views</item><item>Configure. Move, remove, rename or edit "
+#~ "tool tip for categories or views</item><item>Insert categories and views</"
+#~ "item></list></para>"
+#~ msgstr ""
+#~ "<para>Toto je zoznam dostupných pohľadov a editorov.</para><para>Môžete "
+#~ "konfigurovať zoznam pomocou kontextovej ponuky:<list><item>Premenovať "
+#~ "kategórie alebo pohľady</item><item>Konfigurovať. Presunúť, odstrániť, "
+#~ "premenovať alebo upraviť tooltip pre kategórie alebo pohľady</"
+#~ "item><item>Vložiť kategórie a pohľady</item></list></para>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Removing this category will also remove all its views."
+#~ msgstr "Odstránenie tejto kategórie odstráni aj všetky jej pohľady."
+
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "Premenovať"
+
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "Konfigurovať..."
+
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "Odstrániť"
+
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "Premenovať"
+
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "Konfigurovať..."
+
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "Odstrániť"
+
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "Vložiť..."
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "Pridať pohľad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "Editor prostriedkov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "Editor úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "Editor práce a voľna"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "Editor účtov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "Editor závislostí (grafika)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "Editor závislostí (zoznam)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "Správca plánu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "Pohľad úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "Ganttov pohľad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "Ganntovo zobrazenie míľnikov"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>The category of the view</title><nl/>The view is placed under this "
+#~ "category in the view selector.<nl/>You can edit the category name to "
+#~ "create a new category."
+#~ msgstr ""
+#~ "<title>Kategória pohľadu</title><nl/>Pohľad je umiestnený pod touto "
+#~ "kategóriou vo výbere pohľadu. <nl/>Môžete upraviť názov kategórie na "
+#~ "vytvorenie novej kategórie."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "Hore"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "Nastaviť pohľad"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>The category of the view</title><nl/>The view is placed under this "
+#~ "category in the view selector.<nl/>Selecting a different category will "
+#~ "move the view to the new category.<nl/>You can edit the category name to "
+#~ "create a new category."
+#~ msgstr ""
+#~ "<title>Kategória pohľadu</title><nl/>Pohľad je umiestnený pod touto "
+#~ "kategóriou vo výbere pohľadu. <nl/>Vybraním inej kategórie vyberie pohľad "
+#~ "no novej kategórie.<nl/>Môžete upraviť názov kategórie na vytvorenie "
+#~ "novej kategórie."
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "Nastaviť kategóriu"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "Pridať správu"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "Zobraziť výber [zmenené]"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "Výber pohľadu"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+
+#~ msgid "Tip:"
+#~ msgstr "Tip:"
+
+#~ msgid "File to open"
+#~ msgstr "Otvoriť súbor"

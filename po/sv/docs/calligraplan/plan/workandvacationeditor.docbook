@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Beskrivning</title>
+  <para
+>Arbets- och semestereditorn används för att skapa, redigera och ta bort kalendrar.</para
+><para
+>Kalendrar definierar arbetstimmar för resurser. Kalendrar kan också används av aktiviteter med uppskattningstyp <emphasis
+>Varaktighet</emphasis
+>. </para>
+  <para
+>Kalendrar har en specifikation av tidszon så att man kan definiera arbetstimmar med resursens lokala tid. </para>
+  <para
+>En kalender består av definitioner av arbetsdagar och datum. Om datumet är definierat, används den definitionen. Om datumets tillstånd är <emphasis
+>Odefinierat</emphasis
+>, används definitionen av arbetsdagen. Om den också är <emphasis
+>Odefinierad</emphasis
+>, kontrolleras den överliggande kalendern. </para>
+  <para
+>En kalender kan definieras som <emphasis
+>Standard</emphasis
+> och används då av alla arbetsresurser utan en kalenderreferens. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa och ta bort kalendrar: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till kalender</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en kalender. Den nya kalendern läggs till sist på samma nivå som den markerade kalendern.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till delkalender</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en underliggande kalender. Den nya kalendern läggs till sist som en underliggande kalender till kalendern som för närvarande är markerad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort markerad kalender</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Ta bort</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort den markerade kalendern</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Redigera data</title>
+  <para
+>Kalendernamn och tidszon kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+>. </para>
+  <para
+>Dagarnas och arbetsdagarnas tillstånd redigeras genom att markera dagen eller dagarna du vill redigera och visa den sammanhangsberoende meny. </para>
+  <para
+>Att välja <emphasis
+>Arbete...</emphasis
+> visar dialogrutan Redigera arbetsintervall. </para>
+  
+</sect3>
+</sect2>

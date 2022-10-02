@@ -1,0 +1,1337 @@
+# translation of planwork.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2008, 2010, 2012.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: planwork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"PO-Revision-Date: 2012-06-21 14:09+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr "PlanWork - កម្មវិធី​គ្រប់​គ្រង​កញ្ចប់​ការងារ​សម្រាប់​ឧបករណ៍គ្រោង​របស់​គម្រោង Plan"
+
+#: aboutdata.h:27
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "រៀបចំផែនការ​នៃ​កម្មវិធី​គ្រប់គ្រង WorkPackage"
+
+#: aboutdata.h:31
+#, fuzzy, kde-format
+#| msgid "(c) 2007-2011, The Plan Team"
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "រក្សា​សិទ្ធិ​ឆ្នាំ​ ២០០៧ -២០១១ ដោយ​ក្រុម Plan"
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, អេង វណ្ណៈ, អោក ពិសិដ្ឋ"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info, \n"
+"evannak@khmeros.info,piseth_dv@khmeros.info"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "កែសម្រួល"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, fuzzy, kde-format
+#| msgid "&View"
+msgid "View"
+msgstr "មើល"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "មើល"
+
+#: commandlineparser.cpp:35
+#, kde-format
+msgid "File to open"
+msgstr "ឯកសារ​ត្រូវ​បើក"
+
+#: commandlineparser.cpp:92
+#, kde-format
+msgid "Failed to open document"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ"
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "មិនមាន​ឯកសារ ៖ %1"
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ​ ៖<br>%1"
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ពី​ឧបករណ៍​ផ្ទុក​ ៖<br>%1"
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr " URL មិន​​ត្រឹម​ត្រូវ ៖<br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ ៖<br> %1"
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "មិន​មាន​ឯកសារ ៖<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr "កែសម្រួល​ជា​មួយ ៖"
+
+#: part.cpp:379
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"<p>មាន​កញ្ចប់​ការងារនៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​រួច​ហើយ ។</p><p>គម្រោង​ ៖ %1<br>ភារកិច្ច​ ៖ %2</"
+"p><p>​តើ​អ្នក​ចង់​ធ្វើ​បច្ចុប្បន្នភាព​យ​កញ្ចប់​ដែល​មាន​ស្រា​័យ​ជា​មួយ​នឹង​ទិន្នន័យ​មក​ពី​កញ្ចប់​ថ្មី​ដែរ​ឬ​ទេ ?</p>"
+
+#: part.cpp:410
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការយក​ចេញ ។ មិន​អាច​រក​កញ្ច​ប់​ការងារ​ឃើញ​ទេ"
+
+#: part.cpp:414
+#, fuzzy
+#| msgctxt "(qtundo-format)"
+#| msgid "Remove work package"
+#| msgid_plural "Remove work packages"
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr "យក​កញ្ចប់​ការងារ​ចេញ"
+
+#: part.cpp:425
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "យក​កញ្ចប់​ការងារ​ចេញ"
+
+#: part.cpp:466
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ឯកសារ ៖<br>%1"
+
+#: part.cpp:488
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "មិន​មែន​ជាឯកសារ​កញ្ចប់ការងារ​ត្រឹម​ត្រូវ​ទេ ៖<br>%1"
+
+#: part.cpp:518
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ ឯកសារ​មិន​មាន​ 'maindoc.xml' ទេ ។"
+
+#: part.cpp:546
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ ៖ %1"
+
+#: part.cpp:560
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr "ញែក​កំហុស​នៅ​ក្នុង​ឯកសារ '%1' នៅ​បន្ទាត់ %2 ជួរ​ឈរ​ %3<br>សារកំហុស ៖ %4"
+
+#: part.cpp:579 part.cpp:630
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ គ្មាន​ប្រភេទ​ mimetype ដែល​បាន​បញ្ជាក់​ទេ ។"
+
+#: part.cpp:587
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
+
+#: part.cpp:598 part.cpp:646
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"ឯកសារ​នេះ​ គឺ​ជា​កំណែ​ថ្មី​ជាង​ដែលបាន​គាំទ្រ​ដោយ PlanWork (កំណែ​វាក្យសម្ព័ន្ធ ៖ %1)<br>បើក​វា​នៅ​ក្នុង​"
+"កំណែ​ PlanWork នេះ​នឹង​បាត់បង់​ព័ត៌មាន​មួយ​ចំនួន ។"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "Continue"
+msgstr "បន្ត"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "មិន​ផ្គូផ្គង​ទ្រង់ទ្រាយ​ឯកសារ"
+
+#: part.cpp:636
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#| "%1"
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+"ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
+
+#: part.cpp:738
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "បាន​បរាជ័យ​ក្នុង​ការកែ​សម្រួល ។ មិន​អាច​រក​កញ្ចប់​ការងារ​ឃើញ​ទេ ។"
+
+#: taskcompletiondialog.cpp:32
+#, kde-format
+msgid "Task Progress"
+msgstr "វឌ្ឍនភាព​ភារកិច្ច"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "បាន​ចាប់​ផ្តើម ៖"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "បាន​បញ្ចប់ ៖"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "បន្ថែម​ធាតុ"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "យក​ធាតុ​ចេញ"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:433
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "កែប្រែ​ការបញ្ចប់"
+
+#: taskworkpackagemodel.cpp:468
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "បាន​បញ្ចប់​ការកំណត់"
+
+#: taskworkpackagemodel.cpp:489
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "កែប្រែ​កិច្ចប្រឹងប្រែង​ដែល​នៅ​សល់"
+
+#: taskworkpackagemodel.cpp:502
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "កែប្រែ​កិច្ច​ប្រឹងប្រែង​ដោយ​ដៃ"
+
+#: taskworkpackagemodel.cpp:600
+#, fuzzy, kde-kuit-format
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "ឈ្មោះ​"
+
+#: taskworkpackagemodel.cpp:601
+#, fuzzy, kde-kuit-format
+#| msgid "Type"
+msgctxt "@title:column"
+msgid "Type"
+msgstr "ប្រភេទ"
+
+#: taskworkpackagemodel.cpp:602
+#, fuzzy, kde-kuit-format
+#| msgid "Responsible"
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "ទទួល​ខុស​ត្រូវ"
+
+#: taskworkpackagemodel.cpp:603
+#, fuzzy, kde-kuit-format
+#| msgid "Description"
+msgctxt "@title:column"
+msgid "Description"
+msgstr "សេចក្តី​ពិពណ៌នា"
+
+#: taskworkpackagemodel.cpp:606
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Start"
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "ចាប់​ផ្តើម​តាមការគ្រោង"
+
+#: taskworkpackagemodel.cpp:607
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Finish"
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "បញ្ចប់​តាម​ការគ្រោង"
+
+#: taskworkpackagemodel.cpp:608
+#, fuzzy, kde-kuit-format
+#| msgid "Resource Assignments"
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "ការកំណត់​ធន​ធាន"
+
+#: taskworkpackagemodel.cpp:611
+#, fuzzy, kde-kuit-format
+#| msgid "Completion"
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "ការបញ្ចប់"
+
+#: taskworkpackagemodel.cpp:612
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Effort"
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "ទំហំ​ការងារ​ជាក់​ស្តែង"
+
+#: taskworkpackagemodel.cpp:613
+#, fuzzy, kde-kuit-format
+#| msgid "Remaining Effort"
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "ទំហំ​ការងារ​ដែល​នៅ​សល់"
+
+#: taskworkpackagemodel.cpp:614
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Effort"
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "ទំហំ​ការងារ​ដែល​បាន​គ្រោង"
+
+#: taskworkpackagemodel.cpp:615
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Start"
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "ពេល​ចាប់​ផ្តើម​ជាក់​ស្តែង"
+
+#: taskworkpackagemodel.cpp:616
+#, fuzzy, kde-kuit-format
+#| msgid "Started"
+msgctxt "@title:column"
+msgid "Started"
+msgstr "បាន​បញ្ចប់"
+
+#: taskworkpackagemodel.cpp:617
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Finish"
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "ពេល​បញ្ចប់​ជាក់​ស្តែង"
+
+#: taskworkpackagemodel.cpp:618
+#, fuzzy, kde-kuit-format
+#| msgid "Finished"
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "បាន​បញ្ចប់"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:620
+#, fuzzy, kde-kuit-format
+#| msgid "Note"
+msgctxt "@title:column"
+msgid "Note"
+msgstr "ចំណាំ"
+
+#: taskworkpackagemodel.cpp:622
+#, fuzzy, kde-kuit-format
+#| msgid "Project Name"
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "ឈ្មោះ​គម្រោង"
+
+#: taskworkpackagemodel.cpp:623
+#, fuzzy, kde-kuit-format
+#| msgid "Project Manager"
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "អ្នក​គ្រប់​គ្រង​គម្រោង"
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#, kde-format
+msgid "Configure View..."
+msgstr "កំណត់​រចនា​សម្ព័ន្ធ​ទិដ្ឋភាព..."
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "យក​កញ្ចប់​ចេញ"
+
+#: view.cpp:88
+#, kde-format
+msgid "Remove Package"
+msgstr "យក​កញ្ចប់​ចេញ"
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr ""
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr ""
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr ""
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#: view.cpp:103
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "កំណត់​រចនាសម្ព័ន្ធ PlanWork..."
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "កែសម្រួល"
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "មើល"
+
+#: view.cpp:116
+#, fuzzy, kde-format
+#| msgid "Remove Entry"
+msgid "Remove document"
+msgstr "យក​ធាតុ​ចេញ"
+
+#: view.cpp:120
+#, kde-format
+msgid "Send Package..."
+msgstr "ផ្ញើ​កញ្ចប់​..."
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit Progress..."
+msgstr "កែ​សម្រួល​វឌ្ឍនភាព..."
+
+#: view.cpp:128
+#, kde-format
+msgid "View Description..."
+msgstr "មើល​សេចក្តី​ពិពណ៌នា​..."
+
+#: view.cpp:315
+#, kde-format
+msgid "This file is not editable"
+msgstr "មិន​អាច​កែ​សម្រួល​ឯកសារ​នេះ​បាន​ទេ"
+
+#: view.cpp:335
+#, kde-format
+msgid "No work package is selected"
+msgstr "គ្មាន​ថ្នាំង​ត្រូវ​បាន​ជ្រើស"
+
+#: view.cpp:341
+#, kde-format
+msgid "Cannot find work package"
+msgstr "មិន​អាច​រក​កញ្ចប់​ការងារ"
+
+#: view.cpp:358
+#, fuzzy, kde-format
+#| msgid "Could not open temporary file. Sending is aborted."
+msgid "Could not open file. Sending is aborted."
+msgstr "មិន​អាច​បើក​ឯកសារ​បណ្តោះ​អាសន្ន​ ។ ការផ្ញើ​ត្រូវ​បាន​បោះ​បង់ ។"
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr "មិន​អាច​បើក​ឯកសារ​បណ្តោះ​អាសន្ន​ ។ ការផ្ញើ​ត្រូវ​បាន​បោះ​បង់ ។"
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr "កញ្ចប់​ការងារ ៖ %1"
+
+#: workpackage.cpp:102
+#, kde-format
+msgid "Document is already open"
+msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ"
+
+#: workpackage.cpp:168 workpackage.cpp:223
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​គម្រោង ៖ %1"
+
+#: workpackage.cpp:285
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr "មិន​អាច​រក្សា​ទុក​ឈ្មោះ​ឯកសារ​ទទេ​បាន​ទេ"
+
+#: workpackage.cpp:293
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "មិន​អាច​បង្កើត​ឯកសារ​សម្រាប់​រក្សា​ទុក​បាន​ទេ"
+
+#: workpackage.cpp:307
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "មិន​អាច​សរសេរ​ '%1' ។ ភាគ​ថាស​ពេញ​ឬ ?"
+
+#: workpackage.cpp:333
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"បាន​បរាជ័យក្នុង​ការបើក​ឧបករណ៍​ផ្ទុក​ ៖\n"
+" %1"
+
+#: workpackage.cpp:411
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"មិន​អាច​រក្សា​ទុក​ទៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​បាន​ទេ ៖\n"
+"%1"
+
+#: workpackage.cpp:454
+#, fuzzy
+#| msgid "Remove Entry"
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr "យក​ធាតុ​ចេញ"
+
+#: workpackage.cpp:463
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"បាន​បរាជ័យ​ក្នុង​ការ​អាន​ឯកសារ ៖\n"
+" %1"
+
+#: workpackage.cpp:469
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"បាន​បរាជ័យ​ក្នុង​ការ​សរសេរ​ឯកសារ ៖\n"
+" %1"
+
+#: workpackage.cpp:513
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr "បញ្ចូល​ទិន្នន័យ​ចូល​គ្នា"
+
+#: workpackage.cpp:637
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"កញ្ចប់​ការងារ​ '%2' មាន​ឯកសារ​បើក ។\n"
+"ទិន្នន័យ​អាច​នឹង​ត្រូវ​បាត់បង់ បើ​អ្នក​នៅ​តែ​បន្ត​បើក ។"
+
+#: workpackage.cpp:660
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b> ត្រូវ​បាន​កែប្រែ ។</p><p>​តើ​អ្នក​ចង់​រក្សា​ទុក​វា​ឬ ?</p>"
+
+#: workpackage.cpp:687
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​បើក​ឧបករណ៍​ផ្ទុក​ ៖</p><p>%2</p>"
+
+#: workpackage.cpp:705
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ ៖</p><p>%2</p>"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
+
+#~ msgid "Work Package Settings"
+#~ msgstr "ការកំណត់​កញ្ចប់​ការងារ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Package data:\n"
+#~| "These settings indicates to the receiver of the package which "
+#~| "information is relevant."
+#~ msgid ""
+#~ "Package: %1\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "ទិន្នន័យ​កញ្ចប់​ ៖\n"
+#~ "ការកំណត់​ទាំង​នេះបង្ហាញ​អំពី​អ្នក​ទទួល​កញ្ចប់​ដែល​មាន​ព័ត៌មាន​ពាក់​ព័ន្ធ ។"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr "កែប្រែ​ការកំណត់​កញ្ចប់​"
+
+#~ msgid "The effort you have used on this task."
+#~ msgstr "ទំហំ​ការងារ​ដែល​អ្នក​បាន​ប្រើ​នៅលើ​ភារកិច្ច​នេះ ។"
+
+#~ msgid "Used effort"
+#~ msgstr "ទំហំ​ការងារ​ដែល​បាន​ប្រើ"
+
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "វឌ្ឍនភាព​រួម​មាន​ពេល​វេលា​បាន​បញ្ចប់​ / ចាប់​ផ្តើម​  ពេល​វេលា​បាន​បញ្ចប់​ / បញ្ចប់ និង​ការបញ្ចប់"
+
+#~ msgid "Progress"
+#~ msgstr "វឌ្ឍនភាព"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "ឯកសារ​ត្រូវ​បាន​ភ្ជាប់​ទៅ​ភារកិច្ច​នេះ"
+
+#~ msgid "Documents"
+#~ msgstr "ឯកសារ"
+
+#~ msgid "Package Settings..."
+#~ msgstr "ការកំណត់​កញ្ចប់​..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr "កែប្រែ​ការបញ្ចប់​ភារកិច្ច"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "បាន​ចាប់​ផ្តើម ៖"
+
+#, fuzzy
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "បាន​បញ្ចប់ ៖"
+
+#, fuzzy
+#~| msgid "Add Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "បន្ថែម​ធាតុ"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "យក​ធាតុ​ចេញ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Package data:\n"
+#~| "These settings indicates to the receiver of the package which "
+#~| "information is relevant."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Package data:\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "ទិន្នន័យ​កញ្ចប់​ ៖\n"
+#~ "ការកំណត់​ទាំង​នេះបង្ហាញ​អំពី​អ្នក​ទទួល​កញ្ចប់​ដែល​មាន​ព័ត៌មាន​ពាក់​ព័ន្ធ ។"
+
+#, fuzzy
+#~| msgid "The effort you have used on this task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "ទំហំ​ការងារ​ដែល​អ្នក​បាន​ប្រើ​នៅលើ​ភារកិច្ច​នេះ ។"
+
+#, fuzzy
+#~| msgid "Used effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Used effort"
+#~ msgstr "ទំហំ​ការងារ​ដែល​បាន​ប្រើ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Progress includes started / start time, finished / finish time and "
+#~| "completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "វឌ្ឍនភាព​រួម​មាន​ពេល​វេលា​បាន​បញ្ចប់​ / ចាប់​ផ្តើម​  ពេល​វេលា​បាន​បញ្ចប់​ / បញ្ចប់ និង​ការបញ្ចប់"
+
+#, fuzzy
+#~| msgid "Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "វឌ្ឍនភាព"
+
+#, fuzzy
+#~| msgid "The documents attached to this task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "ឯកសារ​ត្រូវ​បាន​ភ្ជាប់​ទៅ​ភារកិច្ច​នេះ"
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "ឯកសារ"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "កែសម្រួល"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "មើល"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "មើល"
+
+#, fuzzy
+#~| msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr "PlanWork - កម្មវិធី​គ្រប់​គ្រង​កញ្ចប់​ការងារ​សម្រាប់​ឧបករណ៍គ្រោង​របស់​គម្រោង Plan"
+
+#, fuzzy
+#~| msgctxt "application name"
+#~| msgid "Plan WorkPackage Handler"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "រៀបចំផែនការ​នៃ​កម្មវិធី​គ្រប់គ្រង WorkPackage"
+
+#, fuzzy
+#~| msgid "(c) 2007-2011, The Plan Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "រក្សា​សិទ្ធិ​ឆ្នាំ​ ២០០៧ -២០១១ ដោយ​ក្រុម Plan"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, អេង វណ្ណៈ, អោក ពិសិដ្ឋ"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info, \n"
+#~ "evannak@khmeros.info,piseth_dv@khmeros.info"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "ឯកសារ​ត្រូវ​បើក"
+
+#, fuzzy
+#~| msgid "Failed to open document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ"
+
+#, fuzzy
+#~| msgid "The file %1 does not exist."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "មិនមាន​ឯកសារ ៖ %1"
+
+#, fuzzy
+#~| msgid "Work Package Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package Settings"
+#~ msgstr "ការកំណត់​កញ្ចប់​ការងារ"
+
+#, fuzzy
+#~| msgid "Document is already open:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ​ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Could not extract document from storage:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ពី​ឧបករណ៍​ផ្ទុក​ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Invalid URL:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr " URL មិន​​ត្រឹម​ត្រូវ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Document is already open:<br> %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ ៖<br> %1"
+
+#, fuzzy
+#~| msgid "File does not exist:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "មិន​មាន​ឯកសារ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "កែសម្រួល​ជា​មួយ ៖"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package already exists in the projects store.</p><p>Project: "
+#~| "%1<br>Task: %2</p><p>Do you want to update the existing package with "
+#~| "data from the new?</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "<p>មាន​កញ្ចប់​ការងារនៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​រួច​ហើយ ។</p><p>គម្រោង​ ៖ %1<br>ភារកិច្ច​ ៖ "
+#~ "%2</p><p>​តើ​អ្នក​ចង់​ធ្វើ​បច្ចុប្បន្នភាព​យ​កញ្ចប់​ដែល​មាន​ស្រា​័យ​ជា​មួយ​នឹង​ទិន្នន័យ​មក​ពី​កញ្ចប់​ថ្មី​ដែរ​ឬ​ទេ ?</"
+#~ "p>"
+
+#, fuzzy
+#~| msgid "Remove failed. Cannot find work package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove failed. Cannot find work package"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការយក​ចេញ ។ មិន​អាច​រក​កញ្ច​ប់​ការងារ​ឃើញ​ទេ"
+
+#, fuzzy
+#~| msgid "Failed to load file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ឯកសារ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Not a valid work package file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not a valid work package file:<br>%1"
+#~ msgstr "មិន​មែន​ជាឯកសារ​កញ្ចប់ការងារ​ត្រឹម​ត្រូវ​ទេ ៖<br>%1"
+
+#, fuzzy
+#~| msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ ឯកសារ​មិន​មាន​ 'maindoc.xml' ទេ ។"
+
+#, fuzzy
+#~| msgid "Failed to open file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ ៖ %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgstr "ញែក​កំហុស​នៅ​ក្នុង​ឯកសារ '%1' នៅ​បន្ទាត់ %2 ជួរ​ឈរ​ %3<br>សារកំហុស ៖ %4"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ គ្មាន​ប្រភេទ​ mimetype ដែល​បាន​បញ្ជាក់​ទេ ។"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document is a newer version than supported by PlanWork (syntax "
+#~| "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~| "information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "ឯកសារ​នេះ​ គឺ​ជា​កំណែ​ថ្មី​ជាង​ដែលបាន​គាំទ្រ​ដោយ PlanWork (កំណែ​វាក្យសម្ព័ន្ធ ៖ %1)<br>បើក​វា​នៅ​"
+#~ "ក្នុង​កំណែ​ PlanWork នេះ​នឹង​បាត់បង់​ព័ត៌មាន​មួយ​ចំនួន ។"
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "បន្ត"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "មិន​ផ្គូផ្គង​ទ្រង់ទ្រាយ​ឯកសារ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
+
+#, fuzzy
+#~| msgid "Edit failed. Cannot find a work package."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit failed. Cannot find a work package."
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការកែ​សម្រួល ។ មិន​អាច​រក​កញ្ចប់​ការងារ​ឃើញ​ទេ ។"
+
+#, fuzzy
+#~| msgid "Task Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "វឌ្ឍនភាព​ភារកិច្ច"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "ឈ្មោះ​"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "ប្រភេទ"
+
+#, fuzzy
+#~| msgid "Responsible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "ទទួល​ខុស​ត្រូវ"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "សេចក្តី​ពិពណ៌នា"
+
+#, fuzzy
+#~| msgid "Planned Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "ចាប់​ផ្តើម​តាមការគ្រោង"
+
+#, fuzzy
+#~| msgid "Planned Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "បញ្ចប់​តាម​ការគ្រោង"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "ការកំណត់​ធន​ធាន"
+
+#, fuzzy
+#~| msgid "Completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "ការបញ្ចប់"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "ទំហំ​ការងារ​ជាក់​ស្តែង"
+
+#, fuzzy
+#~| msgid "Remaining Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "ទំហំ​ការងារ​ដែល​នៅ​សល់"
+
+#, fuzzy
+#~| msgid "Planned Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "ទំហំ​ការងារ​ដែល​បាន​គ្រោង"
+
+#, fuzzy
+#~| msgid "Actual Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "ពេល​ចាប់​ផ្តើម​ជាក់​ស្តែង"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "បាន​បញ្ចប់"
+
+#, fuzzy
+#~| msgid "Actual Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "ពេល​បញ្ចប់​ជាក់​ស្តែង"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "បាន​បញ្ចប់"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "ចំណាំ"
+
+#, fuzzy
+#~| msgid "Project Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "ឈ្មោះ​គម្រោង"
+
+#, fuzzy
+#~| msgid "Project Manager"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "អ្នក​គ្រប់​គ្រង​គម្រោង"
+
+#, fuzzy
+#~| msgid "Configure View..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "កំណត់​រចនា​សម្ព័ន្ធ​ទិដ្ឋភាព..."
+
+#, fuzzy
+#~| msgid "Remove Packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "យក​កញ្ចប់​ចេញ"
+
+#, fuzzy
+#~| msgid "Remove Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "យក​កញ្ចប់​ចេញ"
+
+#, fuzzy
+#~| msgid "Configure PlanWork..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ PlanWork..."
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "កែសម្រួល"
+
+#, fuzzy
+#~| msgctxt "@verb"
+#~| msgid "View..."
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "មើល"
+
+#, fuzzy
+#~| msgid "Send Package..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Send Package..."
+#~ msgstr "ផ្ញើ​កញ្ចប់​..."
+
+#, fuzzy
+#~| msgid "Package Settings..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Package Settings..."
+#~ msgstr "ការកំណត់​កញ្ចប់​..."
+
+#, fuzzy
+#~| msgid "Edit Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "កែ​សម្រួល​វឌ្ឍនភាព..."
+
+#, fuzzy
+#~| msgid "View Description..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View Description..."
+#~ msgstr "មើល​សេចក្តី​ពិពណ៌នា​..."
+
+#, fuzzy
+#~| msgid "This file is not editable"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "មិន​អាច​កែ​សម្រួល​ឯកសារ​នេះ​បាន​ទេ"
+
+#, fuzzy
+#~| msgid "No work package is selected"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No work package is selected"
+#~ msgstr "គ្មាន​ថ្នាំង​ត្រូវ​បាន​ជ្រើស"
+
+#, fuzzy
+#~| msgid "Cannot find work package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot find work package"
+#~ msgstr "មិន​អាច​រក​កញ្ចប់​ការងារ"
+
+#, fuzzy
+#~| msgid "Could not open temporary file. Sending is aborted."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not open temporary file. Sending is aborted."
+#~ msgstr "មិន​អាច​បើក​ឯកសារ​បណ្តោះ​អាសន្ន​ ។ ការផ្ញើ​ត្រូវ​បាន​បោះ​បង់ ។"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "កញ្ចប់​ការងារ ៖ %1"
+
+#, fuzzy
+#~| msgid "Document is already open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ"
+
+#, fuzzy
+#~| msgid "Failed to load project: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​គម្រោង ៖ %1"
+
+#, fuzzy
+#~| msgid "Cannot save to empty filename"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot save to empty filename"
+#~ msgstr "មិន​អាច​រក្សា​ទុក​ឈ្មោះ​ឯកសារ​ទទេ​បាន​ទេ"
+
+#, fuzzy
+#~| msgid "Could not create the file for saving"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "មិន​អាច​បង្កើត​ឯកសារ​សម្រាប់​រក្សា​ទុក​បាន​ទេ"
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "មិន​អាច​សរសេរ​ '%1' ។ ភាគ​ថាស​ពេញ​ឬ ?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "បាន​បរាជ័យក្នុង​ការបើក​ឧបករណ៍​ផ្ទុក​ ៖\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot save to projects store:\n"
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "មិន​អាច​រក្សា​ទុក​ទៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​បាន​ទេ ៖\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed read file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "បាន​បរាជ័យ​ក្នុង​ការ​អាន​ឯកសារ ៖\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed write file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "បាន​បរាជ័យ​ក្នុង​ការ​សរសេរ​ឯកសារ ៖\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~| "lost if you continue.</p>"
+#~| msgid_plural ""
+#~| "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~| "lost if you continue.</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgid_plural ""
+#~ "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgstr[0] ""
+#~ "កញ្ចប់​ការងារ​ '%2' មាន​ឯកសារ​បើក ។\n"
+#~ "ទិន្នន័យ​អាច​នឹង​ត្រូវ​បាត់បង់ បើ​អ្នក​នៅ​តែ​បន្ត​បើក ។"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~| "save it?</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~ "save it?</p>"
+#~ msgstr ""
+#~ "<p>កញ្ចប់​ការងារ <b>'%1'</b> ត្រូវ​បាន​កែប្រែ ។</p><p>​តើ​អ្នក​ចង់​រក្សា​ទុក​វា​ឬ ?</p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​បើក​ឧបករណ៍​ផ្ទុក​ ៖</p><p>%2</p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ ៖</p><p>%2</p>"
+
+#~ msgid "&Settings"
+#~ msgstr "ការ​កំណត់"

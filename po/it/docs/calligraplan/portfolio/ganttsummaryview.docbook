@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Riepilogo Gantt</title>
+<sect1 id="description"
+><title
+>Descrizione</title
+>&WORK-IN-PROGRESS; <para
+>Mostra un diagramma di Gantt di tutti i progetti nel tuo portafoglio. </para
+><para
+>Una vista Gantt per un progetto può essere mostrata selezionando <userinput
+>Menu contestuale->Apri progetto</userinput
+>. </para>
+</sect1>
+</chapter>

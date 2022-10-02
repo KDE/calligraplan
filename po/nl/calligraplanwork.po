@@ -1,0 +1,1264 @@
+# translation of kplatowork.po to Dutch
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Rinse de Vries <rinsedevries@kde.nl>, 2007.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012, 2013, 2014, 2016, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kplatowork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"PO-Revision-Date: 2022-03-08 15:11+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr "PlanWork - Werkpakketbeheerder voor het Plan-projectplanninghulpmiddel"
+
+#: aboutdata.h:27
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Plan werkpakketbeheerder"
+
+#: aboutdata.h:31
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998-%1, het team van Plan"
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Rinse de Vries,Antoon Tolboom,Freek de Kruijf"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "rinsedevries@kde.nl,,freekdekruijf@kde.nl"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "Be&werken"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Beeld"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Beel&d"
+
+#: commandlineparser.cpp:35
+#, kde-format
+msgid "File to open"
+msgstr "Bestand om te openen"
+
+#: commandlineparser.cpp:92
+#, kde-format
+msgid "Failed to open document"
+msgstr "Openen van document is mislukt"
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Het bestand %1 bestaat niet."
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "Document is reeds geopend:<br>%1"
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Kon document niet uit de opslag halen:<br>%1"
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "Ongeldig URL-adres:<br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "Document is reeds geopend:<br>%1"
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "Bestand bestaat niet:<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr "Bewerken met:"
+
+#: part.cpp:379
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"<p>Het werkpakket bestaat reeds in de projectopslag.</p><p>Project: "
+"%1<br>Taak: %2</p><p>Wilt u het bestaande pakket bijwerken met data uit de "
+"nieuwe?</p>"
+
+#: part.cpp:410
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "Verwijderen is mislukt. Kan het werkpakket niet vinden"
+
+#: part.cpp:414
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr "Werkpakket verwijderen"
+
+#: part.cpp:425
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "Werkpakket verwijderen"
+msgstr[1] "Werkpakketen verwijderen"
+
+#: part.cpp:466
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Laden van bestand is mislukt:<br>%1"
+
+#: part.cpp:488
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "Geen geldig bestand met een werkpakket:<br>%1"
+
+#: part.cpp:518
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Ongeldig document. Het document bevat geen 'maindoc.xml'."
+
+#: part.cpp:546
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Openen van bestand is mislukt:%1"
+
+#: part.cpp:560
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+"Fout bij ontleden in bestand %1 bij regel %2, kolom %3<br>Foutboodschap: %4"
+
+#: part.cpp:579 part.cpp:630
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Ongeldig document. Geen mime-bestandstype opgegeven."
+
+#: part.cpp:587
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Ongeldig document. Mime-bestandstype application/x-vnd.kde.plan.work werd "
+"verwacht, %1 werd ontvangen"
+
+#: part.cpp:598 part.cpp:646
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Dit document is gemaakt met een nieuwere versie van PlanWork (syntaxis-"
+"versie: %1)<br>Als u het opent in deze versie van PlanWork, dan verliest u "
+"enige informatie."
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Bestandstype komt niet overeen"
+
+#: part.cpp:636
+#, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr "Ongeldig document. Verwacht mime-type %2, %1 werd ontvangen"
+
+#: part.cpp:738
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "Bewerken is mislukt. Kan het werkpakket niet vinden."
+
+#: taskcompletiondialog.cpp:32
+#, kde-format
+msgid "Task Progress"
+msgstr "Voortgang van taak"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Gestart:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Beëindigd:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Item toevoegen"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Item verwijderen"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr "Type: %1<nl/>Url: %2"
+
+#: taskworkpackagemodel.cpp:433
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "Voltooiing wijzigen"
+
+#: taskworkpackagemodel.cpp:468
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "Op geëindigd instellen"
+
+#: taskworkpackagemodel.cpp:489
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "Resterende inspanning wijzigen"
+
+#: taskworkpackagemodel.cpp:502
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "Werkelijke inspanning wijzigen"
+
+#: taskworkpackagemodel.cpp:600
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Naam"
+
+#: taskworkpackagemodel.cpp:601
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Type"
+
+#: taskworkpackagemodel.cpp:602
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Verantwoordelijk"
+
+#: taskworkpackagemodel.cpp:603
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Beschrijving"
+
+#: taskworkpackagemodel.cpp:606
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Geplande start"
+
+#: taskworkpackagemodel.cpp:607
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Gepland einde"
+
+#: taskworkpackagemodel.cpp:608
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "Toewijzingen van hulpbronnen "
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Voltooiing"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Werkelijke inspanning"
+
+#: taskworkpackagemodel.cpp:613
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Resterende inspanning"
+
+#: taskworkpackagemodel.cpp:614
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Geplande inspanning"
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Werkelijke start"
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Gestart"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "Werkelijk einde"
+
+#: taskworkpackagemodel.cpp:618
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Beëindigd"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Status"
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Notitie"
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Projectnaam"
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Projectbeheerder"
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#, kde-format
+msgid "Configure View..."
+msgstr "Weergave configureren..."
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+"Taak: %1<nl/>Werkelijk einde: %2<nl/>Gepland einde: %3<nl/>Status: %4<nl/"
+">Project: %5"
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+"Taak: %1<nl/>Voltooid: %2 %<nl/>Werkelijke start: %3<nl/>Gepland: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr "Taak: %1<nl/>Gepland: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "Pakketten verwijderen"
+
+#: view.cpp:88
+#, kde-format
+msgid "Remove Package"
+msgstr "Pakket verwijderen"
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr "Lijst"
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr "Takenlijst selecteren"
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr "Tijdlijn selecteren"
+
+#: view.cpp:103
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "PlanWork instellen..."
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "Bewerken..."
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "Tonen..."
+
+#: view.cpp:116
+#, kde-format
+msgid "Remove document"
+msgstr "Document verwijderen"
+
+#: view.cpp:120
+#, kde-format
+msgid "Send Package..."
+msgstr "Pakket verzenden..."
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit Progress..."
+msgstr "Voortgang bewerken..."
+
+#: view.cpp:128
+#, kde-format
+msgid "View Description..."
+msgstr "Beschrijving tonen..."
+
+#: view.cpp:315
+#, kde-format
+msgid "This file is not editable"
+msgstr "Dit bestand kan niet bewerkt worden"
+
+#: view.cpp:335
+#, kde-format
+msgid "No work package is selected"
+msgstr "Geen werkpakket geselecteerd"
+
+#: view.cpp:341
+#, kde-format
+msgid "Cannot find work package"
+msgstr "Kan geen werkpakket vinden"
+
+#: view.cpp:358
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr "Kon bestand niet openen. Verzenden is afgebroken."
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr "Kon tijdelijk bestand niet openen. Verzenden is afgebroken."
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Werkpakket: %1"
+
+#: workpackage.cpp:102
+#, kde-format
+msgid "Document is already open"
+msgstr "Document is reeds geopend"
+
+#: workpackage.cpp:168 workpackage.cpp:223
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "Project laden is mislukt: %1"
+
+#: workpackage.cpp:285
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr "Kan niet opslaan in een lege bestandsnaam"
+
+#: workpackage.cpp:293
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Kon het bestand voor opslaan niet aanmaken"
+
+#: workpackage.cpp:307
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Kon '%1' niet schrijven. Is de partitie vol?"
+
+#: workpackage.cpp:333
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr "Openen van opslag %1 is mislukt"
+
+#: workpackage.cpp:411
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Opslaan in de projectopslag kan niet:\n"
+"%1"
+
+#: workpackage.cpp:454
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr "Document verwijderen"
+
+#: workpackage.cpp:463
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr "Lezen van bestand %1 is mislukt"
+
+#: workpackage.cpp:469
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr "Schrijven van bestand %1 is mislukt"
+
+#: workpackage.cpp:513
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr "Data samenvoegen"
+
+#: workpackage.cpp:637
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"<p>Het werkpakket <b>'%2'</b> heeft een open document.</p><p>Data kan "
+"verloren gaan als u doorgaat.</p>"
+msgstr[1] ""
+"<p>Het werkpakket <b>'%2'</b> heeft open documenten.</p><p>Data kan verloren "
+"gaan als u doorgaat.</p>"
+
+#: workpackage.cpp:660
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+"<p>Het werkpakket <b>'%1'</b> is gewijzigd.</p><p>Wilt u het opslaan?.</p>"
+
+#: workpackage.cpp:687
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+"<p>Werkpakket <b>'%1'</b></p><p>Kon de opslag niet openen:</p><p>%2</p>"
+
+#: workpackage.cpp:705
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr "<p>Werkpakket <b>'%1'</b></p><p>Kon bestand niet ophalen:</p><p>%2</p>"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Ongeldig document. Mime-bestandstype application/x-vnd.kde.kplato.work "
+#~ "werd verwacht, %1 werd ontvangen"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"
+#~ msgstr "%1: <emphasis>%2</emphasis><para>%3</para>"
+
+#~ msgid "Work Package Settings"
+#~ msgstr "Werkpakketinstellingen"
+
+#~ msgid ""
+#~ "Package: %1\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Pakket: %1\n"
+#~ "Deze instellingen laten de ontvanger van het pakket weten welke "
+#~ "informatie relevant is."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr "Pakketinstellingen wijzigen"
+
+#~ msgid "The effort you have used on this task."
+#~ msgstr "De inspanning die u hebt geleverd in deze taak."
+
+#~ msgid "Used effort"
+#~ msgstr "Geleverde inspanning"
+
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Voortgang omvat gestart / starttijd, geëindigd / eindtijd en voltooiing"
+
+#~ msgid "Progress"
+#~ msgstr "Voortgang"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "De aan deze taak gevoegde documenten"
+
+#~ msgid "Documents"
+#~ msgstr "Documenten"
+
+#~ msgid "Package Settings..."
+#~ msgstr "Pakketinstellingen..."
+
+#~ msgid "Planned effort for %1: %2. Total planned effort for task: %3"
+#~ msgstr ""
+#~ "Geplande inspanning voor %1: %2. Totaal geplande inspanning voor taak: %3"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr "Taakvoltooiing wijzigen"
+
+#~ msgctxt "@title:column"
+#~ msgid "Total"
+#~ msgstr "Totaal"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Used effort since previous entry"
+#~ msgstr "Gebruikte inspanning sinds vorige invoer"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Accumulated used effort"
+#~ msgstr "Geaccumuleerde gebruikte inspanning"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "Gestart:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Beëindigd:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Item toevoegen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Item verwijderen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Package data:\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Pakketdata:\n"
+#~ "Deze instellingen laten de ontvanger van het pakket weten welke "
+#~ "informatie relevant is."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "De inspanning die u hebt geleverd in deze taak."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Used effort"
+#~ msgstr "Geleverde inspanning"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Voortgang omvat gestart / starttijd, geëindigd / eindtijd en voltooiing"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Voortgang"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "De aan deze taak gevoegde documenten"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Documenten"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "B&ewerken"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Beeld"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Beeld"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr ""
+#~ "PlanWork - Werkpakketbeheerder voor het Plan-projectplanninghulpmiddel"
+
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Plan werkpakketbeheerder"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "Copyright 1998-%1, het team van Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Rinse de Vries,Antoon Tolboom,Freek de Kruijf"
+
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "rinsedevries@kde.nl,,freekdekruijf@kde.nl"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "Te openen bestand"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "Openen van document is mislukt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Het bestand %1 bestaat niet."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package Settings"
+#~ msgstr "Werkpakketinstellingen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Document is reeds geopend:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Kon document niet uit de opslag halen:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "Ongeldig URL-adres:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Document is reeds geopend:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "Bestand bestaat niet:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Bewerken met:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "<p>Het werkpakket bestaat reeds in de projectopslag.</p><p>Project: "
+#~ "%1<br>Taak: %2</p><p>Wilt u het bestaande pakket bijwerken met data uit "
+#~ "de nieuwe?</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove failed. Cannot find work package"
+#~ msgstr "Verwijderen is mislukt. Kan het werkpakket niet vinden"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Laden van bestand is mislukt:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not a valid work package file:<br>%1"
+#~ msgstr "Geen geldig bestand met een werkpakket:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Ongeldig document. Het document bevat geen 'maindoc.xml'."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Openen van bestand is mislukt:%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgstr ""
+#~ "Fout bij ontleden in bestand %1 bij regel %2, kolom %3<br>Foutboodschap: "
+#~ "%4"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Ongeldig document. Geen mime-bestandstype opgegeven."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Ongeldig document. Mime-bestandstype application/x-vnd.kde.plan.work werd "
+#~ "verwacht, %1 werd ontvangen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "Dit document is gemaakt met een nieuwere versie van PlanWork (syntaxis-"
+#~ "versie: %1)<br>Als u het opent in deze versie van PlanWork, dan verliest "
+#~ "u enige informatie."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Doorgaan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Bestandstype komt niet overeen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Ongeldig document. Mime-bestandstype application/x-vnd.kde.kplato.work "
+#~ "werd verwacht, %1 werd ontvangen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit failed. Cannot find a work package."
+#~ msgstr "Bewerken is mislukt. Kan het werkpakket niet vinden."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "Voortgang van taak"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "Verantwoordelijk"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "Geplande start"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "Gepland einde"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Toewijzingen van hulpbronnen "
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Voltooiing"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "Werkelijke inspanning"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "Resterende inspanning"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "Geplande inspanning"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "Werkelijke start"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "Gestart"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "Werkelijk einde"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Voltooid"
+
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Notitie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Projectnaam"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Projectbeheerder"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Weergave instellen..."
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+#~ ">Project: %5"
+#~ msgstr ""
+#~ "Taak: %1<nl/>Werkelijk einde: %2<nl/>Gepland einde: %3<nl/>Status: %4<nl/"
+#~ ">Project: %5"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - "
+#~ "%5<nl/>Status: %6<nl/>Project: %7"
+#~ msgstr ""
+#~ "Taak: %1<nl/>Voltooid: %2 %<nl/>Werkelijke start: %3<nl/>Gepland: %4 - "
+#~ "%5<nl/>Status: %6<nl/>Project: %7"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+#~ msgstr "Taak: %1<nl/>Gepland: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "Pakketten verwijderen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "Pakket verwijderen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Lijst"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select task list"
+#~ msgstr "Takenlijst selecteren"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select timeline"
+#~ msgstr "Tijdlijn selecteren"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "PlanWork instellen..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Bewerken..."
+
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Beeld..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Send Package..."
+#~ msgstr "Pakket verzenden..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Package Settings..."
+#~ msgstr "Pakketinstellingen..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "Voortgang bewerken..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View Description..."
+#~ msgstr "Beschrijving tonen..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "Dit bestand kan niet bewerkt worden"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No work package is selected"
+#~ msgstr "Geen werkpakket geselecteerd"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot find work package"
+#~ msgstr "Kan geen werkpakket vinden"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not open temporary file. Sending is aborted."
+#~ msgstr "Kon tijdelijk bestand niet openen. Verzenden is afgebroken."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Werkpakket: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "Document is reeds geopend"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr "Project laden is mislukt: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot save to empty filename"
+#~ msgstr "Kan niet opslaan in een lege bestandsnaam"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Kon het bestand voor opslaan niet aanmaken"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Kon '%1' niet schrijven. Is de partitie vol?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr "Openen van opslag %1 is mislukt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Opslaan in de projectopslag kan niet:\n"
+#~ "%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr "Lezen van bestand %1 is mislukt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr "Schrijven van bestand %1 is mislukt"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgid_plural ""
+#~ "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgstr[0] ""
+#~ "<p>Het werkpakket <b>'%2'</b> heeft een open document.</p><p>Data kan "
+#~ "verloren gaan als u doorgaat.</p>"
+#~ msgstr[1] ""
+#~ "<p>Het werkpakket <b>'%2'</b> heeft open documenten.</p><p>Data kan "
+#~ "verloren gaan als u doorgaat.</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~ "save it?</p>"
+#~ msgstr ""
+#~ "<p>Het werkpakket <b>'%1'</b> is gewijzigd.</p><p>Wilt u het opslaan?.</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Werkpakket <b>'%1'</b></p><p>Kon de opslag niet openen:</p><p>%2</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Werkpakket <b>'%1'</b></p><p>Kon bestand niet ophalen:</p><p>%2</p>"
+
+#~ msgid "Copyright (C) 2007-2013, The Plan Team"
+#~ msgstr "(c) 2007-2013, het team van Plan"
+
+#~ msgid "&Settings"
+#~ msgstr "&Instellingen"
+
+#~ msgid "Edit Mode:"
+#~ msgstr "Bewerkingsmodus:"
+
+#~ msgid "Calculate"
+#~ msgstr "Berekenen"
+
+#~ msgid "Manual entry"
+#~ msgstr "Handmatige item"
+
+#~ msgid "Estimate of the remaining effort"
+#~ msgstr "Schatting van de resterende inspanning"
+
+#~ msgid "Remaining effort"
+#~ msgstr "Resterende inspanning"
+
+#~ msgid "Modify % Completed"
+#~ msgstr "%-voltooid wijzigen"
+
+#~ msgid "No template found for: %1 "
+#~ msgstr "Geen sjabloon gevonden voor: %1 "
+
+#~ msgid "Too many templates found for: %1"
+#~ msgstr "Teveel sjablonen gevonden voor: %1"
+
+#~ msgid "Template %1 failed to load."
+#~ msgstr "Sjabloon %1 kon niet worden geladen."
+
+#~ msgid "Close"
+#~ msgstr "Sluiten"
+
+#~ msgid "Empty"
+#~ msgstr "Leeg"
+
+#~ msgctxt "Main document"
+#~ msgid " [main]"
+#~ msgstr "[hoofd]"
+
+#~ msgid " [write protected]"
+#~ msgstr "[tegen schrijven beveiligd]"
+
+#~ msgid "Part Handbook"
+#~ msgstr "Onderdeel-handboek"
+
+#~ msgid "%1 Handbook"
+#~ msgstr "%1-handboek"
+
+#~ msgid "Open Document"
+#~ msgstr "Document openen"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
+
+#~ msgid ""
+#~ "Document is already open:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Document is reeds geopend:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "This workpackage already exists in your project store:\n"
+#~ "%1\n"
+#~ "Do you want to overwrite it?"
+#~ msgstr ""
+#~ "Dit werkpakket bestaat reeds in uw projectopslag:\n"
+#~ "%1\n"
+#~ "Wilt u het overschrijven?"
+
+#~ msgid ""
+#~ "This workpackage is not in your project store:\n"
+#~ "%1\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Dit werkpakket bestaat niet in uw projectopslag:\n"
+#~ "%1\n"
+#~ "Wilt u het opslaan?"
+
+#~ msgid ""
+#~ "Could not open workpackage store:\n"
+#~ " %1"
+#~ msgstr "Kan het werkpakketopslag %1 niet openen"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ " %1"
+#~ msgstr "Kan het bestand %1 niet uitpakken"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ "%1"
+#~ msgstr "Kan het bestand %1 niet uitpakken"
+
+#~ msgid "none"
+#~ msgstr "geen"
+
+#~ msgid "Information"
+#~ msgstr "Informatie"
+
+#~ msgid "Add Schedule %1"
+#~ msgstr "Planning %1 toevoegen"
+
+#~ msgid "Delete Schedule %1"
+#~ msgstr "Planning %1 verwijderen"
+
+#~ msgid "Not scheduled"
+#~ msgstr "Niet gepland"

@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>Sul grafico delle prestazioni dell'attività, è possibile analizzare in profondità ogni sotto-attività o attività con gli stessi indici della vista delle prestazioni del progetto. </para>
+<para
+>Questo è davvero utile in un progetto lungo e complicato. </para>
+<para
+>Nella finestra di sinistra, è possibile scegliere ogni singola sotto-attività così come un'intera attività, quindi nella finestra di destra apparirà nel grafico corrispondente. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>dove: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS significa costo preventivato del lavoro pianificato,</para
+></listitem>
+  <listitem
+><para
+>BCWP significa costo preventivato del lavoro eseguito,</para
+></listitem>
+  <listitem
+><para
+>ACWP significa costo effettivo del lavoro eseguito.</para
+></listitem>
+</itemizedlist>
+<para
+>Tutti questi sono considerato come lavoro in ore e costi. </para>
+<para
+>PI sono indici di prestazione, dove: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI è l'indice di prestazione dei costi,</para
+></listitem>
+  <listitem
+><para
+>SPI è l'indice di prestazione delle pianificazioni.</para
+></listitem>
+</itemizedlist>
+</sect2>

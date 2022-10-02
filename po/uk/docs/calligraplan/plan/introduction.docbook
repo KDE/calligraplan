@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Можливості: </para>
+<itemizedlist>
+  <listitem
+><para
+>Керування завданнями за допомогою <link linkend="task-editor"
+>редактора завдань</link
+>.<itemizedlist>
+        <listitem
+><para
+>Структура розподілу робіт з визначенням кодів структури.</para
+></listitem>
+        <listitem
+><para
+>Завдання, підсумкові завдання та етапи.</para
+></listitem>
+        <listitem
+><para
+>Різні типи обмежень за часом.</para
+></listitem>
+        <listitem
+><para
+>Різні типи залежностей.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Керування виконавцями за допомогою <link linkend="resource-editor"
+>редактора виконавців</link
+>.<itemizedlist>
+        <listitem
+><para
+>Структура розподілу виконавців.</para
+></listitem>
+        <listitem
+><para
+>Типи виконавців за роботою та матеріалами.</para
+></listitem>
+        <listitem
+><para
+>Розподіл виконавців на групи.</para
+></listitem>
+        <listitem
+><para
+>Команди виконавців.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Визначення робочого часу та відпусток за допомогою <link linkend="work-and-vacation-editor"
+>редактора робочого часу і відпусток</link
+>.</para
+></listitem>
+  <listitem
+><para
+>Керування вартістю за допомогою <link linkend="cost-breakdown-structure-editor"
+>редактора структури розподілу вартості</link
+>.</para
+></listitem>
+  <listitem
+><para
+>Керування прибутками.</para
+></listitem>
+  <listitem
+><para
+>Планування проєктів за допомогою <link linkend="schedules-editor"
+>редактора розкладів</link
+>.<itemizedlist>
+        <listitem
+><para
+>Планування вперед від початкового моменту часту та назад від часу завершення.</para
+></listitem>
+        <listitem
+><para
+>Можливість дозволу або заборони понаднормової роботи.</para
+></listitem>
+        <listitem
+><para
+>Розподіл PERT за оптимістичною, песимістичною та найімовірнішою оцінкою.</para
+></listitem>
+        <listitem
+><para
+>Декілька розкладів з можливістю планування за поточними даними щодо поступу.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Стеження за виконанням завдань за допомогою <link linkend="task-execution-view"
+>панелі виконання завдання</link
+> або <link linkend="task-status-view"
+>панелі перегляду стану завдання</link
+>.</para
+></listitem>
+</itemizedlist>
+</sect2>

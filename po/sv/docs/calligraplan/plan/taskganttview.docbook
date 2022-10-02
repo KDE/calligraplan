@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Beskrivning</title>
+  <para
+>GANTT-vyn används för att visa aktiviteter på en tidslinje. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>GANTT-vy</phrase>
+        </textobject>
+        <caption>
+          <para
+>GANTT-vy</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Redigera data</title>
+  <para
+>Aktivitetsbeskrivning och förlopp kan redigeras genom att använda den sammanhangsberoende menyn. </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Starttid</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd starttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sluttid</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd sluttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% färdiga</para>
+            </entry>
+            <entry>
+              <para
+>Färdig</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in med inställningsdialogrutan.</para>
+              <para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Inställningsdialogruta</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Inställningsdialogruta</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

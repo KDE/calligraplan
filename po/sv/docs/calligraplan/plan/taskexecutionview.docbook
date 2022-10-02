@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Beskrivning</title>
+  <para
+>Aktivitetsutförandevyn används för att inspektera information om aktivitetsprestation. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Data</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Förloppsinformation kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+> eller genom att använda dialogrutan för aktivitetsförlopp.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetsstatus</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% färdiga</para>
+            </entry>
+            <entry>
+              <para
+>När aktiviteten är färdig</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ansvarig</para>
+            </entry>
+            <entry>
+              <para
+>Personen ansvarig för aktiviteten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tilldelning</para>
+            </entry>
+            <entry>
+              <para
+>Resurserna tilldelade till aktiviteten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd prestationsindex (BKUA/BKSA).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BKSA</para>
+            </entry>
+            <entry>
+              <para
+>Budgeterad kostnad av schemalagt arbete.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BKUA</para>
+            </entry>
+            <entry>
+              <para
+>Budgeterad kostnad av utfört arbete.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>VKUA</para>
+            </entry>
+            <entry>
+              <para
+>Verklig kostnad av utfört arbete.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beskrivning</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetsbeskrivning</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Inställning</title>
+  <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in att visa eller dölja projektet, dela eller dra ihop trädvyn, eller anpassas med inställningsdialogrutan. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

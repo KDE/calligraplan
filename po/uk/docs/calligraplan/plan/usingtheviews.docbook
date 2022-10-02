@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Опис</title>
+  <para
+>Редактор завдань — панель перегляду, на якій буде показано ієрархічну структуру даних завдання. Більшість даних на панелі редактора завдань можна редагувати на місці. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Навігація</title>
+  <para
+>Ви можете здійснювати навігацію деревоподібним списком за допомогою клавіатури: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Розгорнути придатний до розгортання рядок.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Згорнути придатний до згортання пункт.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>←</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до попереднього стовпчика у тому самому рядку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>→</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до наступного стовпчика у тому самому рядку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>↑</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до попереднього рядка у тому самому стовпчику.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>↓</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до наступного рядка у тому самому стовпчику.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Home</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до першого рядка, першого стовпчика.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>End</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до останнього рядка, останнього стовпчика.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page Up</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до першого видимого рядка у поточному стовпчику.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page Down</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до останнього видимого рядка у поточному стовпчику.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Редагування даних</title>
+  <para
+>Придатні до редагування записи можна відкрити подвійним клацанням на записі. Якщо користуватися клавіатурою, натискання <keycap
+>F2</keycap
+> відкриває поточний пункт. </para>
+  <para
+>При редагуванні запису ви можете перейти до наступного редагованого запису у такий спосіб: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>←</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до попереднього придатного до редагування пункту у поточному рядку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>→</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до наступного придатного до редагування пункту у поточному рядку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>↑</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до наступного придатного до редагування пункту у попередніх рядках.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>↓</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Перейти до наступного придатного до редагування пункту у наступних рядках.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Перетягування зі скиданням та копіювання зі вставленням</title>
+  <para
+>На більшості панелей програми передбачено можливість перетягування елементів зі скиданням або копіювання зі вставленням. Звичайні діаграми та діаграми Ґанта можна перетягувати до програм, у яких передбачено обробку зображень. Для даних таблиць використано звичайний тип даних MIME HTML, отже їх можна скидати до вікна будь-якої програми, де передбачено обробку даних у цьому форматі. Якщо на панелі передбачено підтримку пересування або копіювання пунктів на внутрішньому рівні, наприклад на панелі <link linkend="task-editor"
+>редактора завдань</link
+>, пункти можна пересувати або копіювати. </para>
+</sect3>
+</sect2>

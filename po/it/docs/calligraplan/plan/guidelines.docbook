@@ -1,0 +1,16 @@
+<chapter id="creating-a-project"
+><title
+>Linee guida</title>
+  <sect1 id="creating-a-project-section"
+><title
+>Creare un progetto</title
+>&creating-project-section; </sect1>
+  <sect1 id="managing-resources"
+><title
+>Gestire le risorse</title
+>&managing-resources-section; </sect1>
+  <sect1 id="creating-odt-report-templates"
+><title
+>Creazione di modelli di resoconti ODT</title
+>&creating-odt-report-templates-section; </sect1>
+</chapter>

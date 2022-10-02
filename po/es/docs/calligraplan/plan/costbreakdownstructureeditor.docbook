@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Descripción</title>
+  <para
+>El editor de la estructura de desglose de costos se usa para crear, editar y borrar cuentas. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Puede conectar tareas y recursos a las cuentas para acumular costos de dichas tareas y recursos. </para>
+  <para
+>La cuenta predeterminada acumula los costos incurridos por las tareas que no están conectadas a una cuenta. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Barra de herramientas</title>
+  <para
+>La barra de herramientas proporciona métodos para crear y borrar cuentas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botón</guilabel
+></entry>
+            <entry
+><guilabel
+>Acceso rápido</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Añadir cuenta</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botón para crear una cuenta. La nueva cuenta se inserta tras la cuenta seleccionada. Si no se selecciona ninguna cuenta, la nueva cuenta se añade en el nivel superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Añadir subcuenta</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botón para crear una subcuenta. La nueva cuenta se añade como hija a la cuenta seleccionada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Borrar</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Suprimir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Borra la cuenta seleccionada.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Edición de datos</title>
+  <para
+>Los datos se pueden editar en línea como se describe <link linkend="using-the-views"
+>aquí</link
+>. </para>
+  <para
+>Están disponibles las siguientes columnas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre de la cuenta.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripción</para>
+            </entry>
+            <entry>
+              <para
+>La descripción de la cuenta.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

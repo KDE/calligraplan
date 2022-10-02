@@ -1,0 +1,27 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Introducció al <application
+>Plan</application
+></title>
+  <sect1 id="introduction-section"
+><title
+>Introducció</title
+>&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Definicions</title
+>&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Ajuda contextual</title
+>&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>L'espai de treball principal</title
+>&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>Usar les vistes</title
+>&using-the-views-section; </sect1>
+</chapter>

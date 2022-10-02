@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Опис</title>
+  <para
+>Редактор структури розподілу вартості призначено для створення, редагування і вилучення облікових записів. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Облікові записи можна з'єднати із завданнями та записами виконавців для накопичення вартості відповідних завдань та виконавців. </para>
+  <para
+>У типовому обліковому записів накопичуються вартості, які пов'язано із завданнями, які не пов'язано із жодним обліковим записом. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів розташовано кнопки для створення та вилучення облікових записів: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Додати обліковий запис</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення облікового запису. Новий обліковий запис буде вставлено після позначеного облікового запису. Якщо жоден із облікових записів не позначено, новий обліковий запис буде додано на початку списку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Додати підзапис</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення підзапису. Новий запис буде дописано як дочірній до позначеного запису.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Вилучити</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучає позначений обліковий запис.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Редагування даних</title>
+  <para
+>Дані можна редагувати на місці у спосіб, який описано <link linkend="using-the-views"
+>тут</link
+>. </para>
+  <para
+>Можна скористатися такими стовпчиками: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва запису.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Опис</para>
+            </entry>
+            <entry>
+              <para
+>Опис запису.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

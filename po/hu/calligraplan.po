@@ -1,0 +1,5918 @@
+#
+# Tamas Szanto <tszanto@mol.hu>, 2002.
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2011, 2012.
+# Balázs Úr <urbalazs@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: KOffice 1.6\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"PO-Revision-Date: 2012-12-12 23:19+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4 calligraplan_shell.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Fájl"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:28
+#, kde-format
+msgid "&Edit"
+msgstr "Sz&erkesztés"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:37 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Né&zet"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:44
+#, kde-format
+msgid "&Project"
+msgstr "&Projekt"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:52
+#, kde-format
+msgid "&Tools"
+msgstr "&Eszközök"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:58 calligraplan_shell.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "&Beállítások"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:62 calligraplan_shell.rc:23
+#, kde-format
+msgid "&Help"
+msgstr "&Súgó"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: calligraplan.rc:66
+#, fuzzy, kde-format
+#| msgid "&File"
+msgid "File"
+msgstr "&Fájl"
+
+#. i18n: ectx: ToolBar (edit_toolbar)
+#: calligraplan.rc:72
+#, fuzzy, kde-format
+msgid "Edit"
+msgstr "Szerkesztés..."
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, fuzzy, kde-format
+#| msgid "Hours per year:"
+msgid "Hours per year"
+msgstr "Óra / év:"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, fuzzy, kde-format
+#| msgid "Hours per month:"
+msgid "Hours per month"
+msgstr "Óra / hónap:"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, fuzzy, kde-format
+#| msgid "Hours per week:"
+msgid "Hours per week"
+msgstr "Óra / hét:"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Hours per day"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate working week"
+msgstr "Elosztási struktúra készítése"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate working week options"
+msgstr "Elosztási struktúra készítése"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate holidays"
+msgstr "Elosztási struktúra készítése"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate holidays options"
+msgstr "Elosztási struktúra készítése"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, fuzzy, kde-format
+#| msgid "Parent calendar:"
+msgid "In base calendar"
+msgstr "Szülőnaptár:"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, fuzzy, kde-format
+msgid "As sub-calendar"
+msgstr "Részfeladat hozzáadása"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, fuzzy, kde-format
+msgid "As separate calendar"
+msgstr "Szülőnaptár:"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr ""
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Monday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, fuzzy, kde-format
+#| msgid "Starting Date"
+msgid "Start of working day"
+msgstr "Kezdési dátum"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, fuzzy, kde-format
+#| msgid "Starting Date"
+msgid "End of working day"
+msgstr "Kezdési dátum"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Tuesday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, fuzzy, kde-format
+msgid "Wednesday:"
+msgstr "Hétköznapok"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Thursday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Friday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Saturday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Sunday:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, fuzzy, kde-format
+#| msgid "Project n&ame:"
+msgid "Name of project manager"
+msgstr "A projekt n&eve:"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, fuzzy, kde-format
+#| msgid "Assign resources:"
+msgid "Use shared resources"
+msgstr "Erőforrások hozzárendelése:"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, fuzzy, kde-format
+#| msgid "Assign resources:"
+msgid "File to contain shared resources"
+msgstr "Erőforrások hozzárendelése:"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, fuzzy, kde-format
+#| msgid "Task description"
+msgid "Project description"
+msgstr "Feladat leírása"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:176
+#, kde-format
+msgid "Name of task responsible"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Ütemezési megszorítás típus"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:192
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:201
+#, fuzzy, kde-format
+msgid "Constraint start date and time"
+msgstr "Megszorítások"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:213
+#, fuzzy, kde-format
+msgid "Constraint end date and time"
+msgstr "Megszorítások"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:217
+#, fuzzy, kde-format
+msgid "Type of estimate"
+msgstr "A név módosítása"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:225
+#, fuzzy, kde-format
+msgid "Estimate time unit"
+msgstr "Becslés:"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:239
+#, kde-format
+msgid "Expected estimate"
+msgstr "Várt becslés"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:243
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Optimista becslés"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:247
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Pesszimista becslés"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:252
+#, kde-format
+msgid "Task description"
+msgstr "Feladat leírása"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:258
+#, kde-format
+msgid "Gradient"
+msgstr "Gradiens"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:260 config/kptcolorsconfigpanel.cpp:20
+#, kde-format
+msgid "Linear"
+msgstr "Lineáris"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261 config/kptcolorsconfigpanel.cpp:21
+#, kde-format
+msgid "Flat"
+msgstr "Sima"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:266
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Enable summary task level colors"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:270
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Summary task default color"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:274
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Summary task color, level 1"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:278
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Summary task color, level 2"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:282
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Summary task color, level 3"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:286
+#, fuzzy, kde-format
+#| msgctxt "@title:tab"
+#| msgid "Summary task"
+msgid "Summary task color, level 4"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:290
+#, kde-format
+msgid "Task color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:294
+#, kde-format
+msgid "Task color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:298
+#, kde-format
+msgid "Task color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:302
+#, kde-format
+msgid "Task color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:306
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:310
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:314
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:318
+#, kde-format
+msgid "Milestone color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:325
+#, fuzzy, kde-format
+#| msgid "Check for work packages"
+msgid "Automatically check for new work packages"
+msgstr "Munkacsomagok keresése"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr ""
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr ""
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:346
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:350
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:357
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Path to the documentation"
+msgstr "Időtartam"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:361
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:365
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:371
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:375
+#, kde-format
+msgid "List of paths to task modules"
+msgstr ""
+
+#. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
+#: calligraplansettings.kcfg:381
+#, fuzzy, kde-format
+#| msgid "Cannot find the proper report template file!"
+msgid "List of paths to report templates"
+msgstr "Nem található a megfelelő jelentéssablon-fájl."
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:387
+#, kde-format
+msgid "List of paths to project templates"
+msgstr ""
+
+#. i18n: ectx: label, entry (AutoSave), group (Interface)
+#: calligraplansettings.kcfg:393
+#, fuzzy, kde-format
+#| msgid "Add Interval"
+msgid "Autosave interval"
+msgstr "Időszak hozzáadása"
+
+#. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
+#: calligraplansettings.kcfg:397
+#, fuzzy, kde-format
+#| msgid "Not scheduled"
+msgid "Create a backup file"
+msgstr "Nem ütemezett"
+
+#: config/ConfigDialog.cpp:36
+#, fuzzy, kde-format
+#| msgid "Project Settings"
+msgid "Project Defaults"
+msgstr "Projektbeállítások"
+
+#: config/ConfigDialog.cpp:37 kptview.cpp:635
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Munka és szabadság"
+
+#: config/ConfigDialog.cpp:38
+#, kde-format
+msgid "Task Defaults"
+msgstr "A feladatok alapértelmezései"
+
+#: config/ConfigDialog.cpp:39
+#, kde-format
+msgid "Task Colors"
+msgstr "Feladat színek"
+
+#: config/ConfigDialog.cpp:41
+#, fuzzy, kde-format
+#| msgid "Task Progress"
+msgid "Task Modules"
+msgstr "Állapot"
+
+#: config/ConfigDialog.cpp:45
+#, kde-format
+msgid "Work Package"
+msgstr "Munkacsomag"
+
+#: config/ConfigDialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Project Templates"
+msgstr "Jelentés létrehozása…"
+
+#: config/ConfigDialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Report Templates"
+msgstr "Jelentés létrehozása…"
+
+#: config/ConfigDialog.cpp:60
+#, fuzzy, kde-format
+msgctxt "@title:tab Document settings page"
+msgid "Document"
+msgstr "Azonosító"
+
+#: config/ConfigProjectPanel.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:39
+#, fuzzy, kde-kuit-format
+#| msgid "Assign resources:"
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Erőforrások hozzárendelése:"
+
+#: config/ConfigProjectPanel.cpp:42
+#, fuzzy, kde-kuit-format
+#| msgid "Assign resources:"
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Erőforrások hozzárendelése:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Általános"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#: config/ConfigProjectPanel.ui:44
+#, fuzzy, kde-format
+#| msgid "Choose..."
+msgid "Browse..."
+msgstr "Választás…"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:57
+#, fuzzy, kde-format
+msgid "Shared resource file:"
+msgstr "Erőforrások módosítása"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:67
+#, fuzzy, kde-format
+#| msgctxt "Project manager"
+#| msgid "Manager:"
+msgid "&Manager:"
+msgstr "Főnök:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:90
+#, fuzzy, kde-format
+#| msgid "Assign resources:"
+msgid "Use shared resources:"
+msgstr "Erőforrások hozzárendelése:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Leírás"
+
+#: config/ConfigProjectTemplatesPanel.cpp:48
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Project Templates Path"
+msgstr "Jelentés létrehozása…"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:17
+#: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Insert View"
+#| msgid "Insert..."
+msgid "Insert"
+msgstr "Beszúrás…"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:41
+#: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#: SharedResourcesDialog.cpp:248
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu remove view"
+#| msgid "Remove"
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: config/ConfigReportTemplatesPanel.cpp:48
+#: config/ConfigTaskModulesPanel.cpp:48
+#, fuzzy, kde-format
+#| msgid "Task Colors"
+msgid "Task Modules Path"
+msgstr "Feladat színek"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr ""
+
+#: config/ConfigWorkVacationPanel.cpp:38
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser"
+#| msgid "Default:"
+msgid "Default"
+msgstr "Alapértelmezés:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, fuzzy, kde-format
+#| msgid "Working Hours"
+msgid "Working Hours"
+msgstr "Munkaórák"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, fuzzy, kde-format
+#| msgid "Calendar's Settings"
+msgid "Calendar generation"
+msgstr "Naptárbeállítások"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Hét"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
+#: kptmaindocument.cpp:1690
+#, kde-format
+msgid "Holidays"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, fuzzy, kde-format
+msgid "In week calendar"
+msgstr "Szülőnaptár:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, fuzzy, kde-format
+#| msgid "Working"
+msgid "Working week"
+msgstr "Munkanap"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, fuzzy, kde-format
+#| msgid "Starting Date"
+msgid "Tick  if working day"
+msgstr "Kezdési dátum"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, fuzzy, kde-format
+#| msgid "Starting Date"
+msgid "Tick if working day"
+msgstr "Kezdési dátum"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, fuzzy, kde-format
+#| msgid "Hours per year:"
+msgid "Hours &per year:"
+msgstr "Óra / év:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, fuzzy, kde-format
+#| msgid "Hours per month:"
+msgid "Hours per &month:"
+msgstr "Óra / hónap:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, fuzzy, kde-format
+#| msgid "Hours per week:"
+msgid "Hours per wee&k:"
+msgstr "Óra / hét:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Ezek az értékek a feladat befejezéséhez szükséges ráfordítás kiszámításakor "
+"lesznek felhasználva."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, fuzzy, kde-format
+#| msgid "Hours per day:"
+msgid "Hours per &day:"
+msgstr "Óra / nap:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Gradiens:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Feladat összegzése"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Alapértelmezés:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Szintszínek használata"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "1. szint"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "2. szint"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "3. szint"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "4. szint"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Feladat"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Normál:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Kritikus:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Befejezve:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Hiba:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Mérföldkő"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/kptconfigtaskpanelbase.ui:33 config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"A feladatért felelős személy neve.\n"
+"\n"
+"A személy bárki lehet, nem kell feltétlenül erőforráscsoport tagjának "
+"lennie. A Választás gombbal a címjegyzékből is ki lehet jelölni valakit."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Felelős:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Személy beszúrása a címjegyzékből"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Kiválasztás a címjegyzékből."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Választás…"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Ütemezési megszorítás:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Amint lehet"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "A lehető legkésőbb"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Előírt kezdési dátum"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Előírt befejezési dátum"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Kezdés legkorábban"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Befejezés legkésőbb"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Rögzített időtartam"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, fuzzy, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Megszorítások"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Jelenlegi dátum és idő"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Jelenlegi dátum, megadott idő"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Megadott dátum és idő"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, fuzzy, kde-format
+msgid "Constraint start time:"
+msgstr "Megszorítások"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, fuzzy, kde-format
+msgid "Constraint End time usage:"
+msgstr "Megszorítások"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, fuzzy, kde-format
+msgid "Constraint end time:"
+msgstr "Megszorítások"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Becsült típus:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Ráfordítás"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Időtartam"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Várt becslés:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Optimista becslés:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Pesszimista becslés:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, fuzzy, kde-format
+#| msgid "Retrieve URL:"
+msgid "Retrieve"
+msgstr "Letöltési URL:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Munkacsomagok keresése"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, fuzzy, kde-format
+#| msgid "Retrieve URL:"
+msgid "Retrieve:"
+msgstr "Letöltési URL:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
+#: CreateReportTemplateDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: CreateReportTemplateDialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Base template:"
+msgstr "Becslés:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: CreateReportTemplateDialog.ui:39
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu rename view"
+#| msgid "Rename"
+msgid "File name:"
+msgstr "Átnevezés"
+
+#: KPlatoXmlLoader.cpp:56
+#, fuzzy, kde-format
+#| msgid ""
+#| "This document was created with a newer version of Plan (syntax version: "
+#| "%1)\n"
+#| "Opening it in this version of Plan will lose some information."
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"Ez a dokumentum a Plan egy újabb változatával készült (szintaktikai "
+"verziószám: %1)\n"
+"Ha ezzel a Plan verzióval nyitja meg, adatvesztés következhet be."
+
+#: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
+#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#, kde-format
+msgid "Continue"
+msgstr "Folytatás"
+
+#: KPlatoXmlLoader.cpp:58
+#, kde-format
+msgid "File-Format Error"
+msgstr "Fájlformátum hiba"
+
+#: KPlatoXmlLoader.cpp:67
+#, fuzzy, kde-format
+#| msgid ""
+#| "This document was created with a newer version of KPlato (syntax version: "
+#| "%1)\n"
+#| "Opening it in this version of KPlato will lose some information."
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Ez a dokumentum a KPlato egy újabb változatával készült (szintaktikai "
+"verziószám: %1)\n"
+"Ha ezzel a KPlato-verzióval nyitja meg, adatvesztés következhet be."
+
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
+#: kptmaindocument.cpp:694
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Nem megfelelő fájlformátum"
+
+#: KPlatoXmlLoader.cpp:110
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Ez a dokumentum a KPlatoWork egy újabb változatával készült (szintaktikai "
+"verziószám: %1)\n"
+"Ha ezzel a PlanWork verzióval nyitja meg, adatvesztés következhet be."
+
+#: kptaboutdata.h:24
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:26
+#, fuzzy, kde-format
+#| msgid "Calligra Plan - KDE Project Planning and Management Tool"
+msgid "Project Planning and Management Tool"
+msgstr "Calligra Plan - KDE projekttervező és -kezelő eszköz"
+
+#: kptaboutdata.h:28
+#, fuzzy, kde-format
+#| msgid "(c) 1998-2012, The Plan Team"
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "© A Plan fejlesztői, 1998-2012."
+
+#: kptaboutdata.h:32
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:33
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:34
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:35
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:38
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@kubuntu.org"
+
+#: kptbuiltinschedulerplugin.cpp:28
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Hálózat ütemező"
+
+#: kptbuiltinschedulerplugin.cpp:29
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Beépített hálózat (PERT) alapú ütemező"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:250
+#, fuzzy, kde-format
+#| msgid "Scheduling constraint:"
+msgid "Scheduling started: %1"
+msgstr "Ütemezési megszorítás:"
+
+#: kptbuiltinschedulerplugin.cpp:252
+#, kde-format
+msgid "Recalculating from: %1"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:264
+#, fuzzy, kde-format
+#| msgid "Scheduling"
+msgid "Scheduling canceled"
+msgstr "Ütemezés"
+
+#: kptbuiltinschedulerplugin.cpp:270
+#, kde-format
+msgid "Scheduling finished at %1, elapsed time: %2 seconds"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:284
+#, kde-format
+msgid "Inserting resource bookings from project: %1"
+msgstr ""
+
+#: kptinsertfiledlg.cpp:21
+#, kde-format
+msgid "Insert File"
+msgstr "Fájl beszúrása"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Jelenlegi csomópont:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Beszúrás a legfelső szintre"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Beszúrás gyermekként a jelenlegi csomóponthoz"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Beszúrás a jelenlegi csomópont után"
+
+#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "A dokumentum érvénytelen. Nincs megadva MIME-típus."
+
+#: kptmaindocument.cpp:359
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"A dokumentum érvénytelen. A várt MIME-típus: application/x-vnd.kde.plan, de "
+"helyette ez szerepel: %1."
+
+#: kptmaindocument.cpp:368
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Ez a dokumentum a Plan egy újabb változatával készült (szintaktikai "
+"verziószám: %1)\n"
+"Ha ezzel a Plan verzióval nyitja meg, adatvesztés következhet be."
+
+#: kptmaindocument.cpp:454
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgid "Failed to save to temporary file. No resource has been specified"
+msgstr "Nem sikerült menteni az átmeneti fájlba:<br/> <filename>%1</filename>"
+
+#: kptmaindocument.cpp:469
+#, fuzzy, kde-format
+#| msgid "Failed to open temporary file"
+msgid "Failed to open work package file"
+msgstr "Az ideiglenes fájl megnyitása sikertelen"
+
+#: kptmaindocument.cpp:476
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "Nem sikerült menteni az átmeneti fájlba:<br/> <filename>%1</filename>"
+
+#: kptmaindocument.cpp:552
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:560
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Nem sikerült írni a(z) '%1' fájlba. Lehet, hogy betelt a partíció."
+
+#: kptmaindocument.cpp:587
+#, kde-format
+msgid "Saving..."
+msgstr "Mentés…"
+
+#: kptmaindocument.cpp:681
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+"A dokumentum érvénytelen. A várt MIME-típus: application/x-vnd.kde.plan, de "
+"helyette ez szerepel: %1."
+
+#: kptmaindocument.cpp:692
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Ez a dokumentum a PlanWork egy újabb változatával készült (szintaktikai "
+"verziószám: %1)\n"
+"Ha ezzel a PlanWork verzióval nyitja meg, adatvesztés következhet be."
+
+#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr ""
+
+#: kptmaindocument.cpp:1177
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Failed to load shared resources into project %1:<nl/>Internal error, failed "
+"to insert file."
+msgstr ""
+
+#: kptmaindocument.cpp:1187
+#, fuzzy, kde-kuit-format
+#| msgid "Assign resources:"
+msgctxt "@info"
+msgid "Failed to load shared resources into project %1:<nl/>%2"
+msgstr "Erőforrások hozzárendelése:"
+
+#: kptmaindocument.cpp:1357
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "Projekt beszúrása"
+
+#: kptmaindocument.cpp:1437
+#, fuzzy, kde-format
+#| msgid "Group"
+msgid "Group: %1"
+msgstr "Csoport"
+
+#: kptmaindocument.cpp:1444
+#, fuzzy, kde-format
+#| msgid "Resource"
+msgid "Resource: %1"
+msgstr "Erőforrás"
+
+#: kptmaindocument.cpp:1449
+#, fuzzy, kde-format
+msgid "Calendar: %1"
+msgstr "A naptár neve"
+
+#: kptmaindocument.cpp:1451
+#, fuzzy
+#| msgid "Assign resources:"
+msgctxt "(qtundo-format)"
+msgid "Update Shared Resources"
+msgstr "Erőforrások hozzárendelése:"
+
+#. i18nc("@title:window", "Shared Resources"));
+#: kptmaindocument.cpp:1466
+#, fuzzy, kde-format
+#| msgid "Project:"
+msgctxt "@title:window"
+msgid "Project: %1"
+msgstr "Projekt:"
+
+#: kptmaindocument.cpp:1656
+#, fuzzy, kde-format
+#| msgid "Base"
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr "Alap"
+
+#: kptpart.cpp:95
+#, kde-format
+msgid "Configure Plan..."
+msgstr "A Plan beállításai…"
+
+#: kptschedulesdocker.cpp:26
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Ütemezés kiválasztó"
+
+#: kptview.cpp:183
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Create Project Template..."
+msgstr "Jelentés létrehozása…"
+
+#: kptview.cpp:187
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Create New Project..."
+msgstr "Jelentés létrehozása…"
+
+#: kptview.cpp:199
+#, kde-format
+msgid "Show Selector"
+msgstr "Kiválasztó megjelenítése"
+
+#: kptview.cpp:206 kptview.cpp:247
+#, kde-format
+msgid "Edit..."
+msgstr "Szerkesztés…"
+
+#: kptview.cpp:210
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr ""
+
+#: kptview.cpp:214
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Elosztási minta megadása…"
+
+#: kptview.cpp:218
+#, kde-format
+msgid "Define Currency..."
+msgstr "Pénznem meghatározása…"
+
+#: kptview.cpp:222
+#, fuzzy, kde-format
+#| msgid "Description..."
+msgid "Edit Description..."
+msgstr "Leírás…"
+
+#: kptview.cpp:227
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Projektfájl beszúrása…"
+
+#: kptview.cpp:231
+#, fuzzy, kde-format
+#| msgid "Assign resources:"
+msgid "Update Shared Resources"
+msgstr "Erőforrások hozzárendelése:"
+
+#: kptview.cpp:236
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr ""
+
+#: kptview.cpp:241
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgid "Create Report Template..."
+msgstr "Jelentés létrehozása…"
+
+#: kptview.cpp:257
+#, fuzzy, kde-format
+#| msgid "Work Package"
+msgid "Work Packages..."
+msgstr "Munkacsomag"
+
+#: kptview.cpp:258
+#, fuzzy, kde-format
+#| msgid "Work Package View"
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Munkacsomag nézet"
+
+#: kptview.cpp:349
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+
+#: kptview.cpp:489
+#, fuzzy, kde-format
+#| msgid "Scheduling constraint:"
+msgid "Edit task scheduling constraints"
+msgstr "Ütemezési megszorítás:"
+
+#: kptview.cpp:489
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Task Constraints"
+msgstr "Megszorítások"
+
+#: kptview.cpp:499
+#, fuzzy, kde-format
+#| msgid "Modify Task Cost"
+msgid "Edit task cost"
+msgstr "A feladatköltség módosítása"
+
+#: kptview.cpp:499
+#, fuzzy, kde-format
+#| msgid "Task Colors"
+msgid "Task Cost"
+msgstr "Feladat színek"
+
+#: kptview.cpp:548
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate reports"
+msgstr "Elosztási struktúra készítése"
+
+#: kptview.cpp:554 kptview.cpp:2438
+#, kde-format
+msgid "Task Status Report"
+msgstr "Feladat állapot jelentés"
+
+#: kptview.cpp:636
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Erőforrások munka és szabadság napjainak szerkesztése"
+
+#: kptview.cpp:638
+#, fuzzy, kde-format
+#| msgid "Work Breakdown Structure"
+msgid "Cost Breakdown Structure"
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:639
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:641
+#, fuzzy, kde-format
+msgid "Resource Breakdown Structure"
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:642
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:644 SharedResourcesDialog.cpp:58
+#, kde-format
+msgid "Resources"
+msgstr "Erőforrások"
+
+#: kptview.cpp:645
+#, fuzzy, kde-kuit-format
+#| msgid "Edit Resources..."
+msgctxt "@info:tooltip"
+msgid "Edit resources"
+msgstr "Az erőforrások szerkesztése..."
+
+#: kptview.cpp:647
+#, kde-format
+msgid "Tasks"
+msgstr "Feladatok"
+
+#: kptview.cpp:648
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:650
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Függőségek (grafikus)"
+
+#: kptview.cpp:651 kptview.cpp:654
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Feladatfüggőségek szerkesztése"
+
+#: kptview.cpp:653
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Függőségek (lista)"
+
+#: kptview.cpp:657 kptview.cpp:659
+#, kde-format
+msgid "Schedules"
+msgstr "Ütemezések"
+
+#: kptview.cpp:660
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Projektütemezések számítása és elemzése"
+
+#: kptview.cpp:662 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Projekt teljesítmény grafikon"
+
+#: kptview.cpp:663
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Projektállapot információinak megtekintése"
+
+#: kptview.cpp:665 kptviewlistdialog.cpp:101
+#, kde-format
+msgid "Task Status"
+msgstr "Feladat állapot"
+
+#: kptview.cpp:666
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "A kapcsolat szerkesztése"
+
+#: kptview.cpp:668
+#, kde-format
+msgid "Task Execution"
+msgstr "Feladat végrehajtás"
+
+#: kptview.cpp:669
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Feladat végrehajtási információk megtekintése"
+
+#: kptview.cpp:671 kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Work Package View"
+msgstr "Munkacsomag nézet"
+
+#: kptview.cpp:672
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "A kapcsolat szerkesztése"
+
+#: kptview.cpp:674
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: kptview.cpp:675
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid "View gantt chart"
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Gantt-diagram megtekintése"
+
+#: kptview.cpp:677
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Mérföldkő Gantt"
+
+#: kptview.cpp:678
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Mérföldkő..."
+
+#: kptview.cpp:680 kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Erőforrás szervezés"
+
+#: kptview.cpp:681
+#, fuzzy, kde-kuit-format
+#| msgid "No resource assigned"
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Nincs hozzárendelve erőforrás"
+
+#: kptview.cpp:683 kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Erőforrás hozzárendelések (Gantt)"
+
+#: kptview.cpp:684
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid "View resource assignments in gantt chart"
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Erőforrás hozzárendelések megtekintése Gantt-diagramon"
+
+#: kptview.cpp:686 kptviewlistdialog.cpp:108
+#, fuzzy, kde-format
+msgid "Resource Coverage"
+msgstr "Túlfoglalt erőforrások: %1"
+
+#: kptview.cpp:687
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Inspect resource coverage"
+msgstr ""
+
+#: kptview.cpp:689 kptviewlistdialog.cpp:109
+#, fuzzy, kde-format
+#| msgid "Work Breakdown Structure"
+msgid "Cost Breakdown"
+msgstr "Munkafelosztási struktúra"
+
+#: kptview.cpp:690
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Ráfordítás"
+
+#: kptview.cpp:692 kptviewlistdialog.cpp:111
+#, fuzzy, kde-format
+#| msgid "Project Settings"
+msgid "Tasks Performance Chart"
+msgstr "Projektbeállítások"
+
+#: kptview.cpp:693
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "A kapcsolat szerkesztése"
+
+#: kptview.cpp:695
+#, fuzzy, kde-format
+#| msgid "Report Template"
+msgid "Reports Generator"
+msgstr "Jelentéssablon"
+
+#: kptview.cpp:696
+#, fuzzy, kde-kuit-format
+#| msgid "Generate WBS Code"
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "Elosztási struktúra készítése"
+
+#: kptview.cpp:698 kptview.cpp:2435 kptviewlistdialog.cpp:114
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Jelentés"
+
+#: kptview.cpp:699
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Jelentés megtekintése"
+
+#: kptview.cpp:710
+#, kde-format
+msgid "Editors"
+msgstr "Szerkesztők"
+
+#: kptview.cpp:712
+#, kde-format
+msgid "Views"
+msgstr "Nézetek"
+
+#: kptview.cpp:714
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Végrehajtás"
+
+#: kptview.cpp:716
+#, kde-format
+msgid "Reports"
+msgstr "Jelentések"
+
+#: kptview.cpp:1479
+#, fuzzy, kde-format
+#| msgid "Overtime Rate"
+msgid "Overwrite"
+msgstr "Túlóradíj"
+
+#: kptview.cpp:1479
+#, fuzzy, kde-format
+#| msgid "Create Report..."
+msgctxt "@window:title"
+msgid "Report Template"
+msgstr "Jelentés létrehozása…"
+
+#: kptview.cpp:1479
+#, kde-format
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr ""
+
+#: kptview.cpp:2014
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Nem nyitható meg a fájl:<br/><filename>%1</filename>"
+
+#: kptview.cpp:2129
+#, fuzzy
+#| msgid "Modify name"
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "Név módosítása"
+
+#: kptview.cpp:2131
+#, fuzzy
+#| msgid "Modify task name"
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "Feladatnév módosítása"
+
+#: kptview.cpp:2132
+#, fuzzy
+#| msgid "Modify milestone name"
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "Mérföldkőnév módosítása"
+
+#: kptview.cpp:2133
+#, fuzzy
+#| msgid "Modify summarytask name"
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "Feladatösszegzés nevének módosítása"
+
+#: kptview.cpp:2134
+#, fuzzy
+#| msgid "Modify project name"
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "Projektnév módosítása"
+
+#: kptview.cpp:2226
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Nincs ütemezve"
+
+#: kptview.cpp:2280
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgid "Work Package for project: %1"
+msgstr "Munkacsomag: %1"
+
+#: kptview.cpp:2436
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Főnök:"
+
+#: kptview.cpp:2437
+#, kde-format
+msgid "Project:"
+msgstr "Projekt:"
+
+#: kptview.cpp:2439
+#, fuzzy, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "%2 %1%-a = "
+
+#: kptview.cpp:2440
+#, kde-format
+msgid "Page"
+msgstr "Oldal"
+
+#: kptview.cpp:2441
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Név"
+
+#: kptview.cpp:2442
+#, fuzzy, kde-format
+#| msgid "Completion: %1%"
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Kiegészítés"
+
+#: kptviewlist.cpp:335
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:357
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:606
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr ""
+
+#: kptviewlist.cpp:739
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Átnevezés"
+
+#: kptviewlist.cpp:743
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Beállítás…"
+
+#: kptviewlist.cpp:747
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: kptviewlist.cpp:756
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Átnevezés"
+
+#: kptviewlist.cpp:760
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Beállítás…"
+
+#: kptviewlist.cpp:764
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: kptviewlist.cpp:773
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Beszúrás…"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The category of the view"
+msgstr "A feladat neve."
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Kategória:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The view is placed after this view"
+msgstr "A feladat neve."
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Után"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:72
+#, fuzzy, kde-format
+msgid "The type of view"
+msgstr "A név módosítása"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, fuzzy, kde-format
+msgid "View type:"
+msgstr "Nézettípus"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The name of the view"
+msgstr "A feladat neve."
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Név:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
+#, fuzzy, kde-format
+#| msgid "Task description"
+msgid "The views description"
+msgstr "Feladat leírása"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, fuzzy, kde-format
+#| msgid "Description"
+msgid "Description:"
+msgstr "Leírás"
+
+#: kptviewlistdialog.cpp:29
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Nézet hozzáadása"
+
+#: kptviewlistdialog.cpp:93
+#, fuzzy, kde-format
+#| msgid "Resource Editor"
+msgid "Resource Group Editor"
+msgstr "Erőforrás szerkesztő"
+
+#: kptviewlistdialog.cpp:94
+#, kde-format
+msgid "Resource Editor"
+msgstr "Erőforrás szerkesztő"
+
+#: kptviewlistdialog.cpp:95
+#, kde-format
+msgid "Task Editor"
+msgstr "Feladat szerkesztő"
+
+#: kptviewlistdialog.cpp:96
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Munka és szabadság szerkesztő"
+
+#: kptviewlistdialog.cpp:97
+#, fuzzy, kde-format
+#| msgid "Accounts"
+msgid "Accounts Editor"
+msgstr "Azonosítók"
+
+#: kptviewlistdialog.cpp:98
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Függőség szerkesztő (grafikus)"
+
+#: kptviewlistdialog.cpp:99
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Függőség szerkesztő (lista)"
+
+#: kptviewlistdialog.cpp:100
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Ütemezés kezelő"
+
+#: kptviewlistdialog.cpp:102
+#, kde-format
+msgid "Task View"
+msgstr "Feladat nézet"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Gantt View"
+msgstr "Gantt nézet"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Mérföldkő Gantt nézet"
+
+#: kptviewlistdialog.cpp:112
+#, fuzzy, kde-format
+#| msgid "Report Template"
+msgid "Reports generator"
+msgstr "Jelentéssablon"
+
+#: kptviewlistdialog.cpp:141
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:193 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:632
+#, fuzzy, kde-format
+msgid "Top"
+msgstr "Fent"
+
+#: kptviewlistdialog.cpp:305
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Nézet beállítása"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Kategória beállítása"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Jelentés hozzáadása"
+
+#: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "A lefoglalások megjelenítése"
+
+#: kptviewlistdocker.cpp:62
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "A lefoglalások megjelenítése"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Szavak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Mondatok"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Szótagok"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Sorok"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Karakterek (szóközökkel együtt)"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Karakterek (szóközök nélkül)"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Flesch-féle olvashatósági szám"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "A láb- és végjegyzetek szövegével együtt"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Adat automatikus frissítése"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The category is placed after this category"
+msgstr "A feladat neve."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The name of the category"
+msgstr "A feladat neve."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, fuzzy, kde-format
+#| msgid "The name of the Task."
+msgid "The description of the category"
+msgstr "A feladat neve."
+
+#: SharedResourcesDialog.cpp:30
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgctxt "@title:column"
+msgid "Action"
+msgstr "Időtartam"
+
+#: SharedResourcesDialog.cpp:30
+#, fuzzy, kde-format
+#| msgctxt "Task name"
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Név"
+
+#: SharedResourcesDialog.cpp:33
+#, fuzzy, kde-format
+msgid "Calendars"
+msgstr "A naptár neve"
+
+#: SharedResourcesDialog.cpp:84
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared Resource Dialog</title><para>Enables you to decide how to "
+"treat shared resources, shared resource groups and shared calendars when "
+"they have been deleted from the shared resources file.</para><para>You can "
+"select if an item shall be:<list><item><emphasis>Removed:</emphasis> Removes "
+"the item from your project too.</item><item><emphasis>Converted:</emphasis> "
+"Converts the item to local item.</item><item><emphasis>Kept:</emphasis> "
+"Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Convert"
+msgstr ""
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Keep"
+msgstr ""
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:40
+#, kde-format
+msgid "Mark all selected items to be removed from your project"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:43
+#, kde-format
+msgid "Mark as: Remove"
+msgstr ""
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:50
+#, kde-format
+msgid "Mark all selected items to be converted to local resources"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:53
+#, kde-format
+msgid "Mark as: Convert"
+msgstr ""
+
+#. i18n: info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:60
+#, kde-format
+msgid "Mark all selected items to be kept as shared resources"
+msgstr ""
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:63
+#, kde-format
+msgid "Mark as: Keep"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgctxt "@title:window"
+#~ msgid "Shared Resources"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Convert shared resources to local"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Keep as shared resources"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Az ideiglenes fájl megnyitása sikertelen"
+
+#~ msgid "Work Package: %1"
+#~ msgstr "Munkacsomag: %1"
+
+#~ msgctxt "1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "A dokumentum érvénytelen. A várt MIME-típus: application/x-vnd.kde.plan."
+#~ "work, de helyette ez szerepel: %1."
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Documentation"
+#~ msgstr "Időtartam"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Documentation:"
+#~ msgstr "Időtartam"
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgid "Directory that contains projects that share resources"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgid "Shared projects:"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "@title:window"
+#~ msgid "Load Resource Assignments"
+#~ msgstr "Erőforrás szervezés"
+
+#, fuzzy
+#~| msgid "Assign resources:"
+#~ msgid "Load Shared Projects..."
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~ msgid "Open Document"
+#~ msgstr "A naptár neve"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Insert project"
+#~ msgid "New Project"
+#~ msgstr "Projekt beszúrása"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgid "Open Project..."
+#~ msgstr "A főprojekt szerkesztése…"
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgid "Introduction"
+#~ msgstr "Következő: Bevezetés"
+
+#~ msgid "Progress..."
+#~ msgstr "Folyamat…"
+
+#~ msgid "Delete Task"
+#~ msgstr "Feladat törlése"
+
+#~ msgid "Description..."
+#~ msgstr "Leírás…"
+
+#~ msgid "Indent Task"
+#~ msgstr "Feladat igazítása"
+
+#~ msgid "Unindent Task"
+#~ msgstr "Feladat igazításának visszavonása"
+
+#~ msgid "Move Task Up"
+#~ msgstr "Felfelé"
+
+#~ msgid "Move Task Down"
+#~ msgstr "Lefelé"
+
+#~ msgid "Edit Resource..."
+#~ msgstr "Erőforrás szerkesztése…"
+
+#~ msgid "Edit Dependency..."
+#~ msgstr "Függőség szerkesztése…"
+
+#~ msgid "Delete Dependency"
+#~ msgstr "Függőség törlése"
+
+#~ msgctxt "(qtundo-format) @info:status 1=schedule name"
+#~ msgid "Calculate %1"
+#~ msgstr "%1 kiszámítása"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reset baseline %1"
+#~ msgstr "Ütemezés (%1)"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Baseline %1"
+#~ msgstr "Alapvonal"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add schedule %1"
+#~ msgstr "Ütemezés:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete schedule %1"
+#~ msgstr "Ütemezés (%1)"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move schedule %1"
+#~ msgstr "Ütemezés:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add milestone"
+#~ msgstr "Mérföldkő hozzáadása"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add sub-milestone"
+#~ msgstr "Al-mérföldkő hozzáadása"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete task"
+#~| msgid_plural "Delete tasks"
+#~ msgctxt "(qtundo-format) Delete one task"
+#~ msgid "Delete task"
+#~ msgstr "Feladat törlése"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task"
+#~ msgid_plural "Delete tasks"
+#~ msgstr[0] "Feladat törlése"
+#~ msgstr[1] "Feladatok törlése"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete task"
+#~| msgid_plural "Delete tasks"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete task"
+#~ msgstr "Feladat törlése"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent task"
+#~ msgstr "Feladat igazítása"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent task"
+#~ msgstr "Feladat igazításának visszavonása"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task up"
+#~ msgstr "Feladat mozgatása felfelé"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task down"
+#~ msgstr "Feladat mozgatása lefelé"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add task dependency"
+#~ msgstr "Feladat függőség hozzáadása"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task dependency"
+#~ msgstr "Feladat függőség eltávolítása"
+
+#, fuzzy
+#~| msgid "Delete resource"
+#~| msgid_plural "Delete resources"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resource"
+#~ msgstr "Erőforrás törlése"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete resourcegroup"
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resourcegroup"
+#~ msgstr "Erőforráscsoport törlése"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete resource"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] "Erőforrás törlése"
+#~ msgstr[1] "Erőforrás törlése"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Delete resourcegroup"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "Erőforráscsoport törlése"
+#~ msgstr[1] "Erőforráscsoport törlése"
+
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~| msgid "Be free."
+#~ msgctxt "KDE 4 tag line"
+#~ msgid "Be free."
+#~ msgstr "Légy szabad."
+
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "A Plan egy projekttervező és kezelő alkalmazás."
+
+#~ msgid "Welcome to Plan."
+#~ msgstr "Üdvözli a Plan!"
+
+#~ msgid "A short introduction."
+#~ msgstr "Egy rövid bevezetés."
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "Kód"
+
+#~ msgid "Next: Tips"
+#~ msgstr "Következő: Tippek"
+
+#~ msgid "Editing tips."
+#~ msgstr "Tippek szerkesztés."
+
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Következő: Egyszerű projekt létrehozása"
+
+#~ msgid "Create the simplest project ever."
+#~ msgstr "A legegyszerűbb projekt létrehozása."
+
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Következő: Erőforrás lefoglalás"
+
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Erőforrás lefoglalása a feladathoz."
+
+#~ msgid "Next: Introduction"
+#~ msgstr "Következő: Bevezetés"
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgid "Introduction to Plan"
+#~ msgstr "Következő: Bevezetés"
+
+#, fuzzy
+#~| msgid "Delete resourcegroups and resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroups and resources"
+#~ msgstr "Erőforráscsoportok és erőforrások törlése"
+
+#, fuzzy
+#~ msgid "Resource groups"
+#~ msgstr "Erőforráscsoport"
+
+#, fuzzy
+#~| msgid "Delete resourcegroup"
+#~| msgid_plural "Delete resourcegroups"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Edit resource groups"
+#~ msgstr "Erőforráscsoport törlése"
+
+#~ msgid "Calculation"
+#~ msgstr "Számítás"
+
+#~ msgid "Manual"
+#~ msgstr "Kézi"
+
+#~ msgid "Immediate on change"
+#~ msgstr "Változáskor azonnal"
+
+#~ msgid "Constraints"
+#~ msgstr "Megszorítások"
+
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Az erőforrások túlfoglalhatók"
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgid "Path:"
+#~ msgstr "KPlato"
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgid "Save URL:"
+#~ msgstr "Mentési URL:"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "Sabl&on létrehozása a dokumentumból..."
+
+#, fuzzy
+#~ msgid "Shared resources removed"
+#~ msgstr "Erőforráscsoport"
+
+#, fuzzy
+#~| msgid "Gradient:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "Gradiens:"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Default:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "Alapértelmezés:"
+
+#, fuzzy
+#~| msgctxt "@title:group"
+#~| msgid "Use level colors"
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "Szintszínek használata"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 1"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "1. szint"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 2"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "2. szint"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 3"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "3. szint"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 4"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "4. szint"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Task"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "Feladat"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Normal:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "Normál:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Critical:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "Kritikus:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "Befejezve:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Error:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "Hiba:"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Milestone"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "Mérföldkő"
+
+#, fuzzy
+#~| msgid "Calculation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~| msgid "Manual"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "Kézi"
+
+#, fuzzy
+#~| msgid "Immediate on change"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "Változáskor azonnal"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~| msgid "Allow overbooking of resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Az erőforrások túlfoglalhatók"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "Általános"
+
+#, fuzzy
+#~| msgid ""
+#~| "The person responsible for this task.\n"
+#~| "\n"
+#~| "This is not limited to persons available in a resource group but can be "
+#~| "anyone. You can even directly access your address book with the Choose "
+#~| "button."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "A feladatért felelős személy neve.\n"
+#~ "\n"
+#~ "A személy bárki lehet, nem kell feltétlenül erőforráscsoport tagjának "
+#~ "lennie. A Választás gombbal a címjegyzékből is ki lehet jelölni valakit."
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "Felelős:"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Személy beszúrása a címjegyzékből"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Kiválasztás a címjegyzékből."
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "Választás…"
+
+#, fuzzy
+#~| msgid "Scheduling constraint:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr "Ütemezési megszorítás:"
+
+#, fuzzy
+#~| msgid "As Soon as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "Amint lehet"
+
+#, fuzzy
+#~| msgid "As Late as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "A lehető legkésőbb"
+
+#, fuzzy
+#~| msgid "Must Start On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "Előírt kezdési dátum"
+
+#, fuzzy
+#~| msgid "Must Finish On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "Előírt befejezési dátum"
+
+#, fuzzy
+#~| msgid "Start Not Earlier Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Kezdés legkorábban"
+
+#, fuzzy
+#~| msgid "Finish Not Later Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Befejezés legkésőbb"
+
+#, fuzzy
+#~| msgid "Fixed Interval"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "Rögzített időtartam"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~| msgid "Current date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "Jelenlegi dátum és idő"
+
+#, fuzzy
+#~| msgid "Current date, specified time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "Jelenlegi dátum, megadott idő"
+
+#, fuzzy
+#~| msgid "Specified date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "Megadott dátum és idő"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~| msgid "Estimate type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "Becsült típus:"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "Időtartam"
+
+#, fuzzy
+#~| msgid "Expected estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "Várt becslés:"
+
+#, fuzzy
+#~| msgid "Optimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "Optimista becslés:"
+
+#, fuzzy
+#~| msgid "%"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "Pesszimista becslés:"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Leírás"
+
+#, fuzzy
+#~| msgid "Current node:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "Jelenlegi csomópont:"
+
+#, fuzzy
+#~| msgid "Insert on top level"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "Beszúrás a legfelső szintre"
+
+#, fuzzy
+#~| msgid "Insert as children to current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "Beszúrás gyermekként a jelenlegi csomóponthoz"
+
+#, fuzzy
+#~| msgid "Insert after current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "Beszúrás a jelenlegi csomópont után"
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category of the view"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "Category:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "Kategória:"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "Után"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "A név módosítása"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "Nézettípus"
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the view"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "Név:"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "Feladat leírása"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "Leírás"
+
+#, fuzzy
+#~| msgid "Words"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "Szavak"
+
+#, fuzzy
+#~| msgid "Sentences"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "Mondatok"
+
+#, fuzzy
+#~| msgid "Syllables"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "Szótagok"
+
+#, fuzzy
+#~| msgid "Lines"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "Sorok"
+
+#, fuzzy
+#~| msgid "Characters incl. spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "Karakterek (szóközökkel együtt)"
+
+#, fuzzy
+#~| msgid "Characters without spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "Karakterek (szóközök nélkül)"
+
+#, fuzzy
+#~| msgid "Flesch reading ease"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "Flesch-féle olvashatósági szám"
+
+#, fuzzy
+#~| msgid "0"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~| msgid "..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~| msgid "Include text from foot- and endnotes"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "A láb- és végjegyzetek szövegével együtt"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "Adat automatikus frissítése"
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the category"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The description of the category"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "Check for work packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Check for work packages"
+#~ msgstr "Munkacsomagok keresése"
+
+#, fuzzy
+#~| msgid "Retrieve URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Retrieve URL:"
+#~ msgstr "Letöltési URL:"
+
+#, fuzzy
+#~| msgid "Save URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save URL:"
+#~ msgstr "Mentési URL:"
+
+#, fuzzy
+#~| msgid "Scheduling constraint type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr "Ütemezési megszorítás típus"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "A név módosítása"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "Becslés:"
+
+#, fuzzy
+#~| msgid "Expected estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "Várt becslés"
+
+#, fuzzy
+#~| msgid "Optimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "Optimista becslés"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "Pesszimista becslés"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "Feladat leírása"
+
+#, fuzzy
+#~| msgid "Gradient"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "Gradiens"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "Feladat összegzése"
+
+#, fuzzy
+#~| msgid "Check for work packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "Munkacsomagok keresése"
+
+#, fuzzy
+#~| msgid "&File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "&Fájl"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "Sz&erkesztés"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "Né&zet"
+
+#, fuzzy
+#~| msgid "&Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "&Projekt"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "&Eszközök"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "&Beállítások"
+
+#, fuzzy
+#~| msgid "&Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Help"
+#~ msgstr "&Súgó"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~| msgid "Be free."
+#~ msgctxt "(qtundo-format) KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Légy szabad."
+
+#, fuzzy
+#~| msgid "Plan is a Project Planning and Management application."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "A Plan egy projekttervező és kezelő alkalmazás."
+
+#, fuzzy
+#~| msgid "Welcome to Plan."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Welcome to Plan."
+#~ msgstr "Üdvözli a Plan!"
+
+#, fuzzy
+#~| msgid "A short introduction."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A short introduction."
+#~ msgstr "Egy rövid bevezetés."
+
+#, fuzzy
+#~| msgid "Next: Tips"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Tips"
+#~ msgstr "Következő: Tippek"
+
+#, fuzzy
+#~| msgid "Editing tips."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editing tips."
+#~ msgstr "Tippek szerkesztés."
+
+#, fuzzy
+#~| msgid "Next: Create a simple project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Következő: Egyszerű projekt létrehozása"
+
+#, fuzzy
+#~| msgid "Create the simplest project ever."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Create the simplest project ever."
+#~ msgstr "A legegyszerűbb projekt létrehozása."
+
+#, fuzzy
+#~| msgid "Next: Resource allocation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Következő: Erőforrás lefoglalás"
+
+#, fuzzy
+#~| msgid "Allocate a resource to the task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Erőforrás lefoglalása a feladathoz."
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Introduction"
+#~ msgstr "Következő: Bevezetés"
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Folytatás"
+
+#, fuzzy
+#~| msgid "File-Format Error"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "Fájlformátum hiba"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlato (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of KPlato will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "Ez a dokumentum a KPlato egy újabb változatával készült (szintaktikai "
+#~ "verziószám: %1)\n"
+#~ "Ha ezzel a KPlato-verzióval nyitja meg, adatvesztés következhet be."
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Nem megfelelő fájlformátum"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlatoWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Ez a dokumentum a KPlatoWork egy újabb változatával készült (szintaktikai "
+#~ "verziószám: %1)\n"
+#~ "Ha ezzel a PlanWork verzióval nyitja meg, adatvesztés következhet be."
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgid "Calligra Plan - KDE Project Planning and Management Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "Calligra Plan - KDE projekttervező és -kezelő eszköz"
+
+#, fuzzy
+#~| msgid "(c) 1998-2012, The Plan Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "© A Plan fejlesztői, 1998-2012."
+
+#, fuzzy
+#~| msgid "Thomas Zander"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "Thomas Zander"
+
+#, fuzzy
+#~| msgid "Bo Thorsen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo Thorsen"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgid "Raphael Langerhorst"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "Raphael Langerhorst"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Kiszel Kristóf"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "ulysses@kubuntu.org"
+
+#, fuzzy
+#~| msgctxt "Network = task dependency network"
+#~| msgid "Network Scheduler"
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "Hálózat ütemező"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Built-in network (PERT) based scheduler"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Built-in network (PERT) based scheduler"
+#~ msgstr "Beépített hálózat (PERT) alapú ütemező"
+
+#, fuzzy
+#~| msgid "Linear"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "Lineáris"
+
+#, fuzzy
+#~| msgid "Flat"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "Sima"
+
+#, fuzzy
+#~| msgid "Insert File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "Fájl beszúrása"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "A dokumentum érvénytelen. Nincs megadva MIME-típus."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr ""
+#~ "A dokumentum érvénytelen. A várt MIME-típus: application/x-vnd.kde.plan, "
+#~ "de helyette ez szerepel: %1."
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of Plan (syntax version: "
+#~| "%1)\n"
+#~| "Opening it in this version of Plan will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "Ez a dokumentum a Plan egy újabb változatával készült (szintaktikai "
+#~ "verziószám: %1)\n"
+#~ "Ha ezzel a Plan verzióval nyitja meg, adatvesztés következhet be."
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Nem sikerült írni a(z) '%1' fájlba. Lehet, hogy betelt a partíció."
+
+#, fuzzy
+#~| msgid "Saving..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "Mentés…"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "A dokumentum érvénytelen. A várt MIME-típus: application/x-vnd.kde.plan."
+#~ "work, de helyette ez szerepel: %1."
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of PlanWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Ez a dokumentum a PlanWork egy újabb változatával készült (szintaktikai "
+#~ "verziószám: %1)\n"
+#~ "Ha ezzel a PlanWork verzióval nyitja meg, adatvesztés következhet be."
+
+#, fuzzy
+#~| msgid "Schedule Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "Ütemezés kiválasztó"
+
+#, fuzzy
+#~| msgid "&Create Template From Document..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "Sabl&on létrehozása a dokumentumból..."
+
+#, fuzzy
+#~| msgid "Create Report..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "Jelentés létrehozása…"
+
+#, fuzzy
+#~| msgid "Show Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "Kiválasztó megjelenítése"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "A főprojekt szerkesztése…"
+
+#, fuzzy
+#~| msgid "Define WBS Pattern..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "Elosztási minta megadása…"
+
+#, fuzzy
+#~| msgid "Insert Project File..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "Projektfájl beszúrása…"
+
+#, fuzzy
+#~| msgid "Configure Plan..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "A Plan beállításai…"
+
+#, fuzzy
+#~| msgid "Define Currency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "Pénznem meghatározása…"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Szerkesztés…"
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "Folyamat…"
+
+#, fuzzy
+#~| msgid "Delete Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "Feladat törlése"
+
+#, fuzzy
+#~| msgid "Description..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "Leírás…"
+
+#, fuzzy
+#~| msgid "Indent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "Feladat igazítása"
+
+#, fuzzy
+#~| msgid "Unindent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "Feladat igazításának visszavonása"
+
+#, fuzzy
+#~| msgid "Move Task Up"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "Felfelé"
+
+#, fuzzy
+#~| msgid "Move Task Down"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "Lefelé"
+
+#, fuzzy
+#~| msgid "Edit Resource..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "Erőforrás szerkesztése…"
+
+#, fuzzy
+#~| msgid "Edit Dependency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "Függőség szerkesztése…"
+
+#, fuzzy
+#~| msgid "Delete Dependency"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "Függőség törlése"
+
+#, fuzzy
+#~| msgid "Task Status Report"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "Feladat állapot jelentés"
+
+#, fuzzy
+#~| msgid "Work & Vacation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "Munka és szabadság"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit working- and vacation days for resources"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "Erőforrások munka és szabadság napjainak szerkesztése"
+
+#, fuzzy
+#~| msgid "Work Breakdown Structure"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "Munkafelosztási struktúra"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "Munkafelosztási struktúra"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Erőforrások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "Munkafelosztási struktúra"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Feladatok"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "Munkafelosztási struktúra"
+
+#, fuzzy
+#~| msgid "Dependencies (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "Függőségek (grafikus)"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit task dependencies"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "Feladatfüggőségek szerkesztése"
+
+#, fuzzy
+#~| msgid "Dependencies (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "Függőségek (lista)"
+
+#, fuzzy
+#~| msgid "Schedules"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "Ütemezések"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Calculate and analyze project schedules"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "Projektütemezések számítása és elemzése"
+
+#, fuzzy
+#~| msgid "Project Performance Chart"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "Projekt teljesítmény grafikon"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View project status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "Projektállapot információinak megtekintése"
+
+#, fuzzy
+#~| msgid "Task Status"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "Feladat állapot"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "Feladat végrehajtás"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View task execution information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "Feladat végrehajtási információk megtekintése"
+
+#, fuzzy
+#~| msgid "Work Package View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package View"
+#~ msgstr "Munkacsomag nézet"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "Gantt-diagram megtekintése"
+
+#, fuzzy
+#~| msgid "Milestone Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "Mérföldkő Gantt"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "Mérföldkő..."
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Erőforrás szervezés"
+
+#, fuzzy
+#~| msgid "No resource assigned"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "Nincs hozzárendelve erőforrás"
+
+#, fuzzy
+#~| msgid "Resource Assignments (Gantt)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "Erőforrás hozzárendelések (Gantt)"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View resource assignments in gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "Erőforrás hozzárendelések megtekintése Gantt-diagramon"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~| msgid "Project Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Projektbeállítások"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#, fuzzy
+#~| msgid "Report"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "Jelentés"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View report"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "Jelentés megtekintése"
+
+#, fuzzy
+#~| msgid "Editors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "Szerkesztők"
+
+#, fuzzy
+#~| msgid "Views"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "Nézetek"
+
+#, fuzzy
+#~| msgctxt "Project execution views"
+#~| msgid "Execution"
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "Végrehajtás"
+
+#, fuzzy
+#~| msgid "Reports"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "Jelentések"
+
+#, fuzzy
+#~| msgid "Task Defaults"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "A feladatok alapértelmezései"
+
+#, fuzzy
+#~| msgid "Task Colors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "Feladat színek"
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package"
+#~ msgstr "Munkacsomag"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "Nem nyitható meg a fájl:<br/><filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "Nincs ütemezve"
+
+#, fuzzy
+#~| msgid "Failed to open temporary file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Az ideiglenes fájl megnyitása sikertelen"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr ""
+#~ "Nem sikerült menteni az átmeneti fájlba:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Munkacsomag: %1"
+
+#, fuzzy
+#~| msgctxt "1=project name, 2=task name"
+#~| msgid ""
+#~| "%1\n"
+#~| "%2"
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr ""
+#~ "Nem sikerült menteni az átmeneti fájlba:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "Project manager"
+#~| msgid "Manager:"
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "Főnök:"
+
+#, fuzzy
+#~| msgid "Project:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "Projekt:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) As in: Page 1 of 2"
+#~ msgid "of"
+#~ msgstr "%2 %1%-a = "
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "Oldal"
+
+#, fuzzy
+#~| msgctxt "Task name"
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "Név"
+
+#, fuzzy
+#~| msgid "Completion: %1%"
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "Kiegészítés"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "Átnevezés"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "Beállítás…"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "Eltávolítás"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "Átnevezés"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "Beállítás…"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "Eltávolítás"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu Insert View"
+#~| msgid "Insert..."
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "Beszúrás…"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "Nézet hozzáadása"
+
+#, fuzzy
+#~| msgid "Resource Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "Erőforrás szerkesztő"
+
+#, fuzzy
+#~| msgid "Task Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "Feladat szerkesztő"
+
+#, fuzzy
+#~| msgid "Work & Vacation Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "Munka és szabadság szerkesztő"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "Azonosítók"
+
+#, fuzzy
+#~| msgid "Dependency Editor (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "Függőség szerkesztő (grafikus)"
+
+#, fuzzy
+#~| msgid "Dependency Editor (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "Függőség szerkesztő (lista)"
+
+#, fuzzy
+#~| msgid "Schedule Handler"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "Ütemezés kezelő"
+
+#, fuzzy
+#~| msgid "Task View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "Feladat nézet"
+
+#, fuzzy
+#~| msgid "Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "Gantt nézet"
+
+#, fuzzy
+#~| msgid "Milestone Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "Mérföldkő Gantt nézet"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "Fent"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "Nézet beállítása"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Category"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "Kategória beállítása"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add Report"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "Jelentés hozzáadása"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "A lefoglalások megjelenítése"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "A lefoglalások megjelenítése"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Nem sikerült menteni az átmeneti fájlba:<br><filename>%1</filename>"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Nem sikerült menteni az átmeneti fájlba:<br><filename>%1</filename>"
+
+#~ msgid "Tip:"
+#~ msgstr "Tipp:"
+
+#~ msgid "File to open"
+#~ msgstr "A megnyitandó fájl"
+
+#~ msgid "Nuno Pinheiro and Danny Allen"
+#~ msgstr "Nuno Pinheiro és Danny Allen"
+
+#~ msgid "Application icon for plan"
+#~ msgstr "A Plan alkalmazásikonja"
+
+#~ msgid "Open File..."
+#~ msgstr "Fájl megnyitása…"
+
+#~ msgid "&Reports"
+#~ msgstr "&Jelentések"
+
+#~ msgid "KPlato"
+#~ msgstr "KPlato"
+
+#, fuzzy
+#~| msgid "Project Settings"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Projektbeállítások"
+
+#, fuzzy
+#~| msgid "No resource assigned"
+#~ msgid "View resource assignments"
+#~ msgstr "Nincs hozzárendelve erőforrás"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating..."
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation stopped"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation canceled"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation error"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating done"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~| msgid "Add Subtask"
+#~ msgid "Add sub-task"
+#~ msgstr "Részfeladat hozzáadása"
+
+#, fuzzy
+#~| msgid "Add Task"
+#~ msgid "Add task"
+#~ msgstr "Feladat hozzáadása"
+
+#, fuzzy
+#~ msgid "Delete Tasks"
+#~ msgstr "A feladat törlése"
+
+#~ msgid "Add Relation"
+#~ msgstr "Kapcsolat hozzáadása"
+
+#~ msgid "Delete Relation"
+#~ msgstr "Kapcsolat törlése"
+
+#, fuzzy
+#~ msgid "Delete Resource Objects"
+#~ msgstr "Erőforrás-beállítások"
+
+#, fuzzy
+#~ msgid "View"
+#~ msgstr "Ú&j"
+
+#, fuzzy
+#~| msgid "Edit Calendar..."
+#~ msgid "Edit task dependenies"
+#~ msgstr "A naptár szerkesztése..."
+
+#~ msgid "Edit Standard Worktime..."
+#~ msgstr "A normál munkaidő szerkesztése..."
+
+#~ msgid "Note:"
+#~ msgstr "Megjegyzés:"
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgctxt "@action Add View"
+#~ msgid "View..."
+#~ msgstr "Új..."
+
+#, fuzzy
+#~| msgid "New..."
+#~ msgid "Notes..."
+#~ msgstr "Új..."
+
+#, fuzzy
+#~ msgid "Show allocations"
+#~ msgstr "A lefoglalások megjelenítése"
+
+#~ msgid "Month"
+#~ msgstr "Hónap"
+
+#~ msgid "Day"
+#~ msgstr "Nap"
+
+#, fuzzy
+#~| msgid "Hours"
+#~ msgid "Hour"
+#~ msgstr "Órák"
+
+#~ msgid "Modify Default Task"
+#~ msgstr "Az alapértelmezett feladat módosítása"
+
+#~ msgid "Timing"
+#~ msgstr "Időzítés"
+
+#~ msgid "Schedule:"
+#~ msgstr "Ütemezés:"
+
+#~ msgid "Optimistic:"
+#~ msgstr "Optimista becslés:"
+
+#~ msgid "Pessimistic:"
+#~ msgstr "Pesszimista becslés:"
+
+#, fuzzy
+#~| msgid "Edit Resources..."
+#~ msgid "List of Resources"
+#~ msgstr "Az erőforrások szerkesztése..."
+
+#, fuzzy
+#~| msgid "Project n&ame:"
+#~ msgid "Project name:"
+#~ msgstr "A projekt n&eve:"
+
+#, fuzzy
+#~| msgid "Available"
+#~ msgid "Availability"
+#~ msgstr "Rendelkezésre áll"
+
+#, fuzzy
+#~ msgid "Rate"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~| msgid "Edit Resources..."
+#~ msgid "List of Tasks"
+#~ msgstr "Az erőforrások szerkesztése..."
+
+#~ msgid "Cost"
+#~ msgstr "Költség"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Kezdés:"
+
+#, fuzzy
+#~| msgid "The project leader."
+#~ msgid "Project leader:"
+#~ msgstr "A projektvezető."
+
+#, fuzzy
+#~| msgctxt "Work Breakdown Structure"
+#~| msgid "WBS"
+#~ msgid "WBS"
+#~ msgstr "Felosztási struktúra"
+
+#, fuzzy
+#~ msgid "Responsible"
+#~ msgstr "Felelős:"
+
+#~ msgid "Edit Calendar..."
+#~ msgstr "A naptár szerkesztése..."
+
+#~ msgid "Edit Accounts..."
+#~ msgstr "Az azonosítók szerkesztése..."
+
+#, fuzzy
+#~ msgid "Ganttview Options"
+#~ msgstr "AccountsviewConfigurePanelBase"
+
+#, fuzzy
+#~ msgid "Resourceview Options"
+#~ msgstr "Erőforrás-beállítások"
+
+#, fuzzy
+#~ msgid "Accountsview Options"
+#~ msgstr "AccountsviewConfigurePanelBase"
+
+#, fuzzy
+#~ msgid "Tasks by resources"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~ msgid "Tasks by Resources"
+#~ msgstr "Erőforrások hozzárendelése:"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgid "Entry..."
+#~ msgstr "Szerkesztés..."
+
+#~ msgctxt "days"
+#~ msgid "d"
+#~ msgstr "n"
+
+#~ msgctxt "hours"
+#~ msgid "h"
+#~ msgstr "ó"
+
+#~ msgctxt "minutes"
+#~ msgid "m"
+#~ msgstr "p"
+
+#~ msgid "Accounts"
+#~ msgstr "Azonosítók"
+
+#~ msgid "AccountsPanelBase"
+#~ msgstr "AccountsPanelBase"
+
+#~ msgid "Default account:"
+#~ msgstr "Alapértelmezett azonosító:"
+
+#~ msgid "&New"
+#~ msgstr "Ú&j"
+
+#~ msgid "New &Sub-Account"
+#~ msgstr "Új ala&zonosító"
+
+#~ msgid "AccountsviewConfigurePanelBase"
+#~ msgstr "AccountsviewConfigurePanelBase"
+
+#~ msgid "Cut-off date:"
+#~ msgstr "Levágási dátum:"
+
+#~ msgid "Periodicity:"
+#~ msgstr "Periódus:"
+
+#~ msgid "Cumulative"
+#~ msgstr "Kumulatív"
+
+#~ msgid "CalendarListPanel"
+#~ msgstr "CalendarListPanel"
+
+#~ msgid "New"
+#~ msgstr "Új"
+
+#, fuzzy
+#~| msgid "The project leader."
+#~ msgid "Project Schedule:"
+#~ msgstr "A projektvezető."
+
+#, fuzzy
+#~| msgid "s"
+#~ msgid "is"
+#~ msgstr "m"
+
+#, fuzzy
+#~ msgid "Add..."
+#~ msgstr "Feladat hozzáadása"
+
+#~ msgid "CalendarEditBase"
+#~ msgstr "CalendarEditBase"
+
+#~ msgid "Work Interval"
+#~ msgstr "Munkaidőszak"
+
+#~ msgid "From:"
+#~ msgstr "Ettől:"
+
+#~ msgid "To:"
+#~ msgstr "Eddig:"
+
+#~ msgid "ProjectPanelBase"
+#~ msgstr "ProjectPanelBase"
+
+#~ msgid "The project leader."
+#~ msgstr "A projektvezető."
+
+#~ msgid "&Leader:"
+#~ msgstr "&Vezető:"
+
+#~ msgid "N&ame:"
+#~ msgstr "Né&v:"
+
+#~ msgid "The unique project identification"
+#~ msgstr "A projekt egyedi azonosítója"
+
+#~ msgid "<p align=\"right\"></p>ID:"
+#~ msgstr "<p align=\"right\"></p>Projektazonosító:"
+
+#~ msgid "Choose a project leader from your address book."
+#~ msgstr "A projektvezető kiválasztása a címjegyzékből."
+
+#~ msgid "&Choose..."
+#~ msgstr "Vá&lasztás..."
+
+#~ msgid "WBS:"
+#~ msgstr "WBS:"
+
+#~ msgid ""
+#~ "Here you define when the project shall start or end.\n"
+#~ "\n"
+#~ "If start time is defined, the project is scheduled forward from this "
+#~ "time. When the project has been calculated, end time shows when the "
+#~ "project is planned to end.\n"
+#~ "If end time is defined, the project is scheduled backwards from this "
+#~ "time. When the project has been calculated, start time shows when the "
+#~ "project must start in order to finish in time."
+#~ msgstr ""
+#~ "Itt lehet megadni a projekt kezdési és befejezési dátumát.\n"
+#~ "\n"
+#~ "Ha a kezdődátum meg van adva, a projekt ütemezési attól fog kezdődni. A "
+#~ "projekt kiszámítása után megjelenik, hogy a tervek szerint mikor fog "
+#~ "befejeződni a projekt.\n"
+#~ "Ha a befejezési dátum van megadva, a projekt ütemezése időben visszafelé "
+#~ "történik. A projekt kiszámítása után megjelenik az a kezdődátum, amikor a "
+#~ "projektnek el kell kezdődnie, hogy a megadott napon be lehessen fejezni."
+
+#, fuzzy
+#~ msgid "Select this to schedule the project forward from start time"
+#~ msgstr ""
+#~ "Jelölje be ezt, ha a projektet időben előre haladva szeretné felépíteni a "
+#~ "kezdési dátumtól."
+
+#~ msgid "Start date:"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Select this to schedule the project backward from end time"
+#~ msgstr ""
+#~ "Jelölje be ezt, ha a projektet időben visszafelé szeretné felépíteni a "
+#~ "befejezési dátumtól."
+
+#~ msgid "End date:"
+#~ msgstr "Befejezési dátum:"
+
+#~ msgid ""
+#~ "Various notes associated with the project or a project summary.\n"
+#~ "\n"
+#~ "Here you can enter any additional text you want to be stored with the "
+#~ "project. This can for example be a short summary of the project or "
+#~ "various notes."
+#~ msgstr ""
+#~ "A projekttel kapcsolatos megjegyzések vagy összegzés.\n"
+#~ "\n"
+#~ "Az itt beírt szöveg a projekttel együtt lesz eltárolva. A szöveg "
+#~ "tartalmazhat például megjegyzéseket vagy összegző leírást."
+
+#~ msgid "&Project notes and summary:"
+#~ msgstr "Megjegy&zések, összegzés:"
+
+#~ msgid "MilestoneProgressPanelBase"
+#~ msgstr "MilestoneProgressPanelBase"
+
+#~ msgid "Finished"
+#~ msgstr "Befejeződött"
+
+#, fuzzy
+#~ msgid "Tasks :"
+#~ msgstr "Feladatazonosító:"
+
+#, fuzzy
+#~ msgid "Total Float:"
+#~ msgstr "Projektve&zető:"
+
+#~ msgid "Type"
+#~ msgstr "Típus"
+
+#, fuzzy
+#~ msgid "Critical Path (Task Id) :"
+#~ msgstr "Kritikus szakasz"
+
+#, fuzzy
+#~ msgid "Project Float :"
+#~ msgstr "Projektve&zető:"
+
+#, fuzzy
+#~ msgid "Task details "
+#~ msgstr "A feladatok alapértelmezései"
+
+#, fuzzy
+#~ msgid "Id"
+#~ msgstr "n"
+
+#, fuzzy
+#~ msgid "Early start date"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Late start date"
+#~ msgstr "Kezdési dátum:"
+
+#~ msgid "SummaryTaskGeneralPanelBase"
+#~ msgstr "SummaryTaskGeneralPanelBase"
+
+#~ msgid ""
+#~ "The Work Breakdown Structure introduces numbering for all tasks in the "
+#~ "project, according to the task structure.\n"
+#~ "\n"
+#~ "The WBS code is auto-generated; simply choose Generate WBS Code from the "
+#~ "Tools menu to generate the WBS code for the project."
+#~ msgstr ""
+#~ "A munkafelosztási struktúra sorszámot rendel a projekt feladataihoz, a "
+#~ "feladat struktúrájától függően.\n"
+#~ "\n"
+#~ "A felosztási struktúra automatikusan létrejön. Válassza az Eszközök "
+#~ "menüből a Munkafelosztási számozás menüpontot a számozás elkészítéséhez."
+
+#~ msgid "The name of the Task."
+#~ msgstr "A feladat neve."
+
+#~ msgid "This is the unique identifier for this task."
+#~ msgstr "Ez a feladat egyedi azonosítója."
+
+#~ msgid "TaskCostPanelBase"
+#~ msgstr "TaskCostPanelBase"
+
+#~ msgid "Running"
+#~ msgstr "Fut"
+
+#~ msgid "Account:"
+#~ msgstr "Azonosító:"
+
+#~ msgid "Startup"
+#~ msgstr "Kezdés"
+
+#~ msgid "Cost:"
+#~ msgstr "Költség:"
+
+#~ msgid "Shutdown"
+#~ msgstr "Lezárás"
+
+#~ msgid "TaskGeneralPanelBase"
+#~ msgstr "TaskGeneralPanelBase"
+
+#~ msgid ""
+#~ "Scheduling Configuration. These settings affect the actual scheduling of "
+#~ "the task.\n"
+#~ "\n"
+#~ "The estimation can be either effort based or duration based. If it is "
+#~ "effort based, the final duration will depend on the resources assigned to "
+#~ "the task. For duration based estimation, the assigned resources don't "
+#~ "affect the fixed duration of the task, but only the costs."
+#~ msgstr ""
+#~ "Ütemezési beállítások. Ezekkel lehet a feladat kívánt ütemezését "
+#~ "beállítani.\n"
+#~ "\n"
+#~ "A becslés alapulhat az időtartamon vagy a ráfordítás mértékén. Az utóbbi "
+#~ "esetben a teljes időtartam attól függ, mennyi erőforrás van a feladathoz "
+#~ "rendelve. Ha az időtartam adott, a hozzárendelt erőforrások nem "
+#~ "befolyásolják a feladat időtartamát, csak a költséget."
+
+#~ msgid ""
+#~ "Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for this task."
+#~ msgstr ""
+#~ "A kockázat a feladatra adott becslés kiszámításánál használt PERT "
+#~ "eloszlást befolyásolja."
+
+#~ msgid ""
+#~ "<p>Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for the task.\n"
+#~ "<b>None</b> means the Expected estimate is used as is.\n"
+#~ "<b>Low risk</b> means that a normal distribution is used.\n"
+#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
+#~ "compared to Low risk.</p>"
+#~ msgstr ""
+#~ "<p>A kockázat a feladatra adott becslés kiszámításánál használt PERT "
+#~ "eloszlást befolyásolja.\n"
+#~ "<b>Nincs</b> esetén a becslés módosítás nélkül lesz kiszámítva.\n"
+#~ "<b>Alacsony kockázat</b> esetén a normál eloszlás lesz használva.\n"
+#~ "<b>Magas kockázat</b> esetén a becslés enyhén pesszimistább lesz az "
+#~ "Alacsony kockázattal számolt értékhez képest.</p>"
+
+#~ msgid "Risk:"
+#~ msgstr "Kockázat:"
+
+#~ msgid "None"
+#~ msgstr "Nincs"
+
+#~ msgid "Low"
+#~ msgstr "Alacsony"
+
+#~ msgid "High"
+#~ msgstr "Magas"
+
+#~ msgid "TaskProgressPanelBase"
+#~ msgstr "TaskProgressPanelBase"
+
+#~ msgid "Started:"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~| msgid "Add Interval"
+#~ msgid "Add Entry"
+#~ msgstr "Időszak hozzáadása"
+
+#, fuzzy
+#~| msgid "Resource"
+#~ msgid "Per Resource"
+#~ msgstr "Erőforrás"
+
+#, fuzzy
+#~ msgid "Next"
+#~ msgstr "Következő év"
+
+#, fuzzy
+#~ msgid "Add Resource..."
+#~ msgstr "Erőforrás szerkesztése..."
+
+#, fuzzy
+#~ msgid "Mode"
+#~ msgstr "Nincs"
+
+#~ msgid "TaskResourcesPanelBase"
+#~ msgstr "TaskResourcesPanelBase"
+
+#~ msgid "Max. Units"
+#~ msgstr "Az egységek max. száma"
+
+#~ msgid "WBSDefinitionPanelBase"
+#~ msgstr "WBSDefinitionPanelBase"
+
+#~ msgid "Code:"
+#~ msgstr "Kód:"
+
+#~ msgid "Separator:"
+#~ msgstr "Elválasztó:"
+
+#~ msgid "RelationPanel"
+#~ msgstr "RelationPanel"
+
+#, fuzzy
+#~ msgid "From"
+#~ msgstr "Ettől:"
+
+#~ msgid "Task 1"
+#~ msgstr "1. feladat"
+
+#~ msgid "Task 2"
+#~ msgstr "2. feladat"
+
+#~ msgid "Relationship Type"
+#~ msgstr "A kapcsolat típusa"
+
+#~ msgid "Finish-Start"
+#~ msgstr "Befejezés - Kezdés"
+
+#~ msgid "Finish-Finish"
+#~ msgstr "Befejezés - Befejezés"
+
+#~ msgid "Start-Start"
+#~ msgstr "Kezdés - Kezdés"
+
+#~ msgid "Lag:"
+#~ msgstr "Lemaradás:"
+
+#~ msgid "ResourceDialogBase"
+#~ msgstr "ResourceDialogBase"
+
+#~ msgid "Choose resource from addressbook"
+#~ msgstr "Erőforrás választása a címjegyzékből"
+
+#~ msgid "Initials:"
+#~ msgstr "Kezdőbetűk:"
+
+#~ msgid "<p align=\"right\">Email:</p>"
+#~ msgstr "<p align=\"right\">E-mail cím:</p>"
+
+#~ msgid "Resource type:"
+#~ msgstr "Az erőforrás típusa:"
+
+#~ msgid "Material"
+#~ msgstr "Anyag"
+
+#~ msgid "<p align=\"right\">Calendar:</p>"
+#~ msgstr "<p align=\"right\">Naptár:</p>"
+
+#~ msgid "Available:"
+#~ msgstr "Rendelkezésre áll:"
+
+#~ msgid "<p align=\"right\">From:</p>"
+#~ msgstr "<p align=\"right\">Ettől:</p>"
+
+#~ msgid "<p align=\"right\">Until:</p>"
+#~ msgstr "<p align=\"right\">Eddig:</p>"
+
+#~ msgid "Hourly rate:"
+#~ msgstr "Óradíj:"
+
+#~ msgid "Overtime rate:"
+#~ msgstr "Túlóradíj:"
+
+#~ msgid "ResourcesPanelBase"
+#~ msgstr "ResourcesPanelBase"
+
+#~ msgid "StandardWorktime"
+#~ msgstr "Normál munkaidő"
+
+#~ msgid "Number of working hours in a normal day."
+#~ msgstr "A munkaórák száma egy átlagos napon."
+
+#~ msgid "Number of working hours in a normal week."
+#~ msgstr "A munkaórák száma egy átlagos héten."
+
+#~ msgid "Number of working hours in a normal month."
+#~ msgstr "A munkaórák száma egy átlagos hónapban."
+
+#~ msgid "Number of working hours in a normal year."
+#~ msgstr "A munkaórák száma egy átlagos évben."
+
+#~ msgid "Edit Accounts"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Add account"
+#~ msgstr "Azonosító"
+
+#, fuzzy
+#~ msgid "Delete Accounts"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Delete Account"
+#~ msgstr "Alapértelmezett azonosító:"
+
+#, fuzzy
+#~ msgid "Add Subaccount"
+#~ msgstr "Azonosító"
+
+#, fuzzy
+#~ msgid "Add Account"
+#~ msgstr "Azonosító"
+
+#, fuzzy
+#~ msgid "Delete Selected Accounts"
+#~ msgstr "Kapcsolat törlése"
+
+#~ msgid "Modify Accounts"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#~ msgid "Account"
+#~ msgstr "Azonosító"
+
+#~ msgid "Cut-off date:%1"
+#~ msgstr "Levágási dátum: %1"
+
+#~ msgid "Periodicity:%1"
+#~ msgstr "Periódus: %1"
+
+#~ msgid "Settings"
+#~ msgstr "Beállítások"
+
+#~ msgid "Undefined"
+#~ msgstr "Nincs meghatározva"
+
+#~ msgid "Non-working"
+#~ msgstr "Munkaszüneti nap"
+
+#, fuzzy
+#~ msgid "Modify Calendar"
+#~ msgstr "A naptárak módosítása"
+
+#, fuzzy
+#~ msgid "Add Calendar"
+#~ msgstr "A naptárak módosítása"
+
+#, fuzzy
+#~ msgid "Weekdays"
+#~ msgstr "Hétköznapok"
+
+#, fuzzy
+#~ msgid "Days"
+#~ msgstr "Nap"
+
+#, fuzzy
+#~ msgid "Add Work Interval"
+#~ msgstr "Munkaidőszak"
+
+#, fuzzy
+#~ msgid "Remove Work Interval"
+#~ msgstr "Munkaidőszak"
+
+#, fuzzy
+#~ msgid "Add Calendar Day"
+#~ msgstr "A naptár neve"
+
+#, fuzzy
+#~ msgid "Remove Calendar Day"
+#~ msgstr "A naptár neve"
+
+#~ msgid "Modify Calendars"
+#~ msgstr "A naptárak módosítása"
+
+#~ msgid "Next year"
+#~ msgstr "Következő év"
+
+#~ msgid "Previous year"
+#~ msgstr "Előző év"
+
+#~ msgid "Next month"
+#~ msgstr "Következő hónap"
+
+#~ msgid "Previous month"
+#~ msgstr "Előző hónap"
+
+#~ msgid "Select a week"
+#~ msgstr "Válasszon egy hetet"
+
+#~ msgid "Select a month"
+#~ msgstr "Válasszon egy hónapot"
+
+#~ msgid "Select a year"
+#~ msgstr "Válasszon egy évet"
+
+#~ msgid "Week XX"
+#~ msgstr "XX. hét"
+
+#~ msgid "Week %1"
+#~ msgstr "%1. hét"
+
+#, fuzzy
+#~ msgid "Add Task..."
+#~ msgstr "Feladat hozzáadása"
+
+#, fuzzy
+#~ msgid "Add Sub-Task..."
+#~ msgstr "Részfeladat..."
+
+#, fuzzy
+#~ msgid "Add Milestone..."
+#~ msgstr "Mérföldkő hozzáadása"
+
+#, fuzzy
+#~ msgid "Add Document..."
+#~ msgstr "Erőforrás szerkesztése..."
+
+#, fuzzy
+#~ msgid "Delete Selected Documents"
+#~ msgstr "Kapcsolat törlése"
+
+#, fuzzy
+#~| msgid "Modify Task"
+#~ msgid "Modify Url"
+#~ msgstr "A feladat módosítása"
+
+#, fuzzy
+#~| msgid "Modify Accounts"
+#~ msgid "Modify Documents"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~| msgid "Modify Accounts"
+#~ msgid "Modify Document Url"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~| msgid "Modify Accounts"
+#~ msgid "Modify Document Type"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~| msgid "Modify Accounts"
+#~ msgid "Modify Document Status"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#~ msgid "Total"
+#~ msgstr "Összesen"
+
+#, fuzzy
+#~| msgid "Settings"
+#~ msgid "View Settings"
+#~ msgstr "Beállítások"
+
+#~ msgid "Scheduling (%1)"
+#~ msgstr "Ütemezés (%1)"
+
+#~ msgid "Project id must be unique"
+#~ msgstr "A projektazonosítónak egyedinek kell lennie"
+
+#~ msgid "Milestone Progress"
+#~ msgstr "Mérföldkő"
+
+#, fuzzy
+#~ msgid "Available Tasks :"
+#~ msgstr "Rendelkezésre áll:"
+
+#~ msgid "Critical Path"
+#~ msgstr "Kritikus szakasz"
+
+#, fuzzy
+#~| msgid "Critical"
+#~ msgid "Non-critical"
+#~ msgstr "Kritikus"
+
+#~ msgid "Add Relationship"
+#~ msgstr "Kapcsolat hozzáadása"
+
+#~ msgid "Edit Relationship"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "A feladat törlése"
+
+#~ msgid "Modify Relation"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#~ msgid "Cannot find report template file!"
+#~ msgstr "Nem található a jelentés sablonfájlja."
+
+#~ msgid "Cannot open report template file!"
+#~ msgstr "Nem sikerült megnyitni a jelentés sablonfájlját."
+
+#~ msgid "Cannot read report template file!"
+#~ msgstr "Nem sikerült beolvasni a sablonfájlt."
+
+#~ msgid "Malformed template filename: %1"
+#~ msgstr "Hibás sablonfájlnév: %1"
+
+#, fuzzy
+#~ msgid "Add resource from addressbook"
+#~ msgid_plural "Add %1 resources from addressbook"
+#~ msgstr[0] "Erőforrás választása a címjegyzékből"
+#~ msgstr[1] "Erőforrás választása a címjegyzékből"
+
+#, fuzzy
+#~ msgid "Not Started"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "Started"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "No resource attributed"
+#~ msgstr "Nincs hozzárendelve erőforrás"
+
+#~ msgid "Resource Settings"
+#~ msgstr "Erőforrás-beállítások"
+
+#~ msgid "Modify Resource"
+#~ msgstr "Erőforrás módosítása"
+
+#~ msgid "Initials"
+#~ msgstr "Kezdőbetűk"
+
+#~ msgid "Email"
+#~ msgstr "E-mail cím"
+
+#~ msgid "Available From"
+#~ msgstr "Rendelkezésre áll ettől"
+
+#~ msgid "Available Until"
+#~ msgstr "Rendelkezésre áll eddig"
+
+#~ msgid "Overtime Rate"
+#~ msgstr "Túlóradíj"
+
+#, fuzzy
+#~ msgid "Add Resource Group..."
+#~ msgstr "Erőforráscsoport"
+
+#~ msgid "Modify resources"
+#~ msgstr "Erőforrások módosítása"
+
+#~ msgid ""
+#~ "Resources belong to resource groups, select the group first to add a new "
+#~ "resource to"
+#~ msgstr ""
+#~ "Az erőforrások csoportokba vannak szervezve. Először válassza ki, hogy az "
+#~ "új erőforrás melyik csoporthoz tartozzon"
+
+#, fuzzy
+#~ msgid "Expected only"
+#~ msgstr "Várt"
+
+#, fuzzy
+#~ msgid "State"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "Distribution"
+#~ msgstr "Leírás"
+
+#~ msgid "Calculate"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~| msgid "Finish:"
+#~ msgid "Finish"
+#~ msgstr "Befejezés:"
+
+#, fuzzy
+#~ msgid "Calculate Schedule..."
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgid "Add Schedule..."
+#~ msgstr "Ütemezés:"
+
+#, fuzzy
+#~ msgid "Add Sub-schedule..."
+#~ msgstr "Ütemezés:"
+
+#, fuzzy
+#~ msgid "Result"
+#~ msgstr "A feladatok alapértelmezései"
+
+#~ msgid "Standard Worktime"
+#~ msgstr "Normál munkaidő"
+
+#~ msgid "Modify Standard Worktime"
+#~ msgstr "A normál munkaidő módosítása"
+
+#~ msgid "Modify Task"
+#~ msgstr "A feladat módosítása"
+
+#~ msgid "Task id must be unique"
+#~ msgstr "A feladatazonosítónak egyedinek kell lennie"
+
+#~ msgid "Task Settings"
+#~ msgstr "Feladatbeállítások"
+
+#~ msgid "&Resources"
+#~ msgstr "&Erőforrások"
+
+#~ msgid "&Cost"
+#~ msgstr "&Költség"
+
+#~ msgid "Move Up"
+#~ msgstr "Felfelé"
+
+#~ msgid "Move Down"
+#~ msgstr "Lefelé"
+
+#~ msgid "Modify Task Progress"
+#~ msgstr "Az állapot módosítása"
+
+#, fuzzy
+#~ msgctxt "Week number (year)"
+#~ msgid "Week %1 (%2)"
+#~ msgstr "%1. hét"
+
+#, fuzzy
+#~ msgctxt "Week number"
+#~ msgid "Week %1"
+#~ msgstr "%1. hét"
+
+#, fuzzy
+#~ msgid "Modify task completion"
+#~ msgstr "A feladatköltség módosítása"
+
+#, fuzzy
+#~ msgid "Next Period"
+#~ msgstr "Következő év"
+
+#, fuzzy
+#~| msgid "Week"
+#~ msgid "This Week"
+#~ msgstr "Hét"
+
+#, fuzzy
+#~ msgid "Date"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "% Completed"
+#~ msgstr "Befejezettség (százalék):"
+
+#, fuzzy
+#~ msgid "Used Effort"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~| msgid "Remaining effort:"
+#~ msgid "Remaining Effort"
+#~ msgstr "Hátralevő ráfordítás:"
+
+#, fuzzy
+#~ msgid "Planned Effort"
+#~ msgstr "Ráfordítás"
+
+#~ msgid "WBS Definition"
+#~ msgstr "Elosztási struktúra megadása"
+
+#~ msgid "Modify WBS Definition"
+#~ msgstr "Az elosztási struktúra módosítása"
+
+#, fuzzy
+#~ msgid "Form"
+#~ msgstr "Ettől:"
+
+#~ msgid "DurationWidget"
+#~ msgstr "DurationWidget"
+
+#~ msgid "d"
+#~ msgstr "n"
+
+#~ msgid ":"
+#~ msgstr ":"
+
+#~ msgid "00"
+#~ msgstr "00"
+
+#~ msgid "h"
+#~ msgstr "ó"
+
+#~ msgid "m"
+#~ msgstr "p"
+
+#~ msgid "s"
+#~ msgstr "m"
+
+#~ msgid "."
+#~ msgstr "."
+
+#~ msgid "000"
+#~ msgstr "000"
+
+#~ msgid "ms"
+#~ msgstr "ms"
+
+#~ msgctxt "<hours>h:<minutes>m"
+#~ msgid "%1h:%2m"
+#~ msgstr "%1ó:%2p"
+
+#~ msgctxt "<days>d <hours>h:<minutes>m"
+#~ msgid "%1d %2h:%3m"
+#~ msgstr "%1n %2ó:%3p"
+
+#, fuzzy
+#~ msgid "Node"
+#~ msgstr "Nincs"
+
+#, fuzzy
+#~ msgid "Sub-Project"
+#~ msgstr "Projekt"
+
+#, fuzzy
+#~ msgid "Periodic"
+#~ msgstr "Periódus:"
+
+#, fuzzy
+#~ msgid "As Soon As Possible"
+#~ msgstr "Amint lehet"
+
+#, fuzzy
+#~ msgid "As Late As Possible"
+#~ msgstr "A lehető legkésőbb"
+
+#, fuzzy
+#~ msgid "Start Not Earlier"
+#~ msgstr "Kezdés legkorábban"
+
+#, fuzzy
+#~ msgid "Finish Not Later"
+#~ msgstr "Befejezés legkésőbb"
+
+#, fuzzy
+#~ msgid "FixedDuration"
+#~ msgstr "Időtartam"
+
+#, fuzzy
+#~ msgid "Finished late"
+#~ msgstr "Befejeződött"
+
+#, fuzzy
+#~ msgid "Finished early"
+#~ msgstr "Befejeződött"
+
+#, fuzzy
+#~ msgid "Started late"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Started early"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "Not started"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "Allocation"
+#~ msgstr "A lefoglalások megjelenítése"
+
+#, fuzzy
+#~ msgid "Estimate"
+#~ msgstr "Becslés:"
+
+#~ msgid "Optimistic"
+#~ msgstr "Optimista"
+
+#~ msgid "Pessimistic"
+#~ msgstr "Pesszimista"
+
+#, fuzzy
+#~ msgid "Risk"
+#~ msgstr "Kockázat:"
+
+#, fuzzy
+#~ msgid "Constraint"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgid "Constraint Start"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgid "Constraint End"
+#~ msgstr "Megszorítások"
+
+#, fuzzy
+#~ msgid "Running Account"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Startup Account"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Startup Cost"
+#~ msgstr "Kezdés"
+
+#, fuzzy
+#~ msgid "Shutdown Account"
+#~ msgstr "Lezárás"
+
+#, fuzzy
+#~ msgid "Shutdown Cost"
+#~ msgstr "Lezárás"
+
+#~ msgid "Expected"
+#~ msgstr "Várt"
+
+#, fuzzy
+#~ msgid "Start Time"
+#~ msgstr "Elkezdődött:"
+
+#, fuzzy
+#~ msgid "Early Start"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~| msgid "Finish:"
+#~ msgid "Early Finish"
+#~ msgstr "Befejezés:"
+
+#, fuzzy
+#~ msgid "Late Start"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~| msgid "Finish:"
+#~ msgid "Late Finish"
+#~ msgstr "Befejezés:"
+
+#, fuzzy
+#~ msgid "Positive Float"
+#~ msgstr "Projektve&zető:"
+
+#, fuzzy
+#~| msgid "Float"
+#~ msgid "Free Float"
+#~ msgstr "Lebegő"
+
+#, fuzzy
+#~ msgid "Start Float"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Finish Float"
+#~ msgstr "Befejeződött"
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "Kezdés"
+
+#, fuzzy
+#~ msgid "Actual Effort"
+#~ msgstr "Tényleges ráfordítás:"
+
+#, fuzzy
+#~ msgid "Planned Cost"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~ msgid "Actual Cost"
+#~ msgstr "Tényleges ráfordítás:"
+
+#, fuzzy
+#~ msgid "Status Note"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Add Resource"
+#~ msgstr "Erőforrás"
+
+#, fuzzy
+#~ msgid "Modify Resource Allocations"
+#~ msgstr "A kapcsolat szerkesztése"
+
+#, fuzzy
+#~ msgid "Modify estimate"
+#~ msgstr "A név módosítása"
+
+#, fuzzy
+#~ msgid "Modify Running Account"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Modify Startup Account"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Modify Startup Cost"
+#~ msgstr "A feladatköltség módosítása"
+
+#, fuzzy
+#~ msgid "Modify Shutdown Account"
+#~ msgstr "Az azonosítók szerkesztése"
+
+#, fuzzy
+#~ msgid "Modify Shutdown Cost"
+#~ msgstr "A feladatköltség módosítása"
+
+#, fuzzy
+#~ msgid "Move tasks"
+#~ msgstr "Felfelé"
+
+#, fuzzy
+#~ msgid "Deleted"
+#~ msgstr "A feladat törlése"
+
+#, fuzzy
+#~ msgid "No resource allocated"
+#~ msgstr "Nincs hozzárendelve erőforrás"
+
+#~ msgid "Resource not available"
+#~ msgstr "Az erőforrás nem érhető el"
+
+#~ msgid "Task Name"
+#~ msgstr "A feladat neve"
+
+#~ msgid "Task Links"
+#~ msgstr "A feladat linkjei"
+
+#~ msgid "Progress"
+#~ msgstr "Állapot"
+
+#~ msgid "Critical Tasks"
+#~ msgstr "Kritikus feladatok"
+
+#~ msgid "Number"
+#~ msgstr "Szám"
+
+#, fuzzy
+#~ msgid "Roman, upper case"
+#~ msgstr "Római számok (nagybetűs)"
+
+#, fuzzy
+#~ msgid "Roman, lower case"
+#~ msgstr "Római számok (kisbetűs)"
+
+#, fuzzy
+#~ msgid "Letter, upper case"
+#~ msgstr "Nagybetűk"
+
+#, fuzzy
+#~ msgid "Letter, lower case"
+#~ msgstr "Kisbetűk"
+
+#, fuzzy
+#~| msgid "Task Name"
+#~ msgid "Task type"
+#~ msgstr "A feladat neve"
+
+#, fuzzy
+#~| msgid "This is the unique identifier for this task."
+#~ msgid "The responsible person for this task"
+#~ msgstr "Ez a feladat egyedi azonosítója."
+
+#, fuzzy
+#~| msgid "Work Breakdown Structure"
+#~ msgid "Work Breakdown Structure Code"
+#~ msgstr "Munkafelosztási struktúra"
+
+#, fuzzy
+#~| msgid ""
+#~| "Risk controles the PERT distribution used when calculating the actual "
+#~| "estimate for this task."
+#~ msgid ""
+#~ "Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for this task"
+#~ msgstr ""
+#~ "A kockázat a feladatra adott becslés kiszámításánál használt PERT "
+#~ "eloszlást befolyásolja."
+
+#, fuzzy
+#~ msgid "Planned start time"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Planned finish time"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~ msgid "Task status"
+#~ msgstr "Feladatbeállítások"
+
+#, fuzzy
+#~ msgid "Planned effort"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~| msgid "Actual effort:"
+#~ msgid "Actual effort"
+#~ msgstr "Tényleges ráfordítás:"
+
+#, fuzzy
+#~| msgid "Remaining effort:"
+#~ msgid "Remaining effort"
+#~ msgstr "Hátralevő ráfordítás:"
+
+#, fuzzy
+#~ msgid "Planned cost"
+#~ msgstr "Ráfordítás"
+
+#, fuzzy
+#~ msgid "Actual cost"
+#~ msgstr "Tényleges ráfordítás:"
+
+#, fuzzy
+#~| msgid "The project leader."
+#~ msgid "The most likely estimate"
+#~ msgstr "A projektvezető."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The name of the resource or resource group"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The initials of the resource"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The e-mail address of the resource"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "Define when the project shall start."
+#~ msgid "Defines when the resource is available to the project"
+#~ msgstr "A projekt kezdési dátuma."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The name of the account"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The name of the schedule"
+#~ msgstr "A feladat neve."
+
+#, fuzzy
+#~| msgid "Scheduling conflict"
+#~ msgid "The schedules state"
+#~ msgstr "Ütemezési ütközés"
+
+#, fuzzy
+#~| msgid "Define when the project shall end."
+#~ msgid "Defines the schedules to be calculated"
+#~ msgstr "A projekt befejezési dátuma."
+
+#~ msgid "Percent completed:"
+#~ msgstr "Befejezettség (százalék):"
+
+#~ msgid "Calendar Name"
+#~ msgstr "A naptár neve"
+
+#~ msgctxt "day"
+#~ msgid "d"
+#~ msgstr "n"
+
+#~ msgctxt "hour"
+#~ msgid "h"
+#~ msgstr "ó"
+
+#~ msgctxt "minute"
+#~ msgid "m"
+#~ msgstr "p"
+
+#, fuzzy
+#~ msgid "End"
+#~ msgstr "Befejezés: %1"
+
+#, fuzzy
+#~ msgid "Calculate project schedules"
+#~ msgstr "Számítás"
+
+#, fuzzy
+#~ msgid "Early start"
+#~ msgstr "Kezdési dátum:"
+
+#, fuzzy
+#~ msgid "Late start"
+#~ msgstr "Kezdési dátum:"
+
+#~ msgid "Available"
+#~ msgstr "Rendelkezésre áll"
+
+#~ msgid "From: %1"
+#~ msgstr "Ettől: %1"
+
+#~ msgid "To: %1"
+#~ msgstr "Eddig: %1"
+
+#~ msgid "Lag:  %1"
+#~ msgstr "Lemaradás: %1"
+
+#~ msgctxt "Work Breakdown Structure"
+#~ msgid "WBS"
+#~ msgstr "Felosztási struktúra"
+
+#~ msgid "Name: %1"
+#~ msgstr "Név: %1"
+
+#~ msgid "Start: %1"
+#~ msgstr "Kezdés: %1"
+
+#~ msgid "End: %1"
+#~ msgstr "Befejezés: %1"
+
+#~ msgid "Float: %1"
+#~ msgstr "Lebegőpontos: %1"
+
+#~ msgid "Critical path"
+#~ msgstr "Kritikus szakasz"
+
+#~ msgid "Requested effort could not be met"
+#~ msgstr "A kért ráfordítás nem rendelhető hozzá"
+
+#~ msgctxt "arg: list of resources"
+#~ msgid "Resource overbooked: %1"
+#~ msgstr "Túlfoglalt erőforrások: %1"
+
+#~ msgid "Time: %1"
+#~ msgstr "Idő: %1"
+
+#~ msgid "Cannot link these nodes"
+#~ msgstr "Nem lehet linket létrehozni a csomópontok között"
+
+#~ msgid "Export Gantt"
+#~ msgstr "Gantt-exportálás"
+
+#~ msgid "Start:"
+#~ msgstr "Kezdés:"
+
+#~ msgid "&Calculate"
+#~ msgstr "Számí&tás"
+
+#~ msgid "Use whole numbers or decimal fractions"
+#~ msgstr "Egész számokat és törteket lehet használni"
+
+#~ msgid ""
+#~ "Give a name to the project to identify it. Example can be 'rewrite "
+#~ "explorer' or 'housing project C2'"
+#~ msgstr ""
+#~ "Adjon egy nevet a projektnek. Lehet például 'Az új házunk' vagy 'C2-s "
+#~ "tervezési projekt'"
+
+#~ msgid ""
+#~ "The scheduling type will influence how variable times events are placed"
+#~ msgstr ""
+#~ "Az ütemezés típusa határozza meg a változó idejű események elhelyezését"
+
+#~ msgid "ASAP"
+#~ msgstr "Amint lehet"
+
+#~ msgid "ALAP"
+#~ msgstr "A lehető legkésőbb"
+
+#~ msgid "Start Not Earlier Then"
+#~ msgstr "Kezdés legkorábban"
+
+#~ msgid "Finish Not Later Then"
+#~ msgstr "Befejezés legkésőbb"
+
+#~ msgid "&Notes"
+#~ msgstr "Meg&jegyzések"
+
+#~ msgid "Separator"
+#~ msgstr "Elválasztó"
+
+#~ msgid "Define standard weekly working hours."
+#~ msgstr "Egy átlagos hét ennyi munkaórából áll."
+
+#~ msgid ""
+#~ "The working hours defined here will be used\n"
+#~ "when there is no calendar defined for a resource."
+#~ msgstr ""
+#~ "Az itt megadott munkaóraszám akkor lesz felhasználva, ha\n"
+#~ "nincs naptár rendelve az erőforráshoz."
+
+#~ msgid "Modify progress"
+#~ msgstr "Az állapot módosítása"
+
+#~ msgid "Standard"
+#~ msgstr "Normál"
+
+#~ msgid ""
+#~ "Place all events at the earliest possible moment permitted in the schedule"
+#~ msgstr "Az események a lehető legkorábbi időpontban kezdődjenek"
+
+#~ msgid ""
+#~ "Place all events at the last possible moment permitted in the schedule"
+#~ msgstr "Az események a lehető legkésőbbi időpontban kezdődjenek"
+
+#~ msgid "Start not Earlier then"
+#~ msgstr "Kezdés legkorábban"
+
+#~ msgid "Finish not Later then"
+#~ msgstr "Befejezés legkésőbb"
+
+#~ msgid "Must Start on"
+#~ msgstr "Előírt kezdés"
+
+#~ msgid "You must select a relationship type"
+#~ msgstr "Ki kell választani a kapcsolat típusát"
+
+#~ msgid "Network"
+#~ msgstr "Hálózat"
+
+#~ msgid "Task..."
+#~ msgstr "Feladat..."
+
+#~ msgid "Progress information will be deleted if the project is recalculated."
+#~ msgstr "Az állapotinformációk törlődnek a projekt újraszámolása esetén."

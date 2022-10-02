@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Опис</title>
+  <para
+>Панель перегляду виконання завдання призначено для інспектування даних щодо швидкості виконання завдання. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Дані</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Дані щодо поступу можна редагувати на місці, як це описано <link linkend="using-the-views"
+>тут</link
+>, або за допомогою  діалогового вікна параметрів поступу завдання.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Стан</para>
+            </entry>
+            <entry>
+              <para
+>Стан завдання</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% виконання</para>
+            </entry>
+            <entry>
+              <para
+>Рівень виконання завдання</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Відповідальний</para>
+            </entry>
+            <entry>
+              <para
+>Відповідальна за завдання особа.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Призначення</para>
+            </entry>
+            <entry>
+              <para
+>Виконавці, яких призначено для виконання цього завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ІВП</para>
+            </entry>
+            <entry>
+              <para
+>Індекс виконання плану (БВВР/БВЗР).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>БВЗР</para>
+            </entry>
+            <entry>
+              <para
+>Бюджетна вартість запланованої роботи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>БВВР</para>
+            </entry>
+            <entry>
+              <para
+>Бюджетна вартість виконаної роботи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ДВВР</para>
+            </entry>
+            <entry>
+              <para
+>Поточна вартість виконаної роботи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Опис</para>
+            </entry>
+            <entry>
+              <para
+>Опис завдання</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Налаштування</title>
+  <para
+>За допомогою контекстного меню можна налаштувати панель перегляду на показ або приховування пункту проєкту, поділу або з'єднання ієрархічного перегляду. Крім того, налаштувати панель перегляду можна за допомогою діалогового вікна налаштовування. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

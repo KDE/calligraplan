@@ -1,0 +1,516 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Опис</title>
+  <para
+>Редактор завдань призначено для створення, редагування і вилучення записів завдань.</para
+><para
+>Завдання можна упорядкувати до ієрархічної деревоподібної структури із довільною глибиною вкладеності. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів розташовано кнопки для створення, вилучення і пересування завдань та етапів: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>додавання завдання</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Спадне меню-кнопка для створення завдання або етапу. Новий пункт буде розташовано у списку після поточного позначеного пункту на тому самому рівні, що і позначений пункт. Якщо жодного пункту не позначено, новий запис буде додано на найвищому рівні.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Додати підзавдання</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Спадне меню-кнопка для створення підзавдання або підетапу. Новий запис буде дописано як дочірній до поточного позначеного запису.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Вилучити завдання</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучити позначені завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Знизити рівень завдання</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Дописує позначене завдання як дочірнє до завдання, розташованого вище.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Підвищити рівень завдання</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Переміщує позначене завдання на рівень вище, вставляючи його після його поточного батьківського завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Пересунути вище</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Пересуває позначене завдання на одну позицію вище.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Пересунути нижче</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Пересуває позначене завдання на одну позицію нижче.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Зауважте, що пункти завдань можна також копіювати та пересувати перетягуванням зі скиданням або копіюванням зі вставленням. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Редагування даних</title>
+  <para
+>Дані можна редагувати на місці, як це описано <link linkend="using-the-views"
+>тут</link
+>, або за допомогою  діалогового вікна параметрів завдання. </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Стан</para>
+            </entry>
+            <entry>
+              <para
+>Стан завдання</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Відповідальний</para>
+            </entry>
+            <entry>
+              <para
+>Відповідальна за завдання особа.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Розподіл</para>
+            </entry>
+            <entry>
+              <para
+>Список розподілу виконавців.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип завдання або тип оцінки завдання.</para
+><para
+>Для типу можна встановити значення <emphasis
+>Етап</emphasis
+>, <emphasis
+>Обсяг</emphasis
+> або <emphasis
+>Тривалість</emphasis
+>. </para>
+              <para
+><guilabel
+>Зауваження:</guilabel
+> якщо типом є <emphasis
+>Резюме</emphasis
+> або <emphasis
+>Проєкт</emphasis
+>, тип змінювати не можна. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Календар</para>
+            </entry>
+            <entry>
+              <para
+>Календар, який було використано для оцінки типу, — <emphasis
+>Тривалість</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Оцінка</para>
+            </entry>
+            <entry>
+              <para
+>Найімовірніша оцінка. Оцінка — це очікуваний обсяг робіт або час, потрібний для виконання завдання. Її може бути виражено у різних одиницях: г (години), д (дні), т (тижні) і М (місяці).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Оптимістична частка</para>
+            </entry>
+            <entry>
+              <para
+>Оптимістична оцінка, виражена як від'ємне значення у відсотках відносно найімовірнішої оцінки (приклад: -20%).</para
+><para
+>Використовується, лише якщо використано розподіл PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Песимістична частка</para>
+            </entry>
+            <entry>
+              <para
+>Песимістична оцінка, виражена як додатне значення у відсотках відносно найімовірнішої оцінки (приклад: 50%).</para
+><para
+>Використовується, лише якщо використано розподіл PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ризик</para>
+            </entry>
+            <entry>
+              <para
+>Ризик контролює розподіл техніки оцінки і розгляду програм, що використовується під час обчислення поточної оцінки для цього завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Часові рамки</para>
+            </entry>
+            <entry>
+              <para
+>Тип часових рамок.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Часові рамки початку</para>
+            </entry>
+            <entry>
+              <para
+>Часові рамки початку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Часові рамки завершення</para>
+            </entry>
+            <entry>
+              <para
+>Часові рамки завершення.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточний запис</para>
+            </entry>
+            <entry>
+              <para
+>Запис для поточних витрат.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Початковий запис</para>
+            </entry>
+            <entry>
+              <para
+>Запис для витрат, запланованих на початку завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Початкова вартість</para>
+            </entry>
+            <entry>
+              <para
+>Витрати, заплановані на початку завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Остаточний запис</para>
+            </entry>
+            <entry>
+              <para
+>Запис для витрат, понесених на момент завершення завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Остаточна вартість</para>
+            </entry>
+            <entry>
+              <para
+>Витрати, понесені на момент завершення завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Опис</para>
+            </entry>
+            <entry>
+              <para
+>Нотатки про завдання.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Бічна панель модулів завдання</title>
+  <para
+>Модулі завдань — групи завдань, які може бути повторно використано у різних проєктах. </para>
+  <para
+>Уможливлюють базування на попередньому досвіді та стандартизацію подібних операцій. </para>
+  <para
+>Модуль завдання вставляється до вашого проєкту перетягуванням його пункту з бічної панелі зі скиданням до вашого проєкту. </para>
+  <para
+>Модуль завдання є звичайним файлом Plan. Його має бути створено за допомогою &plan; у той самий спосіб, у який створюється звичайний проєкт. </para>
+  <para
+>Втім, модуль завдання, типово, включає лише завдання, оцінки і залежності. </para>
+  <para
+>Назву проєкту буде показано на бічній панелі, а опис буде використано як контекстну підказку. </para>
+  <para
+>Модуль можна відкрити для інспектування або редагування подвійним клацанням лівою кнопкою миші на пункті модуля. </para>
+  <para
+>Модулі можна групувати, якщо їх зберігати у різних каталогах. Місце зберігання модулів можна налаштувати за допомогою  діалогового вікна параметрів проєкту. </para>
+  <para
+>Типові значення для нових проєктів можна визначити за допомогою  діалогового вікна налаштовування, див. <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Бічна панель виконавців (ресурсів)</title>
+  <para
+>За допомогою бічної панелі виконавців (ресурсів) можна без проблем призначити виконавців до завдань: позначте пункти виконавців (ресурсів), які вам потрібні, і перетягніть їх до стовпчика <emphasis
+>Призначення</emphasis
+>. </para>
+  <para
+>Запис виконавця також можна скинути до стовпчика <emphasis
+>Відповідальний</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Бічна панель призначень</title>
+  <para
+>На бічній панелі призначень буде показано поточні призначення виконавців (ресурсів) для вибраного завдання. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Налаштування</title>
+  <para
+>За допомогою контекстного меню можна налаштувати панель перегляду на показ або приховування пункту проєкту, поділу або з'єднання ієрархічного перегляду. Крім того, налаштувати панель перегляду можна за допомогою діалогового вікна налаштовування. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

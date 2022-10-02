@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>Descripción</title>
+  <para
+>La vista de estado de las tareas se usa para inspeccionar la información de avance de las tareas al cabo de un periodo, definido en la configuración. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Las tareas se dividen en grupos que dependen del estado de la tarea: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>No iniciada</para>
+            </entry>
+            <entry>
+              <para
+>Las tareas que se deben haber iniciado hasta ahora.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>En ejecución</para>
+            </entry>
+            <entry>
+              <para
+>Tareas que se han iniciado y aún no se han terminado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Terminada</para>
+            </entry>
+            <entry>
+              <para
+>Tareas que se han terminado en este periodo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Siguiente periodo</para>
+            </entry>
+            <entry>
+              <para
+>Tareas programadas para que se inicien en el siguiente periodo.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>Edición de datos</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La información de avance se puede editar directamente como se describe <link linkend="using-the-views"
+>aquí</link
+> o usando el diálogo de avance de la tarea.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estado</para>
+            </entry>
+            <entry>
+              <para
+>Estado de la tarea</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Porcentaje terminado</para>
+            </entry>
+            <entry>
+              <para
+>Completación de la tarea</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esfuerzo planeado</para>
+            </entry>
+            <entry>
+              <para
+>La cantidad de trabajo que se ha planificado usar al final del periodo actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esfuerzo real</para>
+            </entry>
+            <entry>
+              <para
+>La cantidad de trabajo empleado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esfuerzo restante</para>
+            </entry>
+            <entry>
+              <para
+>El esfuerzo restante necesario para completar la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo planeado</para>
+            </entry>
+            <entry>
+              <para
+>El costo planeado al final del periodo actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo real</para>
+            </entry>
+            <entry>
+              <para
+>El costo real generado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inicio real</para>
+            </entry>
+            <entry>
+              <para
+>La hora de inicio real de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalización real</para>
+            </entry>
+            <entry>
+              <para
+>La hora de finalización real de la tarea.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>Configuración</title>
+  <para
+>Puede usar el menú de contexto para configurar la vista para dividir/unir la vista de árbol. También puede hacerlo desde el diálogo de configuración. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diálogo de configuración le permite adaptar la cantidad de información que se muestra en la vista según sus necesidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

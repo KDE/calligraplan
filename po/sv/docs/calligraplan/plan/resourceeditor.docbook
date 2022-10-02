@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Beskrivning</title>
+  <para
+>Resurseditorn används för att skapa, redigera och ta bort resurser och resursgrupper. Resurser måste höra till en resursgrupp. För närvarande tillåts inte delgrupper. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Arbetande resurser måste referera till en <emphasis
+>kalender</emphasis
+> som definierar resursens arbetstimmar. Kalendrar skapas genom att använda <link linkend="work-and-vacation-editor"
+>Arbets- och semestereditorn</link
+>. </para>
+  <para
+>Materiella resurser är normalt alltid tillgängliga. Du kan använda en kalender för att begränsa deras tillgänglighet. </para>
+  <para
+>En resurs kan vara <emphasis
+>Delad</emphasis
+> eller <emphasis
+>Lokal</emphasis
+>. En lokal resurs används bara i det aktuella projektet. En delad resurs kan delas mellan flera projekt och lagras i en separat fil, se <link linkend="managing-resources"
+>Hantera resurser</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa och ta bort resurser och resursgrupper: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till resursgrupp</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en resursgrupp. Den nya gruppen läggs till sist i grupperna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till resurs</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa en resurs. Den nya resursen läggs till sist som underliggande till gruppen som för närvarande är markerad. Om en resurs är markerad, läggs den nya resursen till i dess överliggande grupp.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort de markerade resurserna och/eller resursgrupperna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Resurser kan skapas genom att släppa data från vilket program som helst som stöder att dra vCard-information, såsom <emphasis
+>Adressboken</emphasis
+> eller <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Resurser kan kopieras eller flyttas till en annan resursgrupp genom att använda dra och släpp. </para>
+  <para
+><note
+><para
+>När en resurs flyttas förlorar den alla tilldelningar.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Redigera data</title>
+  <para
+>Data kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+>. </para>
+  <para
+>Resurser kan också redigeras genom att använda resursinställningsdialogrutan. </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Resursens eller resursgruppens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Omfattning</para>
+            </entry>
+            <entry>
+              <para
+>En resurs kan vara <emphasis
+>Delad</emphasis
+> eller <emphasis
+>Lokal</emphasis
+>. En delad resurs kan inte redigeras.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Typ</para>
+            </entry>
+            <entry>
+              <para
+>Resursen eller resursgruppens typ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Initialer</para>
+            </entry>
+            <entry>
+              <para
+>Resursens initialer.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>E-post</para>
+            </entry>
+            <entry>
+              <para
+>Resursens e-postadress.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Kalender</para>
+            </entry>
+            <entry>
+              <para
+>Kalendern definierar när resursen arbetar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Begränsning (%)</para>
+            </entry>
+            <entry>
+              <para
+>Maximal belastning som kan tilldelas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tillgänglig från</para>
+            </entry>
+            <entry>
+              <para
+>Definiera när resursen är tillgänglig i projektet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tillgänglig till</para>
+            </entry>
+            <entry>
+              <para
+>Definiera när resursen är tillgänglig i projektet.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Normal taxa</para>
+            </entry>
+            <entry>
+              <para
+>Kostnad per timme, normaltid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Konto</para>
+            </entry>
+            <entry>
+              <para
+>Kontot där resurskostnaden samlas.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in att dela eller dra ihop trädvyn, eller anpassas med inställningsdialogrutan.</para
+><para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

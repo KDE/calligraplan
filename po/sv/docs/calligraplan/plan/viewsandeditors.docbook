@@ -1,0 +1,68 @@
+<chapter id="startup-view"
+><title
+>Vyer och editorer</title>
+  <sect1 id="startup-view-section"
+><title
+>Startvy</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Aktivitetseditor</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Resurseditor</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Arbete- och semestereditor</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Kostnadsfördelningsstruktureditor</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Aktivitetsberoende-editor (grafisk)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Aktivitetsberoende-editor (lista)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Tidplaneditor</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Projektprestationsvy</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Aktivitetsprestationsvy</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Aktivitetsstatusvy</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Aktivitetsutförandevy</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>GANTT-aktivitetsvy</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>GANTT-milstolpevy</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>GANTT-resurstilldelningsvy</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Resurstilldelningsvy</title
+>&resource-assignment-gantt-view-section; </sect1>
+</chapter>

@@ -1,0 +1,10 @@
+<chapter id="resourceusage"
+><title
+>Utilizzo delle risorse</title>
+<sect1 id="resourceusage-description"
+><title
+>Descrizione</title
+>&WORK-IN-PROGRESS; <para
+>Mostra un grafico del carico pianificato per la risorsa selezionata con codice colore per attività. </para>
+</sect1>
+</chapter>

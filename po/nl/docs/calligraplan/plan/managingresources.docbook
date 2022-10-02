@@ -1,0 +1,16 @@
+<sect2 id="description"
+><title
+>Beschrijving</title>
+  <para
+>U kunt hulpbronnen voor een project aanmaken met de <link linkend="resource-editor"
+>Hulpbronbewerker</link
+> en <link linkend="work-and-vacation-editor"
+>Bewerker van werk en vakantie</link
+>. </para>
+  <para
+>Als u echter dezelfde hulpbronnen in vele projecten gaat gebruiken (wat vaak het geval is) is het gemakkelijker om hulpbronnen in een gescheiden bestand te onderhouden. De beste manier om dit te doen is om uw hulpbronnenbestand eerst aan te maken en daarna &plan; in te stellen om altijd dit bestand te laden bij aanmaken van een nieuw project. </para>
+  <para
+>Als u projects beheert die totaal verschillenden hulpbronpools gebruiken dan kunt u meerdere hulpbronbestanden aanmaken, maar één project kan slechts verwijzen naar één hulpbronbestand. </para>
+  <para
+>U kunt het te gebruiken hulpbronbestand selecteren bij aanmaken van een nieuw project. </para>
+</sect2>

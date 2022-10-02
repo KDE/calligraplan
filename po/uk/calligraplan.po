@@ -1,0 +1,4671 @@
+# Translation of calligraplan.po to Ukrainian
+# Copyright (C) 2005-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2005, 2006, 2007, 2008.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligraplan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"PO-Revision-Date: 2022-09-22 09:08+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4 calligraplan_shell.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:28
+#, kde-format
+msgid "&Edit"
+msgstr "З&міни"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:37 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "П&ерегляд"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:44
+#, kde-format
+msgid "&Project"
+msgstr "&Проєкт"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:52
+#, kde-format
+msgid "&Tools"
+msgstr "&Інструменти"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:58 calligraplan_shell.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "П&араметри"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:62 calligraplan_shell.rc:23
+#, kde-format
+msgid "&Help"
+msgstr "&Довідка"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: calligraplan.rc:66
+#, kde-format
+msgid "File"
+msgstr "Файл"
+
+#. i18n: ectx: ToolBar (edit_toolbar)
+#: calligraplan.rc:72
+#, kde-format
+msgid "Edit"
+msgstr "Редагувати"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "Годин на рік"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "Годин на місяць"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "Годин на тиждень"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "Годин на день"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "Створити робочий тиждень"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "Параметри створення робочого тижня"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "Якщо немає жодного"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "Завжди"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "Створити записи свят"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "Створити варіанти свят"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "У основному календарі"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "Як підкалендар"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "Як окремий календар"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "Регіон свят"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "Понеділок:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "Початок робочого дня"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "Завершення робочого дня"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "Вівторок:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "Середа:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "Четвер:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "П'ятниця:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "Субота:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "Неділя:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "Ім’я керівника проєкту"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "Використовувати спільні ресурси"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "Файл для зберігання спільних ресурсів"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Project description"
+msgstr "Опис проєкту"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:176
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Ім’я відповідальної за завдання особи"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Тип обмеження планування"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:192
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Визначає спосіб використання обмеження часу початку"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:201
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Обмеження дати/часу початку"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Визначає спосіб використання обмеження часу завершення"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:213
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Обмеження дати/часу завершення"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:217
+#, kde-format
+msgid "Type of estimate"
+msgstr "Тип оцінки"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:225
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Одиниця часу оцінки"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:239
+#, kde-format
+msgid "Expected estimate"
+msgstr "Очікувана оцінка"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:243
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Оптимістична оцінка"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:247
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Песимістична оцінка"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:252
+#, kde-format
+msgid "Task description"
+msgstr "Опис завдання"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:258
+#, kde-format
+msgid "Gradient"
+msgstr "Градієнт"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:260 config/kptcolorsconfigpanel.cpp:20
+#, kde-format
+msgid "Linear"
+msgstr "Лінійний"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261 config/kptcolorsconfigpanel.cpp:21
+#, kde-format
+msgid "Flat"
+msgstr "Нейтральний"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:266
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Увімкнути використання кольорів рівнів загального завдання"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:270
+#, kde-format
+msgid "Summary task default color"
+msgstr "Типовий колір загального завдання"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:274
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Колір загального завдання, рівні 1"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:278
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Колір загального завдання, рівні 2"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:282
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Колір загального завдання, рівні 3"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:286
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Колір загального завдання, рівні 4"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:290
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Колір завдання у звичайному стані"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:294
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Колір завдання у критичному стані"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:298
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Колір завдання у завершеному стані"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:302
+#, kde-format
+msgid "Task color in error state"
+msgstr "Колір завдання у помилковому стані"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:306
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Колір етапу у звичайному стані"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:310
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Колір етапу у критичному стані"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:314
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Колір етапу у завершеному стані"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:318
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Колір етапу у помилковому стані"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:325
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Автоматично шукати нові пакунки роботи"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "Каталог, де Plan зберігатиме пакунки роботи учасників проєкту"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Якщо позначено, Plan вилучатиме файл після читання"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Якщо позначено, Plan зберігатиме файл після читання"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr "Каталог, куди Plan зберігатиме пакунки роботи після читання"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "Каталог, у якому Plan оприлюднює пакунки роботи"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:346
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Найменша можлива одиниця тривалості"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:350
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Найбільша можлива одиниця тривалості"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:357
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Шлях до документації"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:361
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Шлях до документації у форматі контекстної довідки"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:365
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+"Мова, якою має бути перекладено документацію у форматі контекстної довідки"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:371
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "Використовувати модулі завдань з вашого приватного сховища"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:375
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "Список шляхів до модулів завдань"
+
+#. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
+#: calligraplansettings.kcfg:381
+#, kde-format
+msgid "List of paths to report templates"
+msgstr "Список шляхів до шаблонів звітів"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:387
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "Список шляхів до шаблонів проєктів"
+
+#. i18n: ectx: label, entry (AutoSave), group (Interface)
+#: calligraplansettings.kcfg:393
+#, kde-format
+msgid "Autosave interval"
+msgstr "Інтервал автозбереження"
+
+#. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
+#: calligraplansettings.kcfg:397
+#, kde-format
+msgid "Create a backup file"
+msgstr "Створити файл резервної копії"
+
+#: config/ConfigDialog.cpp:36
+#, kde-format
+msgid "Project Defaults"
+msgstr "Типові значення проєкту"
+
+#: config/ConfigDialog.cpp:37 kptview.cpp:635
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Робота і відпустки"
+
+#: config/ConfigDialog.cpp:38
+#, kde-format
+msgid "Task Defaults"
+msgstr "Типові значення завдання"
+
+#: config/ConfigDialog.cpp:39
+#, kde-format
+msgid "Task Colors"
+msgstr "Кольори завдань"
+
+#: config/ConfigDialog.cpp:41
+#, kde-format
+msgid "Task Modules"
+msgstr "Модулі завдань"
+
+#: config/ConfigDialog.cpp:45
+#, kde-format
+msgid "Work Package"
+msgstr "Пакунок роботи"
+
+#: config/ConfigDialog.cpp:48
+#, kde-format
+msgid "Project Templates"
+msgstr "Шаблони проєктів"
+
+#: config/ConfigDialog.cpp:54
+#, kde-format
+msgid "Report Templates"
+msgstr "Шаблони звітів"
+
+#: config/ConfigDialog.cpp:60
+#, kde-format
+msgctxt "@title:tab Document settings page"
+msgid "Document"
+msgstr "Документ"
+
+#: config/ConfigProjectPanel.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr "Керівник цього проєкту."
+
+#: config/ConfigProjectPanel.cpp:39
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Позначте, щоб увімкнути спільні ресурси"
+
+#: config/ConfigProjectPanel.cpp:42
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Файл, у якому визначено спільні ресурси"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Загальний"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#: config/ConfigProjectPanel.ui:44
+#, kde-format
+msgid "Browse..."
+msgstr "Вибрати…"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:57
+#, kde-format
+msgid "Shared resource file:"
+msgstr "Файл спільних ресурсів:"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:67
+#, kde-format
+msgid "&Manager:"
+msgstr "&Керівник:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:90
+#, kde-format
+msgid "Use shared resources:"
+msgstr "Спільні ресурси:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Опис"
+
+#: config/ConfigProjectTemplatesPanel.cpp:48
+#, kde-format
+msgid "Project Templates Path"
+msgstr "Шлях до шаблонів проєктів"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:17
+#: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "Вставити"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#: config/ConfigProjectTemplatesPanel.ui:41
+#: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Remove"
+msgstr "Вилучити"
+
+#: config/ConfigReportTemplatesPanel.cpp:48
+#: config/ConfigTaskModulesPanel.cpp:48
+#, kde-format
+msgid "Task Modules Path"
+msgstr "Шлях до модулів завдань"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr "Використовувати локальні модулі завдань"
+
+#: config/ConfigWorkVacationPanel.cpp:38
+#, kde-format
+msgid "Default"
+msgstr "Типовий"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr "Робочі години"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Значення, які використовуються для створення типових "
+"календарів для робочих тижнів і вихідних.</p><p>У календарі <span style=\" "
+"font-style:italic;\">Тиждень</span> використовуються значення, які визначено "
+"у налаштуваннях <span style=\" font-style:italic;\">Робочого тижня</span>.</"
+"p><p>Календар <span style=\" font-style:italic;\">Тиждень</span> можна "
+"створювати <span style=\" font-style:italic;\">Завжди</span> або лише <span "
+"style=\" font-style:italic;\">Якщо не існує жодного</span>. Останній "
+"варіанти використовується ширше, оскільки часто календарі є частиною "
+"шаблонів або спільних ресурсів.</p><p><span style=\" font-style:italic;"
+"\">Вихідні</span> може бути визначено за регіоном перебування (типова "
+"поведінка) або будь-яким вибраним вами регіоном. Вихідні можна додати до "
+"тижневого календаря, як підкалендар до тижневого календаря або як окремий "
+"календар.</p><p>Якщо тижневий календар не створюється, вихідні буде "
+"збережено у окремому календарі.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "Створення календаря"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Тиждень"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
+#: kptmaindocument.cpp:1690
+#, kde-format
+msgid "Holidays"
+msgstr "Вихідні дні"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "У тижневому календарі"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "&Регіон свят:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "Робочий тиждень"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "Позначка, якщо робочий день"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "Позначка, якщо робочий день"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "Перетворення оцінок"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Ці значення буде використано, якщо ваша оцінка виконується не у годинах.\n"
+"Припустімо, що кількість робочих годин на день дорівнює 8. Якщо ви вважаєте, "
+"що для виконання завдання потрібно 3 дні, це значення буде помножено під час "
+"планування завдання на 24 години. Справжній час, потрібний на виконання "
+"завдання, звичайно ж, залежить від доступності особи (або осіб), призначених "
+"для виконання цього завдання."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "Годин на &рік:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "Годин на &місяць:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "Годин на &тиждень:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Ці значення використовуються під час оцінки обсягу робіт, необхідного для "
+"завершення завдання."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "Годин на &день:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Градієнт:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Загальне завдання"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Типовий:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Використовувати кольори рівнів"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Рівень 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Рівень 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Рівень 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Рівень 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Завдання"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Звичайні:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Критичні:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Завершені:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Помилкові:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Етап"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/kptconfigtaskpanelbase.ui:33 config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Особа, яка відповідає за це завдання.\n"
+"\n"
+"Може бути будь-хто, а не тільки особи наявні у групі виконавців. Можна, "
+"навіть, безпосередньо отримати доступ до вашої адресної книги, натиснувши "
+"кнопку Вибрати."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Відповідальний:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Вставити особу з вашої адресної книги"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Вставити особу з вашої адресної книги."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Вибрати..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Обмеження планування:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Якнайскоріше"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Якомога пізніше"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Мусить початись"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Мусить закінчитися"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Почати не раніше, ніж"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Закінчити не пізніше, ніж"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Фіксований інтервал"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Використання часових рамок початку:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Поточна дата/час"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Поточна дата, вказаний час"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Вказана дата/час"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Часові рамки початку:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Використання часових рамок завершення:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Часові рамки завершення:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Тип оцінки:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Обсяг робіт"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Тривалість"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Очікувана оцінка:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Оптимістична оцінка:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Песимістична оцінка:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "Отримання"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Перевірити пакунки роботи"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "Отримання:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "Архівувати"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Вилучити файл після отримання"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Архівувати файл після отримання"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "Архів:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "Оприлюднити"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "Оприлюднення:"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
+#: CreateReportTemplateDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Вікно"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: CreateReportTemplateDialog.ui:26
+#, kde-format
+msgid "Base template:"
+msgstr "Основний шаблон:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: CreateReportTemplateDialog.ui:39
+#, kde-format
+msgid "File name:"
+msgstr "Назва файла:"
+
+#: KPlatoXmlLoader.cpp:56
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"У цьому документі не вказано версії синтаксису.\n"
+"Його відкриття у Plan може призвести до втрати даних."
+
+#: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
+#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#, kde-format
+msgid "Continue"
+msgstr "Продовжити"
+
+#: KPlatoXmlLoader.cpp:58
+#, kde-format
+msgid "File-Format Error"
+msgstr "Помилка у форматі файла"
+
+#: KPlatoXmlLoader.cpp:67
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Цей документ було створено новішою версією KPlato, ніж може бути відкрито "
+"Plan.\n"
+"Версія синтаксису: %1\n"
+"Відкривши його за допомогою цієї версії Plan, ви можете втратити деяку "
+"інформацію."
+
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
+#: kptmaindocument.cpp:694
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Невідповідність формату файла"
+
+#: KPlatoXmlLoader.cpp:110
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Цей документ було створено за допомогою новішої версії KPlatoWork (версія "
+"синтаксису: %1)\n"
+"Відкриття цього документа у поточній версії PlanWork призведе до втрати "
+"деякої інформації."
+
+#: kptaboutdata.h:24
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:26
+#, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "Програма для планування і керування проєктами"
+
+#: kptaboutdata.h:28
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "© Команда Plan, 1998–%1"
+
+#: kptaboutdata.h:32
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:33
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:34
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:35
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:38
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Іван Петрущак"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ivanpetrouchtchak@yahoo.com"
+
+#: kptbuiltinschedulerplugin.cpp:28
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Мережеве планування"
+
+#: kptbuiltinschedulerplugin.cpp:29
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Вбудоване мережеве планування (PERT)"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+"<title>Мережеве планування (PERT)</title><para>Загалом кажучи, мережеве "
+"планування передбачає планування завдань відповідно до їхніх залежностей. "
+"Під час планування кожного завдання передбачається використання всіх "
+"доступних ресурсів (виконавців). Якщо понаднормове використання заборонено, "
+"наступні завдання, у яких передбачається використання того самого ресурсу "
+"(виконавця), буде заплановано на пізніші терміни.</para><para>Завдання з "
+"часовими обмеженнями матимуть пріоритет у планування з метою усування "
+"можливих проблем з конфліктом використання виконавців.</para><para><note>У "
+"разі використання цього планування можливі конфлікти використання виконавців."
+"<nl/>Ви можете скористатися іншим доступним способом планування. Ви також "
+"можете з метою усування конфліктів змінити призначення виконавців або додати "
+"фіктивні залежності.</note></para>"
+
+#: kptbuiltinschedulerplugin.cpp:250
+#, kde-format
+msgid "Scheduling started: %1"
+msgstr "Початок планування: %1"
+
+#: kptbuiltinschedulerplugin.cpp:252
+#, kde-format
+msgid "Recalculating from: %1"
+msgstr "Переобчислюємо з: %1"
+
+#: kptbuiltinschedulerplugin.cpp:264
+#, kde-format
+msgid "Scheduling canceled"
+msgstr "Планування скасовано"
+
+#: kptbuiltinschedulerplugin.cpp:270
+#, kde-format
+msgid "Scheduling finished at %1, elapsed time: %2 seconds"
+msgstr "Планування завершено %1, витрачено часу: %2 секунд"
+
+#: kptbuiltinschedulerplugin.cpp:284
+#, kde-format
+msgid "Inserting resource bookings from project: %1"
+msgstr "Вставляємо резервування ресурсу з проєкту: %1"
+
+#: kptinsertfiledlg.cpp:21
+#, kde-format
+msgid "Insert File"
+msgstr "Вставити файл"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Поточна задача:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Вставити на вищий рівень"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Вставити, як дочірній елемент поточної задачі"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Вставити після поточної задачі"
+
+#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Некоректний документ. Не вказано тип mime."
+
+#: kptmaindocument.cpp:359
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"Некоректний документ. Очікувався тип mime application/x-vnd.kde.plan, "
+"отримано %1"
+
+#: kptmaindocument.cpp:368
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Цей документ було створено новішою версією Plan (версія синтаксису: %1)\n"
+"Відкривши його за допомогою цієї версії Plan, ви втратите деяку інформацію."
+
+#: kptmaindocument.cpp:454
+#, kde-format
+msgid "Failed to save to temporary file. No resource has been specified"
+msgstr "Не вдалося зберегти до тимчасового файла. Не вказано ресурсу."
+
+#: kptmaindocument.cpp:469
+#, kde-format
+msgid "Failed to open work package file"
+msgstr "Не вдалося відкрити файл пакунка роботи"
+
+#: kptmaindocument.cpp:476
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr ""
+"Не вдалося зберегти зміни до тимчасового файла:<br/><filename>%1</filename>"
+
+#: kptmaindocument.cpp:552
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "Неможливо створити файл для збереження пакунка роботи: %1"
+
+#: kptmaindocument.cpp:560
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Запис '%1' неможливий. Носій заповнено?"
+
+#: kptmaindocument.cpp:587
+#, kde-format
+msgid "Saving..."
+msgstr "Збереження..."
+
+#: kptmaindocument.cpp:681
+#, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr "Некоректний документ. Мало бути використано тип MIME %2, маємо %1"
+
+#: kptmaindocument.cpp:692
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Цей документ було створено за допомогою новішої версії PlanWork (версія "
+"синтаксису: %1)\n"
+"Відкриття цього документа у поточній версії PlanWork призведе до втрати "
+"деякої інформації."
+
+#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr "Внутрішня помилка, не вдалося вставити файл."
+
+#: kptmaindocument.cpp:1177
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Failed to load shared resources into project %1:<nl/>Internal error, failed "
+"to insert file."
+msgstr ""
+"Не вдалося завантажити спільні ресурси до проєкту %1:<nl/>Внутрішня помилка, "
+"не вдалося вставити файл."
+
+#: kptmaindocument.cpp:1187
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to load shared resources into project %1:<nl/>%2"
+msgstr "Не вдалося завантажити спільні ресурси до проєкту %1:<nl/>%2"
+
+#: kptmaindocument.cpp:1357
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr ""
+"Вставити проєкт\n"
+"вставлення проєкту"
+
+#: kptmaindocument.cpp:1437
+#, kde-format
+msgid "Group: %1"
+msgstr "Група: %1"
+
+#: kptmaindocument.cpp:1444
+#, kde-format
+msgid "Resource: %1"
+msgstr "Ресурс: %1"
+
+#: kptmaindocument.cpp:1449
+#, kde-format
+msgid "Calendar: %1"
+msgstr "Календар: %1"
+
+#: kptmaindocument.cpp:1451
+msgctxt "(qtundo-format)"
+msgid "Update Shared Resources"
+msgstr "Оновити спільні ресурси"
+
+#. i18nc("@title:window", "Shared Resources"));
+#: kptmaindocument.cpp:1466
+#, kde-format
+msgctxt "@title:window"
+msgid "Project: %1"
+msgstr "Проєкт: %1"
+
+#: kptmaindocument.cpp:1656
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr "Базовий"
+
+#: kptpart.cpp:95
+#, kde-format
+msgid "Configure Plan..."
+msgstr "Налаштувати Plan..."
+
+#: kptschedulesdocker.cpp:26
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Вибір розкладу"
+
+#: kptview.cpp:183
+#, kde-format
+msgid "Create Project Template..."
+msgstr "Створити шаблон проєкту…"
+
+#: kptview.cpp:187
+#, kde-format
+msgid "Create New Project..."
+msgstr "Створити проєкт…"
+
+#: kptview.cpp:199
+#, kde-format
+msgid "Show Selector"
+msgstr "Показати діалогове вікно вибору"
+
+#: kptview.cpp:206 kptview.cpp:247
+#, kde-format
+msgid "Edit..."
+msgstr "Редагувати..."
+
+#: kptview.cpp:210
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr "Визначити перетворення оцінок..."
+
+#: kptview.cpp:214
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Визначити взірець структури розкладки робіт..."
+
+#: kptview.cpp:218
+#, kde-format
+msgid "Define Currency..."
+msgstr "Визначити валюту..."
+
+#: kptview.cpp:222
+#, kde-format
+msgid "Edit Description..."
+msgstr "Змінити опис…"
+
+#: kptview.cpp:227
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Вставити файл проєкту..."
+
+#: kptview.cpp:231
+#, kde-format
+msgid "Update Shared Resources"
+msgstr "Оновити спільні ресурси"
+
+#: kptview.cpp:236
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr "Відкрити файл визначення звіту…"
+
+#: kptview.cpp:241
+#, kde-format
+msgid "Create Report Template..."
+msgstr "Створити шаблон звіту…"
+
+#: kptview.cpp:257
+#, kde-format
+msgid "Work Packages..."
+msgstr "Пакунки роботи…"
+
+#: kptview.cpp:258
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Доступні пакунки роботи"
+
+#: kptview.cpp:349
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+"<note>Скасувати наслідки виконання цієї дії неможливо.</note><nl/><nl/"
+">Створення нового проєкту на основі поточного проєкту з новими профілями "
+"проєктів і завдань.<nl/>Профілі ресурсів та календарів змінено не буде.<nl/"
+">Всі дані щодо планування буде вилучено.<nl/><nl/>Бажаєте виконати цю дію?"
+
+#: kptview.cpp:489
+#, kde-format
+msgid "Edit task scheduling constraints"
+msgstr "Змінити обмеження планування завдання"
+
+#: kptview.cpp:489
+#, kde-format
+msgid "Task Constraints"
+msgstr "Обмеження завдання"
+
+#: kptview.cpp:499
+#, kde-format
+msgid "Edit task cost"
+msgstr "Змінити вартість завдання"
+
+#: kptview.cpp:499
+#, kde-format
+msgid "Task Cost"
+msgstr "Вартість завдання"
+
+#: kptview.cpp:548
+#, kde-format
+msgid "Generate reports"
+msgstr "Створення звітів"
+
+#: kptview.cpp:554 kptview.cpp:2438
+#, kde-format
+msgid "Task Status Report"
+msgstr "Звіт щодо стану завдання"
+
+#: kptview.cpp:636
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Змінити робочі дні і дні відпустки для виконавців"
+
+#: kptview.cpp:638
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "Структура розподілу вартості"
+
+#: kptview.cpp:639
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Змінити структуру розподілу вартості."
+
+#: kptview.cpp:641
+#, kde-format
+msgid "Resource Breakdown Structure"
+msgstr "Структура розподілу виконавців"
+
+#: kptview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Змінити структуру розподілу виконавців"
+
+#: kptview.cpp:644 SharedResourcesDialog.cpp:58
+#, kde-format
+msgid "Resources"
+msgstr "Виконавці"
+
+#: kptview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resources"
+msgstr "Змінити виконавців"
+
+#: kptview.cpp:647
+#, kde-format
+msgid "Tasks"
+msgstr "Завдання"
+
+#: kptview.cpp:648
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Змінити структуру розподілу робочих витрат."
+
+#: kptview.cpp:650
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Залежності (Графік)"
+
+#: kptview.cpp:651 kptview.cpp:654
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Змінити залежності завдання"
+
+#: kptview.cpp:653
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Залежності (Список)"
+
+#: kptview.cpp:657 kptview.cpp:659
+#, kde-format
+msgid "Schedules"
+msgstr "Розклади"
+
+#: kptview.cpp:660
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Розрахувати і проаналізувати розклад проєкту"
+
+#: kptview.cpp:662 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Діаграма швидкодії проєкту"
+
+#: kptview.cpp:663
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Переглянути інформацію про стан проєкту"
+
+#: kptview.cpp:665 kptviewlistdialog.cpp:101
+#, kde-format
+msgid "Task Status"
+msgstr "Стан завдання"
+
+#: kptview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "Переглянути інформацію про поступ завдання"
+
+#: kptview.cpp:668
+#, kde-format
+msgid "Task Execution"
+msgstr "Виконання завдання"
+
+#: kptview.cpp:669
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Переглянути інформацію про виконання завдання"
+
+#: kptview.cpp:671 kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Work Package View"
+msgstr "Перегляд пакунків роботи"
+
+#: kptview.cpp:672
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "Переглянути дані щодо завдання пакунка роботи"
+
+#: kptview.cpp:674
+#, kde-format
+msgid "Gantt"
+msgstr "Діаграма Ґанта"
+
+#: kptview.cpp:675
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Переглянути діаграму Ґанта"
+
+#: kptview.cpp:677
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Діаграма Ґанта для етапу"
+
+#: kptview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Переглянути діаграму Ґанта для етапу"
+
+#: kptview.cpp:680 kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Призначення виконавців"
+
+#: kptview.cpp:681
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Переглянути призначення виконавців у форматі таблиці"
+
+#: kptview.cpp:683 kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Призначення виконавців (Ґант)"
+
+#: kptview.cpp:684
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Переглянути призначення виконавців на діаграмі Ґанта"
+
+#: kptview.cpp:686 kptviewlistdialog.cpp:108
+#, kde-format
+msgid "Resource Coverage"
+msgstr "Покриття виконавця"
+
+#: kptview.cpp:687
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Inspect resource coverage"
+msgstr "Вивчити покриття виконавця"
+
+#: kptview.cpp:689 kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "Розподіл вартості"
+
+#: kptview.cpp:690
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Переглянути планову і поточну вартість"
+
+#: kptview.cpp:692 kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "Діаграма швидкодії завдання"
+
+#: kptview.cpp:693
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "Переглянути інформацію про стан виконання завдань"
+
+#: kptview.cpp:695
+#, kde-format
+msgid "Reports Generator"
+msgstr "Засіб створення звітів"
+
+#: kptview.cpp:696
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "Створення звітів"
+
+#: kptview.cpp:698 kptview.cpp:2435 kptviewlistdialog.cpp:114
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Звіт"
+
+#: kptview.cpp:699
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Переглянути звіт"
+
+#: kptview.cpp:710
+#, kde-format
+msgid "Editors"
+msgstr "Редактори"
+
+#: kptview.cpp:712
+#, kde-format
+msgid "Views"
+msgstr "Перегляд"
+
+#: kptview.cpp:714
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Виконання"
+
+#: kptview.cpp:716
+#, kde-format
+msgid "Reports"
+msgstr "Звіти"
+
+#: kptview.cpp:1479
+#, kde-format
+msgid "Overwrite"
+msgstr "Перезаписати"
+
+#: kptview.cpp:1479
+#, kde-format
+msgctxt "@window:title"
+msgid "Report Template"
+msgstr "Шаблон звіту"
+
+#: kptview.cpp:1479
+#, kde-format
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr "Файл «%1» вже існує. Перезаписати його?"
+
+#: kptview.cpp:2014
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Не вдалося відкрити файл:<br/><filename>%1</filename>"
+
+#: kptview.cpp:2129
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr ""
+"Змінити назву\n"
+"зміну назви"
+
+#: kptview.cpp:2131
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr ""
+"Змінити назву завдання\n"
+"зміну назви завдання"
+
+#: kptview.cpp:2132
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr ""
+"Змінити назву етапу\n"
+"зміну назви етапу"
+
+#: kptview.cpp:2133
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr ""
+"Змінити назву сумарного завдання\n"
+"зміни назви сумарного завдання"
+
+#: kptview.cpp:2134
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr ""
+"Змінити назву проєкту\n"
+"зміну назви проєкту"
+
+#: kptview.cpp:2226
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Незаплановане"
+
+#: kptview.cpp:2280
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr "Пакунок роботи для проєкту: %1"
+
+#: kptview.cpp:2436
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Керівник:"
+
+#: kptview.cpp:2437
+#, kde-format
+msgid "Project:"
+msgstr "Проєкт:"
+
+#: kptview.cpp:2439
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "з"
+
+#: kptview.cpp:2440
+#, kde-format
+msgid "Page"
+msgstr "Сторінка"
+
+#: kptview.cpp:2441
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Назва"
+
+#: kptview.cpp:2442
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Рівень завершеності (у %)"
+
+#: kptviewlist.cpp:335
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Вибір режиму перегляду</title><para>Тут наведено список всіх "
+"доступних панелей перегляду та редагування.</para><para>Налаштувати цей "
+"список можна за допомогою контекстного меню:<list><item>Ви можете "
+"перейменовувати категорії або панелі перегляду</item><item>Ви можете "
+"пересувати, вилучати перейменовувати та змінювати підказки до категорій та "
+"панелей перегляду</item><item>Ви можете додавати категорії та панелі "
+"перегляду</item></list><nl/><link url='%1'>Докладніше…</link></para>"
+
+#: kptviewlist.cpp:357
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Вибір розкладу</title><para>Виберіть розклад, який буде використано "
+"для показу пов'язаних із розкладами даних.<nl/><note>Завдання без розкладу "
+"буде показано лише у редакторі.</note><nl/><link url='%1'>Докладніше…</"
+"link></para>"
+
+#: kptviewlist.cpp:606
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr "Вилучення цієї категорії призведе до вилучення всіх її переглядів."
+
+#: kptviewlist.cpp:739
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Перейменувати"
+
+#: kptviewlist.cpp:743
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Налаштувати..."
+
+#: kptviewlist.cpp:747
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Вилучити"
+
+#: kptviewlist.cpp:756
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Перейменувати"
+
+#: kptviewlist.cpp:760
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Налаштувати..."
+
+#: kptviewlist.cpp:764
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Вилучити"
+
+#: kptviewlist.cpp:773
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Вставити..."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Категорія перегляду"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Категорія:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Перегляд розташовано після цього перегляду"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Після"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:72
+#, kde-format
+msgid "The type of view"
+msgstr "Тип перегляду"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "View type:"
+msgstr "Тип перегляду:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Назва перегляду"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Назва:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Опис переглядів"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Опис:"
+
+#: kptviewlistdialog.cpp:29
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Додавання перегляду"
+
+#: kptviewlistdialog.cpp:93
+#, kde-format
+msgid "Resource Group Editor"
+msgstr "Редактор груп виконавців"
+
+#: kptviewlistdialog.cpp:94
+#, kde-format
+msgid "Resource Editor"
+msgstr "Редактор виконавців"
+
+#: kptviewlistdialog.cpp:95
+#, kde-format
+msgid "Task Editor"
+msgstr "Редактор завдань"
+
+#: kptviewlistdialog.cpp:96
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Редактор роботи і відпустки"
+
+#: kptviewlistdialog.cpp:97
+#, kde-format
+msgid "Accounts Editor"
+msgstr "Редактор облікових записів"
+
+#: kptviewlistdialog.cpp:98
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Редактор залежностей (Графічний)"
+
+#: kptviewlistdialog.cpp:99
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Редактор залежностей (Список)"
+
+#: kptviewlistdialog.cpp:100
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Програма обробки розкладу"
+
+#: kptviewlistdialog.cpp:102
+#, kde-format
+msgid "Task View"
+msgstr "Перегляд завдання"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Gantt View"
+msgstr "Перегляд діаграми Ґанта"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Перегляд діаграми Ґанта етапів"
+
+#: kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Reports generator"
+msgstr "Засіб створення звітів"
+
+#: kptviewlistdialog.cpp:141
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+"<title>Категорія перегляду</title><nl/>У засобі вибору перегляду область "
+"перегляду буде розташовано у цій категорії.<nl/>Створити категорію можна "
+"змінивши назву вже створеної категорії."
+
+#: kptviewlistdialog.cpp:193 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:632
+#, kde-format
+msgid "Top"
+msgstr "Верх"
+
+#: kptviewlistdialog.cpp:305
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Налаштування перегляду"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+"<title>Категорія перегляду</title><nl/>У засобі вибору перегляду область "
+"перегляду буде розташовано у цій категорії.<nl/>Вибір іншої категорії "
+"пересуне область перегляду до нової категорії.<nl/>Створити категорію можна "
+"змінивши назву вже створеної категорії."
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Налаштування категорії"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Додавання звіту"
+
+#: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "Вибір перегляду [змінено]"
+
+#: kptviewlistdocker.cpp:62
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "Вибір перегляду"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Слів"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Речень"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Складів"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Рядків"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Символів разом з пропусками"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Символів без пропусків"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Зручність читання"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Включити текст з виносок та приміток"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Автоматично оновлювати дані"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Категорію буде розташовано після цієї категорії"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Назва категорії"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Опис категорії"
+
+#: SharedResourcesDialog.cpp:30
+#, kde-format
+msgctxt "@title:column"
+msgid "Action"
+msgstr "Дія"
+
+#: SharedResourcesDialog.cpp:30
+#, kde-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Назва"
+
+#: SharedResourcesDialog.cpp:33
+#, kde-format
+msgid "Calendars"
+msgstr "Календарі"
+
+#: SharedResourcesDialog.cpp:84
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared Resource Dialog</title><para>Enables you to decide how to "
+"treat shared resources, shared resource groups and shared calendars when "
+"they have been deleted from the shared resources file.</para><para>You can "
+"select if an item shall be:<list><item><emphasis>Removed:</emphasis> Removes "
+"the item from your project too.</item><item><emphasis>Converted:</emphasis> "
+"Converts the item to local item.</item><item><emphasis>Kept:</emphasis> "
+"Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+"<title>Вікно спільних ресурсів</title><para>За допомогою цього вікна ви "
+"можете визначити, як слід обробляти спільні ресурси, групи спільних ресурсів "
+"та спільні календарі, коли їх вилучають із файла спільних ресурсів.</"
+"para><para>Ви можете визначити такі дії:<list><item><emphasis>Вилучити:</"
+"emphasis> вилучити запис з вашого проєкту.</item><item><emphasis>Перетворити:"
+"</emphasis> перетворити запис на локальний.</item><item><emphasis>Зберегти:</"
+"emphasis> зберегти запис як спільний.</item></list><nl/><link "
+"url='%1'>Докладніше…</link></para>"
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Convert"
+msgstr "Перетворити"
+
+#: SharedResourcesDialog.cpp:248
+#, kde-format
+msgid "Keep"
+msgstr "Залишити"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:40
+#, kde-format
+msgid "Mark all selected items to be removed from your project"
+msgstr "Позначити усі вибрані запис для вилучення з вашого проєкту"
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
+#: SharedResourcesDialog.ui:43
+#, kde-format
+msgid "Mark as: Remove"
+msgstr "Позначення: вилучити"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:50
+#, kde-format
+msgid "Mark all selected items to be converted to local resources"
+msgstr "Позначити усі вибрані запис для перетворення на локальні ресурси"
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
+#: SharedResourcesDialog.ui:53
+#, kde-format
+msgid "Mark as: Convert"
+msgstr "Позначення: перетворити"
+
+#. i18n: info:tooltip
+#. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:60
+#, kde-format
+msgid "Mark all selected items to be kept as shared resources"
+msgstr "Позначити усі вибрані запис для зберігання у формі спільних ресурсів"
+
+#. i18n: @action:button
+#. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
+#: SharedResourcesDialog.ui:63
+#, kde-format
+msgid "Mark as: Keep"
+msgstr "Позначення: зберегти"
+
+#~| msgctxt "@title:window"
+#~| msgid "Shared resources"
+#~ msgctxt "@title:window"
+#~ msgid "Shared Resources"
+#~ msgstr "Спільні ресурси"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "Shared resources have been removed from the shared resources file.<nl/"
+#~ ">Select how they shall be treated in this project."
+#~ msgstr ""
+#~ "З файла спільних ресурсів вилучено записи спільних ресурсів.<nl/>Виберіть "
+#~ "спосіб обробки вилучених ресурсів у цьому проєкті."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Convert shared resources to local"
+#~ msgstr "Перетворити спільні ресурси на локальні"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Keep as shared resources"
+#~ msgstr "Зберегти як спільні ресурси"
+
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Не вдається відкрити тимчасовий файл"
+
+#~ msgid "Work Package: %1"
+#~ msgstr "Пакунок роботи: %1"
+
+#~ msgctxt "1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип MIME application/x-vnd.kde.plan."
+#~ "work, отримано %1"
+
+#~ msgid "Documentation"
+#~ msgstr "Документація"
+
+#~ msgid "Documentation:"
+#~ msgstr "Документація:"
+
+#~ msgid "Context help:"
+#~ msgstr "Контекстна довідка:"
+
+#~ msgid "Context language"
+#~ msgstr "Контекстна мова"
+
+#~ msgid "Directory that contains projects that share resources"
+#~ msgstr "Каталог, який містить проєкти зі спільними ресурсами"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "The directory where projects sharing the resources are placed"
+#~ msgstr "Каталог, який містить проєкти зі спільними ресурсами"
+
+#~ msgid "Shared projects:"
+#~ msgstr "Спільні проєкти:"
+
+#~ msgctxt "@title:window"
+#~ msgid "Load Resource Assignments"
+#~ msgstr "Завантаження призначень виконавців"
+
+#~ msgid "Load Shared Projects..."
+#~ msgstr "Завантажити спільні проєкти…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Create a new project</title><para>Creates a new project with "
+#~ "default values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+#~ "<emphasis>project dialog</emphasis> so you can define project specific "
+#~ "properties like <resource>Project Name</resource>, <resource>Target "
+#~ "Start</resource> and <resource>- End</resource> times.<nl/><link "
+#~ "url='%1'>More...</link></para>"
+#~ msgstr ""
+#~ "<title>Створити проєкт</title><para>Надає змогу створити новий проєкт із "
+#~ "типовими параметрами, визначеними у вікні <emphasis>Параметри</"
+#~ "emphasis><nl/>Відкриває <emphasis>діалогове вікно роботи з проєктами</"
+#~ "emphasis>, за допомогою якого ви можете визначити специфічні для проєкту "
+#~ "властивості, зокрема <resource>назву проєкту</resource> та дати "
+#~ "<resource>початку</resource> та <resource>завершення</resource>.<nl/"
+#~ "><link url='%1'>Докладніше…</link></para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Shared resources</title><para>Create a shared resources file.<nl/"
+#~ ">This enables you to only create your resources once, you just refer to "
+#~ "your resources file when you create a new project.<nl/>These resources "
+#~ "can then be shared between projects to avoid overbooking resources across "
+#~ "projects.<nl/>Shared resources must be defined in a separate file.<nl/"
+#~ "><link url='%1'>More...</link></para>"
+#~ msgstr ""
+#~ "<title>Спільні ресурси</title><para>Створити файл спільних ресурсів.<nl/"
+#~ ">Надає змогу створити лише один запис ресурсу. На файл ресурсів із цим "
+#~ "записом можна буде просто послатися під час створення нового проєкту.<nl/"
+#~ ">Ресурси також можна спільно використовувати у різних проєктах для "
+#~ "уникнення перевизначення ресурсів між проєктами.<nl/>Спільні ресурси має "
+#~ "бути визначено у окремому файлі.<nl/><link url='%1'>Докладніше…</link></"
+#~ "para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Recent Projects</title><para>A list of the 10 most recent project "
+#~ "files opened.</para><para><nl/>This enables you to quickly open projects "
+#~ "you have worked on recently.</para>"
+#~ msgstr ""
+#~ "<title>Нещодавні проєкти</title><para>Список із десяти останніх відкритих "
+#~ "файлів проєктів.</para><para><nl/>За допомогою цього списку ви зможете "
+#~ "швидше відкрити проєкти, над якими ви нещодавно працювали.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Context help</title><para>Help is available many places using "
+#~ "<emphasis>What's This</emphasis>.<nl/>It is activated using the menu "
+#~ "entry <interface>Help->What's this?</interface> or the keyboard shortcut "
+#~ "<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+#~ "the <interface>?</interface> in the dialog title bar.</para><para>If you "
+#~ "see <link url='%1'>More...</link> in the text, pressing it will display "
+#~ "more information from the documentation.</para>"
+#~ msgstr ""
+#~ "<title>Контекстна довідка</title><para>Доступ до довідкової інформації у "
+#~ "багатьох місцях можна отримати за допомогою функціональної можливості "
+#~ "<emphasis>Що це?</emphasis>.<nl/>Задіяти її можна за допомогою пункту "
+#~ "меню <interface>Довідка -> Що це?</interface> або натискання комбінації "
+#~ "клавіш <shortcut>Shift+F1</shortcut>.</para><para>У діалогових вікнах "
+#~ "доступ до неї можна отримати за допомогою кнопки <interface>?</interface> "
+#~ "на смужці заголовка вікна.</para><para>Якщо ви бачите пункт <link "
+#~ "url='%1'>Докладніше…</link> у тексті, його натискання призведе до показу "
+#~ "додаткової інформації з документації до програми.</para>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Project Templates</title><para>Select a template to create a new "
+#~ "project based on the selected template.</para><para>Plan searches for "
+#~ "templates in the places you can define in the settings dialog: "
+#~ "<interface>Settings->Configure Plan</interface>.</para><para>You can "
+#~ "create new templates from a project using the <interface>File->Create "
+#~ "Project Template</interface> menu entry.<nl/><link url='%1'>More...</"
+#~ "link></para>"
+#~ msgstr ""
+#~ "<title>Шаблони проєктів</title><para>Виберіть шаблон для створення "
+#~ "проєкту на основі вибраного шаблона.</para><para>Plan виконує пошук "
+#~ "шаблонів у теках, які ви вкажете у діалоговому вікні параметрів програми: "
+#~ "<interface>Параметри → Налаштувати Plan</interface>.</para><para>Ви "
+#~ "можете створити нові шаблони з проєкту за допомогою пункту меню "
+#~ "<interface>Файл → Створити шаблон проєкту</interface>.<nl/><link "
+#~ "url='%1'>Докладніше...</link></para>"
+
+#~ msgid "Open Document"
+#~ msgstr "Відкрити документ"
+
+#~ msgid "New Project"
+#~ msgstr "Створити проєкт"
+
+#~ msgid ""
+#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+#~ "\">Template projects:</span></p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+#~ "\">Шаблонні проєкти:</span></p></body></html>"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</"
+#~ "span></p><p>Displays a file dialog enabling you to open an existing "
+#~ "project.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p><span style=\" font-weight:600;\">Відкрити проєкт</"
+#~ "span></p><p>Відкриває діалогове вікно, за допомогою якого ви можете "
+#~ "відкрити наявний проєкт.</p></body></html>"
+
+#~ msgid "Open Project..."
+#~ msgstr "Відкрити проєкт…"
+
+#~ msgid ""
+#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+#~ "\">Recent projects:</span></p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+#~ "\">Нещодавні проєкти:</span></p></body></html>"
+
+#~ msgid "Introduction"
+#~ msgstr "Вступ"
+
+#~ msgid ""
+#~ "<html><head/><body><p><span style=\" font-weight:600;\">Context Help</"
+#~ "span></p><p>Many functions has help and hints that can be displayed with "
+#~ "<span style=\" font-style:italic;\">What's this</span>.</p><p>Activate it "
+#~ "by selecting <span style=\" font-style:italic;\">Help-&gt;What's this</"
+#~ "span> or <span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try "
+#~ "it on this text!</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p><span style=\" font-weight:600;\">Контекстна "
+#~ "довідка</span></p><p>Для багатьох функціональних можливостей програми "
+#~ "передбачено довідку і підказки, переглянути які можна за допомогою пункту "
+#~ "меню <span style=\" font-style:italic;\">Що це?</span>.</p><p>Отримати "
+#~ "довідкову інформацію можна за допомогою пункту меню <span style=\" font-"
+#~ "style:italic;\">Довідка → Що це?</span> або натискання комбінації клавіш "
+#~ "<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Спробуйте на "
+#~ "цьому тексті!</p></body></html>"
+
+#~ msgid "https://userbase.kde.org/Plan"
+#~ msgstr "https://userbase.kde.org/Plan/uk"
+
+#~ msgctxt "@action:button"
+#~ msgid ""
+#~ "<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+#~ "user documentation</a>"
+#~ msgstr ""
+#~ "<a href=\"https://docs.kde.org/index.php?application=calligraplan"
+#~ "\">Документація для користувачів Plan</a>"
+
+#~ msgid "https://forum.kde.org/viewforum.php?f=203"
+#~ msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#~ msgctxt "@action:button"
+#~ msgid ""
+#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+#~ msgstr ""
+#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Форум спільноти</a>"
+
+#~ msgid "https://calligra.org"
+#~ msgstr "https://calligra.org"
+
+#~ msgctxt "@action:button"
+#~ msgid "<a href=\"https://calligra.org\">Calligra</a>"
+#~ msgstr "<a href=\"https://calligra.org\">Calligra</a>"
+
+#~ msgid "Progress..."
+#~ msgstr "Поступ..."
+
+#~ msgid "Delete Task"
+#~ msgstr "Вилучити завдання"
+
+#~ msgid "Description..."
+#~ msgstr "Опис..."
+
+#~ msgid "Indent Task"
+#~ msgstr "Знизити рівень завдання"
+
+#~ msgid "Unindent Task"
+#~ msgstr "Підвищити рівень завдання"
+
+#~ msgid "Move Task Up"
+#~ msgstr "Пересунути завдання вгору"
+
+#~ msgid "Move Task Down"
+#~ msgstr "Пересунути завдання вниз"
+
+#~ msgid "Edit Resource..."
+#~ msgstr "Редагувати виконавця..."
+
+#~ msgid "Edit Dependency..."
+#~ msgstr "Змінити залежність..."
+
+#~ msgid "Delete Dependency"
+#~ msgstr "Вилучити залежність"
+
+#~ msgctxt "(qtundo-format) @info:status 1=schedule name"
+#~ msgid "Calculate %1"
+#~ msgstr ""
+#~ "Обчислити %1\n"
+#~ "обчислення %1"
+
+#~ msgid "Cannot baseline. The project is already baselined."
+#~ msgstr ""
+#~ "Не вдалося додати до базового плану. Проєкт уже знаходиться у базовому "
+#~ "плані."
+
+#~ msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgstr ""
+#~ "Цей розклад належить до базового плану. Ви бажаєте вилучити базовий план?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reset baseline %1"
+#~ msgstr ""
+#~ "Повернути початковий стан базового плану %1\n"
+#~ "повернення початкового стану базового плану %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Baseline %1"
+#~ msgstr ""
+#~ "Компонування плану %1\n"
+#~ "компонування плану %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add schedule %1"
+#~ msgstr ""
+#~ "Додати розклад %1\n"
+#~ "додавання розкладу %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete schedule %1"
+#~ msgstr ""
+#~ "Вилучити розклад %1\n"
+#~ "вилучення розкладу %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move schedule %1"
+#~ msgstr ""
+#~ "Пересунути розклад %1\n"
+#~ "пересування розкладу %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add milestone"
+#~ msgstr ""
+#~ "Додати етап\n"
+#~ "додавання етапу"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add sub-milestone"
+#~ msgstr ""
+#~ "Додати підетап\n"
+#~ "додавання підетапу"
+
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr ""
+#~ "Завдання, що стояло у розкладі, буде вилученою. Це зробить нечинним "
+#~ "розклад."
+
+#~ msgctxt "(qtundo-format) Delete one task"
+#~ msgid "Delete task"
+#~ msgstr ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task"
+#~ msgid_plural "Delete tasks"
+#~ msgstr[0] ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдань"
+#~ msgstr[1] ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдань"
+#~ msgstr[2] ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдань"
+#~ msgstr[3] ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдання"
+
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete task"
+#~ msgstr ""
+#~ "Вилучити завдання\n"
+#~ "вилучення завдання"
+
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "Цей завдання було у розкладі. Операція зробить розклад нечинним."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent task"
+#~ msgstr ""
+#~ "Знизити рівень завдання\n"
+#~ "зниження рівня завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent task"
+#~ msgstr ""
+#~ "Підвищити рівень завдання\n"
+#~ "підвищення рівня завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task up"
+#~ msgstr ""
+#~ "Пересунути завдання вгору\n"
+#~ "пересування завдання вгору"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move task down"
+#~ msgstr ""
+#~ "Пересунути завдання вниз\n"
+#~ "пересування завдання вниз"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add task dependency"
+#~ msgstr ""
+#~ "Додати залежність завдання\n"
+#~ "додавання залежності завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete task dependency"
+#~ msgstr ""
+#~ "Вилучити залежність завдання\n"
+#~ "вилучення залежності завдання"
+
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resource"
+#~ msgstr ""
+#~ "Вилучити виконавця\n"
+#~ "вилучення виконавця"
+
+#~ msgctxt "(qtundo-format) @action"
+#~ msgid "Delete resourcegroup"
+#~ msgstr ""
+#~ "Вилучити групу виконавців\n"
+#~ "вилучення групи виконавців"
+
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr ""
+#~ "Виконавця, який був у розкладі, буде вилучено. Це зробить розклад "
+#~ "нечинним."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] ""
+#~ "Вилучити виконавців\n"
+#~ "вилучення виконавців"
+#~ msgstr[1] ""
+#~ "Вилучити виконавців\n"
+#~ "вилучення виконавців"
+#~ msgstr[2] ""
+#~ "Вилучити виконавців\n"
+#~ "вилучення виконавців"
+#~ msgstr[3] ""
+#~ "Вилучити виконавця\n"
+#~ "вилучення виконавця"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] ""
+#~ "Вилучити групи виконавців\n"
+#~ "вилучення груп виконавців"
+#~ msgstr[1] ""
+#~ "Вилучити групи виконавців\n"
+#~ "вилучення груп виконавців"
+#~ msgstr[2] ""
+#~ "Вилучити групи виконавців\n"
+#~ "вилучення груп виконавців"
+#~ msgstr[3] ""
+#~ "Вилучити групу виконавців\n"
+#~ "вилучення групи виконавців"
+
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "KDE 4 tag line"
+#~ msgid "Be free."
+#~ msgstr "Будьте вільними."
+
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Plan — це програма для планування і керування проєктами."
+
+#~ msgid "Welcome to Plan."
+#~ msgstr "Вітаємо у Plan."
+
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "За допомогою цих вступних сторінок ви ознайомитеся з прийомами "
+#~ "користування Plan та його можливими застосуваннями."
+
+#~ msgid "A short introduction."
+#~ msgstr "Короткий вступ."
+
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Підказки щодо керування та перевірки даних."
+
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Невеличкий початковий посібник."
+
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Зауваження:</em> щоб переглянути ці сторінки під час роботи у інших "
+#~ "частинах Plan, скористайтеся пунктом меню <em>Довідка -> Вступ до Plan</"
+#~ "em>."
+
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information online at <a href=\"https://userbase.kde.org/Plan\">https://"
+#~ "userbase.kde.org/Plan</a></p>"
+#~ msgstr ""
+#~ "Plan призначено для керування помірно великими проєктами з декількома "
+#~ "виконавцями(або ресурсами). Щоб надати вам змогу адекватного моделювання "
+#~ "ваших проєктів, у Plan передбачено різні типи залежності завдань проєкту "
+#~ "та їхніх часових обмежень. Зазвичай, ви визначатимете ваші завдання, "
+#~ "оцінюватимете обсяг роботи, потрібний для виконання кожного з завдань, "
+#~ "розподілятимете виконавців, а потім створюватимете розклад проєкту "
+#~ "відповідно до мережі залежностей та доступності виконавців.<p>Докладніші "
+#~ "відомості можна знайти у інтернеті за адресою <a href=\"https://userbase."
+#~ "kde.org/Special:myLanguage/Plan\">https://userbase.kde.org/Plan</a></p>"
+
+#~ msgid "Next: Tips"
+#~ msgstr "Далі: підказки"
+
+#~ msgid "Editing tips."
+#~ msgstr "Підказки з редагування."
+
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<br/>Для зміни параметрів проєкту ви можете скористатися різноманітними "
+#~ "переглядами і редакторами, які можна обрати на панелі вибору перегляду."
+#~ "<br/>За допомогою переглядів, зазвичай, виконують аналіз даних після "
+#~ "створення розкладу проєкту. Якщо розкладу проєкту не буде створено, у "
+#~ "переглядах ви не побачите ніяких даних. Створення розкладів виконується "
+#~ "за допомогою редактора розкладів.<br/>Змінити параметри проєкту можна за "
+#~ "допомогою різноманітних редакторів: достатньо позначити пункт, який ви "
+#~ "бажаєте змінити (подвійним клацанням кнопкою миші або натисканням клавіші "
+#~ "F2) або відкрити вікно редагування за допомогою контекстного меню.</ul>"
+
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Далі: створення простого проєкту"
+
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Створюємо найпростіший у світі проєкт."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Відкрийте вікно редактора завдань <em>Редактори->Завдання</em>:"
+#~ "<ul><li>Створіть запис завдання за допомогою натискання кнопки <em>Додати "
+#~ "завдання</em> на панелі інструментів.</li><li>Встановіть <em>Тип</em> у "
+#~ "значення <em>Тривалість</em>.</li><li>Встановіть значення <em>Оцінка</em> "
+#~ "у <em>8 годин</em>.</li><li>Встановіть значення <em>Обмеження</em> у "
+#~ "<em>Якнайшвидше</em>.</li></ul>Відкрийте вікно редактора розкладів за "
+#~ "допомогою пункту меню <em>Редактори->Розклади</em>:<ul><li>Створіть "
+#~ "розклад за допомогою натискання кнопки <em>Додати розклад</em> на панелі "
+#~ "інструментів.</li><li>Накажіть програмі виконати обчислення за розкладом "
+#~ "за допомогою натискання кнопки <em>Обчислити</em> на панелі інструментів."
+#~ "</li></ul>Виконання завдання за розкладом має починатися о %1 і тривати 8 "
+#~ "годин. Перевірити це можна за допомогою діаграми Ґанта <em>Перегляд-"
+#~ ">Діаграма Ґанта</em>."
+
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Далі: призначення виконавців"
+
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Призначаємо виконавців завдання."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Оберіть пункт редактора завдань: <em>Редактори->Завдання</em>:"
+#~ "<ul><li>Введіть ім’я (наприклад, «Іван») у стовпчик <em>Розподіл</em>. "
+#~ "(Plan автоматично створить виконавця з іменем «Іван» у групі «Виконавці»."
+#~ "</li><li>Встановіть <em>Тип</em> у значення <em>Обсяг робіт</em>.</li></"
+#~ "ul>Тепер вам слід створити розклад проєкту з новим призначенням виконавця:"
+#~ "<br/>Відкрийте редактора розкладів за допомогою пункту меню <em>Редактори-"
+#~ ">Розклади</em> і обчисліть розклад за допомогою натискання кнопки "
+#~ "<em>Обчислити</em> на панелі інструментів.<p>Виконання завдання за "
+#~ "розкладом має починатися о %1 і тривати 8 годин. Перевірити це можна за "
+#~ "допомогою діаграми Ґанта <em>Перегляди->Діаграма Ґанта</em>.<p>"
+
+#~ msgid "Next: Introduction"
+#~ msgstr "Далі: вступ"
+
+#~ msgid "Introduction to Plan"
+#~ msgstr "Вступ до Plan"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "<title>Introduction to <application>Plan</application></title><para>These "
+#~ "introductory pages gives you hints and tips on what you can use "
+#~ "<application>Plan</application> for, and how to use it.</para>"
+#~ msgstr ""
+#~ "<title>Короткий вступ до <application>Plan</application></title><para>Ці "
+#~ "вступні сторінки підкажуть вам, як і з якою метою можна скористатися "
+#~ "<application>Plan</application>.</para>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete resourcegroups and resources"
+#~ msgstr ""
+#~ "Вилучити групу виконавців і записи виконавців\n"
+#~ "вилучення групи виконавців і записів виконавців"
+
+#~ msgid "Resource groups"
+#~ msgstr "Групи виконавців"
+
+#~ msgid "Calculation"
+#~ msgstr "Підрахунки"
+
+#~ msgid "Manual"
+#~ msgstr "Вручну"
+
+#~ msgid "Immediate on change"
+#~ msgstr "Під час зміни"
+
+#~ msgid "Constraints"
+#~ msgstr "Обмеження"
+
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Дозволити понаднормове резервування виконавців"
+
+#~ msgid "Path:"
+#~ msgstr "Шлях:"
+
+#~ msgid "Language:"
+#~ msgstr "Мова:"
+
+#~ msgid "Project"
+#~ msgstr "Проєкт"
+
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Виявлено новий робочий пакунок. Об’єднати з вже створеними записами "
+#~ "завдань?"
+
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Власник пакунка «%1» не є виконавцем цього проєкту. Вам доведеться "
+#~ "обробити цей пакунок вручну."
+
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Даних для зберігання у пакунку не виявлено"
+
+#~ msgid "Save URL:"
+#~ msgstr "Адреса зберігання:"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Створити шаблон з документа..."
+
+#~ msgid "Shared resources removed"
+#~ msgstr "Вилучені спільні ресурси"
+
+#~ msgid "Always\""
+#~ msgstr "Завжди"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "Градієнт:"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "Загальне завдання"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "Типовий:"
+
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "Використовувати кольори рівнів"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "Рівень 1"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "Рівень 2"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "Рівень 3"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "Рівень 4"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "Завдання"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "Звичайні:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "Критичні:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "Завершені:"
+
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "Помилкові:"
+
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "Етап"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "Підрахунки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "Вручну"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "Під час зміни"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "Обмеження"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Дозволити понаднормове резервування виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "Загальний"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "Особа, яка відповідає за це завдання.\n"
+#~ "\n"
+#~ "Може бути будь-хто, а не тільки особи наявні у групі виконавців. Можна, "
+#~ "навіть, безпосередньо отримати доступ до вашої адресної книги, натиснувши "
+#~ "кнопку Вибрати."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "Відповідальний:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Вставити особу з вашої адресної книги"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Вставити особу з вашої адресної книги."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "Вибрати..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr "Обмеження планування:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "Якнайскоріше"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "Якомога пізніше"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "Мусить початись"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "Мусить закінчитися"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Почати не раніше, ніж"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Закінчити не пізніше, ніж"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "Фіксований інтервал"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "Використання часових рамок початку:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "Поточна дата/час"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "Поточна дата, вказаний час"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "Вказана дата/час"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "Часові рамки початку:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "Використання часових рамок завершення:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "Часові рамки завершення:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "Тип оцінки:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "Обсяг робіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "Тривалість"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "Очікувана оцінка:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "Оптимістична оцінка:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "Песимістична оцінка:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Опис"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "Поточна задача:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "Вставити на вищий рівень"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "Вставити, як дочірній елемент поточної задачі"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "Вставити після поточної задачі"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category of the view"
+#~ msgstr "Категорія перегляду"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "Категорія:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The view is placed after this view"
+#~ msgstr "Перегляд розташовано після цього перегляду"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "Після"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "Тип перегляду"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "Тип перегляду:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the view"
+#~ msgstr "Назва перегляду"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "Назва:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "Опис переглядів"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "Опис:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "Слів"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "Речень"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "Складів"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "Рядків"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "Символів разом з пропусками"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "Символів без пропусків"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "Зручність читання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "Включити текст з виносок та приміток"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "Автоматично оновлювати дані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category is placed after this category"
+#~ msgstr "Категорію буде розташовано після цієї категорії"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the category"
+#~ msgstr "Назва категорії"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The description of the category"
+#~ msgstr "Опис категорії"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Check for work packages"
+#~ msgstr "Перевірити пакунки роботи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Retrieve URL:"
+#~ msgstr "Адреса отримання:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete file after it has been retrieved"
+#~ msgstr "Вилучити файл після отримання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save file after it has been retrieved"
+#~ msgstr "Зберегти файл після отримання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save URL:"
+#~ msgstr "Адреса зберігання:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name of task responsible"
+#~ msgstr "Ім’я відповідальної за завдання особи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr "Тип обмеження планування"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how start constraint time is used"
+#~ msgstr "Визначає спосіб використання обмеження часу початку"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "Обмеження дати/часу початку"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how end constraint time is used"
+#~ msgstr "Визначає спосіб використання обмеження часу завершення"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "Обмеження дати/часу завершення"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "Тип оцінки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "Одиниця часу оцінки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "Очікувана оцінка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "Оптимістична оцінка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "Песимістична оцінка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "Опис завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "Градієнт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Enable summary task level colors"
+#~ msgstr "Увімкнути використання кольорів рівнів загального завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "Типовий колір загального завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "Колір загального завдання, рівні 1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "Колір загального завдання, рівні 2"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "Колір загального завдання, рівні 3"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "Колір загального завдання, рівні 4"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in normal state"
+#~ msgstr "Колір завдання у звичайному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in critical state"
+#~ msgstr "Колір завдання у критичному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in finished state"
+#~ msgstr "Колір завдання у завершеному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in error state"
+#~ msgstr "Колір завдання у помилковому стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in normal state"
+#~ msgstr "Колір етапу у звичайному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in critical state"
+#~ msgstr "Колір етапу у критичному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in finished state"
+#~ msgstr "Колір етапу у завершеному стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in error state"
+#~ msgstr "Колір етапу у помилковому стані"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "Автоматично шукати нові пакунки роботи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Directory where Plan retrieves work packages from project members"
+#~ msgstr "Каталог, де Plan зберігатиме пакунки роботи учасників проєкту"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will delete the file after it has been read"
+#~ msgstr "Якщо позначено, Plan вилучатиме файл після читання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will save the file after it has been read"
+#~ msgstr "Якщо позначено, Plan зберігатиме файл після читання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Directory where Plan saves work packages when the package has been read"
+#~ msgstr "Каталог, куди Plan зберігатиме пакунки роботи після читання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The smallest duration unit allowed"
+#~ msgstr "Найменша можлива одиниця тривалості"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The largest duration unit allowed"
+#~ msgstr "Найбільша можлива одиниця тривалості"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "&Файл"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "З&міни"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "П&ерегляд"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "&Проєкт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "&Інструменти"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "П&араметри"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Help"
+#~ msgstr "&Довідка"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "Проєкт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "(qtundo-format) KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Будьте вільними."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Plan — це програма для планування і керування проєктами."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Welcome to Plan."
+#~ msgstr "Вітаємо у Plan."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "За допомогою цих вступних сторінок ви ознайомитеся з прийомами "
+#~ "користування Plan та його можливими застосуваннями."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A short introduction."
+#~ msgstr "Короткий вступ."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Підказки щодо керування та перевірки даних."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Невеличкий початковий посібник."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Зауваження:</em> щоб переглянути ці сторінки під час роботи у інших "
+#~ "частинах Plan, скористайтеся пунктом меню <em>Довідка -> Вступ до Plan</"
+#~ "em>."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information in the <a href=\"help:plan\">documentation</a> or online at "
+#~ "<a href=\"http://www.calligra.org/plan\">http://www.calligra.org/plan</"
+#~ "a></p>"
+#~ msgstr ""
+#~ "Plan призначено для керування помірно великими проєктами з декількома "
+#~ "виконавцями(або ресурсами). Щоб надати вам змогу адекватного моделювання "
+#~ "ваших проєктів, у Plan передбачено різні типи залежності завдань проєкту "
+#~ "та їхніх часових обмежень. Зазвичай, ви визначатимете ваші завдання, "
+#~ "оцінюватимете обсяг роботи, потрібний для виконання кожного з завдань, "
+#~ "розподілятимете виконавців, а потім створюватимете розклад проєкту "
+#~ "відповідно до мережі залежностей та доступності виконавців.<p>Докладніші "
+#~ "відомості можна знайти у <a href=\"help:kplato\">документації</a> або у "
+#~ "інтернеті за адресою <a href=\"http://www.calligra.org/plan\">http://www."
+#~ "calligra.org/plan</a></p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Tips"
+#~ msgstr "Далі: підказки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editing tips."
+#~ msgstr "Підказки з редагування."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<br/>Для зміни параметрів проєкту ви можете скористатися різноманітними "
+#~ "переглядами і редакторами, які можна обрати на панелі вибору перегляду."
+#~ "<br/>За допомогою переглядів, зазвичай, виконують аналіз даних після "
+#~ "створення розкладу проєкту. Якщо розкладу проєкту не буде створено, у "
+#~ "переглядах ви не побачите ніяких даних. Створення розкладів виконується "
+#~ "за допомогою редактора розкладів.<br/>Змінити параметри проєкту можна за "
+#~ "допомогою різноманітних редакторів: достатньо позначити пункт, який ви "
+#~ "бажаєте змінити (подвійним клацанням кнопкою миші або натисканням клавіші "
+#~ "F2) або відкрити вікно редагування за допомогою контекстного меню.</ul>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Далі: створення простого проєкту"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Створюємо найпростіший у світі проєкт."
+
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Відкрийте вікно редактора завдань <em>Редактори->Завдання</em>:"
+#~ "<ul><li>Створіть запис завдання за допомогою натискання кнопки <em>Додати "
+#~ "завдання</em> на панелі інструментів.</li><li>Встановіть <em>Тип</em> у "
+#~ "значення <em>Тривалість</em>.</li><li>Встановіть значення <em>Оцінка</em> "
+#~ "у <em>8 годин</em>.</li><li>Встановіть значення <em>Обмеження</em> у "
+#~ "<em>Якнайшвидше</em>.</li></ul>Відкрийте вікно редактора розкладів за "
+#~ "допомогою пункту меню <em>Редактори->Розклади</em>:<ul><li>Створіть "
+#~ "розклад за допомогою натискання кнопки <em>Додати розклад</em> на панелі "
+#~ "інструментів.</li><li>Накажіть програмі виконати обчислення за розкладом "
+#~ "за допомогою натискання кнопки <em>Обчислити</em> на панелі інструментів."
+#~ "</li></ul>Виконання завдання за розкладом має починатися о %1 і тривати 8 "
+#~ "годин. Перевірити це можна за допомогою діаграми Ґанта <em>Перегляд-"
+#~ ">Діаграма Ґанта</em>."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Далі: призначення виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Призначаємо виконавців завдання."
+
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Оберіть пункт редактора завдань: <em>Редактори->Завдання</em>:"
+#~ "<ul><li>Введіть ім’я (наприклад, «Іван») у стовпчик <em>Розподіл</em>. "
+#~ "(Plan автоматично створить виконавця з іменем «Іван» у групі «Виконавці»."
+#~ "</li><li>Встановіть <em>Тип</em> у значення <em>Обсяг робіт</em>.</li></"
+#~ "ul>Тепер вам слід створити розклад проєкту з новим призначенням виконавця:"
+#~ "<br/>Відкрийте редактора розкладів за допомогою пункту меню <em>Редактори-"
+#~ ">Розклади</em> і обчисліть розклад за допомогою натискання кнопки "
+#~ "<em>Обчислити</em> на панелі інструментів.<p>Виконання завдання за "
+#~ "розкладом має починатися о %1 і тривати 8 годин. Перевірити це можна за "
+#~ "допомогою діаграми Ґанта <em>Перегляди->Діаграма Ґанта</em>.<p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Introduction"
+#~ msgstr "Далі: вступ"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document has no syntax version.\n"
+#~ "Opening it in Plan may lose information."
+#~ msgstr ""
+#~ "У цьому документі не вказано версії синтаксису.\n"
+#~ "Його відкриття у Plan може призвести до втрати даних."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Продовжити"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "Помилка у форматі файла"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "Цей документ було створено новішою версією KPlato, ніж може бути відкрито "
+#~ "Plan.\n"
+#~ "Версія синтаксису: %1\n"
+#~ "Відкривши його за допомогою цієї версії Plan, ви можете втратити деяку "
+#~ "інформацію."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Невідповідність формату файла"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Цей документ було створено за допомогою новішої версії KPlatoWork (версія "
+#~ "синтаксису: %1)\n"
+#~ "Відкриття цього документа у поточній версії PlanWork призведе до втрати "
+#~ "деякої інформації."
+
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "Програма для планування і керування проєктами"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "© Команда Plan, 1998–%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "Thomas Zander"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo Thorsen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "Raphael Langerhorst"
+
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Іван Петрущак"
+
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "ivanpetrouchtchak@yahoo.com"
+
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "Мережеве планування"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Built-in network (PERT) based scheduler"
+#~ msgstr "Вбудоване мережеве планування (PERT)"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>Network (PERT) Scheduler</title><para>The network scheduler "
+#~ "generally schedules tasks according to their dependencies. When a task is "
+#~ "scheduled it is scheduled in full, booking the allocated resources if "
+#~ "available. If overbooking is not allowed, subsequent tasks that requests "
+#~ "the same resource will be scheduled later in time.</para><para>Tasks with "
+#~ "time constraints will be scheduled first to minimize the problem with "
+#~ "resource conflicts</para><para><note>This scheduler does not handle "
+#~ "resource conflicts well.<nl/>You can try a different scheduler if "
+#~ "available. You may also change resource allocations or add dummy "
+#~ "dependencies to avoid the conflicts.</note></para>"
+#~ msgstr ""
+#~ "<title>Мережеве планування (PERT)</title><para>Загалом кажучи, мережеве "
+#~ "планування передбачає планування завдань відповідно до їхніх залежностей. "
+#~ "Під час планування кожного завдання передбачається використання всіх "
+#~ "доступних ресурсів (виконавців). Якщо понаднормове використання "
+#~ "заборонено, наступні завдання, у яких передбачається використання того "
+#~ "самого ресурсу (виконавця), буде заплановано на пізніші терміни.</"
+#~ "para><para>Завдання з часовими обмеженнями матимуть пріоритет у "
+#~ "планування з метою усування можливих проблем з конфліктом використання "
+#~ "виконавців.</para><para><note>У разі використання цього планування "
+#~ "можливі конфлікти використання виконавців.<nl/>Ви можете скористатися "
+#~ "іншим доступним способом планування. Ви також можете з метою усування "
+#~ "конфліктів змінити призначення виконавців або додати фіктивні залежності."
+#~ "</note></para>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "Лінійний"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "Нейтральний"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "Вставити файл"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Некоректний документ. Не вказано тип mime."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип mime application/x-vnd.kde.plan, "
+#~ "отримано %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "Цей документ було створено новішою версією Plan (версія синтаксису: %1)\n"
+#~ "Відкривши його за допомогою цієї версії Plan, ви втратите деяку "
+#~ "інформацію."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the workpackage file for saving: %1"
+#~ msgstr "Неможливо створити файл для збереження пакунка роботи: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Запис '%1' неможливий. Носій заповнено?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "Збереження..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Некоректний документ. Очікувався тип MIME application/x-vnd.kde.plan."
+#~ "work, отримано %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Цей документ було створено за допомогою новішої версії PlanWork (версія "
+#~ "синтаксису: %1)\n"
+#~ "Відкриття цього документа у поточній версії PlanWork призведе до втрати "
+#~ "деякої інформації."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Виявлено новий робочий пакунок. Об’єднати з вже створеними записами "
+#~ "завдань?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Власник пакунка «%1» не є виконавцем цього проєкту. Вам доведеться "
+#~ "обробити цей пакунок вручну."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Даних для зберігання у пакунку не виявлено"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Internal error, failed to insert file."
+#~ msgstr "Внутрішня помилка, не вдалося вставити файл."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "Вибір розкладу"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Створити шаблон з документа..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "С&творити проєкт…"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "Показати діалогове вікно вибору"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "Редагувати головний проєкт..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Estimate Conversions..."
+#~ msgstr "Визначити перетворення оцінок..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "Визначити взірець структури розкладки робіт..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "Вставити файл проєкту..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "Налаштувати Plan..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "Визначити валюту..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Open Report Definition File..."
+#~ msgstr "Відкрити файл визначення звіту…"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Introduction to Plan"
+#~ msgstr "Вступ до Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Редагувати..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "Поступ..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "Вилучити завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "Опис..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "Знизити рівень завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "Підвищити рівень завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "Пересунути завдання вгору"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "Пересунути завдання вниз"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "Редагувати виконавця..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "Змінити залежність..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "Вилучити залежність"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid ""
+#~ "<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+#~ "from the current project with new project- and task identities.<nl/"
+#~ ">Resource- and calendar identities are not changed.<nl/>All scheduling "
+#~ "information is removed.<nl/><nl/>Do you want to continue?"
+#~ msgstr ""
+#~ "<note>Скасувати наслідки виконання цієї дії неможливо.</note><nl/><nl/"
+#~ ">Створення нового проєкту на основі поточного проєкту з новими профілями "
+#~ "проєктів і завдань.<nl/>Профілі ресурсів та календарів змінено не буде."
+#~ "<nl/>Всі дані щодо планування буде вилучено.<nl/><nl/>Бажаєте виконати цю "
+#~ "дію?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "Звіт щодо стану завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "Робота і відпустки"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "Змінити робочі дні і дні відпустки для виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "Структура розподілу вартості"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "Змінити структуру розподілу вартості."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Виконавці"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "Змінити структуру розподілу виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Завдання"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "Змінити структуру розподілу робочих витрат."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "Залежності (Графік)"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "Змінити залежності завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "Залежності (Список)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "Розклади"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "Розрахувати і проаналізувати розклад проєкту"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "Діаграма швидкодії проєкту"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "Переглянути інформацію про стан проєкту"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "Стан завдання"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "Переглянути інформацію про поступ завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "Виконання завдання"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "Переглянути інформацію про виконання завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package View"
+#~ msgstr "Перегляд пакунків роботи"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "Переглянути дані щодо завдання пакунка роботи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Діаграма Ґанта"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "Переглянути діаграму Ґанта"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "Діаграма Ґанта для етапу"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "Переглянути діаграму Ґанта для етапу"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Призначення виконавців"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "Переглянути призначення виконавців у форматі таблиці"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "Призначення виконавців (Ґант)"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "Переглянути призначення виконавців на діаграмі Ґанта"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown"
+#~ msgstr "Розподіл вартості"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "Переглянути планову і поточну вартість"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Діаграма швидкодії завдання"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "Переглянути інформацію про стан виконання завдань"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "Звіт"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "Переглянути звіт"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "Редактори"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "Перегляд"
+
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "Виконання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "Звіти"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot baseline. The project is already baselined."
+#~ msgstr ""
+#~ "Не вдалося додати до базового плану. Проєкт уже знаходиться у базовому "
+#~ "плані."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgstr ""
+#~ "Цей розклад належить до базового плану. Ви бажаєте вилучити базовий план?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "Типові значення завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "Кольори завдань"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package"
+#~ msgstr "Пакунок роботи"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr ""
+#~ "Завдання, що стояло у розкладі, буде вилученою. Це зробить нечинним "
+#~ "розклад."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "Цей завдання було у розкладі. Операція зробить розклад нечинним."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr ""
+#~ "Виконавця, який був у розкладі, буде вилучено. Це зробить розклад "
+#~ "нечинним."
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "Не вдалося відкрити файл:<br/><filename>%1</filename>"
+
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "Незаплановане"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Не вдається відкрити тимчасовий файл"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr ""
+#~ "Не вдалося зберегти до тимчасового файла:<br/> <filename>%1</filename>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Пакунок роботи: %1"
+
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package for project: %1"
+#~ msgstr "Пакунок роботи для проєкту: %1"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr ""
+#~ "Не вдалося зберегти зміни до тимчасового файла:<br/><filename>%1</"
+#~ "filename>"
+
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "Керівник:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "Проєкт:"
+
+#~ msgctxt "(qtundo-format) As in: Page 1 of 2"
+#~ msgid "of"
+#~ msgstr "з"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "Сторінка"
+
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "Назва"
+
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "Рівень завершеності (у %)"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the list of available views and editors.</para><para>You "
+#~ "can configure the list by using the context menu:<list><item>Rename "
+#~ "categories or views</item><item>Configure. Move, remove, rename or edit "
+#~ "tool tip for categories or views</item><item>Insert categories and views</"
+#~ "item></list></para>"
+#~ msgstr ""
+#~ "<para>Тут наведено список всіх доступних панелей перегляду та редагування."
+#~ "</para><para>Налаштувати цей список можна за допомогою контекстного меню:"
+#~ "<list><item>Ви можете перейменовувати категорії або панелі перегляду</"
+#~ "item><item>Ви можете пересувати, вилучати перейменовувати та змінювати "
+#~ "підказки до категорій та панелей перегляду</item><item>Ви можете додавати "
+#~ "категорії та панелі перегляду</item></list></para>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Removing this category will also remove all its views."
+#~ msgstr "Вилучення цієї категорії призведе до вилучення всіх її переглядів."
+
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "Перейменувати"
+
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "Налаштувати..."
+
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "Вилучити"
+
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "Перейменувати"
+
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "Налаштувати..."
+
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "Вилучити"
+
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "Вставити..."
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "Додавання перегляду"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "Редактор виконавців"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "Редактор завдань"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "Редактор роботи і відпустки"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "Редактор облікових записів"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "Редактор залежностей (Графічний)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "Редактор залежностей (Список)"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "Програма обробки розкладу"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "Перегляд завдання"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "Перегляд діаграми Ґанта"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "Перегляд діаграми Ґанта етапів"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>The category of the view</title><nl/>The view is placed under this "
+#~ "category in the view selector.<nl/>You can edit the category name to "
+#~ "create a new category."
+#~ msgstr ""
+#~ "<title>Категорія перегляду</title><nl/>У засобі вибору перегляду область "
+#~ "перегляду буде розташовано у цій категорії.<nl/>Створити категорію можна "
+#~ "змінивши назву вже створеної категорії."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "Верх"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "Налаштування перегляду"
+
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>The category of the view</title><nl/>The view is placed under this "
+#~ "category in the view selector.<nl/>Selecting a different category will "
+#~ "move the view to the new category.<nl/>You can edit the category name to "
+#~ "create a new category."
+#~ msgstr ""
+#~ "<title>Категорія перегляду</title><nl/>У засобі вибору перегляду область "
+#~ "перегляду буде розташовано у цій категорії.<nl/>Вибір іншої категорії "
+#~ "пересуне область перегляду до нової категорії.<nl/>Створити категорію "
+#~ "можна змінивши назву вже створеної категорії."
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "Налаштування категорії"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "Додавання звіту"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "Вибір перегляду [змінено]"
+
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "Вибір перегляду"
+
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Не вдається зберегти тимчасовий файл:<br><filename>%1</filename>"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Не вдається зберегти тимчасовий файл:<br><filename>%1</filename>"
+
+#~ msgid "Tip:"
+#~ msgstr "Примітка:"
+
+#~ msgid "File to open"
+#~ msgstr "Відкрити файл"
+
+#~ msgid "Nuno Pinheiro and Danny Allen"
+#~ msgstr "Nuno Pinheiro і Danny Allen"
+
+#~ msgid "Application icon for plan"
+#~ msgstr "Піктограма програми Plan"
+
+#~ msgid "Open File..."
+#~ msgstr "Відкрити файл..."
+
+#~ msgid "&Reports"
+#~ msgstr "Зві&ти"
+
+#~ msgid "Leave file after it has been retrieved"
+#~ msgstr "Не пересувати файл після отримання"
+
+#~ msgid ""
+#~ "If set, kplato will leave where it is the file after it has been read"
+#~ msgstr "Якщо позначено, kplato залишить файл на місці після читання"
+
+#~ msgid "Plan - KDE Planning Tool"
+#~ msgstr "Plan — засіб планування KDE"
+
+#~ msgid "Document loaded, URL=%1"
+#~ msgstr "Документ завантажено, URL=%1"
+
+#~ msgid "KPlato Introduction"
+#~ msgstr "Вступ до KPlato"
+
+#~ msgid "Part of KOffice release %1"
+#~ msgstr "Частина випуску KOffice %1"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Діаграма швидкодії завдання"
+
+#~ msgid "View resource assignments"
+#~ msgstr "Переглянути призначення виконавців"
+
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating..."
+#~ msgstr "%1: Обчислення..."
+
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation stopped"
+#~ msgstr "%1: Обчислення зупинено"
+
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation canceled"
+#~ msgstr "%1: Обчислення скасовано"
+
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation error"
+#~ msgstr "%1: Помилка під час обчислення"
+
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating done"
+#~ msgstr "%1: Обчислення завершено"
+
+#~ msgid "Send Work Package..."
+#~ msgstr "Надіслати пакунок роботи..."
+
+#~ msgid "Add sub-task"
+#~ msgstr "Додати підзавдання..."
+
+#~ msgid "Add task"
+#~ msgstr "Додати завдання"
+
+#~ msgid "Delete Tasks"
+#~ msgstr "Вилучити завдання"
+
+#~ msgid "Add Relation"
+#~ msgstr "Додати відношення"
+
+#~ msgid "Delete Relation"
+#~ msgstr "Вилучити відношення"
+
+#~ msgid "Delete Resource Objects"
+#~ msgstr "Вилучити об’єкти виконавця"
+
+#~ msgid "View"
+#~ msgstr "Перегляд"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
+
+#~ msgid "Edit task dependenies"
+#~ msgstr "Зміна залежностей завдання"
+
+#~ msgid "Edit Standard Worktime..."
+#~ msgstr "Змінити основний робочий час..."
+
+#~ msgid ""
+#~ "The KPlato Project Manager is part of the KOffice suite of office "
+#~ "applications."
+#~ msgstr ""
+#~ "Керування проєктами KPlato є частиною комплексу офісних програм KOffice."
+
+#~ msgid "Length"
+#~ msgstr "Довжина"
+
+#~ msgid "Note:"
+#~ msgstr "Примітка:"
+
+#~ msgid "Work Package Control..."
+#~ msgstr "Контроль за пакунком роботи..."
+
+#~ msgid "Work Package Control"
+#~ msgstr "Контроль за пакунком роботи"
+
+#~ msgid "Update from Work Package"
+#~ msgstr "Оновити з пакунку роботи"
+
+#~ msgctxt "@action Add View"
+#~ msgid "View..."
+#~ msgstr "Переглянути..."
+
+#~ msgid "Notes..."
+#~ msgstr "Нотатки..."
+
+#~ msgid "No handler found for %1"
+#~ msgstr "Не знайдено обробника для %1"
+
+#~ msgid ""
+#~ "Error loading %1:\n"
+#~ "%2"
+#~ msgstr ""
+#~ "Помилка завантаження %1:\n"
+#~ "%2"
+
+#~ msgid ""
+#~ "This document contains an external link to a remote document\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Цей документ містить посилання на зовнішній документ\n"
+#~ "%1"
+
+#~ msgid "Confirmation Required"
+#~ msgstr "Потрібне підтвердження"
+
+#~ msgid "Download"
+#~ msgstr "Отримати"
+
+#~ msgid "Skip"
+#~ msgstr "Пропустити"
+
+#~ msgid ""
+#~ "Could not load embedded object:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Не вдалося завантажити вбудований об'єкт:\n"
+#~ "%1"
+
+#~ msgid ""
+#~ "Could not load external document %1:\n"
+#~ "%2"
+#~ msgstr ""
+#~ "Не вдалося завантажити зовнішній документ %1:\n"
+#~ "%2"
+
+#~ msgid "Show allocations"
+#~ msgstr "Показати розподіли"
+
+#~ msgid "Year"
+#~ msgstr "Рік"
+
+#~ msgid "Month"
+#~ msgstr "Місяць"
+
+#~ msgid "Day"
+#~ msgstr "День"
+
+#~ msgid "Hour"
+#~ msgstr "Година"
+
+#~ msgid "Modify Default Task"
+#~ msgstr "Змінити типове завдання"
+
+#~ msgid "Timing"
+#~ msgstr "Час"
+
+#~ msgid "Schedule:"
+#~ msgstr "Розклад:"

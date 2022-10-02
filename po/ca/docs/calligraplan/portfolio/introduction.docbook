@@ -1,0 +1,41 @@
+<sect2
+><title/> &WORK-IN-PROGRESS; <para
+>El gestor de la cartera permet gestionar diversos projectes des d'una única aplicació. </para>
+<para
+>Dos casos d'ús: <itemizedlist>
+  <listitem>
+    <para
+>Gestionar diversos projectes, donant una visió general d'on centrar l'atenció.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspeccionar i planificar projectes de tota l'organització. Assistència amb la gestió dels retards, canviar les prioritats o incorporar projectes nous.</para>
+  </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Característiques: <itemizedlist>
+  <listitem>
+    <para
+>Planificar o replanificar diversos projectes.</para>
+  </listitem>
+  <listitem>
+    <para
+>Ajustar els recursos entre els projectes.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspeccionar l'ús de recursos planificats entre els projectes.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspeccionar i actualitzar la informació de progrés en el formulari de la taula així com en els diagrames.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspeccionar els diagrames de Gantt dels projectes.</para>
+  </listitem>
+</itemizedlist>
+</para>
+</sect2>

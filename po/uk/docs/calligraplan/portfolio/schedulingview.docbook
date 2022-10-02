@@ -1,0 +1,146 @@
+<chapter id="scheduling"
+><title
+>Планування</title>
+<sect1 id="scheduling-description"
+><title
+>Опис</title
+>&WORK-IN-PROGRESS; <para
+>За допомогою панелі перегляду планування ви можете запланувати проєкти у вашому портфоліо. Проєкти буде заплановано за їхньою пріоритетністю. </para
+><para
+>Встановіть для параметра <emphasis
+>Керування</emphasis
+> значення <emphasis
+>Розклад</emphasis
+> для проєкту або проєктів, які ви хочете запланувати. Встановіть для параметра <emphasis
+>Керування</emphasis
+> значення <emphasis
+>Включити</emphasis
+>, щоб призначення ресурсів (виконавців) було включено у розподіл ресурсів за рівнями. Встановіть для параметра <emphasis
+>Керування</emphasis
+> значення <emphasis
+>Виключити</emphasis
+>, якщо ви хочете виключити проєкт. </para>
+  <tip
+><para
+>Якщо ваші проєкти спільно використовують ресурси з проєктами, які не є частиною вашого портфоліо, ці проєкти має бути включено, щоб розподіл ресурсів за рівнями працював належним чином. Див. <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>Панель перегляду поділено на три розділи: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Таблиця проєктів</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Назва</guilabel
+></entry>
+          <entry
+><guilabel
+>Опис</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Назва</entry
+><entry
+>Назва проєкту</entry
+></row>
+      <row
+><entry
+>Розклад</entry
+><entry
+>Назва розкладу</entry
+></row>
+      <row
+><entry
+>Стан</entry
+><entry
+>Стан планування</entry
+></row>
+      <row
+><entry
+>Керування</entry>
+        <entry
+>Керування плануванням може мати такі значення: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Розклад:</emphasis
+> проєкт матиме план.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Включити:</emphasis
+> прив'язку ресурсів буде включено до розподілу ресурсів за рівнями.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Виключити:</emphasis
+> проєкт не буде включено.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Пріоритетність</entry
+><entry
+>Пріоритетність проєкту. Чим більшим буде значення, тим вищою буде пріоритетність.</entry
+></row>
+      <row
+><entry
+>Призначений початок</entry
+><entry
+>Найраніший час початку проєкту</entry
+></row>
+      <row
+><entry
+>Призначений кінець</entry
+><entry
+>Найпізніший час завершення проєкту</entry
+></row>
+      <row
+><entry
+>Опис</entry
+><entry
+>Опис проєкту</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Керування плануванням</title>
+<para></para>
+</sect1>
+<sect1 id="scheduling-log"
+><title
+>Журнал планування</title>
+<para></para>
+</sect1>
+</chapter>

@@ -1,0 +1,36 @@
+<chapter id="configure-plan-dialog"
+><title
+>Configurar el Plan</title>
+  <sect1 id="configure-project-defaults"
+><title
+>Valors predeterminats del projecte</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-and-vacation"
+><title
+>Treball i vacances</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-defaults"
+><title
+>Valors predeterminats de tasques</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-colors"
+><title
+>Colors de tasques</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-modules"
+><title
+>Mòduls de tasques</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-package"
+><title
+>Paquet de feina</title
+>&WIP; </sect1>
+  <sect1 id="configure-project-templates"
+><title
+>Plantilles de projectes</title
+>&WIP; </sect1>
+  <sect1 id="configure-document"
+><title
+>Document</title
+>&WIP; </sect1>
+</chapter>

@@ -1,0 +1,1092 @@
+# Irish translation of kplatowork
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kplatowork package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: koffice/kplatowork.po\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"PO-Revision-Date: 2007-11-05 08:28-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+
+#: aboutdata.h:27
+#, fuzzy, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Pacáiste Oibre: %1"
+
+#: aboutdata.h:31
+#, fuzzy, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "© 2007-2010, Foireann KPlato"
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kevin Scannell"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kscanne@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Eagar"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, fuzzy, kde-format
+msgid "View"
+msgstr "&Amharc"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Amharc"
+
+#: commandlineparser.cpp:35
+#, kde-format
+msgid "File to open"
+msgstr "Comhad le hoscailt"
+
+#: commandlineparser.cpp:92
+#, kde-format
+msgid "Failed to open document"
+msgstr "Níorbh fhéidir an cháipéis a oscailt"
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Níl comhad %1 ann."
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "Tá an cháipéis oscailte cheana:<br>%1"
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Níorbh fhéidir an comhad a bhaint amach:<br>%1"
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "URL neamhbhailí:<br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "Tá an cháipéis oscailte cheana:<br> %1"
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "Níl an comhad ann:<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr "Cuir in eagar le:"
+
+#: part.cpp:379
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+
+#: part.cpp:410
+#, fuzzy, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "Bain pacáiste oibre"
+
+#: part.cpp:414
+#, fuzzy
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr "Bain pacáiste oibre"
+
+#: part.cpp:425
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "Bain pacáiste oibre"
+msgstr[1] "Bain pacáistí oibre"
+msgstr[2] "Bain pacáistí oibre"
+msgstr[3] "Bain pacáistí oibre"
+msgstr[4] "Bain pacáistí oibre"
+
+#: part.cpp:466
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Níorbh fhéidir an comhad a luchtú:<br>%1"
+
+#: part.cpp:488
+#, fuzzy, kde-format
+#| msgid "Failed to load file:<br>%1"
+msgid "Not a valid work package file:<br>%1"
+msgstr "Níorbh fhéidir an comhad a luchtú:<br>%1"
+
+#: part.cpp:518
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Cáipéis neamhbhailí. Níl 'maindoc.xml' sa cháipéis."
+
+#: part.cpp:546
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#: part.cpp:560
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+
+#: part.cpp:579 part.cpp:630
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Cáipéis neamhbhailí. Gan cineál MIME."
+
+#: part.cpp:587
+#, fuzzy, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Cáipéis neamhbhailí. Bhíothas ag súil le cineál MIME application/x-vnd.kde."
+"kplato.work, ach fuarthas %1"
+
+#: part.cpp:598 part.cpp:646
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "Continue"
+msgstr "Lean ar aghaidh"
+
+#: part.cpp:600 part.cpp:648
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr ""
+
+#: part.cpp:636
+#, fuzzy, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+"Cáipéis neamhbhailí. Bhíothas ag súil le cineál MIME application/x-vnd.kde."
+"kplato.work, ach fuarthas %1"
+
+#: part.cpp:738
+#, fuzzy, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "Bain pacáiste oibre"
+
+#: taskcompletiondialog.cpp:32
+#, fuzzy, kde-format
+#| msgid "Progress"
+msgid "Task Progress"
+msgstr "Dul chun cinn"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Dáta Tosaigh:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Críochnaithe:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Cuir Iontráil Leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Bain Iontráil"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:433
+#, fuzzy, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "Críoch"
+
+#: taskworkpackagemodel.cpp:468
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "Críochnaithe"
+
+#: taskworkpackagemodel.cpp:489
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "Fós le déanamh"
+
+#: taskworkpackagemodel.cpp:502
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "Fós le déanamh"
+
+#: taskworkpackagemodel.cpp:600
+#, fuzzy, kde-kuit-format
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Ainm"
+
+#: taskworkpackagemodel.cpp:601
+#, fuzzy, kde-kuit-format
+#| msgid "Type"
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Cineál"
+
+#: taskworkpackagemodel.cpp:602
+#, fuzzy, kde-kuit-format
+#| msgid "Responsible"
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Freagrach"
+
+#: taskworkpackagemodel.cpp:603
+#, fuzzy, kde-kuit-format
+#| msgid "Description"
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Cur Síos"
+
+#: taskworkpackagemodel.cpp:606
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Start"
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Tosú Pleanáilte"
+
+#: taskworkpackagemodel.cpp:607
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Finish"
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Críoch Pleanáilte"
+
+#: taskworkpackagemodel.cpp:608
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:611
+#, fuzzy, kde-kuit-format
+#| msgid "Completion"
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Críoch"
+
+#: taskworkpackagemodel.cpp:612
+#, fuzzy, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Fós le déanamh"
+
+#: taskworkpackagemodel.cpp:613
+#, fuzzy, kde-kuit-format
+#| msgid "Remaining Effort"
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Fós le Déanamh"
+
+#: taskworkpackagemodel.cpp:614
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Start"
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Tosú Pleanáilte"
+
+#: taskworkpackagemodel.cpp:615
+#, fuzzy, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Fós le déanamh"
+
+#: taskworkpackagemodel.cpp:616
+#, fuzzy, kde-kuit-format
+#| msgid "Started"
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Tosaithe"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:618
+#, fuzzy, kde-kuit-format
+#| msgid "Finished"
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Críochnaithe"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:620
+#, fuzzy, kde-kuit-format
+#| msgid "Note"
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Nóta"
+
+#: taskworkpackagemodel.cpp:622
+#, fuzzy, kde-kuit-format
+#| msgid "Project Name"
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Ainm an Tionscadail"
+
+#: taskworkpackagemodel.cpp:623
+#, fuzzy, kde-kuit-format
+#| msgid "Project Manager"
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Bainisteoir an Tionscadail"
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#, kde-format
+msgid "Configure View..."
+msgstr "Cumraigh Amharc..."
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "Bain Pacáistí"
+
+#: view.cpp:88
+#, fuzzy, kde-format
+#| msgid "Remove Packages"
+msgid "Remove Package"
+msgstr "Bain Pacáistí"
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr "Liosta"
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr ""
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#: view.cpp:103
+#, fuzzy, kde-format
+msgid "Configure PlanWork..."
+msgstr "Cumraigh KPlatoWork..."
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "Eagar..."
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "Amharc..."
+
+#: view.cpp:116
+#, fuzzy, kde-format
+#| msgid "Remove Entry"
+msgid "Remove document"
+msgstr "Bain Iontráil"
+
+#: view.cpp:120
+#, fuzzy, kde-format
+#| msgid "Remove Packages"
+msgid "Send Package..."
+msgstr "Bain Pacáistí"
+
+#: view.cpp:124
+#, fuzzy, kde-format
+#| msgid "Progress"
+msgid "Edit Progress..."
+msgstr "Dul chun cinn"
+
+#: view.cpp:128
+#, fuzzy, kde-format
+#| msgid "Description"
+msgid "View Description..."
+msgstr "Cur Síos"
+
+#: view.cpp:315
+#, fuzzy, kde-format
+#| msgid "The file %1 does not exist."
+msgid "This file is not editable"
+msgstr "Níl comhad %1 ann."
+
+#: view.cpp:335
+#, fuzzy, kde-format
+msgid "No work package is selected"
+msgstr "Bain pacáiste oibre"
+
+#: view.cpp:341
+#, fuzzy, kde-format
+msgid "Cannot find work package"
+msgstr "Bain pacáiste oibre"
+
+#: view.cpp:358
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Pacáiste Oibre: %1"
+
+#: workpackage.cpp:102
+#, fuzzy, kde-format
+#| msgid ""
+#| "Document is already open:\n"
+#| " %1"
+msgid "Document is already open"
+msgstr ""
+"Tá an cháipéis oscailte cheana:\n"
+" %1"
+
+#: workpackage.cpp:168 workpackage.cpp:223
+#, fuzzy, kde-format
+#| msgid "Failed to load file:<br>%1"
+msgid "Failed to load project: %1"
+msgstr "Níorbh fhéidir an comhad a luchtú:<br>%1"
+
+#: workpackage.cpp:285
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr ""
+
+#: workpackage.cpp:293
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Ní féidir an comhad a chruthú le haghaidh sábhála"
+
+#: workpackage.cpp:307
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr ""
+
+#: workpackage.cpp:333
+#, fuzzy, kde-format
+#| msgid "Failed to open file: %1"
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#: workpackage.cpp:411
+#, fuzzy, kde-format
+#| msgid "Failed to open file: %1"
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#: workpackage.cpp:454
+#, fuzzy
+#| msgid "Remove Entry"
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr "Bain Iontráil"
+
+#: workpackage.cpp:463
+#, fuzzy, kde-format
+#| msgid "Failed to open file: %1"
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#: workpackage.cpp:469
+#, fuzzy, kde-format
+#| msgid "Failed to open file: %1"
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#: workpackage.cpp:513
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr ""
+
+#: workpackage.cpp:637
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: workpackage.cpp:660
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+
+#: workpackage.cpp:687
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+
+#: workpackage.cpp:705
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Cáipéis neamhbhailí. Bhíothas ag súil le cineál MIME application/x-vnd."
+#~ "kde.kplato.work, ach fuarthas %1"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgid "Work Package Settings"
+#~ msgstr "Pacáiste Oibre: %1"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr "Pacáiste Oibre: %1"
+
+#, fuzzy
+#~| msgid "The documents attached to this task"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Na cáipéisí nasctha leis an tasc seo"
+
+#, fuzzy
+#~| msgid "Planned Start"
+#~ msgid "Used effort"
+#~ msgstr "Tosú Pleanáilte"
+
+#~ msgid "Progress"
+#~ msgstr "Dul chun cinn"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "Na cáipéisí nasctha leis an tasc seo"
+
+#~ msgid "Documents"
+#~ msgstr "Cáipéisí"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgid "Package Settings..."
+#~ msgstr "Pacáiste Oibre: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr "Críoch"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "Dáta Tosaigh:"
+
+#, fuzzy
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Críochnaithe:"
+
+#, fuzzy
+#~| msgid "Add Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Cuir Iontráil Leis"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Bain Iontráil"
+
+#, fuzzy
+#~| msgid "The documents attached to this task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Na cáipéisí nasctha leis an tasc seo"
+
+#, fuzzy
+#~| msgid "Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Dul chun cinn"
+
+#, fuzzy
+#~| msgid "The documents attached to this task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "Na cáipéisí nasctha leis an tasc seo"
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Cáipéisí"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Eagar"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Amharc"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "&Amharc"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Pacáiste Oibre: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "© 2007-2010, Foireann KPlato"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Kevin Scannell"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kscanne@gmail.com"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "Comhad le hoscailt"
+
+#, fuzzy
+#~| msgid "Failed to open document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "Níorbh fhéidir an cháipéis a oscailt"
+
+#, fuzzy
+#~| msgid "The file %1 does not exist."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Níl comhad %1 ann."
+
+#, fuzzy
+#~| msgid "Document is already open:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Tá an cháipéis oscailte cheana:<br>%1"
+
+#, fuzzy
+#~| msgid "Could not extract document from storage:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Níorbh fhéidir an comhad a bhaint amach:<br>%1"
+
+#, fuzzy
+#~| msgid "Invalid URL:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "URL neamhbhailí:<br>%1"
+
+#, fuzzy
+#~| msgid "Document is already open:<br> %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Tá an cháipéis oscailte cheana:<br> %1"
+
+#, fuzzy
+#~| msgid "File does not exist:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "Níl an comhad ann:<br>%1"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Cuir in eagar le:"
+
+#, fuzzy
+#~| msgid "Failed to load file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Níorbh fhéidir an comhad a luchtú:<br>%1"
+
+#, fuzzy
+#~| msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Cáipéis neamhbhailí. Níl 'maindoc.xml' sa cháipéis."
+
+#, fuzzy
+#~| msgid "Failed to open file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Níorbh fhéidir an comhad a oscailt: %1"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Cáipéis neamhbhailí. Gan cineál MIME."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Cáipéis neamhbhailí. Bhíothas ag súil le cineál MIME application/x-vnd."
+#~ "kde.kplato.work, ach fuarthas %1"
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Lean ar aghaidh"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Cáipéis neamhbhailí. Bhíothas ag súil le cineál MIME application/x-vnd."
+#~ "kde.kplato.work, ach fuarthas %1"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Ainm"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Cineál"
+
+#, fuzzy
+#~| msgid "Responsible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "Freagrach"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Cur Síos"
+
+#, fuzzy
+#~| msgid "Planned Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "Tosú Pleanáilte"
+
+#, fuzzy
+#~| msgid "Planned Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "Críoch Pleanáilte"
+
+#, fuzzy
+#~| msgid "Completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Críoch"
+
+#, fuzzy
+#~| msgid "Remaining Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "Fós le Déanamh"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "Tosaithe"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Críochnaithe"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Nóta"
+
+#, fuzzy
+#~| msgid "Project Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Ainm an Tionscadail"
+
+#, fuzzy
+#~| msgid "Project Manager"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Bainisteoir an Tionscadail"
+
+#, fuzzy
+#~| msgid "Configure View..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Cumraigh Amharc..."
+
+#, fuzzy
+#~| msgid "Remove Packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "Bain Pacáistí"
+
+#, fuzzy
+#~| msgid "List"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Liosta"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "Cumraigh KPlatoWork..."
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Eagar..."
+
+#, fuzzy
+#~| msgctxt "@verb"
+#~| msgid "View..."
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Amharc..."
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Pacáiste Oibre: %1"
+
+#, fuzzy
+#~| msgid "Could not create the file for saving"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Ní féidir an comhad a chruthú le haghaidh sábhála"
+
+#~ msgid "&Settings"
+#~ msgstr "&Socruithe"
+
+#~ msgid "Edit Mode:"
+#~ msgstr "Mód Eagarthóireachta:"
+
+#~ msgid "Calculate"
+#~ msgstr "Ríomh"
+
+#~ msgid "Remaining effort"
+#~ msgstr "Fós le déanamh"
+
+#~ msgid "Information"
+#~ msgstr "Eolas"
+
+#~ msgid "Not scheduled"
+#~ msgstr "Gan sceidealadh"
+
+#~ msgid "No template found for: %1 "
+#~ msgstr "Níor aimsíodh teimpléad le haghaidh: %1 "
+
+#~ msgid "Too many templates found for: %1"
+#~ msgstr "Aimsíodh an iomarca teimpléad le haghaidh: %1"
+
+#~ msgid "Template %1 failed to load."
+#~ msgstr "Theip ar luchtú teimpléid %1."
+
+#~ msgid "Close"
+#~ msgstr "Dún"
+
+#~ msgid "Empty"
+#~ msgstr "Folamh"
+
+#~ msgctxt "Main document"
+#~ msgid " [main]"
+#~ msgstr " [príomh]"
+
+#~ msgid "Part Handbook"
+#~ msgstr "Lámhleabhar na Comhpháirte"
+
+#~ msgid "%1 Handbook"
+#~ msgstr "Lámhleabhar %1"
+
+#~ msgid "Open Document"
+#~ msgstr "Oscail Cáipéis"
+
+#~ msgid "Save"
+#~ msgstr "Sábháil"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Níorbh fhéidir an comhad a bhaint amach:\n"
+#~ " %1"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Níorbh fhéidir an comhad a bhaint amach:\n"
+#~ "%1"
+
+#~ msgid "none"
+#~ msgstr "neamhní"
+
+#~ msgid "Add Schedule %1"
+#~ msgstr "Cuir Sceideal %1 Leis"
+
+#~ msgid "Delete Schedule %1"
+#~ msgstr "Scrios Sceideal %1"

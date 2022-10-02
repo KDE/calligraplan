@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Beskrivning</title>
+  <para
+>Huvudarbetsutrymmet är normalt organiserat med vyväljaren till vänster och datavyn till höger.</para
+><para
+>Som vanligt hittar du också menyraden och verktygsraden längst upp, och statusraden längst ner. </para>
+  <para
+>Eftersom både vyväljaren och skriptpanelen är paneler, kan de flyttas till en annan kant, frigöras eller döljas. För att visa en dold panel, använd menyalternativet <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenuitem
+>Paneler</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>Vyväljaren</title>
+  <para
+><link linkend="the-view-selector"
+>Vyväljaren</link
+> gör det möjligt att välja datavyn som du vill visa i vyerna som för närvarande listas. </para>
+  <para
+>Vyerna grupperas i kategorier för enklare åtkomst: normalt editorer, vyer, utförande och rapporter. </para>
+  <itemizedlist>
+    <listitem
+><para
+>Editorer innehåller editorerna som du behöver för att definiera och schemalägga projektet.</para
+></listitem>
+    <listitem
+><para
+>Vyer innehåller vyer som används för att inspektera projektet.</para
+></listitem>
+    <listitem
+><para
+>Utförande innehåller vyer som är särskilt användbara medan projektet utförs.</para
+></listitem>
+    <listitem
+><para
+>Rapporter innehåller vyer för rapportgenerering.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Vyer kan också flyttas inom eller mellan kategorier, eller lägga till eller ta bort från <link linkend="the-view-selector"
+>vyväljaren</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Schemaväljare</title>
+  <para
+>Schemaväljaren låter dig välja tidplanen som alla vyerna (t.ex. <link linkend="task-gantt-view"
+>GANTT-vyn</link
+>) ska visa värden från. Aktiviteter som inte har schemalagts i den valda tidplanen visas inte normalt i någon av vyerna (de visas förstås dock i editorerna). </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Statusrad</title>
+  <para
+>Statusraden visar meddelanden och förloppsinformation. Tydligast är tidplanen som för närvarande är vald som visas till höger på statusraden. Observera att de flesta vyer i kategorin <emphasis
+>Vyer</emphasis
+> visar information som beror på den valda tidplanen, så om projektet inte är schemalagt (<emphasis
+>Inte schemalagd</emphasis
+>), är de flesta vyerna tomma. </para>
+</sect3>
+</sect2>

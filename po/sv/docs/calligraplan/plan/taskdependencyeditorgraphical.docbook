@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Beskrivning</title>
+  <para
+>Editorn av aktivitetsberoenden används för att skapa, redigera och ta bort aktivitetsberoenden. Av bekvämlighetsskäl kan också aktiviteter infogas, tas bort eller redigeras.</para
+><para
+>Aktiviteterna ordnas i enlighet med arbetsfördelningsstrukturen (AFS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Symbolerna för sammanfattningsaktiviteter, aktiviteter och milstolpar visas nedan: </para>
+  <para
+>Eftersom <emphasis
+>Aktivitet</emphasis
+> och <emphasis
+>Milsten</emphasis
+> är underobjekt till <emphasis
+>Sammanfattningsaktivitet</emphasis
+>, är de indenterade. Observera också att arbetsfördelningskoden visas tillsammans med namnet. </para>
+  <para
+>I följande figur, har ett <emphasis
+>start-slut</emphasis
+> beroende infogas för att göra <emphasis
+>Milsten</emphasis
+> beroende beroende av <emphasis
+>Aktivitet</emphasis
+>. </para>
+  <para
+>Som visas nedan, består ett objekt av tre olika markeringsområden: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Objektområde</para>
+            </entry>
+            <entry>
+              <para
+>Markera objektet för redigering</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Startområde</para>
+            </entry>
+            <entry>
+              <para
+>Används för att skapa <emphasis
+>slut-start</emphasis
+> och <emphasis
+>start-stat</emphasis
+> beroenden.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Slutområde</para>
+            </entry>
+            <entry>
+              <para
+>Används för att skapa <emphasis
+>slut-start</emphasis
+> och <emphasis
+>slut-slut</emphasis
+> beroenden.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Redigera beroenden</title>
+  <para
+>Beroenden skapas genom att först markera ett start- eller slutområde av föregående aktivitet, och sedan markera start- eller slutområdet på den efterföljande aktiviteten. </para>
+  <para
+>Det kan göras genom att använda musen eller tangentbordet. </para>
+  <para
+>Som ett alternativ kan du släppa föregångarens anslutningsområde på efterföljarens anslutningsområde. </para>
+  <para
+>För att redigera eller ta bort ett befintligt beroende kan du öppna ett beroende genom att markera det, eller visa dess sammanhangsberoende meny. </para>
+  <para
+>Du kan också visa den sammanhangsberoende menyn på ett anslutningsområde, vilket gör det möjligt att redigera alla beroenden som hör till det området. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa och ta bort aktiviteter: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till aktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Kombinationsruta för att skapa en aktivitet eller milsten. Det nya objektet placeras efter objektet som för närvarande är markerat eller på samma nivå som det markerade objektet. Om inget objekt är markerat, läggs det nya objektet till sist på toppnivån.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till delaktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Kombinationsruta för att skapa en delaktivitet eller milsten. Det nya objektet läggs till sist som ett underliggande objekt till objektet som för närvarande är markerat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort aktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Ta bort</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort de markerade aktiviteterna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

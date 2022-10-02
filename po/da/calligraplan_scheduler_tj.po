@@ -1,0 +1,442 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2011, 2013, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-25 00:47+0000\n"
+"PO-Revision-Date: 2020-04-22 21:46+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 18.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: PlanTJPlugin.cpp:43
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+"version of the scheduler used in TaskJuggler. It has been enhanced to handle "
+"resource units.</para><para>Scheduling backwards is simulated by scheduling "
+"all tasks as late as possible.</para><para><note>Plan does not utilize all "
+"of its functionality.</note></para>"
+msgstr ""
+"<title>TaskJuggler-skemalægning</title><para>Dette er en let ændret udgave "
+"af den skemalægning der bruges i TaskJuggler. Den er blevet udvidet til at "
+"håndtere ressourceenheder.</para><para>Skemalægning bagud simuleres ved at "
+"skemalægge alle opgaver så sent som muligt.</para><para><note>Plan bruger "
+"ikke al dens funktionalitet.</note></para>"
+
+#: PlanTJScheduler.cpp:150
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Init"
+msgstr "Init"
+
+#: PlanTJScheduler.cpp:157
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Re-calculate project from start time: %1"
+msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#: PlanTJScheduler.cpp:163
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from start time: %1"
+msgstr "Skemalæg projekt fra starttidspunkt: %1"
+
+#: PlanTJScheduler.cpp:165
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project target finish time: %1"
+msgstr "Tilstræbt sluttidspunkt for projekt: %1"
+
+#: PlanTJScheduler.cpp:168
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from end time: %1"
+msgstr "Skemalæg projekt fra sluttidspunkt: %1"
+
+#: PlanTJScheduler.cpp:184
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule"
+msgstr "Skema"
+
+#: PlanTJScheduler.cpp:191
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to schedule project"
+msgstr "Kunne ikke skemalægge projektet"
+
+#: PlanTJScheduler.cpp:202
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Update"
+msgstr "Opdatér"
+
+#: PlanTJScheduler.cpp:210
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Finish"
+msgstr "Færdig"
+
+#: PlanTJScheduler.cpp:225
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to find scenario to schedule"
+msgstr "Kunne ikke finde scenarie til skemalægning"
+
+#: PlanTJScheduler.cpp:427
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Projekt skemalagt til at starte %1 og slutte %2"
+
+#: PlanTJScheduler.cpp:475
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid start time"
+msgstr "Ugyldigt starttidspunkt"
+
+#: PlanTJScheduler.cpp:479
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid end time"
+msgstr "Ugyldigt sluttidspunkt"
+
+#: PlanTJScheduler.cpp:508
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled milestone: %1"
+msgstr "Skemalagt milepæl: %1"
+
+#: PlanTJScheduler.cpp:510
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled task: %1 - %2"
+msgstr "Skemalagt opgave: %1 - %2"
+
+#: PlanTJScheduler.cpp:613
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1: Kunne ikke opfylde begrænsning. Negative float=%2"
+
+#: PlanTJScheduler.cpp:629
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to meet dependency. Negative float=%1"
+msgstr "Kunne ikke opfylde afhængighed. Negativ float=%1"
+
+#: PlanTJScheduler.cpp:777
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to add as predecessor to task '%1'"
+msgstr ""
+
+#: PlanTJScheduler.cpp:788
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to add as successor to task '%1'"
+msgstr ""
+
+#: PlanTJScheduler.cpp:809
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Dependency type '%1' not handled. Using FinishStart."
+msgstr "Afhængighedstype \"%1\" håndteres ikke. Bruger FinishStart"
+
+#: PlanTJScheduler.cpp:870
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid start constraint"
+msgstr "%1: Ugyldig startbegrænsning"
+
+#: PlanTJScheduler.cpp:883
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid end constraint"
+msgstr "%1: Ugyldig slutbegrænsning"
+
+#: PlanTJScheduler.cpp:906
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Unhandled time constraint type"
+msgstr "Ikke håndteret type af tidsbegrænsning"
+
+#: PlanTJScheduler.cpp:917 PlanTJScheduler.cpp:935
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Could not use the correct calendar for calculation of task duration"
+msgstr ""
+"Kunne ikke bruge den korrekte kalender til beregning af opgavevarigheden"
+
+#: PlanTJScheduler.cpp:983
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Re-calculate project from start time: %1"
+msgid "Recalculate, earliest start: %1"
+msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#: PlanTJScheduler.cpp:997
+#, kde-format
+msgid "Task has started. Remaining effort: %1d"
+msgstr ""
+
+#: PlanTJScheduler.cpp:1015
+#, kde-format
+msgid "No working hours defined for resource: %1"
+msgstr "Ingen arbejdstimer defineret for resourcen: %1"
+
+#: PlanTJScheduler.cpp:1077
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Scheduled milestone: %1"
+msgid "Scheduling started: %1"
+msgstr "Skemalagt milepæl: %1"
+
+#: PlanTJScheduler.cpp:1079
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Re-calculate project from start time: %1"
+msgid "Recalculating from: %1"
+msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#: PlanTJScheduler.cpp:1088 PlanTJScheduler.cpp:1171
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Schedule"
+msgid "Scheduling canceled"
+msgstr "Skema"
+
+#: PlanTJScheduler.cpp:1091
+#, kde-format
+msgid "Scheduling finished at %1, elapsed time: %2 seconds"
+msgstr ""
+
+#: PlanTJScheduler.cpp:1108 PlanTJScheduler.cpp:1152
+#, kde-format
+msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
+msgstr ""
+
+#: PlanTJScheduler.cpp:1113 PlanTJScheduler.cpp:1158
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Invalid start time"
+msgid "Invalid project, start > end"
+msgstr "Ugyldigt starttidspunkt"
+
+#: PlanTJScheduler.cpp:1122 PlanTJScheduler.cpp:1167
+#, kde-format
+msgid "Project check failed"
+msgstr ""
+
+#: PlanTJScheduler.cpp:1130
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Scheduled task: %1 - %2"
+msgid "Scheduled: %1 - %2"
+msgstr "Skemalagt opgave: %1 - %2"
+
+#: PlanTJScheduler.cpp:1132
+#, fuzzy, kde-format
+#| msgctxt "@info/plain"
+#| msgid "Schedule"
+msgid "Scheduling failed"
+msgstr "Skema"
+
+#: PlanTJScheduler.cpp:1136 PlanTJScheduler.cpp:1177
+#, kde-format
+msgid "Project scheduling failed"
+msgstr ""
+
+#: PlanTJScheduler.cpp:1238
+#, kde-format
+msgid ""
+"Appointment with load (%1) less than available resource units (%2) not "
+"supported"
+msgstr ""
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~| "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~| "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~| "scheduling all tasks as late as possible.</para><para><note>Plan does "
+#~| "not utilize all of its functionality.</note></para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~ "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~ "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~ "scheduling all tasks as late as possible.</para><para><note>Plan does not "
+#~ "utilize all of its functionality.</note></para>"
+#~ msgstr ""
+#~ "<title>TaskJuggler-skemalægning</title><para>Dette er en let ændret "
+#~ "udgave af den skemalægning der bruges i TaskJuggler. Den er blevet "
+#~ "udvidet til at håndtere ressourceenheder.</para><para>Skemalægning bagud "
+#~ "simuleres ved at skemalægge alle opgaver så sent som muligt.</"
+#~ "para><para><note>Plan bruger ikke al dens funktionalitet.</note></para>"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Init"
+#~ msgstr "Init"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Skemalæg projekt fra starttidspunkt: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project target finish time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project target finish time: %1"
+#~ msgstr "Tilstræbt sluttidspunkt for projekt: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Skemalæg projekt fra sluttidspunkt: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule"
+#~ msgstr "Skema"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to schedule project"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to schedule project"
+#~ msgstr "Kunne ikke skemalægge projektet"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Update"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Update"
+#~ msgstr "Opdatér"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Finish"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Finish"
+#~ msgstr "Færdig"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to find scenario to schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to find scenario to schedule"
+#~ msgstr "Kunne ikke finde scenarie til skemalægning"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Projekt skemalagt til at starte %1 og slutte %2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid start time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid start time"
+#~ msgstr "Ugyldigt starttidspunkt"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid end time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid end time"
+#~ msgstr "Ugyldigt sluttidspunkt"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled milestone: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled milestone: %1"
+#~ msgstr "Skemalagt milepæl: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled task: %1 - %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled task: %1 - %2"
+#~ msgstr "Skemalagt opgave: %1 - %2"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "%1: Kunne ikke opfylde begrænsning. Negative float=%2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to meet dependency. Negative float=%1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to meet dependency. Negative float=%1"
+#~ msgstr "Kunne ikke opfylde afhængighed. Negativ float=%1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgstr "Afhængighedstype \"%1\" håndteres ikke. Bruger FinishStart"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid start constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid start constraint"
+#~ msgstr "%1: Ugyldig startbegrænsning"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid end constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid end constraint"
+#~ msgstr "%1: Ugyldig slutbegrænsning"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Unhandled time constraint type"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Unhandled time constraint type"
+#~ msgstr "Ikke håndteret type af tidsbegrænsning"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgstr ""
+#~ "Kunne ikke bruge den korrekte kalender til beregning af opgavevarigheden"

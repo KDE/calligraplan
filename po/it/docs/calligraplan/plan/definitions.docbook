@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Introduzione</title>
+  <para
+>Nella gestione del progetto, i termini possono essere utilizzati in modi diversi in programmi diversi o in società o tipi di progetto diversi. Guardando glossari più esaustivi sulla gestione dei progetti, si troveranno definizioni alternative per la maggior parte dei termini. </para>
+  <para
+>Questo elenco definisce in cui alcuni termini sono utilizzati in <guilabel
+>Plan</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Termini</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Conto</emphasis
+></term>
+      <listitem>
+      <para
+>Un account è utilizzato in una <emphasis
+>struttura funzionale dei costi</emphasis
+> (<link linkend="cbs"
+>CBS</link
+>) per rappresentare un luogo in cui il costo delle <link linkend="task"
+>attività</link 
+> o <link linkend="resource"
+>risorse</link
+> può essere aggregato.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ACWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Costo effettivo del lavoro eseguito</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Costo effettivo del lavoro eseguito</emphasis
+></term>
+      <listitem>
+      <para
+>Il costo effettivo (o lavoro) che è stato eseguito.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Ripartizione</emphasis
+></term>
+      <listitem>
+      <para
+>Le attività sono assegnate a <link linkend="resource"
+>Risorse</link
+> durante la fase di pianificazione del progetto. L'assegnazione effettiva viene eseguita durante la pianificazione. Notare che l'assegnazione non è garantita in quanto la risorsa potrebbe non essere disponibile.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Assegnazione</emphasis
+></term>
+      <listitem>
+      <para
+>Le attività sono assegnate a <link linkend="resource"
+>Risorse</link
+>durante la pianificazione.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BCWS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Costo preventivato del lavoro pianificato</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Costo preventivato del lavoro pianificato</emphasis
+></term>
+      <listitem>
+      <para
+>Il costo (o lavoro) che dovrebbe essere stato utilizzato per raggiungere l'avanzamento dichiarato.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BCWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Costo preventivato del lavoro eseguito</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Costo preventivato del lavoro eseguito</emphasis
+></term>
+      <listitem>
+      <para
+>Il costo (o lavoro) che è stato eseguito.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>CBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Struttura funzionale dei costi</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>È l'<emphasis
+>Indice prestazione del costo</emphasis
+> ed è uguale a <link linkend="bcwp"
+>BCWP</link
+>/<link linkend="acwp"
+>ACWP</link
+>. Quando questo indice è inferiore a 1, significa che il budget è stato superato. Se l'indice è maggiore di 1 significa che i costi sono sotto budget.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Struttura funzionale dei costi</emphasis
+></term>
+      <listitem>
+      <para
+>CBS organizza i <link linkend="account"
+>conti</link
+> in una struttura per consentire l'aggregazione dei costi indipendentemente da <link linkend="wbs"
+>WBS</link
+> e <link linkend="rbs"
+>RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Stima</emphasis
+></term>
+      <listitem>
+      <para
+>La stima è la quantità prevista di lavoro o tempo necessario per completare un'<link linkend="task"
+>attività</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Milestone</emphasis
+></term>
+      <listitem>
+      <para
+>Una milestone è un'<link linkend="task"
+>attività</link
+> con un lavoro di 0.00h. In genere viene utilizzata per contrassegnare un risultato importante, ad esempio il completamento di un risultato finale dopo l'accettazione da parte del cliente.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Tecnica di valutazione e revisione del programma</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Tecnica di valutazione e revisione del programma</emphasis
+></term>
+      <listitem>
+      <para
+>La tecnica di valutazione e revisione del programma è un miglioramento del metodo del percorso critico. Le stime del lavoro <link linkend="task"
+>Attività</link
+> nel CPM sono stime puntuali, mentre le stime dello lavoro <link linkend="task"
+>Attività</link
+> in PERT sono calcolate ponderando la stima ottimistica, il più probabile e pessimistica (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Distribuzione PERT</emphasis
+></term>
+      <listitem>
+      <para
+>Un modo semplificato per calcolare la stima attesa dalla stima ottimistica, più probabile e pessimistica.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Struttura funzionale delle risorse</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Struttura funzionale delle risorse</emphasis
+></term>
+      <listitem>
+      <para
+>RBS organizza le risorse in <link linkend="Resource-Group"
+>Gruppi di risorse</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Risorsa</emphasis
+></term>
+      <listitem>
+      <para
+>Una risorsa può essere di tipo <emphasis
+>Lavoro</emphasis
+>, <emphasis
+>Materiale</emphasis
+> o <emphasis
+>-Squadra</emphasis
+>. Una risorsa deve sempre appartenere a un <link linkend="Resource-Group"
+>Gruppo di risorse</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Gruppo di risorse</emphasis
+></term>
+      <listitem>
+      <para
+>Un gruppo di risorse è utilizzato per raggruppare le <link linkend="resource"
+>risorse</link
+> simili.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Squadra di risorse</emphasis
+></term>
+      <listitem>
+      <para
+>Una squadra di <link linkend="resource"
+>risorse</link
+> è una risorsa costituita da un numero di altre risorse.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>È l'indice delle prestazioni della pianificazione ed è uguale a BCWP/BCWS. Quando questo indice è inferiore a 1, significa che si è in ritardo. Se l'indice è maggiore di 1 significa che si è in anticipo sulla pianificazione.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Sommario attività</emphasis
+></term>
+      <listitem>
+      <para
+>Un'attività di riepilogo ha attività sotto-attività subordinate, e raggruppa le informazioni in base alle sotto-attività.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Attività</emphasis
+></term>
+      <listitem>
+      <para
+>Un'attività è un'unità di lavoro. Le <link linkend="resource"
+>Risorse</link
+> sono generalmente allocate al livello Attività.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard è uno standard di formato file per biglietti da visita elettronici.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>WBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Struttura funzionale del progetto</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Struttura funzionale del progetto</emphasis
+></term>
+      <listitem>
+      <para
+>Il WBS viene utilizzato per suddividere grandi progetti in blocchi gestibili per facilitare la pianificazione e la gestione.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

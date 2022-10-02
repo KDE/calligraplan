@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Descripció</title>
+  <para
+>La Vista de l'assignació de recursos mostra les assignacions dels recursos de tasques planificades en una taula. <note
+><para
+>Aquesta vista pot afectar greument el compliment en projectes grans.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Dades</title>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de l'objecte (grup de recursos, recurs, tasca)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Total</para>
+            </entry>
+            <entry>
+              <para
+>L'assignació total per a un recurs</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dates</para>
+            </entry>
+            <entry>
+              <para
+>Les assignacions totals per a un recurs per dia i les assignacions per al recurs per tasca.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Editar les dades</title>
+  <para
+>La descripció i el progrés de la tasca es poden editar utilitzant el menú contextual. </para>
+</sect3>
+</sect2>

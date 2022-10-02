@@ -1,0 +1,65 @@
+<sect2 id="description"
+><title
+>Descrizione</title>
+  <para
+>È possibile creare risorse per un progetto utilizzando <link linkend="resource-editor"
+>Editor delle risorse</link
+> e l'<link linkend="work-and-vacation-editor"
+>Editor del lavoro e delle ferie</link
+>. </para>
+  <para
+>Tuttavia, se si ha intenzione di utilizzare le stesse risorse in molti progetti (che è spesso il caso), è più conveniente mantenere le risorse in un file separato. Il modo migliore per farlo è creare prima il file delle risorse e quindi impostare &plan; per caricare sempre questo file durante la creazione di un nuovo progetto. </para>
+</sect2>
+<sect2 id="shared-resources"
+><title
+>Shared Resources</title>
+  <para
+>Shared Resources are resources that can be shared between project and thus facilitates resource levelling across projects.
+  </para>
+  <para
+>If you are managing projects that use totally different resource pools you can create multiple resource files, but one project can only refer to one resource file.
+  </para>
+  <para
+>You can select the resource file to use when creating a new project.
+  The resources can be automatically loaded on opening your project or you can update manually by selecting
+  <menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Update Shared Resources</guimenuitem
+></menuchoice
+>.
+  </para>
+  <para
+>Note that the project can still be opened even if the resource file is not available.
+  </para>
+  <para
+>If anything has been deleted in the shared resource file, you will be presented with a dialog where you can select how to treat the deleted items.
+  </para>
+  <para>
+  You can select if an item shall be:
+  <itemizedlist>
+  <listitem
+><para
+><emphasis
+>Removed:</emphasis
+> Removes the item from your project.
+  This is the action you would normally select as it keeps your project in sync with the resource file.
+  However if the item is used in your project, you may want to convert to a local item.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Converted:</emphasis
+> Converts the item to local item.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Kept:</emphasis
+> Keeps the item as a shared item in your project.
+  Next time the resource file is loaded, you will be asked again how to treat the item.</para>
+  </listitem>
+  </itemizedlist>
+  </para>
+</sect2>

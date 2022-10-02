@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Descripció</title>
+  <para
+>L'editor del treball i vacances s'empra per a crear, editar i suprimir els calendaris.</para
+><para
+>Els calendaris defineixen les hores de treball per als recursos. Els calendaris també poden ser utilitzats per les tasques amb un tipus d'estimació <emphasis
+>Durada</emphasis
+>. </para>
+  <para
+>Els calendaris tenen una especificació de zona horària perquè pugueu definir les hores de treball en l'hora local dels recursos. </para>
+  <para
+>Un calendari consisteix en definicions per als dies de la setmana i dates. Si la data té una definició, s'utilitzarà aquesta definició. Si l'estat de la data està <emphasis
+>Sense definir</emphasis
+>, s'utilitzarà la definició per al dia de la setmana. Si també està <emphasis
+>Sense definir</emphasis
+>, es marcarà el calendari pare. </para>
+  <para
+>Un calendari es pot definir com a <emphasis
+>Predeterminat</emphasis
+> i després és utilitzat per tots els recursos de treball sense una referència de calendari. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La barra d'eines proporciona els mitjans per a crear i suprimir els calendaris: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix un calendari</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un calendari. El calendari nou s'annexarà al mateix nivell que el calendari seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix un subcalendari</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un calendari fill. El calendari nou s'annexarà com a fill al calendari seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Suprimeix el calendari seleccionat</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Suprimeix</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix el calendari seleccionat.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Editar les dades</title>
+  <para
+>El nom del calendari i la zona horària es poden editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+>. </para>
+  <para
+>L'estat dels dies i dies de la setmana s'edita seleccionant el dia o dies que voleu editar i obriu el menú contextual. </para>
+  <para
+>Seleccionant <emphasis
+>Feina...</emphasis
+> s'obrirà el diàleg Edita els intervals de feina. </para>
+  
+</sect3>
+</sect2>

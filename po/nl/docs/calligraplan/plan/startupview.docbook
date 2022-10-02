@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>Het opstartbeeld wordt getoond bij opstarten en wanneer <menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Nieuw</guimenuitem
+></menuchoice
+> wordt geselecteerd. </para>
+<para
+>Het heeft 3 secties voor: </para>
+<itemizedlist>
+  <listitem
+><para
+>Aanmaken van nieuwe projecten. Zie ook <link linkend="creating-a-project"
+>Een project aanmaken</link
+> en <link linkend="managing-resources"
+>Hulpbronnen beheren</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Bestaande projecten openen. Deze sectie geeft u de mogelijkheid om een bestaand projectbestand of een van de 10 meest recente projecten die u hebt geopend te openen.</para
+></listitem>
+  <listitem
+><para
+>De sectie Help geeft u koppelingen naar introductiepagina's, documentatie en gemeenschapsforum.</para
+></listitem>
+</itemizedlist>
+</sect2>

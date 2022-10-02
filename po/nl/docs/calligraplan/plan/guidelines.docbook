@@ -1,0 +1,16 @@
+<chapter id="creating-a-project"
+><title
+>Richtlijnen</title>
+  <sect1 id="creating-a-project-section"
+><title
+>Een project aanmaken</title
+>&creating-project-section; </sect1>
+  <sect1 id="managing-resources"
+><title
+>Hulpbronnen beheren</title
+>&managing-resources-section; </sect1>
+  <sect1 id="creating-odt-report-templates"
+><title
+>ODT rapportsjablonen aanmaken</title
+>&creating-odt-report-templates-section; </sect1>
+</chapter>

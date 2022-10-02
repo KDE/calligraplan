@@ -1,0 +1,72 @@
+<chapter id="startup-view"
+><title
+>Vistes i editors</title>
+  <sect1 id="startup-view-section"
+><title
+>Vista inicial</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Editor de tasques</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Editor de recursos</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Editor del treball i vacances</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Editor de l'Estructura de descomposició del cost</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Editor de les dependències de la tasca (gràfic)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Editor de les dependències de la tasca (llista)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Editor de les planificacions</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Vista Compliment del projecte</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Vista Compliment de la tasca</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Vista Estat de la tasca</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Vista Execució de la tasca</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Vista de Gantt de la tasca</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Vista de Gantt de la fita</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Vista de Gantt de l'assignació de recursos</title
+>&resource-assignment-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Vista de l'assignació de recursos</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="cost-breakdown-view"
+><title
+>Vista de descomposició del cost</title
+>&cost-breakdown-view-section; </sect1>
+</chapter>

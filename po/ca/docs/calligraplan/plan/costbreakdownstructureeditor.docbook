@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Descripció</title>
+  <para
+>L'editor de l'estructura de descomposició del cost s'empra per a crear, editar i suprimir els comptes. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Els comptes es poden connectar mitjançant tasques i recursos per a acumular els costos d'aquestes tasques i recursos. </para>
+  <para
+>El compte predeterminat acumula els costos incorreguts per les tasques que no estan connectades amb un compte. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per a crear i suprimir els comptes: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix un compte</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un compte. El compte nou s'inserirà després del compte seleccionat. Si no se selecciona un compte, el compte nou s'annexarà al nivell superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix un subcompte</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un subcompte. El compte nou s'annexarà com a fill al compte seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Suprimeix</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Supr</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix el compte seleccionat.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Editar les dades</title>
+  <para
+>Les dades es poden editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+>. </para>
+  <para
+>Hi ha disponibles les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom del compte.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripció</para>
+            </entry>
+            <entry>
+              <para
+>La descripció del compte.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Gantt-samenvatting</title>
+<sect1 id="description"
+><title
+>Beschrijving</title
+>&WORK-IN-PROGRESS; <para
+>Toont een gantt-grafiek van alle projecten in uw portfolio. </para
+><para
+>Een gantt-weergave voor een project kan getoond worden door te selecteren <userinput
+>Context-menu->Project openen</userinput
+>. </para>
+</sect1>
+</chapter>

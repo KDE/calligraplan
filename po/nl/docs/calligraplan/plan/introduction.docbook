@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Functies omvatten: </para>
+<itemizedlist>
+  <listitem
+><para
+>Taakbeheer met de <link linkend="task-editor"
+>Takenbewerker</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Structuur voor opsplitsing werktaken met te configureren WBS codes</para
+></listitem>
+        <listitem
+><para
+>Taken, samenvatting van taken en mijlpalen</para
+></listitem>
+        <listitem
+><para
+>Verschillende typen beperkingen in tijd</para
+></listitem>
+        <listitem
+><para
+>Verschillende typen afhankelijkheden.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Hulpbronbeheer met de <link linkend="resource-editor"
+>Hulpbronbewerker</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Structuur voor opsplitsing hulpbronnen</para
+></listitem>
+        <listitem
+><para
+>Typen werk- en materiaalhulpbronnen</para
+></listitem>
+        <listitem
+><para
+>Hulpbrontoewijzing op groepsniveau</para
+></listitem>
+        <listitem
+><para
+>Hulpbronteams</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Definitie van werktijd &amp; vacatie met de <link linkend="work-and-vacation-editor"
+>Bewerker voor werk en vacatie</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Kostenbeheer met de <link linkend="cost-breakdown-structure-editor"
+>Bewerker voor opbreken van kostenstructuur</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Beheer van verdiende waarde</para
+></listitem>
+  <listitem
+><para
+>Projectplanning met de <link linkend="schedules-editor"
+>Bewerker voor planning</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Vooruit plannen vanaf begintijd of achteruit vanaf eindtijd</para
+></listitem>
+        <listitem
+><para
+>Overboeken van hulpbron toestaan of vermijden</para
+></listitem>
+        <listitem
+><para
+>PERT distributie met optimistische, pessimistische en meest waarschijnlijke schattingen</para
+></listitem>
+        <listitem
+><para
+>Meerdere planningen met een mogelijkheid om te plannen vanaf de huidige informatie over voorgang</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Volgen van taken met de <link linkend="task-execution-view"
+>Weergave van uitvoering van taken</link
+> of <link linkend="task-status-view"
+>Weergave van taakstatus</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

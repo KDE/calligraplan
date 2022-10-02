@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Inledning</title>
+  <para
+>I projekthantering kan termer användas på olika sätt i olika program, eller i olika företag eller projekttyper. Om man tittar i utförligare ordlistor för projekthantering hittar man alternativa definitioner av de flesta termer. </para>
+  <para
+>Den här listan definierar hur vissa termer används i <guilabel
+>Plan</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Termer</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Konto</emphasis
+></term>
+      <listitem>
+      <para
+>Ett konto som används i en <emphasis
+>kostnadsfördelningsstruktur</emphasis
+> (<link linkend="cbs"
+>KFS</link
+>) för att representera en plats där <link linkend="task"
+>aktiviteter</link
+> eller <link linkend="resource"
+>resurser</link
+> kan sammanställas.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>VKUA</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Verklig kostnad av utfört arbete</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Verklig kostnad av utfört arbete</emphasis
+></term>
+      <listitem>
+      <para
+>Den verkliga kostnaden som har uppstått (eller insats som har utförts).</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Tilldelning</emphasis
+></term>
+      <listitem>
+      <para
+>Aktiviteter tilldelas <link linkend="resource"
+>resurser</link
+> under projektets planeringsstadium. Den verkliga tilldelning görs under schemaläggning. Observera att tilldelningen inte är garanterad, eftersom resursen kanske inte är tillgänglig.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Tilldelning</emphasis
+></term>
+      <listitem>
+      <para
+>Aktiviteter tilldelas till <link linkend="resource"
+>resurser</link
+> under schemaläggning.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BKSA</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Budgeterad kostnad av schemalagt arbete</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Budgeterad kostnad av schemalagt arbete</emphasis
+></term>
+      <listitem>
+      <para
+>Kostnaden (eller insatsen) som ska ha används för att nå angivet tillstånd.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BKUA</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Budgeterad kostnad av utfört arbete</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Budgeterad kostnad av utfört arbete</emphasis
+></term>
+      <listitem>
+      <para
+>Kostnad som har uppstått (eller insats som har utförts).</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>Kostnadsfördelningsstruktur</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Kostnadsfördelningsstruktur</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>KPI</emphasis
+></term>
+      <listitem>
+      <para
+><emphasis
+>Kostnadsprestationsindex</emphasis
+> är lika med <link linkend="bcwp"
+>BKUA</link
+> / <link linkend="acwp"
+>VKUA</link
+>. När indexet är mindre än ett, betyder det att du är över budget. Om indexet är större än ett, betyder det att kostnaderna är under budget.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Kostnadsfördelningsstruktur</emphasis
+></term>
+      <listitem>
+      <para
+>Kostnadsfördelningsstrukturen organiserar <link linkend="account"
+>konton</link
+> i en struktur för att sammanställas oberoende av <link linkend="wbs"
+>AFS</link
+> och <link linkend="rbs"
+>RFS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Uppskattning</emphasis
+></term>
+      <listitem>
+      <para
+>Uppskattningen är förväntad insats eller tid som behövs för att färdigställa <link linkend="task"
+>aktiviteten</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Milstolpe</emphasis
+></term>
+      <listitem>
+      <para
+>En milstolpe är en <link linkend="task"
+>aktivitet</link
+> med insats 0.00 timmar. Den används typiskt för att markera ett större resultat, exempelvis färdigställande av en leverans när den accepteras av kunden.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>Projektstyrningsmodell</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Projektutvärderings- och granskningsteknik</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Projektutvärderings- och granskningsteknik</emphasis
+></term>
+      <listitem>
+      <para
+>Projektutvärderings- och granskningstekniken är en utökning av metoden med kritisk linje. Uppskattningar av insats för <link linkend="task"
+>aktiviteter</link
+> för kritisk linje är punktuppskattningar, medan uppskattningar av insats för <link linkend="task"
+>aktiviteter</link
+> för projektstyrningsmodellen beräknas genom att vikta optimistisk, troligaste och pessimistisk uppskattning: (O+(4*T)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Projektstyrningsfördelning</emphasis
+></term>
+      <listitem>
+      <para
+>Ett förenklat sätt för att beräkna förväntad uppskattning från optimistisk, troligaste och pessimistisk uppskattning.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RFS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Resursfördelningsstruktur</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Resursfördelningsstruktur</emphasis
+></term>
+      <listitem>
+      <para
+>RFS organiserar resurser i <link linkend="Resource-Group"
+>resursgrupper</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Resurs</emphasis
+></term>
+      <listitem>
+      <para
+>En resurs kan vara av typen <emphasis
+>Arbete</emphasis
+>, <emphasis
+>Material</emphasis
+> eller <emphasis
+>Grupp</emphasis
+>. En resurs måste alltid höra till en <link linkend="Resource-Group"
+>Resursgrupp</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Resursgrupp</emphasis
+></term>
+      <listitem>
+      <para
+>En resursgrupp används för att gruppera liknande <link linkend="resource"
+>resurser</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Resurslag</emphasis
+></term>
+      <listitem>
+      <para
+>Ett resurslag är en <link linkend="resource"
+>resurs</link
+> som består av ett antal andra resurser.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>Är schemaprestandaindex och är lika med BKUA / BKSA. När indexet är mindre än ett, betyder det att du är efter tidplanen. Om indexet är större än ett, betyder det att du är före tidplanen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Sammanfattningsaktivitet</emphasis
+></term>
+      <listitem>
+      <para
+>En sammanfattningsaktivitet har underliggande delaktiviteter, och samlar ihop information baserat på delaktiviteterna.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Aktivitet</emphasis
+></term>
+      <listitem>
+      <para
+>En aktivitet är en arbetsenhet. <link linkend="resource"
+>Resurser</link
+> är i allmänhet tilldelade på aktivitetsnivå.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard är en filformatstandard för elektroniska visitkort.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>Arbetsfördelningsstruktur</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Arbetsfördelningsstruktur</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Arbetsfördelningsstruktur</emphasis
+></term>
+      <listitem>
+      <para
+>AFS används för att dela upp större projekt i hanterbara delar för att förenkla planering och ledning.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

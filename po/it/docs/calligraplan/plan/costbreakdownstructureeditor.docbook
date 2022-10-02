@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Descrizione</title>
+  <para
+>L'editor della struttura funzionale dei costi è utilizzato per creare, modificare ed eliminare i conti. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Conti e risorse possono essere collegati da attività e risorse per accumulare costi da tali attività e risorse. </para>
+  <para
+>Il conto predefinito accumula i costi sostenuti da attività che non sono connesse a un conto. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti fornisce il modo per creare ed eliminare i conti: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi account</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare un conto. Il nuovo conto viene inserito dopo il conto selezionato. Se non viene selezionato alcun conto, il nuovo conto viene aggiunto al livello superiore.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi sottoconto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare un sotto-conto. Il nuovo conto viene aggiunto come figlio al conto selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina il conto selezionato.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Modificare i dati</title>
+  <para
+>I dati possono essere modificati in linea come descritti <link linkend="using-the-views"
+>qui</link
+>. </para>
+  <para
+>Le seguenti colonne sono disponibili: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome del conto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descrizione</para>
+            </entry>
+            <entry>
+              <para
+>La descrizione del conto.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Descripció</title>
+  <para
+>La vista del generador d'informes s'utilitza per afegir i generar informes en el format de text de document obert (ODT).</para
+><para
+>Els informes poden basar-se en les plantilles d'informe proporcionades, o podeu <link linkend="creating-odt-report-templates"
+>escriure les vostres pròpies plantilles</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>Un nom de la vostra elecció</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Plantilla d'informe</para>
+            </entry>
+            <entry>
+              <para
+>Camí al fitxer de plantilla de l'informe. Podreu seleccionar una de les plantilles estàndard subministrades o podeu introduir el nom del fitxer d'una plantilla que proporcioneu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fitxer d'informe</para>
+            </entry>
+            <entry>
+              <para
+>El nom del fitxer que s'ha generat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix</para>
+            </entry>
+            <entry>
+              <para
+>Informació que es pot afegir al nom del fitxer d'informe per a distingir-lo de les versions generades prèviament. Això pot ser:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Res</emphasis
+>; emprarà el nom del fitxer tal com està</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Número</emphasis
+>; afegeix un número de seqüència al nom del fitxer</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Data</emphasis
+>; afegeix la data actual al nom del fitxer</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per afegir, eliminar i generar informes. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix un informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Afegeix un informe nou</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina un informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina l'informe seleccionat</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Genera un informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Genera l'informe seleccionat</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

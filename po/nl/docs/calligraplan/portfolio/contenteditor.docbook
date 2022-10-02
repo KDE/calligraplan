@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Inhoud van portfolio</title
+>&WORK-IN-PROGRESS; <para
+>Deze bewerker schakelt u in om de inhoud van uw portfolio te configureren. </para
+><para
+>Selecteer <menuchoice
+> <shortcut
+><keycap
+>Invoegen</keycap
+></shortcut
+> <guimenu
+>Bewerken</guimenu
+><guimenuitem
+>Toevoegen</guimenuitem
+> </menuchoice
+> of druk op <guibutton
+>Toevoegen</guibutton
+> om projecten aan uw portfolio toe te voegen. </para
+><para
+>Selecteer <menuchoice
+> <shortcut
+><keycap
+>Verwijderen</keycap
+></shortcut
+> <guimenu
+>Bewerken</guimenu
+><guimenuitem
+>Verwijderen</guimenuitem
+> </menuchoice
+> of druk op <guibutton
+>Verwijderen</guibutton
+> om geselecteerde projecten te verwijderen. </para
+><para
+>Voeg de projecten toe die u beheert en zet <guilabel
+>Portfolio</guilabel
+> = <emphasis
+>Ja</emphasis
+>. </para
+><para
+>Als u hulpbronnen hebt die gebruikt worden door projecten die geen deel van uw portfolio zijn en u wilt gebruik van hulpbronnen opnieuw plannen of inspecteren, dan moet u alle relevante projecten toevoegen en <guilabel
+>Portfolio</guilabel
+> = <emphasis
+>Nee</emphasis
+> voor deze projecten zetten. </para>
+<formalpara
+><title
+>Opslag</title>
+<para
+></para>
+</formalpara>
+<para
+>Projectwijzigingen kunnen opgeslagen worden in het originele projectbestand of kunnen ingebed worden in het portfoliobestand. Als u projecten beheert, dan zouden ze normaal opgeslagen moeten zijn in hun originele bestanden. Zet <guilabel
+>Opslaan</guilabel
+> = <emphasis
+>Extern</emphasis
+> in dat geval. Als u echter alleen wilt zien welke impact wijzigingen kunne hebben, dan zou u projecten ingebed willen hebben terwijl u werkt aan verschillende scenarios. Zet <guilabel
+>Opslaan</guilabel
+> = <emphasis
+>Ingebed</emphasis
+> in dat geval. De externe url van de projecten wordt bewaard als u later de wijzigingen wilt opslaan in het originele bestand. </para>
+</chapter>

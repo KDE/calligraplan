@@ -1,0 +1,627 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmodulekplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-07-06 00:17+0000\n"
+"PO-Revision-Date: 2016-11-20 12:46+0000\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-IgnoreConsistency: Plan\n"
+"X-POFile-IgnoreConsistency: Samples\n"
+"X-POFile-SpellExtra: KPlato KHTML Online Plan ODS Open Spreadsheet Sheets\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-IgnoreConsistency: Import\n"
+
+#: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "Adicionar uma tarefa"
+
+#: Project.cpp:420 Project.cpp:428
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "Adicionar um Grupo de Recursos"
+
+#: Project.cpp:506 Project.cpp:524
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "Adicionar um Recurso"
+
+#: Project.cpp:627
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "Adicionar um compromisso externo"
+
+#: Project.cpp:637 Project.cpp:645
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "Limpar os compromissos externos"
+
+#: Project.cpp:652
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "Limpar todos os compromissos externos"
+
+#: Resource.cpp:91
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr "Definir os membros da equipa de recursos"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "Ferramen&tas"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "Seleccionar de:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Recursos"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Contas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "Incluir os cabeçalhos"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "Nome do Calendário"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "Limpar todos os compromissos externos"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "Exportação da Informação de Ocupação"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "Exportar o Escalonamento Seleccionado"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "Escalonamentos"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "Ficheiro de Exportação da Informação sobre Ocupação"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Gravar"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "Todos os Ficheiros"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Erro"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Nenhum ficheiro seleccionado"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "Nenhum escalonamento seleccionado"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "Importar a Informação de Ocupação"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "Ficheiro de Importação da Informação sobre Ocupação"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Abrir"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "Importar a informação de ocupação do recurso"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "Não é possível carregar dados de um projecto com a mesma identidade"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr "Não foi possível iniciar o Sheets. Será que está instalado?"
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+msgid "No data to export"
+msgstr "Não existem dados a exportar"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr "Tem de seleccionar um ficheiro onde gravar"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr ""
+"Os dados foram gravados no ficheiro:\n"
+"%1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid "Information"
+msgstr "Informação"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+msgid "No properties to export"
+msgstr "Não existem propriedades a exportar"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+msgid "Select schedule"
+msgstr "Seleccionar o escalonamento"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr "Dados"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Select data"
+msgstr "Seleccionar os dados"
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+msgid "Export ods file"
+msgstr "Exportar o ficheiro ODS"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr "Folha de Cálculo"
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr "Sem folha actual."
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr "Foi definida uma folha inválida '%1'."
+
+#: scripts/plan2odsexport.py:42
+msgid "Could not select cell 'A1'"
+msgstr "Não foi possível seleccionar a célula 'A1'"
+
+#: scripts/plan2odsexport.py:58
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr ""
+"Não foi possível escrever no ficheiro:\n"
+"%1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr "Não foi possível definir todas as propriedades de '%1' na célula '%2'"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr "Aviso"
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "Importar os Recursos"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Recursos do Plan"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Importar os recursos"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Não foi possível abrir o documento: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "Não existe nenhum projecto de onde importar"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "As identidades do projecto são idênticas"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "Não é possível criar uma cópia do grupo de recursos: %1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "Não existem recursos de onde copiar"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "Não foi possível criar uma cópia do recurso: %1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "O calendário já existe: %1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "Não foi possível criar uma cópia do calendário: %1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "Informação de Ocupação do Recurso"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "Lidar com a informação de ocupação do recurso"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr "Exportar a Informação de Ocupação do Recurso"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr ""
+"Programa em Python para exportar a informação de ocupação para um ficheiro"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "Importar a Informação de Ocupação do Recurso"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr ""
+"Programa em Python para importar a informação de ocupação a partir de um "
+"ficheiro"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "Limpar a Informação de Ocupação do Recurso"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr ""
+"Programa em Python para limpar a informação importada de ocupação dos "
+"recursos"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Importar"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Importar o conteúdo"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "Recursos do Ficheiro do Plan"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr ""
+"Programa em Python para importar recursos a partir do ficheiro do projecto"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Exportar"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export content"
+msgstr "Exportar o conteúdo"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr "Para CSV"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr "Exporta os dados como valores separados por vírgulas"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr "Para ODS"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr "Exporta os dados como um documento Open Spreadsheet"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Ferramentas"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "Programas diversos"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Ajuda 'Online'"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+"Programa em Python que usa o componente KHTML para apresentar a ajuda "
+"'online' de Programação do Plan"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Exemplos"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "Exemplos de demonstração da programação no Plan"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "Imprimir a Informação do Projecto..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "Programa de exemplo em Python para imprimir a informação do projecto"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "Imprimir a Informação de Ocupação do Recurso..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr ""
+"Programa de exemplo em Python para imprimir a informação de ocupação do "
+"recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Select from:"
+#~ msgstr "Seleccionar de:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Tarefas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Recursos"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Contas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include headers"
+#~ msgstr "Incluir os cabeçalhos"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "Ferramen&tas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Busy Information"
+#~ msgstr "Informação de Ocupação do Recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Handle resource busy information"
+#~ msgstr "Lidar com a informação de ocupação do recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export Resource Busy Information"
+#~ msgstr "Exportar a Informação de Ocupação do Recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to export busy information to file"
+#~ msgstr ""
+#~ "Programa em Python para exportar a informação de ocupação para um ficheiro"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import Resource Busy Information"
+#~ msgstr "Importar a Informação de Ocupação do Recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import busy information from file"
+#~ msgstr ""
+#~ "Programa em Python para importar a informação de ocupação a partir de um "
+#~ "ficheiro"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Clear Resource Busy Information"
+#~ msgstr "Limpar a Informação de Ocupação do Recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to clear the imported resource busy information"
+#~ msgstr ""
+#~ "Programa em Python para limpar a informação importada de ocupação dos "
+#~ "recursos"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Importar"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Importar o conteúdo"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources from Plan File"
+#~ msgstr "Recursos do Ficheiro do Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import resources from project file"
+#~ msgstr ""
+#~ "Programa em Python para importar recursos a partir do ficheiro do projecto"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Exportar"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export content"
+#~ msgstr "Exportar o conteúdo"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To csv"
+#~ msgstr "Para CSV"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data as comma separated values"
+#~ msgstr "Exporta os dados como valores separados por vírgulas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To ods"
+#~ msgstr "Para ODS"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data to Open Spreadsheet document"
+#~ msgstr "Exporta os dados como um documento Open Spreadsheet"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Ferramentas"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Miscellaneous scripts"
+#~ msgstr "Programas diversos"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Ajuda 'Online'"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Python script that uses the KHTML Part to display the Plan Scripting "
+#~ "online help"
+#~ msgstr ""
+#~ "Programa em Python que usa o componente KHTML para apresentar a ajuda "
+#~ "'online' de Programação do Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Exemplos"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples to demonstrate scripting with Plan"
+#~ msgstr "Exemplos de demonstração da programação no Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Project Information..."
+#~ msgstr "Imprimir a Informação do Projecto..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print project information"
+#~ msgstr ""
+#~ "Programa de exemplo em Python para imprimir a informação do projecto"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Resource busy Information..."
+#~ msgstr "Imprimir a Informação de Ocupação do Recurso..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print resource busy information"
+#~ msgstr ""
+#~ "Programa de exemplo em Python para imprimir a informação de ocupação do "
+#~ "recurso"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Name"
+#~ msgstr "Nome do Calendário"

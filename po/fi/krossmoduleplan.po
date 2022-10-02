@@ -1,0 +1,709 @@
+# Copyright © 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the calligra package.
+# Tommi Nieminen <translator@legisign.org>, 2012.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2014.
+#
+# KDE Finnish translation sprint participants:
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmodulekplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-07-06 00:17+0000\n"
+"PO-Revision-Date: 2014-06-20 23:19+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2013-01-13 22:09:52+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr ""
+"Lisää tehtävä\n"
+"tehtävän lisäys"
+
+#: Project.cpp:420 Project.cpp:428
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr ""
+"Lisää resurssiryhmä\n"
+"resurssiryhmän lisäys"
+
+#: Project.cpp:506 Project.cpp:524
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr ""
+"Lisää resurssi\n"
+"resurssin lisäys"
+
+#: Project.cpp:627
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr ""
+"Lisää ulkoinen ajanvaraus\n"
+"ulkoisen ajanvarauksen lisäys"
+
+#: Project.cpp:637 Project.cpp:645
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr ""
+"Tyhjennä ulkoiset ajanvaraukset\n"
+"ulkoisten ajanvarausten tyhjennys"
+
+#: Project.cpp:652
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr ""
+"Tyhjennä kaikki ulkoiset ajanvaraukset\n"
+"kaikkien ulkoisten ajanvarausten tyhjennys"
+
+#: Resource.cpp:91
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr ""
+"Aseta resurssityöryhmän jäsenet\n"
+"resurssityöryhmän jäsenten asettaminen"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "&Työkalut"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "Valitse mistä:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Tehtävät"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Resurssit"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Tilit"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "Sisällytä otsakkeet"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "Aikataulun nimi"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "Tyhjennä kaikki ulkoiset ajanvaraukset"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "Varaustietojen vienti"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "Vie valittu aikataulu"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "Aikataulut"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "Vie varaustietotiedosto"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Tallenna"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "Kaikki tiedostot"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Virhe"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Tiedostoa ei valittu"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "Aikataulua ei valittu"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "Varaustietojen tuonti"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "Tuo varaustietotiedosto"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Avaa"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "Tuo resurssin varaustiedot"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "Saman henkilöyden projektista ei voi ladata tietoja"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr "Sheetsin käynnistäminen epäonnistui. Onko Sheets asennettu?"
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+msgid "No data to export"
+msgstr "Ei vietävää dataa"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr "Valitse ensin tiedosto, johon kirjoitetaan"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr ""
+"Data tallennettiin tiedostoon:\n"
+"%1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid "Information"
+msgstr "Tiedoksi"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+msgid "No properties to export"
+msgstr "Ei vietäviä ominaisuuksia"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+msgid "Select schedule"
+msgstr "Valitse aikataulu"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr "Data"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Select data"
+msgstr "Valitse data"
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+msgid "Export ods file"
+msgstr "Vie ODS-tiedostoon"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr "Laskentataulukko"
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr "Ei nykyistä taulukkoa."
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr "Määritetty virheellinen taulukko ”%1”."
+
+#: scripts/plan2odsexport.py:42
+msgid "Could not select cell 'A1'"
+msgstr "Ei voitu valita solua ”A1”"
+
+#: scripts/plan2odsexport.py:58
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr ""
+"Ei voitu kirjoittaa tiedostoon:\n"
+"%1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr ""
+"Tietueen ”%1” kaikkien ominaisuuksien asettaminen soluun ”%2” epäonnistui"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr "Varoitus"
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "Resurssien tuonti"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Planin resurssit"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Tuo resursseja"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Tiedostoa ei voitu avata: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "Ei projektia, josta tuoda"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "Projektin henkilöydet ovat identtiset"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "Ei voitu luoda resurssiryhmän kopiota: %1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "Ei resurssia, josta kopioida"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "Ei voitu luoda resurssin kopiota: %1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "Kalenteri on jo olemassa: %1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "Ei voitu luoda kalenterin kopiota: %1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "Resurssin varaustiedot"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "Käsittele resurssin varaustiedot"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr "Vie resurssin varaustiedot"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr "Python-komentojono varaustietojen viemiseksi tiedostoon"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "Tuo resurssin varaustiedot"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr "Python-komentojono varaustietojen tuomiseksi tiedostosta"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "Tyhjennä resurssin varaustiedot"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr "Python-komentojono tuotujen varaustietojen tyhjentämiseksi"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Tuo"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Tuo sisältöä"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "Resurssit Plan-tiedostosta"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr "Python-komentojono resurssien tuomiseksi projektitiedostosta"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Vie"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export content"
+msgstr "Vie sisältö"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr "CSV:ksi"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr "Vie data pilkuin erotelluiksi arvoiksi (CSV)"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr "ODS:ksi"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr "Vie data Open Spreadsheet -tiedostoksi"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Työkalut"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "Sekalaiset komentojonot"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Verkko-ohje"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+"Python-komentojono, joka käyttää KHTML-osaa näyttämään Planin komentojonojen "
+"verkko-ohjeen"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Näytteet"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "Näytteet Planin hallitsemisesta komentojonoin"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "Tulosta projektin tiedot…"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "Esimerkki-Python-komentojono projektin tietojen tulostamiseksi"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "Tulosta resurssin varaustiedot…"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr "Esimerkki-Python-komentojono resurssin varaustietojen tulostamiseksi"
+
+#, fuzzy
+#~| msgid "Select from:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Select from:"
+#~ msgstr "Valitse mistä:"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Tehtävät"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Resurssit"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Tilit"
+
+#, fuzzy
+#~| msgid "Include headers"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include headers"
+#~ msgstr "Sisällytä otsakkeet"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "&Työkalut"
+
+#, fuzzy
+#~| msgid "Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Busy Information"
+#~ msgstr "Resurssin varaustiedot"
+
+#, fuzzy
+#~| msgid "Handle resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Handle resource busy information"
+#~ msgstr "Käsittele resurssin varaustiedot"
+
+#, fuzzy
+#~| msgid "Export Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export Resource Busy Information"
+#~ msgstr "Vie resurssin varaustiedot"
+
+#, fuzzy
+#~| msgid "Python script to export busy information to file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to export busy information to file"
+#~ msgstr "Python-komentojono varaustietojen viemiseksi tiedostoon"
+
+#, fuzzy
+#~| msgid "Import Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import Resource Busy Information"
+#~ msgstr "Tuo resurssin varaustiedot"
+
+#, fuzzy
+#~| msgid "Python script to import busy information from file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import busy information from file"
+#~ msgstr "Python-komentojono varaustietojen tuomiseksi tiedostosta"
+
+#, fuzzy
+#~| msgid "Clear Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Clear Resource Busy Information"
+#~ msgstr "Tyhjennä resurssin varaustiedot"
+
+#, fuzzy
+#~| msgid "Python script to clear the imported resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to clear the imported resource busy information"
+#~ msgstr "Python-komentojono tuotujen varaustietojen tyhjentämiseksi"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Tuo"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Tuo sisältöä"
+
+#, fuzzy
+#~| msgid "Resources from Plan File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources from Plan File"
+#~ msgstr "Resurssit Plan-tiedostosta"
+
+#, fuzzy
+#~| msgid "Python script to import resources from project file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import resources from project file"
+#~ msgstr "Python-komentojono resurssien tuomiseksi projektitiedostosta"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Vie"
+
+#, fuzzy
+#~| msgid "Export content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export content"
+#~ msgstr "Vie sisältö"
+
+#, fuzzy
+#~| msgid "To csv"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To csv"
+#~ msgstr "CSV:ksi"
+
+#, fuzzy
+#~| msgid "Export data as comma separated values"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data as comma separated values"
+#~ msgstr "Vie data pilkuin erotelluiksi arvoiksi (CSV)"
+
+#, fuzzy
+#~| msgid "To ods"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To ods"
+#~ msgstr "ODS:ksi"
+
+#, fuzzy
+#~| msgid "Export data to Open Spreadsheet document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data to Open Spreadsheet document"
+#~ msgstr "Vie data Open Spreadsheet -tiedostoksi"
+
+#, fuzzy
+#~| msgid "Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Työkalut"
+
+#, fuzzy
+#~| msgid "Miscellaneous scripts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Miscellaneous scripts"
+#~ msgstr "Sekalaiset komentojonot"
+
+#, fuzzy
+#~| msgid "Online Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Verkko-ohje"
+
+#, fuzzy
+#~| msgid ""
+#~| "Python script that uses the KHTML Part to display the Plan Scripting "
+#~| "online help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Python script that uses the KHTML Part to display the Plan Scripting "
+#~ "online help"
+#~ msgstr ""
+#~ "Python-komentojono, joka käyttää KHTML-osaa näyttämään Planin "
+#~ "komentojonojen verkko-ohjeen"
+
+#, fuzzy
+#~| msgid "Samples"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Näytteet"
+
+#, fuzzy
+#~| msgid "Samples to demonstrate scripting with Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples to demonstrate scripting with Plan"
+#~ msgstr "Näytteet Planin hallitsemisesta komentojonoin"
+
+#, fuzzy
+#~| msgid "Print Project Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Project Information..."
+#~ msgstr "Tulosta projektin tiedot…"
+
+#, fuzzy
+#~| msgid "Example python script that print project information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print project information"
+#~ msgstr "Esimerkki-Python-komentojono projektin tietojen tulostamiseksi"
+
+#, fuzzy
+#~| msgid "Print Resource busy Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Resource busy Information..."
+#~ msgstr "Tulosta resurssin varaustiedot…"
+
+#, fuzzy
+#~| msgid "Example python script that print resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print resource busy information"
+#~ msgstr ""
+#~ "Esimerkki-Python-komentojono resurssin varaustietojen tulostamiseksi"
+
+#, fuzzy
+#~| msgid "Schedule Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Name"
+#~ msgstr "Aikataulun nimi"
+
+#~ msgctxt "(qtundo_format)"
+#~ msgid "Clear external appointments"
+#~ msgstr "Tyhjennä ulkoiset ajanvaraukset"
+
+#~ msgid "Export busy info"
+#~ msgstr "Vie varaustiedot"

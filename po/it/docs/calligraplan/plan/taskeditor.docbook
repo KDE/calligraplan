@@ -1,0 +1,516 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Descrizione</title>
+  <para
+>L'editor delle attività è utilizzato per creare, modificare ed eliminare attività.</para
+><para
+>Le attività possono essere organizzate in una struttura ad albero gerarchica a qualsiasi profondità. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti fornisce il modo per creare, eliminare e calcolare le milestone: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi attività</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Casella a discesa per creare un'attività o una milestone. Il nuovo elemento viene posizionato dopo l'elemento attualmente selezionato sullo stesso livello dell'elemento selezionato. Se non viene selezionato alcun elemento, il nuovo elemento viene aggiunto al livello superiore.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi sotto-attività</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Casella a discesa per creare una sotto-attività o sotto-milestone. Il nuovo articolo viene aggiunto come figlio all'elemento attualmente selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina attività</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina le attività selezionate.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aumenta il rientro dell'attività</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Aggiunge l'attività selezionata come figlia all'attività precedente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Riduci il rientro dell'attività</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Sposta l'attività selezionata di un livello in alto, inserendola dopo l'attività principale attuale.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sposta in alto</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Sposta l'attività selezionata in alto di una posizione.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sposta in basso</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Sposta l'attività selezionata in basso di una posizione.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Notare che è possibile anche spostare o copiare le attività trascinandole e rilasciando o con copia/incolla. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Modificare i dati</title>
+  <para
+>I dati possono essere modificati in linea come descritto <link linkend="using-the-views"
+>qui</link
+> o utilizzando la finestra Impostazioni attività. </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stato</para>
+            </entry>
+            <entry>
+              <para
+>Stato dell'attività</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsabile</para>
+            </entry>
+            <entry>
+              <para
+>Il responsabile di questa attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ripartizione</para>
+            </entry>
+            <entry>
+              <para
+>Elenco dell'assegnazione delle risorse.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>Il tipo di attività o il tipo di stima dell'attività.</para
+><para
+>Il tipo può essere impostato su <emphasis
+>Milestone</emphasis
+>, <emphasis
+>Lavoro</emphasis
+> o <emphasis
+>Durata</emphasis
+>. </para>
+              <para
+><guilabel
+>Nota:</guilabel
+> Se il tipo è <emphasis
+>Riepilogo</emphasis
+> o <emphasis
+>Progetto</emphasis
+> il tipo non è modificabile. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendario</para>
+            </entry>
+            <entry>
+              <para
+>Il calendario usato quando il tipo di stima è la <emphasis
+>durata</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stima</para>
+            </entry>
+            <entry>
+              <para
+>La stima più probabile. La stima è la quantità prevista di lavoro o tempo necessario per completare un'attività. Può essere espressa in diverse unità: h (ore), d (giorni), w (settimane) e M (mesi).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapporto ottimistico</para>
+            </entry>
+            <entry>
+              <para
+>Stima ottimistica espressa come percentuale negativa della stima più probabile. (Ad es. -20%).</para
+><para
+>Viene utilizzato solo se è utilizzata una distribuzione PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapporto pessimistico</para>
+            </entry>
+            <entry>
+              <para
+>Stima pessimistica espressa come percentuale positiva della stima più probabile. (Ad es. 50%).</para
+><para
+>Viene utilizzato solo se è utilizzata una distribuzione PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rischio</para>
+            </entry>
+            <entry>
+              <para
+>Il rischio interessa la distribuzione PERT usata quando si calcola la stima effettiva dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Vincolo</para>
+            </entry>
+            <entry>
+              <para
+>Il tipo di vincolo temporale.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inizio del vincolo</para>
+            </entry>
+            <entry>
+              <para
+>Ora di inizio del vincolo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fine del vincolo</para>
+            </entry>
+            <entry>
+              <para
+>Ora di fine del vincolo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Conto corrente</para>
+            </entry>
+            <entry>
+              <para
+>Conto per i costi di esercizio.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Conto di apertura</para>
+            </entry>
+            <entry>
+              <para
+>Conto per il costo incontrato all'inizio dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo di apertura</para>
+            </entry>
+            <entry>
+              <para
+>Il costo sostenuto all'apertura dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Conto di chiusura</para>
+            </entry>
+            <entry>
+              <para
+>Conto per il costo incontrato alla chiusura dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo di chiusura</para>
+            </entry>
+            <entry>
+              <para
+>Il costo sostenuto alla chiusura dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descrizione</para>
+            </entry>
+            <entry>
+              <para
+>Note delle attività.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Area di aggancio dei moduli di attività</title>
+  <para
+>I moduli delle attività sono gruppi di attività che possono essere riutilizzati in diversi progetti. </para>
+  <para
+>Ciò consente di attingere all'esperienza passata e di standardizzare operazioni simili. </para>
+  <para
+>Un modulo delle attività viene inserito nel progetto trascinandolo dall'area di aggancio e rilasciandolo nel progetto. </para>
+  <para
+>Un modulo delle attività è un normale file di Plan ed è progettato utilizzando &plan; allo stesso modo della progettazione di un normale progetto. </para>
+  <para
+>Un modulo delle attività, tuttavia, in genere include solo attività, stime e dipendenze. </para>
+  <para
+>Il nome del progetto viene visualizzato nell'area di aggancio e la descrizione è utilizzata come suggerimento. </para>
+  <para
+>Un modulo può essere aperto per ispezione o modificato facendo doppio clic sul modulo. </para>
+  <para
+>I moduli possono essere raggruppati memorizzandoli in diverse cartelle. La posizione in cui cercarli è configurata tramite la finestra Impostazioni progetto. </para>
+  <para
+>I valori predefiniti per i nuovi progetti possono essere definiti utilizzando la finestra di configurazione, vedere <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Area di aggancio delle risorse</title>
+  <para
+>L'area di aggancio Risorse offre un modo semplice per allocare le risorse alle attività selezionando le risorse necessarie e trascinandole sulla colonna <emphasis
+>Allocazione</emphasis
+>. </para>
+  <para
+>Una risorsa può anche essere rilasciata nella colonna <emphasis
+>Responsabile</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Area di aggancio delle allocazioni</title>
+  <para
+>L'area di aggancio Allocazioni visualizza l'allocazione attuale delle risorse per l'attività selezionata. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Configurazione</title>
+  <para
+>Utilizzando il menu contestuale, la vista può essere configurata per mostrare/nascondere il progetto, dividere/riunire la vista ad albero o può essere configurata utilizzando la finestra di configurazione. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

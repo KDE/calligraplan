@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Resum de Gantt</title>
+<sect1 id="description"
+><title
+>Descripció</title
+>&WORK-IN-PROGRESS; <para
+>Mostra un diagrama de Gantt de tots els projectes de la cartera. </para
+><para
+>Es pot mostrar una vista de Gantt d'un projecte seleccionant <userinput
+>Menú contextual->Obre un projecte</userinput
+>. </para>
+</sect1>
+</chapter>

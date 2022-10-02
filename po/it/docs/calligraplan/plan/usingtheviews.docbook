@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Descrizione</title>
+  <para
+>L'editor delle attività è una vista che mostra i dati delle attività in una struttura ad albero. La maggior parte dei dati nell'editor delle attività può essere modificata direttamente. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navigazione</title>
+  <para
+>È possibile navigare la struttura ad albero utilizzando la tastiera: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Espandere una riga espandibile.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Contrae un elemento contraibile.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Arrow left</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla colonna precedente nella stessa riga.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Arrow right</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla colonna successiva nella stessa riga.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Arrow up</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla riga precedente nella stessa colonna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Arrow down</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla riga successiva nella stessa colonna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Inizio</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla prima riga, prima colonna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fine</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'ultima riga, ultima colonna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pagina su</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare alla prima riga visibile nella stessa colonna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pagina giù</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'ultima riga visibile nella stessa colonna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Modificare i dati</title>
+  <para
+>Gli elementi modificabili sono aperti per la modifica facendo doppio clic sull'elemento o, se si utilizza la tastiera, premendo <keycap
+>F2</keycap
+> si aprirà l'elemento attuale. </para>
+  <para
+>Quando si modifica un elemento, è possibile passare all'elemento modificabile successivo come segue: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt; <keycap
+>Freccia sinistra</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'elemento modificabile precedente precedente nella stessa riga.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt; <keycap
+>Freccia destra</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'elemento modificabile successivo precedente nella stessa riga.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Freccia su</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'elemento modificabile successivo precedente nelle righe precedenti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Freccia giù</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Andare all'elemento modificabile successivo precedente nelle righe successive.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Trascina/rilascia e copia/incolla</title>
+  <para
+>La maggior parte delle viste supporta il trascinamento e rilascio della selezione e il copia/incolla. I grafici e i diagrammi di Gantt possono essere trascinati nelle applicazioni che supportano le immagini. I dati della tabella utilizzano il tipo MIME html, quindi possono essere rilasciati su qualsiasi applicazione che lo supporti. Se la vista supporta lo spostamento o la copia degli elementi internamente &eg; l'<link linkend="task-editor"
+>Editor delle attività</link
+>, gli elementi possono essere anche spostati o copiati. </para>
+</sect3>
+</sect2>

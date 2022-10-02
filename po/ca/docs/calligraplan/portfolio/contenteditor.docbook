@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Contingut de la cartera</title
+>&WORK-IN-PROGRESS; <para
+>Aquest editor permet que configureu el contingut de la cartera. </para
+><para
+>Seleccioneu <menuchoice
+> <shortcut
+><keycap
+>Inser</keycap
+></shortcut
+> <guimenu
+>Edita</guimenu
+><guimenuitem
+>Afegeix</guimenuitem
+> </menuchoice
+> o premeu <guibutton
+>Afegeix</guibutton
+> per afegir projectes a la cartera. </para
+><para
+>Seleccioneu <menuchoice
+> <shortcut
+><keycap
+>Supr</keycap
+></shortcut
+> <guimenu
+>Edita</guimenu
+><guimenuitem
+>Elimina</guimenuitem
+> </menuchoice
+> o premeu <guibutton
+>Elimina</guibutton
+> per eliminar els projectes seleccionats. </para
+><para
+>Afegiu els projectes que esteu gestionant i establiu <guilabel
+>Cartera</guilabel
+> = <emphasis
+>Sí</emphasis
+>. </para
+><para
+>Si teniu recursos que s'utilitzen els projectes que no formen part de la vostra cartera i voleu tornar a planificar o inspeccionar l'ús dels recursos, cal afegir tots els projectes pertinents i establir <guilabel
+>Portfolio</guilabel
+> = <emphasis
+>No</emphasis
+> per a aquests projectes. </para>
+<formalpara
+><title
+>Emmagatzematge</title>
+<para
+></para>
+</formalpara>
+<para
+>Els canvis del projecte es poden desar en El fitxer del projecte original o es poden incrustar al fitxer de cartera. Si esteu gestionant projectes, normalment s'haurien de desar en els seus fitxers originals. Establiu <guilabel
+>Emmagatzematge</guilabel
+> = <emphasis
+>Extern</emphasis
+> en aquest cas. No obstant això, si només voleu veure quin impacte poden tenir els canvis, és possible que vulgueu emmagatzemar els projectes incrustats mentre esteu treballant en diferents escenaris. Establiu <guilabel
+>Emmagatzematge</guilabel
+> = <emphasis
+>Incrustat</emphasis
+> en aquest cas. L'URL extern dels projectes es conserva per si més endavant voleu desar els canvis. </para>
+</chapter>

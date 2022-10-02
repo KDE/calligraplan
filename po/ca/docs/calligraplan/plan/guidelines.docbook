@@ -1,0 +1,16 @@
+<chapter id="creating-a-project"
+><title
+>Línies guia</title>
+  <sect1 id="creating-a-project-section"
+><title
+>Crear un projecte</title
+>&creating-project-section; </sect1>
+  <sect1 id="managing-resources"
+><title
+>Gestionar els recursos</title
+>&managing-resources-section; </sect1>
+  <sect1 id="creating-odt-report-templates"
+><title
+>Crear plantilles d'informe en ODT</title
+>&creating-odt-report-templates-section; </sect1>
+</chapter>

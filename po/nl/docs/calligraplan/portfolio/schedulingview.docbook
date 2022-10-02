@@ -1,0 +1,146 @@
+<chapter id="scheduling"
+><title
+>Plannen</title>
+<sect1 id="scheduling-description"
+><title
+>Beschrijving</title
+>&WORK-IN-PROGRESS; <para
+>De weergave Planning laat u de projecten in uw portfolio plannen. De projecten worden gepland volgens hun prioriteit. </para
+><para
+>Zet <emphasis
+>Besturing</emphasis
+> op <emphasis
+>Plannen</emphasis
+> voor het project of projecten die u wilt plannen. Zet <emphasis
+>Besturing</emphasis
+> op <emphasis
+>Invoegen</emphasis
+> om hulpbrontoewijzingen ingevoegd in gelijkschakelen van hulpbronnen te hebben. Zet <emphasis
+>Besturing</emphasis
+> op <emphasis
+>Uitsluiten</emphasis
+> als u het project wilt uitsluiten. </para>
+  <tip
+><para
+>Als uw projecten hulpbronnen delen met projecten die geen onderdeel zijn van uw portfolio, dan moeten deze projecten ingevoegd worden om gelijktrekken van hulpbronnen juist te laten werken. Zie <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>De weergave heeft boomstructuursecties: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Tabel met projecten</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Naam</guilabel
+></entry>
+          <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Naam</entry
+><entry
+>Projectnaam</entry
+></row>
+      <row
+><entry
+>Plannen</entry
+><entry
+>Naam van planning</entry
+></row>
+      <row
+><entry
+>Status</entry
+><entry
+>Planningstatus</entry
+></row>
+      <row
+><entry
+>Besturing</entry>
+        <entry
+>Besturing van plannen kan de volgende waarden hebben: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Plannen:</emphasis
+> het project zal gepland worden.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Invoegen:</emphasis
+> boekingen voor hulpbronnen zullen ingevoegd worden in hulpbron gelijkschakelen.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Uitsluiten:</emphasis
+> Het project zal niet ingevoegd worden.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Prioriteit</entry
+><entry
+>Projectprioriteit. Een hoger getal betekent hogere prioriteit.</entry
+></row>
+      <row
+><entry
+>Beoogd begin</entry
+><entry
+>De vroegste begintijd van het project</entry
+></row>
+      <row
+><entry
+>Beoogd einde</entry
+><entry
+>De laatste eindtijd van het project</entry
+></row>
+      <row
+><entry
+>Beschrijving</entry
+><entry
+>Projectbeschrijving</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Besturen van planning</title>
+   
+</sect1>
+<sect1 id="scheduling-log"
+><title
+>Planninglog</title>
+   
+</sect1>
+</chapter>

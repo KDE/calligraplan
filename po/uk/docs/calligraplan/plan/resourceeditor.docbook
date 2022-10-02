@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Опис</title>
+  <para
+>Редактор виконавців (ресурсів) призначено для створення, редагування та вилучення записів виконавців та груп виконавців. Кожен запис виконавця (ресурсу) має належати до певної групи виконавців (ресурсів). У поточній версії програми створення підгруп не передбачено. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Записи робочих виконавців має бути пов'язано із <emphasis
+>календарем</emphasis
+>, який визначає робочі години виконавця. Календар можна створити за допомогою <link linkend="work-and-vacation-editor"
+>редактора робочого часу і відпусток</link
+>. </para>
+  <para
+>Матеріальні ресурси, типово, доступні завжди. Ви можете скористатися календарем для обмеження їхньої доступності. </para>
+  <para
+>Записи виконавців можуть бути <emphasis
+>спільними</emphasis
+> або <emphasis
+>локальними</emphasis
+>. Локальні записи виконавців використовуються лише у поточному проєкті. Спільні записи виконавців можна використовувати у декількох проєктах і зберігати у окремому файлі, див. <link linkend="managing-resources"
+>керування записами виконавців (ресурсів)</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів розташовано кнопки для створення і вилучення записів виконавців (ресурсів) та груп виконавців (ресурсів): </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Додавання групи виконавців</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення групи виконавців (ресурсів). Нову групу буде дописано наприкінці списку груп.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Додати ресурс</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення запису виконавця (ресурсу). Новий запис буде дописано як дочірній до поточної позначеної групи. Якщо позначено пункт виконавця (ресурсу), новий запис буде дописано до його батьківської групи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Вилучити</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучає позначені записи виконавців (ресурсів) і/або груп виконавців (ресурсів).</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Записи виконавців (ресурсів) можна створювати скиданням даних з вікна будь-якої програми у якій передбачено підтримку перетягування даних vCard, зокрема <emphasis
+>KAddressBook</emphasis
+> та <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Записи виконавців (ресурсів) можна копіювати або пересувати до іншої групи виконавців (ресурсів) за допомогою перетягування зі скиданням. </para>
+  <para
+><note
+><para
+>При пересуванні запису виконавця (ресурсу) цей запис втратить усі свої призначення.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Редагування даних</title>
+  <para
+>Дані можна редагувати на місці у спосіб, який описано <link linkend="using-the-views"
+>тут</link
+>. </para>
+  <para
+>Записи виконавців (ресурсів) можна редагувати за допомогою діалогового вікна параметрів запису виконавця (ресурсу). </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Ім’я виконавця або групи виконавців.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область</para>
+            </entry>
+            <entry>
+              <para
+>Запис виконавця може бути <emphasis
+>спільним</emphasis
+> або <emphasis
+>локальним</emphasis
+>. Записи спільних виконавців не можна редагувати.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип виконавця (ресурсу) або групи виконавців (ресурсів).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ініціали</para>
+            </entry>
+            <entry>
+              <para
+>Ініціали виконавця.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ел. пошта</para>
+            </entry>
+            <entry>
+              <para
+>Адреса електронної пошти виконавця.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Календар</para>
+            </entry>
+            <entry>
+              <para
+>Календар, що визначає час роботи виконавця.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ліміт (%)</para>
+            </entry>
+            <entry>
+              <para
+>Максимальне навантаження, що можна призначити.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Доступний з</para>
+            </entry>
+            <entry>
+              <para
+>Визначає час, коли виконавець буде доступний для проєкту.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Доступний до</para>
+            </entry>
+            <entry>
+              <para
+>Визначає час, коли виконавець буде доступний для проєкту.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Звичайна ставка</para>
+            </entry>
+            <entry>
+              <para
+>Вартість за годину, робочі години.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Обліковий запис</para>
+            </entry>
+            <entry>
+              <para
+>Обліковий запис для підсумовування вартості виконання.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Налаштування</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою контекстного меню можна налаштувати панель перегляду на показ поділу або з'єднання ієрархічного перегляду. Крім того, налаштувати панель перегляду можна за допомогою діалогового вікна налаштовування.</para
+><para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Las funcionalidades incluyen: </para>
+<itemizedlist>
+  <listitem
+><para
+>Gestión de tareas usando el <link linkend="task-editor"
+>Editor de tareas</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estructura de desglose del trabajo con códigos EDT configurables</para
+></listitem>
+        <listitem
+><para
+>Tareas, tareas resumidas y metas</para
+></listitem>
+        <listitem
+><para
+>Diferentes tipos de restricciones de tiempo</para
+></listitem>
+        <listitem
+><para
+>Diferentes tipos de dependencias.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Gestión de recursos usando el <link linkend="resource-editor"
+>Editor de recursos</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estructura de desglose de recursos</para
+></listitem>
+        <listitem
+><para
+>Tipos de recursos de trabajo y materiales</para
+></listitem>
+        <listitem
+><para
+>Asignación de recursos a nivel de grupo</para
+></listitem>
+        <listitem
+><para
+>Equipos de recursos</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Definición de tiempo de trabajo y vacaciones usando el <link linkend="work-and-vacation-editor"
+>Editor de tiempo de trabajo y vacaciones</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestión de costos usando el <link linkend="cost-breakdown-structure-editor"
+>Editor de estructura de desglose de costos</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestión del valor ganado</para
+></listitem>
+  <listitem
+><para
+>Planificación de proyectos usando el <link linkend="schedules-editor"
+>Editor de planificaciones</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Planificar hacia adelante desde la hora de inicio o hacia atrás desde la hora de finalización</para
+></listitem>
+        <listitem
+><para
+>Permitir o evitar la sobrerreserva de recursos</para
+></listitem>
+        <listitem
+><para
+>Distribución PERT con estimaciones optimista, pesimista y más probable</para
+></listitem>
+        <listitem
+><para
+>Planificaciones múltiples con la posibilidad de planificar a partir de la información de avance actual</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Seguimiento de tareas usando la <link linkend="task-execution-view"
+>Vista de ejecución de tareas</link
+> o la <link linkend="task-status-view"
+>Vista del estado de las tareas</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

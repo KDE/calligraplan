@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>Med aktivitetsprestationsdiagrammet kan vi analysera varje aktivitet eller delaktivitet på djupet med samma index som i projektprestationsdiagrammet. </para>
+<para
+>Det är mycket användbart för ett långt och komplicerat projekt. </para>
+<para
+>I det vänstra fönstret kan du markera varje enskild delaktivitet samt en hel aktivitet, så visas motsvarande diagram i det högra fönstret. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>där: </para>
+<itemizedlist>
+  <listitem
+><para
+>BKSA betyder Budgeterad kostnad av schemalagt arbete.</para
+></listitem>
+  <listitem
+><para
+>BKUA betyder Budgeterad kostnad av utfört arbete.</para
+></listitem>
+  <listitem
+><para
+>VKUA betyder Verklig kostnad av utfört arbete.</para
+></listitem>
+</itemizedlist>
+<para
+>Alla anses vara insats i timmar och kostnader. </para>
+<para
+>PI är Prestationsindex, där: </para>
+<itemizedlist>
+  <listitem
+><para
+>KPI är Kostnadsprestationsindex.</para
+></listitem>
+  <listitem
+><para
+>SPI är Schemalagd prestationsindex.</para
+></listitem>
+</itemizedlist>
+</sect2>

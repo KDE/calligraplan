@@ -1,0 +1,62 @@
+<chapter id="summary-view"
+><title
+>Resum</title
+>&WORK-IN-PROGRESS; <para
+>Fa un resum de les dades de compliment de tots els projectes de la cartera. </para
+><para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead>
+        <row>
+          <entry
+><guilabel
+>Nom</guilabel
+></entry>
+          <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+        </row>
+      </thead>
+      <tbody>
+      <row
+><entry
+>Nom</entry
+><entry
+>Nom del projecte</entry
+></row>
+      <row
+><entry
+>Planificació</entry
+><entry
+>Nom de la planificació</entry
+></row>
+      <row
+><entry
+>Cost SPI</entry
+><entry
+>Índex de compliment de la planificació (en funció del cost)</entry
+></row>
+      <row
+><entry
+>Cost CPI</entry
+><entry
+>Índex de compliment de la planificació (en funció del cost)</entry
+></row>
+      <row
+><entry
+>Esforç SPI</entry
+><entry
+>Índex de compliment de la planificació (en funció de l'esforç)</entry
+></row>
+      <row
+><entry
+>Esforç CPI</entry
+><entry
+>Índex de compliment de la planificació (en funció de l'esforç)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</chapter>

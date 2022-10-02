@@ -1,0 +1,1131 @@
+# Translation of calligraplanportfolio.po to Catalan (Valencian)
+# Copyright (C) 2021-2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligraplan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-02 00:46+0000\n"
+"PO-Revision-Date: 2022-08-26 11:12+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: AboutData.h:21
+#, kde-format
+msgctxt "application name"
+msgid "Plan Portfolio"
+msgstr "Plan Portfolio"
+
+#: AboutData.h:23
+#, kde-format
+msgid "Project Portfolio Management"
+msgstr "Gestió de carteres de projectes"
+
+#: AboutData.h:25
+#, kde-format
+msgid "Copyright 2020-%1, The Plan Team"
+msgstr "Copyright 2020-%1, L'equip de Plan"
+
+#: AboutData.h:29
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: AboutData.h:32
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoni Bella"
+
+#: AboutData.h:33
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antonibella5@yahoo.com"
+
+#. i18n: ectx: Menu (file)
+#: calligraplanportfolio_shell.rc:4 Portfolio_ViewUi.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Fitxer"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplanportfolio_shell.rc:11
+#, kde-format
+msgid "&Settings"
+msgstr "Con&figuració"
+
+#. i18n: ectx: Menu (help)
+#: calligraplanportfolio_shell.rc:24 Portfolio_ViewUi.rc:40
+#, kde-format
+msgid "&Help"
+msgstr "A&juda"
+
+#: config/ConfigDialog.cpp:28
+#, kde-format
+msgctxt "@title:tab Document settings page"
+msgid "Document"
+msgstr "Document"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: config/portfoliosettings.kcfg:10
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Camí cap a la documentació"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: config/portfoliosettings.kcfg:14
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Camí cap a la documentació d'ajuda contextual"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: config/portfoliosettings.kcfg:18
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "Cal que la documentació d'ajuda contextual estiga traduïda a l'idioma"
+
+#. i18n: ectx: label, entry (AutoSave), group (Interface)
+#: config/portfoliosettings.kcfg:24
+#, kde-format
+msgid "Autosave interval"
+msgstr "Interval de la guardada automàtica"
+
+#. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
+#: config/portfoliosettings.kcfg:28
+#, kde-format
+msgid "Create a backup file"
+msgstr "Crea un fitxer de còpia de seguretat"
+
+#: DocumentsSaveDialog.cpp:26 PortfolioModel.cpp:22
+#, kde-format, kde-kuit-format
+msgctxt "@title:column"
+msgid "Portfolio"
+msgstr "Cartera"
+
+#: DocumentsSaveDialog.cpp:27
+#, kde-format
+msgctxt "@title:column"
+msgid "Modified"
+msgstr "Modificat"
+
+#: DocumentsSaveDialog.cpp:28
+#, kde-format
+msgctxt "@title:column"
+msgid "Save"
+msgstr "Guarda"
+
+#: DocumentsSaveDialog.cpp:29
+#, kde-format
+msgctxt "@title:column"
+msgid "Internal"
+msgstr "Intern"
+
+#: DocumentsSaveDialog.cpp:30
+#, kde-format
+msgctxt "@title:column"
+msgid "Url"
+msgstr "URL"
+
+#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
+#: PortfolioModel.cpp:113
+#, kde-format
+msgid "Yes"
+msgstr "Sí"
+
+#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
+#: PortfolioModel.cpp:113
+#, kde-format
+msgid "No"
+msgstr "No"
+
+#: DocumentsSaveDialog.cpp:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Documents"
+msgstr "Guardeu els documents"
+
+#: DocumentsSaveDialog.cpp:134
+#, kde-format
+msgid "The file already exists. Do you want to overwrite?"
+msgstr "El fitxer ja existix. Voleu sobreescriure'l?"
+
+#: DocumentsSaveDialog.cpp:134
+#, kde-format
+msgctxt "@title:window"
+msgid "Overwrite file?"
+msgstr "Voleu sobreescriure el fitxer?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, saveMain)
+#: DocumentsSaveDialog.ui:40
+#, kde-format
+msgid "Save"
+msgstr "Guarda"
+
+#: GanttView.cpp:81
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Gantt Summary</title><para>Shows a gantt chart of all projects in "
+"your portfolio.</para><para>A gantt view for a project can be shown by "
+"selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+"<title>Resum de Gantt</title><para>Mostra un diagrama de Gantt de tots els "
+"projectes de la cartera.</para><para>Es pot mostrar una vista de Gantt d'un "
+"projecte seleccionant <interface>Menú contextual->Obri un projecte</"
+"interface>.<nl/><link url='%1'>Més...</link></para>"
+
+#: GanttView.cpp:100
+#, kde-format
+msgid "Open Project"
+msgstr "Obri un projecte"
+
+#: MainDocument.cpp:88
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Document no vàlid. No s'ha especificat cap tipus MIME."
+
+#: MainDocument.cpp:93
+#, kde-format
+msgid "Invalid document. Expected mimetype %1, got %2"
+msgstr "Document no vàlid. S'esperava el tipus MIME %1 i s'ha obtingut %2"
+
+#: MainDocument.cpp:99
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Este document s'ha creat amb una versió més recent de Plan (versió de la "
+"sintaxi: %1)\n"
+"Si l'obriu amb esta versió de Plan, es perdrà part de la informació."
+
+#: MainDocument.cpp:101
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "El format del fitxer és inconsistent"
+
+#: MainDocument.cpp:101
+#, kde-format
+msgid "Continue"
+msgstr "Continua"
+
+#: MainDocument.cpp:164
+#, kde-kuit-format
+msgctxt "@info"
+msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
+msgstr "El projecte ja existix:<nl/>Projecte: %1<nl/>Document: %2"
+
+#: MainDocument.cpp:165 PortfolioView.cpp:256 PortfolioView.cpp:261
+#: PortfolioView.cpp:320 PortfolioView.cpp:324
+#, kde-format
+msgctxt "@title:window"
+msgid "Could not add project"
+msgstr "No s'ha pogut afegir el projecte"
+
+#: MainWindow.cpp:147
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<p>The external project file <filename>%1</filename> has been modified.</"
+"p><p>Do you want to save it?</p>"
+msgstr ""
+"<p>El fitxer <filename>%1</filename> del projecte extern ha sigut modificat."
+"</p><p>Voleu guardar-lo?</p>"
+
+#: Part.cpp:60
+#, kde-format
+msgid "Configure Portfolio..."
+msgstr "Configura la cartera..."
+
+#: Part.cpp:73
+#, kde-kuit-format
+msgctxt "title:window"
+msgid "Portfolio Settings"
+msgstr "Configureu la cartera"
+
+#: Part.cpp:76
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Portfolio Settings"
+msgstr "Configureu la cartera"
+
+#: PerformanceView.cpp:169
+#, kde-format
+msgid "No data"
+msgstr "Sense dades"
+
+#: PerformanceView.cpp:183
+#, kde-format
+msgid "Cost (%1)"
+msgstr "Cost (%1)"
+
+#: PerformanceView.cpp:185
+#, kde-format
+msgid "Effort (Hour)"
+msgstr "Esforç (hora)"
+
+#: PerformanceView.cpp:189 PerformanceView.cpp:209
+#, kde-format
+msgid "SPI: %1"
+msgstr "SPI: %1"
+
+#: PerformanceView.cpp:193 PerformanceView.cpp:213
+#, kde-format
+msgid "CPI: %1"
+msgstr "CPI: %1"
+
+#: PerformanceView.cpp:197 PerformanceView.cpp:217
+#, kde-format
+msgid "BCWS: %1"
+msgstr "BCWS: %1"
+
+#: PerformanceView.cpp:201 PerformanceView.cpp:221
+#, kde-format
+msgid "BCWP: %1"
+msgstr "BCWP: %1"
+
+#: PerformanceView.cpp:205 PerformanceView.cpp:225
+#, kde-format
+msgid "ACWP: %1"
+msgstr "ACWP: %1"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: PerformanceView.ui:57
+#, kde-format
+msgid "Cost"
+msgstr "Cost"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: PerformanceView.ui:237
+#, kde-format
+msgid "Effort"
+msgstr "Esforç"
+
+#. i18n: ectx: Menu (view)
+#. i18n: ectx: Menu (gantt_context_menu)
+#: Portfolio_GanttViewUi.rc:5 Portfolio_GanttViewUi.rc:26
+#: Portfolio_PerformanceViewUi.rc:5 Portfolio_PortfolioViewUi.rc:9
+#: Portfolio_ProgressViewUi.rc:5 Portfolio_ResourceUsageViewUi.rc:5
+#: Portfolio_SchedulingViewUi.rc:8 Portfolio_SummaryViewUi.rc:5
+#: Portfolio_ViewUi.rc:35
+#, kde-format
+msgid "&View"
+msgstr "&Visualitza"
+
+#. i18n: ectx: ToolBar (contentsviewToolBar)
+#. i18n: ectx: ToolBar (progressviewToolBar)
+#. i18n: ectx: ToolBar (viewToolBar)
+#. i18n: ectx: ToolBar (resourceusageviewToolBar)
+#. i18n: ectx: ToolBar (schedulingviewToolBar)
+#. i18n: ectx: ToolBar (summaryviewToolBar)
+#. i18n: ectx: ToolBar (ganttsummaryviewToolBar)
+#: Portfolio_GanttViewUi.rc:14 Portfolio_PerformanceViewUi.rc:14
+#: Portfolio_PortfolioViewUi.rc:18 Portfolio_ProgressViewUi.rc:14
+#: Portfolio_ResourceUsageViewUi.rc:14 Portfolio_SchedulingViewUi.rc:17
+#: Portfolio_SummaryViewUi.rc:13
+#, kde-format
+msgid "Tools"
+msgstr "Eines"
+
+#. i18n: ectx: Menu (edit)
+#: Portfolio_PortfolioViewUi.rc:5 Portfolio_SchedulingViewUi.rc:5
+#: Portfolio_ViewUi.rc:26
+#, kde-format
+msgid "&Edit"
+msgstr "&Edita"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: Portfolio_ViewUi.rc:44
+#, kde-format
+msgid "File"
+msgstr "Fitxer"
+
+#. i18n: ectx: ToolBar (edit_toolbar)
+#: Portfolio_ViewUi.rc:49
+#, kde-format
+msgid "Edit"
+msgstr "Edita"
+
+#: PortfolioModel.cpp:23
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Storage"
+msgstr "Emmagatzematge"
+
+#: PortfolioModel.cpp:24
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "File"
+msgstr "Fitxer"
+
+#: PortfolioModel.cpp:76
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Defines if the project is part of the portfolio"
+msgstr "Definix si el projecte forma part de la cartera"
+
+#: PortfolioModel.cpp:78
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Defines if the project is stored embedded in the portfolio file or in the "
+"external file"
+msgstr ""
+"Definix si el projecte s'emmagatzema incrustat en el fitxer de cartera o en "
+"el fitxer extern"
+
+#: PortfolioModel.cpp:80
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "The external url of the project file"
+msgstr "L'URL extern del fitxer de projecte"
+
+#: PortfolioModel.cpp:100 SchedulingModel.cpp:158
+#, kde-format
+msgid "Error"
+msgstr "S'ha produït un error"
+
+#: PortfolioModel.cpp:108
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Failed to load the document"
+msgstr "No s'ha pogut carregar el document"
+
+#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#, kde-format
+msgid "Embedded"
+msgstr "Incrustat"
+
+#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#, kde-format
+msgid "External"
+msgstr "Extern"
+
+#: PortfolioView.cpp:77
+#, kde-format
+msgctxt "@title:column"
+msgid "Recent Portfolios"
+msgstr "Carteres recents"
+
+#: PortfolioView.cpp:132
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The Portfolio Content Editor</title><para>This editor enables you to "
+"configure the content of your portfolio.</para><para>Select <interface>Edit|"
+"Add</interface> or press <interface>Add...</interface> to add projects to "
+"your portfolio.<nl/>Select <interface>Edit|Remove</interface> or press "
+"<interface>Remove</interface> to remove selected projects.</para><para>Add "
+"the projects you are managing and set <emphasis>Portfolio</emphasis> = "
+"<emphasis>Yes</emphasis>.</para><para><note>If you have resources that are "
+"shared between multiple projects and you want to re-schedule or inspect "
+"resource usage, you need to add all relevant projects and then set "
+"<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects."
+"</note></para><para><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>L'editor de contingut de la cartera</title><para>Este editor permet "
+"configurar el contingut de la vostra cartera.</para><para>Seleccioneu "
+"<interface>Edita|Afig...</interface> o premeu <interface>Afig...</interface> "
+"per afegir projectes en la cartera.<nl/>Seleccioneu <interface>Edita|"
+"Elimina</interface> o premeu <interface>Elimina</interface> per a eliminar "
+"els projectes seleccionats.</para><para>Afegiu els projectes que esteu "
+"gestionant i establiu <emphasis>Cartera</emphasis> = <emphasis>Sí</emphasis>."
+"</para><para><note>Si teniu recursos compartits entre múltiples projectes i "
+"els voleu tornar a programar o inspeccionar l'ús dels recursos, cal afegir "
+"tots els projectes rellevants i després establir <emphasis>Cartera</"
+"emphasis> = <emphasis>No</emphasis> per a estos projectes.</note></"
+"para><para><link url='%1'>Més...</link></para>"
+
+#: PortfolioView.cpp:151
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<subtitle>Context Help</subtitle><para>Many functions have help and hints "
+"that can be displayed with <emphasis>What's this</emphasis>.</"
+"para><para>Activate it by selecting the menu item <interface>Help|What's "
+"this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
+"para><para>Try it on this text!</para>"
+msgstr ""
+"<subtitle>Ajuda contextual</subtitle><para>Moltes funcions tenen ajuda i "
+"consells que es poden mostrar amb <emphasis>Què és açò?</emphasis>.</"
+"para><para>Activeu-la seleccionant <interface>Ajuda -> Què és açò?</"
+"interface>> o prement <shortcut>Maj+F1</shortcut>.</para><para>Proveu-ho en "
+"este text!</para>"
+
+#: PortfolioView.cpp:160
+#, kde-kuit-format
+msgctxt "@info"
+msgid "<subtitle>Online Resources</subtitle>"
+msgstr "<subtitle>Recursos en línia</subtitle>"
+
+#: PortfolioView.cpp:164
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from the documentation.</para>"
+msgstr ""
+"<title>Menú contextual</title><para>Hi ha ajuda disponible en molts llocs "
+"utilitzant <emphasis>Què és açò?</emphasis>.<nl/>S'activa utilitzant "
+"l'entrada del menú <interface>Ajuda -> Què és açò?</interface> o amb la "
+"drecera del teclat <shortcut>Maj+F1</shortcut>.</para><para>En els diàlegs "
+"està disponible des del <interface>?</interface> de la barra de títol del "
+"diàleg.</para><para>Si veeu <link url='%1'>Més...</link> en el text, prement-"
+"ho mostrarà més informació a partir de la documentació.</para>"
+
+#: PortfolioView.cpp:183
+#, kde-format
+msgid "Add"
+msgstr "Afig"
+
+#: PortfolioView.cpp:188
+#, kde-format
+msgid "Remove"
+msgstr "Elimina"
+
+#: PortfolioView.cpp:209
+#, kde-format
+msgid "Add Project"
+msgstr "Afig un projecte"
+
+#: PortfolioView.cpp:255 PortfolioView.cpp:319
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
+msgstr ""
+"No s'ha pogut carregar el projecte. No és un fitxer vàlid de Plan:<nl/>%1"
+
+#: PortfolioView.cpp:260
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
+msgstr ""
+"No s'ha pogut obrir el projecte. Pareix que és un fitxer de cartera:<nl/>%1"
+
+#: PortfolioView.cpp:323
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"The project already exists, the project will not be added.<nl/>Project: "
+"%1<nl/> Document: %2"
+msgstr ""
+"El projecte ja existix, no s'afegirà.<nl/>Projecte: %1<nl/>Document: %2"
+
+#. i18n: ectx: property (text), widget (QPushButton, introduction)
+#: PortfolioView.ui:136
+#, kde-format
+msgid "Information"
+msgstr "Informació"
+
+#. i18n: ectx: property (statusTip), widget (QLabel, calligraPlanLabel)
+#: PortfolioView.ui:243
+#, kde-format
+msgctxt "@info:status"
+msgid "https://calligra.org/plan"
+msgstr "https://calligra.org/plan"
+
+#. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
+#: PortfolioView.ui:246
+#, kde-format
+msgid ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Lloc web</span></a></p></body></"
+"html>"
+
+#. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
+#: PortfolioView.ui:259
+#, kde-format
+msgctxt "@info:status"
+msgid "https://docs.kde.org"
+msgstr "https://docs.kde.org"
+
+#. i18n: ectx: property (text), widget (QLabel, userDocLabel)
+#: PortfolioView.ui:262
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">User documentation</a>"
+msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan"
+"\">Documentació d'usuari</a>"
+
+#. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
+#: PortfolioView.ui:278
+#, kde-format
+msgctxt "@info:status"
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#. i18n: ectx: property (text), widget (QLabel, forumLabel)
+#: PortfolioView.ui:281
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Fòrum de la comunitat</"
+"a>"
+
+#. i18n: ectx: property (statusTip), widget (QLabel, commuityLabel)
+#: PortfolioView.ui:297
+#, kde-format
+msgctxt "@info:status"
+msgid "https://userbase.kde.org/Plan"
+msgstr "https://userbase.kde.org/Plan"
+
+#. i18n: ectx: property (text), widget (QLabel, commuityLabel)
+#: PortfolioView.ui:300
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
+msgstr "<a href=\"https://userbase.kde.org/Plan\">Comunitat</a>"
+
+#: ProgressView.cpp:68
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Progress</title><para>This view is used to inspect and edit task "
+"progress information for the selected project.<nl/>The tasks are divided "
+"into groups dependent on the task status:<list><item><emphasis>Not Started:</"
+"emphasis> Tasks that should have been started by now.</"
+"item><item><emphasis>Running:</emphasis> Tasks that has been started, but "
+"not yet finished.</item><item><emphasis>Finished:</emphasis> Tasks that "
+"where finished in this period.</item><item><emphasis>Next Period:</emphasis> "
+"Tasks that is scheduled to be started in the next period.</item></list>The "
+"time period is configurable.</para><para>This view supports configuration "
+"and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Progrés</title><para>Esta vista s'utilitza per a inspeccionar i "
+"editar la informació del progrés de les tasques per al projecte seleccionat."
+"<nl/>Les tasques es dividixen en grups dependents de l'estat de la tasca:"
+"<list><item><emphasis>No iniciada:</emphasis> Tasques que haurien d'haver "
+"començat ara.</item><item><emphasis>En execució:</emphasis> Tasques que "
+"s'han iniciat, però que encara no han acabat.</"
+"item><item><emphasis>Finalitzada:</emphasis> Tasques que han acabat en este "
+"període.</item><item><emphasis>Pròxim període:</emphasis>Tasques que s'han "
+"programat per començar en el període següent.</item></list>El període de "
+"temps és configurable.</para><para>Esta vista admet la configuració i la "
+"impressió utilitzant el menú contextual.<nl/><link url='%1'>Més...</link></"
+"para>"
+
+#: ProjectsDashboard.cpp:79
+#, kde-format
+msgid "Projects"
+msgstr "Projectes"
+
+#: ProjectsModel.cpp:141
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Project name"
+msgstr "Nom del projecte"
+
+#: ProjectsModel.cpp:150
+#, kde-format
+msgid "Target Start"
+msgstr "Objectiu d'inici"
+
+#: ProjectsModel.cpp:153
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Scheduling range: Earliest start time"
+msgstr "Interval de planificació: Hora d'inici més primerenca"
+
+#: ProjectsModel.cpp:162
+#, kde-format
+msgid "Target End"
+msgstr "Finalització de l'objectiu"
+
+#: ProjectsModel.cpp:165
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Scheduling range: Latest end time"
+msgstr "Interval de planificació: Hora de finalització més recent"
+
+#: ProjectsModel.cpp:174
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Project description"
+msgstr "Descripció del projecte"
+
+#: ProjectsModel.cpp:186 SchedulingModel.cpp:28
+#, kde-format
+msgid "Schedule"
+msgstr "Planificació"
+
+#: ProjectsModel.cpp:189
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select schedule"
+msgstr "Seleccioneu la planificació"
+
+#: ProjectsModel.cpp:230
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<title>Project: %1</title><para>Schedule: Not scheduled</"
+"para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
+"item></list></para>"
+msgstr ""
+"<title>Projecte: %1</title><para>Planificació: No planificat</"
+"para><para><list><item>Inici objectiu:\t%2</item><item>Final objectiu:\t%3</"
+"item></list></para>"
+
+#: ProjectsModel.cpp:244
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<title>Project: %1</title><para>Schedule: %4 Not scheduled</"
+"para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
+"item></list></para>"
+msgstr ""
+"<title>Projecte: %1</title><para>Planificació: %4 No planificat</"
+"para><para><list><item>Inici objectiu:\t%2</item><item>Final objectiu:\t%3</"
+"item></list></para>"
+
+#: ProjectsModel.cpp:258
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"<title>Project: %1</title><para>Schedule: %6</para><para><list><item>Planned "
+"start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
+"item><item>Target finish:\t%5</item></list></para>"
+msgstr ""
+"<title>Projecte: %1</title><para>Planificació: %6</"
+"para><para><list><item>Inici planejat:\t%2</item><item>Final planejat:\t%3</"
+"item><item>Inici objectiu:\t%4</item><item>Final objectiu:\t%5</item></"
+"list></para>"
+
+#: ProjectsModel.cpp:291 ProjectsModel.cpp:312 ProjectsModel.cpp:342
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Not scheduled"
+msgstr "No planificat"
+
+#: ProjectsModel.cpp:294 ProjectsModel.cpp:315
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Schedule: %1 is not scheduled"
+msgstr "Planificació: %1 no està planificat"
+
+#: ProjectsModel.cpp:296
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Schedule %1: Scheduled to start: %1"
+msgstr "Planificació %1: Planificat per a iniciar-se: %1"
+
+#: ProjectsModel.cpp:317
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Schedule %1: Scheduled to finish: %1"
+msgstr "Planificació %1: Planificat per a finalitzar: %1"
+
+#: ProjectsModel.cpp:336
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Schedule is baselined"
+msgstr "La planificació és una línia base"
+
+#: ProjectsModel.cpp:339
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Scheduled but not baselined"
+msgstr "Es planifica però sense una línia base"
+
+#: ResourceUsageModel.cpp:135
+#, kde-format
+msgid "No task"
+msgstr "Cap tasca"
+
+#: ResourceUsageModel.cpp:137
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
+msgstr "WBS: %1<nl/>Tasca: %2<nl/>Projecte: %3"
+
+#: ResourceUsageView.cpp:51
+#, kde-format
+msgid "Tasks"
+msgstr "Tasques"
+
+#: ResourceUsageView.cpp:89
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Resource Usage</title><para>This view shows the resources task "
+"assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
+"para>"
+msgstr ""
+"<title>Ús dels recursos</title><para>Esta vista mostra les assignacions de "
+"recursos a tasques per a cada dia.</para><para><nl/><link url='%1'>Més...</"
+"link></para>"
+
+#: ResourceUsageView.cpp:106
+#, kde-format
+msgid "Diagram Types"
+msgstr "Tipus de diagrama"
+
+#: ResourceUsageView.cpp:110
+#, kde-format
+msgid "Normal"
+msgstr "Normal"
+
+#: ResourceUsageView.cpp:114
+#, kde-format
+msgid "Stacked"
+msgstr "Apilada"
+
+#: ResourceUsageView.cpp:122
+#, kde-format
+msgid "Range"
+msgstr "Interval"
+
+#: SchedulingLogModel.cpp:53
+#, kde-kuit-format
+msgctxt "@title"
+msgid "Name"
+msgstr "Nom"
+
+#: SchedulingLogModel.cpp:54
+#, kde-kuit-format
+msgctxt "@title"
+msgid "Phase"
+msgstr "Fase"
+
+#: SchedulingLogModel.cpp:55
+#, kde-kuit-format
+msgctxt "@title"
+msgid "Severity"
+msgstr "Gravetat"
+
+#: SchedulingLogModel.cpp:56
+#, kde-kuit-format
+msgctxt "@title"
+msgid "Message"
+msgstr "Missatge"
+
+#: SchedulingModel.cpp:23
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Estat"
+
+#: SchedulingModel.cpp:24
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Control"
+msgstr "Control"
+
+#: SchedulingModel.cpp:25
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Priority"
+msgstr "Prioritat"
+
+#: SchedulingModel.cpp:28
+#, kde-format
+msgid "Include"
+msgstr "Inclou"
+
+#: SchedulingModel.cpp:28 SchedulingModel.cpp:97
+#, kde-format
+msgid "Exclude"
+msgstr "Exclou"
+
+#: SchedulingModel.cpp:82
+#, kde-format
+msgctxt "@into:tooltip"
+msgid ""
+"Scheduling not possible. Project target end time must be later than "
+"calculation time"
+msgstr ""
+"No és possible la planificació. L'hora final objectiu del projecte ha de ser "
+"posterior al temps de càlcul"
+
+#: SchedulingModel.cpp:166
+#, kde-format
+msgid "Scheduling..."
+msgstr "S'està planificant..."
+
+#: SchedulingModel.cpp:168
+#, kde-format
+msgid "Not scheduled"
+msgstr "No es planifica"
+
+#: SchedulingModel.cpp:170
+#, kde-format
+msgid "Finished"
+msgstr "S'ha finalitzat"
+
+#: SchedulingModel.cpp:172
+#, kde-format
+msgid "Started"
+msgstr "S'ha iniciat"
+
+#: SchedulingModel.cpp:174
+#, kde-format
+msgid "Baselined"
+msgstr "És una línia base"
+
+#: SchedulingModel.cpp:176
+#, kde-format
+msgid "Scheduled"
+msgstr "S'ha planificat"
+
+#: SchedulingModel.cpp:211
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"Scheduling not possible. Project target end time must be later than "
+"calculation time"
+msgstr ""
+"No és possible la planificació. L'hora final objectiu del projecte ha de ser "
+"posterior al temps de càlcul"
+
+#: SchedulingModel.cpp:213
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Schedule this project"
+msgstr "Planifica este projecte"
+
+#: SchedulingModel.cpp:216
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Include resource bookings from this project"
+msgstr "Inclou les reserves de recursos des d'este projecte"
+
+#: SchedulingModel.cpp:219 SchedulingModel.cpp:222
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Exclude this project"
+msgstr "Exclou este projecte"
+
+#: SchedulingModel.cpp:237
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Highest priority is scheduled first"
+msgstr "La prioritat més alta es planificarà primer"
+
+#: SchedulingView.cpp:115
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Scheduling</title><para>The Scheduling view lets you schedule the "
+"projects in your portfolio. The projects are scheduled according to their "
+"priority.</para><para>Set <emphasis>Control</emphasis> to "
+"<emphasis>Schedule</emphasis> for the project or projects you want to "
+"schedule.<nl/>Set <emphasis>Control</emphasis> to <emphasis>Include</"
+"emphasis> to have resource assignments included in resource leveling.<nl/"
+">Set <emphasis>Control</emphasis> to <emphasis>Exclude</emphasis> if you "
+"want to exclude the project.</para><para><note>If your projects share "
+"resources with projects that are not part of your portfolio, these projects "
+"needs to be included for resource leveling to work properly.</note></"
+"para><para><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Planificació</title><para>La vista de planificació permet programar "
+"els projectes en la cartera. Els projectes es planifiquen segons la seua "
+"prioritat.</para><para>Establiu el <emphasis>Control</emphasis> a "
+"<emphasis>Planificació</emphasis> per al projecte o projectes que voleu "
+"programar.<nl/>Establiu el <emphasis>Control</emphasis> a <emphasis>Inclou</"
+"emphasis> per tindre assignacions de recursos incloses en l'anivellament de "
+"recursos.<nl/>Establiu el <emphasis>Control</emphasis> a <emphasis>Exclou</"
+"emphasis> si voleu excloure el projecte.</para><para><note>Si els vostres "
+"projectes compartixen recursos amb projectes que no formen part de la vostra "
+"cartera, estos projectes cal incloure'ls a l'anivellament de recursos per a "
+"funcionar correctament.</note></para><para><link url='%1'>Més...</link></"
+"para>"
+
+#: SchedulingView.cpp:178
+#, kde-format
+msgctxt "@label:listbox range: 0-60"
+msgid "%1 minute"
+msgid_plural "%1 minutes"
+msgstr[0] "%1 minut"
+msgstr[1] "%1 minuts"
+
+#: SchedulingView.cpp:235 SummaryView.cpp:102
+#, kde-format
+msgid "Description..."
+msgstr "Descripció..."
+
+#: SchedulingView.cpp:395
+#, kde-format
+msgid "Internal error. No scheduler plugin found."
+msgstr ""
+"S'ha produït un error intern. No s'ha trobat cap connector planificador."
+
+#: SchedulingView.cpp:402 SchedulingView.cpp:424
+#, kde-format
+msgid "Nothing to schedule"
+msgstr "No hi ha res que s'haja de planificar"
+
+#: SchedulingView.cpp:407
+#, kde-format
+msgid "Scheduling running..."
+msgstr "S'està executant la planificació..."
+
+#: SchedulingView.cpp:437
+#, kde-format
+msgid ""
+"Scheduling not possible. Project target end time must be later than "
+"calculation time."
+msgstr ""
+"No és possible la planificació. L'hora final objectiu del projecte ha de ser "
+"posterior al temps de càlcul."
+
+#: SchedulingView.cpp:449
+#, kde-format
+msgid "Scheduling projects"
+msgstr "Planificació de projectes"
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
+#: SchedulingView.ui:54
+#, kde-format
+msgid "Scheduling Control"
+msgstr "Control de la planificació"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: SchedulingView.ui:60
+#, kde-format
+msgid "Scheduler:"
+msgstr "Planificador:"
+
+#. i18n: ectx: property (text), widget (QPushButton, calculate)
+#: SchedulingView.ui:67
+#, kde-format
+msgid "Calculate"
+msgstr "Calcula"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: SchedulingView.ui:78
+#, kde-format
+msgid "Options"
+msgstr "Opcions"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sequential)
+#: SchedulingView.ui:84
+#, kde-format
+msgid "Sequential"
+msgstr "Seqüencial"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: SchedulingView.ui:91
+#, kde-format
+msgid "Granularity:"
+msgstr "Granularitat:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, parallel)
+#: SchedulingView.ui:101
+#, kde-format
+msgid "Parallel"
+msgstr "Paral·lela"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: SchedulingView.ui:163
+#, kde-format
+msgid "Calculate From"
+msgstr "Calcula des de"
+
+#. i18n: ectx: property (text), widget (QRadioButton, todayRB)
+#: SchedulingView.ui:169
+#, kde-format
+msgid "Today"
+msgstr "Hui"
+
+#. i18n: ectx: property (text), widget (QRadioButton, timeRB)
+#: SchedulingView.ui:186
+#, kde-format
+msgid "Time:"
+msgstr "Hora:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, tomorrowRB)
+#: SchedulingView.ui:193
+#, kde-format
+msgid "Tomorrow"
+msgstr "Demà"
+
+#: SummaryModel.cpp:82
+#, kde-format
+msgctxt "@title:column Schedule Performance Index"
+msgid "SPI"
+msgstr "SPI"
+
+#: SummaryModel.cpp:87
+#, kde-format
+msgctxt ""
+"@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
+"Performed"
+msgid "Schedule Performance Index (BCWS/BCWP)"
+msgstr "Índex de compliment de la planificació (BCWS/BCWP)"
+
+#: SummaryView.cpp:82
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Projects Summary View</title><para>This view summarizes performance "
+"data for the projects in your portfolio.</para><para>Performance indexes are "
+"shown for both cost based and effort based calculations.</para><para><nl/"
+"><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Vista de resum dels projectes</title><para>Esta vista resumix les "
+"dades de compliment dels projectes de la cartera.</para><para>Els índexs de "
+"compliment es mostren per a càlculs basats en costos i esforços.</"
+"para><para><nl/><link url='%1'>Més...</link></para>"
+
+#: View.cpp:57
+#, kde-format
+msgid "Portfolio Content"
+msgstr "Contingut de la cartera"
+
+#: View.cpp:63
+#, kde-format
+msgid "Scheduling"
+msgstr "Planificació"
+
+#: View.cpp:69
+#, kde-format
+msgid "Summary"
+msgstr "Resum"
+
+#: View.cpp:77
+#, kde-format
+msgid "Progress"
+msgstr "Progrés"
+
+#: View.cpp:82
+#, kde-format
+msgid "Performance"
+msgstr "Compliment"
+
+#: View.cpp:89
+#, kde-format
+msgid "Resource Usage"
+msgstr "Ús dels recursos"
+
+#: View.cpp:95
+#, kde-format
+msgid "Gantt Summary"
+msgstr "Resum de Gantt"

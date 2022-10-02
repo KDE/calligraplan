@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Beschrijving</title>
+  <para
+>De hulpbronbewerker wordt gebruikt om hulpbronnen en hulpbrongroepen aan te maken, te bewerken en te verwijderen. Hulpbronnen moeten tot een hulpbrongroep behoren. Op dit moment zijn sub-groepen niet toegestaan. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Werkhulpbronnen moet verwijzen naar een <emphasis
+>agenda</emphasis
+> die de werkuren voor de hulpbron definieert. Agenda's worden aangemaakt met de <link linkend="work-and-vacation-editor"
+>Bewerker van werk en vakantie</link
+>. </para>
+  <para
+>Materiaalhulpbronnen zijn standaard altijd beschikbaar. U kunt een agenda gebruiken om zijn beschikbaarheid te beperken. </para>
+  <para
+>Hulpbronnen kunnen <emphasis
+>Gedeeld</emphasis
+> worden of <emphasis
+>Lokaal</emphasis
+>. Een lokale hulpbron wordt alleen in het huidige project gebruikt. Een gedeelde hulpbron kan gedeeld worden tussen meerdere projecten en wordt opgeslagen in een apart bestand, zie <link linkend="managing-resources"
+>Hulpbronnen beheren</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om hulpbronnen en hulpbrongroepen aan te maken en te verwijderen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Hulpbrongroep toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een hulpbrongroep aan te maken. De nieuwe groep wordt achtergevoegd aan het eind van de groepen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hulpbron toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een hulpbron aan te maken. De nieuwe hulpbron wordt als een afsplitsing aan de huidige geselecteerde groep achtergevoegd. Als een hulpbron is geselecteerd, wordt de nieuwe hulpbron achtergevoegd aan zijn oorspronggroep.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>De geselecteerde hulpbronnen en/of hulpbrongroepen worden verwijderd </para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Hulpbronnen kunnen aangemaakt worden door gegevens los te laten uit elke toepassing die slepen van vCard informatie ondersteunt, zoals <emphasis
+>KAddressBook</emphasis
+> of <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Hulpbronnen kunnen gekopieerd worden of verplaatst naar een andere hulpbrongroep met slepen en loslaten. </para>
+  <para
+><note
+><para
+>Bij verplaatsen van een hulpbron zal de hulpbron elke toekenning verliezen.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Gegevens bewerken </title>
+  <para
+>Gegevens kunnen inline bewerkt worden zoals <link linkend="using-the-views"
+>hier</link
+> beschreven. </para>
+  <para
+>Hulpbronnen kunnen ook bewerkt worden met de hulpbroninstellingendialoog </para>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van de hulpbron of hulpbrongroep.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Bereik</para>
+            </entry>
+            <entry>
+              <para
+>Een hulpbron kan <emphasis
+>Gedeeld</emphasis
+> of <emphasis
+>Lokaal</emphasis
+> zijn. Een gedeelde hulpbron kan niet bewerkt worden.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Type</para>
+            </entry>
+            <entry>
+              <para
+>Het type hulpbron of hulpbrongroep.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Initialen</para>
+            </entry>
+            <entry>
+              <para
+>De initialen van de hulpbron.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>E-mail</para>
+            </entry>
+            <entry>
+              <para
+>Het e-mailadres van de hulpbron.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Agenda</para>
+            </entry>
+            <entry>
+              <para
+>De agenda definieert wanneer de hulpbron actief is.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Limiet (%)</para>
+            </entry>
+            <entry>
+              <para
+>De maximale toe te wijzen belasting.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beschikbaar van</para>
+            </entry>
+            <entry>
+              <para
+>Definieert wanneer de hulpbron aan het project beschikbaar is.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beschikbaar tot</para>
+            </entry>
+            <entry>
+              <para
+>Definieert wanneer de hulpbron aan het project beschikbaar is.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Normaal tarief</para>
+            </entry>
+            <entry>
+              <para
+>De kosten per uur, normale uren.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Account</para>
+            </entry>
+            <entry>
+              <para
+>Het account waar de hulpbronkosten geaccumuleerd zijn.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Configuratie</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Met het contextmenu kan de weergave geconfigureerd worden om de boomstructuur in of uit te vouwen of het kan geconfigureerd worden met de configuratiedialoog.</para
+><para
+>De configuratiedialoog biedt u het aanpassen van de hoeveelheid informatie die de weergave toont om in uw behoefte te voorzien. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

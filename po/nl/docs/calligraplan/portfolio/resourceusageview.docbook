@@ -1,0 +1,10 @@
+<chapter id="resourceusage"
+><title
+>Gebruik van hulpbronnen</title>
+<sect1 id="resourceusage-description"
+><title
+>Beschrijving</title
+>&WORK-IN-PROGRESS; <para
+>Toont een grafiek van de geplande load voor geselecteerde hulpbron met kleurcode per taak. </para>
+</sect1>
+</chapter>

@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Descripció</title>
+  <para
+>La Vista de Gantt de l'assignació de recursos mostra les assignacions dels recursos de tasques planificades en un gràfic de Gantt. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Dades</title>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de l'objecte (grup de recursos, recurs, tasca)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipus</para>
+            </entry>
+            <entry>
+              <para
+>Tipus d'objecte</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Temps de començament</para>
+            </entry>
+            <entry>
+              <para
+>L'inici de l'assignació</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Temps de finalització</para>
+            </entry>
+            <entry>
+              <para
+>El final de l'assignació</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Editar les dades</title>
+  <para
+>La descripció i el progrés de la tasca es poden editar utilitzant el menú contextual. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Configurar</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilitzant el menú contextual, la vista es podrà configurar utilitzant el diàleg de configuració.</para
+><para
+>El diàleg de configuració permet seleccionar quines columnes mostrar. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Diàleg de configuració</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Diàleg de configuració</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

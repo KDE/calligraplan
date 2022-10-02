@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Le funzionalità includono: </para>
+<itemizedlist>
+  <listitem
+><para
+>Gestione delle attività utilizzando l'<link linkend="task-editor"
+>Editor delle attività</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Struttura funzionale del progetto con codici WBS configurabili</para
+></listitem>
+        <listitem
+><para
+>Attività, riepilogo delle attività e milestone</para
+></listitem>
+        <listitem
+><para
+>Diversi tipi di vincolo temporale</para
+></listitem>
+        <listitem
+><para
+>Diversi tipi di dipendenze.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>La gestione delle risorse utilizzando l'<link linkend="resource-editor"
+>Editor delle risorse</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Struttura funzionale delle risorse</para
+></listitem>
+        <listitem
+><para
+>Tipi di risorse materiali e di lavoro</para
+></listitem>
+        <listitem
+><para
+>Allocazione delle risorse a livello di gruppo</para
+></listitem>
+        <listitem
+><para
+>Squadre di risorse</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Definizione di orario di lavoro e ferie utilizzando l'<link linkend="work-and-vacation-editor"
+>Editor del lavoro e delle ferie </link
+></para
+></listitem>
+  <listitem
+><para
+>Gestione dei costi utilizzando l'<link linkend="cost-breakdown-structure-editor"
+>Editor della struttura funzionale dei costi</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestione del valore ottenuto</para
+></listitem>
+  <listitem
+><para
+>Pianificazione del progetto utilizzando l'<link linkend="schedules-editor"
+>Editor delle pianificazioni</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Pianificare in avanti dall'ora di inizio o indietro dall'ora di fine</para
+></listitem>
+        <listitem
+><para
+>Consente o impedisce il sovra-utilizzo delle risorse</para
+></listitem>
+        <listitem
+><para
+>Distribuzione PERT con stime ottimistiche, pessimistiche e più probabili</para
+></listitem>
+        <listitem
+><para
+>Pianificazione multiple con possibilità di pianificare dalle informazioni sullo stato di avanzamento attuale</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Tracciamento delle attività utilizzando la <link linkend="task-execution-view"
+>vista di esecuzione delle attività</link
+> o la <link linkend="task-status-view"
+>vista di stato dell'attività</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

@@ -1,0 +1,518 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Descripción</title>
+  <para
+>El editor de tareas se usa para crear, editar y borrar tareas.</para
+><para
+>Las tareas se pueden organizar en una estructura jerárquica de árbol de cualquier profundidad. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Barra de herramientas</title>
+  <para
+>La barra de herramientas proporciona métodos para crear, borrar y mover tareas y metas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botón</guilabel
+></entry>
+            <entry
+><guilabel
+>Acceso rápido</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Añadir tarea</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Lista desplegable para crear una tarea o una meta. El nuevo elemento se coloca después del elemento seleccionado actualmente en el mismo nivel que él. Si no se selecciona ningún elemento, el nuevo elemento se añade en el nivel superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Añadir subtarea</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Lista desplegable para crear una subtarea o una meta. El nuevo elemento se añade como elemento secundario del elemento seleccionado actualmente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Borrar tarea</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Borrar</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Borra las tareas seleccionadas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sangrar tarea</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Añade la tarea seleccionada como hija de la tarea superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Desangrar tarea</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mueve la tarea seleccionada un nivel hacia arriba, insertándola tras su tarea madre actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Subir</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mueve la tarea seleccionada un lugar hacia arriba.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Bajar</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mueve la tarea seleccionada un lugar hacia abajo.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Tenga en cuenta que también puede mover o copiar tareas usando arrastrar y soltar o copiar/pegar. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Edición de datos</title>
+  <para
+>Los datos se pueden editar en línea como se describe <link linkend="using-the-views"
+>aquí</link
+> o usando el diálogo de preferencias de la tarea. </para>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estado</para>
+            </entry>
+            <entry>
+              <para
+>Estado de la tarea</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsable</para>
+            </entry>
+            <entry>
+              <para
+>La persona responsable de esta tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Asignación</para>
+            </entry>
+            <entry>
+              <para
+>Lista de asignaciones de recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>El tipo de tarea o el tipo de estimación de la tarea.</para
+><para
+>El tipo se puede definir como <emphasis
+>Meta</emphasis
+>, <emphasis
+>Esfuerzo</emphasis
+> o <emphasis
+>Duración</emphasis
+>. </para>
+              <para
+><guilabel
+>Nota:</guilabel
+> Si el tipo es <emphasis
+>Sumario</emphasis
+> o <emphasis
+>Proyecto</emphasis
+>, no se puede editar. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendario</para>
+            </entry>
+            <entry>
+              <para
+>El calendario a usar cuando el tipo estimado es <emphasis
+>Duración</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estimación</para>
+            </entry>
+            <entry>
+              <para
+>La estimación más probable. La estimación es la cantidad esperada de esfuerzo o el tiempo necesario para completar una tarea. Se puede expresar en diferentes unidades: h (horas), d (días), w (semanas) y M (meses).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Proporción optimista</para>
+            </entry>
+            <entry>
+              <para
+>Estimación optimista expresada como porcentaje negativo de la estimación más probable (por ejemplo, -20%).</para
+><para
+>Esto solo se emplea si se usa una distribución PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Proporción pesimista</para>
+            </entry>
+            <entry>
+              <para
+>Estimación pesimista expresada como porcentaje positivo de la estimación más probable (por ejemplo, 50%).</para
+><para
+>Esto solo se emplea si se usa una distribución PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Riesgo</para>
+            </entry>
+            <entry>
+              <para
+>El riesgo controla la distribución PERT usada al calcular la estimación real para esta tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Restricción</para>
+            </entry>
+            <entry>
+              <para
+>El tipo de restricción de tiempo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inicio de la restricción</para>
+            </entry>
+            <entry>
+              <para
+>Tiempo de inicio de la restricción.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalización de la restricción</para>
+            </entry>
+            <entry>
+              <para
+>Tiempo de finalización de la restricción.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cuenta corriente</para>
+            </entry>
+            <entry>
+              <para
+>Cuenta de gastos corrientes.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cuenta de inicio</para>
+            </entry>
+            <entry>
+              <para
+>Cuenta para el costo generado durante el inicio de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo de inicio</para>
+            </entry>
+            <entry>
+              <para
+>El costo generado durante el inicio de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cuenta de cierre</para>
+            </entry>
+            <entry>
+              <para
+>Cuenta para el costo generado durante el cierre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo de cierre</para>
+            </entry>
+            <entry>
+              <para
+>El costo generado durante el cierre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripción</para>
+            </entry>
+            <entry>
+              <para
+>Notas de la tarea.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>El panel de módulos de tareas</title>
+  <para
+>Los módulos de tareas son grupos de tareas que se pueden reutilizar entre proyectos. </para>
+  <para
+>Esto permite aprovechar la experiencia pasada y estandarizar operaciones similares. </para>
+  <para
+>Se puede insertar un módulo de tareas en el proyecto arrastrándolo desde el panel y soltándolo sobre el proyecto. </para>
+  <para
+>Un módulo de tareas es un archivo normal de Plan que se diseña usando <guilabel
+>Plan</guilabel
+> del mismo modo que para diseñar un proyecto normal. </para>
+  <para
+>Un módulo de tareas, no obstante, suele incluir solo tareas, estimaciones y dependencias. </para>
+  <para
+>El nombre del proyecto se muestra en el panel y su descripción se usa como ayuda emergente. </para>
+  <para
+>Puede abrir un módulo para inspeccionarlo o editarlo haciendo doble clic sobre él. </para>
+  <para
+>Los módulos se pueden agrupar para que se guarden en distintos directorios. Puede configurar dónde encontrarlos usando el diálogo de preferencias del proyecto. </para>
+  <para
+>Los valores predeterminados para los proyectos nuevos se pueden definir usando el diálogo de configuración de Plan. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>El panel de recursos</title>
+  <para
+>El panel de recursos ofrece un modo sencillo para asignar recursos a las tareas, seleccionándolos y arrastrándolos a la columna <emphasis
+>Asignación</emphasis
+>. </para>
+  <para
+>También puede soltar un recurso sobre la columna <emphasis
+>Responsable</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>El panel de asignaciones</title>
+  <para
+>El panel de asignaciones muestra la asignación del recurso actual para la tarea seleccionada. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Configuración</title>
+  <para
+>Puede usar el menú de contexto para configurar la vista para mostrar/ocultar el proyecto y dividir/unir la vista de árbol. También puede hacerlo desde el diálogo de configuración. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diálogo de configuración le permite adaptar la cantidad de información que se muestra en la vista según sus necesidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

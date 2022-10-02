@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>La vista inicial se muestra durante el inicio y cuando se selecciona la opción del menú <menuchoice
+><guimenu
+>Archivo</guimenu
+><guimenuitem
+>Nuevo</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Existen tres secciones para: </para>
+<itemizedlist>
+  <listitem
+><para
+>Creación de nuevos proyectos. Consulte también <link linkend="creating-a-project"
+>Creación de un proyecto</link
+> y <link linkend="managing-resources"
+>Gestión de recursos</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Apertura de proyectos existentes. Esta sección le brinda la posibilidad de abrir un archivo de proyecto existente o uno de los 10 proyectos más recientes que haya abierto con anterioridad.</para
+></listitem>
+  <listitem
+><para
+>La sección de ayuda le proporciona enlaces a páginas introductorias, documentación y foros de la comunidad.</para
+></listitem>
+</itemizedlist>
+</sect2>

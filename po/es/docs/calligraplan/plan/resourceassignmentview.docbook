@@ -1,0 +1,138 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Descripción</title>
+  <para
+>La vista de asignación de recursos muestra las asignaciones de tarea-recurso planificadas en una tabla. <note
+><para
+>Esta vista puede afectar severamente al rendimiento en proyectos grandes.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Datos</title>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre del objeto (grupo de recursos, recurso, tarea)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Total</para>
+            </entry>
+            <entry>
+              <para
+>La asignación total para un recurso</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fechas</para>
+            </entry>
+            <entry>
+              <para
+>Las asignaciones totales para un recurso por día y las asignaciones para el recurso por tarea.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Edición de datos</title>
+  <para
+>La descripción y el avance de una tarea se pueden editar usando el menú de contexto. </para>
+</sect3>
+<sect3 id="configuration36"
+><title
+>Configuración</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Puede usar el menú de contexto para configurar la vista usando el diálogo de configuración.</para
+><para
+>El diálogo de configuración le permite incluir o excluir asignaciones. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Diálogo de configuración</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Diálogo de configuración</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

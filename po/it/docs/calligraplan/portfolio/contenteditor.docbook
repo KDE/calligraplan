@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Contenuti del portafoglio</title
+>&WORK-IN-PROGRESS; <para
+>Questo editor ti consente di configurare il contenuto del tuo portafoglio. </para
+><para
+>Seleziona <menuchoice
+> <shortcut
+><keycap
+>Inserisci</keycap
+></shortcut
+> <guimenu
+>Modifica</guimenu
+><guimenuitem
+>Aggiungi</guimenuitem
+> </menuchoice
+> o premi <guibutton
+>Aggiungi</guibutton
+> per aggiungere oggetti al tuo portafoglio. </para
+><para
+>Seleziona <menuchoice
+> <shortcut
+><keycap
+>Elimina</keycap
+></shortcut
+> <guimenu
+>Modifica</guimenu
+><guimenuitem
+>Rimuovi</guimenuitem
+> </menuchoice
+> o premi <guibutton
+>Rimuovi</guibutton
+> per rimuovere i progetti selezionati. </para
+><para
+>Aggiungi i progetti che stai gestendo e imposta <guilabel
+>Portafoglio</guilabel
+> = <emphasis
+>Sì</emphasis
+>. </para
+><para
+>Se hai risorse utilizzate dai progetti non parte del tuo portafoglio e vuoi ri-pianificare o ispezionare l'utilizzo delle risorse, è necessario aggiungere tutti i progetti pertinenti e impostare <guilabel
+>Portafoglio</guilabel
+> = <emphasis
+>No</emphasis
+> per questi progetti. </para>
+<formalpara
+><title
+>Archiviazione</title>
+<para
+></para>
+</formalpara>
+<para
+>Le modifiche al progetto possono essere salvate nel file di progetto originale o possono essere incorporate nel file del portafoglio. Se gestisci progetti, normalmente dovrebbero essere salvate nei loro file originali. Imposta <guilabel
+>Archiviazione</guilabel
+> = <emphasis
+>Esterna</emphasis
+> in questo caso. Tuttavia, se vuoi solo vedere quale impatto potrebbero avere le modifiche, potresti voler archiviare i progetti incorporati mentre stai lavorando su diversi scenari. Imposta <guilabel
+>Archiviazione</guilabel
+> = <emphasis
+>Incorporata</emphasis
+> in questo caso. L'URL esterno del progetto viene conservato se in seguito desideri salvare le modifiche. </para>
+</chapter>

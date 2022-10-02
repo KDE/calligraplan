@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>За допомогою діаграми швидкодії завдання ви зможете докладно проаналізувати кожне з підзавдань або завдань із тими самими індексами, що і на панелі перегляду швидкодії проєкту. </para>
+<para
+>Корисно для довгих і складних проєктів. </para>
+<para
+>За допомогою лівої частини вікна ви зможете вибрати будь-яке окреме підзавдання або ціле завдання. У правій частині вікна буде показано відповідну діаграму. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>де </para>
+<itemizedlist>
+  <listitem
+><para
+>БВЗР — бюджетна вартість запланованої роботи,</para
+></listitem>
+  <listitem
+><para
+>БВВР — бюджетна вартість виконаної роботи,</para
+></listitem>
+  <listitem
+><para
+>ПВВР — поточна вартість виконаної роботи.</para
+></listitem>
+</itemizedlist>
+<para
+>Усі ці величини вимірюються як обсяг робіт у годинах або вартості. </para>
+<para
+>ІШ — індекси швидкодії, де </para>
+<itemizedlist>
+  <listitem
+><para
+>ІВР — індекс вартості роботи,</para
+></listitem>
+  <listitem
+><para
+>ІВЗ — індекс виконання плану.</para
+></listitem>
+</itemizedlist>
+</sect2>

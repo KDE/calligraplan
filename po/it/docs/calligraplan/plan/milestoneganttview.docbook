@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Descrizione</title>
+  <para
+>La vista Milestone Gantt è utilizzata per mostrare le milestone in una linea temporale. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Vista Gantt</phrase>
+        </textobject>
+        <caption>
+          <para
+>Vista Gantt</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Modificare i dati</title>
+  <para
+>La descrizione e l'avanzamento della milestone possono essere modificate utilizzando il menu contestuale. </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Codice WBS</para>
+            </entry>
+            <entry>
+              <para
+>Il codice della struttura funzionale del progetto</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome della milestone.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ora di inizio</para>
+            </entry>
+            <entry>
+              <para
+>L'ora d'inizio pianificata.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Configurazione</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilizzando il menu contestuale, la vista può essere configurata utilizzando la finestra di configurazione.</para>
+              <para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Finestra di configurazione</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Finestra di configurazione</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

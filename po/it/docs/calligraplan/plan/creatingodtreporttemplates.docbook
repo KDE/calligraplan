@@ -1,0 +1,1939 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Descrizione</title>
+  <para
+>I modelli di resoconto Open Document Text sono normali file ODT che possono essere progettati utilizzando qualsiasi elaboratore di testi ODT come <emphasis
+>Calligra Words</emphasis
+> o <emphasis
+>LibreOffice Writer</emphasis
+>. La tecnica utilizzata consiste nell'utilizzare le variabili <emphasis
+>Campi utente</emphasis
+> per contenere riferimenti alle informazioni che devono essere recuperate dal progetto. Le variabili sono chiamate <emphasis
+>Campi utente</emphasis
+> in <emphasis
+>Writer</emphasis
+> e possono essere trovate in <menuchoice
+><guimenu
+>Inserisci</guimenu
+><guisubmenu
+>Campo</guisubmenu
+><guimenuitem
+>Altri campi</guimenuitem
+><guimenuitem
+>Variabili</guimenuitem
+><guimenuitem
+>Campi utente</guimenuitem
+></menuchoice
+>. In <emphasis
+>Words</emphasis
+> sono chiamati <emphasis
+>Variabili personalizzate</emphasis
+> e possono essere trovati in <menuchoice
+><guimenu
+>Area di aggancio di modifica del testo</guimenu
+><guisubmenu
+>Variable</guisubmenu
+><guimenuitem
+>Personalizzata</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Il modo più semplice per creare un nuovo modello di resoconti è modificarne uno esistente poiché tutti i campi utente sono definiti. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Variabili del campo utente</title>
+  <sect4 id="variables"
+><title
+>Variabili</title>
+    <para
+>Le variabili sono utilizzate per consentire al generatore di estrarre i dati dal progetto. </para>
+    <para
+>Una variabile può essere un riferimento a un singolo campo dati, un riferimento ai dati della tabella o un riferimento ai dati del grafico. </para
+><sect5
+><title
+>Campo dati singolo</title
+> <para
+>Una singola variabile del campo dati ha il seguente formato: </para
+> <para
+><replaceable
+>nome del gruppo di dati</replaceable
+>. <replaceable
+>proprietà</replaceable
+> = <replaceable
+>identificatore di proprietà</replaceable
+> </para
+> <para
+>dove: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>nome gruppo di dati</replaceable
+> può essere tr, progetto o pianificazione (vedere sotto).</para
+></listitem
+><listitem
+><para
+><replaceable
+>proprietà</replaceable
+> rende il nome del campo utente unico.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>identità della proprietà</replaceable
+> identifica la proprietà nel gruppo di dati.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Dati della tabella</title
+> <para
+>Una tabella in un modello di report è costituita da una variabile per specificare la tabella di dati da utilizzare. </para
+> <para
+> Il nome della variabile deve iniziare con <replaceable
+>tabella</replaceable
+> (&eg; tabellaAttività) e il valore della variabile deve essere il nome della tabella di dati (&eg; attività). </para
+> <para
+>Immediatamente dopo la variabile, è necessario inserire una tabella e riempire le colonne con le variabili del campo utente che specificano quali proprietà recuperare dalla tabella sopra specificata. Queste variabili devono avere il nome che inizia con il nome della variabile della table sopra specificata. </para
+> <para
+>Queste variabili hanno il formato seguente: </para
+> <para
+>tabellaAttività.<replaceable
+>proprietà</replaceable
+> = <replaceable
+>identificatore di proprietà</replaceable
+> </para
+> <para
+>dove: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>proprietà</guilabel
+> rende il nome del campo utente unico.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>identificatore di proprietà</guilabel
+> identifica la proprietà nel gruppo di dati.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Dati del grafico</title
+> <para
+>Un grafico in un modello di report consiste di una variabile per specificare i dati da utilizzare nel grafico. </para
+> <para
+>Il nome della variabile deve iniziare con <replaceable
+>grafico</replaceable
+> &eg; chartBudgetCost) e il valore della variabile specifica il gruppo di dati e i valori per popolare il grafico. </para
+> <para
+> La variabile ha il seguente formato (notare i punti e virgola): </para
+> <para
+> <replaceable
+>nome</replaceable
+> = <replaceable
+>gruppo di dati</replaceable
+>; valori=<replaceable
+>elenco separato da virgole delle proprietà dei dati</replaceable
+>; </para
+> <para
+> dove: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>nome</replaceable
+> deve iniziare con <guilabel
+>grafico</guilabel
+> (&eg; graficoCostoPreventivato)</para
+></listitem
+> <listitem
+><para
+><replaceable
+>gruppo di dati</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>elenco separato da virgole delle proprietà dei dati</guilabel
+> identifica le proprietà nel gruppo di dati.</para
+></listitem
+> </itemizedlist
+> <para
+>Ad es.: </para
+> <para
+>graficoBudget = progetto; valori=costo bcws, costo bcwp, costo acwp; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Etichette tradotte</title>
+    <para
+>Le etichette tradotte consentono di produrre modelli di resoconti generali che possono essere utilizzati in diverse lingue. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nome della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Valore della variabile</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Progetto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Responsabile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Pianifica</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Valori del progetto</title>
+    <para
+>Mostra i valori dal progetto principale. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nome della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Valore della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>Nome</para>
+              </entry>
+              <entry>
+                <para
+>Il nome del progetto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>Responsabile</para>
+              </entry>
+              <entry>
+                <para
+>Il nome del responsabile del progetto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>Costo BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro pianificato basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>Costo BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro eseguito basato sul costo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>Costo ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo effettivo del lavoro eseguito basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>Costo SPI</para>
+              </entry>
+              <entry>
+                <para
+>Indice prestazioni della  pianificazione basato sul costo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>Costo CPI</para>
+              </entry>
+              <entry>
+                <para
+>Indice prestazioni del costo basato sul costo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro pianificato basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro eseguito basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo effettivo del lavoro eseguito basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro SPI</para>
+              </entry>
+              <entry>
+                <para
+>Indice prestazioni della pianificazione basato sul lavoro</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro CPI</para>
+              </entry>
+              <entry>
+                <para
+>Indice prestazioni del costo basato sul lavoro</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Valori della pianificazione</title>
+    <para
+>Mostra i valori della pianificazione attuale. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nome della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Valore della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>Nome</para>
+              </entry>
+              <entry>
+                <para
+>Il nome della pianificazione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Stato</para>
+              </entry>
+              <entry>
+                <para
+>Stato della pianificazione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Nome</para>
+              </entry>
+              <entry>
+                <para
+>Direzione della pianificazione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Sovra-utilizzo</para>
+              </entry>
+              <entry>
+                <para
+>Sovra-utilizzo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Distribuzione</para>
+              </entry>
+              <entry>
+                <para
+>Distribuzione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Inizio pianificato</para>
+              </entry>
+              <entry>
+                <para
+>Inizio pianificato</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Fine pianificata</para>
+              </entry>
+              <entry>
+                <para
+>Fine pianificata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Pianificatore</para>
+              </entry>
+              <entry>
+                <para
+>Pianificatore</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Granularità</para>
+              </entry>
+              <entry>
+                <para
+>Granularità</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Modalità</para>
+              </entry>
+              <entry>
+                <para
+>Modalità di pianificazione (Automatica o manuale)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Tabelle</title>
+    <para
+>Tipi di tabelle supportati: </para>
+    <itemizedlist>
+      <listitem
+><para
+>attività</para
+></listitem>
+      <listitem
+><para
+>statoattività</para
+></listitem>
+      <listitem
+><para
+>pianificazioni</para
+></listitem>
+      <listitem
+><para
+>progetti</para
+></listitem>
+    </itemizedlist>
+    <para
+>Per creare una tabella, posizionare una variabile appena prima di una tabella nel file di modello. Il nome della variabile identifica la tabella e deve iniziare con <guilabel
+>tabella</guilabel
+>, &eg; <guilabel
+>tabellaStatoAttività</guilabel
+>. </para>
+    <para
+>Il valore della variabile è utilizzato per indicare i dati da recuperare e deve essere una delle tabelle supportate sopra elencate, &eg; <guilabel
+>statoattività</guilabel
+>. </para>
+    <para
+>Inserire quindi le variabili all'interno delle celle della tabella con nome e valore dalla tabella seguente. </para>
+    <para
+>Notare che la tabella delle pianificazioni supporta i valori descritti in <link linkend="schedule-values"
+>Valori della pianificazione </link
+> sopra. </para>
+    <para
+>Le tabelle di progetti, attività e stato delle attività supportano i seguenti valori: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Nome della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Valore della variabile</guilabel
+></entry>
+              <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Nome</para>
+              </entry>
+              <entry>
+                <para
+>Il nome dell'attività o del progetto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>Codice WBS</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Tipo</para>
+              </entry>
+              <entry>
+                <para
+>Tipo di attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Responsabile</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Ripartizione</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Tipo di stima</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Calendario</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Stima</para>
+              </entry>
+              <entry>
+                <para
+>La stima più verosimile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Ottimistica</para>
+              </entry>
+              <entry>
+                <para
+>Rapporto ottimistico</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistica</para>
+              </entry>
+              <entry>
+                <para
+>Rapporto pessimistico</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Rischio</para>
+              </entry>
+              <entry>
+                <para
+>Stimare l'incertezza</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Vincolo</para>
+              </entry>
+              <entry>
+                <para
+>Tipo di vincolo temporale</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Inizio del vincolo</para>
+              </entry>
+              <entry>
+                <para
+>Ora di inizio del vincolo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Fine del vincolo</para>
+              </entry>
+              <entry>
+                <para
+>Ora di fine del vincolo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Conto corrente</para>
+              </entry>
+              <entry>
+                <para
+>Conto per i costi di esercizio</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Conto di apertura</para>
+              </entry>
+              <entry>
+                <para
+>Conto per il costo di apertura</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Costo di apertura</para>
+              </entry>
+              <entry>
+                <para
+>Il costo sostenuto all'apertura dell'attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Conto di chiusura</para>
+              </entry>
+              <entry>
+                <para
+>Conto per i costi di chiusura</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Costo di chiusura</para>
+              </entry>
+              <entry>
+                <para
+>Il costo sostenuto alla chiusura dell'attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Descrizione</para>
+              </entry>
+              <entry>
+                <para
+>Descrizione dell'attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Prevista</para>
+              </entry>
+              <entry>
+                <para
+>Stima più probabile calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Ottimistica</para>
+              </entry>
+              <entry>
+                <para
+>Stima ottimistica calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistica</para>
+              </entry>
+              <entry>
+                <para
+>Stima pessimistica calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Ora di inizio</para>
+              </entry>
+              <entry>
+                <para
+>L'ora d'inizio pianificata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Ora di fine</para>
+              </entry>
+              <entry>
+                <para
+>Ora di fine pianificata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Durata</para>
+              </entry>
+              <entry>
+                <para
+>Durata pianificata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Inizio anticipato</para>
+              </entry>
+              <entry>
+                <para
+>Inizio il più presto possibile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Fine anticipata</para>
+              </entry>
+              <entry>
+                <para
+>Fine il più presto possibile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Inizio ritardato</para>
+              </entry>
+              <entry>
+                <para
+>Inizio il più tardi possibile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Fine ritardata</para>
+              </entry>
+              <entry>
+                <para
+>Fine il più tardi possibile</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Scorrimento positivo</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Scorrimento libero</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Scorrimento negativo</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Inizio dello scorrimento</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Fine dello scorrimento</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Assegnazioni</para>
+              </entry>
+              <entry>
+                <para
+>Assegnazioni delle risorse</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Varianza (Est)</para>
+              </entry>
+              <entry>
+                <para
+>Varianza stimata calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Varianza (Dur)</para>
+              </entry>
+              <entry>
+                <para
+>Varianza della durata calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Ottimistica (Dur)</para>
+              </entry>
+              <entry>
+                <para
+>Durata ottimistica calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistica (Dur)</para>
+              </entry>
+              <entry>
+                <para
+>Durata pessimistica calcolata</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Stato</para>
+              </entry>
+              <entry>
+                <para
+>Stato delle attività come mostrato nella vista dello stato delle attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% completata</para>
+              </entry>
+              <entry>
+                <para
+>Completamento dell'attività</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro pianificato</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro previsto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro effettivo</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro effettivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro rimanente</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro rimanente</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Costo previsto</para>
+              </entry>
+              <entry>
+                <para
+>Costo previsto</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Costo effettivo</para>
+              </entry>
+              <entry>
+                <para
+>Costo effettivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Inizio effettivo</para>
+              </entry>
+              <entry>
+                <para
+>Inizio effettivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Iniziato</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Fine effettiva</para>
+              </entry>
+              <entry>
+                <para
+>Fine effettiva</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Finito</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Stato della pianificazione</para>
+              </entry>
+              <entry>
+                <para
+>Stato della pianificazione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro pianificato (basato sul costo)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo preventivato del lavoro eseguito (basato sul costo)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Costo effettivo del lavoro eseguito (basato sul costo)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Indice prestazioni pianificazione</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Critico</para>
+              </entry>
+              <entry>
+                <para
+>L'attività è critica</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Percorso critico</para>
+              </entry>
+              <entry>
+                <para
+>L'attività è in percorso critico</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Non pianificata</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Assegnazione mancante</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Risorsa sovra-utilizzata</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Risorsa non disponibile</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Errore di vincoli</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Lavoro non soddisfatto</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Errori di pianificazione</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Livello del nodo, livello</para>
+              </entry>
+              <entry>
+                <para
+>Non interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Nota di stato</para>
+              </entry>
+              <entry>
+                <para
+>Nota: non implementato</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Proprietario</para>
+              </entry>
+              <entry>
+                <para
+>Non deve essere usato, e non è molto interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Stato</para>
+              </entry>
+              <entry>
+                <para
+>Non deve essere usato, e non è molto interessante</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>nome tabella</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Tempo</para>
+              </entry>
+              <entry>
+                <para
+>Non deve essere usato, e non è molto interessante</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Grafico</title>
+  <para
+>Utilizzare posizionando una variabile con nome chartX (X=del testo per rendere unico il nome della variabile) con un progetto di valore prima del  grafico che deve essere utilizzato. </para>
+  <para
+>La variabile ha questo formato: </para>
+  <para
+>Variabile: <varname
+>Name: chartX (X=some text) Value: project; values=<replaceable
+>dati</replaceable
+>;</varname
+> </para>
+  <para
+>dove <replaceable
+>dati</replaceable
+> è un elenco separato da virgole di valori da includere nel grafico. </para>
+  <para
+>I possibili valori dei <replaceable
+>dati</replaceable
+> sono: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>lavoro bcws</guilabel
+> Costo preventivato del lavoro pianificato, basato sul lavoro.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>lavoro bcwp</guilabel
+> Costo preventivato del lavoro eseguito, basato sul lavoro.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>lavoro acwp</guilabel
+> Costo effettivo del lavoro eseguito, basato sul lavoro.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>lavoro spi</guilabel
+> Indice prestazioni della pianificazione, basato sul lavoro.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>lavoro cpi</guilabel
+> Indice prestazioni del costo, basato sul lavoro.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>costo bcws</guilabel
+> Costo preventivato del lavoro pianificato, basato sul costo.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>costo bcwp</guilabel
+> Costo preventivato del lavoro eseguito, basato sul costo.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>costo acwp</guilabel
+> Costo effettivo del lavoro eseguito, basato sul costo.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>costo spi</guilabel
+> Indice prestazioni della pianificazione, basato sul costo.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>costo cpi</guilabel
+> Indice prestazioni del costo, basato sul costo.</para
+></listitem>
+  </itemizedlist>
+  <para
+>I grafici che si creano nel proprio modello devono avere lo stesso (o più) numero di colonne come il numero di valori specificati nella variabile. </para>
+  <para
+>Esempio: </para>
+  <para
+>Nome variabile: <varname
+>chart1</varname
+> Valore: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Notare che non è possibile mescolare valori basati sul lavoro e sui costi. Se si desidera mostrare entrambi, creare due grafici. </para>
+  <sect4 id="gantt"
+><title
+>Gantt</title>
+    <para
+>Non supportato. </para>
+  </sect4>
+</sect3>
+</sect2>

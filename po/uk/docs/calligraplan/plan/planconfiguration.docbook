@@ -1,0 +1,36 @@
+<chapter id="configure-plan-dialog"
+><title
+>Налаштовування Plan</title>
+  <sect1 id="configure-project-defaults"
+><title
+>Типові значення проєкту</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-and-vacation"
+><title
+>Робочий час і відпустки</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-defaults"
+><title
+>Типові значення завдання</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-colors"
+><title
+>Кольори завдань</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-modules"
+><title
+>Модулі завдання</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-package"
+><title
+>Пакунок роботи</title
+>&WIP; </sect1>
+  <sect1 id="configure-project-templates"
+><title
+>Шаблони проєктів</title
+>&WIP; </sect1>
+  <sect1 id="configure-document"
+><title
+>Документ</title
+>&WIP; </sect1>
+</chapter>

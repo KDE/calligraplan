@@ -1,0 +1,22 @@
+<sect2
+><title/> &WORK-IN-PROGRESS; <para
+>Molte funzioni e viste hanno aiuto e suggerimenti che possono essere visualizzati con la funzione <emphasis
+>Cos'è questo</emphasis
+>. </para>
+<para
+>È possibile attivarlo con la voce di menu <menuchoice
+><guimenu
+>Aiuto</guimenu
+><guimenuitem
+>Cos'è questo</guimenuitem
+></menuchoice
+> o con la scorciatoia da tastiera <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>In queste finestre è attivato premendo sul <varname
+>?</varname
+> nella barra del titolo delle finestre. </para>
+</sect2>

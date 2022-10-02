@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>Samenvatting</title
+>&WORK-IN-PROGRESS; <para
+>Deze weergave vat prestatiegegevens voor alle projecten in uw portfolio samen. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Naam</guilabel
+></entry>
+          <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Naam</entry
+><entry
+>Projectnaam</entry
+></row>
+      <row
+><entry
+>Plannen</entry
+><entry
+>Naam van planning</entry
+></row>
+      <row
+><entry
+>SPI-kosten</entry
+><entry
+>Prestatie-index van planning (gebaseerd op kosten)</entry
+></row>
+      <row
+><entry
+>CPI-kosten</entry
+><entry
+>Prestatie-index van planning (gebaseerd op kosten)</entry
+></row>
+      <row
+><entry
+>SPI-inspanning</entry
+><entry
+>Prestatie-index van planning (gebaseerd op inspanning)</entry
+></row>
+      <row
+><entry
+>CPI-inspanning</entry
+><entry
+>Prestatie-index van planning (gebaseerd op inspanning)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>SPI geeft aan of de voortgang volgens planning is (1), achter planning is (minder dan 1) of voorloopt op de planning (groter dan 1). CPI geeft aan hoeveel het heeft gekost om de actuele voortgang te verkrijgen. Een waarde van 1 betekent zoals gepland, minder dan 1 betekent dat het meer heeft gekost dan het zou moeten hebben gekost en een waarde groter dan 1 betekent dat de voortgang is verkregen met minder gebruik van hulpbronnen dan gepland. </para>
+</chapter>

@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Beskrivning</title>
+  <para
+>Projektprestationsvyn är ett projekthanteringsdiagram där projektet verkliga situation kan förstås enligt metoden intjänat värde. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>där: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BKSA betyder Budgeterad kostnad av schemalagt arbete.</para
+></listitem>
+    <listitem
+><para
+>BKUA betyder Budgeterad kostnad av utfört arbete.</para
+></listitem>
+    <listitem
+><para
+>VKUA betyder Verklig kostnad av utfört arbete.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Alla dessa betraktas som prestation i timmar och kostnader. </para>
+  <para
+>PI är Prestationsindex, där: </para>
+  <itemizedlist>
+    <listitem
+><para
+>KPI är Kostnadsprestationsindex.</para
+></listitem>
+    <listitem
+><para
+>SPI är Schemalagd prestationsindex.</para
+></listitem>
+  </itemizedlist>
+</sect2>

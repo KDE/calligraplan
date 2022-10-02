@@ -1,0 +1,16 @@
+<sect2 id="description"
+><title
+>Descripción</title>
+  <para
+>Puede crear recursos para un proyecto usando el <link linkend="resource-editor"
+>Editor de recursos</link
+> y el <link linkend="work-and-vacation-editor"
+>Editor de trabajo y vacaciones</link
+>. </para>
+  <para
+>No obstante, si va a usar los mismos recursos en varios proyectos (lo que suele ser habitual) resulta más conveniente mantener los recursos en un archivo separado. El mejor modo de hacerlo es crear el archivo de recursos en primer lugar y posteriormente configurar Plan para que cargue siempre dicho archivo cuando cree un nuevo proyecto. </para>
+  <para
+>Si está gestionando proyectos que usan grupos de recursos totalmente distintos, puede crear múltiples archivos de recursos, aunque un proyecto solo puede hacer referencia a un único archivo de recursos. </para>
+  <para
+>Puede seleccionar el archivo de recursos a usar cuando cree un nuevo proyecto. </para>
+</sect2>

@@ -1,0 +1,13 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Introducció al Plan Portfolio</title>
+  <sect1 id="introduction-section"
+><title
+>Introduction</title
+>&introduction-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Ajuda contextual</title
+>&context-help-section; </sect1>
+</chapter>
