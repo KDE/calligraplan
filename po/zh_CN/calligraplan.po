@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-22 00:45+0000\n"
-"PO-Revision-Date: 2022-09-20 01:55\n"
+"PO-Revision-Date: 2022-10-02 15:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -575,10 +575,9 @@ msgid "Project Templates"
 msgstr "项目模板"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "项目模板"
+msgstr ""
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1151,11 +1150,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "重命名"
+msgstr ""
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1528,10 +1525,9 @@ msgid "Open Report Definition File..."
 msgstr "打开报告定义文件..."
 
 #: kptview.cpp:241
-#, fuzzy, kde-format
-#| msgid "Create New Project..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "创建新项目..."
+msgstr ""
 
 #: kptview.cpp:257
 #, kde-format
@@ -1832,11 +1828,10 @@ msgid "Overwrite"
 msgstr ""
 
 #: kptview.cpp:1479
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "项目模板"
+msgstr ""
 
 #: kptview.cpp:1479
 #, kde-format
