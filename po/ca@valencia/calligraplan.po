@@ -29,7 +29,7 @@ msgstr ""
 #: calligraplan.rc:4 calligraplan_shell.rc:4
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (edit)
 #: calligraplan.rc:28
@@ -41,7 +41,7 @@ msgstr "&Edita"
 #: calligraplan.rc:37 calligraplan_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 # msgid "Project"
 #. i18n: ectx: Menu (project)
@@ -60,7 +60,7 @@ msgstr "&Eines"
 #: calligraplan.rc:58 calligraplan_shell.rc:12
 #, kde-format
 msgid "&Settings"
-msgstr "&Configuració"
+msgstr "Con&figuració"
 
 #. i18n: ectx: Menu (help)
 #: calligraplan.rc:62 calligraplan_shell.rc:23

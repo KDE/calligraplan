@@ -58,7 +58,7 @@ msgstr "antonibella5@yahoo.com"
 #: calligraplanportfolio_shell.rc:4 Portfolio_ViewUi.rc:4
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplanportfolio_shell.rc:11
@@ -324,7 +324,7 @@ msgstr "Esforç"
 #: Portfolio_ViewUi.rc:35
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #. i18n: ectx: ToolBar (contentsviewToolBar)
 #. i18n: ectx: ToolBar (progressviewToolBar)

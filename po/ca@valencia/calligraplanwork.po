@@ -73,7 +73,7 @@ msgstr "Visualitza"
 #: calligraplanwork_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Visualitza"
+msgstr "Vi&sualitza"
 
 #: commandlineparser.cpp:35
 #, kde-format

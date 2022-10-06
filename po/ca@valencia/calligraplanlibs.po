@@ -7168,7 +7168,7 @@ msgstr "<html><head/><body><p align=\"right\">Zona horària:</p></body></html>"
 #: ui/kptmainprojectpanelbase.ui:220
 #, kde-format
 msgid "&Use shared resources"
-msgstr "&Utilitza recursos compartits"
+msgstr "Utilit&za recursos compartits"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
 #: ui/kptmainprojectpanelbase.ui:238
