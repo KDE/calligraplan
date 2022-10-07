@@ -660,10 +660,3 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
-
-#~ msgid ""
-#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
-#~ "got %1"
-#~ msgstr ""
-#~ "無効な文書です。MIME タイプ application/x-vnd.kde.kplato.work が期待されま"
-#~ "すが、%1 でした。"
