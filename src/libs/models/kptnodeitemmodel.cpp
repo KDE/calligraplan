@@ -472,7 +472,7 @@ QVariant NodeModel::estimateCalendar(const Node *node, int role) const
 
 QVariant NodeModel::estimate(const Node *node, int role) const
 {
-    if (node->estimate() == nullptr) {
+    if (node == nullptr || node->estimate() == nullptr) {
         return QVariant();
     }
     switch (role) {
@@ -488,17 +488,23 @@ QVariant NodeModel::estimate(const Node *node, int role) const
             break;
         case Qt::ToolTipRole:
             if (node->type() == Node::Type_Task) {
-                Duration::Unit unit = node->estimate()->unit();
-                QString s = QLocale().toString(node->estimate()->expectedEstimate(), 'f', m_prec) +  Duration::unitToString(unit, true);
                 Estimate::Type t = node->estimate()->type();
                 if (node->constraint() == Node::FixedInterval && t == Estimate::Type_Duration) {
-                    s = xi18nc("@info:tooltip", "Not applicable, constraint is Fixed Interval");
-                } else if (t == Estimate::Type_Effort) {
-                    s = xi18nc("@info:tooltip", "Estimated effort: %1", s);
-                } else {
-                    s = xi18nc("@info:tooltip", "Estimated duration: %1", s);
+                    return xi18nc("@info:tooltip", "Not applicable, constraint is Fixed Interval");
                 }
-                return s;
+                auto s = estimate(node, Qt::DisplayRole).toString();
+                if (node->estimate()->risktype() == Estimate::Risk_None) {
+                    if (t == Estimate::Type_Effort) {
+                        return xi18nc("@info:tooltip", "Estimated effort: %1", s);
+                    }
+                    return xi18nc("@info:tooltip", "Estimated duration: %1", s);
+                }
+                if (t == Estimate::Type_Effort) {
+                    auto expected = pertExpected(node->estimate(), Qt::DisplayRole).toString();
+                    return xi18nc("@info:tooltip", "Estimated effort: %1<nl/>Expected effort: %2", s, expected);
+                }
+                auto expected = pertExpected(node->estimate(), Qt::DisplayRole).toString();
+                return xi18nc("@info:tooltip", "Estimated duration: %1<nl/>Expected duration: %2", s, expected);
             }
             break;
         case Qt::EditRole:

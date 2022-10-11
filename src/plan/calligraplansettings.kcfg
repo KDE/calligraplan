@@ -236,16 +236,25 @@
       <default>Hour</default>
     </entry>
     <entry name="ExpectedEstimate" type="Double">
-      <label>Expected estimate</label>
+      <label>Estimate</label>
       <default>8.0</default>
+    </entry>
+    <entry name="Risk" type="Enum">
+      <label>Risk</label>
+      <choices>
+        <choice name="None"/>
+        <choice name="Low"/>
+        <choice name="High"/>
+      </choices>
+      <default>None</default>
     </entry>
     <entry name="OptimisticRatio" type="Int">
       <label>Optimistic estimate</label>
-      <default>-75</default>
+      <default>-25</default>
     </entry>
     <entry name="PessimisticRatio" type="Int">
       <label>Pessimistic estimate</label>
-      <default>100</default>
+      <default>150</default>
     </entry>
 
     <entry name="Description" type="String">

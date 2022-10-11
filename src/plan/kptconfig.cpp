@@ -184,6 +184,7 @@ void Config::setDefaultValues(Task &task)
     task.estimate()->setType((Estimate::Type) KPlatoSettings::estimateType());
     task.estimate()->setUnit((Duration::Unit) KPlatoSettings::unit());
     task.estimate()->setExpectedEstimate(KPlatoSettings::expectedEstimate());
+    task.estimate()->setRisktype(static_cast<Estimate::Risktype>(KPlatoSettings::risk()));
     task.estimate()->setPessimisticRatio(KPlatoSettings::pessimisticRatio());
     task.estimate()->setOptimisticRatio(KPlatoSettings::optimisticRatio());
 }
