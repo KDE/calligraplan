@@ -78,6 +78,8 @@ protected:
 
     void addDataModel(const QString &name, QAbstractItemModel *model, int role);
 
+    QAbstractItemModel *projectsModel(ItemModelBase *base) const;
+
 public:
     class UserField {
     public:

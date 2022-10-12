@@ -251,6 +251,18 @@ void initScheduleModel(QAbstractItemModel *model, Project *project, ScheduleMana
     dbgRGVariable<<model->rowCount()<<model->columnCount();
 }
 
+QAbstractItemModel *ReportGeneratorOdt::projectsModel(ItemModelBase *base) const
+{
+    static_cast<NodeItemModel*>(base)->setShowProject(true);
+
+    auto model = new QSortFilterProxyModel();
+    model->setSourceModel(base);
+    model->setFilterRole(Qt::EditRole);
+    model->setFilterFixedString(QString::number(Node::Type_Project));
+    model->setFilterKeyColumn(NodeModel::NodeType);
+    return model;
+}
+
 //--------------------------------------
 ReportGeneratorOdt::ReportGeneratorOdt()
     : ReportGenerator()
@@ -263,12 +275,13 @@ ReportGeneratorOdt::ReportGeneratorOdt()
     << new NodeItemModel()
     << new TaskStatusItemModel()
     << new ChartItemModel()
-    << new ScheduleItemModel();
+    << new ScheduleItemModel()
+    << new NodeItemModel();
 
     addDataModel(QStringLiteral("tasks"), m_basemodels.at(0), Qt::EditRole);
     addDataModel(QStringLiteral("taskstatus"), m_basemodels.at(1), Qt::EditRole);
     addDataModel(QStringLiteral("chart.project"), m_basemodels.at(2), Qt::EditRole);
-    addDataModel(QStringLiteral("projects"), projectModel(), HeaderRole);
+    addDataModel(QStringLiteral("projects"), projectsModel(m_basemodels.at(4)), Qt::EditRole);
     addDataModel(QStringLiteral("schedules"), m_basemodels.at(3), Qt::EditRole);
     addDataModel(QStringLiteral("project"), projectModel(), HeaderRole);
     addDataModel(QStringLiteral("schedule"), scheduleModel(), HeaderRole);
@@ -335,7 +348,6 @@ bool ReportGeneratorOdt::open()
             dbgRGChart<<"chart:"<<m_project<<m_manager<<"set nodes"<<m_project;
         }
     }
-    initProjectModel(m_datamodels[QStringLiteral("projects")], m_project, m_manager);
     initProjectModel(m_datamodels[QStringLiteral("project")], m_project, m_manager);
     initScheduleModel(m_datamodels[QStringLiteral("schedule")], m_project, m_manager);
     static_cast<ScheduleItemModel*>(m_datamodels[QStringLiteral("schedules")])->setProject(m_project);
@@ -1234,11 +1246,7 @@ void ReportGeneratorOdt::listChildNodes(const QDomNode &parent)
 QAbstractItemModel *ReportGeneratorOdt::dataModel(const QString &name) const
 {
     dbgRG<<name<<m_datamodels;
-    QAbstractItemModel *model = nullptr;
-    if (m_datamodels.contains(name)) {
-        model = m_datamodels[name];
-    }
-    return model;
+    return m_datamodels.value(name);
 }
 
 void ReportGeneratorOdt::UserField::setModel(QAbstractItemModel *model, int role)
