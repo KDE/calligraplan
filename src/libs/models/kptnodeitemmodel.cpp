@@ -2325,8 +2325,8 @@ QVariant NodeModel::headerData(int section, int role)
             case NodeEstimateType: return xi18nc("@title:column", "Estimate Type");
             case NodeEstimateCalendar: return xi18nc("@title:column", "Calendar");
             case NodeEstimate: return xi18nc("@title:column", "Estimate");
-            case NodeOptimisticRatio: return xi18nc("@title:column", "Optimistic"); // Ratio
-            case NodePessimisticRatio: return xi18nc("@title:column", "Pessimistic"); // Ratio
+            case NodeOptimisticRatio: return xi18nc("@title:column", "Optimistic (%)"); // Ratio
+            case NodePessimisticRatio: return xi18nc("@title:column", "Pessimistic (%)"); // Ratio
             case NodeRisk: return xi18nc("@title:column", "Risk");
             case NodePriority: return xi18nc("@title:column", "Priority");
             case NodeConstraint: return xi18nc("@title:column", "Constraint");
@@ -2418,8 +2418,8 @@ QVariant NodeModel::headerData(int section, int role)
             case NodeEstimateType: return QStringLiteral("Estimate Type");
             case NodeEstimateCalendar: return QStringLiteral("Calendar");
             case NodeEstimate: return QStringLiteral("Estimate");
-            case NodeOptimisticRatio: return QStringLiteral("Optimistic"); // Ratio
-            case NodePessimisticRatio: return QStringLiteral("Pessimistic"); // Ratio
+            case NodeOptimisticRatio: return QStringLiteral("Optimistic (%)"); // Ratio
+            case NodePessimisticRatio: return QStringLiteral("Pessimistic (%)"); // Ratio
             case NodeRisk: return QStringLiteral("Risk");
             case NodePriority: return QStringLiteral("Priority");
             case NodeConstraint: return QStringLiteral("Constraint");
