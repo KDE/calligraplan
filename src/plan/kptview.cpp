@@ -1434,6 +1434,7 @@ void View::slotCreateReportTemplate()
         ::Ui::CreateReportTemplateDialog ui;
         QMap<QString, QUrl> files;
     public:
+
         CreateReportTemplateDialog(KoPart *part, QWidget *parent = nullptr)
         : QDialog(parent)
         {
@@ -1469,10 +1470,7 @@ void View::slotCreateReportTemplate()
         QUrl url() const {
             const auto tmp = files.value(ui.templates->currentText());
             const auto url = ui.fileName->url();
-            if (url.isEmpty()) {
-                return url;
-            }
-            if (tmp == url) {
+            if (url.isEmpty() || tmp == url) {
                 return url;
             }
             if (QFile::exists(url.toLocalFile())) {
@@ -1488,6 +1486,17 @@ void View::slotCreateReportTemplate()
             }
             return url;
         }
+        void openAssistant(QWidget *parent = nullptr) const {
+            if (ui.openAssistant->isChecked()) {
+                auto url = QUrl::fromLocalFile(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("calligraplan/data/ReportTemplateAssistant.odt")));
+                if (!url.isValid()) {
+                    return;
+                }
+                auto job = new KIO::OpenUrlJob(url);
+                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
+                job->start();
+            }
+        }
     };
     CreateReportTemplateDialog dlg(getKoPart());
     if (dlg.exec() == QDialog::Accepted) {
@@ -1497,6 +1506,7 @@ void View::slotCreateReportTemplate()
             job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
             job->start();
         }
+        dlg.openAssistant(window());
     }
 }
 

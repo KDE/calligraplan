@@ -358,6 +358,8 @@ add_subdirectory(devtools)
 
 add_subdirectory(doc)
 
+add_subdirectory(data)
+
 if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
