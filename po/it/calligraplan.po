@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: plan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-22 00:45+0000\n"
-"PO-Revision-Date: 2022-08-25 16:46+0200\n"
+"PO-Revision-Date: 2022-09-23 16:40+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -524,10 +524,9 @@ msgstr "Lista dei percorsi dei moduli di attività"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:381
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
-msgstr "Elenco dei percorsi dei modelli di progetto"
+msgstr "Elenco di percorsi per i modelli di report"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:387
@@ -583,10 +582,9 @@ msgid "Project Templates"
 msgstr "Modelli di progetto"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Modelli di progetto"
+msgstr "Modelli di report"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1177,21 +1175,19 @@ msgstr "Pubblica:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Finestra"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:26
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Modello di base:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:39
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Rinomina"
+msgstr "Nome file:"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1583,10 +1579,9 @@ msgid "Open Report Definition File..."
 msgstr "Apri file di definizione resoconto..."
 
 #: kptview.cpp:241
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Crea modello di progetto..."
+msgstr "Crea modello di report..."
 
 #: kptview.cpp:257
 #, kde-format
@@ -1889,19 +1884,18 @@ msgstr "Resoconti"
 #: kptview.cpp:1479
 #, kde-format
 msgid "Overwrite"
-msgstr ""
+msgstr "Sovrascrivi"
 
 #: kptview.cpp:1479
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Modelli di progetto"
+msgstr "Modello del resoconto"
 
 #: kptview.cpp:1479
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "Il file «%1» esiste già, vuoi sovrascriverlo?"
 
 #: kptview.cpp:2014
 #, kde-kuit-format

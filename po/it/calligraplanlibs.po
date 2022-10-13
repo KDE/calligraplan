@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-22 00:45+0000\n"
-"PO-Revision-Date: 2022-09-18 20:53+0200\n"
+"PO-Revision-Date: 2022-09-23 16:41+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -9468,25 +9468,22 @@ msgid "Nothing"
 msgstr "Niente"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:253
-#, fuzzy, kde-format
-#| msgid "Report Template"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
-msgstr "Modello del resoconto"
+msgstr "Modello del report"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:254
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Aggiungi"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
-#, fuzzy, kde-format
-#| msgid "Report File"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report File"
-msgstr "File del resoconto"
+msgstr "File del report"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:258
 #, kde-kuit-format
@@ -9542,10 +9539,9 @@ msgid "Generate Report"
 msgstr "Genera resoconto"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:393
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open..."
-msgstr "Apri"
+msgstr "Apri..."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:429
 #, kde-format
@@ -9566,10 +9562,9 @@ msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr "Impossibile generare %1.<nl/>Il nome del modello è vuoto."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:477
-#, fuzzy, kde-kuit-format
-#| msgid "Failed to generate %1.<nl/>Template file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
-msgstr "Impossibile generare %1.<nl/>Il nome del modello è vuoto."
+msgstr "Impossibile generare %1.<nl/>Il file modello non esiste:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:484
 #, kde-kuit-format
