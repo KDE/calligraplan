@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
 "PO-Revision-Date: 2010-03-09 09:17+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -255,10 +255,10 @@ msgstr ""
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
 #: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
 #: models/kptnodeitemmodel.cpp:423 models/kptnodeitemmodel.cpp:439
-#: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:672
-#: models/kptnodeitemmodel.cpp:689 models/kptnodeitemmodel.cpp:707
-#: models/kptnodeitemmodel.cpp:725 models/kptnodeitemmodel.cpp:760
-#: models/kptnodeitemmodel.cpp:777 models/kptresourceallocationmodel.cpp:878
+#: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:678
+#: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
+#: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
+#: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
 #: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
@@ -634,10 +634,10 @@ msgid "Warning"
 msgstr "ព្រមាន​"
 
 #: kernel/kptschedule.cpp:1596 kernel/kptschedule.cpp:1931
-#: models/kptnodeitemmodel.cpp:1699 models/kptnodeitemmodel.cpp:1732
-#: models/kptnodeitemmodel.cpp:1765 models/kptnodeitemmodel.cpp:1798
-#: models/kptnodeitemmodel.cpp:1831 models/kptnodeitemmodel.cpp:1864
-#: models/kptnodeitemmodel.cpp:1897
+#: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
+#: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
+#: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
+#: models/kptnodeitemmodel.cpp:1903
 #, kde-format
 msgid "Error"
 msgstr "កំហុស​"
@@ -2002,7 +2002,7 @@ msgstr ""
 msgid "Create Shared Resources"
 msgstr "ធន​ធាន​ដែល​ទាម​ទារ ៖​"
 
-#: models/AllocatedResourceItemModel.cpp:135 models/kptnodeitemmodel.cpp:2318
+#: models/AllocatedResourceItemModel.cpp:135 models/kptnodeitemmodel.cpp:2324
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Allocation"
@@ -2360,8 +2360,8 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
 msgstr "កែប្រែ​សភាព​ប្រតិទិន​"
 
-#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2315
-#: models/kptnodeitemmodel.cpp:5250
+#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
+#: models/kptnodeitemmodel.cpp:5256
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:252
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
@@ -3465,28 +3465,28 @@ msgctxt "@info:tooltip"
 msgid "Effort based Cost Performance Index (BCWP/ACWS)"
 msgstr "លិបិក្រម​អនុវត្ត​តម្លៃ​ (BCWP/ACWP)​"
 
-#: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2391
+#: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2397
 #: models/reportgenerator/ReportGeneratorOdt.cpp:162
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Scheduled"
 msgid "BCWS"
 msgstr "BCWS"
 
-#: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2392
+#: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2398
 #: models/reportgenerator/ReportGeneratorOdt.cpp:163
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Performed"
 msgid "BCWP"
 msgstr "BCWP"
 
-#: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2393
+#: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2399
 #: models/reportgenerator/ReportGeneratorOdt.cpp:164
 #, kde-kuit-format
 msgctxt "@title:column Actual Cost of Work Performed"
 msgid "ACWP"
 msgstr "ACWP"
 
-#: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2394
+#: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
 #: models/reportgenerator/ReportGeneratorOdt.cpp:165
 #, kde-kuit-format
 msgctxt "@title:column Schedule Performance Index"
@@ -3604,57 +3604,71 @@ msgctxt "@info:tooltip"
 msgid "Not applicable, estimate type is Effort"
 msgstr "មិន​អានអនុវត្ត​បាន​ ប្រភេទ​ប៉ាន់​ស្មាន​ជា​ទំហំ​ការងារ​"
 
-#: models/kptnodeitemmodel.cpp:495 models/kptnodeitemmodel.cpp:546
-#: models/kptnodeitemmodel.cpp:593
+#: models/kptnodeitemmodel.cpp:493 models/kptnodeitemmodel.cpp:552
+#: models/kptnodeitemmodel.cpp:599
 #, fuzzy, kde-kuit-format
 #| msgid "Not applicable, constraint is Fixed Interval"
 msgctxt "@info:tooltip"
 msgid "Not applicable, constraint is Fixed Interval"
 msgstr "មិន​អាច​អនុវត្ត​បាន កម្រិត​ជា​ចន្លោះ​ពេល​​ថេរ"
 
-#: models/kptnodeitemmodel.cpp:497
+#: models/kptnodeitemmodel.cpp:498
 #, fuzzy, kde-kuit-format
 #| msgid "Estimated effort: %1"
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1"
 msgstr "ទំហំ​ការងារ​ដែល​ប៉ាន់​ស្មាន ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:499
+#: models/kptnodeitemmodel.cpp:500
 #, fuzzy, kde-kuit-format
 #| msgid "Estimated duration: %1"
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1"
 msgstr "ថិរវេលា​ដែល​ប៉ាន់​ស្មាន ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:548
+#: models/kptnodeitemmodel.cpp:504
+#, fuzzy, kde-kuit-format
+#| msgid "Estimated effort: %1"
+msgctxt "@info:tooltip"
+msgid "Estimated effort: %1<nl/>Expected effort: %2"
+msgstr "ទំហំ​ការងារ​ដែល​ប៉ាន់​ស្មាន ៖ %1​"
+
+#: models/kptnodeitemmodel.cpp:507
+#, fuzzy, kde-kuit-format
+#| msgid "Estimated duration: %1"
+msgctxt "@info:tooltip"
+msgid "Estimated duration: %1<nl/>Expected duration: %2"
+msgstr "ថិរវេលា​ដែល​ប៉ាន់​ស្មាន ៖ %1​"
+
+#: models/kptnodeitemmodel.cpp:554
 #, fuzzy, kde-kuit-format
 #| msgid "Optimistic effort: %1"
 msgctxt "@info:tooltip"
 msgid "Optimistic effort: %1"
 msgstr "ទំហំ​ការងារ​សុទិដ្ឋិនិយម​​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:550
+#: models/kptnodeitemmodel.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgid "Optimistic duration: %1"
 msgctxt "@info:tooltip"
 msgid "Optimistic duration: %1"
 msgstr "ថិរវេលា​​សុទិដ្ឋិនិយម​ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:595
+#: models/kptnodeitemmodel.cpp:601
 #, fuzzy, kde-kuit-format
 #| msgid "Pessimistic effort: %1"
 msgctxt "@info:tooltip"
 msgid "Pessimistic effort: %1"
 msgstr "ទំហំ​ការងារ​​សុទិដ្ឋិនិយម​ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:597
+#: models/kptnodeitemmodel.cpp:603
 #, fuzzy, kde-kuit-format
 #| msgid "Pessimistic duration: %1"
 msgctxt "@info:tooltip"
 msgid "Pessimistic duration: %1"
 msgstr "ថិរវេលា​​​ទុទ្ទិដ្ឋិនិយម ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:678
+#: models/kptnodeitemmodel.cpp:684
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for running costs"
@@ -3662,7 +3676,7 @@ msgctxt "@info:tooltip"
 msgid "Account for resource cost: %1"
 msgstr "គណនី​សម្រាប់​តម្លៃ​​​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:679
+#: models/kptnodeitemmodel.cpp:685
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for running costs"
@@ -3670,7 +3684,7 @@ msgctxt "@info:tooltip"
 msgid "Account for resource cost"
 msgstr "គណនី​សម្រាប់​តម្លៃ​​​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:714
+#: models/kptnodeitemmodel.cpp:720
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for running costs"
@@ -3678,7 +3692,7 @@ msgctxt "@info:tooltip"
 msgid "Account for task startup cost: %1"
 msgstr "គណនី​សម្រាប់​តម្លៃ​​​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:715
+#: models/kptnodeitemmodel.cpp:721
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for running costs"
@@ -3686,7 +3700,7 @@ msgctxt "@info:tooltip"
 msgid "Account for task startup cost"
 msgstr "គណនី​សម្រាប់​តម្លៃ​​​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:766
+#: models/kptnodeitemmodel.cpp:772
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for cost incurred at shutdown of the task"
@@ -3694,7 +3708,7 @@ msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost: %1"
 msgstr "គណនី​សម្រាប់​តម្លៃ​ដែល​កើត​ឡើង​នៅ​ពេល​បិទ​ភារកិច្ច​​"
 
-#: models/kptnodeitemmodel.cpp:767
+#: models/kptnodeitemmodel.cpp:773
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Account for running costs"
@@ -3702,77 +3716,77 @@ msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost"
 msgstr "គណនី​សម្រាប់​តម្លៃ​​​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:813
+#: models/kptnodeitemmodel.cpp:819
 #, fuzzy, kde-kuit-format
 #| msgid "Scheduled start: %1"
 msgctxt "@info:tooltip"
 msgid "Scheduled start: %1"
 msgstr "បាន​កំណត់​ពេល​ចាប់ផ្ដើម​ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:830
+#: models/kptnodeitemmodel.cpp:836
 #, fuzzy, kde-kuit-format
 #| msgid "Scheduled finish: %1"
 msgctxt "@info:tooltip"
 msgid "Scheduled finish: %1"
 msgstr "បាន​កំណត់​ពេល​ការ​បញ្ចប់​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:858 models/kptnodeitemmodel.cpp:862
+#: models/kptnodeitemmodel.cpp:864 models/kptnodeitemmodel.cpp:868
 #, fuzzy, kde-kuit-format
 #| msgid "Scheduled duration: %1"
 msgctxt "@info:tooltip"
 msgid "Scheduled duration: %1"
 msgstr "បាន​កំណត់​ថិរវេលា​​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:895
+#: models/kptnodeitemmodel.cpp:901
 #, fuzzy, kde-kuit-format
 #| msgid "PERT duration variance: %1"
 msgctxt "@info:tooltip"
 msgid "PERT duration variance: %1"
 msgstr "វ៉ារ្យង់​​ថិរវេលា​ PERT ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:929
+#: models/kptnodeitemmodel.cpp:935
 #, fuzzy, kde-kuit-format
 #| msgid "PERT estimate variance: %1"
 msgctxt "@info:tooltip"
 msgid "PERT estimate variance: %1"
 msgstr "វ៉ារ្យង់​ប៉ាន​ស្មាន​ PERT ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:971
+#: models/kptnodeitemmodel.cpp:977
 #, fuzzy, kde-kuit-format
 #| msgid "PERT optimistic duration: %1"
 msgctxt "@info:tooltip"
 msgid "PERT optimistic duration: %1"
 msgstr "ថិរវេលា​​​សុទិដ្ឋិនិយម ​PERT ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1003
+#: models/kptnodeitemmodel.cpp:1009
 #, fuzzy, kde-kuit-format
 #| msgid "Optimistic estimate: %1"
 msgctxt "@info:tooltip"
 msgid "Optimistic estimate: %1"
 msgstr "ការ​ប៉ាន់​ស្មាន​​​សុទិដ្ឋិនិយម​៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1036
+#: models/kptnodeitemmodel.cpp:1042
 #, fuzzy, kde-kuit-format
 #| msgid "PERT expected estimate: %1"
 msgctxt "@info:tooltip"
 msgid "PERT expected estimate: %1"
 msgstr "ការ​ប៉ាន​ស្មាន​ដែល​រំពឹង​ទុក​ PERT ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:1077
+#: models/kptnodeitemmodel.cpp:1083
 #, fuzzy, kde-kuit-format
 #| msgid "PERT pessimistic duration: %1"
 msgctxt "@info:tooltip"
 msgid "PERT pessimistic duration: %1"
 msgstr "ថិរវេលា​​​ទុទ្ទិដ្ឋិនិយម​ PERT ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1109
+#: models/kptnodeitemmodel.cpp:1115
 #, fuzzy, kde-kuit-format
 #| msgid "Pessimistic estimate: %1"
 msgctxt "@info:tooltip"
 msgid "Pessimistic estimate: %1"
 msgstr "ការ​ប៉ាន់​ស្មាន​​​ទុទ្ទិដ្ឋិនិយម​ ៖ %1​​"
 
-#: models/kptnodeitemmodel.cpp:1311
+#: models/kptnodeitemmodel.cpp:1317
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip 1=list of resources"
 #| msgid "Allocated resources:<nl/>%1"
@@ -3780,243 +3794,243 @@ msgctxt "@info:tooltip 1=list of resources"
 msgid "Assigned resources:<nl/>%1"
 msgstr "បាន​បម្រុង​ធន​ធាន​ទុក​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:1337
+#: models/kptnodeitemmodel.cpp:1343
 #, fuzzy, kde-kuit-format
 #| msgid "The task finished at: %1"
 msgctxt "@info:tooltip"
 msgid "Task finished at %1"
 msgstr "បាន​បញ្ចប់​ភារកិច្ច​នៅ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1339
+#: models/kptnodeitemmodel.cpp:1345
 #, fuzzy, kde-kuit-format
 #| msgid "Task is %1% completed"
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
 msgstr "បាន​បញ្ចប់​ភារកិច្ច​ %1%​"
 
-#: models/kptnodeitemmodel.cpp:1342
+#: models/kptnodeitemmodel.cpp:1348
 #, fuzzy, kde-kuit-format
 #| msgid "The task finished at: %1"
 msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
 msgstr "បាន​បញ្ចប់​ភារកិច្ច​នៅ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1366
+#: models/kptnodeitemmodel.cpp:1372
 #, kde-format
 msgid "Finished late"
 msgstr "បាន​បញ្ចប់​ក្រោយ​"
 
-#: models/kptnodeitemmodel.cpp:1369
+#: models/kptnodeitemmodel.cpp:1375
 #, kde-format
 msgid "Finished early"
 msgstr "បាន​បញ្ចប់​មុន​​"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: models/kptnodeitemmodel.cpp:1371 models/kpttaskstatusmodel.cpp:48
+#: models/kptnodeitemmodel.cpp:1377 models/kpttaskstatusmodel.cpp:48
 #: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptworkpackagemergepanel.ui:156
 #, kde-format
 msgid "Finished"
 msgstr "បាន​បញ្ចប់​"
 
-#: models/kptnodeitemmodel.cpp:1375 models/kptnodeitemmodel.cpp:1387
+#: models/kptnodeitemmodel.cpp:1381 models/kptnodeitemmodel.cpp:1393
 #, fuzzy, kde-format
 #| msgid "Running"
 msgid "Running late"
 msgstr "ដំណើរ​ការ​"
 
 #. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
-#: models/kptnodeitemmodel.cpp:1377 models/kpttaskstatusmodel.cpp:44
+#: models/kptnodeitemmodel.cpp:1383 models/kpttaskstatusmodel.cpp:44
 #: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "ដំណើរ​ការ​"
 
-#: models/kptnodeitemmodel.cpp:1381
+#: models/kptnodeitemmodel.cpp:1387
 #, kde-format
 msgid "Started late"
 msgstr "បាន​ចាប់​ផ្តើម​ក្រោយ​"
 
-#: models/kptnodeitemmodel.cpp:1384
+#: models/kptnodeitemmodel.cpp:1390
 #, kde-format
 msgid "Started early"
 msgstr "បាន​ចាប់ផ្ដើម​មុន​"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: models/kptnodeitemmodel.cpp:1389 ui/kptworkpackagemergepanel.ui:133
+#: models/kptnodeitemmodel.cpp:1395 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
 msgstr "បាន​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:1393 models/kptnodeitemmodel.cpp:1403
+#: models/kptnodeitemmodel.cpp:1399 models/kptnodeitemmodel.cpp:1409
 #, kde-format
 msgid "Not started"
 msgstr "មិន​បាន​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:1395
+#: models/kptnodeitemmodel.cpp:1401
 #, kde-format
 msgid "Can start"
 msgstr "អាច​ចាប់ផ្ដើម​បាន​"
 
-#: models/kptnodeitemmodel.cpp:1399
+#: models/kptnodeitemmodel.cpp:1405
 #, fuzzy, kde-format
 #| msgid "Deleted"
 msgid "Delayed"
 msgstr "បាន​លុប​"
 
-#: models/kptnodeitemmodel.cpp:1401
+#: models/kptnodeitemmodel.cpp:1407
 #, kde-format
 msgid "Cannot start"
 msgstr "មិន​អាច​ចាប់ផ្ដើម​បាន​ឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:1414
+#: models/kptnodeitemmodel.cpp:1420
 #, fuzzy, kde-kuit-format
 #| msgid "Finished late"
 msgctxt "@info:tooltip"
 msgid "Finished %1 late"
 msgstr "បាន​បញ្ចប់​ក្រោយ​"
 
-#: models/kptnodeitemmodel.cpp:1418
+#: models/kptnodeitemmodel.cpp:1424
 #, fuzzy, kde-kuit-format
 #| msgid "Finished early"
 msgctxt "@info:tooltip"
 msgid "Finished %1 early"
 msgstr "បាន​បញ្ចប់​មុន​​"
 
-#: models/kptnodeitemmodel.cpp:1420
+#: models/kptnodeitemmodel.cpp:1426
 #, fuzzy, kde-kuit-format
 #| msgid "Finished"
 msgctxt "@info:tooltip"
 msgid "Finished"
 msgstr "បាន​បញ្ចប់​"
 
-#: models/kptnodeitemmodel.cpp:1425
+#: models/kptnodeitemmodel.cpp:1431
 #, fuzzy, kde-kuit-format
 #| msgid "Started late"
 msgctxt "@info:tooltip"
 msgid "Started %1 late"
 msgstr "បាន​ចាប់​ផ្តើម​ក្រោយ​"
 
-#: models/kptnodeitemmodel.cpp:1429
+#: models/kptnodeitemmodel.cpp:1435
 #, fuzzy, kde-kuit-format
 #| msgid "Started early"
 msgctxt "@info:tooltip"
 msgid "Started %1 early"
 msgstr "បាន​ចាប់ផ្ដើម​មុន​"
 
-#: models/kptnodeitemmodel.cpp:1431
+#: models/kptnodeitemmodel.cpp:1437
 #, fuzzy, kde-kuit-format
 #| msgid "Started"
 msgctxt "@info:tooltip"
 msgid "Started"
 msgstr "បាន​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:1434
+#: models/kptnodeitemmodel.cpp:1440
 #, fuzzy, kde-kuit-format
 #| msgid "Running"
 msgctxt "@info:tooltip"
 msgid "Running"
 msgstr "ដំណើរ​ការ​"
 
-#: models/kptnodeitemmodel.cpp:1437
+#: models/kptnodeitemmodel.cpp:1443
 #, fuzzy, kde-kuit-format
 #| msgid "Can start"
 msgctxt "@info:tooltip"
 msgid "Can start"
 msgstr "អាច​ចាប់ផ្ដើម​បាន​"
 
-#: models/kptnodeitemmodel.cpp:1440
+#: models/kptnodeitemmodel.cpp:1446
 #, fuzzy, kde-kuit-format
 #| msgid "Cannot start"
 msgctxt "@info:tooltip"
 msgid "Cannot start"
 msgstr "មិន​អាច​ចាប់ផ្ដើម​បាន​ឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:1442
+#: models/kptnodeitemmodel.cpp:1448
 #, fuzzy, kde-kuit-format
 #| msgid "Not started"
 msgctxt "@info:tooltip"
 msgid "Not started"
 msgstr "មិន​បាន​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:1468
+#: models/kptnodeitemmodel.cpp:1474
 #, fuzzy, kde-kuit-format
 #| msgid "Actual start: %1"
 msgctxt "@info:tooltip"
 msgid "Actual start: %1"
 msgstr "ចាប់ផ្ដើម​ជាក់ស្ដែង ៖​ %1"
 
-#: models/kptnodeitemmodel.cpp:1495
+#: models/kptnodeitemmodel.cpp:1501
 #, fuzzy, kde-kuit-format
 #| msgid "The task started at: %1"
 msgctxt "@info:tooltip"
 msgid "The task started at: %1"
 msgstr "បាន​ចាប់ផ្ដើម​​ភារកិច្ច​នៅ​ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1497
+#: models/kptnodeitemmodel.cpp:1503
 #, fuzzy, kde-kuit-format
 #| msgid "The task is not started"
 msgctxt "@info:tooltip"
 msgid "The task is not started"
 msgstr "ភារកិច្ច​មិន​ត្រូវ​បាន​ចាប់ផ្ដើម​ឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:1519
+#: models/kptnodeitemmodel.cpp:1525
 #, fuzzy, kde-kuit-format
 #| msgid "Actual finish: %1"
 msgctxt "@info:tooltip"
 msgid "Actual finish: %1"
 msgstr "បញ្ចប់​ជាក់ស្ដែង ៖​ %1"
 
-#: models/kptnodeitemmodel.cpp:1546
+#: models/kptnodeitemmodel.cpp:1552
 #, fuzzy, kde-kuit-format
 #| msgid "The task finished at: %1"
 msgctxt "@info:tooltip"
 msgid "The task finished at: %1"
 msgstr "បាន​បញ្ចប់​ភារកិច្ច​នៅ ៖ %1"
 
-#: models/kptnodeitemmodel.cpp:1548
+#: models/kptnodeitemmodel.cpp:1554
 #, fuzzy, kde-kuit-format
 #| msgid "The task is not finished"
 msgctxt "@info:tooltip"
 msgid "The task is not finished"
 msgstr "មិន​ទាន់​បាន​បញ្ចប់​ភារកិច្ច"
 
-#: models/kptnodeitemmodel.cpp:1562
+#: models/kptnodeitemmodel.cpp:1568
 #, fuzzy, kde-kuit-format
 #| msgid "Planned effort until %1: %2"
 msgctxt "@info:tooltip"
 msgid "Planned effort until %1: %2"
 msgstr "ទំហំ​ការងារ​ដែល​គ្រោង​រហូត​ដល់​ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1581
+#: models/kptnodeitemmodel.cpp:1587
 #, fuzzy, kde-kuit-format
 #| msgid "Actual effort used up to %1: %2"
 msgctxt "@info:tooltip"
 msgid "Actual effort used up to %1: %2"
 msgstr "ទំហំ​ការងារ​ជាក់​ស្តែង​ត្រូវ​បាន​ប្រើ​​ដល់​​ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1606
+#: models/kptnodeitemmodel.cpp:1612
 #, fuzzy, kde-kuit-format
 #| msgid "Remaining effort: %1"
 msgctxt "@info:tooltip"
 msgid "Remaining effort: %1"
 msgstr "ទំហំ​ការងារ​​ដែល​នៅ​សល់​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:1633
+#: models/kptnodeitemmodel.cpp:1639
 #, fuzzy, kde-kuit-format
 #| msgid "Planned cost until %1: %2"
 msgctxt "@info:tooltip"
 msgid "Planned cost until %1: %2"
 msgstr "ថ្លៃ​ចំណាយ​​ដែល​គ្រោង​រហូត​ដល់​ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1650
+#: models/kptnodeitemmodel.cpp:1656
 #, fuzzy, kde-kuit-format
 #| msgid "Actual cost until %1: %2"
 msgctxt "@info:tooltip"
 msgid "Actual cost until %1: %2"
 msgstr "ថ្លៃ​ចំណាយ​ជាក់ស្តែង​រហូត​ដល់​ ៖ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1706
+#: models/kptnodeitemmodel.cpp:1712
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -4026,50 +4040,50 @@ msgstr ""
 "ការ​បម្រុងទុក​ធនធាន​​​ដែល​ត្រូវ​បាន​រំពឹង​នៅ​ពេល​ប្រភេទ​ប៉ាន់​ស្មាន​​ភារកិច្ច​ជា  <emphasis>ទំហំ​ការងារ​</"
 "emphasis>"
 
-#: models/kptnodeitemmodel.cpp:1739
+#: models/kptnodeitemmodel.cpp:1745
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource has been overbooked"
 msgstr "ធនធាន​ត្រូវ​បាន​កក់​លើស​"
 
-#: models/kptnodeitemmodel.cpp:1772
+#: models/kptnodeitemmodel.cpp:1778
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resource is available for this task"
 msgstr "គ្មាន​ធនធាន​ដែល​មាន​សម្រាប់​ភារកិច្ច​នេះ​ទេ"
 
-#: models/kptnodeitemmodel.cpp:1805
+#: models/kptnodeitemmodel.cpp:1811
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Failed to comply with a timing constraint"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បំពេញ​កម្រិត​កំណត់​ពេល​វេលា​"
 
-#: models/kptnodeitemmodel.cpp:1838
+#: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "This task has not been scheduled"
 msgstr "មិន​ទាន់បាន​កំណត់​ពេល​ថ្នាំង​ទេ​​"
 
-#: models/kptnodeitemmodel.cpp:1871
+#: models/kptnodeitemmodel.cpp:1877
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resources cannot deliver the required estimated effort"
 msgstr "ធន​ធាន​ដែល​បាន​ផ្ដល់​មិន​អាច​​បញ្ជូន​ដល់​​ទំហំ​ការងារ​​ប៉ាន់​ស្មាន​ដែល​បាន​ទាមទារ​​ឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:1904
+#: models/kptnodeitemmodel.cpp:1910
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling error"
 msgstr "កំហុស​ការ​​កំណត់​ពេល​"
 
-#: models/kptnodeitemmodel.cpp:1932
+#: models/kptnodeitemmodel.cpp:1938
 #, fuzzy, kde-kuit-format
 #| msgid "Work breakdown structure code: %1"
 msgctxt "@info:tooltip"
 msgid "Work breakdown structure code: %1"
 msgstr "កូដ​រចនា​សម្ព័ន្ធ​ចែក​រំលែក​ការងារ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:1949
+#: models/kptnodeitemmodel.cpp:1955
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Task type: %1"
@@ -4077,449 +4091,465 @@ msgctxt "@info:tooltip"
 msgid "Task level: %1"
 msgstr "ប្រភេទ​ភារកិច្ច ៖​ %1"
 
-#: models/kptnodeitemmodel.cpp:1965
+#: models/kptnodeitemmodel.cpp:1971
 #, fuzzy, kde-kuit-format
 #| msgid "Budgeted Cost of Work Scheduled at %1: %2"
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled at %1: %2"
 msgstr "ថ្លៃ​ចំណាយ​ក្នុង​ការ​ងារ​ដែល​បាន​កំណត់​ពេល​នៅ​ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1981
+#: models/kptnodeitemmodel.cpp:1987
 #, fuzzy, kde-kuit-format
 #| msgid "Budgeted Cost of Work Performed at %1: %2"
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed at %1: %2"
 msgstr "ថ្លៃ​ចំណាយ​ក្នុង​ការងារ​ដែល​បាន​អនុវត្ត​នៅ​ %1 ៖ %2​"
 
-#: models/kptnodeitemmodel.cpp:1997
+#: models/kptnodeitemmodel.cpp:2003
 #, fuzzy, kde-kuit-format
 #| msgid "Actual Cost of Work Performed at %1: %2"
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed at %1: %2"
 msgstr "ថ្លៃ​ចំណាយ​​ជាក់ស្ដែង​​ក្នុង​ការងារ​ដែល​បាន​អនុវត្ត​នៅ​ %1 ៖ %2"
 
-#: models/kptnodeitemmodel.cpp:2013
+#: models/kptnodeitemmodel.cpp:2019
 #, fuzzy, kde-kuit-format
 #| msgid "Schedule Performance Index at %1: %2"
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index at %1: %2"
 msgstr "លិបិក្រម​អនុវត្ត​កាល​កំណត់​ពេល​​នៅ​ %1 ៖ %2"
 
-#: models/kptnodeitemmodel.cpp:2083 models/kptnodeitemmodel.cpp:2118
-#: models/kptnodeitemmodel.cpp:2147
+#: models/kptnodeitemmodel.cpp:2089 models/kptnodeitemmodel.cpp:2124
+#: models/kptnodeitemmodel.cpp:2153
 #, kde-kuit-format
 msgctxt "Not available"
 msgid "NA"
 msgstr "NA"
 
-#: models/kptnodeitemmodel.cpp:2095
+#: models/kptnodeitemmodel.cpp:2101
 #, fuzzy, kde-kuit-format
 #| msgid "Latest work package sent to %1 at %2"
 msgctxt "@info:tooltip"
 msgid "Latest work package sent to %1 at %2"
 msgstr "កញ្ចប់​ការងារ​ចុង​ក្រោយ​បង្អស់​ត្រូវ​បាន​ផ្ញើ​ទៅ​កាន់ %1 នៅ​ %2​"
 
-#: models/kptnodeitemmodel.cpp:2098
+#: models/kptnodeitemmodel.cpp:2104
 #, fuzzy, kde-kuit-format
 #| msgid "Latest work package received from %1 at %2"
 msgctxt "@info:tooltip"
 msgid "Latest work package received from %1 at %2"
 msgstr "កញ្ចប់​ការងារ​ចុង​ក្រោយ​បង្អស់​ត្រូវ​​បាន​ទទួល​ពី​ %1 នៅ​ %2​​"
 
-#: models/kptnodeitemmodel.cpp:2100 models/kptnodeitemmodel.cpp:2164
+#: models/kptnodeitemmodel.cpp:2106 models/kptnodeitemmodel.cpp:2170
 #, fuzzy, kde-kuit-format
 #| msgid "Not available"
 msgctxt "@info:tooltip"
 msgid "Not available"
 msgstr "គ្មាន​​"
 
-#: models/kptnodeitemmodel.cpp:2159
+#: models/kptnodeitemmodel.cpp:2165
 #, fuzzy, kde-kuit-format
 #| msgid "Latest work package sent: %1"
 msgctxt "@info:tooltip"
 msgid "Latest work package sent: %1"
 msgstr "កញ្ចប់​ការ​ងារ​ចុង​ក្រោយ​បង្អស់​ផ្ញើ​ទៅ​ ៖​ %1"
 
-#: models/kptnodeitemmodel.cpp:2162
+#: models/kptnodeitemmodel.cpp:2168
 #, fuzzy, kde-kuit-format
 #| msgid "Latest work package received: %1"
 msgctxt "@info:tooltip"
 msgid "Latest work package received: %1"
 msgstr "កញ្ចប់​ការងារ​ចុង​ក្រោយ​បង្អស់​ត្រូវ​​បាន​ទទួល​ ៖ %1​"
 
-#: models/kptnodeitemmodel.cpp:2316 ui/RelationEditorDialog.cpp:243
+#: models/kptnodeitemmodel.cpp:2322 ui/RelationEditorDialog.cpp:243
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Type"
 msgstr "ប្រភេទ​"
 
-#: models/kptnodeitemmodel.cpp:2317
+#: models/kptnodeitemmodel.cpp:2323
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
 msgstr "ទទួល​ខុស​ត្រូវ​"
 
-#: models/kptnodeitemmodel.cpp:2319
+#: models/kptnodeitemmodel.cpp:2325
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Estimate Type"
 msgstr "ប្រភេទ​ប៉ាន់​ស្មាន​"
 
-#: models/kptnodeitemmodel.cpp:2320
+#: models/kptnodeitemmodel.cpp:2326
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Calendar"
 msgstr "ប្រតិទិន​"
 
-#: models/kptnodeitemmodel.cpp:2321
+#: models/kptnodeitemmodel.cpp:2327
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Estimate"
 msgstr "ប៉ាន់​ស្មាន"
 
-#: models/kptnodeitemmodel.cpp:2322 models/kptnodeitemmodel.cpp:2339
-#, kde-kuit-format
+#: models/kptnodeitemmodel.cpp:2328
+#, fuzzy, kde-kuit-format
+#| msgctxt "@title:column"
+#| msgid "Optimistic (Dur)"
 msgctxt "@title:column"
-msgid "Optimistic"
-msgstr "សុទិដ្ឋិនិយម"
+msgid "Optimistic (%)"
+msgstr "សុទិទ្ធិនិយម​ (រយៈ​ពេល​)"
 
-#: models/kptnodeitemmodel.cpp:2323 models/kptnodeitemmodel.cpp:2340
-#, kde-kuit-format
+#: models/kptnodeitemmodel.cpp:2329
+#, fuzzy, kde-kuit-format
+#| msgctxt "@title:column"
+#| msgid "Pessimistic (Dur)"
 msgctxt "@title:column"
-msgid "Pessimistic"
-msgstr "ទុទ្ទិដ្ឋិនិយម"
+msgid "Pessimistic (%)"
+msgstr "ទុទិដ្ឋិនិយម (​ថិរវេលា​)"
 
-#: models/kptnodeitemmodel.cpp:2324
+#: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Risk"
 msgstr "ហានិភ័យ​"
 
-#: models/kptnodeitemmodel.cpp:2325
+#: models/kptnodeitemmodel.cpp:2331
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
 msgstr ""
 
-#: models/kptnodeitemmodel.cpp:2326
+#: models/kptnodeitemmodel.cpp:2332
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint"
 msgstr "កម្រិត​​"
 
-#: models/kptnodeitemmodel.cpp:2327
+#: models/kptnodeitemmodel.cpp:2333
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint Start"
 msgstr "ចាប់ផ្ដើម​​កម្រិត"
 
-#: models/kptnodeitemmodel.cpp:2328
+#: models/kptnodeitemmodel.cpp:2334
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint End"
 msgstr "បញ្ចប់​កម្រិត"
 
-#: models/kptnodeitemmodel.cpp:2329
+#: models/kptnodeitemmodel.cpp:2335
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Running Account"
 msgstr "គណនី​ដំណើរ​ការ​"
 
-#: models/kptnodeitemmodel.cpp:2330
+#: models/kptnodeitemmodel.cpp:2336
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Account"
 msgstr "គណនី​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:2331
+#: models/kptnodeitemmodel.cpp:2337
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Cost"
 msgstr "តម្លៃ​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:2332
+#: models/kptnodeitemmodel.cpp:2338
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Account"
 msgstr "គណនី​បិទ"
 
-#: models/kptnodeitemmodel.cpp:2333
+#: models/kptnodeitemmodel.cpp:2339
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Cost"
 msgstr "តម្លៃ​បិទ​"
 
-#: models/kptnodeitemmodel.cpp:2334
+#: models/kptnodeitemmodel.cpp:2340
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
 msgstr "សេចក្ដី​ពិពណ៌នា​"
 
-#: models/kptnodeitemmodel.cpp:2337
+#: models/kptnodeitemmodel.cpp:2343
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Expected"
 msgstr "ដែល​រំពឹង​ទុក​"
 
-#: models/kptnodeitemmodel.cpp:2338
+#: models/kptnodeitemmodel.cpp:2344
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Est)"
 msgstr "វ៉ារ្យង់ (ប៉ាន់​ស្មាន)​"
 
-#: models/kptnodeitemmodel.cpp:2343
+#: models/kptnodeitemmodel.cpp:2345
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Optimistic"
+msgstr "សុទិដ្ឋិនិយម"
+
+#: models/kptnodeitemmodel.cpp:2346
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Pessimistic"
+msgstr "ទុទ្ទិដ្ឋិនិយម"
+
+#: models/kptnodeitemmodel.cpp:2349
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Time"
 msgstr "ពេល​វេលា​​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:2344
+#: models/kptnodeitemmodel.cpp:2350
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "End Time"
 msgstr "ពេល​វេលា​បញ្ចប់"
 
-#: models/kptnodeitemmodel.cpp:2345
+#: models/kptnodeitemmodel.cpp:2351
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Start"
 msgstr "ចាប់ផ្ដើម​មុនពេល​"
 
-#: models/kptnodeitemmodel.cpp:2346
+#: models/kptnodeitemmodel.cpp:2352
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Finish"
 msgstr "បញ្ចប់​មុន​ពេល​"
 
-#: models/kptnodeitemmodel.cpp:2347
+#: models/kptnodeitemmodel.cpp:2353
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Start"
 msgstr "ចាប់​ផ្តើម​ក្រោយ​ពេល​"
 
-#: models/kptnodeitemmodel.cpp:2348
+#: models/kptnodeitemmodel.cpp:2354
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Finish"
 msgstr "បញ្ចប់​ក្រោយ​ពេល​"
 
-#: models/kptnodeitemmodel.cpp:2349
+#: models/kptnodeitemmodel.cpp:2355
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Positive Float"
 msgstr "លំហូរ​វិជ្ជមាន​"
 
-#: models/kptnodeitemmodel.cpp:2350
+#: models/kptnodeitemmodel.cpp:2356
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Free Float"
 msgstr "លំហូរ​សេរី​"
 
-#: models/kptnodeitemmodel.cpp:2351
+#: models/kptnodeitemmodel.cpp:2357
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Negative Float"
 msgstr "លំហូរ​អវិជ្ជមាន​"
 
-#: models/kptnodeitemmodel.cpp:2352
+#: models/kptnodeitemmodel.cpp:2358
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Float"
 msgstr "លំហូរ​ចាប់​ផ្តើម​"
 
-#: models/kptnodeitemmodel.cpp:2353
+#: models/kptnodeitemmodel.cpp:2359
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finish Float"
 msgstr "លំហូរ​បញ្ចប់​"
 
-#: models/kptnodeitemmodel.cpp:2354
+#: models/kptnodeitemmodel.cpp:2360
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignments"
 msgstr "កិច្ចការ​"
 
-#: models/kptnodeitemmodel.cpp:2357
+#: models/kptnodeitemmodel.cpp:2363
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Duration"
 msgstr "ថិរវេលា​"
 
-#: models/kptnodeitemmodel.cpp:2358
+#: models/kptnodeitemmodel.cpp:2364
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Dur)"
 msgstr "វ៉ារ្យង់ (ថិរវេលា)​"
 
-#: models/kptnodeitemmodel.cpp:2359
+#: models/kptnodeitemmodel.cpp:2365
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (Dur)"
 msgstr "សុទិទ្ធិនិយម​ (រយៈ​ពេល​)"
 
-#: models/kptnodeitemmodel.cpp:2360
+#: models/kptnodeitemmodel.cpp:2366
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (Dur)"
 msgstr "ទុទិដ្ឋិនិយម (​ថិរវេលា​)"
 
-#: models/kptnodeitemmodel.cpp:2363 models/kptnodeitemmodel.cpp:2400
+#: models/kptnodeitemmodel.cpp:2369 models/kptnodeitemmodel.cpp:2406
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "ស្ថានភាព"
 
-#: models/kptnodeitemmodel.cpp:2365
+#: models/kptnodeitemmodel.cpp:2371
 #, no-c-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "% Completed"
 msgstr "បាន​បញ្ចប់​ %​"
 
-#: models/kptnodeitemmodel.cpp:2366
+#: models/kptnodeitemmodel.cpp:2372
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
 msgstr "ទំហំ​ការងារ​ដែល​គ្រោង​​"
 
-#: models/kptnodeitemmodel.cpp:2367
+#: models/kptnodeitemmodel.cpp:2373
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
 msgstr "ទំហំ​ការងារ​ជាក់ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:2368
+#: models/kptnodeitemmodel.cpp:2374
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
 msgstr "ទំហំ​ការងារ​ដែល​នៅ​សល់​"
 
-#: models/kptnodeitemmodel.cpp:2369
+#: models/kptnodeitemmodel.cpp:2375
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Cost"
 msgstr "ថ្លៃ​ចំណាយ​ដែល​គ្រោង​"
 
-#: models/kptnodeitemmodel.cpp:2370
+#: models/kptnodeitemmodel.cpp:2376
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Cost"
 msgstr "ថ្លៃ​ចំណាយ​ជាក់​ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:2371
+#: models/kptnodeitemmodel.cpp:2377
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
 msgstr "ចាប់​ផ្ដើម​​ជាក់​ស្ដែង"
 
-#: models/kptnodeitemmodel.cpp:2372
+#: models/kptnodeitemmodel.cpp:2378
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Started"
 msgstr "បាន​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:2373
+#: models/kptnodeitemmodel.cpp:2379
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
 msgstr "ពេល​បញ្ចប់​ជាក់ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:2374
+#: models/kptnodeitemmodel.cpp:2380
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finished"
 msgstr "បាន​បញ្ចប់​"
 
-#: models/kptnodeitemmodel.cpp:2375
+#: models/kptnodeitemmodel.cpp:2381
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status Note"
 msgstr "កំណត់​សំគាល់​ស្ថាន​ភាព​​"
 
-#: models/kptnodeitemmodel.cpp:2378
+#: models/kptnodeitemmodel.cpp:2384
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Status"
 msgstr "ស្ថានភាព​កំណត់​ពេល​​"
 
-#: models/kptnodeitemmodel.cpp:2379
+#: models/kptnodeitemmodel.cpp:2385
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Not Scheduled"
 msgstr "មិន​បាន​កំណត់​ពេល​​"
 
-#: models/kptnodeitemmodel.cpp:2380
+#: models/kptnodeitemmodel.cpp:2386
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignment Missing"
 msgstr "បាត់​កិច្ចការ"
 
-#: models/kptnodeitemmodel.cpp:2381
+#: models/kptnodeitemmodel.cpp:2387
 #, fuzzy, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Overbooked"
 msgstr "បាន​កក់​ធនធាន​លើស​"
 
-#: models/kptnodeitemmodel.cpp:2382
+#: models/kptnodeitemmodel.cpp:2388
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Unavailable"
 msgstr "មិន​មាន​ធន​ធាន​​ឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:2383
+#: models/kptnodeitemmodel.cpp:2389
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraints Error"
 msgstr "កំហុស​កម្រិត​"
 
-#: models/kptnodeitemmodel.cpp:2384
+#: models/kptnodeitemmodel.cpp:2390
 #, fuzzy, kde-kuit-format
 msgctxt "@title:column"
 msgid "Effort Not Met"
 msgstr "មិន​ត្រូវ​នឹង​ទំហំការងារឡើយ​"
 
-#: models/kptnodeitemmodel.cpp:2385
+#: models/kptnodeitemmodel.cpp:2391
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Error"
 msgstr "កំហុស​ការ​កំណត់​ពេល​"
 
-#: models/kptnodeitemmodel.cpp:2387
+#: models/kptnodeitemmodel.cpp:2393
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "WBS Code"
 msgstr "កូដ​ WBS​"
 
-#: models/kptnodeitemmodel.cpp:2388
+#: models/kptnodeitemmodel.cpp:2394
 #, kde-kuit-format
 msgctxt "@title:column Node level"
 msgid "Level"
 msgstr "កម្រិត​"
 
-#: models/kptnodeitemmodel.cpp:2395
+#: models/kptnodeitemmodel.cpp:2401
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical"
 msgstr "សំខាន់​បំផុត​"
 
-#: models/kptnodeitemmodel.cpp:2396
+#: models/kptnodeitemmodel.cpp:2402
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical Path"
 msgstr "ផ្លូវ​សំខាន់​បំផុត​"
 
-#: models/kptnodeitemmodel.cpp:2399
+#: models/kptnodeitemmodel.cpp:2405
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ម្ចាស់​កម្មសិទ្ធិ​"
 
-#: models/kptnodeitemmodel.cpp:2401
+#: models/kptnodeitemmodel.cpp:2407
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Time"
 msgstr "ពេល​វេលា​"
 
-#: models/kptnodeitemmodel.cpp:2582
+#: models/kptnodeitemmodel.cpp:2588
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:column"
 #| msgid "Work package owner"
@@ -4527,7 +4557,7 @@ msgctxt "@info:tooltip"
 msgid "Work package owner"
 msgstr "ម្ចាស់​​កម្មសិទ្ធិ​កញ្ចប់​ការងារ​"
 
-#: models/kptnodeitemmodel.cpp:2583
+#: models/kptnodeitemmodel.cpp:2589
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:column"
 #| msgid "Work package status"
@@ -4535,7 +4565,7 @@ msgctxt "@info:tooltip"
 msgid "Work package status"
 msgstr "ស្ថានភាព​កញ្ចប់​ការងារ​"
 
-#: models/kptnodeitemmodel.cpp:2584
+#: models/kptnodeitemmodel.cpp:2590
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:column"
 #| msgid "Work package send/receive time"
@@ -4543,42 +4573,42 @@ msgctxt "@info:tooltip"
 msgid "Work package send/receive time"
 msgstr "ពេល​វេលា​ផ្ញើ​/ទទួល​កញ្ចប់​ការងារ​"
 
-#: models/kptnodeitemmodel.cpp:2720
+#: models/kptnodeitemmodel.cpp:2726
 #, fuzzy
 #| msgid "Modify name"
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "កែប្រែ​ឈ្មោះ​​"
 
-#: models/kptnodeitemmodel.cpp:2722
+#: models/kptnodeitemmodel.cpp:2728
 #, fuzzy
 #| msgid "Modify task name"
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "កែប្រែ​ឈ្មោះ​ភារកិច្ច"
 
-#: models/kptnodeitemmodel.cpp:2723
+#: models/kptnodeitemmodel.cpp:2729
 #, fuzzy
 #| msgid "Modify milestone name"
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "កែប្រែ​ឈ្មោះ​ដំណាក់​កាល​"
 
-#: models/kptnodeitemmodel.cpp:2724
+#: models/kptnodeitemmodel.cpp:2730
 #, fuzzy
 #| msgid "Modify summarytask name"
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "កែប្រែ​ឈ្មោះ​ភារកិច្ច​សង្ខេប​"
 
-#: models/kptnodeitemmodel.cpp:2725
+#: models/kptnodeitemmodel.cpp:2731
 #, fuzzy
 #| msgid "Modify project name"
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "កែប្រែ​ឈ្មោះ​គម្រោង​​"
 
-#: models/kptnodeitemmodel.cpp:2738
+#: models/kptnodeitemmodel.cpp:2744
 #, fuzzy
 #| msgctxt "@title:column"
 #| msgid "Responsible"
@@ -4586,21 +4616,21 @@ msgctxt "(qtundo-format)"
 msgid "Modify responsible"
 msgstr "ទទួល​ខុស​ត្រូវ​"
 
-#: models/kptnodeitemmodel.cpp:2763 ui/kpttaskdescriptiondialog.cpp:38
+#: models/kptnodeitemmodel.cpp:2769 ui/kpttaskdescriptiondialog.cpp:38
 #, fuzzy
 #| msgid "Modify task description"
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
 msgstr "កែប្រែ​សេចក្ដី​ពិពណ៌នា​អំពី​ភារកិច្ច​​"
 
-#: models/kptnodeitemmodel.cpp:2786
+#: models/kptnodeitemmodel.cpp:2792
 #, fuzzy
 #| msgid "Modify document type"
 msgctxt "(qtundo-format)"
 msgid "Modify constraint type"
 msgstr "កែប្រែ​ប្រភេទ​ឯកសារ​"
 
-#: models/kptnodeitemmodel.cpp:2803
+#: models/kptnodeitemmodel.cpp:2809
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Constraint start time"
@@ -4608,7 +4638,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify constraint start time"
 msgstr "ពេល​វេលាចាប់​ផ្តើម​កម្រិត​"
 
-#: models/kptnodeitemmodel.cpp:2820
+#: models/kptnodeitemmodel.cpp:2826
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Constraint end time"
@@ -4616,28 +4646,28 @@ msgctxt "(qtundo-format)"
 msgid "Modify constraint end time"
 msgstr "ពេល​វេលា​បញ្ចប់​កម្រិត​"
 
-#: models/kptnodeitemmodel.cpp:2845
+#: models/kptnodeitemmodel.cpp:2851
 #, fuzzy
 #| msgid "Modify estimate"
 msgctxt "(qtundo-format)"
 msgid "Modify estimate type"
 msgstr "កែប្រែ​ការ​ប៉ាន់ស្មាន​"
 
-#: models/kptnodeitemmodel.cpp:2871
+#: models/kptnodeitemmodel.cpp:2877
 #, fuzzy
 #| msgid "Modify estimate"
 msgctxt "(qtundo-format)"
 msgid "Modify estimate calendar"
 msgstr "កែប្រែ​ការ​ប៉ាន់ស្មាន​"
 
-#: models/kptnodeitemmodel.cpp:2904 models/kptnodeitemmodel.cpp:2908
+#: models/kptnodeitemmodel.cpp:2910 models/kptnodeitemmodel.cpp:2914
 #, fuzzy
 #| msgid "Modify estimate"
 msgctxt "(qtundo-format)"
 msgid "Modify estimate"
 msgstr "កែប្រែ​ការ​ប៉ាន់ស្មាន​"
 
-#: models/kptnodeitemmodel.cpp:2930
+#: models/kptnodeitemmodel.cpp:2936
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Optimistic estimate"
@@ -4645,7 +4675,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify optimistic estimate"
 msgstr "ការ​ប៉ាន​ស្មាន​សុទិដ្ឋិនិយម"
 
-#: models/kptnodeitemmodel.cpp:2947
+#: models/kptnodeitemmodel.cpp:2953
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Pessimistic estimate"
@@ -4653,105 +4683,105 @@ msgctxt "(qtundo-format)"
 msgid "Modify pessimistic estimate"
 msgstr "ការ​ប៉ាន់​ស្មាន​ទុទ្ទិដ្ឋិនិយម"
 
-#: models/kptnodeitemmodel.cpp:2971
+#: models/kptnodeitemmodel.cpp:2977
 #, fuzzy
 #| msgid "Modify Task Name"
 msgctxt "(qtundo-format)"
 msgid "Modify risk type"
 msgstr "កែ​ប្រែ​ឈ្មោះ​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:2986
+#: models/kptnodeitemmodel.cpp:2992
 #, fuzzy
 #| msgid "Modify Task Name"
 msgctxt "(qtundo-format)"
 msgid "Modify priority"
 msgstr "កែ​ប្រែ​ឈ្មោះ​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:3006
+#: models/kptnodeitemmodel.cpp:3012
 #, fuzzy
 #| msgid "Modify running account"
 msgctxt "(qtundo-format)"
 msgid "Modify running account"
 msgstr "កែប្រែ​គណនី​ដំណើរការ​"
 
-#: models/kptnodeitemmodel.cpp:3028
+#: models/kptnodeitemmodel.cpp:3034
 #, fuzzy
 #| msgid "Modify startup account"
 msgctxt "(qtundo-format)"
 msgid "Modify startup account"
 msgstr "កែប្រែ​គណនី​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:3045
+#: models/kptnodeitemmodel.cpp:3051
 #, fuzzy
 #| msgid "Modify startup cost"
 msgctxt "(qtundo-format)"
 msgid "Modify startup cost"
 msgstr "កែប្រែ​តម្លៃ​ចាប់ផ្ដើម​"
 
-#: models/kptnodeitemmodel.cpp:3065
+#: models/kptnodeitemmodel.cpp:3071
 #, fuzzy
 #| msgid "Modify shutdown account"
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown account"
 msgstr "កែប្រែ​គណនី​បិទ​"
 
-#: models/kptnodeitemmodel.cpp:3082
+#: models/kptnodeitemmodel.cpp:3088
 #, fuzzy
 #| msgid "Modify shutdown cost"
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown cost"
 msgstr "កែប្រែ​តម្លៃ​បិទ​"
 
-#: models/kptnodeitemmodel.cpp:3107 models/kpttaskstatusmodel.cpp:447
+#: models/kptnodeitemmodel.cpp:3113 models/kpttaskstatusmodel.cpp:447
 #, fuzzy
 #| msgid "Modify remaining effort"
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
 msgstr "កែប្រែ​ទំហំ​ការងារ​ដែល​នៅ​សល់​"
 
-#: models/kptnodeitemmodel.cpp:3119 models/kpttaskstatusmodel.cpp:460
+#: models/kptnodeitemmodel.cpp:3125 models/kpttaskstatusmodel.cpp:460
 #, fuzzy
 #| msgid "Modify actual effort"
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
 msgstr "កែប្រែ​ទំហំ​ការងារ​ជាក់ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:3132 models/kpttaskstatusmodel.cpp:474
+#: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 #, fuzzy
 #| msgid "Modify actual start time"
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
 msgstr "កែប្រែ​ពេល​វេលា​ចាប់ផ្ដើម​ជាក់ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:3161 models/kpttaskstatusmodel.cpp:502
+#: models/kptnodeitemmodel.cpp:3167 models/kpttaskstatusmodel.cpp:502
 #, fuzzy
 #| msgid "Modify actual finish time"
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
 msgstr "កែប្រែ​ពេល​វេលា​បញ្ចប់​ជាក់ស្ដែង​"
 
-#: models/kptnodeitemmodel.cpp:3632
+#: models/kptnodeitemmodel.cpp:3638
 #, fuzzy
 #| msgid "Resource allocation"
 msgctxt "(qtundo-format)"
 msgid "Add resource allocation"
 msgstr "ការបម្រុង​ទុក​ធន​ធាន​"
 
-#: models/kptnodeitemmodel.cpp:3634
+#: models/kptnodeitemmodel.cpp:3640
 #, fuzzy
 #| msgid "Resource allocation"
 msgctxt "(qtundo-format)"
 msgid "Removed resource allocation"
 msgstr "ការបម្រុង​ទុក​ធន​ធាន​"
 
-#: models/kptnodeitemmodel.cpp:3657 models/kpttaskstatusmodel.cpp:391
+#: models/kptnodeitemmodel.cpp:3663 models/kpttaskstatusmodel.cpp:391
 #, fuzzy, no-c-format
 #| msgid "Modify completion"
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
 msgstr "កែប្រែ​ការ​បញ្ចប់​"
 
-#: models/kptnodeitemmodel.cpp:3686 models/kptnodeitemmodel.cpp:4836
+#: models/kptnodeitemmodel.cpp:3692 models/kptnodeitemmodel.cpp:4842
 #: models/kpttaskstatusmodel.cpp:425
 #, fuzzy
 #| msgid "Set finished"
@@ -4759,14 +4789,14 @@ msgctxt "(qtundo-format)"
 msgid "Set finished"
 msgstr "បាន​បញ្ចប់​ការកំណត់​"
 
-#: models/kptnodeitemmodel.cpp:4060
+#: models/kptnodeitemmodel.cpp:4066
 #, fuzzy
 #| msgid "Per task"
 msgctxt "(qtundo-format)"
 msgid "Insert tasks"
 msgstr "ក្នុង​មួយ​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:4106
+#: models/kptnodeitemmodel.cpp:4112
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Task notes"
@@ -4774,20 +4804,20 @@ msgctxt "@title:window"
 msgid "Task Module Parameters"
 msgstr "កំណត់​សម្គាល់​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:4136
+#: models/kptnodeitemmodel.cpp:4142
 #, fuzzy
 #| msgid "Per task"
 msgctxt "(qtundo-format)"
 msgid "Insert task module"
 msgstr "ក្នុង​មួយ​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:4196
+#: models/kptnodeitemmodel.cpp:4202
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert %1"
 msgstr ""
 
-#: models/kptnodeitemmodel.cpp:4203 ui/kptrequestresourcespanel.cpp:102
+#: models/kptnodeitemmodel.cpp:4209 ui/kptrequestresourcespanel.cpp:102
 #: ui/ResourceAllocationView.cpp:141
 #, fuzzy
 #| msgid "Modify resource allocations"
@@ -4795,14 +4825,14 @@ msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
 msgstr "ការ​ប្រែ​ការ​បម្រុងទុក​ធនធាន​​"
 
-#: models/kptnodeitemmodel.cpp:4259 models/kptnodeitemmodel.cpp:5062
+#: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5068
 #, fuzzy
 #| msgid "Move tasks"
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
 msgstr "ផ្លាស់​ទី​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:4328 ui/kpttaskdialog.cpp:166
+#: models/kptnodeitemmodel.cpp:4334 ui/kpttaskdialog.cpp:166
 #: ui/kpttaskdialog.cpp:203
 #, fuzzy
 #| msgid "Add task"
@@ -4810,7 +4840,7 @@ msgctxt "(qtundo-format)"
 msgid "Add task"
 msgstr "បន្ថែម​ភារកិច្ច​"
 
-#: models/kptnodeitemmodel.cpp:4343 ui/kpttaskdialog.cpp:201
+#: models/kptnodeitemmodel.cpp:4349 ui/kpttaskdialog.cpp:201
 #, fuzzy
 #| msgid "Add sub-task"
 msgctxt "(qtundo-format)"
@@ -5467,106 +5497,106 @@ msgstr ""
 msgid "Manager"
 msgstr "កម្មវិធី​គ្រប់​គ្រង ៖​"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:309
+#: models/reportgenerator/ReportGeneratorOdt.cpp:322
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
 msgid "Missing report template file"
 msgstr "កម្មវិធី​រចនា​របាយ​ការណ៍​"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:313
+#: models/reportgenerator/ReportGeneratorOdt.cpp:326
 #, kde-format
 msgid "Missing report result file"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:317
+#: models/reportgenerator/ReportGeneratorOdt.cpp:330
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
 msgid "Report generator is already open"
 msgstr "កម្មវិធី​រចនា​របាយ​ការណ៍​"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:321
+#: models/reportgenerator/ReportGeneratorOdt.cpp:334
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
 msgid "Report template file does not exist"
 msgstr "កម្មវិធី​រចនា​របាយ​ការណ៍​"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:327
+#: models/reportgenerator/ReportGeneratorOdt.cpp:340
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to open template file: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:354
+#: models/reportgenerator/ReportGeneratorOdt.cpp:366
 #, kde-format
 msgid "Report generator has not been correctly opened"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:394
-#: models/reportgenerator/ReportGeneratorOdt.cpp:421
-#: models/reportgenerator/ReportGeneratorOdt.cpp:1028
+#: models/reportgenerator/ReportGeneratorOdt.cpp:406
+#: models/reportgenerator/ReportGeneratorOdt.cpp:433
+#: models/reportgenerator/ReportGeneratorOdt.cpp:1040
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write to store: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:436
+#: models/reportgenerator/ReportGeneratorOdt.cpp:448
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write report file: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:829
+#: models/reportgenerator/ReportGeneratorOdt.cpp:841
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to extract file: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:835
+#: models/reportgenerator/ReportGeneratorOdt.cpp:847
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to add file to store: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:859
+#: models/reportgenerator/ReportGeneratorOdt.cpp:871
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:866
+#: models/reportgenerator/ReportGeneratorOdt.cpp:878
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to open report file: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:875
+#: models/reportgenerator/ReportGeneratorOdt.cpp:887
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to load mimetype file"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:884
+#: models/reportgenerator/ReportGeneratorOdt.cpp:896
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write manifest file"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:910 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:922 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:920
+#: models/reportgenerator/ReportGeneratorOdt.cpp:932
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
@@ -5574,7 +5604,7 @@ msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​នាំ​ចេញ​ទៅ​កាន់​ <filename>%1</filename>"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:953
+#: models/reportgenerator/ReportGeneratorOdt.cpp:965
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot open file:<br/><filename>%1</filename>"

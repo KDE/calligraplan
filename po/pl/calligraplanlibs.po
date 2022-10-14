@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
 "PO-Revision-Date: 2022-09-15 15:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -249,10 +249,10 @@ msgstr ""
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
 #: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
 #: models/kptnodeitemmodel.cpp:423 models/kptnodeitemmodel.cpp:439
-#: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:672
-#: models/kptnodeitemmodel.cpp:689 models/kptnodeitemmodel.cpp:707
-#: models/kptnodeitemmodel.cpp:725 models/kptnodeitemmodel.cpp:760
-#: models/kptnodeitemmodel.cpp:777 models/kptresourceallocationmodel.cpp:878
+#: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:678
+#: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
+#: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
+#: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
 #: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
@@ -619,10 +619,10 @@ msgid "Warning"
 msgstr "Ostrzeżenie"
 
 #: kernel/kptschedule.cpp:1596 kernel/kptschedule.cpp:1931
-#: models/kptnodeitemmodel.cpp:1699 models/kptnodeitemmodel.cpp:1732
-#: models/kptnodeitemmodel.cpp:1765 models/kptnodeitemmodel.cpp:1798
-#: models/kptnodeitemmodel.cpp:1831 models/kptnodeitemmodel.cpp:1864
-#: models/kptnodeitemmodel.cpp:1897
+#: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
+#: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
+#: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
+#: models/kptnodeitemmodel.cpp:1903
 #, kde-format
 msgid "Error"
 msgstr "Błąd"
@@ -2008,7 +2008,7 @@ msgstr "<a href=\"https://userbase.kde.org/Plan\">Społeczność</a>"
 msgid "Create Shared Resources"
 msgstr "Utwórz współdzielone zasoby"
 
-#: models/AllocatedResourceItemModel.cpp:135 models/kptnodeitemmodel.cpp:2318
+#: models/AllocatedResourceItemModel.cpp:135 models/kptnodeitemmodel.cpp:2324
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Allocation"
@@ -2349,8 +2349,8 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
 msgstr "Zmień kalendarza świąt"
 
-#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2315
-#: models/kptnodeitemmodel.cpp:5250
+#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
+#: models/kptnodeitemmodel.cpp:5256
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:252
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
@@ -3399,28 +3399,28 @@ msgctxt "@info:tooltip"
 msgid "Effort based Cost Performance Index (BCWP/ACWS)"
 msgstr "Wysiłek oparty o indeks wydajności kosztów (BCWP/BCWS)"
 
-#: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2391
+#: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2397
 #: models/reportgenerator/ReportGeneratorOdt.cpp:162
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Scheduled"
 msgid "BCWS"
 msgstr "BCWS"
 
-#: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2392
+#: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2398
 #: models/reportgenerator/ReportGeneratorOdt.cpp:163
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Performed"
 msgid "BCWP"
 msgstr "BCWP"
 
-#: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2393
+#: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2399
 #: models/reportgenerator/ReportGeneratorOdt.cpp:164
 #, kde-kuit-format
 msgctxt "@title:column Actual Cost of Work Performed"
 msgid "ACWP"
 msgstr "ACWP"
 
-#: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2394
+#: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
 #: models/reportgenerator/ReportGeneratorOdt.cpp:165
 #, kde-kuit-format
 msgctxt "@title:column Schedule Performance Index"
@@ -3528,152 +3528,168 @@ msgctxt "@info:tooltip"
 msgid "Not applicable, estimate type is Effort"
 msgstr "Niestosowalne, rodzaj szacunku to wysiłek"
 
-#: models/kptnodeitemmodel.cpp:495 models/kptnodeitemmodel.cpp:546
-#: models/kptnodeitemmodel.cpp:593
+#: models/kptnodeitemmodel.cpp:493 models/kptnodeitemmodel.cpp:552
+#: models/kptnodeitemmodel.cpp:599
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not applicable, constraint is Fixed Interval"
 msgstr "Nie stosowalne, ograniczeniem jest utwierdzony przedział"
 
-#: models/kptnodeitemmodel.cpp:497
+#: models/kptnodeitemmodel.cpp:498
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1"
 msgstr "Szacowany wysiłek: %1"
 
-#: models/kptnodeitemmodel.cpp:499
+#: models/kptnodeitemmodel.cpp:500
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1"
 msgstr "Szacowany czas trwania: %1"
 
-#: models/kptnodeitemmodel.cpp:548
+#: models/kptnodeitemmodel.cpp:504
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid "Estimated effort: %1"
+msgctxt "@info:tooltip"
+msgid "Estimated effort: %1<nl/>Expected effort: %2"
+msgstr "Szacowany wysiłek: %1"
+
+#: models/kptnodeitemmodel.cpp:507
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:tooltip"
+#| msgid "Estimated duration: %1"
+msgctxt "@info:tooltip"
+msgid "Estimated duration: %1<nl/>Expected duration: %2"
+msgstr "Szacowany czas trwania: %1"
+
+#: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic effort: %1"
 msgstr "Optymistyczny wysiłek: %1"
 
-#: models/kptnodeitemmodel.cpp:550
+#: models/kptnodeitemmodel.cpp:556
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic duration: %1"
 msgstr "Optymistyczny czas trwania: %1"
 
-#: models/kptnodeitemmodel.cpp:595
+#: models/kptnodeitemmodel.cpp:601
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic effort: %1"
 msgstr "Pesymistyczny wysiłek: %1"
 
-#: models/kptnodeitemmodel.cpp:597
+#: models/kptnodeitemmodel.cpp:603
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic duration: %1"
 msgstr "Pesymistyczny czas trwania: %1"
 
-#: models/kptnodeitemmodel.cpp:678
+#: models/kptnodeitemmodel.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for resource cost: %1"
 msgstr "Konto kosztów bieżących: %1"
 
-#: models/kptnodeitemmodel.cpp:679
+#: models/kptnodeitemmodel.cpp:685
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for resource cost"
 msgstr "Konto kosztów bieżących"
 
-#: models/kptnodeitemmodel.cpp:714
+#: models/kptnodeitemmodel.cpp:720
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task startup cost: %1"
 msgstr "Konto kosztów rozpoczęcia zadania: %1"
 
-#: models/kptnodeitemmodel.cpp:715
+#: models/kptnodeitemmodel.cpp:721
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task startup cost"
 msgstr "Konto kosztów rozpoczęcia zadania"
 
-#: models/kptnodeitemmodel.cpp:766
+#: models/kptnodeitemmodel.cpp:772
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost: %1"
 msgstr "Konto kosztów zakończenia zadania: %1"
 
-#: models/kptnodeitemmodel.cpp:767
+#: models/kptnodeitemmodel.cpp:773
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost"
 msgstr "Konto kosztów zakończenia zadania"
 
-#: models/kptnodeitemmodel.cpp:813
+#: models/kptnodeitemmodel.cpp:819
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled start: %1"
 msgstr "Zaplanowane rozpoczęcie: %1"
 
-#: models/kptnodeitemmodel.cpp:830
+#: models/kptnodeitemmodel.cpp:836
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled finish: %1"
 msgstr "Zaplanowane zakończenie: %1"
 
-#: models/kptnodeitemmodel.cpp:858 models/kptnodeitemmodel.cpp:862
+#: models/kptnodeitemmodel.cpp:864 models/kptnodeitemmodel.cpp:868
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled duration: %1"
 msgstr "Zaplanowany czas trwania: %1"
 
-#: models/kptnodeitemmodel.cpp:895
+#: models/kptnodeitemmodel.cpp:901
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT duration variance: %1"
 msgstr "Wariancja czasu trwania PERT: %1"
 
-#: models/kptnodeitemmodel.cpp:929
+#: models/kptnodeitemmodel.cpp:935
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT estimate variance: %1"
 msgstr "Wariancja szacunku PERT: %1"
 
-#: models/kptnodeitemmodel.cpp:971
+#: models/kptnodeitemmodel.cpp:977
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT optimistic duration: %1"
 msgstr "Optymistyczny czas trwania PERT: %1"
 
-#: models/kptnodeitemmodel.cpp:1003
+#: models/kptnodeitemmodel.cpp:1009
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic estimate: %1"
 msgstr "Optymistyczny szacunek: %1"
 
-#: models/kptnodeitemmodel.cpp:1036
+#: models/kptnodeitemmodel.cpp:1042
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT expected estimate: %1"
 msgstr "Oczekiwany szacunek PERT: %1"
 
-#: models/kptnodeitemmodel.cpp:1077
+#: models/kptnodeitemmodel.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT pessimistic duration: %1"
 msgstr "Pesymistyczny czas trwania PERT: %1"
 
-#: models/kptnodeitemmodel.cpp:1109
+#: models/kptnodeitemmodel.cpp:1115
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic estimate: %1"
 msgstr "Pesymistyczny szacunek: %1"
 
-#: models/kptnodeitemmodel.cpp:1311
+#: models/kptnodeitemmodel.cpp:1317
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=list of resources"
 msgid "Assigned resources:<nl/>%1"
 msgstr "Przydzielone zasoby:<nl/>%1"
 
-#: models/kptnodeitemmodel.cpp:1337
+#: models/kptnodeitemmodel.cpp:1343
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "The task finished at: %1"
@@ -3681,13 +3697,13 @@ msgctxt "@info:tooltip"
 msgid "Task finished at %1"
 msgstr "Zadanie zakończone: %1"
 
-#: models/kptnodeitemmodel.cpp:1339
+#: models/kptnodeitemmodel.cpp:1345
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
 msgstr "Zadanie jest ukończone w %1% "
 
-#: models/kptnodeitemmodel.cpp:1342
+#: models/kptnodeitemmodel.cpp:1348
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "The task finished at: %1"
@@ -3695,199 +3711,199 @@ msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
 msgstr "Zadanie zakończone: %1"
 
-#: models/kptnodeitemmodel.cpp:1366
+#: models/kptnodeitemmodel.cpp:1372
 #, kde-format
 msgid "Finished late"
 msgstr "Zakończone późno"
 
-#: models/kptnodeitemmodel.cpp:1369
+#: models/kptnodeitemmodel.cpp:1375
 #, kde-format
 msgid "Finished early"
 msgstr "Zakończone wcześnie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: models/kptnodeitemmodel.cpp:1371 models/kpttaskstatusmodel.cpp:48
+#: models/kptnodeitemmodel.cpp:1377 models/kpttaskstatusmodel.cpp:48
 #: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptworkpackagemergepanel.ui:156
 #, kde-format
 msgid "Finished"
 msgstr "Zakończone"
 
-#: models/kptnodeitemmodel.cpp:1375 models/kptnodeitemmodel.cpp:1387
+#: models/kptnodeitemmodel.cpp:1381 models/kptnodeitemmodel.cpp:1393
 #, kde-format
 msgid "Running late"
 msgstr "Uruchomione późno"
 
 #. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
-#: models/kptnodeitemmodel.cpp:1377 models/kpttaskstatusmodel.cpp:44
+#: models/kptnodeitemmodel.cpp:1383 models/kpttaskstatusmodel.cpp:44
 #: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "Uruchomione"
 
-#: models/kptnodeitemmodel.cpp:1381
+#: models/kptnodeitemmodel.cpp:1387
 #, kde-format
 msgid "Started late"
 msgstr "Rozpoczęte późno"
 
-#: models/kptnodeitemmodel.cpp:1384
+#: models/kptnodeitemmodel.cpp:1390
 #, kde-format
 msgid "Started early"
 msgstr "Rozpoczęte wcześnie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: models/kptnodeitemmodel.cpp:1389 ui/kptworkpackagemergepanel.ui:133
+#: models/kptnodeitemmodel.cpp:1395 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
 msgstr "Rozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:1393 models/kptnodeitemmodel.cpp:1403
+#: models/kptnodeitemmodel.cpp:1399 models/kptnodeitemmodel.cpp:1409
 #, kde-format
 msgid "Not started"
 msgstr "Nierozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:1395
+#: models/kptnodeitemmodel.cpp:1401
 #, kde-format
 msgid "Can start"
 msgstr "Można rozpocząć"
 
-#: models/kptnodeitemmodel.cpp:1399
+#: models/kptnodeitemmodel.cpp:1405
 #, kde-format
 msgid "Delayed"
 msgstr "Opóźnione"
 
-#: models/kptnodeitemmodel.cpp:1401
+#: models/kptnodeitemmodel.cpp:1407
 #, kde-format
 msgid "Cannot start"
 msgstr "Nie może rozpocząć"
 
-#: models/kptnodeitemmodel.cpp:1414
+#: models/kptnodeitemmodel.cpp:1420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finished %1 late"
 msgstr "Zakończone późno %1"
 
-#: models/kptnodeitemmodel.cpp:1418
+#: models/kptnodeitemmodel.cpp:1424
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finished %1 early"
 msgstr "Zakończone wcześnie %1"
 
-#: models/kptnodeitemmodel.cpp:1420
+#: models/kptnodeitemmodel.cpp:1426
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finished"
 msgstr "Zakończone"
 
-#: models/kptnodeitemmodel.cpp:1425
+#: models/kptnodeitemmodel.cpp:1431
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 late"
 msgstr "Rozpoczęte późno %1"
 
-#: models/kptnodeitemmodel.cpp:1429
+#: models/kptnodeitemmodel.cpp:1435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 early"
 msgstr "Rozpoczęte wcześnie %1"
 
-#: models/kptnodeitemmodel.cpp:1431
+#: models/kptnodeitemmodel.cpp:1437
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started"
 msgstr "Rozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:1434
+#: models/kptnodeitemmodel.cpp:1440
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Running"
 msgstr "Uruchomione"
 
-#: models/kptnodeitemmodel.cpp:1437
+#: models/kptnodeitemmodel.cpp:1443
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Can start"
 msgstr "Można rozpocząć"
 
-#: models/kptnodeitemmodel.cpp:1440
+#: models/kptnodeitemmodel.cpp:1446
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cannot start"
 msgstr "Nie może rozpocząć"
 
-#: models/kptnodeitemmodel.cpp:1442
+#: models/kptnodeitemmodel.cpp:1448
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not started"
 msgstr "Nierozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:1468
+#: models/kptnodeitemmodel.cpp:1474
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual start: %1"
 msgstr "Obecne rozpoczęcie: %1"
 
-#: models/kptnodeitemmodel.cpp:1495
+#: models/kptnodeitemmodel.cpp:1501
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task started at: %1"
 msgstr "Zadanie rozpoczęte: %1"
 
-#: models/kptnodeitemmodel.cpp:1497
+#: models/kptnodeitemmodel.cpp:1503
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not started"
 msgstr "Zadanie jest nierozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:1519
+#: models/kptnodeitemmodel.cpp:1525
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual finish: %1"
 msgstr "Obecne zakończenie: %1"
 
-#: models/kptnodeitemmodel.cpp:1546
+#: models/kptnodeitemmodel.cpp:1552
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task finished at: %1"
 msgstr "Zadanie zakończone: %1"
 
-#: models/kptnodeitemmodel.cpp:1548
+#: models/kptnodeitemmodel.cpp:1554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not finished"
 msgstr "Zadanie jest niezakończone"
 
-#: models/kptnodeitemmodel.cpp:1562
+#: models/kptnodeitemmodel.cpp:1568
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort until %1: %2"
 msgstr "Planowany wysiłek aż do %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1581
+#: models/kptnodeitemmodel.cpp:1587
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual effort used up to %1: %2"
 msgstr "Obecny wysiłek wykorzystany przy %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1606
+#: models/kptnodeitemmodel.cpp:1612
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Remaining effort: %1"
 msgstr "Pozostały wysiłek: %1"
 
-#: models/kptnodeitemmodel.cpp:1633
+#: models/kptnodeitemmodel.cpp:1639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned cost until %1: %2"
 msgstr "Zaplanowany koszt aż do %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1650
+#: models/kptnodeitemmodel.cpp:1656
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual cost until %1: %2"
 msgstr "Obecny koszt aż do %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1706
+#: models/kptnodeitemmodel.cpp:1712
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -3897,697 +3913,713 @@ msgstr ""
 "Oczekiwane jest przydzielenie zasobów, gdy rodzajem szacunku zadania jest "
 "<emphasis>Wysiłek</emphasis>"
 
-#: models/kptnodeitemmodel.cpp:1739
+#: models/kptnodeitemmodel.cpp:1745
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource has been overbooked"
 msgstr "Przekroczono możliwości zasobu"
 
-#: models/kptnodeitemmodel.cpp:1772
+#: models/kptnodeitemmodel.cpp:1778
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resource is available for this task"
 msgstr "Nie ma dostępnego żadnego zasobu dla tego zadania"
 
-#: models/kptnodeitemmodel.cpp:1805
+#: models/kptnodeitemmodel.cpp:1811
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Failed to comply with a timing constraint"
 msgstr "Nieudane spełnienie ograniczeń czasowych"
 
-#: models/kptnodeitemmodel.cpp:1838
+#: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "This task has not been scheduled"
 msgstr "Zadanie to nie zostało zaplanowane"
 
-#: models/kptnodeitemmodel.cpp:1871
+#: models/kptnodeitemmodel.cpp:1877
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resources cannot deliver the required estimated effort"
 msgstr "Przypisane zasoby nie mogą zapewnić potrzebnego szacowanego wysiłku"
 
-#: models/kptnodeitemmodel.cpp:1904
+#: models/kptnodeitemmodel.cpp:1910
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling error"
 msgstr "Błąd planowania"
 
-#: models/kptnodeitemmodel.cpp:1932
+#: models/kptnodeitemmodel.cpp:1938
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work breakdown structure code: %1"
 msgstr "Kod struktury podziału pracy: %1"
 
-#: models/kptnodeitemmodel.cpp:1949
+#: models/kptnodeitemmodel.cpp:1955
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task level: %1"
 msgstr "Poziom zadania: %1"
 
-#: models/kptnodeitemmodel.cpp:1965
+#: models/kptnodeitemmodel.cpp:1971
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled at %1: %2"
 msgstr "Koszt przewidziany w budżecie pracy zaplanowanej przy %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1981
+#: models/kptnodeitemmodel.cpp:1987
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed at %1: %2"
 msgstr "Koszt przewidziany w budżecie pracy wykonanej przy %1: %2"
 
-#: models/kptnodeitemmodel.cpp:1997
+#: models/kptnodeitemmodel.cpp:2003
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed at %1: %2"
 msgstr "Obecny koszt pracy wykonanej przy %1: %2"
 
-#: models/kptnodeitemmodel.cpp:2013
+#: models/kptnodeitemmodel.cpp:2019
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index at %1: %2"
 msgstr "Indeks wydajności harmonogramu przy %1: %2"
 
-#: models/kptnodeitemmodel.cpp:2083 models/kptnodeitemmodel.cpp:2118
-#: models/kptnodeitemmodel.cpp:2147
+#: models/kptnodeitemmodel.cpp:2089 models/kptnodeitemmodel.cpp:2124
+#: models/kptnodeitemmodel.cpp:2153
 #, kde-kuit-format
 msgctxt "Not available"
 msgid "NA"
 msgstr "ND"
 
-#: models/kptnodeitemmodel.cpp:2095
+#: models/kptnodeitemmodel.cpp:2101
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent to %1 at %2"
 msgstr "Ostatnia paczka pracy wysłana do %1 w %2"
 
-#: models/kptnodeitemmodel.cpp:2098
+#: models/kptnodeitemmodel.cpp:2104
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received from %1 at %2"
 msgstr "Ostatnia paczka pracy otrzymana od %1 w %2"
 
-#: models/kptnodeitemmodel.cpp:2100 models/kptnodeitemmodel.cpp:2164
+#: models/kptnodeitemmodel.cpp:2106 models/kptnodeitemmodel.cpp:2170
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not available"
 msgstr "Niedostępne"
 
-#: models/kptnodeitemmodel.cpp:2159
+#: models/kptnodeitemmodel.cpp:2165
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent: %1"
 msgstr "Ostatnia paczka pracy wysłana: %1"
 
-#: models/kptnodeitemmodel.cpp:2162
+#: models/kptnodeitemmodel.cpp:2168
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received: %1"
 msgstr "Ostatnia paczka pracy otrzymana: %1"
 
-#: models/kptnodeitemmodel.cpp:2316 ui/RelationEditorDialog.cpp:243
+#: models/kptnodeitemmodel.cpp:2322 ui/RelationEditorDialog.cpp:243
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Type"
 msgstr "Rodzaj"
 
-#: models/kptnodeitemmodel.cpp:2317
+#: models/kptnodeitemmodel.cpp:2323
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
 msgstr "Osoba odpowiedzialna"
 
-#: models/kptnodeitemmodel.cpp:2319
+#: models/kptnodeitemmodel.cpp:2325
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Estimate Type"
 msgstr "Rodzaj szacunku"
 
-#: models/kptnodeitemmodel.cpp:2320
+#: models/kptnodeitemmodel.cpp:2326
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Calendar"
 msgstr "Kalendarz"
 
-#: models/kptnodeitemmodel.cpp:2321
+#: models/kptnodeitemmodel.cpp:2327
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Estimate"
 msgstr "Szacunek"
 
-#: models/kptnodeitemmodel.cpp:2322 models/kptnodeitemmodel.cpp:2339
-#, kde-kuit-format
+#: models/kptnodeitemmodel.cpp:2328
+#, fuzzy, kde-kuit-format
+#| msgctxt "@title:column"
+#| msgid "Optimistic (Dur)"
 msgctxt "@title:column"
-msgid "Optimistic"
-msgstr "Optymistyczny"
+msgid "Optimistic (%)"
+msgstr "Optymistyczny (cz. trwania)"
 
-#: models/kptnodeitemmodel.cpp:2323 models/kptnodeitemmodel.cpp:2340
-#, kde-kuit-format
+#: models/kptnodeitemmodel.cpp:2329
+#, fuzzy, kde-kuit-format
+#| msgctxt "@title:column"
+#| msgid "Pessimistic (Dur)"
 msgctxt "@title:column"
-msgid "Pessimistic"
-msgstr "Pesymistyczny"
+msgid "Pessimistic (%)"
+msgstr "Pesymistyczny (cz. trwania)"
 
-#: models/kptnodeitemmodel.cpp:2324
+#: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Risk"
 msgstr "Ryzyko"
 
-#: models/kptnodeitemmodel.cpp:2325
+#: models/kptnodeitemmodel.cpp:2331
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
 msgstr "Priorytet"
 
-#: models/kptnodeitemmodel.cpp:2326
+#: models/kptnodeitemmodel.cpp:2332
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint"
 msgstr "Ograniczenie "
 
-#: models/kptnodeitemmodel.cpp:2327
+#: models/kptnodeitemmodel.cpp:2333
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint Start"
 msgstr "Ogranicz rozpoczęcie"
 
-#: models/kptnodeitemmodel.cpp:2328
+#: models/kptnodeitemmodel.cpp:2334
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint End"
 msgstr "Ogranicz zakończenie"
 
-#: models/kptnodeitemmodel.cpp:2329
+#: models/kptnodeitemmodel.cpp:2335
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Running Account"
 msgstr "Bieżące konto"
 
-#: models/kptnodeitemmodel.cpp:2330
+#: models/kptnodeitemmodel.cpp:2336
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Account"
 msgstr "Konto na początku"
 
-#: models/kptnodeitemmodel.cpp:2331
+#: models/kptnodeitemmodel.cpp:2337
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Cost"
 msgstr "Koszt na początku"
 
-#: models/kptnodeitemmodel.cpp:2332
+#: models/kptnodeitemmodel.cpp:2338
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Account"
 msgstr "Konto na końcu"
 
-#: models/kptnodeitemmodel.cpp:2333
+#: models/kptnodeitemmodel.cpp:2339
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Cost"
 msgstr "Koszt na końcu"
 
-#: models/kptnodeitemmodel.cpp:2334
+#: models/kptnodeitemmodel.cpp:2340
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
 msgstr "Opis"
 
-#: models/kptnodeitemmodel.cpp:2337
+#: models/kptnodeitemmodel.cpp:2343
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Expected"
 msgstr "Oczekiwany"
 
-#: models/kptnodeitemmodel.cpp:2338
+#: models/kptnodeitemmodel.cpp:2344
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Est)"
 msgstr "Wariancja (szacunek)"
 
-#: models/kptnodeitemmodel.cpp:2343
+#: models/kptnodeitemmodel.cpp:2345
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Optimistic"
+msgstr "Optymistyczny"
+
+#: models/kptnodeitemmodel.cpp:2346
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Pessimistic"
+msgstr "Pesymistyczny"
+
+#: models/kptnodeitemmodel.cpp:2349
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Time"
 msgstr "Czas rozpoczęcia"
 
-#: models/kptnodeitemmodel.cpp:2344
+#: models/kptnodeitemmodel.cpp:2350
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "End Time"
 msgstr "Czas zakończenia"
 
-#: models/kptnodeitemmodel.cpp:2345
+#: models/kptnodeitemmodel.cpp:2351
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Start"
 msgstr "Wczesne rozpoczęcie"
 
-#: models/kptnodeitemmodel.cpp:2346
+#: models/kptnodeitemmodel.cpp:2352
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Finish"
 msgstr "Wczesne zakończenie"
 
-#: models/kptnodeitemmodel.cpp:2347
+#: models/kptnodeitemmodel.cpp:2353
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Start"
 msgstr "Późne rozpoczęcie"
 
-#: models/kptnodeitemmodel.cpp:2348
+#: models/kptnodeitemmodel.cpp:2354
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Finish"
 msgstr "Późne zakończenie"
 
-#: models/kptnodeitemmodel.cpp:2349
+#: models/kptnodeitemmodel.cpp:2355
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Positive Float"
 msgstr "Dodatni zapas"
 
-#: models/kptnodeitemmodel.cpp:2350
+#: models/kptnodeitemmodel.cpp:2356
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Free Float"
 msgstr "Dowolny zapas"
 
-#: models/kptnodeitemmodel.cpp:2351
+#: models/kptnodeitemmodel.cpp:2357
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Negative Float"
 msgstr "Ujemny zapas"
 
-#: models/kptnodeitemmodel.cpp:2352
+#: models/kptnodeitemmodel.cpp:2358
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Float"
 msgstr "Zapas rozpoczęcia"
 
-#: models/kptnodeitemmodel.cpp:2353
+#: models/kptnodeitemmodel.cpp:2359
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finish Float"
 msgstr "Zapas zakończenia"
 
-#: models/kptnodeitemmodel.cpp:2354
+#: models/kptnodeitemmodel.cpp:2360
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignments"
 msgstr "Przypisania"
 
-#: models/kptnodeitemmodel.cpp:2357
+#: models/kptnodeitemmodel.cpp:2363
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Duration"
 msgstr "Czas trwania"
 
-#: models/kptnodeitemmodel.cpp:2358
+#: models/kptnodeitemmodel.cpp:2364
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Dur)"
 msgstr "Wariancja (cz. trwania)"
 
-#: models/kptnodeitemmodel.cpp:2359
+#: models/kptnodeitemmodel.cpp:2365
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (Dur)"
 msgstr "Optymistyczny (cz. trwania)"
 
-#: models/kptnodeitemmodel.cpp:2360
+#: models/kptnodeitemmodel.cpp:2366
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (Dur)"
 msgstr "Pesymistyczny (cz. trwania)"
 
-#: models/kptnodeitemmodel.cpp:2363 models/kptnodeitemmodel.cpp:2400
+#: models/kptnodeitemmodel.cpp:2369 models/kptnodeitemmodel.cpp:2406
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Stan"
 
-#: models/kptnodeitemmodel.cpp:2365
+#: models/kptnodeitemmodel.cpp:2371
 #, no-c-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "% Completed"
 msgstr "% Ukończenia"
 
-#: models/kptnodeitemmodel.cpp:2366
+#: models/kptnodeitemmodel.cpp:2372
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
 msgstr "Zaplanowany wysiłek"
 
-#: models/kptnodeitemmodel.cpp:2367
+#: models/kptnodeitemmodel.cpp:2373
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
 msgstr "Obecny wysiłek"
 
-#: models/kptnodeitemmodel.cpp:2368
+#: models/kptnodeitemmodel.cpp:2374
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
 msgstr "Pozostały wysiłek"
 
-#: models/kptnodeitemmodel.cpp:2369
+#: models/kptnodeitemmodel.cpp:2375
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Cost"
 msgstr "Zaplanowany koszt"
 
-#: models/kptnodeitemmodel.cpp:2370
+#: models/kptnodeitemmodel.cpp:2376
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Cost"
 msgstr "Obecny koszt"
 
-#: models/kptnodeitemmodel.cpp:2371
+#: models/kptnodeitemmodel.cpp:2377
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
 msgstr "Obecne rozpoczęcie"
 
-#: models/kptnodeitemmodel.cpp:2372
+#: models/kptnodeitemmodel.cpp:2378
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Started"
 msgstr "Rozpoczęte"
 
-#: models/kptnodeitemmodel.cpp:2373
+#: models/kptnodeitemmodel.cpp:2379
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
 msgstr "Obecne zakończenie"
 
-#: models/kptnodeitemmodel.cpp:2374
+#: models/kptnodeitemmodel.cpp:2380
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finished"
 msgstr "Zakończone"
 
-#: models/kptnodeitemmodel.cpp:2375
+#: models/kptnodeitemmodel.cpp:2381
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status Note"
 msgstr "Notatka stanu"
 
-#: models/kptnodeitemmodel.cpp:2378
+#: models/kptnodeitemmodel.cpp:2384
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Status"
 msgstr "Stan planowania"
 
-#: models/kptnodeitemmodel.cpp:2379
+#: models/kptnodeitemmodel.cpp:2385
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Not Scheduled"
 msgstr "Niezaplanowane"
 
-#: models/kptnodeitemmodel.cpp:2380
+#: models/kptnodeitemmodel.cpp:2386
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignment Missing"
 msgstr "Brak przypisania"
 
-#: models/kptnodeitemmodel.cpp:2381
+#: models/kptnodeitemmodel.cpp:2387
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Overbooked"
 msgstr "Przekroczono możliwości zasobu"
 
-#: models/kptnodeitemmodel.cpp:2382
+#: models/kptnodeitemmodel.cpp:2388
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Unavailable"
 msgstr "Zasób niedostępny"
 
-#: models/kptnodeitemmodel.cpp:2383
+#: models/kptnodeitemmodel.cpp:2389
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraints Error"
 msgstr "Błąd ograniczeń"
 
-#: models/kptnodeitemmodel.cpp:2384
+#: models/kptnodeitemmodel.cpp:2390
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Effort Not Met"
 msgstr "Wysiłek niespełniony"
 
-#: models/kptnodeitemmodel.cpp:2385
+#: models/kptnodeitemmodel.cpp:2391
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Error"
 msgstr "Błąd planowania"
 
-#: models/kptnodeitemmodel.cpp:2387
+#: models/kptnodeitemmodel.cpp:2393
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "WBS Code"
 msgstr "Kod SPP"
 
-#: models/kptnodeitemmodel.cpp:2388
+#: models/kptnodeitemmodel.cpp:2394
 #, kde-kuit-format
 msgctxt "@title:column Node level"
 msgid "Level"
 msgstr "Poziom"
 
-#: models/kptnodeitemmodel.cpp:2395
+#: models/kptnodeitemmodel.cpp:2401
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical"
 msgstr "Krytyczne"
 
-#: models/kptnodeitemmodel.cpp:2396
+#: models/kptnodeitemmodel.cpp:2402
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical Path"
 msgstr "Ścieżka krytyczna"
 
-#: models/kptnodeitemmodel.cpp:2399
+#: models/kptnodeitemmodel.cpp:2405
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Właściciel"
 
-#: models/kptnodeitemmodel.cpp:2401
+#: models/kptnodeitemmodel.cpp:2407
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Time"
 msgstr "Czas"
 
-#: models/kptnodeitemmodel.cpp:2582
+#: models/kptnodeitemmodel.cpp:2588
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package owner"
 msgstr "Właściciel pakietu pracy"
 
-#: models/kptnodeitemmodel.cpp:2583
+#: models/kptnodeitemmodel.cpp:2589
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package status"
 msgstr "Stan pakietu pracy"
 
-#: models/kptnodeitemmodel.cpp:2584
+#: models/kptnodeitemmodel.cpp:2590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package send/receive time"
 msgstr "Czas wysłania/odebrania pakietu pracy"
 
-#: models/kptnodeitemmodel.cpp:2720
+#: models/kptnodeitemmodel.cpp:2726
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "Zmień nazwę"
 
-#: models/kptnodeitemmodel.cpp:2722
+#: models/kptnodeitemmodel.cpp:2728
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "Zmień nazwę zadania"
 
-#: models/kptnodeitemmodel.cpp:2723
+#: models/kptnodeitemmodel.cpp:2729
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "Zmień nazwę punktu przełomowego"
 
-#: models/kptnodeitemmodel.cpp:2724
+#: models/kptnodeitemmodel.cpp:2730
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "Zmień nazwę zadania podsumowującego"
 
-#: models/kptnodeitemmodel.cpp:2725
+#: models/kptnodeitemmodel.cpp:2731
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "Zmień nazwę projektu"
 
-#: models/kptnodeitemmodel.cpp:2738
+#: models/kptnodeitemmodel.cpp:2744
 msgctxt "(qtundo-format)"
 msgid "Modify responsible"
 msgstr "Zmień osobę odpowiedzialną"
 
-#: models/kptnodeitemmodel.cpp:2763 ui/kpttaskdescriptiondialog.cpp:38
+#: models/kptnodeitemmodel.cpp:2769 ui/kpttaskdescriptiondialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
 msgstr "Zmień opis zadania"
 
-#: models/kptnodeitemmodel.cpp:2786
+#: models/kptnodeitemmodel.cpp:2792
 msgctxt "(qtundo-format)"
 msgid "Modify constraint type"
 msgstr "Zmień rodzaj ograniczenia"
 
-#: models/kptnodeitemmodel.cpp:2803
+#: models/kptnodeitemmodel.cpp:2809
 msgctxt "(qtundo-format)"
 msgid "Modify constraint start time"
 msgstr "Zmień ograniczenie czasu rozpoczęcia"
 
-#: models/kptnodeitemmodel.cpp:2820
+#: models/kptnodeitemmodel.cpp:2826
 msgctxt "(qtundo-format)"
 msgid "Modify constraint end time"
 msgstr "Zmień ograniczenie czasu zakończenia"
 
-#: models/kptnodeitemmodel.cpp:2845
+#: models/kptnodeitemmodel.cpp:2851
 msgctxt "(qtundo-format)"
 msgid "Modify estimate type"
 msgstr "Zmień rodzaj szacunku"
 
-#: models/kptnodeitemmodel.cpp:2871
+#: models/kptnodeitemmodel.cpp:2877
 msgctxt "(qtundo-format)"
 msgid "Modify estimate calendar"
 msgstr "Zmień kalendarz szacunku"
 
-#: models/kptnodeitemmodel.cpp:2904 models/kptnodeitemmodel.cpp:2908
+#: models/kptnodeitemmodel.cpp:2910 models/kptnodeitemmodel.cpp:2914
 msgctxt "(qtundo-format)"
 msgid "Modify estimate"
 msgstr "Zmień szacunek"
 
-#: models/kptnodeitemmodel.cpp:2930
+#: models/kptnodeitemmodel.cpp:2936
 msgctxt "(qtundo-format)"
 msgid "Modify optimistic estimate"
 msgstr "Zmień optymistyczny szacunek"
 
-#: models/kptnodeitemmodel.cpp:2947
+#: models/kptnodeitemmodel.cpp:2953
 msgctxt "(qtundo-format)"
 msgid "Modify pessimistic estimate"
 msgstr "Zmień pesymistyczny szacunek"
 
-#: models/kptnodeitemmodel.cpp:2971
+#: models/kptnodeitemmodel.cpp:2977
 msgctxt "(qtundo-format)"
 msgid "Modify risk type"
 msgstr "Zmień rodzaj ryzyka"
 
-#: models/kptnodeitemmodel.cpp:2986
+#: models/kptnodeitemmodel.cpp:2992
 msgctxt "(qtundo-format)"
 msgid "Modify priority"
 msgstr "Zmień priorytet"
 
-#: models/kptnodeitemmodel.cpp:3006
+#: models/kptnodeitemmodel.cpp:3012
 msgctxt "(qtundo-format)"
 msgid "Modify running account"
 msgstr "Zmień bieżące konto"
 
-#: models/kptnodeitemmodel.cpp:3028
+#: models/kptnodeitemmodel.cpp:3034
 msgctxt "(qtundo-format)"
 msgid "Modify startup account"
 msgstr "Zmień konto na starcie"
 
-#: models/kptnodeitemmodel.cpp:3045
+#: models/kptnodeitemmodel.cpp:3051
 msgctxt "(qtundo-format)"
 msgid "Modify startup cost"
 msgstr "Zmień koszt na starcie"
 
-#: models/kptnodeitemmodel.cpp:3065
+#: models/kptnodeitemmodel.cpp:3071
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown account"
 msgstr "Zmień konto na zakończeniu"
 
-#: models/kptnodeitemmodel.cpp:3082
+#: models/kptnodeitemmodel.cpp:3088
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown cost"
 msgstr "Zmień koszt na zakończeniu"
 
-#: models/kptnodeitemmodel.cpp:3107 models/kpttaskstatusmodel.cpp:447
+#: models/kptnodeitemmodel.cpp:3113 models/kpttaskstatusmodel.cpp:447
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
 msgstr "Zmień pozostały wysiłek"
 
-#: models/kptnodeitemmodel.cpp:3119 models/kpttaskstatusmodel.cpp:460
+#: models/kptnodeitemmodel.cpp:3125 models/kpttaskstatusmodel.cpp:460
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
 msgstr "Zmień obecny wysiłek"
 
-#: models/kptnodeitemmodel.cpp:3132 models/kpttaskstatusmodel.cpp:474
+#: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
 msgstr "Zmień obecny czas rozpoczęcia"
 
-#: models/kptnodeitemmodel.cpp:3161 models/kpttaskstatusmodel.cpp:502
+#: models/kptnodeitemmodel.cpp:3167 models/kpttaskstatusmodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
 msgstr "Zmień obecny czas zakończenia"
 
-#: models/kptnodeitemmodel.cpp:3632
+#: models/kptnodeitemmodel.cpp:3638
 msgctxt "(qtundo-format)"
 msgid "Add resource allocation"
 msgstr "Dodaj przydział zasobu"
 
-#: models/kptnodeitemmodel.cpp:3634
+#: models/kptnodeitemmodel.cpp:3640
 msgctxt "(qtundo-format)"
 msgid "Removed resource allocation"
 msgstr "Usuń przydział zasobu"
 
-#: models/kptnodeitemmodel.cpp:3657 models/kpttaskstatusmodel.cpp:391
+#: models/kptnodeitemmodel.cpp:3663 models/kpttaskstatusmodel.cpp:391
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
 msgstr "Zmień ukończenie"
 
-#: models/kptnodeitemmodel.cpp:3686 models/kptnodeitemmodel.cpp:4836
+#: models/kptnodeitemmodel.cpp:3692 models/kptnodeitemmodel.cpp:4842
 #: models/kpttaskstatusmodel.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Set finished"
 msgstr "Ustaw na zakończony"
 
-#: models/kptnodeitemmodel.cpp:4060
+#: models/kptnodeitemmodel.cpp:4066
 msgctxt "(qtundo-format)"
 msgid "Insert tasks"
 msgstr "Wstaw zadania"
 
-#: models/kptnodeitemmodel.cpp:4106
+#: models/kptnodeitemmodel.cpp:4112
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Task Module Parameters"
 msgstr "Parametry modułu zadania"
 
-#: models/kptnodeitemmodel.cpp:4136
+#: models/kptnodeitemmodel.cpp:4142
 msgctxt "(qtundo-format)"
 msgid "Insert task module"
 msgstr "Wstaw moduł zadania"
 
-#: models/kptnodeitemmodel.cpp:4196
+#: models/kptnodeitemmodel.cpp:4202
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert %1"
 msgstr "Wstaw %1"
 
-#: models/kptnodeitemmodel.cpp:4203 ui/kptrequestresourcespanel.cpp:102
+#: models/kptnodeitemmodel.cpp:4209 ui/kptrequestresourcespanel.cpp:102
 #: ui/ResourceAllocationView.cpp:141
 msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
 msgstr "Zmień przydziały zasobów"
 
-#: models/kptnodeitemmodel.cpp:4259 models/kptnodeitemmodel.cpp:5062
+#: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5068
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
 msgstr "Przemieść zadania"
 
-#: models/kptnodeitemmodel.cpp:4328 ui/kpttaskdialog.cpp:166
+#: models/kptnodeitemmodel.cpp:4334 ui/kpttaskdialog.cpp:166
 #: ui/kpttaskdialog.cpp:203
 msgctxt "(qtundo-format)"
 msgid "Add task"
 msgstr "Dodaj zadanie"
 
-#: models/kptnodeitemmodel.cpp:4343 ui/kpttaskdialog.cpp:201
+#: models/kptnodeitemmodel.cpp:4349 ui/kpttaskdialog.cpp:201
 msgctxt "(qtundo-format)"
 msgid "Add sub-task"
 msgstr "Dodaj pod-zadanie"
@@ -5186,90 +5218,90 @@ msgstr "Nie udało się otwarcie tworzenia sprawozdań."
 msgid "Manager"
 msgstr "Kierownik"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:309
+#: models/reportgenerator/ReportGeneratorOdt.cpp:322
 #, kde-format
 msgid "Missing report template file"
 msgstr "Brak pliku szablonu sprawozdania!"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:313
+#: models/reportgenerator/ReportGeneratorOdt.cpp:326
 #, kde-format
 msgid "Missing report result file"
 msgstr "Brak pliku wynikowego sprawozdania"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:317
+#: models/reportgenerator/ReportGeneratorOdt.cpp:330
 #, kde-format
 msgid "Report generator is already open"
 msgstr "Tworzenie sprawozdań jest już otwarte"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:321
+#: models/reportgenerator/ReportGeneratorOdt.cpp:334
 #, kde-format
 msgid "Report template file does not exist"
 msgstr "Plik szablonu sprawozdania nie istnieje"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:327
+#: models/reportgenerator/ReportGeneratorOdt.cpp:340
 #, kde-format
 msgid "Failed to open template file: %1"
 msgstr "Nie można otworzyć pliku szablonu: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:354
+#: models/reportgenerator/ReportGeneratorOdt.cpp:366
 #, kde-format
 msgid "Report generator has not been correctly opened"
 msgstr "Nie udało się otwarcie tworzenia sprawozdań"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:394
-#: models/reportgenerator/ReportGeneratorOdt.cpp:421
-#: models/reportgenerator/ReportGeneratorOdt.cpp:1028
+#: models/reportgenerator/ReportGeneratorOdt.cpp:406
+#: models/reportgenerator/ReportGeneratorOdt.cpp:433
+#: models/reportgenerator/ReportGeneratorOdt.cpp:1040
 #, kde-format
 msgid "Failed to write to store: %1"
 msgstr "Nie udało się zapisać do przechowalni: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:436
+#: models/reportgenerator/ReportGeneratorOdt.cpp:448
 #, kde-format
 msgid "Failed to write report file: %1"
 msgstr "Nie udało się zapisanie pliku sprawozdania: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:829
+#: models/reportgenerator/ReportGeneratorOdt.cpp:841
 #, kde-format
 msgid "Failed to extract file: %1"
 msgstr "Nie udało się wydobyć pliku: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:835
+#: models/reportgenerator/ReportGeneratorOdt.cpp:847
 #, kde-format
 msgid "Failed to add file to store: %1"
 msgstr "Nie udało dodać pliku do przechowalni: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:859
+#: models/reportgenerator/ReportGeneratorOdt.cpp:871
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr "Tworzenie sprawozdań tworzy tylko pliki lokalne"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:866
+#: models/reportgenerator/ReportGeneratorOdt.cpp:878
 #, kde-format
 msgid "Failed to open report file: %1"
 msgstr "Nie można otworzyć pliku sprawozdania: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:875
+#: models/reportgenerator/ReportGeneratorOdt.cpp:887
 #, kde-format
 msgid "Failed to load mimetype file"
 msgstr "Nie udało się wczytać pliku rodzaju mime"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:884
+#: models/reportgenerator/ReportGeneratorOdt.cpp:896
 #, kde-format
 msgid "Failed to write manifest file"
 msgstr "Nie można zapisać pliku manifestu"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:910 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:922 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr "Brak silnika składowania"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:920
+#: models/reportgenerator/ReportGeneratorOdt.cpp:932
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "Nie udało się otworzyć pliku <filename>%1</filename> z przechowalni."
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:953
+#: models/reportgenerator/ReportGeneratorOdt.cpp:965
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
