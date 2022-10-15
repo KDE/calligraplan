@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 10:34+0300\n"
+"PO-Revision-Date: 2022-10-14 12:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3527,20 +3527,16 @@ msgid "Estimated duration: %1"
 msgstr "Tahmini süre: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Tahmini başarım: %1"
+msgstr "Tahmini başarım: %1<nl/>Beklenen efor: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Tahmini süre: %1"
+msgstr "Tahmini süre: %1<nl/>Beklenen süre: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4028,20 +4024,16 @@ msgid "Estimate"
 msgstr "Tahmin"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "İyimser (Süre)"
+msgstr "İyimser (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Kötümser (Süre)"
+msgstr "Kötümser (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format

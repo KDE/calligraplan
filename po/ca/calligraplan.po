@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 11:00+0200\n"
+"PO-Revision-Date: 2022-10-14 13:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -323,16 +323,15 @@ msgstr "Unitat d'estimació de temps"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Tipus estimat:"
+msgstr "Estimat"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risc"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -1139,25 +1138,25 @@ msgstr "S'està planificant la restricció:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risc:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Sense"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Baix"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alt"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1236,7 +1235,7 @@ msgstr "Nom del fitxer:"
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Obre l'assistent"
 
 # msgid ""
 # "This document was created with a newer version of KPlatoWork (syntax "

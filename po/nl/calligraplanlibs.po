@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 10:26+0200\n"
+"PO-Revision-Date: 2022-10-14 10:03+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3542,20 +3542,16 @@ msgid "Estimated duration: %1"
 msgstr "Geschatte tijdsduur: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Geschatte inspanning: %1"
+msgstr "Geschatte inspanning: %1<nl/>Verwachte inspanning: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Geschatte tijdsduur: %1"
+msgstr "Geschatte tijdsduur: %1<nl/>Verwachte tijdsduur: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4045,20 +4041,16 @@ msgid "Estimate"
 msgstr "Schatting"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimistisch (duur)"
+msgstr "Optimistisch (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimistisch (duur)"
+msgstr "Pessimistisch (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format

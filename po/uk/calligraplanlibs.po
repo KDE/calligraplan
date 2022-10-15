@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 09:07+0300\n"
+"PO-Revision-Date: 2022-10-14 17:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3594,20 +3594,16 @@ msgid "Estimated duration: %1"
 msgstr "Оцінка тривалості: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Оцінка обсягу робіт: %1"
+msgstr "Оцінка обсягу робіт: %1<nl/>Очікуваний обсяг робіт: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Оцінка тривалості: %1"
+msgstr "Оцінка тривалості: %1<nl/>Очікувана тривалість: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4095,20 +4091,16 @@ msgid "Estimate"
 msgstr "Оцінка"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Оптимістична (Трив.)"
+msgstr "Оптимістична (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Песимістична (Трив.)"
+msgstr "Песимістична (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format

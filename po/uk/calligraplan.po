@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 09:08+0300\n"
+"PO-Revision-Date: 2022-10-14 17:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -316,16 +316,15 @@ msgstr "Одиниця часу оцінки"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Тип оцінки:"
+msgstr "Оцінка"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Ризик"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -1125,25 +1124,25 @@ msgstr "Обмеження планування:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Ризик:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Низький"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Високий"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1221,7 +1220,7 @@ msgstr "Назва файла:"
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Відкрити допоміжний засіб"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format

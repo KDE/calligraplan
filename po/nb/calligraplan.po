@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-22 00:45+0000\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
 "PO-Revision-Date: 2012-11-23 21:10+0100\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -319,228 +319,234 @@ msgstr "Tidsenhet for estimat"
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
 #, kde-format
-msgid "Expected estimate"
-msgstr "Forventet estimat"
+msgid "Estimate"
+msgstr ""
+
+#. i18n: ectx: label, entry (Risk), group (Task defaults)
+#: calligraplansettings.kcfg:243
+#, kde-format
+msgid "Risk"
+msgstr ""
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
-#: calligraplansettings.kcfg:243
+#: calligraplansettings.kcfg:252
 #, kde-format
 msgid "Optimistic estimate"
 msgstr "Optimistisk estimat"
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
-#: calligraplansettings.kcfg:247
+#: calligraplansettings.kcfg:256
 #, kde-format
 msgid "Pessimistic estimate"
 msgstr "Pessimistisk estimat"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
-#: calligraplansettings.kcfg:252
+#: calligraplansettings.kcfg:261
 #, kde-format
 msgid "Task description"
 msgstr "Oppgavebeskrivelse"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
-#: calligraplansettings.kcfg:258
+#: calligraplansettings.kcfg:267
 #, kde-format
 msgid "Gradient"
 msgstr "Overgang"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
-#: calligraplansettings.kcfg:260 config/kptcolorsconfigpanel.cpp:20
+#: calligraplansettings.kcfg:269 config/kptcolorsconfigpanel.cpp:20
 #, kde-format
 msgid "Linear"
 msgstr "Lineær"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
-#: calligraplansettings.kcfg:261 config/kptcolorsconfigpanel.cpp:21
+#: calligraplansettings.kcfg:270 config/kptcolorsconfigpanel.cpp:21
 #, kde-format
 msgid "Flat"
 msgstr "Flat"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
-#: calligraplansettings.kcfg:266
+#: calligraplansettings.kcfg:275
 #, kde-format
 msgid "Enable summary task level colors"
 msgstr "Slå på farger for nivåer i oppgavesammendrag"
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
-#: calligraplansettings.kcfg:270
+#: calligraplansettings.kcfg:279
 #, kde-format
 msgid "Summary task default color"
 msgstr "Standard farge for oppgavesammendrag"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
-#: calligraplansettings.kcfg:274
+#: calligraplansettings.kcfg:283
 #, kde-format
 msgid "Summary task color, level 1"
 msgstr "Farge for oppgavesammendrag, nivå 1"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
-#: calligraplansettings.kcfg:278
+#: calligraplansettings.kcfg:287
 #, kde-format
 msgid "Summary task color, level 2"
 msgstr "Farge for oppgavesammendrag, nivå 2"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
-#: calligraplansettings.kcfg:282
+#: calligraplansettings.kcfg:291
 #, kde-format
 msgid "Summary task color, level 3"
 msgstr "Farge for oppgavesammendrag, nivå 3"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
-#: calligraplansettings.kcfg:286
+#: calligraplansettings.kcfg:295
 #, kde-format
 msgid "Summary task color, level 4"
 msgstr "Farge for oppgavesammendrag, nivå 4"
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
-#: calligraplansettings.kcfg:290
+#: calligraplansettings.kcfg:299
 #, kde-format
 msgid "Task color in normal state"
 msgstr "Farge for oppgave i normal status"
 
 #. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
-#: calligraplansettings.kcfg:294
+#: calligraplansettings.kcfg:303
 #, kde-format
 msgid "Task color in critical state"
 msgstr "Farge for oppgave i kritisk status"
 
 #. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
-#: calligraplansettings.kcfg:298
+#: calligraplansettings.kcfg:307
 #, kde-format
 msgid "Task color in finished state"
 msgstr "Farge for avsluttet oppgave"
 
 #. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
-#: calligraplansettings.kcfg:302
+#: calligraplansettings.kcfg:311
 #, kde-format
 msgid "Task color in error state"
 msgstr "Farge for oppgave i feilstatus"
 
 #. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
-#: calligraplansettings.kcfg:306
+#: calligraplansettings.kcfg:315
 #, kde-format
 msgid "Milestone color in normal state"
 msgstr "Farge for milepæl i normal status"
 
 #. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
-#: calligraplansettings.kcfg:310
+#: calligraplansettings.kcfg:319
 #, kde-format
 msgid "Milestone color in critical state"
 msgstr "Farge for milepæl i kritisk status"
 
 #. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
-#: calligraplansettings.kcfg:314
+#: calligraplansettings.kcfg:323
 #, kde-format
 msgid "Milestone color in finished state"
 msgstr "Farge for oppnådd milepæl"
 
 #. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
-#: calligraplansettings.kcfg:318
+#: calligraplansettings.kcfg:327
 #, kde-format
 msgid "Milestone color in error state"
 msgstr "Farge for milepæl i feilstatus"
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
-#: calligraplansettings.kcfg:325
+#: calligraplansettings.kcfg:334
 #, kde-format
 msgid "Automatically check for new work packages"
 msgstr "Sjekk automatisk om det er nye arbeidspakker"
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
-#: calligraplansettings.kcfg:328
+#: calligraplansettings.kcfg:337
 #, kde-format
 msgid "Directory where Plan retrieves work packages from project members"
 msgstr "Mappe der Plan henter arbeidspakker fra prosjektdeltakere"
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
-#: calligraplansettings.kcfg:331
+#: calligraplansettings.kcfg:340
 #, kde-format
 msgid "If set, Plan will delete the file after it has been read"
 msgstr "Hvis dette er på, vil Plan slette fila når den er lest"
 
 #. i18n: ectx: label, entry (SaveFile), group (Work Package)
-#: calligraplansettings.kcfg:334
+#: calligraplansettings.kcfg:343
 #, kde-format
 msgid "If set, Plan will save the file after it has been read"
 msgstr "Hvis dette er på, vil Plan lagre fila når den er lest"
 
 #. i18n: ectx: label, entry (SaveUrl), group (Work Package)
-#: calligraplansettings.kcfg:337
+#: calligraplansettings.kcfg:346
 #, kde-format
 msgid "Directory where Plan saves work packages when the package has been read"
 msgstr "Mappe der Plan lagrer arbeidspakker når pakka er lest"
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
-#: calligraplansettings.kcfg:340
+#: calligraplansettings.kcfg:349
 #, kde-format
 msgid "Directory where Plan publishes work packages"
 msgstr ""
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
-#: calligraplansettings.kcfg:346
+#: calligraplansettings.kcfg:355
 #, kde-format
 msgid "The smallest duration unit allowed"
 msgstr "Minste tillatte varighetsenhet"
 
 #. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
-#: calligraplansettings.kcfg:350
+#: calligraplansettings.kcfg:359
 #, kde-format
 msgid "The largest duration unit allowed"
 msgstr "Største tillatte varighetsenhet"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
-#: calligraplansettings.kcfg:357
+#: calligraplansettings.kcfg:366
 #, kde-format
 msgid "Path to the documentation"
 msgstr ""
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
-#: calligraplansettings.kcfg:361
+#: calligraplansettings.kcfg:370
 #, kde-format
 msgid "Path to the context help documentation"
 msgstr ""
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
-#: calligraplansettings.kcfg:365
+#: calligraplansettings.kcfg:374
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
 msgstr ""
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
-#: calligraplansettings.kcfg:371
+#: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
 msgstr ""
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
-#: calligraplansettings.kcfg:375
+#: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to task modules"
 msgstr ""
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
-#: calligraplansettings.kcfg:381
+#: calligraplansettings.kcfg:390
 #, kde-format
 msgid "List of paths to report templates"
 msgstr ""
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
-#: calligraplansettings.kcfg:387
+#: calligraplansettings.kcfg:396
 #, kde-format
 msgid "List of paths to project templates"
 msgstr ""
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
-#: calligraplansettings.kcfg:393
+#: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
 msgstr ""
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
-#: calligraplansettings.kcfg:397
+#: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
 msgstr ""
@@ -610,7 +616,7 @@ msgid "The file where shared resources are defined"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
 #, kde-format
 msgid "General"
 msgstr "Generelt"
@@ -641,7 +647,7 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
-#: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:481
+#: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:528
 #, kde-format
 msgid "Description"
 msgstr "Beskrivelse"
@@ -925,7 +931,7 @@ msgstr "Milepæl"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
-#: config/kptconfigtaskpanelbase.ui:33 config/kptconfigtaskpanelbase.ui:65
+#: config/kptconfigtaskpanelbase.ui:42 config/kptconfigtaskpanelbase.ui:451
 #, kde-format
 msgid ""
 "The person responsible for this task.\n"
@@ -941,164 +947,188 @@ msgstr ""
 "direkte."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: config/kptconfigtaskpanelbase.ui:36
+#: config/kptconfigtaskpanelbase.ui:45
 #, kde-format
 msgid "Responsible:"
 msgstr "Ansvarlig:"
 
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
-#: config/kptconfigtaskpanelbase.ui:72
-#, kde-format
-msgid "Insert a person from your address book"
-msgstr "Sett inn en person fra adresseboka."
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: config/kptconfigtaskpanelbase.ui:75
-#, kde-format
-msgid "Insert a person from your address book."
-msgstr "Sett inn en person fra adresseboka."
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:78
 #, kde-format
-msgid "Choose..."
-msgstr "Velg …"
+msgid "Effort"
+msgstr "Innsats"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: config/kptconfigtaskpanelbase.ui:96
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:83
 #, kde-format
-msgid "Scheduling constraint:"
-msgstr ""
+msgid "Duration"
+msgstr "Varighet"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:119
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:110
 #, kde-format
-msgid "As Soon as Possible"
-msgstr "Så snart som mulig"
+msgid "Pessimistic estimate:"
+msgstr "Pessimistisk estimat:"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:124
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:132
 #, kde-format
-msgid "As Late as Possible"
-msgstr "Så sent som mulig"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:129
-#, kde-format
-msgid "Must Start On"
-msgstr "Må starte på"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:134
-#, kde-format
-msgid "Must Finish On"
-msgstr "Må slutte på"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:139
-#, kde-format
-msgid "Start Not Earlier Than"
-msgstr "Ikke start før"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:144
-#, kde-format
-msgid "Finish Not Later Than"
-msgstr "Ikke avslutt før"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
-#: config/kptconfigtaskpanelbase.ui:149
-#, kde-format
-msgid "Fixed Interval"
-msgstr "Fast intervall"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
-#: config/kptconfigtaskpanelbase.ui:163
-#, kde-format
-msgid "Constraint Start time usage:"
-msgstr "Bruk av starttidsskranke:"
+msgid "Optimistic estimate:"
+msgstr "Optimistisk estimat:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
-#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#: config/kptconfigtaskpanelbase.ui:155 config/kptconfigtaskpanelbase.ui:331
 #, kde-format
 msgid "Current date and time"
 msgstr "Dagens dato og tid"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
-#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
 #, kde-format
 msgid "Current date, specified time"
 msgstr "Dagens dato, oppgitt tidspunkt"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
-#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
 #, kde-format
 msgid "Specified date and time"
 msgstr "Oppgitt dato og tid"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: config/kptconfigtaskpanelbase.ui:210
-#, kde-format
-msgid "Constraint start time:"
-msgstr "Skranke starttid:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
-#: config/kptconfigtaskpanelbase.ui:239
-#, kde-format
-msgid "Constraint End time usage:"
-msgstr "Bruk av sluttidsskranke:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
-#: config/kptconfigtaskpanelbase.ui:286
-#, kde-format
-msgid "Constraint end time:"
-msgstr "Skranke sluttid:"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
-#: config/kptconfigtaskpanelbase.ui:322
+#: config/kptconfigtaskpanelbase.ui:186
 #, kde-format
 msgid "Estimate type:"
 msgstr "Estimattype:"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
-#: config/kptconfigtaskpanelbase.ui:348
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:208
 #, kde-format
-msgid "Effort"
-msgstr "Innsats"
+msgid "Constraint Start time usage:"
+msgstr "Bruk av starttidsskranke:"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
-#: config/kptconfigtaskpanelbase.ui:353
-#, kde-format
-msgid "Duration"
-msgstr "Varighet"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
-#: config/kptconfigtaskpanelbase.ui:367
-#, kde-format
-msgid "Expected estimate:"
-msgstr "Forventet estimat:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
-#: config/kptconfigtaskpanelbase.ui:399
-#, kde-format
-msgid "Optimistic estimate:"
-msgstr "Optimistisk estimat:"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
-#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:234 config/kptconfigtaskpanelbase.ui:416
 #, no-c-format, kde-format
 msgid "%"
 msgstr "%"
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: config/kptconfigtaskpanelbase.ui:434
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:257
 #, kde-format
-msgid "Pessimistic estimate:"
-msgstr "Pessimistisk estimat:"
+msgid "Constraint End time usage:"
+msgstr "Bruk av sluttidsskranke:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:279
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Forventet estimat:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:301
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Skranke starttid:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:356
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Så snart som mulig"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:361
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Så sent som mulig"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:366
+#, kde-format
+msgid "Must Start On"
+msgstr "Må starte på"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:371
+#, kde-format
+msgid "Must Finish On"
+msgstr "Må slutte på"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:376
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Ikke start før"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:381
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Ikke avslutt før"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:386
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Fast intervall"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:400
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Skranke sluttid:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:458
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Sett inn en person fra adresseboka."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:461
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Sett inn en person fra adresseboka."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:464
+#, kde-format
+msgid "Choose..."
+msgstr "Velg …"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:482
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptconfigtaskpanelbase.ui:498
+#, kde-format
+msgid "Risk:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
+#: config/kptconfigtaskpanelbase.ui:509
+#, kde-format
+msgid "None"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
+#: config/kptconfigtaskpanelbase.ui:514
+#, kde-format
+msgid "Low"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
+#: config/kptconfigtaskpanelbase.ui:519
+#, kde-format
+msgid "High"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1161,15 +1191,21 @@ msgid "Dialog"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: CreateReportTemplateDialog.ui:26
+#: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: CreateReportTemplateDialog.ui:39
+#: CreateReportTemplateDialog.ui:49
 #, kde-format
 msgid "File name:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
+#: CreateReportTemplateDialog.ui:66
+#, kde-format
+msgid "Open assistant"
 msgstr ""
 
 #: KPlatoXmlLoader.cpp:56
@@ -1604,7 +1640,7 @@ msgstr ""
 msgid "Generate reports"
 msgstr ""
 
-#: kptview.cpp:554 kptview.cpp:2438
+#: kptview.cpp:554 kptview.cpp:2448
 #, kde-format
 msgid "Task Status Report"
 msgstr "Statusrapport for oppgave"
@@ -1818,7 +1854,7 @@ msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr ""
 
-#: kptview.cpp:698 kptview.cpp:2435 kptviewlistdialog.cpp:114
+#: kptview.cpp:698 kptview.cpp:2445 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
@@ -1851,93 +1887,93 @@ msgstr "Utførelse"
 msgid "Reports"
 msgstr "Rapporter"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1477
 #, kde-format
 msgid "Overwrite"
 msgstr ""
 
-#: kptview.cpp:1479
+#: kptview.cpp:1477
 #, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr ""
 
-#: kptview.cpp:1479
+#: kptview.cpp:1477
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
-#: kptview.cpp:2014
+#: kptview.cpp:2024
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "Kan ikke åpne fil:<br/><filename>%1</filename>"
 
-#: kptview.cpp:2129
+#: kptview.cpp:2139
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "Endre navn"
 
-#: kptview.cpp:2131
+#: kptview.cpp:2141
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "Endre navn på oppgave"
 
-#: kptview.cpp:2132
+#: kptview.cpp:2142
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "Endre navn på milepæl"
 
-#: kptview.cpp:2133
+#: kptview.cpp:2143
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "Endre navn på sammendragsoppgave"
 
-#: kptview.cpp:2134
+#: kptview.cpp:2144
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "Endre prosjektnavn"
 
-#: kptview.cpp:2226
+#: kptview.cpp:2236
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "Ikke planlagt"
 
-#: kptview.cpp:2280
+#: kptview.cpp:2290
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr "Arbeidspakke for prosjekt: %1"
 
-#: kptview.cpp:2436
+#: kptview.cpp:2446
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "Prosjektleder:"
 
-#: kptview.cpp:2437
+#: kptview.cpp:2447
 #, kde-format
 msgid "Project:"
 msgstr "Prosjekt:"
 
-#: kptview.cpp:2439
+#: kptview.cpp:2449
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "av"
 
-#: kptview.cpp:2440
+#: kptview.cpp:2450
 #, kde-format
 msgid "Page"
 msgstr "Side"
 
-#: kptview.cpp:2441
+#: kptview.cpp:2451
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "Navn"
 
-#: kptview.cpp:2442
+#: kptview.cpp:2452
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
