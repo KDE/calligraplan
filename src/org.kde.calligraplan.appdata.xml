@@ -22,6 +22,7 @@
   <name xml:lang="ia">Plan</name>
   <name xml:lang="id">Plan</name>
   <name xml:lang="it">Plan</name>
+  <name xml:lang="ka">Გეგმა</name>
   <name xml:lang="ko">Plan</name>
   <name xml:lang="nl">Plan</name>
   <name xml:lang="pl">Plan</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="ia">Administration de projectos</summary>
   <summary xml:lang="id">Pengelolaan Projek</summary>
   <summary xml:lang="it">Gestione progetti</summary>
+  <summary xml:lang="ka">პროექტის მართვა</summary>
   <summary xml:lang="ko">프로젝트 관리</summary>
   <summary xml:lang="nl">Projectbeheer</summary>
   <summary xml:lang="pl">Zarządzanie projektem</summary>
@@ -114,6 +116,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Cechy:</p>
