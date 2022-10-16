@@ -1,4 +1,6 @@
-<sect2 id="description"
+<sect2
+><title/>
+<sect3 id="description"
 ><title
 >Beschrijving</title>
   <para
@@ -9,8 +11,47 @@
 >. </para>
   <para
 >Als u echter dezelfde hulpbronnen in vele projecten gaat gebruiken (wat vaak het geval is) is het gemakkelijker om hulpbronnen in een gescheiden bestand te onderhouden. De beste manier om dit te doen is om uw hulpbronnenbestand eerst aan te maken en daarna &plan; in te stellen om altijd dit bestand te laden bij aanmaken van een nieuw project. </para>
+</sect3>
+<sect3 id="shared-resources"
+><title
+>Gedeelde hulpbronnen</title>
+  <para
+>Gedeelde hulpbronnen zijn hulpbronnen die gedeeld kunnen worden tussen projecten en dus bronnen verdelen over projecten faciliteert. </para>
   <para
 >Als u projects beheert die totaal verschillenden hulpbronpools gebruiken dan kunt u meerdere hulpbronbestanden aanmaken, maar één project kan slechts verwijzen naar één hulpbronbestand. </para>
   <para
->U kunt het te gebruiken hulpbronbestand selecteren bij aanmaken van een nieuw project. </para>
+>U kunt het te gebruiken hulpbronbestand selecteren bij het aanmaken van een nieuw project. De hulpbronnen kunnen automatisch geladen worden bij openen van uw project of u kunt het handmatig bijwerken door <menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Gedeelde hulpbronnen bijwerken</guimenuitem
+></menuchoice
+> te selecteren. </para>
+  <para
+>Merk op dat het project nog steeds geopend kan worden zelfs als het hulpbronbestand niet beschikbaar is. </para>
+  <para
+>Als er iets het gedeelde hulpbronbestand is verwijderd, zult u een dialog krijgen waar u kunt selecteren hoe de verwijderde items wilt behandelen. </para>
+  <para
+>U kunt selecteren of een item zal worden: <itemizedlist>
+  <listitem
+><para
+><emphasis
+>Verwijderd:</emphasis
+> Verwijdert het item uit uw project. Dit is de actie die u normaal zou selecteren omdat het uw project in lijn houdt met het hulpbronbestand. Als het item echter in uw project wordt gebruikt, dan kunt u het converteren naar een lokaal item.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Geconverteerd:</emphasis
+> Converteert het item in een lokaal item.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Behouden:</emphasis
+> Behoud het item als een gedeeld item in uw project. De volgende keer dat het hulpbronbestand wordt geladen, zal u opnieuw gevraagd worden hoe het item te behandelen.</para>
+  </listitem>
+  </itemizedlist>
+  </para>
+</sect3>
 </sect2>

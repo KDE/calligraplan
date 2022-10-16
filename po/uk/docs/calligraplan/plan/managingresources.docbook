@@ -14,42 +14,42 @@
 </sect3>
 <sect3 id="shared-resources"
 ><title
->Shared Resources</title>
+>Спільні ресурси</title>
   <para
->Shared Resources are resources that can be shared between project and thus facilitates resource levelling across projects. </para>
+>Спільні ресурси є ресурсами, які може бути використано у декількох проєктах, а отже, такі ресурси, які полегшують визначення рівнів використання ресурсів між проєктами. </para>
   <para
->If you are managing projects that use totally different resource pools you can create multiple resource files, but one project can only refer to one resource file. </para>
+>Якщо ви керуєте проєктами, у яких набори виконавців (ресурсів) є абсолютно різними, ви можете створити декілька файлів ресурсів, але один проєкт може користуватися лише одним файлом ресурсів. </para>
   <para
->You can select the resource file to use when creating a new project. The resources can be automatically loaded on opening your project or you can update manually by selecting <menuchoice
+>Ви можете вибрати файл ресурсів, яким слід скористатися при створенні проєкту. Ресурси може бути автоматично завантажено під час відкриття проєкту, або ви можжете оновити їх вручну за допомогою пункту меню <menuchoice
 ><guimenu
->Tools</guimenu
+>Інструменти</guimenu
 ><guimenuitem
->Update Shared Resources</guimenuitem
+>Оновити спільні ресурси</guimenuitem
 ></menuchoice
 >. </para>
   <para
->Note that the project can still be opened even if the resource file is not available. </para>
+>Зауважте, що проєкт можна буде відкрити, навіть якщо файл ресурсів стане недоступним. </para>
   <para
->If anything has been deleted in the shared resource file, you will be presented with a dialog where you can select how to treat the deleted items. </para>
+>Якщо у файлі спільних ресурсів щось вилучено, програма покаже вам вікно, де ви зможете визначитися із тим, що робити із вилученими записами. </para>
   <para
->You can select if an item shall be: <itemizedlist>
+>Ви можете вибрати для запису один з таких варіантів: <itemizedlist>
   <listitem
 ><para
 ><emphasis
->Removed:</emphasis
-> Removes the item from your project. This is the action you would normally select as it keeps your project in sync with the resource file. However if the item is used in your project, you may want to convert to a local item.</para>
+>Вилучений:</emphasis
+> вилучає запис з проєкту. Це дія, яка є типовою, оскільки зберігає синхронізацію проєкту із файлом ресурсів. Втім, якщо запис використовується у вашому проєкт, може виникнути потреба у перетворенні його на локальний.</para>
   </listitem>
   <listitem
 ><para
 ><emphasis
->Converted:</emphasis
-> Converts the item to local item.</para>
+>Перетворений:</emphasis
+> перетворює запис на локальний.</para>
   </listitem>
   <listitem
 ><para
 ><emphasis
->Kept:</emphasis
-> Keeps the item as a shared item in your project. Next time the resource file is loaded, you will be asked again how to treat the item.</para>
+>Збережений:</emphasis
+> зберігає запис як спільний запис у вашому проєкті. Під час наступної спроби завантажити файл ресурсів, програма знову попросить вас визначитися із дією для цього запису.</para>
   </listitem>
   </itemizedlist>
   </para>

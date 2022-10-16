@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-23 07:41+0200\n"
+"PO-Revision-Date: 2022-10-15 09:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Vernekar <andrej.vernekar@gmail.com>\n"
 "X-Generator: Poedit 3.1.1\n"
 
@@ -3543,20 +3543,16 @@ msgid "Estimated duration: %1"
 msgstr "Ocenjeno trajanje: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Ocena napora: %1"
+msgstr "Ocena napora: %1<nl/>Pričakovan napor: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Ocenjeno trajanje: %1"
+msgstr "Ocenjeno trajanje: %1<nl/>Pričakovano trajanje: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4045,20 +4041,16 @@ msgid "Estimate"
 msgstr "Ocena"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimistično (trajanje)"
+msgstr "Optimistično (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pesimistično (trajanje)"
+msgstr "Pesimistično (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
