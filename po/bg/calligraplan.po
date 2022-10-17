@@ -2390,7 +2390,3 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Expected estimate"
-#~ msgstr "Ръководител на проекта."

@@ -96,7 +96,7 @@ msgstr "Finalitza"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to find scenario to schedule"
-msgstr "No s'ha pogut buscar l'escenari a planificar"
+msgstr "No s'ha pogut buscar l'escenari que s'ha de planificar"
 
 #: PlanTJScheduler.cpp:427
 #, kde-kuit-format

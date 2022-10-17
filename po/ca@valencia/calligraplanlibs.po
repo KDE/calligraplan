@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 11:01+0200\n"
+"PO-Revision-Date: 2022-10-14 13:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1115,7 +1115,7 @@ msgstr "Nom de fitxer on escriure la informació de perfil."
 #: main/KoApplication.cpp:195
 #, kde-format
 msgid "File(s) or URL(s) to open"
-msgstr "Fitxer(s) o URL(s) que s'obrirà"
+msgstr "Fitxers o URL que s'han d'obrir"
 
 #: main/KoApplication.cpp:447 main/KoApplication.cpp:480
 #, kde-format
@@ -3072,7 +3072,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The distribution to be used during scheduling"
-msgstr "La distribució que s'utilitzarà durant la planificació"
+msgstr "La distribució que s'ha d'utilitzar durant la planificació"
 
 #: models/kptcommonstrings.cpp:135
 #, kde-kuit-format
@@ -3084,9 +3084,9 @@ msgid ""
 "on the entered optimistic- (O), pessimistic-(P) and most likely (M) "
 "estimate. The formula used for this is (O + 4 * M + P) / 6.</para>"
 msgstr ""
-"<para>La distribució que s'utilitzarà durant la planificació</para><para>Si "
-"la distribució és «Cap», l'estimació de tasques s'utilitza com durant la "
-"planificació.</para><para>Si la distribució és «PERT», l'estimació "
+"<para>La distribució que s'ha d'utilitzar durant la planificació</"
+"para><para>Si la distribució és «Cap», l'estimació de tasques s'utilitza com "
+"durant la planificació.</para><para>Si la distribució és «PERT», l'estimació "
 "utilitzada es calcula basant-se en les estimacions introduïdes optimistes "
 "(O), pessimistes (P) i més possible (M). La fórmula utilitzada per a açò és "
 "(O + 4 * M + P) / 6.</para>"
@@ -3543,20 +3543,16 @@ msgid "Estimated duration: %1"
 msgstr "Duració estimada: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Esforç estimat: %1"
+msgstr "Esforç estimat: %1<nl/>Esforç esperat: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Duració estimada: %1"
+msgstr "Duració estimada: %1<nl/>Duració esperada: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4044,20 +4040,16 @@ msgid "Estimate"
 msgstr "Estimat"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimista (dur)"
+msgstr "Optimista (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimista (dur)"
+msgstr "Pessimista (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format

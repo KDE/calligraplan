@@ -202,7 +202,7 @@ msgstr "Informació"
 
 #: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
 msgid "No properties to export"
-msgstr "No hi ha cap propietat per a exportar"
+msgstr "No hi ha cap propietat que s'haja d'exportar"
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
 msgid "Select schedule"

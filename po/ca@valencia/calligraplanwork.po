@@ -78,7 +78,7 @@ msgstr "Vi&sualitza"
 #: commandlineparser.cpp:35
 #, kde-format
 msgid "File to open"
-msgstr "Fitxer que s'obrirà"
+msgstr "Fitxer que s'ha d'obrir"
 
 #: commandlineparser.cpp:92
 #, kde-format
