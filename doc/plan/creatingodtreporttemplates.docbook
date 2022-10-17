@@ -1231,6 +1231,8 @@
 <sect3 id="chart"><title>Chart</title>
   <para>Use by placing a variable with name chartX (X=some text to make the variable name unique) with a value project before the chart that shall be used.
   </para>
+  <para>Note that the chart must be “anchored as character” or else the report generator cannot find it.
+  </para>
   <para>The variable has this format:
   </para>
   <para>Variable: <varname>Name: chartX (X=some text) Value: project; values=<replaceable>data</replaceable>;</varname>
