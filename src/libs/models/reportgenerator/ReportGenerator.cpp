@@ -19,6 +19,8 @@
 
 #include <KLocalizedString>
 
+#include <QFile>
+
 namespace KPlato
 {
 
@@ -241,11 +243,24 @@ void ReportGenerator::addDataModel(const QString &name, QAbstractItemModel *mode
 bool ReportGenerator::initiate()
 {
     m_lastError.clear();
+    if (m_templateFile.isEmpty()) {
+        m_lastError = i18n("Missing report template file");
+        return false;
+    }
+    if (m_reportFile.isEmpty()) {
+        m_lastError = i18n("Missing report result file");
+        return false;
+    }
+    if (!QFile::exists(m_templateFile)) {
+        m_lastError = i18n("Report template file does not exist");
+        return false;
+    }
+
     for (ItemModelBase *m : qAsConst(m_basemodels)) {
         m->setProject(m_project);
         m->setScheduleManager(m_manager);
         if (qobject_cast<ChartItemModel*>(m)) {
-            qobject_cast<ChartItemModel*>(m)->setNodes(QList<Node*>() << m_project);
+            static_cast<ChartItemModel*>(m)->setNodes(QList<Node*>() << m_project);
             dbgRGChart<<"chart:"<<m_project<<m_manager<<"set nodes"<<m_project;
         }
     }

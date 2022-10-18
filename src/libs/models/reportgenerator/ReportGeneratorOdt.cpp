@@ -97,18 +97,6 @@ ReportGeneratorOdt::~ReportGeneratorOdt()
 
 bool ReportGeneratorOdt::initiateInternal()
 {
-    if (m_templateFile.isEmpty()) {
-        m_lastError = i18n("Missing report template file");
-        return false;
-    }
-    if (m_reportFile.isEmpty()) {
-        m_lastError = i18n("Missing report result file");
-        return false;
-    }
-    if (!QFile::exists(m_templateFile)) {
-        m_lastError = i18n("Report template file does not exist");
-        return false;
-    }
     if (m_templateStore) {
         delete m_templateStore;
     }
