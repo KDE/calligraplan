@@ -315,9 +315,8 @@ void ReportGeneratorOdt::addDataModel(const QString &name, QAbstractItemModel *m
     m_headerrole[name] = role;
 }
 
-bool ReportGeneratorOdt::open()
+bool ReportGeneratorOdt::initiateInternal()
 {
-    m_lastError.clear();
     if (m_templateFile.isEmpty()) {
         m_lastError = i18n("Missing report template file");
         return false;
@@ -326,13 +325,12 @@ bool ReportGeneratorOdt::open()
         m_lastError = i18n("Missing report result file");
         return false;
     }
-    if (m_templateStore) {
-        m_lastError = i18n("Report generator is already open");
-        return false;
-    }
     if (!QFile::exists(m_templateFile)) {
         m_lastError = i18n("Report template file does not exist");
         return false;
+    }
+    if (m_templateStore) {
+        delete m_templateStore;
     }
     m_templateStore = KoStore::createStore(m_templateFile, KoStore::Read);
     if (!m_templateStore) {
@@ -352,12 +350,6 @@ bool ReportGeneratorOdt::open()
     initScheduleModel(m_datamodels[QStringLiteral("schedule")], m_project, m_manager);
     static_cast<ScheduleItemModel*>(m_datamodels[QStringLiteral("schedules")])->setProject(m_project);
     return true;
-}
-
-void ReportGeneratorOdt::close()
-{
-    delete m_templateStore;
-    m_templateStore = nullptr;
 }
 
 bool ReportGeneratorOdt::createReport()

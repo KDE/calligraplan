@@ -8,6 +8,7 @@
 #include "ReportsGeneratorView.h"
 
 #include "reportgenerator/ReportGenerator.h"
+#include <reportgenerator/ReportGeneratorFactory.h>
 #include "kptdebug.h"
 
 #include <KoIcon.h>
@@ -515,19 +516,19 @@ void ReportsGeneratorView::slotGenerateReport()
 
 bool ReportsGeneratorView::generateReport(const QString &templateFile, const QString &file)
 {
-    ReportGenerator rg;
-    rg.setReportType(QStringLiteral("odt")); // TODO: handle different report types
-    rg.setTemplateFile(templateFile);
-    rg.setReportFile(file);
-    rg.setProject(project());
-    rg.setScheduleManager(scheduleManager());
-    if (!rg.open()) {
-        debugPlanReport<<"Failed to open report generator";
-        QMessageBox::warning(this, i18n("Failed to open report generator"), rg.lastError());
+    ReportGeneratorFactory rgf;
+    QScopedPointer<ReportGenerator> rg(rgf.createReportGenerator(QStringLiteral("odt")));
+    rg->setTemplateFile(templateFile);
+    rg->setReportFile(file);
+    rg->setProject(project());
+    rg->setScheduleManager(scheduleManager());
+    if (!rg->initiate()) {
+        debugPlanReport<<"Failed to initiate report generator";
+        QMessageBox::warning(this, i18n("Failed to open report generator"), rg->lastError());
         return false;
     }
-    if (!rg.createReport()) {
-        QMessageBox::warning(this, i18n("Failed to create report"), rg.lastError());
+    if (!rg->createReport()) {
+        QMessageBox::warning(this, i18n("Failed to create report"), rg->lastError());
         return false;
     }
     if (QMessageBox::question(this, xi18nc("@title:window", "Report Generation"), xi18nc("@info", "Report file generated:<nl/><filename>%1</filename>", file), QMessageBox::Open|QMessageBox::Close, QMessageBox::Close) == QMessageBox::Open) {

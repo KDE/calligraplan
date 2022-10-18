@@ -61,7 +61,7 @@ void ReportsTester::testReportGeneration()
     qDebug()<<reportFile;
     tmp.close();
     report.setReportFile(reportFile);
-    QVERIFY(report.open());
+    QVERIFY(report.initiate());
     QVERIFY(report.createReport());
 }
 

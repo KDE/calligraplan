@@ -45,12 +45,10 @@ public:
     explicit ReportGeneratorOdt();
     ~ReportGeneratorOdt() override;
 
-    bool open() override;
-    void close() override;
-
     bool createReport() override;
 
 protected:
+    bool initiateInternal() override;
     bool createReportOdt();
     bool handleTextP(KoXmlWriter &writer, const KoXmlElement &textp);
     void handleDrawFrame(KoXmlWriter &writer, const KoXmlElement &frame);

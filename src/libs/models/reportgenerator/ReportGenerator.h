@@ -45,12 +45,14 @@ public:
     void setProject(Project *project);
     void setScheduleManager(ScheduleManager *manager);
 
-    virtual bool open();
-    virtual void close();
-
-    virtual bool createReport();
+    bool initiate();
+    virtual bool createReport() = 0;
 
     QString lastError() const;
+
+protected:
+    /// Re-implement this to initate your report generator
+    virtual bool initiateInternal();
 
 protected:
     QString m_lastError;

@@ -54,34 +54,15 @@ void ReportGenerator::setScheduleManager(ScheduleManager *manager)
     m_manager = manager;
 }
 
-bool ReportGenerator::open()
+bool ReportGenerator::initiate()
 {
     m_lastError.clear();
-    if (m_reportType == QStringLiteral("odt")) {
-        m_reportGenerator = new ReportGeneratorOdt();
-        m_reportGenerator->setTemplateFile(m_templateFile);
-        m_reportGenerator->setReportFile(m_reportFile);
-        m_reportGenerator->setProject(m_project);
-        m_reportGenerator->setScheduleManager(m_manager);
-        return m_reportGenerator->open();
-    }
-    m_lastError = i18n("Unknown report type: %1", m_reportType);
-    return false;
+    return initiateInternal();
 }
 
-void ReportGenerator::close()
+bool ReportGenerator::initiateInternal()
 {
-    delete m_reportGenerator;
-    m_reportGenerator = nullptr;
-}
-
-bool ReportGenerator::createReport()
-{
-    if (!m_reportGenerator) {
-        m_lastError = i18n("The report generator has not been opened successfully.");
-        return false;
-    }
-    return m_reportGenerator->createReport();
+    return true;
 }
 
 QString ReportGenerator::lastError() const
