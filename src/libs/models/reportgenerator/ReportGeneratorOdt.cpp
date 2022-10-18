@@ -7,6 +7,7 @@
 // clazy:excludeall=qstring-arg
 #include "planmodels_export.h"
 #include "ReportGeneratorOdt.h"
+#include "ReportGeneratorDebug.h"
 
 #include "kptproject.h"
 #include "kptschedule.h"
@@ -40,48 +41,6 @@
 #include <QPair>
 
 #define HeaderRole Qt::UserRole + 543
-
-const QLoggingCategory &PLANRG_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt");
-    return category;
-}
-#define dbgRG qCDebug(PLANRG_LOG)<<Q_FUNC_INFO
-
-const QLoggingCategory &PLANRG_TMP_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt.template");
-    return category;
-}
-#define dbgRGTmp qCDebug(PLANRG_TMP_LOG)<<Q_FUNC_INFO
-
-const QLoggingCategory &PLANRG_TABLE_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt.table");
-    return category;
-}
-#define dbgRGTable qCDebug(PLANRG_TABLE_LOG)<<Q_FUNC_INFO
-
-const QLoggingCategory &PLANRG_CHART_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt.chart");
-    return category;
-}
-#define dbgRGChart qCDebug(PLANRG_CHART_LOG)<<Q_FUNC_INFO
-
-const QLoggingCategory &PLANRG_VARIABLE_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt.variable");
-    return category;
-}
-#define dbgRGVariable qCDebug(PLANRG_VARIABLE_LOG)<<Q_FUNC_INFO
-
-const QLoggingCategory &PLANRG_TR_LOG()
-{
-    static const QLoggingCategory category("calligra.plan.reportodt.tr");
-    return category;
-}
-#define dbgRGTr qCDebug(PLANRG_TR_LOG)<<Q_FUNC_INFO
 
 namespace KPlato
 {

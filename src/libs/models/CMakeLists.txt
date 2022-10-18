@@ -19,6 +19,7 @@ endif ()
 ########### KPlato data models library ###############
 
 set(calligraplanmodels_LIB_SRCS
+    reportgenerator/ReportGeneratorDebug.cpp
     reportgenerator/ReportGeneratorFactory.cpp
     reportgenerator/ReportGenerator.cpp
     reportgenerator/ReportGeneratorOdt.cpp
