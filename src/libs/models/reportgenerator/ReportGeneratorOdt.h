@@ -74,8 +74,6 @@ protected:
     void handleUserFieldDecls(KoXmlWriter &writer, const KoXmlElement &decls);
     QAbstractItemModel *dataModel(const QString &name) const;
 
-    void addDataModel(const QString &name, QAbstractItemModel *model, int role);
-
     QAbstractItemModel *projectsModel(ItemModelBase *base) const;
 
 public:
@@ -122,13 +120,6 @@ private:
 
     QMap<QString, QString> m_embededcharts;
     QMap<QString, QString> m_embededgantts;
-
-    QStringList m_keys;
-    QStringList m_variables;
-
-    QMap<QString, QAbstractItemModel*> m_datamodels;
-    QMap<QString, int> m_headerrole;
-    QList<ItemModelBase*> m_basemodels;
 
     QList<QByteArray> m_tags; // cache tags for survival
 };

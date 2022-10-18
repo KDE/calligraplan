@@ -24,13 +24,15 @@ class KoStore;
 class KoOdfWriteStore;
 class KoOdfReadStore;
 
+#define HeaderRole Qt::UserRole + 543
+
 namespace KPlato
 {
 
 class Project;
 class ScheduleManager;
 class ItemModelBase;
-
+class ChartItemModel;
 
 class PLANMODELS_EXPORT ReportGenerator
 {
@@ -54,6 +56,13 @@ protected:
     /// Re-implement this to initate your report generator
     virtual bool initiateInternal();
 
+    QAbstractItemModel *projectsModel(ItemModelBase *base) const;
+    void addDataModel(const QString &name, QAbstractItemModel *model, int role);
+
+    static ChartItemModel *findChartItemModel(QSortFilterProxyModel &model);
+    static bool startsWith(const QStringList &keys, const QString &key);
+    static QStringList trimmed(const QStringList &lst);
+
 protected:
     QString m_lastError;
     QString m_reportType;
@@ -63,6 +72,14 @@ protected:
     ScheduleManager *m_manager;
 
     ReportGenerator *m_reportGenerator;
+
+    QStringList m_keys;
+    QStringList m_variables;
+
+    QMap<QString, QAbstractItemModel*> m_datamodels;
+    QMap<QString, int> m_headerrole;
+    QList<ItemModelBase*> m_basemodels;
+
 };
 
 } //namespace KPlato
