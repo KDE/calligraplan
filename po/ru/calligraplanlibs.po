@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-19 00:46+0000\n"
 "PO-Revision-Date: 2022-03-09 17:39+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -276,8 +276,7 @@ msgstr "Отсутствует"
 
 #: kernel/kptnode.cpp:143 models/kptpertcpmmodel.cpp:421
 #: models/kptresourceappointmentsmodel.cpp:375
-#: models/reportgenerator/ReportGeneratorOdt.cpp:159
-#: ui/reports/reportdata.cpp:941
+#: models/reportgenerator/ReportGenerator.cpp:30 ui/reports/reportdata.cpp:941
 #, kde-format
 msgid "Project"
 msgstr "Проект"
@@ -422,7 +421,7 @@ msgid "Calculate start"
 msgstr "Вычислить начало"
 
 #: kernel/kptproject.cpp:293 kernel/kptproject.cpp:405
-#: kernel/kptproject.cpp:435 models/reportgenerator/ReportGeneratorOdt.cpp:161
+#: kernel/kptproject.cpp:435 models/reportgenerator/ReportGenerator.cpp:32
 #, kde-format
 msgid "Schedule"
 msgstr "Расписание"
@@ -782,7 +781,7 @@ msgstr ""
 "Не удалось согласовать продолжительность работы. Требуется: %1, имеем: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Number"
 msgstr "Число"
@@ -2064,7 +2063,7 @@ msgstr[3] "В этой группе доступен %1 ресурс"
 #: models/kptresourceappointmentsmodel.cpp:768
 #: models/kptresourceappointmentsmodel.cpp:1167 models/kptschedulemodel.cpp:978
 #: models/kptschedulemodel.cpp:1303
-#: models/reportgenerator/ReportGeneratorOdt.cpp:179
+#: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
 #, kde-format
@@ -2391,7 +2390,7 @@ msgstr ""
 
 #: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5256
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:252
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
@@ -3313,70 +3312,70 @@ msgid "%1%"
 msgstr "%1%"
 
 #: models/kptnodechartmodel.cpp:232
-#: models/reportgenerator/ReportGeneratorOdt.cpp:181
+#: models/reportgenerator/ReportGenerator.cpp:52
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Scheduled"
 msgid "BCWS Cost"
 msgstr "ПСЗР (Стоимость)"
 
 #: models/kptnodechartmodel.cpp:233
-#: models/reportgenerator/ReportGeneratorOdt.cpp:182
+#: models/reportgenerator/ReportGenerator.cpp:53
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Performed"
 msgid "BCWP Cost"
 msgstr "ПСВР (Стоимость)"
 
 #: models/kptnodechartmodel.cpp:234
-#: models/reportgenerator/ReportGeneratorOdt.cpp:183
+#: models/reportgenerator/ReportGenerator.cpp:54
 #, kde-format
 msgctxt "Cost based Actual Cost of Work Performed"
 msgid "ACWP Cost"
 msgstr "ФСВР (Стоимость)"
 
 #: models/kptnodechartmodel.cpp:235
-#: models/reportgenerator/ReportGeneratorOdt.cpp:186
+#: models/reportgenerator/ReportGenerator.cpp:57
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Scheduled"
 msgid "BCWS Effort"
 msgstr "ПСЗР (Объём работ)"
 
 #: models/kptnodechartmodel.cpp:236
-#: models/reportgenerator/ReportGeneratorOdt.cpp:187
+#: models/reportgenerator/ReportGenerator.cpp:58
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Performed"
 msgid "BCWP Effort"
 msgstr "ПСВР (Объём работ)"
 
 #: models/kptnodechartmodel.cpp:237
-#: models/reportgenerator/ReportGeneratorOdt.cpp:188
+#: models/reportgenerator/ReportGenerator.cpp:59
 #, kde-format
 msgctxt "Effort based Actual Cost of Work Performed"
 msgid "ACWP Effort"
 msgstr "ФСВР (Объём работ)"
 
 #: models/kptnodechartmodel.cpp:238
-#: models/reportgenerator/ReportGeneratorOdt.cpp:184
+#: models/reportgenerator/ReportGenerator.cpp:55
 #, kde-format
 msgctxt "Cost based Schedule Performance Index"
 msgid "SPI Cost"
 msgstr "ИВСР (Стоимость)"
 
 #: models/kptnodechartmodel.cpp:239
-#: models/reportgenerator/ReportGeneratorOdt.cpp:185
+#: models/reportgenerator/ReportGenerator.cpp:56
 #, kde-format
 msgctxt "Cost based Cost Performance Index"
 msgid "CPI Cost"
 msgstr "ИЗСР (Стоимость)"
 
 #: models/kptnodechartmodel.cpp:240
-#: models/reportgenerator/ReportGeneratorOdt.cpp:189
+#: models/reportgenerator/ReportGenerator.cpp:60
 #, kde-format
 msgctxt "Effort based Schedule Performance Index"
 msgid "SPI Effort"
 msgstr "ИВСР (Объём работ)"
 
 #: models/kptnodechartmodel.cpp:241
-#: models/reportgenerator/ReportGeneratorOdt.cpp:190
+#: models/reportgenerator/ReportGenerator.cpp:61
 #, kde-format
 msgctxt "Effort based Cost Performance Index"
 msgid "CPI Effort"
@@ -3450,35 +3449,35 @@ msgid "Effort based Cost Performance Index (BCWP/ACWS)"
 msgstr "Основанный на объёме работ индекс стоимости (ПСВР/ФСВР)"
 
 #: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2397
-#: models/reportgenerator/ReportGeneratorOdt.cpp:162
+#: models/reportgenerator/ReportGenerator.cpp:33
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Scheduled"
 msgid "BCWS"
 msgstr "ПСЗР"
 
 #: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2398
-#: models/reportgenerator/ReportGeneratorOdt.cpp:163
+#: models/reportgenerator/ReportGenerator.cpp:34
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Performed"
 msgid "BCWP"
 msgstr "ПСВР"
 
 #: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2399
-#: models/reportgenerator/ReportGeneratorOdt.cpp:164
+#: models/reportgenerator/ReportGenerator.cpp:35
 #, kde-kuit-format
 msgctxt "@title:column Actual Cost of Work Performed"
 msgid "ACWP"
 msgstr "ФСВР"
 
 #: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
-#: models/reportgenerator/ReportGeneratorOdt.cpp:165
+#: models/reportgenerator/ReportGenerator.cpp:36
 #, kde-kuit-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
 msgstr "ИВСР"
 
 #: models/kptnodechartmodel.cpp:516
-#: models/reportgenerator/ReportGeneratorOdt.cpp:166
+#: models/reportgenerator/ReportGenerator.cpp:37
 #, kde-kuit-format
 msgctxt "@title:column Cost Performance Index"
 msgid "CPI"
@@ -5342,110 +5341,95 @@ msgstr "Передача рабочего пакета получена в: %1"
 msgid "Task reported %1% completed"
 msgstr "Отчёт о выполнении задания выполнен на %1%"
 
-#: models/reportgenerator/ReportGenerator.cpp:68
-#, kde-format
-msgid "Unknown report type: %1"
-msgstr "Незивестный тип отчёта: %1"
-
-#: models/reportgenerator/ReportGenerator.cpp:81
-#, kde-format
-msgid "The report generator has not been opened successfully."
-msgstr "Генератор отчётов не был успешно открыт."
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:160
-#: models/reportgenerator/ReportGeneratorOdt.cpp:180
+#: models/reportgenerator/ReportGenerator.cpp:31
+#: models/reportgenerator/ReportGenerator.cpp:51
 #: ui/projectview/ProjectView.cpp:41
 #, kde-format
 msgid "Manager"
 msgstr "Руководитель"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:322
+#: models/reportgenerator/ReportGenerator.cpp:247
 #, kde-format
 msgid "Missing report template file"
 msgstr "Отсутствует шаблон файла отчёта"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:326
+#: models/reportgenerator/ReportGenerator.cpp:251
 #, kde-format
 msgid "Missing report result file"
 msgstr "Отсутствует файл отчёта о результатах"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:330
-#, kde-format
-msgid "Report generator is already open"
-msgstr "Генератор отчётов уже открыт"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:334
+#: models/reportgenerator/ReportGenerator.cpp:255
 #, kde-format
 msgid "Report template file does not exist"
 msgstr "Файл шаблона отчёта не существует"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:340
+#: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
 msgstr "Не удалось открыть файл шаблона: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:366
+#: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
 msgid "Report generator has not been correctly opened"
 msgstr "Генератор отчётов был открыт неправильно"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:406
-#: models/reportgenerator/ReportGeneratorOdt.cpp:433
-#: models/reportgenerator/ReportGeneratorOdt.cpp:1040
+#: models/reportgenerator/ReportGeneratorOdt.cpp:155
+#: models/reportgenerator/ReportGeneratorOdt.cpp:182
+#: models/reportgenerator/ReportGeneratorOdt.cpp:789
 #, kde-format
 msgid "Failed to write to store: %1"
 msgstr "Не удалось записать в хранилище: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:448
+#: models/reportgenerator/ReportGeneratorOdt.cpp:197
 #, kde-format
 msgid "Failed to write report file: %1"
 msgstr "Не удалось записать файл отчёта: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:841
+#: models/reportgenerator/ReportGeneratorOdt.cpp:590
 #, fuzzy, kde-format
 #| msgid "Failed to open template file: %1"
 msgid "Failed to extract file: %1"
 msgstr "Не удалось открыть файл шаблона: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:847
+#: models/reportgenerator/ReportGeneratorOdt.cpp:596
 #, fuzzy, kde-format
 #| msgid "Failed to write to store: %1"
 msgid "Failed to add file to store: %1"
 msgstr "Не удалось записать в хранилище: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:871
+#: models/reportgenerator/ReportGeneratorOdt.cpp:620
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr "Генератор отчётов может создавать только локальные файлы"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:878
+#: models/reportgenerator/ReportGeneratorOdt.cpp:627
 #, kde-format
 msgid "Failed to open report file: %1"
 msgstr "Не удалось открыть файл отчёта: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:887
+#: models/reportgenerator/ReportGeneratorOdt.cpp:636
 #, fuzzy, kde-format
 #| msgid "Failed to load manifest file"
 msgid "Failed to load mimetype file"
 msgstr "Не удалось загрузить файл манифеста"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:896
+#: models/reportgenerator/ReportGeneratorOdt.cpp:645
 #, kde-format
 msgid "Failed to write manifest file"
 msgstr "Не удалось записать файл манифеста"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:922 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr "Нет программы сохранения"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:932
+#: models/reportgenerator/ReportGeneratorOdt.cpp:681
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "Не удалось открыть файл <filename>%1</filename> из хранилища."
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:965
+#: models/reportgenerator/ReportGeneratorOdt.cpp:714
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
@@ -6646,7 +6630,7 @@ msgstr "Начало проекта"
 #: ui/kptaccountsviewconfigurepanelbase.ui:114
 #: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
 #: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:395
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Date"
 msgstr "Дата"
@@ -9835,57 +9819,57 @@ msgstr "После нижнего колонтитула"
 msgid "Before header"
 msgstr "Перед заголовком"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Nothing"
 msgstr "Ничего"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
 #, fuzzy, kde-format
 #| msgid "Report Template"
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Шаблон отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Добавить"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, fuzzy, kde-format
 #| msgid "Report File"
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Файл отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:258
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
 msgstr "Название отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
 msgstr "Имя файла шаблона отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
 msgstr "Сведения, добавленные в имя файла"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
 msgstr "Имя сгенерированного файла отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:287
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:288
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9899,41 +9883,41 @@ msgstr ""
 "создать шаблон отчёта, поспользуйтесь любым текстовым редактором Open "
 "Document.<nl/><link url='%1'>Подробнее...</link></para>"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:378
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:379
 #, kde-format
 msgid "Add Report"
 msgstr "Добавить отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:383
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:384
 #, kde-format
 msgid "Remove Report"
 msgstr "Удалить отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:388
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:389
 #, kde-format
 msgid "Generate Report"
 msgstr "Сгенирировать отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:393
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:394
 #, fuzzy, kde-format
 #| msgid "Open"
 msgid "Open..."
 msgstr "Открыть"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:429
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:430
 #, kde-format
 msgid "New report"
 msgstr "Создать отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:470
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:476
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:483
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Generate Report"
 msgstr "Сгенерировать отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed to generate %1.\n"
@@ -9943,7 +9927,7 @@ msgstr ""
 "Не удалось сгенерировать %1.\n"
 "Имя файла шаблона пустое."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed to generate %1.\n"
@@ -9953,7 +9937,7 @@ msgstr ""
 "Не удалось сгенерировать %1.\n"
 "Имя файла шаблона пустое."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed to generate %1.\n"
@@ -9963,7 +9947,7 @@ msgstr ""
 "Не удалось сгенерировать %1.\n"
 "Имя файла отчёта пустое."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:507
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip 1=list of resources"
 #| msgid "Assigned resources:<nl/>%1"
@@ -9971,24 +9955,24 @@ msgctxt "@info"
 msgid "File exists:<nl/>%1"
 msgstr "Назначенные ресурсы:<nl/>%1"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:507
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:533
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
 msgstr "Создание отчёта"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:526
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:527
 #, kde-format
 msgid "Failed to open report generator"
 msgstr "Не удалось открыть генератор отчётов"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:530
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:531
 #, kde-format
 msgid "Failed to create report"
 msgstr "Не удалось создать отчёт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:533
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
@@ -10792,6 +10776,15 @@ msgstr "Замена"
 #, kde-format
 msgid "All supported formats"
 msgstr "Все поддерживаемые форматы"
+
+#~ msgid "Unknown report type: %1"
+#~ msgstr "Незивестный тип отчёта: %1"
+
+#~ msgid "The report generator has not been opened successfully."
+#~ msgstr "Генератор отчётов не был успешно открыт."
+
+#~ msgid "Report generator is already open"
+#~ msgstr "Генератор отчётов уже открыт"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "%1:<nl/>This resource will be automatically allocated to new tasks"

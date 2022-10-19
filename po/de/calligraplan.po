@@ -313,13 +313,15 @@ msgstr "Zeiteinheit für Schätzung"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Estimate"
 msgid "Estimate"
 msgstr "Schätzung"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Risk"
 msgid "Risk"
 msgstr "Risiko"
 
@@ -1113,25 +1115,29 @@ msgstr "Planungsvorgabe:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptconfigtaskpanelbase.ui:498
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Risk:"
 msgid "Risk:"
 msgstr "Risiko:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "None"
 msgid "None"
 msgstr "Keine(r/s)"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Low"
 msgid "Low"
 msgstr "Niedrig"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "High"
 msgid "High"
 msgstr "Hoch"
 

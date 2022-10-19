@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-19 00:46+0000\n"
 "PO-Revision-Date: 2012-06-09 22:24-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -280,8 +280,7 @@ msgstr "なし"
 
 #: kernel/kptnode.cpp:143 models/kptpertcpmmodel.cpp:421
 #: models/kptresourceappointmentsmodel.cpp:375
-#: models/reportgenerator/ReportGeneratorOdt.cpp:159
-#: ui/reports/reportdata.cpp:941
+#: models/reportgenerator/ReportGenerator.cpp:30 ui/reports/reportdata.cpp:941
 #, kde-format
 msgid "Project"
 msgstr "プロジェクト"
@@ -426,7 +425,7 @@ msgid "Calculate start"
 msgstr "開始を計算"
 
 #: kernel/kptproject.cpp:293 kernel/kptproject.cpp:405
-#: kernel/kptproject.cpp:435 models/reportgenerator/ReportGeneratorOdt.cpp:161
+#: kernel/kptproject.cpp:435 models/reportgenerator/ReportGenerator.cpp:32
 #, kde-format
 msgid "Schedule"
 msgstr "スケジュール"
@@ -795,7 +794,7 @@ msgid "Could not match work duration. Want: %1 got: %2"
 msgstr "作業期間の制約を満たせませんでした。必要: %1 取得: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Number"
 msgstr "数字"
@@ -2044,7 +2043,7 @@ msgstr[1] "このグループには %1 の利用可能リソースがありま�
 #: models/kptresourceappointmentsmodel.cpp:768
 #: models/kptresourceappointmentsmodel.cpp:1167 models/kptschedulemodel.cpp:978
 #: models/kptschedulemodel.cpp:1303
-#: models/reportgenerator/ReportGeneratorOdt.cpp:179
+#: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
 #, kde-format
@@ -2347,7 +2346,7 @@ msgstr "カレンダーの日付を変更"
 
 #: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5256
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:252
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
@@ -3263,49 +3262,49 @@ msgid "%1%"
 msgstr "%1%"
 
 #: models/kptnodechartmodel.cpp:232
-#: models/reportgenerator/ReportGeneratorOdt.cpp:181
+#: models/reportgenerator/ReportGenerator.cpp:52
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Scheduled"
 msgid "BCWS Cost"
 msgstr "BCWS コスト"
 
 #: models/kptnodechartmodel.cpp:233
-#: models/reportgenerator/ReportGeneratorOdt.cpp:182
+#: models/reportgenerator/ReportGenerator.cpp:53
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Performed"
 msgid "BCWP Cost"
 msgstr "BCWP コスト"
 
 #: models/kptnodechartmodel.cpp:234
-#: models/reportgenerator/ReportGeneratorOdt.cpp:183
+#: models/reportgenerator/ReportGenerator.cpp:54
 #, kde-format
 msgctxt "Cost based Actual Cost of Work Performed"
 msgid "ACWP Cost"
 msgstr "ACWP コスト"
 
 #: models/kptnodechartmodel.cpp:235
-#: models/reportgenerator/ReportGeneratorOdt.cpp:186
+#: models/reportgenerator/ReportGenerator.cpp:57
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Scheduled"
 msgid "BCWS Effort"
 msgstr "BCWS 工数"
 
 #: models/kptnodechartmodel.cpp:236
-#: models/reportgenerator/ReportGeneratorOdt.cpp:187
+#: models/reportgenerator/ReportGenerator.cpp:58
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Performed"
 msgid "BCWP Effort"
 msgstr "BCWP 工数"
 
 #: models/kptnodechartmodel.cpp:237
-#: models/reportgenerator/ReportGeneratorOdt.cpp:188
+#: models/reportgenerator/ReportGenerator.cpp:59
 #, kde-format
 msgctxt "Effort based Actual Cost of Work Performed"
 msgid "ACWP Effort"
 msgstr "ACWP 工数"
 
 #: models/kptnodechartmodel.cpp:238
-#: models/reportgenerator/ReportGeneratorOdt.cpp:184
+#: models/reportgenerator/ReportGenerator.cpp:55
 #, fuzzy, kde-format
 #| msgctxt "Cost based Budgeted Cost of Work Scheduled"
 #| msgid "BCWS Cost"
@@ -3314,7 +3313,7 @@ msgid "SPI Cost"
 msgstr "BCWS コスト"
 
 #: models/kptnodechartmodel.cpp:239
-#: models/reportgenerator/ReportGeneratorOdt.cpp:185
+#: models/reportgenerator/ReportGenerator.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "Cost based Budgeted Cost of Work Performed"
 #| msgid "BCWP Cost"
@@ -3323,7 +3322,7 @@ msgid "CPI Cost"
 msgstr "BCWP コスト"
 
 #: models/kptnodechartmodel.cpp:240
-#: models/reportgenerator/ReportGeneratorOdt.cpp:189
+#: models/reportgenerator/ReportGenerator.cpp:60
 #, fuzzy, kde-format
 #| msgctxt "Effort based Budgeted Cost of Work Scheduled"
 #| msgid "BCWS Effort"
@@ -3332,7 +3331,7 @@ msgid "SPI Effort"
 msgstr "BCWS 工数"
 
 #: models/kptnodechartmodel.cpp:241
-#: models/reportgenerator/ReportGeneratorOdt.cpp:190
+#: models/reportgenerator/ReportGenerator.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "Effort based Budgeted Cost of Work Performed"
 #| msgid "BCWP Effort"
@@ -3426,21 +3425,21 @@ msgid "Effort based Cost Performance Index (BCWP/ACWS)"
 msgstr "コストパフォーマンス指数 (BCWP/ACWP)"
 
 #: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2397
-#: models/reportgenerator/ReportGeneratorOdt.cpp:162
+#: models/reportgenerator/ReportGenerator.cpp:33
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Scheduled"
 msgid "BCWS"
 msgstr "BCWS"
 
 #: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2398
-#: models/reportgenerator/ReportGeneratorOdt.cpp:163
+#: models/reportgenerator/ReportGenerator.cpp:34
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Performed"
 msgid "BCWP"
 msgstr "BCWP"
 
 #: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2399
-#: models/reportgenerator/ReportGeneratorOdt.cpp:164
+#: models/reportgenerator/ReportGenerator.cpp:35
 #, kde-kuit-format
 msgctxt "@title:column Actual Cost of Work Performed"
 msgid "ACWP"
@@ -3448,7 +3447,7 @@ msgstr "ACWP"
 
 # Schedule Performance Index (スケジュール効率指数) 日本語にすると長すぎる？
 #: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
-#: models/reportgenerator/ReportGeneratorOdt.cpp:165
+#: models/reportgenerator/ReportGenerator.cpp:36
 #, kde-kuit-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
@@ -3456,7 +3455,7 @@ msgstr "SPI"
 
 # Cost Performance Index (コスト効率指数) 日本語にすると長すぎる？
 #: models/kptnodechartmodel.cpp:516
-#: models/reportgenerator/ReportGeneratorOdt.cpp:166
+#: models/reportgenerator/ReportGenerator.cpp:37
 #, kde-kuit-format
 msgctxt "@title:column Cost Performance Index"
 msgid "CPI"
@@ -5286,125 +5285,107 @@ msgstr "最新ワークパッケージ転送を受信: %1"
 msgid "Task reported %1% completed"
 msgstr "レポートされたタスク %1% は完了しました"
 
-#: models/reportgenerator/ReportGenerator.cpp:68
-#, fuzzy, kde-format
-#| msgid "Unknown"
-msgid "Unknown report type: %1"
-msgstr "不明"
-
-#: models/reportgenerator/ReportGenerator.cpp:81
-#, kde-format
-msgid "The report generator has not been opened successfully."
-msgstr ""
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:160
-#: models/reportgenerator/ReportGeneratorOdt.cpp:180
+#: models/reportgenerator/ReportGenerator.cpp:31
+#: models/reportgenerator/ReportGenerator.cpp:51
 #: ui/projectview/ProjectView.cpp:41
 #, fuzzy, kde-format
 #| msgid "Manager:"
 msgid "Manager"
 msgstr "マネージャ:"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:322
+#: models/reportgenerator/ReportGenerator.cpp:247
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
 msgid "Missing report template file"
 msgstr "レポートデザイナー"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:326
+#: models/reportgenerator/ReportGenerator.cpp:251
 #, kde-format
 msgid "Missing report result file"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:330
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report Designer"
-msgid "Report generator is already open"
-msgstr "レポートデザイナー"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:334
+#: models/reportgenerator/ReportGenerator.cpp:255
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
 msgid "Report template file does not exist"
 msgstr "レポートデザイナー"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:340
+#: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to open template file: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:366
+#: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
 msgid "Report generator has not been correctly opened"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:406
-#: models/reportgenerator/ReportGeneratorOdt.cpp:433
-#: models/reportgenerator/ReportGeneratorOdt.cpp:1040
+#: models/reportgenerator/ReportGeneratorOdt.cpp:155
+#: models/reportgenerator/ReportGeneratorOdt.cpp:182
+#: models/reportgenerator/ReportGeneratorOdt.cpp:789
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write to store: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:448
+#: models/reportgenerator/ReportGeneratorOdt.cpp:197
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write report file: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:841
+#: models/reportgenerator/ReportGeneratorOdt.cpp:590
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to extract file: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:847
+#: models/reportgenerator/ReportGeneratorOdt.cpp:596
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to add file to store: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:871
+#: models/reportgenerator/ReportGeneratorOdt.cpp:620
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:878
+#: models/reportgenerator/ReportGeneratorOdt.cpp:627
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to open report file: %1"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:887
+#: models/reportgenerator/ReportGeneratorOdt.cpp:636
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to load mimetype file"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:896
+#: models/reportgenerator/ReportGeneratorOdt.cpp:645
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to write manifest file"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:922 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:932
+#: models/reportgenerator/ReportGeneratorOdt.cpp:681
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
@@ -5412,7 +5393,7 @@ msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:965
+#: models/reportgenerator/ReportGeneratorOdt.cpp:714
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot open file:<br/><filename>%1</filename>"
@@ -6565,7 +6546,7 @@ msgstr "プロジェクト開始"
 #: ui/kptaccountsviewconfigurepanelbase.ui:114
 #: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
 #: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:395
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Date"
 msgstr "日付"
@@ -9688,12 +9669,12 @@ msgstr "お金の後"
 msgid "Before header"
 msgstr "お金の前"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:227
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
 msgid "Nothing"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -9701,14 +9682,14 @@ msgctxt "@title:column"
 msgid "Report Template"
 msgstr "レポートデザイナー"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, fuzzy, kde-format
 #| msgid "Add"
 msgctxt "@title:column"
 msgid "Add"
 msgstr "追加"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -9716,7 +9697,7 @@ msgctxt "@title:column"
 msgid "Report File"
 msgstr "レポートデザイナー"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:258
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -9724,7 +9705,7 @@ msgctxt "@info:tooltip"
 msgid "Report name"
 msgstr "レポートデザイナー"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -9732,13 +9713,13 @@ msgctxt "@info:tooltip"
 msgid "Report template file name"
 msgstr "レポートデザイナー"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
@@ -9746,7 +9727,7 @@ msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:287
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:288
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9756,41 +9737,41 @@ msgid ""
 "url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:378
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:379
 #, fuzzy, kde-format
 #| msgid "Edit Report"
 msgid "Add Report"
 msgstr "レポートを編集"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:383
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:384
 #, fuzzy, kde-format
 #| msgctxt "(qtundo-format)"
 #| msgid "Remove document"
 msgid "Remove Report"
 msgstr "文書を削除"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:388
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:389
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Export Report"
 msgid "Generate Report"
 msgstr "エクスポートレポート"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:393
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:394
 #, fuzzy, kde-format
 #| msgid "Open"
 msgid "Open..."
 msgstr "開く"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:429
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:430
 #, fuzzy, kde-format
 #| msgid "Edit Report"
 msgid "New report"
 msgstr "レポートを編集"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:470
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:476
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:483
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window"
 #| msgid "Export Report"
@@ -9798,28 +9779,28 @@ msgctxt "@title:window"
 msgid "Generate Report"
 msgstr "エクスポートレポート"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to generate %1.<nl/>Report file name is empty."
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:507
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip 1=list of resources"
 #| msgid "Assigned resources:<nl/>%1"
@@ -9827,8 +9808,8 @@ msgctxt "@info"
 msgid "File exists:<nl/>%1"
 msgstr "割り当てリソース<nl/>%1"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:507
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:533
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
 #, fuzzy, kde-format, kde-kuit-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -9836,21 +9817,21 @@ msgctxt "@title:window"
 msgid "Report Generation"
 msgstr "レポートデザイナー"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:526
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:527
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to export to <filename>%1</filename>"
 msgid "Failed to open report generator"
 msgstr "<filename>%1</filename> へのエクスポートに失敗しました"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:530
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:531
 #, fuzzy, kde-format
 #| msgctxt "1=type of constraint"
 #| msgid "%1: Failed to meet constraint"
 msgid "Failed to create report"
 msgstr "%1: 制約を満たせませんでした"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:533
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot open file:<br/><filename>%1</filename>"
@@ -10687,3 +10668,14 @@ msgstr "分布"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Unknown"
+#~ msgid "Unknown report type: %1"
+#~ msgstr "不明"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Report Designer"
+#~ msgid "Report generator is already open"
+#~ msgstr "レポートデザイナー"
