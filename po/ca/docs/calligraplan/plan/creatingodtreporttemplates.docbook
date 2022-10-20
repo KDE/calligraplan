@@ -1840,6 +1840,8 @@
   <para
 >Utilitzeu-lo col·locant una variable amb el nom chartX (X=algun text per a crear un nom de variable que sigui únic) amb un projecte de valor abans del gràfic que s'utilitzarà. </para>
   <para
+>Tingueu en compte que el gràfic cal que estigui «ancorat com a caràcter» o altrament el generador d'informes no el trobarà. </para>
+  <para
 >La variable té aquest format: </para>
   <para
 >Variable: <varname

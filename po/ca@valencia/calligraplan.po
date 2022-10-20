@@ -2080,10 +2080,10 @@ msgid ""
 "displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Selector de planificacions</title><para>Selecciona la planificació a "
-"utilitzar quan es mostren dades dependents de planificació.<nl/><note>Les "
-"tasques no planificades només es mostren en els editors.</note><nl/><link "
-"url='%1'>Més...</link></para>"
+"<title>Selector de planificacions</title><para>Selecciona la planificació "
+"que s'utilitzarà quan es mostren dades dependents de planificació.<nl/"
+"><note>Les tasques no planificades només es mostren en els editors.</"
+"note><nl/><link url='%1'>Més...</link></para>"
 
 #: kptviewlist.cpp:606
 #, kde-format

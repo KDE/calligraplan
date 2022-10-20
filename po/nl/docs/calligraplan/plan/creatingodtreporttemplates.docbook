@@ -1840,6 +1840,8 @@
   <para
 >Gebruik door plaatsen van een variabele met naam chartX (X=enige tekst om de variabelenaam uniek te maken) met een waardeproject voor de grafiek die gebruikt zal worden. </para>
   <para
+>Merk op dat de grafiek “als teken verankerd” moet worden, anders kan de rapportgenerator het niet vinden. </para>
+  <para
 >De variabele heeft het formaat: </para>
   <para
 >Variabele: <varname
