@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-10-14 12:09+0300\n"
+"PO-Revision-Date: 2022-10-20 12:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1766,13 +1766,13 @@ msgstr "Görev ilerleme bilgisini görüntüle"
 #: kptview.cpp:668
 #, kde-format
 msgid "Task Execution"
-msgstr "Görev Çalıştırma"
+msgstr "Görev Yürütme"
 
 #: kptview.cpp:669
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
-msgstr "Görev çalıştırma bilgisini görüntüle"
+msgstr "Görev yürütme bilgisini görüntüle"
 
 #: kptview.cpp:671 kptviewlistdialog.cpp:103
 #, kde-format
@@ -1899,7 +1899,7 @@ msgstr "Görünümler"
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
-msgstr "Çalıştırma"
+msgstr "Yürütme"
 
 #: kptview.cpp:716
 #, kde-format
