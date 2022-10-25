@@ -353,12 +353,14 @@ endif (TEST_FOR_KREPORT)
 
 
 add_subdirectory(src)
-
 add_subdirectory(devtools)
-
 add_subdirectory(doc)
-
 add_subdirectory(data)
+
+ki18n_install(po)
+if(KF5DocTools_FOUND)
+    kdoctools_install(po)
+endif()
 
 if (BUILD_TESTING)
     add_subdirectory(tests)
