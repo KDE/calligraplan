@@ -654,7 +654,8 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
         m_node(node),
         m_parent(parent),
         m_added(false),
-        m_cmd(nullptr)
+        m_cmd(nullptr),
+        m_first(true)
 {
 
     // set some reasonable defaults for normally calculated values
@@ -665,28 +666,6 @@ SubtaskAddCmd::SubtaskAddCmd(Project *project, Node *node, Node *parent, const K
     node->setWorkStartTime(node->startTime());
     node->setWorkEndTime(node->endTime());
 
-    // Summarytasks can't have resources, so remove resource requests from the new parent
-    const auto requests = parent->requests().resourceRequests();
-    for (ResourceRequest *r : requests) {
-        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new RemoveResourceRequestCmd(r));
-    }
-    // Also remove accounts
-    if (parent->runningAccount()) {
-        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyRunningAccountCmd(*parent, parent->runningAccount(), nullptr));
-    }
-    if (parent->startupAccount()) {
-        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyStartupAccountCmd(*parent, parent->startupAccount(), nullptr));
-    }
-    if (parent->shutdownAccount()) {
-        if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
-        m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*parent, parent->shutdownAccount(), nullptr));
-    }
-    if (node->type() == Node::Type_Task) {
-        project->allocateDefaultResources(static_cast<Task*>(node));
-    }
 }
 SubtaskAddCmd::~SubtaskAddCmd()
 {
@@ -696,6 +675,32 @@ SubtaskAddCmd::~SubtaskAddCmd()
 }
 void SubtaskAddCmd::execute()
 {
+    if (!m_first) {
+        m_first = false;
+        // Summarytasks can't have resources, so remove resource requests from the new parent
+        const auto requests = m_parent->requests().resourceRequests();
+        for (ResourceRequest *r : requests) {
+            if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+            m_cmd->addCommand(new RemoveResourceRequestCmd(r));
+        }
+        // Also remove accounts
+        if (m_parent->runningAccount()) {
+            if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+            m_cmd->addCommand(new NodeModifyRunningAccountCmd(*m_parent, m_parent->runningAccount(), nullptr));
+        }
+        if (m_parent->startupAccount()) {
+            if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+            m_cmd->addCommand(new NodeModifyStartupAccountCmd(*m_parent, m_parent->startupAccount(), nullptr));
+        }
+        if (m_parent->shutdownAccount()) {
+            if (m_cmd == nullptr) m_cmd = new MacroCommand(KUndo2MagicString());
+            m_cmd->addCommand(new NodeModifyShutdownAccountCmd(*m_parent, m_parent->shutdownAccount(), nullptr));
+        }
+        if (m_node->type() == Node::Type_Task) {
+            m_project->allocateDefaultResources(static_cast<Task*>(m_node));
+        }
+
+    }
     m_project->addSubTask(m_node, m_parent);
     if (m_cmd) {
         m_cmd->execute();

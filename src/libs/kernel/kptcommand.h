@@ -352,6 +352,7 @@ private:
     Node *m_parent;
     bool m_added;
     MacroCommand *m_cmd;
+    bool m_first;
 };
 
 
