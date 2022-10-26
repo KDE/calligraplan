@@ -366,8 +366,6 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-#add_custom_target(apidox doc/api/gendocs.pl WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-
 ### Summarize findings ####
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
