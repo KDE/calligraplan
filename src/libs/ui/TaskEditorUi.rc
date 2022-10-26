@@ -8,6 +8,7 @@
             <Action name="delete_task"/>
             <Separator/>
             <Action name="link_task"/>
+            <Action name="split_task"/>
             <Separator/>
             <Action name="indent_task"/>
             <Action name="unindent_task"/>
@@ -37,6 +38,7 @@
         <Action name="delete_task"/>
         <Separator/>
         <Action name="link_task"/>
+        <Action name="split_task"/>
         <Separator/>
         <Action name="indent_task"/>
         <Action name="unindent_task"/>

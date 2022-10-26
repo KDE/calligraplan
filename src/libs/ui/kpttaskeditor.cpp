@@ -34,6 +34,7 @@
 #include "kptmilestoneprogressdialog.h"
 #include "kptdocumentsdialog.h"
 #include "TasksEditDialog.h"
+#include "TaskSplitDialog.h"
 
 #include <KoXmlReader.h>
 #include <KoDocument.h>
@@ -771,6 +772,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
         if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
+        if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(false); }
         return;
     }
 
@@ -791,6 +793,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
             if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
+            if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(false); }
         } else {
             // we need to be able to add the first task
             menuAddTask->setEnabled(true);
@@ -806,6 +809,7 @@ void TaskEditor::updateActionsEnabled(bool on)
             actionIndentTask->setEnabled(false);
             actionUnindentTask->setEnabled(false);
             if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
+            if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(false); }
         }
         return;
     }
@@ -825,6 +829,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionIndentTask->setEnabled(false);
         actionUnindentTask->setEnabled(false);
         if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(false);
+        if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(false); }
         return;
     }
     bool baselined = false;
@@ -852,6 +857,7 @@ void TaskEditor::updateActionsEnabled(bool on)
         actionIndentTask->setEnabled(project()->canIndentTask(n) && !baselined && !n->siblingBefore()->isBaselined());
         actionUnindentTask->setEnabled(project()->canUnindentTask(n) && !baselined);
         if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(true);
+        if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(n->type() == Node::Type_Task && !n->isBaselined()); }
         return;
     }
     // selCount > 1
@@ -866,6 +872,7 @@ void TaskEditor::updateActionsEnabled(bool on)
     actionMoveTaskUp->setEnabled(false);
     actionMoveTaskDown->setEnabled(false);
     if (auto a = actionCollection()->action(QStringLiteral("node_properties"))) a->setEnabled(!selectedTasks().isEmpty());
+    if (auto a = actionCollection()->action(QStringLiteral("split_task"))) { a->setEnabled(false); }
 
     const QList<Node*> nodes = selectedNodes();
     const auto indentParent = newIndentParent(nodes);
@@ -944,6 +951,10 @@ void TaskEditor::setupGui()
     actionMoveTaskDown  = new QAction(koIcon("arrow-down"), i18n("Move Down"), this);
     actionCollection()->addAction(QStringLiteral("move_task_down"), actionMoveTaskDown);
     connect(actionMoveTaskDown, &QAction::triggered, this, &TaskEditor::slotMoveTaskDown);
+
+    auto actionSplit  = new QAction(koIcon("split"), i18n("Split"), this);
+    actionCollection()->addAction(QStringLiteral("split_task"), actionSplit);
+    connect(actionSplit, &QAction::triggered, this, &TaskEditor::slotTaskSplit);
 
     auto actionOpenNode  = new QAction(koIcon("document-edit"), i18n("Edit..."), this);
     actionCollection()->addAction(QStringLiteral("node_properties"), actionOpenNode);
@@ -1249,6 +1260,22 @@ void TaskEditor::slotMoveTaskDown()
         }
     }
 }
+
+void TaskEditor::slotTaskSplit()
+{
+    debugPlan;
+    auto *task = qobject_cast<Task*>(selectedNode());
+    if (task && task->type() == Node::Type_Task) {
+        TaskSplitDialog dlg(project(), task);
+        if (dlg.exec() == QDialog::Accepted) {
+            auto cmd = dlg.buildCommand();
+            if (cmd) {
+                koDocument()->addCommand(cmd);
+            }
+        }
+    }
+}
+
 
 bool TaskEditor::loadContext(const KoXmlElement &context)
 {

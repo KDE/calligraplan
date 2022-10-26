@@ -174,6 +174,7 @@ private Q_SLOTS:
     void slotUnindentTask();
     void slotMoveTaskUp();
     void slotMoveTaskDown();
+    void slotTaskSplit();
 
     void slotSplitView();
     void slotProjectShown(bool);

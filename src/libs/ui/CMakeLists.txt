@@ -40,6 +40,7 @@ set(calligraplanui_LIB_SRCS
     ScrollableChart.cpp
 
     RelationEditorDialog.cpp
+    TaskSplitDialog.cpp
     TasksEditController.cpp
 #     GroupAllocationPanel.cpp
     TasksEditDialog.cpp
@@ -161,6 +162,7 @@ ki18n_wrap_ui(calligraplanui_LIB_SRCS
     ResourceAllocationPanel.ui
 
     locale/localemon.ui
+    TaskSplitDialog.ui
 )
 
 add_library(calligraplanui SHARED ${calligraplanui_LIB_SRCS})
