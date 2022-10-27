@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-19 00:46+0000\n"
-"PO-Revision-Date: 2022-09-23 16:41+0200\n"
+"PO-Revision-Date: 2022-10-18 09:37+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3546,20 +3546,16 @@ msgid "Estimated duration: %1"
 msgstr "Durata stimata: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Lavoro stimato: %1"
+msgstr "Lavoro stimato: %1<nl/>Lavoro atteso: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Durata stimata: %1"
+msgstr "Durata stimata: %1<nl/>Durata attesa: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -4047,20 +4043,16 @@ msgid "Estimate"
 msgstr "Stima"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Ottimistica (Dur)"
+msgstr "Ottimistica (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimistica (Dur)"
+msgstr "Pessimistica (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format

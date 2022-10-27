@@ -537,7 +537,7 @@
               </entry>
               <entry>
                 <para
->Nome</para>
+>Direzione</para>
               </entry>
               <entry>
                 <para
@@ -1839,6 +1839,8 @@
 >Grafico</title>
   <para
 >Utilizzare posizionando una variabile con nome chartX (X=del testo per rendere unico il nome della variabile) con un progetto di valore prima del  grafico che deve essere utilizzato. </para>
+  <para
+>Nota che il grafico deve essere «ancorato come carattere» altrimenti il generatore di report non può trovarlo. </para>
   <para
 >La variabile ha questo formato: </para>
   <para

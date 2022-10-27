@@ -1,31 +1,27 @@
 <sect2
 ><title/>
 <para
->È possibile creare un nuovo progetto premendo il pulsante <emphasis
->Nuovo progetto</emphasis
+>È possibile creare un nuovo progetto premendo il pulsante <guibutton
+>Nuovo progetto</guibutton
 > o selezionando un <emphasis
 >modello di progetto</emphasis
 > in <link linkend="startup-view"
 >Vista di avvio</link
 >. </para>
 <para
->Ciò creerà un nuovo progetto con i valori predefiniti definiti in <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
->Impostazioni</ulink
-> o dai valori definiti nella modello. La finestra Impostazioni progetto si aprirà per consentire all'utente di definire proprietà specifiche del progetto come <emphasis
+>Ciò creerà un nuovo progetto con i valori predefiniti definiti in <xref linkend="configure-plan-dialog" xrefstyle="select:title"/> o dai valori definiti nella modello. La finestra Impostazioni progetto si aprirà per consentire all'utente di definire proprietà specifiche del progetto come <emphasis
 >nome del progetto</emphasis
 >, <emphasis
 >responsabile</emphasis
 > e <emphasis
-> tempi obiettivo </emphasis
+>tempi obiettivo</emphasis
 >. </para>
 <para
 >Quando si crea il proprio primo progetto, considerare la possibilità di creare risorse in un file separato. Quando si fa riferimento a questo file nei progetti, non è necessario definire nuovamente le risorse ed è possibile coordinare l'utilizzo delle risorse tra i progetti. </para>
 <para
->Vedere <link linkend="managing-resources"
->Gestire le risorse</link
->. </para>
+>Vedere <xref linkend="managing-resources" xrefstyle="select:title"/>. </para>
 <para
->Se si desidera coordinare l'utilizzo delle risorse tra progetti, i file del progetto devono essere archiviati nella stessa cartella. </para>
+>Per coordinare l'utilizzo delle risorse tra progetti, è possibile utilizzare &portfolio;. </para>
 <para
 >Una struttura utile potrebbe essere qualcosa del genere: </para>
 <para
