@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:46+0000\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
 "PO-Revision-Date: 2010-03-09 09:17+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -6872,7 +6872,7 @@ msgstr "បន្ថែម​ប្រតិទិន​រង​"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
-#: ui/kpttaskeditor.cpp:922 ui/ResourceGroupEditor.cpp:291
+#: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Delete"
@@ -6967,15 +6967,15 @@ msgstr "កែ​សម្រួល​ភាព​អាស្រ័យ​"
 msgid "Delete Dependency"
 msgstr "លុប​ភាព​អាស្រ័យ​របស់​ភារកិច្ច​"
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:927
+#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
 #, fuzzy, kde-kuit-format
 #| msgid "Open"
 msgctxt "@action"
 msgid "Link"
 msgstr "បើក​"
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:893
-#: ui/kpttaskeditor.cpp:897
+#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "បន្ថែម​ភារកិច្ច​"
@@ -6990,8 +6990,8 @@ msgstr "បន្ថែមភារកិច្ច...​"
 msgid "Add Milestone..."
 msgstr "បន្ថែម​ដំណាក់​កាល...​"
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:908
-#: ui/kpttaskeditor.cpp:912
+#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "បន្ថែម​ភារកិច្ច​រង...​"
@@ -7009,7 +7009,7 @@ msgstr "បន្ថែម​ដំណាក់​កាល​រង​...​"
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:506 ui/kptganttview.cpp:1356 ui/kptganttview.cpp:1963
 #: ui/kptpertresult.cpp:151 ui/kptscheduleeditor.cpp:682
-#: ui/kpttaskeditor.cpp:689 ui/kpttaskeditor.cpp:948 ui/kpttaskeditor.cpp:1808
+#: ui/kpttaskeditor.cpp:690 ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/performance/PerformanceStatusView.cpp:329
 #, kde-format
 msgid "Edit..."
@@ -7017,8 +7017,8 @@ msgstr "កែ​សម្រួល​...​"
 
 #: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:510
 #: ui/kptganttview.cpp:1360 ui/kptganttview.cpp:1967
-#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:952
-#: ui/kpttaskeditor.cpp:1812 ui/kpttaskeditor.cpp:2407
+#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
+#: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
 #: ui/kpttaskstatusview.cpp:362 ui/performance/PerformanceStatusView.cpp:333
 #, fuzzy, kde-format
 #| msgid "Task Progress"
@@ -7027,8 +7027,8 @@ msgstr "វឌ្ឍនភាព​ភារកិច្ច​"
 
 #: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:514
 #: ui/kptganttview.cpp:1364 ui/kptganttview.cpp:1971
-#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:956
-#: ui/kpttaskeditor.cpp:1816 ui/kpttaskeditor.cpp:2411
+#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
+#: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
 #: ui/kpttaskstatusview.cpp:366 ui/performance/PerformanceStatusView.cpp:337
 #, fuzzy, kde-format
 #| msgid "Description"
@@ -7037,8 +7037,8 @@ msgstr "សេចក្ដី​ពិពណ៌នា​"
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:518
 #: ui/kptganttview.cpp:1368 ui/kptganttview.cpp:1975
-#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:960
-#: ui/kpttaskeditor.cpp:1820 ui/kpttaskeditor.cpp:2415
+#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
+#: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
 #: ui/kpttaskstatusview.cpp:370 ui/performance/PerformanceStatusView.cpp:341
 #, fuzzy, kde-format
 #| msgid "&Documents"
@@ -7073,7 +7073,7 @@ msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr "បន្ថែម​ដំណាក់​កាល​រង​"
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1133
+#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
 #, fuzzy
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
@@ -7252,7 +7252,7 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:965 ui/kpttaskeditor.cpp:1825
+#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "បង្ហាញ​គម្រោង​"
@@ -8288,13 +8288,13 @@ msgstr "ថ្លៃ​ចំណាយ​"
 msgid "D&escription"
 msgstr "សេចក្ដី​ពិពណ៌នា​"
 
-#: ui/kpttaskeditor.cpp:95
+#: ui/kpttaskeditor.cpp:96
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
 msgstr "ប្រភេទ​នៃ​ភារកិច្ច​ ឬ​ប្រភេទ​ប៉ាន់ស្មាន​នៃ​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:98
+#: ui/kpttaskeditor.cpp:99
 #, fuzzy, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8308,33 +8308,33 @@ msgstr ""
 "<emphasis>ថិរវេលា</emphasis> ។<nl/><note>បើ​ប្រភេទ​ <emphasis>សង្ខេប​</emphasis> ឬ "
 "<emphasis>គម្រោង​</emphasis> ប្រភេទ​គឺ​មិន​អាច​កែសម្រួល​បាន​ឡើយ ។​</note>"
 
-#: ui/kpttaskeditor.cpp:142
+#: ui/kpttaskeditor.cpp:143
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
 msgstr "ភារកិច្ច​ជា​មួយ​ប្រភេទ​ប៉ាន់ស្មាន ៖​ %1"
 
-#: ui/kpttaskeditor.cpp:144
+#: ui/kpttaskeditor.cpp:145
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type: %1"
 msgstr "ប្រភេទ​ភារកិច្ច ៖​ %1"
 
-#: ui/kpttaskeditor.cpp:180 ui/kpttaskeditor.cpp:182
+#: ui/kpttaskeditor.cpp:181 ui/kpttaskeditor.cpp:183
 #, fuzzy
 #| msgid "Set type to Milestone"
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
 msgstr "កំណត់​ប្រភេទ​ទៅកាន់​ដំណាក់កាល​"
 
-#: ui/kpttaskeditor.cpp:189
+#: ui/kpttaskeditor.cpp:190
 #, fuzzy, kde-format
 #| msgid "Set type to %1"
 msgctxt "(qtundo-format)"
 msgid "Set type to %1"
 msgstr "កំណត់​ប្រភេទ​ទៅកាន់​ %1"
 
-#: ui/kpttaskeditor.cpp:377
+#: ui/kpttaskeditor.cpp:378
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8344,21 +8344,21 @@ msgid ""
 "the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:448
+#: ui/kpttaskeditor.cpp:449
 #, fuzzy, kde-kuit-format
 #| msgid "Allocation"
 msgctxt "@title resource allocations"
 msgid "Allocations"
 msgstr "ការ​បម្រុង​ទុក​"
 
-#: ui/kpttaskeditor.cpp:469 ui/ResourceGroupEditor.cpp:407
+#: ui/kpttaskeditor.cpp:470 ui/ResourceGroupEditor.cpp:407
 #, fuzzy, kde-kuit-format
 #| msgid "Resources"
 msgctxt "@title"
 msgid "Resources"
 msgstr "ធន​ធាន​"
 
-#: ui/kpttaskeditor.cpp:471
+#: ui/kpttaskeditor.cpp:472
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8366,7 +8366,7 @@ msgid ""
 "responsible column"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:499
+#: ui/kpttaskeditor.cpp:500
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Task notes"
@@ -8374,7 +8374,7 @@ msgctxt "@title"
 msgid "Task Modules"
 msgstr "កំណត់​សម្គាល់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:500
+#: ui/kpttaskeditor.cpp:501
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -8382,7 +8382,7 @@ msgid ""
 "the project"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:525
+#: ui/kpttaskeditor.cpp:526
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8393,57 +8393,63 @@ msgid ""
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:902
+#: ui/kpttaskeditor.cpp:909
 #, kde-format
 msgid "Add Milestone"
 msgstr "បន្ថែម​ដំណាក់កាល"
 
-#: ui/kpttaskeditor.cpp:917
+#: ui/kpttaskeditor.cpp:924
 #, kde-format
 msgid "Add Sub-Milestone"
 msgstr "បន្ថែម​ដំណាក់​កាល​រង​"
 
-#: ui/kpttaskeditor.cpp:932
+#: ui/kpttaskeditor.cpp:939
 #, kde-format
 msgid "Indent Task"
 msgstr "ចូល​បន្ទាត់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:936
+#: ui/kpttaskeditor.cpp:943
 #, kde-format
 msgid "Unindent Task"
 msgstr "ចេញ​បន្ទាត់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:940
+#: ui/kpttaskeditor.cpp:947
 #, kde-format
 msgid "Move Up"
 msgstr "ផ្លាស់​ទី​ឡើង​លើ​"
 
-#: ui/kpttaskeditor.cpp:944
+#: ui/kpttaskeditor.cpp:951
 #, kde-format
 msgid "Move Down"
 msgstr "ផ្លាស់​ទី​ចុះ​ក្រោម​"
 
-#: ui/kpttaskeditor.cpp:1125
+#: ui/kpttaskeditor.cpp:955
+#, fuzzy, kde-format
+#| msgid "Split View"
+msgid "Split"
+msgstr "ពុះ​ទិដ្ឋភាព​"
+
+#: ui/kpttaskeditor.cpp:1136
 #, kde-format
 msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1137
+#: ui/kpttaskeditor.cpp:1148
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
 msgstr[0] "លុប​ភារកិច្ច"
 
-#: ui/kpttaskeditor.cpp:1153
+#: ui/kpttaskeditor.cpp:1164
 #, fuzzy
 msgctxt "(qtundo-format) @action"
 msgid "Delete task"
 msgstr "លុប​ភារកិច្ច"
 
-#: ui/kpttaskeditor.cpp:1191
+#: ui/kpttaskeditor.cpp:1202
 #, fuzzy, kde-format
 #| msgid "Indent Task"
 msgctxt "(qtundo-format)"
@@ -8451,14 +8457,14 @@ msgid "Indent task"
 msgid_plural "Indent %1 tasks"
 msgstr[0] "ចូល​បន្ទាត់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:1206
+#: ui/kpttaskeditor.cpp:1217
 #, fuzzy
 #| msgid "Unindent Task"
 msgctxt "(qtundo-format) For a single task"
 msgid "Unindent task"
 msgstr "ចេញ​បន្ទាត់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:1213
+#: ui/kpttaskeditor.cpp:1224
 #, fuzzy, kde-format
 #| msgid "Unindent Task"
 msgctxt "(qtundo-format)"
@@ -8466,21 +8472,21 @@ msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
 msgstr[0] "ចេញ​បន្ទាត់​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:1229
+#: ui/kpttaskeditor.cpp:1240
 #, fuzzy
 #| msgid "Move tasks"
 msgctxt "(qtundo-format)"
 msgid "Move task up"
 msgstr "ផ្លាស់​ទី​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:1244
+#: ui/kpttaskeditor.cpp:1255
 #, fuzzy
 #| msgid "Move tasks"
 msgctxt "(qtundo-format)"
 msgid "Move task down"
 msgstr "ផ្លាស់​ទី​ភារកិច្ច​"
 
-#: ui/kpttaskeditor.cpp:1612
+#: ui/kpttaskeditor.cpp:1639
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8491,19 +8497,19 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:2419 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:2423
+#: ui/kpttaskeditor.cpp:2450
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Send Work Packages"
 msgid "Work Packages..."
 msgstr "ផ្ញើ​កញ្ចប់​ការងារ​"
 
-#: ui/kpttaskeditor.cpp:2441
+#: ui/kpttaskeditor.cpp:2468
 #, fuzzy
 #| msgctxt "@title:window"
 #| msgid "Send Work Packages"
@@ -10272,6 +10278,25 @@ msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "បើក​"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::TaskSplitDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::SplitTaskDialog)
+#: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, keep)
+#: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
+#, kde-format
+msgid "Keep task as summary task"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/SplitTaskDialog.ui:29
+#, kde-format
+msgid "Split into parts:"
+msgstr ""
+
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
 #, fuzzy, kde-format
@@ -10378,6 +10403,39 @@ msgstr "សុទិដ្ឋិនិយម ៖​"
 #, kde-format
 msgid "Pessimistic:"
 msgstr "ទុទ្ទិដ្ឋិនិយម​ ៖​"
+
+#: ui/TaskSplitDialog.cpp:22
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Split task"
+msgstr "លុប​ភារកិច្ច"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/TaskSplitDialog.ui:22
+#, kde-format
+msgid "Number of tasks:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
+#: ui/TaskSplitDialog.ui:64
+#, fuzzy, kde-format
+#| msgid "Modify estimate"
+msgid "Migrate estimate"
+msgstr "កែប្រែ​ការ​ប៉ាន់ស្មាន​"
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
+#: ui/TaskSplitDialog.ui:74
+#, fuzzy, kde-format
+#| msgid "Modify resource allocations"
+msgid "Migrate resource allocations"
+msgstr "ការ​ប្រែ​ការ​បម្រុងទុក​ធនធាន​​"
+
+#. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
+#: ui/TaskSplitDialog.ui:84
+#, fuzzy, kde-format
+#| msgid "Task dependencies"
+msgid "Create dependencies"
+msgstr "បង្ហាញ​ភាព​អាស្រ័យ​របស់​ភារកិច្ច​"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format
@@ -11469,9 +11527,6 @@ msgstr ""
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Modify task Name"
 #~ msgstr "កែ​ប្រែ​ឈ្មោះ​ភារកិច្ច​"
-
-#~ msgid "Modify resource allocations"
-#~ msgstr "ការ​ប្រែ​ការ​បម្រុងទុក​ធនធាន​​"
 
 #~ msgid "Optimistic"
 #~ msgstr "សុទិដ្ឋិនិយម​​​"

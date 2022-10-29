@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:46+0000\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
 "PO-Revision-Date: 2022-09-15 15:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6512,7 +6512,7 @@ msgstr "Dodaj podkalendarz"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
-#: ui/kpttaskeditor.cpp:922 ui/ResourceGroupEditor.cpp:291
+#: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Delete"
@@ -6606,14 +6606,14 @@ msgstr "Edytuj zależność..."
 msgid "Delete Dependency"
 msgstr "Usuń zależność"
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:927
+#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Link"
 msgstr "Odnośnik"
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:893
-#: ui/kpttaskeditor.cpp:897
+#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "Dodaj zadanie"
@@ -6628,8 +6628,8 @@ msgstr "Dodaj zadanie..."
 msgid "Add Milestone..."
 msgstr "Dodaj punkt przełomowy..."
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:908
-#: ui/kpttaskeditor.cpp:912
+#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "Dodaj pod-zadanie"
@@ -6647,7 +6647,7 @@ msgstr "Dodaj pod-punkt przełomowy..."
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:506 ui/kptganttview.cpp:1356 ui/kptganttview.cpp:1963
 #: ui/kptpertresult.cpp:151 ui/kptscheduleeditor.cpp:682
-#: ui/kpttaskeditor.cpp:689 ui/kpttaskeditor.cpp:948 ui/kpttaskeditor.cpp:1808
+#: ui/kpttaskeditor.cpp:690 ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/performance/PerformanceStatusView.cpp:329
 #, kde-format
 msgid "Edit..."
@@ -6655,8 +6655,8 @@ msgstr "Edytuj..."
 
 #: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:510
 #: ui/kptganttview.cpp:1360 ui/kptganttview.cpp:1967
-#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:952
-#: ui/kpttaskeditor.cpp:1812 ui/kpttaskeditor.cpp:2407
+#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
+#: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
 #: ui/kpttaskstatusview.cpp:362 ui/performance/PerformanceStatusView.cpp:333
 #, kde-format
 msgid "Progress..."
@@ -6664,8 +6664,8 @@ msgstr "Postęp..."
 
 #: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:514
 #: ui/kptganttview.cpp:1364 ui/kptganttview.cpp:1971
-#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:956
-#: ui/kpttaskeditor.cpp:1816 ui/kpttaskeditor.cpp:2411
+#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
+#: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
 #: ui/kpttaskstatusview.cpp:366 ui/performance/PerformanceStatusView.cpp:337
 #, kde-format
 msgid "Description..."
@@ -6673,8 +6673,8 @@ msgstr "Opis"
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:518
 #: ui/kptganttview.cpp:1368 ui/kptganttview.cpp:1975
-#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:960
-#: ui/kpttaskeditor.cpp:1820 ui/kpttaskeditor.cpp:2415
+#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
+#: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
 #: ui/kpttaskstatusview.cpp:370 ui/performance/PerformanceStatusView.cpp:341
 #, kde-format
 msgid "Documents..."
@@ -6700,7 +6700,7 @@ msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr "Dodaj podkamień milowy"
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1133
+#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
 msgstr "Usuń zadanie"
@@ -6866,7 +6866,7 @@ msgstr ""
 "ustawienia i drukowanie przy użyciu menu podręcznego widoku drzewa.<nl/"
 "><link url='%1'>Więcej...</link></para>"
 
-#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:965 ui/kpttaskeditor.cpp:1825
+#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "Pokaż projekt"
@@ -7876,13 +7876,13 @@ msgstr "&Koszt"
 msgid "D&escription"
 msgstr "&Opis"
 
-#: ui/kpttaskeditor.cpp:95
+#: ui/kpttaskeditor.cpp:96
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
 msgstr "Rodzaj zadania lub szacunkowy rodzaj zadania"
 
-#: ui/kpttaskeditor.cpp:98
+#: ui/kpttaskeditor.cpp:99
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7897,30 +7897,30 @@ msgstr ""
 "jest <emphasis>Podsumowaniem</emphasis> lub <emphasis>Projektem</emphasis> "
 "to rodzaj jest nieedytowalny.</note>"
 
-#: ui/kpttaskeditor.cpp:142
+#: ui/kpttaskeditor.cpp:143
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
 msgstr "Zadanie z szacunkowym rodzajem: %1"
 
-#: ui/kpttaskeditor.cpp:144
+#: ui/kpttaskeditor.cpp:145
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type: %1"
 msgstr "Rodzaj zadania: %1"
 
-#: ui/kpttaskeditor.cpp:180 ui/kpttaskeditor.cpp:182
+#: ui/kpttaskeditor.cpp:181 ui/kpttaskeditor.cpp:183
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
 msgstr "Ustaw rodzaj na punkt przełomowy"
 
-#: ui/kpttaskeditor.cpp:189
+#: ui/kpttaskeditor.cpp:190
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set type to %1"
 msgstr "Ustaw rodzaj na %1"
 
-#: ui/kpttaskeditor.cpp:377
+#: ui/kpttaskeditor.cpp:378
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7935,19 +7935,19 @@ msgstr ""
 "drukowanie przy użyciu menu podręcznego widoku drzewa.<nl/><link "
 "url='%1'>Więcej...</link></para>"
 
-#: ui/kpttaskeditor.cpp:448
+#: ui/kpttaskeditor.cpp:449
 #, kde-kuit-format
 msgctxt "@title resource allocations"
 msgid "Allocations"
 msgstr "Przydziały"
 
-#: ui/kpttaskeditor.cpp:469 ui/ResourceGroupEditor.cpp:407
+#: ui/kpttaskeditor.cpp:470 ui/ResourceGroupEditor.cpp:407
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Resources"
 msgstr "Zasoby"
 
-#: ui/kpttaskeditor.cpp:471
+#: ui/kpttaskeditor.cpp:472
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7957,13 +7957,13 @@ msgstr ""
 "Przeciągnij zasoby do edytora zadań i upuść je na alokacje lub "
 "odpowiedzialną kolumnę"
 
-#: ui/kpttaskeditor.cpp:499
+#: ui/kpttaskeditor.cpp:500
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Task Modules"
 msgstr "Moduły zadania"
 
-#: ui/kpttaskeditor.cpp:500
+#: ui/kpttaskeditor.cpp:501
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7973,7 +7973,7 @@ msgstr ""
 "Przeciągnij moduł zadania na <emphasis>Edytor zadania</emphasis> aby dodać "
 "go do projektu"
 
-#: ui/kpttaskeditor.cpp:525
+#: ui/kpttaskeditor.cpp:526
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7989,37 +7989,43 @@ msgstr ""
 "zadania jest zwykłym plikiem plan i zazwyczaj zawiera zadania, szacunki oraz "
 "zależności.</para><para><link url='%1'>Więcej...</link></para>"
 
-#: ui/kpttaskeditor.cpp:902
+#: ui/kpttaskeditor.cpp:909
 #, kde-format
 msgid "Add Milestone"
 msgstr "Dodaj punkt przełomowy"
 
-#: ui/kpttaskeditor.cpp:917
+#: ui/kpttaskeditor.cpp:924
 #, kde-format
 msgid "Add Sub-Milestone"
 msgstr "Dodaj podpunkt przełomowy"
 
-#: ui/kpttaskeditor.cpp:932
+#: ui/kpttaskeditor.cpp:939
 #, kde-format
 msgid "Indent Task"
 msgstr "Zwiększ wcięcie zadania"
 
-#: ui/kpttaskeditor.cpp:936
+#: ui/kpttaskeditor.cpp:943
 #, kde-format
 msgid "Unindent Task"
 msgstr "Zmniejsz wcięcie zadania"
 
-#: ui/kpttaskeditor.cpp:940
+#: ui/kpttaskeditor.cpp:947
 #, kde-format
 msgid "Move Up"
 msgstr "Przesuń wyżej"
 
-#: ui/kpttaskeditor.cpp:944
+#: ui/kpttaskeditor.cpp:951
 #, kde-format
 msgid "Move Down"
 msgstr "Przesuń niżej"
 
-#: ui/kpttaskeditor.cpp:1125
+#: ui/kpttaskeditor.cpp:955
+#, fuzzy, kde-format
+#| msgid "Split View"
+msgid "Split"
+msgstr "Podziel widok"
+
+#: ui/kpttaskeditor.cpp:1136
 #, kde-format
 msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
@@ -8028,7 +8034,7 @@ msgstr ""
 "Zadanie, które zostało zaplanowane zostanie usunięte. Unieważni to "
 "harmonogram."
 
-#: ui/kpttaskeditor.cpp:1137
+#: ui/kpttaskeditor.cpp:1148
 msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
@@ -8036,12 +8042,12 @@ msgstr[0] "Usuń zadanie"
 msgstr[1] "Usuń zadanie"
 msgstr[2] "Usuń zadanie"
 
-#: ui/kpttaskeditor.cpp:1153
+#: ui/kpttaskeditor.cpp:1164
 msgctxt "(qtundo-format) @action"
 msgid "Delete task"
 msgstr "Usuń zadanie"
 
-#: ui/kpttaskeditor.cpp:1191
+#: ui/kpttaskeditor.cpp:1202
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Indent task"
@@ -8050,12 +8056,12 @@ msgstr[0] "Wetnij zadanie"
 msgstr[1] "Wetnij %1 zadania"
 msgstr[2] "Wetnij %1 zadań"
 
-#: ui/kpttaskeditor.cpp:1206
+#: ui/kpttaskeditor.cpp:1217
 msgctxt "(qtundo-format) For a single task"
 msgid "Unindent task"
 msgstr "Usuń wcięcie zadania"
 
-#: ui/kpttaskeditor.cpp:1213
+#: ui/kpttaskeditor.cpp:1224
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unindent task"
@@ -8064,17 +8070,17 @@ msgstr[0] "Usuń wcięcie zadania"
 msgstr[1] "Usuń wcięcia %1 zadań"
 msgstr[2] "Usuń wcięcia %1 zadań"
 
-#: ui/kpttaskeditor.cpp:1229
+#: ui/kpttaskeditor.cpp:1240
 msgctxt "(qtundo-format)"
 msgid "Move task up"
 msgstr "Przesuń zadanie w górę"
 
-#: ui/kpttaskeditor.cpp:1244
+#: ui/kpttaskeditor.cpp:1255
 msgctxt "(qtundo-format)"
 msgid "Move task down"
 msgstr "Przesuń zadanie w dół"
 
-#: ui/kpttaskeditor.cpp:1612
+#: ui/kpttaskeditor.cpp:1639
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8089,17 +8095,17 @@ msgstr ""
 "<nl/><link url='%1'>Więcej...</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:2419 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr "Opublikuj..."
 
-#: ui/kpttaskeditor.cpp:2423
+#: ui/kpttaskeditor.cpp:2450
 #, kde-format
 msgid "Work Packages..."
 msgstr "Pakiet pracy..."
 
-#: ui/kpttaskeditor.cpp:2441
+#: ui/kpttaskeditor.cpp:2468
 msgctxt "(qtundo-format)"
 msgid "Log Send Workpackage"
 msgstr "Rejestruj wysyłane pakiety pracy"
@@ -9778,6 +9784,25 @@ msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "Otwórz odnośnik"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::TaskSplitDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::SplitTaskDialog)
+#: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, keep)
+#: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
+#, kde-format
+msgid "Keep task as summary task"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/SplitTaskDialog.ui:29
+#, kde-format
+msgid "Split into parts:"
+msgstr ""
+
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
 #, kde-format
@@ -9878,6 +9903,43 @@ msgstr "Optymistyczny:"
 #, kde-format
 msgid "Pessimistic:"
 msgstr "Pesymistyczny:"
+
+#: ui/TaskSplitDialog.cpp:22
+#, fuzzy
+#| msgctxt "(qtundo-format)"
+#| msgid "Delete task"
+#| msgid_plural "Delete tasks"
+msgctxt "(qtundo-format)"
+msgid "Split task"
+msgstr "Usuń zadanie"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/TaskSplitDialog.ui:22
+#, kde-format
+msgid "Number of tasks:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
+#: ui/TaskSplitDialog.ui:64
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Modify estimate"
+msgid "Migrate estimate"
+msgstr "Zmień szacunek"
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
+#: ui/TaskSplitDialog.ui:74
+#, fuzzy, kde-format
+#| msgid "Modify resource allocations"
+msgid "Migrate resource allocations"
+msgstr "Modyfikuj przydziały zasobów"
+
+#. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
+#: ui/TaskSplitDialog.ui:84
+#, fuzzy, kde-format
+#| msgid "Task dependencies"
+msgid "Create dependencies"
+msgstr "Zależności zadania"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format
@@ -11129,9 +11191,6 @@ msgstr "Wszystkie obsługiwane formaty"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Modify task Name"
 #~ msgstr "Modyfikuj nazwę zadania"
-
-#~ msgid "Modify resource allocations"
-#~ msgstr "Modyfikuj przydziały zasobów"
 
 #~ msgid "Optimistic"
 #~ msgstr "Optymistyczny"

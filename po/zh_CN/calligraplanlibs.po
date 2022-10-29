@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-19 00:46+0000\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
 "PO-Revision-Date: 2022-10-22 05:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6281,7 +6281,7 @@ msgstr "添加子日历"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
-#: ui/kpttaskeditor.cpp:922 ui/ResourceGroupEditor.cpp:291
+#: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Delete"
@@ -6369,14 +6369,14 @@ msgstr ""
 msgid "Delete Dependency"
 msgstr ""
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:927
+#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Link"
 msgstr ""
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:893
-#: ui/kpttaskeditor.cpp:897
+#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "添加任务"
@@ -6391,8 +6391,8 @@ msgstr "添加任务..."
 msgid "Add Milestone..."
 msgstr "添加里程碑..."
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:908
-#: ui/kpttaskeditor.cpp:912
+#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "添加子任务"
@@ -6410,7 +6410,7 @@ msgstr "添加子里程碑..."
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:506 ui/kptganttview.cpp:1356 ui/kptganttview.cpp:1963
 #: ui/kptpertresult.cpp:151 ui/kptscheduleeditor.cpp:682
-#: ui/kpttaskeditor.cpp:689 ui/kpttaskeditor.cpp:948 ui/kpttaskeditor.cpp:1808
+#: ui/kpttaskeditor.cpp:690 ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/performance/PerformanceStatusView.cpp:329
 #, kde-format
 msgid "Edit..."
@@ -6418,8 +6418,8 @@ msgstr "编辑..."
 
 #: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:510
 #: ui/kptganttview.cpp:1360 ui/kptganttview.cpp:1967
-#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:952
-#: ui/kpttaskeditor.cpp:1812 ui/kpttaskeditor.cpp:2407
+#: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
+#: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
 #: ui/kpttaskstatusview.cpp:362 ui/performance/PerformanceStatusView.cpp:333
 #, kde-format
 msgid "Progress..."
@@ -6427,8 +6427,8 @@ msgstr ""
 
 #: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:514
 #: ui/kptganttview.cpp:1364 ui/kptganttview.cpp:1971
-#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:956
-#: ui/kpttaskeditor.cpp:1816 ui/kpttaskeditor.cpp:2411
+#: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
+#: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
 #: ui/kpttaskstatusview.cpp:366 ui/performance/PerformanceStatusView.cpp:337
 #, kde-format
 msgid "Description..."
@@ -6436,8 +6436,8 @@ msgstr ""
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:518
 #: ui/kptganttview.cpp:1368 ui/kptganttview.cpp:1975
-#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:960
-#: ui/kpttaskeditor.cpp:1820 ui/kpttaskeditor.cpp:2415
+#: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
+#: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
 #: ui/kpttaskstatusview.cpp:370 ui/performance/PerformanceStatusView.cpp:341
 #, kde-format
 msgid "Documents..."
@@ -6463,7 +6463,7 @@ msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr ""
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1133
+#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
 msgstr ""
@@ -6623,7 +6623,7 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:965 ui/kpttaskeditor.cpp:1825
+#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "显示工程"
@@ -7568,13 +7568,13 @@ msgstr "成本(&C)"
 msgid "D&escription"
 msgstr "描述(&E)"
 
-#: ui/kpttaskeditor.cpp:95
+#: ui/kpttaskeditor.cpp:96
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:98
+#: ui/kpttaskeditor.cpp:99
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7584,30 +7584,30 @@ msgid ""
 "emphasis> or <emphasis>Project</emphasis> the type is not editable.</note>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:142
+#: ui/kpttaskeditor.cpp:143
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:144
+#: ui/kpttaskeditor.cpp:145
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type: %1"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:180 ui/kpttaskeditor.cpp:182
+#: ui/kpttaskeditor.cpp:181 ui/kpttaskeditor.cpp:183
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:189
+#: ui/kpttaskeditor.cpp:190
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set type to %1"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:377
+#: ui/kpttaskeditor.cpp:378
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7617,19 +7617,19 @@ msgid ""
 "the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:448
+#: ui/kpttaskeditor.cpp:449
 #, kde-kuit-format
 msgctxt "@title resource allocations"
 msgid "Allocations"
 msgstr "内存申请"
 
-#: ui/kpttaskeditor.cpp:469 ui/ResourceGroupEditor.cpp:407
+#: ui/kpttaskeditor.cpp:470 ui/ResourceGroupEditor.cpp:407
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Resources"
 msgstr "资源"
 
-#: ui/kpttaskeditor.cpp:471
+#: ui/kpttaskeditor.cpp:472
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7637,13 +7637,13 @@ msgid ""
 "responsible column"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:499
+#: ui/kpttaskeditor.cpp:500
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Task Modules"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:500
+#: ui/kpttaskeditor.cpp:501
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7651,7 +7651,7 @@ msgid ""
 "the project"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:525
+#: ui/kpttaskeditor.cpp:526
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7662,84 +7662,90 @@ msgid ""
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:902
+#: ui/kpttaskeditor.cpp:909
 #, kde-format
 msgid "Add Milestone"
 msgstr "添加里程碑"
 
-#: ui/kpttaskeditor.cpp:917
+#: ui/kpttaskeditor.cpp:924
 #, kde-format
 msgid "Add Sub-Milestone"
 msgstr "添加子里程碑"
 
-#: ui/kpttaskeditor.cpp:932
+#: ui/kpttaskeditor.cpp:939
 #, kde-format
 msgid "Indent Task"
 msgstr "缩进任务"
 
-#: ui/kpttaskeditor.cpp:936
+#: ui/kpttaskeditor.cpp:943
 #, kde-format
 msgid "Unindent Task"
 msgstr "取消缩进任务"
 
-#: ui/kpttaskeditor.cpp:940
+#: ui/kpttaskeditor.cpp:947
 #, kde-format
 msgid "Move Up"
 msgstr "上移"
 
-#: ui/kpttaskeditor.cpp:944
+#: ui/kpttaskeditor.cpp:951
 #, kde-format
 msgid "Move Down"
 msgstr "下移"
 
-#: ui/kpttaskeditor.cpp:1125
+#: ui/kpttaskeditor.cpp:955
+#, fuzzy, kde-format
+#| msgid "Split View"
+msgid "Split"
+msgstr "拆分视图"
+
+#: ui/kpttaskeditor.cpp:1136
 #, kde-format
 msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1137
+#: ui/kpttaskeditor.cpp:1148
 msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
 msgstr[0] ""
 
-#: ui/kpttaskeditor.cpp:1153
+#: ui/kpttaskeditor.cpp:1164
 msgctxt "(qtundo-format) @action"
 msgid "Delete task"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1191
+#: ui/kpttaskeditor.cpp:1202
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Indent task"
 msgid_plural "Indent %1 tasks"
 msgstr[0] ""
 
-#: ui/kpttaskeditor.cpp:1206
+#: ui/kpttaskeditor.cpp:1217
 msgctxt "(qtundo-format) For a single task"
 msgid "Unindent task"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1213
+#: ui/kpttaskeditor.cpp:1224
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
 msgstr[0] ""
 
-#: ui/kpttaskeditor.cpp:1229
+#: ui/kpttaskeditor.cpp:1240
 msgctxt "(qtundo-format)"
 msgid "Move task up"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1244
+#: ui/kpttaskeditor.cpp:1255
 msgctxt "(qtundo-format)"
 msgid "Move task down"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1612
+#: ui/kpttaskeditor.cpp:1639
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7750,17 +7756,17 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:2419 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:2423
+#: ui/kpttaskeditor.cpp:2450
 #, kde-format
 msgid "Work Packages..."
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:2441
+#: ui/kpttaskeditor.cpp:2468
 msgctxt "(qtundo-format)"
 msgid "Log Send Workpackage"
 msgstr ""
@@ -9366,6 +9372,25 @@ msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr ""
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::TaskSplitDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, KPlato::SplitTaskDialog)
+#: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, keep)
+#: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
+#, kde-format
+msgid "Keep task as summary task"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/SplitTaskDialog.ui:29
+#, kde-format
+msgid "Split into parts:"
+msgstr ""
+
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
 #, kde-format
@@ -9461,6 +9486,42 @@ msgstr ""
 #, kde-format
 msgid "Pessimistic:"
 msgstr ""
+
+#: ui/TaskSplitDialog.cpp:22
+#, fuzzy
+#| msgid "Split View"
+msgctxt "(qtundo-format)"
+msgid "Split task"
+msgstr "拆分视图"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/TaskSplitDialog.ui:22
+#, kde-format
+msgid "Number of tasks:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
+#: ui/TaskSplitDialog.ui:64
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Optimistic estimate"
+msgid "Migrate estimate"
+msgstr "乐观的估计"
+
+#. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
+#: ui/TaskSplitDialog.ui:74
+#, fuzzy, kde-format
+#| msgid "Resource allocation"
+msgid "Migrate resource allocations"
+msgstr "资源分配"
+
+#. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
+#: ui/TaskSplitDialog.ui:84
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Delete task dependency"
+msgid "Create dependencies"
+msgstr "删除任务依赖关系"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format
