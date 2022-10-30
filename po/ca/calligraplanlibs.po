@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-14 13:51+0200\n"
+"PO-Revision-Date: 2022-10-29 12:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7982,10 +7982,9 @@ msgid "Move Down"
 msgstr "Mou avall"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "Divideix la vista"
+msgstr "Divideix"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -9745,19 +9744,19 @@ msgstr "Obre l'enllaç"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Diàleg"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "Manté la tasca com a tasca de resum"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "Divideix en parts:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -9861,42 +9860,33 @@ msgid "Pessimistic:"
 msgstr "Pessimista:"
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task"
-#| msgid_plural "Delete tasks"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "Suprimeix la tasca"
+msgstr "Divideix la tasca"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Nombre de tasques:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify estimate"
+#, kde-format
 msgid "Migrate estimate"
-msgstr "Modifica l'estimació"
+msgstr "Migra l'estimació"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify resource allocations"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "Modifica les assignacions de recursos"
+msgstr "Migra les assignacions de recursos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
-#, fuzzy, kde-format
-#| msgid "Task dependencies"
+#, kde-format
 msgid "Create dependencies"
-msgstr "Dependències de tasca"
+msgstr "Crea dependències"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format
@@ -10430,12 +10420,3 @@ msgstr "Substitució"
 #, kde-format
 msgid "All supported formats"
 msgstr "Tots els formats acceptats"
-
-#~ msgid "Unknown report type: %1"
-#~ msgstr "Tipus d'informe desconegut: %1"
-
-#~ msgid "The report generator has not been opened successfully."
-#~ msgstr "Aquest generador d'informes no s'ha obert correctament."
-
-#~ msgid "Report generator is already open"
-#~ msgstr "El generador d'informes ja està obert"

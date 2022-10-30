@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-20 12:05+0300\n"
+"PO-Revision-Date: 2022-10-29 12:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7955,10 +7955,9 @@ msgid "Move Down"
 msgstr "Aşağı Taşı"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "Görünümü Böl"
+msgstr "Böl"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -9711,19 +9710,19 @@ msgstr "Bağlantı Aç"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "İletişim Kutusu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "Görevleri, özet görev olarak tut"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "Parçalara böl:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -9826,42 +9825,33 @@ msgid "Pessimistic:"
 msgstr "Kötümser:"
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task"
-#| msgid_plural "Delete tasks"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "Görevi sil"
+msgstr "Görevi böl"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Görev sayısı:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify estimate"
+#, kde-format
 msgid "Migrate estimate"
-msgstr "Tahmini değiştir"
+msgstr "Tahmini göç ettir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify resource allocations"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "Özkaynak ayırmalarını değiştir"
+msgstr "Özkaynak ayırmalarını göç ettir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
-#, fuzzy, kde-format
-#| msgid "Task dependencies"
+#, kde-format
 msgid "Create dependencies"
-msgstr "Görev bağımlılıkları"
+msgstr "Bağımlılıklar oluştur"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format
