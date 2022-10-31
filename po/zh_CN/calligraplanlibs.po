@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-22 05:28\n"
+"PO-Revision-Date: 2022-10-30 07:47\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -7693,10 +7693,9 @@ msgid "Move Down"
 msgstr "下移"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "拆分视图"
+msgstr ""
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -9488,11 +9487,9 @@ msgid "Pessimistic:"
 msgstr ""
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgid "Split View"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "拆分视图"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
@@ -9502,26 +9499,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Optimistic estimate"
+#, kde-format
 msgid "Migrate estimate"
-msgstr "乐观的估计"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgid "Resource allocation"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "资源分配"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task dependency"
+#, kde-format
 msgid "Create dependencies"
-msgstr "删除任务依赖关系"
+msgstr ""
 
 #: widgets/KoDialog.cpp:251
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-01 16:26+0200\n"
+"PO-Revision-Date: 2022-10-30 06:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -394,19 +394,19 @@ msgstr "წინ"
 #: kernel/kptproject.cpp:284
 #, kde-format
 msgid "Calculate finish"
-msgstr ""
+msgstr "დასრულების გამოთვლა"
 
 #: kernel/kptproject.cpp:289 kernel/kptproject.cpp:401
 #: kernel/kptproject.cpp:425
 #, kde-format
 msgctxt "Schedule project backward"
 msgid "Backward"
-msgstr ""
+msgstr "უკან"
 
 #: kernel/kptproject.cpp:290
 #, kde-format
 msgid "Calculate start"
-msgstr ""
+msgstr "დასაწყისის გამოთვლა"
 
 #: kernel/kptproject.cpp:293 kernel/kptproject.cpp:405
 #: kernel/kptproject.cpp:435 models/reportgenerator/ReportGenerator.cpp:32
@@ -3090,7 +3090,7 @@ msgstr ""
 #: models/kptdocumentmodel.cpp:189
 #, kde-format
 msgid "Send As"
-msgstr ""
+msgstr "გაგზავნა, როგორც"
 
 #: models/kptdocumentmodel.cpp:190
 #, kde-format
@@ -3284,13 +3284,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Cost:"
-msgstr ""
+msgstr "ღირებულება:"
 
 #: models/kptnodechartmodel.cpp:522
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Effort:"
-msgstr ""
+msgstr "ძალისხმევა:"
 
 #: models/kptnodechartmodel.cpp:532
 #, kde-kuit-format
@@ -4965,7 +4965,7 @@ msgstr "სიმკაცრე"
 #: models/kpttaskstatusmodel.cpp:40
 #, kde-format
 msgid "Not Started"
-msgstr ""
+msgstr "არ დაწყებულა"
 
 #: models/kpttaskstatusmodel.cpp:41
 #, kde-format
@@ -5620,12 +5620,12 @@ msgstr "ინჩი (in)"
 #: odf/KoUnit.cpp:46
 #, kde-format
 msgid "Pica (pi)"
-msgstr ""
+msgstr "Pica (pi)"
 
 #: odf/KoUnit.cpp:48
 #, kde-format
 msgid "Cicero (cc)"
-msgstr ""
+msgstr "Cicero (cc)"
 
 #: odf/KoUnit.cpp:50
 #, kde-format
@@ -6120,7 +6120,7 @@ msgstr "მთავარი"
 #: ui/kptitemviewsettup.cpp:204
 #, kde-format
 msgid "View Settings"
-msgstr ""
+msgstr "ხედის მორგება"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptaccountsviewconfigurepanelbase.ui:26
@@ -6425,7 +6425,7 @@ msgstr ""
 #: ui/kpttaskstatusview.cpp:370 ui/performance/PerformanceStatusView.cpp:341
 #, kde-format
 msgid "Documents..."
-msgstr ""
+msgstr "დოკუმენტები..."
 
 #: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
@@ -6803,7 +6803,7 @@ msgstr ""
 #: ui/kptmainprojectdialog.cpp:24
 #, kde-format
 msgid "Project Settings"
-msgstr ""
+msgstr "პროექტის პარამეტრები"
 
 #: ui/kptmainprojectdialog.cpp:59 ui/kptmainprojectpanel.cpp:176
 msgctxt "(qtundo-format)"
@@ -7490,7 +7490,7 @@ msgstr "გაშვება"
 #: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
 #, kde-format
 msgid "Cost:"
-msgstr ""
+msgstr "ღირებულება:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
 #: ui/kpttaskcostpanelbase.ui:142
@@ -7536,7 +7536,7 @@ msgstr "&ზოგადი"
 #: ui/kpttaskdialog.cpp:43 ui/TasksEditDialog.cpp:40
 #, kde-format
 msgid "&Resources"
-msgstr ""
+msgstr "&რესურსები"
 
 #: ui/kpttaskdialog.cpp:47
 #, kde-format
@@ -7606,7 +7606,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title resource allocations"
 msgid "Allocations"
-msgstr ""
+msgstr "გამოყოფები"
 
 #: ui/kpttaskeditor.cpp:470 ui/ResourceGroupEditor.cpp:407
 #, kde-kuit-format
@@ -7678,10 +7678,9 @@ msgid "Move Down"
 msgstr "ჩამოწევა"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "ხედის გაყოფა"
+msgstr "გაყოფა"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -7762,13 +7761,13 @@ msgstr ""
 #: ui/kpttaskgeneralpanel.cpp:102
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
-msgstr ""
+msgstr "ამოცანის ჩასწორება"
 
 #. i18n: ectx: property (text), widget (QLabel, namelabel)
 #: ui/kpttaskgeneralpanelbase.ui:55
 #, kde-format
 msgid "N&ame:"
-msgstr ""
+msgstr "&სახელი:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #: ui/kpttaskgeneralpanelbase.ui:79
@@ -8847,7 +8846,7 @@ msgstr ""
 #: ui/reports/reportsectionswidget.ui:170
 #, kde-format
 msgid "All pages"
-msgstr ""
+msgstr "ყველა გვერდი"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/reports/reportsectionswidget.ui:115
@@ -9217,7 +9216,7 @@ msgstr ""
 #: ui/ResourceAllocationPanel.ui:52
 #, kde-format
 msgid "Alternatives"
-msgstr ""
+msgstr "ალტერნატივები"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: ui/ResourceAllocationPanel.ui:78
@@ -9366,7 +9365,7 @@ msgstr "ბმულის გახსნა"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "ფანჯარა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
@@ -9474,13 +9473,9 @@ msgid "Pessimistic:"
 msgstr ""
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task"
-#| msgid_plural "Delete tasks"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "ამოცანის წაშლა"
+msgstr "ამოცანის დაყოფა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
@@ -9496,10 +9491,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgid "No resource allocated"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "რესურსი გამოყოფილი არაა"
+msgstr "რესურსის გამოყოფების მიგრაცია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
@@ -9671,13 +9665,13 @@ msgstr "კომპანია:"
 #: widgets/koDocumentInfoAuthorWidget.ui:114
 #, kde-format
 msgid "Telephone (home):"
-msgstr ""
+msgstr "ტელეფონი (სახლი):"
 
 #. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
 #: widgets/koDocumentInfoAuthorWidget.ui:124
 #, kde-format
 msgid "Telephone (work):"
-msgstr ""
+msgstr "ტელეფონი (სამუშაო):"
 
 #. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
 #: widgets/koDocumentInfoAuthorWidget.ui:134
@@ -9695,7 +9689,7 @@ msgstr "ქუჩა:"
 #: widgets/koDocumentInfoAuthorWidget.ui:154
 #, kde-format
 msgid "Postal code:"
-msgstr ""
+msgstr "საფოსტო კოდი:"
 
 #. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
 #: widgets/koDocumentInfoAuthorWidget.ui:164
