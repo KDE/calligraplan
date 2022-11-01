@@ -209,9 +209,8 @@ AppointmentInterval AppointmentInterval::firstInterval(const AppointmentInterval
         if (s2 < f && f < e2) {
             s2 = f;
         }
-    } else {
-        f = s1 < s2 ? s1 : s2;
     }
+
     if (s1 < s2) {
         a.setStartTime(s1);
         if (e1 <= s2) {
