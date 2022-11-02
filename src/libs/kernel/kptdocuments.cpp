@@ -166,8 +166,8 @@ Documents::Documents(const Documents &docs)
     : node(nullptr)
 {
     //debugPlan<<this;
-    const auto documents = docs.documents();
-    for (Document *doc : documents) {
+    const auto documentList = docs.documents();
+    for (const auto doc : documentList) {
         m_docs.append(new Document(*doc));
     }
 }
