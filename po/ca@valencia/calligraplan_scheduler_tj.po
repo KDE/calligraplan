@@ -35,8 +35,8 @@ msgstr ""
 "lleugerament modificada del planificador utilitzat en TaskJuggler. S'ha "
 "millorat per a gestionar unitats de recursos.</para><para>La planificació "
 "retroactiva se simula planificant totes les tasques tan tard com siga "
-"possible.</para><para><note>Plan no utilitza totes les seues funcionalitats."
-"</note></para>"
+"possible.</para><para><note>Plan no utilitza totes les seues "
+"característiques.</note></para>"
 
 #: PlanTJScheduler.cpp:150
 #, kde-kuit-format
