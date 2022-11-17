@@ -144,7 +144,7 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
         Notifications
 #             NotifyConfig
         Parts
-#             Sonnet
+        Sonnet
         TextWidgets
         WidgetsAddons
         WindowSystem
