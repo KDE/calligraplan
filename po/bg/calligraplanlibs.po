@@ -10112,11 +10112,3 @@ msgstr "Разпределение"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Unknown report type: %1"
-#~ msgstr "Непознато"
-
-#, fuzzy
-#~ msgid "Report generator is already open"
-#~ msgstr "Горен колонтитул"
