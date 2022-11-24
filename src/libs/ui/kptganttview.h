@@ -223,7 +223,6 @@ protected Q_SLOTS:
 private:
     GanttViewBase *m_gantt;
     MilestoneGanttChartOptionsPanel *m_chartOptions;
-    GanttPrintingOptionsWidget *m_printingoptions;
 };
 
 
@@ -356,8 +355,6 @@ public Q_SLOTS:
 private:
     GanttViewBase *m_gantt;
     ResourceAppointmentsGanttChartOptionsPanel *m_chartOptions;
-    GanttPrintingOptionsWidget *m_printingoptions;
-
 };
 
 class PLANUI_EXPORT ResourceAppointmentsGanttView : public ViewBase
