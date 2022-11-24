@@ -129,6 +129,7 @@ ki18n_wrap_ui(calligraplanui_LIB_SRCS
     gantt/kptganttchartdisplayoptions.ui
     gantt/kptganttprintingoptions.ui
     gantt/MilestoneGanttChartOptionsPanel.ui
+    gantt/ResourceAppointmentsGanttChartOptionsPanel.ui
 
     kptprintingheaderfooter.ui
 

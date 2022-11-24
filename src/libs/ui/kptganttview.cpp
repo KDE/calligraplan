@@ -1844,11 +1844,89 @@ void MilestoneGanttView::slotDocumentsFinished(int result)
 }
 
 //--------------------
+ResourceAppointmentsGanttChartOptionsPanel::ResourceAppointmentsGanttChartOptionsPanel(GanttViewBase *gantt, QWidget *parent)
+    : QWidget(parent)
+    , m_gantt(gantt)
+{
+    ui.setupUi(this);
+    setValues();
+}
+
+void ResourceAppointmentsGanttChartOptionsPanel::slotOk()
+{
+    debugPlan;
+    auto id = ui.freedays->currentData().toString();
+    m_gantt->setCalendar(m_gantt->project()->findCalendar(id));
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    timeline->setInterval(ui.timeLineInterval->value() * 60000);
+    QPen pen;
+    pen.setWidth(ui.timeLineStroke->value());
+    pen.setColor(ui.timeLineColor->color());
+    timeline->setPen(pen);
+
+    DateTimeTimeLine::Options opt = timeline->options();
+    opt.setFlag(DateTimeTimeLine::Foreground, ui.timeLineForeground->isChecked());
+    opt.setFlag(DateTimeTimeLine::Background, ui.timeLineBackground->isChecked());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, ui.timeLineUseCustom->isChecked());
+    timeline->setOptions(opt);
+
+    m_gantt->setShowRowSeparators(ui.showRowSeparators->checkState() == Qt::Checked);
+}
+
+void ResourceAppointmentsGanttChartOptionsPanel::setValues()
+{
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    ui.timeLineInterval->setValue(timeline->interval() / 60000);
+
+    QPen pen = timeline->pen();
+    ui.timeLineStroke->setValue(pen.width());
+    ui.timeLineColor->setColor(pen.color());
+
+    ui.timeLineHide->setChecked(true);
+    DateTimeTimeLine::Options opt = timeline->options();
+    ui.timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
+    ui.timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
+    ui.timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
+
+    ui.showRowSeparators->setChecked(m_gantt->showRowSeparators());
+
+    ui.freedays->disconnect();
+    ui.freedays->clear();
+    ui.freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    const auto project = m_gantt->project();
+    if (project) {
+        auto current = m_gantt->calendar();
+        int currentIndex = 0;
+        const auto calendars = project->calendars();
+        for (auto *c : calendars) {
+            ui.freedays->addItem(c->name(), c->id());
+            if (c == current) {
+                currentIndex = ui.freedays->count() - 1;
+            }
+        }
+        ui.freedays->setCurrentIndex(currentIndex);
+        connect(ui.freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+            auto box = qobject_cast<QComboBox*>(sender());
+            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+        });
+    }
+}
+
+void ResourceAppointmentsGanttChartOptionsPanel::setDefault()
+{
+    setValues();
+}
+
 ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettingsDialog(GanttViewBase *gantt,  ViewBase *view, bool selectPrint)
     : ItemViewSettupDialog(view, gantt->treeView(), true, view)
     , m_gantt(gantt)
 {
     setFaceType(KPageDialog::Auto);
+    m_chartOptions = new ResourceAppointmentsGanttChartOptionsPanel(gantt, this);
+    insertWidget(1, m_chartOptions, i18n("Chart"), i18n("Gantt Chart Settings"));
     addPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
 }
@@ -1856,7 +1934,9 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
 void ResourceAppointmentsGanttViewSettingsDialog::slotOk()
 {
     debugPlan;
+    m_chartOptions->slotOk();
     ItemViewSettupDialog::slotOk();
+    m_gantt->graphicsView()->updateScene();
 }
 
 //------------------------------------------
@@ -1958,7 +2038,9 @@ Project *ResourceAppointmentsGanttView::project() const
 
 void ResourceAppointmentsGanttView::setProject(Project *project)
 {
+    m_gantt->setProject(project);
     m_model->setProject(project);
+    ViewBase::setProject(project);
 }
 
 void ResourceAppointmentsGanttView::setScheduleManager(ScheduleManager *sm)

@@ -16,6 +16,7 @@
 #include "kptnodeitemmodel.h"
 #include "gantt/GanttViewBase.h"
 #include "ui_MilestoneGanttChartOptionsPanel.h"
+#include "ui_ResourceAppointmentsGanttChartOptionsPanel.h"
 
 #include <KGanttGlobal>
 #include <KGanttView>
@@ -326,6 +327,23 @@ private:
     QActionGroup *m_scalegroup;
 };
 
+class ResourceAppointmentsGanttChartOptionsPanel : public QWidget
+{
+    Q_OBJECT
+public:
+    ResourceAppointmentsGanttChartOptionsPanel(GanttViewBase *gantt, QWidget *parent = nullptr);
+
+    void setValues();
+
+public Q_SLOTS:
+    void slotOk();
+    void setDefault();
+
+private:
+    Ui::ResourceAppointmentsGanttChartOptionsPanel ui;
+    GanttViewBase *m_gantt;
+};
+
 class ResourceAppointmentsGanttViewSettingsDialog : public ItemViewSettupDialog
 {
     Q_OBJECT
@@ -337,6 +355,7 @@ public Q_SLOTS:
 
 private:
     GanttViewBase *m_gantt;
+    ResourceAppointmentsGanttChartOptionsPanel *m_chartOptions;
     GanttPrintingOptionsWidget *m_printingoptions;
 
 };
