@@ -1045,11 +1045,94 @@ void GanttView::slotDocumentsFinished(int result)
 }
 
 //----
-MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase *gantt, ViewBase *view, bool selectPrint)
+MilestoneGanttChartOptionsPanel::MilestoneGanttChartOptionsPanel(NodeGanttViewBase *gantt, QWidget *parent)
+    : QWidget(parent)
+    , m_gantt(gantt)
+{
+    ui.setupUi(this);
+    setValues(*gantt->delegate());
+}
+
+void MilestoneGanttChartOptionsPanel::slotOk()
+{
+    debugPlan;
+    auto id = ui.freedays->currentData().toString();
+    m_gantt->setCalendar(m_gantt->project()->findCalendar(id));
+
+    m_gantt->delegate()->showTaskName = ui.showTaskName->checkState() == Qt::Checked;
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    timeline->setInterval(ui.timeLineInterval->value() * 60000);
+    QPen pen;
+    pen.setWidth(ui.timeLineStroke->value());
+    pen.setColor(ui.timeLineColor->color());
+    timeline->setPen(pen);
+
+    DateTimeTimeLine::Options opt = timeline->options();
+    opt.setFlag(DateTimeTimeLine::Foreground, ui.timeLineForeground->isChecked());
+    opt.setFlag(DateTimeTimeLine::Background, ui.timeLineBackground->isChecked());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, ui.timeLineUseCustom->isChecked());
+    timeline->setOptions(opt);
+
+    m_gantt->setShowRowSeparators(ui.showRowSeparators->checkState() == Qt::Checked);
+}
+
+void MilestoneGanttChartOptionsPanel::setValues(const GanttItemDelegate &del)
+{
+    ui.showTaskName->setCheckState(del.showTaskName ? Qt::Checked : Qt::Unchecked);
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    ui.timeLineInterval->setValue(timeline->interval() / 60000);
+
+    QPen pen = timeline->pen();
+    ui.timeLineStroke->setValue(pen.width());
+    ui.timeLineColor->setColor(pen.color());
+
+    ui.timeLineHide->setChecked(true);
+    DateTimeTimeLine::Options opt = timeline->options();
+    ui.timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
+    ui.timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
+    ui.timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
+
+    ui.showRowSeparators->setChecked(m_gantt->showRowSeparators());
+
+    ui.freedays->disconnect();
+    ui.freedays->clear();
+    ui.freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    const auto project = m_gantt->project();
+    if (project) {
+        auto current = m_gantt->calendar();
+        int currentIndex = 0;
+        const auto calendars = project->calendars();
+        for (auto *c : calendars) {
+            ui.freedays->addItem(c->name(), c->id());
+            if (c == current) {
+                currentIndex = ui.freedays->count() - 1;
+            }
+        }
+        ui.freedays->setCurrentIndex(currentIndex);
+        connect(ui.freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+            auto box = qobject_cast<QComboBox*>(sender());
+            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+        });
+    }
+}
+
+void MilestoneGanttChartOptionsPanel::setDefault()
+{
+    GanttItemDelegate del;
+    setValues(del);
+}
+
+MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(NodeGanttViewBase *gantt, ViewBase *view, bool selectPrint)
     : ItemViewSettupDialog(view, gantt->treeView(), true, view),
     m_gantt(gantt)
 {
     setFaceType(KPageDialog::Auto);
+    m_chartOptions = new MilestoneGanttChartOptionsPanel(gantt, this);
+    insertWidget(1, m_chartOptions, i18n("Chart"), i18n("Gantt Chart Settings"));
     addPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
 }
@@ -1057,7 +1140,9 @@ MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase
 void MilestoneGanttViewSettingsDialog::slotOk()
 {
     debugPlan;
+    m_chartOptions->slotOk();
     ItemViewSettupDialog::slotOk();
+    m_gantt->graphicsView()->updateScene();
 }
 
 //------------------------

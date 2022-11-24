@@ -15,6 +15,7 @@
 #include "kptitemviewsettup.h"
 #include "kptnodeitemmodel.h"
 #include "gantt/GanttViewBase.h"
+#include "ui_MilestoneGanttChartOptionsPanel.h"
 
 #include <KGanttGlobal>
 #include <KGanttView>
@@ -192,17 +193,35 @@ private:
     QActionGroup *m_scalegroup;
 };
 
+class MilestoneGanttChartOptionsPanel : public QWidget
+{
+    Q_OBJECT
+public:
+    MilestoneGanttChartOptionsPanel(NodeGanttViewBase *gantt, QWidget *parent = nullptr);
+
+    void setValues(const GanttItemDelegate &del);
+
+public Q_SLOTS:
+    void slotOk();
+    void setDefault();
+
+private:
+    Ui::MilestoneGanttChartOptionsPanel ui;
+    NodeGanttViewBase *m_gantt;
+};
+
 class MilestoneGanttViewSettingsDialog : public ItemViewSettupDialog
 {
     Q_OBJECT
 public:
-    MilestoneGanttViewSettingsDialog(GanttViewBase *gantt, ViewBase *view, bool selectPrint = false);
+    MilestoneGanttViewSettingsDialog(NodeGanttViewBase *gantt, ViewBase *view, bool selectPrint = false);
 
 protected Q_SLOTS:
     void slotOk() override;
 
 private:
     GanttViewBase *m_gantt;
+    MilestoneGanttChartOptionsPanel *m_chartOptions;
     GanttPrintingOptionsWidget *m_printingoptions;
 };
 
