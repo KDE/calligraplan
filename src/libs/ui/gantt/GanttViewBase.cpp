@@ -98,24 +98,6 @@ GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel(GanttViewBase *gant
     connect(ui_showSchedulingError, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
     connect(ui_showTimeConstraint, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
 
-    freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
-    const auto project = gantt->project();
-    if (project) {
-        auto current = gantt->calendar();
-        int currentIndex = 0;
-        const auto calendars = project->calendars();
-        for (auto *c : calendars) {
-            freedays->addItem(c->name(), c->id());
-            if (c == current) {
-                currentIndex = freedays->count() - 1;
-            }
-        }
-        freedays->setCurrentIndex(currentIndex);
-        connect(freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
-            auto box = qobject_cast<QComboBox*>(sender());
-            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
-        });
-    }
 }
 
 void GanttChartDisplayOptionsPanel::slotOk()
@@ -176,6 +158,27 @@ void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
     ui_timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
 
     ui_showRowSeparators->setChecked(m_gantt->showRowSeparators());
+
+    freedays->disconnect();
+    freedays->clear();
+    freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    const auto project = m_gantt->project();
+    if (project) {
+        auto current = m_gantt->calendar();
+        int currentIndex = 0;
+        const auto calendars = project->calendars();
+        for (auto *c : calendars) {
+            freedays->addItem(c->name(), c->id());
+            if (c == current) {
+                currentIndex = freedays->count() - 1;
+            }
+        }
+        freedays->setCurrentIndex(currentIndex);
+        connect(freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+            auto box = qobject_cast<QComboBox*>(sender());
+            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+        });
+    }
 }
 
 void GanttChartDisplayOptionsPanel::setDefault()
@@ -610,6 +613,11 @@ Calendar *GanttViewBase::calendar() const
         c = g->calendar();
     }
     return c;
+}
+
+DateTimeGrid *GanttViewBase::dateTimeGrid() const
+{
+    return qobject_cast<DateTimeGrid*>(grid());
 }
 
 void GanttViewBase::editCopy()

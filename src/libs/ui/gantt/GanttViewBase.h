@@ -35,6 +35,7 @@ class DateTimeTimeLine;
 class GanttViewBase;
 class GanttItemDelegate;
 class GanttPrintingOptionsWidget;
+class DateTimeGrid;
 
 //---------------------------------------
 class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
@@ -177,6 +178,8 @@ public:
     virtual Project *project() const { return m_project; }
     Calendar *calendar() const;
     void setCalendar(Calendar *calendar);
+
+    DateTimeGrid *dateTimeGrid() const;
 
     GanttTreeView *treeView() const;
     GanttPrintingOptions printingOptions() const { return m_printOptions; }
