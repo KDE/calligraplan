@@ -680,7 +680,6 @@ QString GanttItemDelegate::toolTip(const QModelIndex &index) const
 GanttView::GanttView(Part *part, QWidget *parent)
     : KPlato::GanttViewBase(parent),
       m_part(part),
-      m_project(nullptr),
       m_ganttdelegate(new GanttItemDelegate(this)),
       m_itemmodel(new TaskWorkPackageModel(part, this))
 {

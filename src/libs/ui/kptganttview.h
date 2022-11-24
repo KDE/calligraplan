@@ -62,8 +62,7 @@ public:
     NodeSortFilterProxyModel *sfModel() const;
     void setItemModel(ItemModelBase *model);
     ItemModelBase *model() const;
-    void setProject(Project *project);
-    Project *project() const { return m_project; }
+    void setProject(Project *project) override;
 
     GanttItemDelegate *delegate() const { return m_ganttdelegate; }
 
@@ -74,7 +73,6 @@ public Q_SLOTS:
     void setShowUnscheduledTasks(bool show);
 
 protected:
-    Project *m_project;
     GanttItemDelegate *m_ganttdelegate;
     NodeItemModel m_defaultModel;
     KGantt::TreeViewRowController *m_rowController;
@@ -87,7 +85,7 @@ public:
     explicit MyKGanttView(QWidget *parent);
 
     GanttItemModel *model() const;
-    void setProject(Project *project);
+    void setProject(Project *project) override;
     void setScheduleManager(ScheduleManager *sm);
 
 public Q_SLOTS:
@@ -216,7 +214,7 @@ public:
     explicit MilestoneKGanttView(QWidget *parent);
 
     MilestoneItemModel *model() const;
-    void setProject(Project *project);
+    void setProject(Project *project) override;
     void setScheduleManager(ScheduleManager *sm);
 
 public Q_SLOTS:

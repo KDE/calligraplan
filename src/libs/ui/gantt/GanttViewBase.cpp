@@ -13,6 +13,7 @@
 #include "DateTimeTimeLine.h"
 #include "kptganttitemdelegate.h"
 #include "DateTimeGrid.h"
+#include <kptproject.h>
 
 #include <KoXmlReader.h>
 #include <KoPageLayoutWidget.h>
@@ -96,6 +97,25 @@ GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel(GanttViewBase *gant
     connect(ui_showCompletion, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
     connect(ui_showSchedulingError, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
     connect(ui_showTimeConstraint, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+
+    freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    const auto project = gantt->project();
+    if (project) {
+        auto current = gantt->calendar();
+        int currentIndex = 0;
+        const auto calendars = project->calendars();
+        for (auto *c : calendars) {
+            freedays->addItem(c->name(), c->id());
+            if (c == current) {
+                currentIndex = freedays->count() - 1;
+            }
+        }
+        freedays->setCurrentIndex(currentIndex);
+        connect(freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+            auto box = qobject_cast<QComboBox*>(sender());
+            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+        });
+    }
 }
 
 void GanttChartDisplayOptionsPanel::slotOk()
@@ -181,7 +201,6 @@ GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItem
 void GanttViewSettingsDialog::slotOk()
 {
     debugPlan;
-    m_gantt->setPrintingOptions(m_printingoptions->options());
     ItemViewSettupDialog::slotOk();
 }
 
@@ -558,19 +577,7 @@ GanttViewBase::GanttViewBase(QWidget *parent)
     g->setUserDefinedLowerScale(new KGantt::DateTimeScaleFormatter(KGantt::DateTimeScaleFormatter::Day, QString::fromLatin1("ddd")));
 
     g->timeNow()->setInterval(5000);
-
-    QLocale locale;
-
-    g->setWeekStart(locale.firstDayOfWeek());
-
-    const QList<Qt::DayOfWeek> weekdays = locale.weekdays();
-    QSet<Qt::DayOfWeek> fd;
-    for (int i = Qt::Monday; i <= Qt::Sunday; ++i) {
-        if (!weekdays.contains(static_cast<Qt::DayOfWeek>(i))) {
-            fd << static_cast<Qt::DayOfWeek>(i);
-        }
-    }
-    g->setFreeDays(fd);
+    g->setWeekStart(QLocale().firstDayOfWeek());
 }
 
 GanttViewBase::~GanttViewBase()
@@ -580,6 +587,29 @@ GanttViewBase::~GanttViewBase()
     // and seems sometimes graphicsview has already been deleted.
     // Note: this will be fixed in next KGantt release
     leftView()->verticalScrollBar()->disconnect();
+}
+
+void GanttViewBase::setProject(Project *project)
+{
+    m_project = project;
+}
+
+void GanttViewBase::setCalendar(Calendar *calendar)
+{
+    auto g = qobject_cast<DateTimeGrid*>(grid());
+    if (g) {
+        g->setCalendar(calendar);
+    }
+}
+
+Calendar *GanttViewBase::calendar() const
+{
+    Calendar *c = nullptr;
+    auto g = qobject_cast<DateTimeGrid*>(grid());
+    if (g) {
+        c = g->calendar();
+    }
+    return c;
 }
 
 void GanttViewBase::editCopy()
@@ -609,7 +639,10 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     g->setScale(static_cast<KGantt::DateTimeGrid::Scale>(settings.attribute(QStringLiteral("chart-scale"), QString::number(0)).toInt()));
     g->setDayWidth(settings.attribute(QStringLiteral("chart-daywidth"), QString::number(30)).toDouble());
-
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(g);
+    if (grid) {
+        grid->loadContext(settings, m_project);
+    }
     DateTimeTimeLine::Options opt;
     opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute(QStringLiteral("timeline-foreground")).toInt());
     opt.setFlag(DateTimeTimeLine::Background, settings.attribute(QStringLiteral("timeline-background")).toInt());
@@ -633,7 +666,10 @@ void GanttViewBase::saveContext(QDomElement &settings) const
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     settings.setAttribute(QStringLiteral("chart-scale"), QString::number(g->scale()));
     settings.setAttribute(QStringLiteral("chart-daywidth"), QString::number(g->dayWidth()));
-
+    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(g);
+    if (grid) {
+        grid->saveContext(settings);
+    }
     settings.setAttribute(QStringLiteral("timeline-foreground"), timeLine()->options() & DateTimeTimeLine::Foreground);
     settings.setAttribute(QStringLiteral("timeline-background"), timeLine()->options() & DateTimeTimeLine::Background);
     settings.setAttribute(QStringLiteral("timeline-interval"), timeLine()->interval() / 60000);
@@ -700,6 +736,5 @@ bool GanttViewBase::showRowSeparators() const
     Q_ASSERT(g);
     return g->rowSeparators();
 }
-
 
 }  //KPlato namespace

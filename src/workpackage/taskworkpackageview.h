@@ -178,8 +178,7 @@ public:
     ~GanttView() override;
 
     TaskWorkPackageModel *itemModel() const;
-    void setProject(KPlato::Project *project);
-    KPlato::Project *project() const { return m_project; }
+    void setProject(KPlato::Project *project) override;
 
     GanttItemDelegate *delegate() const { return m_ganttdelegate; }
 
@@ -206,7 +205,6 @@ protected Q_SLOTS:
 
 protected:
     Part *m_part;
-    KPlato::Project *m_project;
     GanttItemDelegate *m_ganttdelegate;
     TaskWorkPackageModel *m_itemmodel;
     KGantt::TreeViewRowController *m_rowController;

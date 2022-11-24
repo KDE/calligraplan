@@ -81,9 +81,8 @@ class GanttItemDelegate;
 
 //-------------------------------------------
 NodeGanttViewBase::NodeGanttViewBase(QWidget *parent)
-    : GanttViewBase(parent),
-    m_project(nullptr),
-    m_ganttdelegate(new GanttItemDelegate(this))
+    : GanttViewBase(parent)
+    , m_ganttdelegate(new GanttItemDelegate(this))
 {
     debugPlan<<"------------------- create NodeGanttViewBase -----------------------";
     graphicsView()->setItemDelegate(m_ganttdelegate);
@@ -123,7 +122,7 @@ ItemModelBase *NodeGanttViewBase::model() const
 void NodeGanttViewBase::setProject(Project *project)
 {
     model()->setProject(project);
-    m_project = project;
+    GanttViewBase::setProject(project);
 }
 
 bool NodeGanttViewBase::loadContext(const KoXmlElement &settings)
@@ -1058,7 +1057,6 @@ MilestoneGanttViewSettingsDialog::MilestoneGanttViewSettingsDialog(GanttViewBase
 void MilestoneGanttViewSettingsDialog::slotOk()
 {
     debugPlan;
-    m_gantt->setPrintingOptions(m_printingoptions->options());
     ItemViewSettupDialog::slotOk();
 }
 
@@ -1773,7 +1771,6 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
 void ResourceAppointmentsGanttViewSettingsDialog::slotOk()
 {
     debugPlan;
-    m_gantt->setPrintingOptions(m_printingoptions->options());
     ItemViewSettupDialog::slotOk();
 }
 

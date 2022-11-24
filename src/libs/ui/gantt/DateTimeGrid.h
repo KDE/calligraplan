@@ -11,15 +11,31 @@
 
 #include "DateTimeTimeLine.h"
 
+#include <kptcalendar.h>
+
+#include <QPointer>
+
+class AbstractRowController;
+
 namespace KPlato {
-    
+
+class Project;
+
 class DateTimeGrid : public KGantt::DateTimeGrid
 {
     Q_OBJECT
 public:
     DateTimeGrid();
-    
+
+    Calendar *calendar() const;
+    void setCalendar(Calendar *calendar);
+
     DateTimeTimeLine *timeNow() const;
+
+    void paintGrid( QPainter* painter, const QRectF& sceneRect, const QRectF& exposedRect, KGantt::AbstractRowController* rowController = nullptr, QWidget* widget = nullptr ) override;
+
+    bool loadContext(const KoXmlElement &settings, Project *project);
+    void saveContext(QDomElement &settings) const;
 
 protected:
     void drawDayBackground(QPainter* painter, const QRectF& rect, const QDate& date) override;
@@ -30,8 +46,15 @@ protected:
 
     qreal dateTimeToChartX(const QDateTime& dt) const;
 
+    QDateTime chartXtoDateTime( qreal x ) const;
+    Qt::PenStyle gridLinePenStyle( QDateTime dt ) const;
+    QDateTime adjustDateTimeForHeader( QDateTime dt ) const;
+    void paintVerticalLines( QPainter* painter, const QRectF& sceneRect, const QRectF& exposedRect, QWidget* widget);
+    void paintVerticalUserDefinedLines(QPainter* painter, const QRectF& sceneRect, const QRectF& exposedRect, QWidget *widget);
+
 private:
     DateTimeTimeLine *m_timeLine;
+    QPointer<Calendar> m_calendar;
 };
 
 }

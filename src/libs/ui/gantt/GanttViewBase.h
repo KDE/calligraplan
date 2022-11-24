@@ -55,6 +55,7 @@ Q_SIGNALS:
 private:
     GanttItemDelegate *m_delegate;
     GanttViewBase *m_gantt;
+    QStringList m_calendars;
 };
 
 class GanttViewSettingsDialog : public ItemViewSettupDialog
@@ -68,7 +69,6 @@ protected Q_SLOTS:
 
 private:
     GanttViewBase *m_gantt;
-    GanttPrintingOptionsWidget *m_printingoptions;
 };
 
 //--------------------
@@ -173,6 +173,11 @@ public:
     explicit GanttViewBase(QWidget *parent);
     ~GanttViewBase() override;
 
+    virtual void setProject(Project *project);
+    virtual Project *project() const { return m_project; }
+    Calendar *calendar() const;
+    void setCalendar(Calendar *calendar);
+
     GanttTreeView *treeView() const;
     GanttPrintingOptions printingOptions() const { return m_printOptions; }
 
@@ -201,6 +206,9 @@ protected:
 
     friend class GanttPrintingDialog;
     GanttPrintingOptions m_printOptions;
+
+protected:
+    Project *m_project = nullptr;
 
 private:
     QPoint m_dragStartPosition;
