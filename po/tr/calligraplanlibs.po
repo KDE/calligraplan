@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-29 12:17+0300\n"
+"PO-Revision-Date: 2022-11-24 17:23+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -9253,12 +9253,12 @@ msgstr "<filename>%1</filename> dosyasına dışa aktarılamadı"
 #: ui/reports/reportview.cpp:401
 #, kde-format
 msgid "Export to spreadsheet document is not supported"
-msgstr "Elektronik tablo biçiminde dışa aktarma desteklenmiyor"
+msgstr "Hesap tablosu biçiminde dışa aktarma desteklenmiyor"
 
 #: ui/reports/reportview.cpp:412
 #, kde-format
 msgid "Export to spreadsheet failed"
-msgstr "Elektronik tablo biçiminde dışa aktarma başarısız"
+msgstr "Hesap tablosu biçiminde dışa aktarma başarısız"
 
 #: ui/reports/reportview.cpp:423
 #, kde-format
