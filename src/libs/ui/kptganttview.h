@@ -36,7 +36,7 @@ class Project;
 class MyKGanttView;
 class GanttViewBase;
 class GanttItemDelegate;
-
+class GanttPrintingOptionsWidget;
 
 class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
 {
@@ -69,7 +69,10 @@ protected Q_SLOTS:
     void slotOk() override;
 
 private:
+    void createPrintingOptions(bool setAsCurrent);
+
     GanttViewBase *m_gantt;
+    GanttPrintingOptionsWidget *m_printingOptions = nullptr;
 };
 
 class PLANUI_EXPORT GanttView : public ViewBase

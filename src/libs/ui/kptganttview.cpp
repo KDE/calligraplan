@@ -170,16 +170,37 @@ GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItem
     setFaceType(KPageDialog::Auto);
     GanttChartDisplayOptionsPanel *panel = new GanttChartDisplayOptionsPanel(gantt, delegate);
     /*KPageWidgetItem *page = */insertWidget(1, panel, i18n("Chart"), i18n("Gantt Chart Settings"));
-    addPrintingOptions(selectPrint);
+    createPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
     connect(this, &QDialog::accepted, panel, &GanttChartDisplayOptionsPanel::slotOk);
     connect(button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, panel, &GanttChartDisplayOptionsPanel::setDefault);
+}
+
+void GanttViewSettingsDialog::createPrintingOptions(bool setAsCurrent)
+{
+    if (! m_view) {
+        return;
+    }
+    QTabWidget *tab = new QTabWidget();
+    QWidget *w = ViewBase::createPageLayoutWidget(m_view);
+    tab->addTab(w, w->windowTitle());
+    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
+    Q_ASSERT(m_pagelayout);
+
+    m_printingOptions = new GanttPrintingOptionsWidget(m_gantt, this);
+    tab->addTab(m_printingOptions, i18n("Chart"));
+
+    KPageWidgetItem *itm = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
+    if (setAsCurrent) {
+        setCurrentPage(itm);
+    }
 }
 
 void GanttViewSettingsDialog::slotOk()
 {
     debugPlan;
     ItemViewSettupDialog::slotOk();
+    m_gantt->setPrintingOptions(m_printingOptions->options());
 }
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)

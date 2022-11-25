@@ -160,15 +160,36 @@ ResourceAppointmentsGanttViewSettingsDialog::ResourceAppointmentsGanttViewSettin
     setFaceType(KPageDialog::Auto);
     m_chartOptions = new ResourceAppointmentsGanttChartOptionsPanel(gantt, this);
     insertWidget(1, m_chartOptions, i18n("Chart"), i18n("Gantt Chart Settings"));
-    addPrintingOptions(selectPrint);
+    createPrintingOptions(selectPrint);
     connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
+}
+
+void ResourceAppointmentsGanttViewSettingsDialog::createPrintingOptions(bool setAsCurrent)
+{
+    if (! m_view) {
+        return;
+    }
+    QTabWidget *tab = new QTabWidget();
+    QWidget *w = ViewBase::createPageLayoutWidget(m_view);
+    tab->addTab(w, w->windowTitle());
+    m_pagelayout = w->findChild<KoPageLayoutWidget*>();
+    Q_ASSERT(m_pagelayout);
+
+    m_printingOptions = new GanttPrintingOptionsWidget(m_gantt, this);
+    tab->addTab(m_printingOptions, i18n("Chart"));
+
+    KPageWidgetItem *itm = insertWidget(-1, tab, i18n("Printing"), i18n("Printing Options"));
+    if (setAsCurrent) {
+        setCurrentPage(itm);
+    }
 }
 
 void ResourceAppointmentsGanttViewSettingsDialog::slotOk()
 {
     debugPlan;
-    m_chartOptions->slotOk();
     ItemViewSettupDialog::slotOk();
+    m_chartOptions->slotOk();
+    m_gantt->setPrintingOptions(m_printingOptions->options());
     m_gantt->graphicsView()->updateScene();
 }
 

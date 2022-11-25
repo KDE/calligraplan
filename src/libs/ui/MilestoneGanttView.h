@@ -50,8 +50,11 @@ protected Q_SLOTS:
     void slotOk() override;
 
 private:
+    void createPrintingOptions(bool setAsCurrent);
+
     GanttViewBase *m_gantt;
     MilestoneGanttChartOptionsPanel *m_chartOptions;
+    GanttPrintingOptionsWidget *m_printingOptions;
 };
 
 
