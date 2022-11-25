@@ -38,8 +38,6 @@
 #include "kptdocumentsdialog.h"
 
 #include <KGanttProxyModel>
-#include <KGanttConstraintModel>
-#include <KGanttConstraint>
 #include <KGanttGraphicsView>
 #include <KGanttTreeViewRowController>
 
@@ -48,31 +46,14 @@
 #include <KoPageLayoutWidget.h>
 #include <KoIcon.h>
 
-#include <QSplitter>
-#include <QVBoxLayout>
 #include <QHeaderView>
-#include <QDateTime>
-#include <QModelIndex>
-#include <QPainter>
 #include <QTabWidget>
 #include <QPushButton>
-#include <QLocale>
 #include <QAction>
 #include <QMenu>
-#include <QHoverEvent>
-#include <QScrollBar>
-#include <QDrag>
-#include <QClipboard>
-#include <QAbstractSlider>
-#include <QGraphicsTextItem>
-#include <QFont>
-#include <QFontMetricsF>
 
 #include <KToggleAction>
 #include <KActionCollection>
-
-#include <KGanttGlobal>
-#include <KGanttStyleOptionGanttItem>
 
 
 using namespace KPlato;

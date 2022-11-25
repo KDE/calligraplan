@@ -31,7 +31,6 @@
 
 #include <KGanttGraphicsView>
 #include <KGanttProxyModel>
-#include <KGanttDateTimeGrid>
 
 #include <QHeaderView>
 #include <QMenu>
