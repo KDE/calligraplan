@@ -311,25 +311,32 @@ void KPlatoScheduler::mergeProject(Project *calculatedProject, Project *original
     auto calculatedManager = calculatedProject->currentScheduleManager();
     auto newManager = originalProject->findScheduleManagerByName(calculatedManager->name());
     if (newManager) {
-        // re-calculating existing schedule, need to remove old schedule first
         auto sid = newManager->scheduleId();
-        const auto tasks = originalProject->allNodes();
-        for (auto t : tasks) {
-            if (t->type() == KPlato::Node::Type_Project) {
-                continue;
+        if (sid < 0) {
+            // this manager was not scheduled, so need to create the main schedule
+            auto sch = new MainSchedule(originalProject, calculatedManager->name(), calculatedManager->expected()->type(), calculatedManager->expected()->id());
+            originalProject->addSchedule(sch);
+            newManager->setExpected(sch);
+        } else {
+            // re-calculating existing schedule, need to remove old schedule form tasks abd resources first
+            const auto tasks = originalProject->allNodes();
+            for (auto t : tasks) {
+                if (t->type() == KPlato::Node::Type_Project) {
+                    continue;
+                }
+                auto s = t->findSchedule(sid);
+                if (s) {
+                    t->takeSchedule(s);
+                    delete s;
+                }
             }
-            auto s = t->findSchedule(sid);
-            if (s) {
-                t->takeSchedule(s);
-                delete s;
-            }
-        }
-        const auto resources = originalProject->resourceList();
-        for (auto r : resources) {
-            auto s = r->findSchedule(sid);
-            if (s) {
-                r->takeSchedule(s);
-                delete s;
+            const auto resources = originalProject->resourceList();
+            for (auto r : resources) {
+                auto s = r->findSchedule(sid);
+                if (s) {
+                    r->takeSchedule(s);
+                    delete s;
+                }
             }
         }
     } else {
