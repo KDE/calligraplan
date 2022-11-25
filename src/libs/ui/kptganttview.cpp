@@ -46,6 +46,7 @@
 #include <QHeaderView>
 #include <QAction>
 #include <QMenu>
+#include <QPushButton>
 
 #include <KToggleAction>
 #include <KActionCollection>
@@ -54,6 +55,132 @@ using namespace KPlato;
 
 class GanttItemDelegate;
 
+GanttChartDisplayOptionsPanel::GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent)
+    : QWidget(parent)
+    , m_delegate(delegate)
+    , m_gantt(gantt)
+{
+    setupUi(this);
+    setValues(*delegate);
+
+    connect(ui_showTaskName, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showResourceNames, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showDependencies, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showPositiveFloat, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showNegativeFloat, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showCriticalPath, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showCriticalTasks, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showCompletion, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showSchedulingError, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+    connect(ui_showTimeConstraint, &QCheckBox::stateChanged, this, &GanttChartDisplayOptionsPanel::changed);
+
+}
+
+void GanttChartDisplayOptionsPanel::slotOk()
+{
+    m_delegate->showTaskName = ui_showTaskName->checkState() == Qt::Checked;
+    m_delegate->showResources = ui_showResourceNames->checkState() == Qt::Checked;
+    m_delegate->showTaskLinks = ui_showDependencies->checkState() == Qt::Checked;
+    m_delegate->showPositiveFloat = ui_showPositiveFloat->checkState() == Qt::Checked;
+    m_delegate->showNegativeFloat = ui_showNegativeFloat->checkState() == Qt::Checked;
+    m_delegate->showCriticalPath = ui_showCriticalPath->checkState() == Qt::Checked;
+    m_delegate->showCriticalTasks = ui_showCriticalTasks->checkState() == Qt::Checked;
+    m_delegate->showProgress = ui_showCompletion->checkState() == Qt::Checked;
+    m_delegate->showSchedulingError = ui_showSchedulingError->checkState() == Qt::Checked;
+    m_delegate->showTimeConstraint = ui_showTimeConstraint->checkState() == Qt::Checked;
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    timeline->setInterval(ui_timeLineInterval->value() * 60000);
+    QPen pen;
+    pen.setWidth(ui_timeLineStroke->value());
+    pen.setColor(ui_timeLineColor->color());
+    timeline->setPen(pen);
+
+    DateTimeTimeLine::Options opt = timeline->options();
+    opt.setFlag(DateTimeTimeLine::Foreground, ui_timeLineForeground->isChecked());
+    opt.setFlag(DateTimeTimeLine::Background, ui_timeLineBackground->isChecked());
+    opt.setFlag(DateTimeTimeLine::UseCustomPen, ui_timeLineUseCustom->isChecked());
+    timeline->setOptions(opt);
+
+    m_gantt->setShowRowSeparators(ui_showRowSeparators->checkState() == Qt::Checked);
+}
+
+void GanttChartDisplayOptionsPanel::setValues(const GanttItemDelegate &del)
+{
+    ui_showTaskName->setCheckState(del.showTaskName ? Qt::Checked : Qt::Unchecked);
+    ui_showResourceNames->setCheckState(del.showResources ? Qt::Checked : Qt::Unchecked);
+    ui_showDependencies->setCheckState(del.showTaskLinks ? Qt::Checked : Qt::Unchecked);
+    ui_showPositiveFloat->setCheckState(del.showPositiveFloat ? Qt::Checked : Qt::Unchecked);
+    ui_showNegativeFloat->setCheckState(del.showNegativeFloat ? Qt::Checked : Qt::Unchecked);
+    ui_showCriticalPath->setCheckState(del.showCriticalPath ? Qt::Checked : Qt::Unchecked);
+    ui_showCriticalTasks->setCheckState(del.showCriticalTasks ? Qt::Checked : Qt::Unchecked);
+    ui_showCompletion->setCheckState(del.showProgress ? Qt::Checked : Qt::Unchecked);
+    ui_showSchedulingError->setCheckState(del.showSchedulingError ? Qt::Checked : Qt::Unchecked);
+    ui_showTimeConstraint->setCheckState(del.showTimeConstraint ? Qt::Checked : Qt::Unchecked);
+
+    DateTimeTimeLine *timeline = m_gantt->timeLine();
+
+    ui_timeLineInterval->setValue(timeline->interval() / 60000);
+
+    QPen pen = timeline->pen();
+    ui_timeLineStroke->setValue(pen.width());
+    ui_timeLineColor->setColor(pen.color());
+
+    ui_timeLineHide->setChecked(true);
+    DateTimeTimeLine::Options opt = timeline->options();
+    ui_timeLineBackground->setChecked(opt & DateTimeTimeLine::Background);
+    ui_timeLineForeground->setChecked(opt & DateTimeTimeLine::Foreground);
+    ui_timeLineUseCustom->setChecked(opt & DateTimeTimeLine::UseCustomPen);
+
+    ui_showRowSeparators->setChecked(m_gantt->showRowSeparators());
+
+    freedays->disconnect();
+    freedays->clear();
+    freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    const auto project = m_gantt->project();
+    if (project) {
+        auto current = m_gantt->calendar();
+        int currentIndex = 0;
+        const auto calendars = project->calendars();
+        for (auto *c : calendars) {
+            freedays->addItem(c->name(), c->id());
+            if (c == current) {
+                currentIndex = freedays->count() - 1;
+            }
+        }
+        freedays->setCurrentIndex(currentIndex);
+        connect(freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+            auto box = qobject_cast<QComboBox*>(sender());
+            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+        });
+    }
+}
+
+void GanttChartDisplayOptionsPanel::setDefault()
+{
+    GanttItemDelegate del;
+    setValues(del);
+}
+
+GanttViewSettingsDialog::GanttViewSettingsDialog(GanttViewBase *gantt, GanttItemDelegate *delegate, ViewBase *view, bool selectPrint)
+    : ItemViewSettupDialog(view, gantt->treeView(), true, view)
+    , m_gantt(gantt)
+{
+    setFaceType(KPageDialog::Auto);
+    GanttChartDisplayOptionsPanel *panel = new GanttChartDisplayOptionsPanel(gantt, delegate);
+    /*KPageWidgetItem *page = */insertWidget(1, panel, i18n("Chart"), i18n("Gantt Chart Settings"));
+    addPrintingOptions(selectPrint);
+    connect(this, SIGNAL(accepted()), this, SLOT(slotOk()));
+    connect(this, &QDialog::accepted, panel, &GanttChartDisplayOptionsPanel::slotOk);
+    connect(button(QDialogButtonBox::RestoreDefaults), &QAbstractButton::clicked, panel, &GanttChartDisplayOptionsPanel::setDefault);
+}
+
+void GanttViewSettingsDialog::slotOk()
+{
+    debugPlan;
+    ItemViewSettupDialog::slotOk();
+}
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)
     : ViewBase(part, doc, parent),

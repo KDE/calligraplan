@@ -12,6 +12,9 @@
 #include "planui_export.h"
 
 #include "kptviewbase.h"
+#include "kptitemviewsettup.h"
+
+#include "ui_kptganttchartdisplayoptions.h"
 
 class KoDocument;
 
@@ -31,8 +34,43 @@ namespace KPlato
 class Node;
 class Project;
 class MyKGanttView;
+class GanttViewBase;
+class GanttItemDelegate;
 
 
+class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
+{
+    Q_OBJECT
+public:
+    explicit GanttChartDisplayOptionsPanel(GanttViewBase *gantt, GanttItemDelegate *delegate, QWidget *parent = nullptr);
+
+    void setValues(const GanttItemDelegate &del);
+
+public Q_SLOTS:
+    void slotOk();
+    void setDefault();
+
+Q_SIGNALS:
+    void changed();
+
+private:
+    GanttItemDelegate *m_delegate;
+    GanttViewBase *m_gantt;
+    QStringList m_calendars;
+};
+
+class GanttViewSettingsDialog : public ItemViewSettupDialog
+{
+    Q_OBJECT
+public:
+    explicit GanttViewSettingsDialog(GanttViewBase *gantt, GanttItemDelegate *delegate, ViewBase *view, bool selectPrint = false);
+
+protected Q_SLOTS:
+    void slotOk() override;
+
+private:
+    GanttViewBase *m_gantt;
+};
 
 class PLANUI_EXPORT GanttView : public ViewBase
 {
