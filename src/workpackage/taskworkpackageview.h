@@ -12,10 +12,11 @@
 #include "kptitemmodelbase.h"
 
 #include "kptviewbase.h"
-#include "kptganttview.h"
+#include "gantt/GanttViewBase.h"
 #include "gantt/kptganttitemdelegate.h"
 
 #include <KGanttView>
+#include <KGanttTreeViewRowController>
 
 #include <QSplitter>
 

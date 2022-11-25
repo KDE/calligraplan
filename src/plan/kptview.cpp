@@ -72,6 +72,8 @@
 #include "kpttaskdialog.h"
 #include "kpttaskprogressdialog.h"
 #include "kptganttview.h"
+#include <MilestoneGanttView.h>
+#include <ResourceAppointmentsGanttView.h>
 #include "kpttaskeditor.h"
 #include "kptdependencyeditor.h"
 #include "kptperteditor.h"

@@ -6,53 +6,71 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-#ifndef KPTGANTTVIEW_H
-#define KPTGANTTVIEW_H
+#ifndef ResourceAppointmentsGanttView_H
+#define ResourceAppointmentsGanttView_H
 
 #include "planui_export.h"
 
 #include "kptviewbase.h"
+#include "kptitemviewsettup.h"
+#include "NodeGanttViewBase.h"
+#include "ui_ResourceAppointmentsGanttChartOptionsPanel.h"
+
+#include <KGanttGlobal>
+#include <KGanttView>
+#include <KGanttDateTimeGrid>
+#include <KGanttPrintingContext>
 
 class KoDocument;
-
-class QSplitter;
-class QActionGroup;
-
-class KoPrintJob;
-
-namespace KGantt
-{
-    class TreeViewRowController;
-}
 
 namespace KPlato
 {
 
-class Node;
-class Project;
-class MyKGanttView;
+class ResourceAppointmentsGanttModel;
 
-
-
-class PLANUI_EXPORT GanttView : public ViewBase
+class ResourceAppointmentsGanttChartOptionsPanel : public QWidget
 {
     Q_OBJECT
 public:
-    GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite = true);
+    explicit ResourceAppointmentsGanttChartOptionsPanel(GanttViewBase *gantt, QWidget *parent = nullptr);
 
-    //~GanttView();
+    void setValues();
+
+public Q_SLOTS:
+    void slotOk();
+    void setDefault();
+
+private:
+    Ui::ResourceAppointmentsGanttChartOptionsPanel ui;
+    GanttViewBase *m_gantt;
+};
+
+class ResourceAppointmentsGanttViewSettingsDialog : public ItemViewSettupDialog
+{
+    Q_OBJECT
+public:
+    explicit ResourceAppointmentsGanttViewSettingsDialog(GanttViewBase *gantt, ViewBase *view, bool selectPrint = false);
+
+public Q_SLOTS:
+    void slotOk() override;
+
+private:
+    GanttViewBase *m_gantt;
+    ResourceAppointmentsGanttChartOptionsPanel *m_chartOptions;
+};
+
+class PLANUI_EXPORT ResourceAppointmentsGanttView : public ViewBase
+{
+    Q_OBJECT
+public:
+    explicit ResourceAppointmentsGanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite = true);
+    ~ResourceAppointmentsGanttView() override;
 
     virtual void setZoom(double zoom);
-    void setupGui();
     void setProject(Project *project) override;
+    Project *project() const override;
 
-    using ViewBase::draw;
-    void draw(Project &project) override;
-    void drawChanges(Project &project) override;
-
-    Node *currentNode() const override;
-
-    void clear();
+    void setupGui();
 
     bool loadContext(const KoXmlElement &context) override;
     void saveContext(QDomElement &context) const override;
@@ -61,33 +79,24 @@ public:
 
     KoPrintJob *createPrintJob() override;
 
-    void setShowSpecialInfo(bool on);
-    bool showSpecialInfo() const;
+    GanttTreeView *treeView() const { return static_cast<GanttTreeView*>(m_gantt->leftView()); }
+
+    Node *currentNode() const override;
+
+Q_SIGNALS:
+    void itemDoubleClicked();
 
 public Q_SLOTS:
     void setScheduleManager(KPlato::ScheduleManager *sm) override;
-    void setShowResources(bool on);
-    void setShowTaskName(bool on);
-    void setShowTaskLinks(bool on);
-    void setShowProgress(bool on);
-    void setShowPositiveFloat(bool on);
-    void setShowCriticalTasks(bool on);
-    void setShowCriticalPath(bool on);
-    void setShowNoInformation(bool on);
-    void setShowAppointments(bool on);
-
     void slotEditCopy() override;
-
-    void slotProjectCalculated(Project *prjoect, ScheduleManager *sm);
 
 protected Q_SLOTS:
     void slotContextMenuRequested(const QModelIndex&, const QPoint &pos);
+    void slotContextMenuRequestedFromGantt(const QModelIndex&, const QPoint &pos);
     void slotGanttHeaderContextMenuRequested(const QPoint &pt);
     void slotDateTimeGridChanged();
     void slotOptions() override;
-    void slotOptionsFinished(int result) override;
     void ganttActions();
-    void itemDoubleClicked(const QPersistentModelIndex &idx);
 
 private Q_SLOTS:
     void slotOpenCurrentNode();
@@ -111,16 +120,11 @@ private:
     void updateActionsEnabled(bool on);
 
 private:
-    bool m_readWrite;
-    int m_defaultFontSize;
-    QSplitter *m_splitter;
-    MyKGanttView *m_gantt;
+    GanttViewBase *m_gantt;
     Project *m_project;
-
-    QAction *actionShowProject;
-    QAction *actionShowUnscheduled;
+    ResourceAppointmentsGanttModel *m_model;
+    KGantt::TreeViewRowController *m_rowController;
     QDomDocument m_domdoc;
-
     QActionGroup *m_scalegroup;
 };
 

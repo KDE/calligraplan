@@ -54,8 +54,11 @@ set(calligraplanui_LIB_SRCS
     gantt/DateTimeGrid.cpp
     gantt/GanttViewBase.cpp
     gantt/BasicGanttViewSettingsDialog.cpp
+    gantt/NodeGanttViewBase.cpp
 
     kptganttview.cpp
+    MilestoneGanttView.cpp
+    ResourceAppointmentsGanttView.cpp
 
     kptworkpackagesendpanel.cpp
     kptworkpackagesenddialog.cpp
@@ -177,6 +180,7 @@ target_link_libraries(calligraplanui
         KF5::TextWidgets
     PRIVATE
         KChart
+        KGantt
         KF5::ItemViews
         KF5::IconThemes
         KF5::Archive
