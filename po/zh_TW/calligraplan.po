@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
 "PO-Revision-Date: 2012-06-14 08:33+0800\n"
 "Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -58,7 +58,7 @@ msgid "&Settings"
 msgstr "設定(&S)"
 
 #. i18n: ectx: Menu (help)
-#: calligraplan.rc:62 calligraplan_shell.rc:23
+#: calligraplan.rc:62 calligraplan_shell.rc:24
 #, kde-format
 msgid "&Help"
 msgstr "說明(&H)"
@@ -564,7 +564,7 @@ msgstr ""
 msgid "Project Defaults"
 msgstr "專案狀態"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:635
+#: config/ConfigDialog.cpp:37 kptview.cpp:637
 #, kde-format
 msgid "Work & Vacation"
 msgstr "工作與假日"
@@ -1565,85 +1565,85 @@ msgstr "設定 Plan..."
 msgid "Schedule Selector"
 msgstr "排程選擇器"
 
-#: kptview.cpp:183
+#: kptview.cpp:185
 #, fuzzy, kde-format
 #| msgid "Create Report..."
 msgid "Create Project Template..."
 msgstr "建立報告..."
 
-#: kptview.cpp:187
+#: kptview.cpp:189
 #, fuzzy, kde-format
 #| msgid "Create Report..."
 msgid "Create New Project..."
 msgstr "建立報告..."
 
-#: kptview.cpp:199
+#: kptview.cpp:201
 #, kde-format
 msgid "Show Selector"
 msgstr "顯示選擇器"
 
-#: kptview.cpp:206 kptview.cpp:247
+#: kptview.cpp:208 kptview.cpp:249
 #, kde-format
 msgid "Edit..."
 msgstr "編輯..."
 
-#: kptview.cpp:210
+#: kptview.cpp:212
 #, kde-format
 msgid "Define Estimate Conversions..."
 msgstr "定義估計轉換..."
 
-#: kptview.cpp:214
+#: kptview.cpp:216
 #, kde-format
 msgid "Define WBS Pattern..."
 msgstr "定義工作分析結構樣式..."
 
-#: kptview.cpp:218
+#: kptview.cpp:220
 #, kde-format
 msgid "Define Currency..."
 msgstr "定義貨幣..."
 
-#: kptview.cpp:222
+#: kptview.cpp:224
 #, fuzzy, kde-format
 #| msgid "Description..."
 msgid "Edit Description..."
 msgstr "描述..."
 
-#: kptview.cpp:227
+#: kptview.cpp:229
 #, kde-format
 msgid "Insert Project File..."
 msgstr "插入專案檔..."
 
-#: kptview.cpp:231
+#: kptview.cpp:233
 #, fuzzy, kde-format
 #| msgid "Tasks by resources"
 msgid "Update Shared Resources"
 msgstr "依資源檢視工作狀態"
 
-#: kptview.cpp:236
+#: kptview.cpp:238
 #, kde-format
 msgid "Open Report Definition File..."
 msgstr ""
 
-#: kptview.cpp:241
+#: kptview.cpp:243
 #, fuzzy, kde-format
 #| msgid "Create Report..."
 msgid "Create Report Template..."
 msgstr "建立報告..."
 
-#: kptview.cpp:257
+#: kptview.cpp:259
 #, fuzzy, kde-format
 #| msgid "Work Package"
 msgid "Work Packages..."
 msgstr "工作套件"
 
-#: kptview.cpp:258
+#: kptview.cpp:260
 #, fuzzy, kde-format
 #| msgid "Work Package View"
 msgctxt "@info:tooltip"
 msgid "Work packages available"
 msgstr "工作套件檢視"
 
-#: kptview.cpp:349
+#: kptview.cpp:351
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1653,77 +1653,77 @@ msgid ""
 "information is removed.<nl/><nl/>Do you want to continue?"
 msgstr ""
 
-#: kptview.cpp:489
+#: kptview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Scheduling constraint:"
 msgid "Edit task scheduling constraints"
 msgstr "排程限制："
 
-#: kptview.cpp:489
+#: kptview.cpp:491
 #, fuzzy, kde-format
 #| msgid "Constraints"
 msgid "Task Constraints"
 msgstr "強制"
 
-#: kptview.cpp:499
+#: kptview.cpp:501
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Edit task dependencies"
 msgid "Edit task cost"
 msgstr "編輯工作相依性"
 
-#: kptview.cpp:499
+#: kptview.cpp:501
 #, fuzzy, kde-format
 #| msgid "Task Colors"
 msgid "Task Cost"
 msgstr "工作顏色"
 
-#: kptview.cpp:548
+#: kptview.cpp:550
 #, kde-format
 msgid "Generate reports"
 msgstr ""
 
-#: kptview.cpp:554 kptview.cpp:2448
+#: kptview.cpp:556 kptview.cpp:2450
 #, kde-format
 msgid "Task Status Report"
 msgstr "工作狀態報告"
 
-#: kptview.cpp:636
+#: kptview.cpp:638
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "編輯資源的工作天與假日"
 
-#: kptview.cpp:638
+#: kptview.cpp:640
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "成本分析結構"
 
-#: kptview.cpp:639
+#: kptview.cpp:641
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "編輯成本分析結構。"
 
-#: kptview.cpp:641
+#: kptview.cpp:643
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Edit resource breakdown structure"
 msgid "Resource Breakdown Structure"
 msgstr "編輯資源分析結構。"
 
-#: kptview.cpp:642
+#: kptview.cpp:644
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "編輯資源分析結構。"
 
-#: kptview.cpp:644 SharedResourcesDialog.cpp:58
+#: kptview.cpp:646 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "資源"
 
-#: kptview.cpp:645
+#: kptview.cpp:647
 #, fuzzy, kde-kuit-format
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete resourcegroup"
@@ -1731,94 +1731,94 @@ msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "刪除資源群組"
 
-#: kptview.cpp:647
+#: kptview.cpp:649
 #, kde-format
 msgid "Tasks"
 msgstr "工作"
 
-#: kptview.cpp:648
+#: kptview.cpp:650
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "編輯工作分析結構"
 
-#: kptview.cpp:650
+#: kptview.cpp:652
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "相依性（圖形）"
 
-#: kptview.cpp:651 kptview.cpp:654
+#: kptview.cpp:653 kptview.cpp:656
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "編輯工作相依性"
 
-#: kptview.cpp:653
+#: kptview.cpp:655
 #, kde-format
 msgid "Dependencies (List)"
 msgstr "相依性（列表）"
 
-#: kptview.cpp:657 kptview.cpp:659
+#: kptview.cpp:659 kptview.cpp:661
 #, kde-format
 msgid "Schedules"
 msgstr "排程"
 
-#: kptview.cpp:660
+#: kptview.cpp:662
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "計算與分析專案排程"
 
-#: kptview.cpp:662 kptviewlistdialog.cpp:110
+#: kptview.cpp:664 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr "專案效能圖"
 
-#: kptview.cpp:663
+#: kptview.cpp:665
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "檢視專案狀態資訊"
 
-#: kptview.cpp:665 kptviewlistdialog.cpp:101
+#: kptview.cpp:667 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "工作狀態"
 
-#: kptview.cpp:666
+#: kptview.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "檢視工作進度資訊"
 
-#: kptview.cpp:668
+#: kptview.cpp:670
 #, kde-format
 msgid "Task Execution"
 msgstr "工作執行"
 
-#: kptview.cpp:669
+#: kptview.cpp:671
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "檢視工作執行資訊"
 
-#: kptview.cpp:671 kptviewlistdialog.cpp:103
+#: kptview.cpp:673 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr "工作套件檢視"
 
-#: kptview.cpp:672
+#: kptview.cpp:674
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "檢視工作套件資訊"
 
-#: kptview.cpp:674
+#: kptview.cpp:676
 #, kde-format
 msgid "Gantt"
 msgstr "甘特圖"
 
-#: kptview.cpp:675
+#: kptview.cpp:677
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "View gantt chart"
@@ -1826,12 +1826,12 @@ msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "檢視甘特圖"
 
-#: kptview.cpp:677
+#: kptview.cpp:679
 #, kde-format
 msgid "Milestone Gantt"
 msgstr "里程碑甘特圖"
 
-#: kptview.cpp:678
+#: kptview.cpp:680
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "View milestone gantt chart"
@@ -1839,23 +1839,23 @@ msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "檢視里程碑甘特圖"
 
-#: kptview.cpp:680 kptviewlistdialog.cpp:106
+#: kptview.cpp:682 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "資源分配"
 
-#: kptview.cpp:681
+#: kptview.cpp:683
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "在表格中檢視資源分配"
 
-#: kptview.cpp:683 kptviewlistdialog.cpp:107
+#: kptview.cpp:685 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "資源分配（甘特圖）"
 
-#: kptview.cpp:684
+#: kptview.cpp:686
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "View resource assignments in gantt chart"
@@ -1863,172 +1863,172 @@ msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "在甘特圖中檢視資源分配"
 
-#: kptview.cpp:686 kptviewlistdialog.cpp:108
+#: kptview.cpp:688 kptviewlistdialog.cpp:108
 #, fuzzy, kde-format
 #| msgid "Resource Editor"
 msgid "Resource Coverage"
 msgstr "資源編輯器"
 
-#: kptview.cpp:687
+#: kptview.cpp:689
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr ""
 
-#: kptview.cpp:689 kptviewlistdialog.cpp:109
+#: kptview.cpp:691 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "成本分析"
 
-#: kptview.cpp:690
+#: kptview.cpp:692
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "檢視已規劃與實際成本"
 
-#: kptview.cpp:692 kptviewlistdialog.cpp:111
+#: kptview.cpp:694 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr "工作效能圖"
 
-#: kptview.cpp:693
+#: kptview.cpp:695
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "檢視工作效能狀態資訊"
 
-#: kptview.cpp:695
+#: kptview.cpp:697
 #, kde-format
 msgid "Reports Generator"
 msgstr ""
 
-#: kptview.cpp:696
+#: kptview.cpp:698
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr ""
 
-#: kptview.cpp:698 kptview.cpp:2445 kptviewlistdialog.cpp:114
+#: kptview.cpp:700 kptview.cpp:2447 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "報告"
 
-#: kptview.cpp:699
+#: kptview.cpp:701
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "檢視報告"
 
-#: kptview.cpp:710
+#: kptview.cpp:712
 #, kde-format
 msgid "Editors"
 msgstr "編輯器"
 
-#: kptview.cpp:712
+#: kptview.cpp:714
 #, kde-format
 msgid "Views"
 msgstr "檢視"
 
-#: kptview.cpp:714
+#: kptview.cpp:716
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "執行"
 
-#: kptview.cpp:716
+#: kptview.cpp:718
 #, kde-format
 msgid "Reports"
 msgstr "報告"
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, kde-format
 msgid "Overwrite"
 msgstr ""
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, fuzzy, kde-format
 #| msgid "Create Report..."
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "建立報告..."
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
-#: kptview.cpp:2024
+#: kptview.cpp:2026
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "無法開啟檔案：<br/><filename>%1</filename>"
 
-#: kptview.cpp:2139
+#: kptview.cpp:2141
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "變更名稱"
 
-#: kptview.cpp:2141
+#: kptview.cpp:2143
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "變更工作名稱"
 
-#: kptview.cpp:2142
+#: kptview.cpp:2144
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "變更里程碑名稱"
 
-#: kptview.cpp:2143
+#: kptview.cpp:2145
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "變更摘要工作名稱"
 
-#: kptview.cpp:2144
+#: kptview.cpp:2146
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "變更專案名稱"
 
-#: kptview.cpp:2236
+#: kptview.cpp:2238
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "未排程"
 
-#: kptview.cpp:2290
+#: kptview.cpp:2292
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr "此專案的工作套件：%1"
 
-#: kptview.cpp:2446
+#: kptview.cpp:2448
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "管理者："
 
-#: kptview.cpp:2447
+#: kptview.cpp:2449
 #, kde-format
 msgid "Project:"
 msgstr "專案："
 
-#: kptview.cpp:2449
+#: kptview.cpp:2451
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "之"
 
-#: kptview.cpp:2450
+#: kptview.cpp:2452
 #, kde-format
 msgid "Page"
 msgstr "頁面"
 
-#: kptview.cpp:2451
+#: kptview.cpp:2453
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "名稱"
 
-#: kptview.cpp:2452
+#: kptview.cpp:2454
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"

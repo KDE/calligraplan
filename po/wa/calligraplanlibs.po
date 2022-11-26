@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-29 00:47+0000\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
 "PO-Revision-Date: 2009-08-20 10:18+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -1777,9 +1777,11 @@ msgstr ""
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
-#: ui/kptdependencyeditor.cpp:2185 ui/kptitemviewsettup.cpp:190
-#: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:66
+#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:193
+#: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:146
 #: ui/performance/ProjectStatusView.cpp:170
+#: ui/ResourceAppointmentsGanttView.cpp:162
 #, fuzzy, kde-format
 msgid "Printing"
 msgstr "Pordjet"
@@ -6128,26 +6130,16 @@ msgstr ""
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
-#: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:67
-#: ui/performance/ProjectStatusView.cpp:171
+#: ui/kptganttview.cpp:193 ui/kptitemviewsettup.cpp:190
+#: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
+#: ui/MilestoneGanttView.cpp:146 ui/performance/ProjectStatusView.cpp:171
+#: ui/ResourceAppointmentsGanttView.cpp:162
 #, fuzzy, kde-format
 #| msgid "Options"
 msgid "Printing Options"
 msgstr "Tchuzes"
 
-#: ui/gantt/GanttViewBase.cpp:174 ui/performance/PerformanceStatusView.cpp:635
-#: ui/performance/ProjectStatusView.cpp:155
-#, kde-format
-msgid "Chart"
-msgstr "Grafike"
-
-#: ui/gantt/GanttViewBase.cpp:174
-#, kde-format
-msgid "Gantt Chart Settings"
-msgstr "Apontiaedjes do grafike Gantt"
-
-#: ui/gantt/GanttViewBase.cpp:260
+#: ui/gantt/GanttViewBase.cpp:154
 #, fuzzy, kde-kuit-format
 #| msgid "Chart"
 msgctxt "@title:tab"
@@ -6156,43 +6148,63 @@ msgstr "Grafike"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/gantt/kptganttchartdisplayoptions.ui:20
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:20
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:20
 #, fuzzy, kde-format
 #| msgid "Timezone"
 msgid "Timeline"
 msgstr "Coisse d' eurêye"
 
+#. i18n: ectx: property (toolTip), widget (QRadioButton, timeLineHide)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
 #: ui/gantt/kptganttchartdisplayoptions.ui:28
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:28
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:28
 #, kde-format
 msgid "Do not show the timeline"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QRadioButton, timeLineHide)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
 #: ui/gantt/kptganttchartdisplayoptions.ui:31
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:31
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:31
 #, kde-format
 msgid "Hide"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QRadioButton, timeLineForeground)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
 #: ui/gantt/kptganttchartdisplayoptions.ui:38
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:38
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:38
 #, kde-format
 msgid "Show timeline in the foreground"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QRadioButton, timeLineForeground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
 #: ui/gantt/kptganttchartdisplayoptions.ui:41
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:41
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:41
 #, kde-format
 msgid "Foreground"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QRadioButton, timeLineBackground)
 #. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
 #: ui/gantt/kptganttchartdisplayoptions.ui:48
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:48
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:48
 #, kde-format
 msgid "Show timeline in the background"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QRadioButton, timeLineBackground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
 #: ui/gantt/kptganttchartdisplayoptions.ui:51
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:51
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:51
 #, fuzzy, kde-format
 #| msgctxt "Schedule project backward"
 #| msgid "Backward"
@@ -6201,24 +6213,33 @@ msgstr "En erî"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_3)
 #: ui/gantt/kptganttchartdisplayoptions.ui:60
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:60
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:60
 #, kde-format
 msgid "Update interval in minutes, 0 disables update"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/gantt/kptganttchartdisplayoptions.ui:63
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:63
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:63
 #, fuzzy, kde-format
 msgid "Interval:"
 msgstr "Tins ewal inte les deus"
 
+#. i18n: ectx: property (text), widget (QCheckBox, timeLineUseCustom)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
 #: ui/gantt/kptganttchartdisplayoptions.ui:93
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:93
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:93
 #, kde-format
 msgid "Use custom line"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:102
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:102
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:102
 #, fuzzy, kde-format
 #| msgid "Chart"
 msgid "Line width"
@@ -6226,12 +6247,16 @@ msgstr "Grafike"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:105
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:105
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:105
 #, kde-format
 msgid "Stroke:"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: ui/gantt/kptganttchartdisplayoptions.ui:126
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:126
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:126
 #, fuzzy, kde-format
 #| msgid "Chart"
 msgid "Line color"
@@ -6239,99 +6264,117 @@ msgstr "Grafike"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/kptganttchartdisplayoptions.ui:129
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:129
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:129
 #, kde-format
 msgid "Color:"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: ui/gantt/kptganttchartdisplayoptions.ui:153
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:153
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:153
 #, fuzzy, kde-format
 #| msgid "Duration"
 msgid "Decorations"
 msgstr "Durêye"
 
+#. i18n: ectx: property (text), widget (QCheckBox, showRowSeparators)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showRowSeparators)
 #: ui/gantt/kptganttchartdisplayoptions.ui:159
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:159
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:159
 #, fuzzy, kde-format
 #| msgid "Separator"
 msgid "Show Row Separators"
 msgstr "Separateu"
 
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/gantt/kptganttchartdisplayoptions.ui:168
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:168
+#: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:168
+#, kde-format
+msgid "Freedays:"
+msgstr ""
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/gantt/kptganttchartdisplayoptions.ui:169
+#: ui/gantt/kptganttchartdisplayoptions.ui:203
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:203
 #, kde-format
 msgid "Additional text information"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
-#: ui/gantt/kptganttchartdisplayoptions.ui:175
+#. i18n: ectx: property (text), widget (QCheckBox, showTaskName)
+#: ui/gantt/kptganttchartdisplayoptions.ui:209
+#: ui/gantt/MilestoneGanttChartOptionsPanel.ui:209
 #, fuzzy, kde-format
 msgid "Task name"
 msgstr "Avançmint del bouye"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
-#: ui/gantt/kptganttchartdisplayoptions.ui:182
+#: ui/gantt/kptganttchartdisplayoptions.ui:216
 #, fuzzy, kde-format
 #| msgid "No resource allocated"
 msgid "Resource names"
 msgstr "Nole rissource acoirdêye"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/gantt/kptganttchartdisplayoptions.ui:192
+#: ui/gantt/kptganttchartdisplayoptions.ui:226
 #, kde-format
 msgid "Additional graphics information"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
-#: ui/gantt/kptganttchartdisplayoptions.ui:201
+#: ui/gantt/kptganttchartdisplayoptions.ui:235
 #, fuzzy, kde-format
 #| msgid "Critical Path"
 msgid "Critical path"
 msgstr "Tchimin critike"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
-#: ui/gantt/kptganttchartdisplayoptions.ui:208
+#: ui/gantt/kptganttchartdisplayoptions.ui:242
 #, fuzzy, kde-format
 #| msgid "Remove task dependency"
 msgid "Task dependencies"
 msgstr "Oister aloyance di bouye"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
-#: ui/gantt/kptganttchartdisplayoptions.ui:215
+#: ui/gantt/kptganttchartdisplayoptions.ui:249
 #, fuzzy, kde-format
 #| msgid "Tentative"
 msgid "Negative float"
 msgstr "Esprouve"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
-#: ui/gantt/kptganttchartdisplayoptions.ui:222
+#: ui/gantt/kptganttchartdisplayoptions.ui:256
 #, fuzzy, kde-format
 #| msgid "Critical Path"
 msgid "Critical tasks"
 msgstr "Tchimin critike"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
-#: ui/gantt/kptganttchartdisplayoptions.ui:229
+#: ui/gantt/kptganttchartdisplayoptions.ui:263
 #, fuzzy, kde-format
 msgid "Task completion"
 msgstr "Candjî completaedje del bouye"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
-#: ui/gantt/kptganttchartdisplayoptions.ui:236
+#: ui/gantt/kptganttchartdisplayoptions.ui:270
 #, fuzzy, kde-format
 #| msgid "Project:"
 msgid "Positive float"
 msgstr "Pordjet:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
-#: ui/gantt/kptganttchartdisplayoptions.ui:243
+#: ui/gantt/kptganttchartdisplayoptions.ui:277
 #, fuzzy, kde-format
 #| msgid "Scheduling Log"
 msgid "Scheduling errors"
 msgstr "Djournå d' programaedje"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
-#: ui/gantt/kptganttchartdisplayoptions.ui:250
+#: ui/gantt/kptganttchartdisplayoptions.ui:284
 #, fuzzy, kde-format
 msgid "Time constraints"
 msgstr "Soçons:"
@@ -6833,39 +6876,43 @@ msgid "Add Sub-Milestone..."
 msgstr "Radjouter etape..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:506 ui/kptganttview.cpp:1356 ui/kptganttview.cpp:1963
-#: ui/kptpertresult.cpp:151 ui/kptscheduleeditor.cpp:682
-#: ui/kpttaskeditor.cpp:690 ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/performance/PerformanceStatusView.cpp:329
+#: ui/kptganttview.cpp:364 ui/kptpertresult.cpp:151
+#: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
+#: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
+#: ui/MilestoneGanttView.cpp:452 ui/performance/PerformanceStatusView.cpp:329
+#: ui/ResourceAppointmentsGanttView.cpp:362
 #, kde-format
 msgid "Edit..."
 msgstr "Candjî..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:510
-#: ui/kptganttview.cpp:1360 ui/kptganttview.cpp:1967
+#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:368
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/performance/PerformanceStatusView.cpp:333
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:456
+#: ui/performance/PerformanceStatusView.cpp:333
+#: ui/ResourceAppointmentsGanttView.cpp:366
 #, fuzzy, kde-format
 #| msgid "Task Progress"
 msgid "Progress..."
 msgstr "Avançmint del bouye"
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:514
-#: ui/kptganttview.cpp:1364 ui/kptganttview.cpp:1971
+#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:372
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/performance/PerformanceStatusView.cpp:337
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:460
+#: ui/performance/PerformanceStatusView.cpp:337
+#: ui/ResourceAppointmentsGanttView.cpp:370
 #, fuzzy, kde-format
 #| msgid "Description"
 msgid "Description..."
 msgstr "Discrijhaedje"
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:518
-#: ui/kptganttview.cpp:1368 ui/kptganttview.cpp:1975
+#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:376
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/performance/PerformanceStatusView.cpp:341
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:464
+#: ui/performance/PerformanceStatusView.cpp:341
+#: ui/ResourceAppointmentsGanttView.cpp:374
 #, fuzzy, kde-format
 #| msgid "&Documents"
 msgid "Documents..."
@@ -7071,7 +7118,30 @@ msgstr "Drovi"
 msgid "Ctrl+O"
 msgstr ""
 
-#: ui/kptganttview.cpp:394
+#: ui/kptganttview.cpp:140 ui/MilestoneGanttView.cpp:95
+#: ui/ResourceAppointmentsGanttView.cpp:112
+#, kde-format
+msgctxt "@item:inlistbox"
+msgid "No freedays"
+msgstr ""
+
+#: ui/kptganttview.cpp:172 ui/kptganttview.cpp:191
+#: ui/MilestoneGanttView.cpp:127 ui/MilestoneGanttView.cpp:144
+#: ui/performance/PerformanceStatusView.cpp:635
+#: ui/performance/ProjectStatusView.cpp:155
+#: ui/ResourceAppointmentsGanttView.cpp:143
+#: ui/ResourceAppointmentsGanttView.cpp:160
+#, kde-format
+msgid "Chart"
+msgstr "Grafike"
+
+#: ui/kptganttview.cpp:172 ui/MilestoneGanttView.cpp:127
+#: ui/ResourceAppointmentsGanttView.cpp:143
+#, kde-format
+msgid "Gantt Chart Settings"
+msgstr "Apontiaedjes do grafike Gantt"
+
+#: ui/kptganttview.cpp:252
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7083,85 +7153,68 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptganttview.cpp:445 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:303 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, fuzzy, kde-format
 #| msgid "Project"
 msgid "Show Project"
 msgstr "Pordjet"
 
-#: ui/kptganttview.cpp:453
+#: ui/kptganttview.cpp:311
 #, fuzzy, kde-format
 #| msgid "Not scheduled"
 msgid "Show Unscheduled Tasks"
 msgstr "Nén programé"
 
-#: ui/kptganttview.cpp:465 ui/kptganttview.cpp:1315 ui/kptganttview.cpp:1922
+#: ui/kptganttview.cpp:323 ui/MilestoneGanttView.cpp:411
+#: ui/ResourceAppointmentsGanttView.cpp:321
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr ""
 
-#: ui/kptganttview.cpp:472 ui/kptganttview.cpp:1322 ui/kptganttview.cpp:1929
+#: ui/kptganttview.cpp:330 ui/MilestoneGanttView.cpp:418
+#: ui/ResourceAppointmentsGanttView.cpp:328
 #, fuzzy, kde-format
 #| msgid "Month"
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "Moes"
 
-#: ui/kptganttview.cpp:478 ui/kptganttview.cpp:1328 ui/kptganttview.cpp:1935
+#: ui/kptganttview.cpp:336 ui/MilestoneGanttView.cpp:424
+#: ui/ResourceAppointmentsGanttView.cpp:334
 #, fuzzy, kde-format
 #| msgid "Week"
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "Samwinne"
 
-#: ui/kptganttview.cpp:484 ui/kptganttview.cpp:1334 ui/kptganttview.cpp:1941
+#: ui/kptganttview.cpp:342 ui/MilestoneGanttView.cpp:430
+#: ui/ResourceAppointmentsGanttView.cpp:340
 #, fuzzy, kde-format
 #| msgid "Day"
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "Djoû"
 
-#: ui/kptganttview.cpp:490 ui/kptganttview.cpp:1340 ui/kptganttview.cpp:1947
+#: ui/kptganttview.cpp:348 ui/MilestoneGanttView.cpp:436
+#: ui/ResourceAppointmentsGanttView.cpp:346
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr ""
 
-#: ui/kptganttview.cpp:496 ui/kptganttview.cpp:1346 ui/kptganttview.cpp:1953
+#: ui/kptganttview.cpp:354 ui/MilestoneGanttView.cpp:442
+#: ui/ResourceAppointmentsGanttView.cpp:352
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr ""
 
-#: ui/kptganttview.cpp:501 ui/kptganttview.cpp:1351 ui/kptganttview.cpp:1958
+#: ui/kptganttview.cpp:359 ui/MilestoneGanttView.cpp:447
+#: ui/ResourceAppointmentsGanttView.cpp:357
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom Out"
-msgstr ""
-
-#: ui/kptganttview.cpp:1122
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<title>Milestone Gantt View</title><para>Displays scheduled milestones in a "
-"Gantt diagram. The chart area can be zoomed in and out with a slider "
-"positioned in the upper left corner of the time scale. <note>You need to "
-"hoover over it with the mouse for it to show.</note></para><para>This view "
-"supports configuration and printing using the context menu.<nl/><link "
-"url='%1'>More...</link></para>"
-msgstr ""
-
-#: ui/kptganttview.cpp:1836
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"<title>Resource Assignments (Gantt)</title><para>Displays the scheduled "
-"resource - task assignments in a Gantt diagram. The chart area can be zoomed "
-"in and out with a slider positioned in the upper left corner of the time "
-"scale. <note>You need to hoover over it with the mouse for it to show.</"
-"note></para><para>This view supports configuration and printing using the "
-"context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 
 #: ui/kptintervaledit.cpp:48
@@ -9075,6 +9128,18 @@ msgstr "Apontiaedjes do pordjet"
 msgid "Fractional digits:"
 msgstr ""
 
+#: ui/MilestoneGanttView.cpp:218
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Milestone Gantt View</title><para>Displays scheduled milestones in a "
+"Gantt diagram. The chart area can be zoomed in and out with a slider "
+"positioned in the upper left corner of the time scale. <note>You need to "
+"hoover over it with the mouse for it to show.</note></para><para>This view "
+"supports configuration and printing using the context menu.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+
 #: ui/performance/PerformanceStatusBase.cpp:525
 #: ui/performance/PerformanceStatusBase.cpp:528
 #, fuzzy, kde-format
@@ -9908,6 +9973,18 @@ msgstr "Rissource"
 #, fuzzy, kde-format
 msgid "Allocate"
 msgstr "Radjouter loyaedje"
+
+#: ui/ResourceAppointmentsGanttView.cpp:233
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Resource Assignments (Gantt)</title><para>Displays the scheduled "
+"resource - task assignments in a Gantt diagram. The chart area can be zoomed "
+"in and out with a slider positioned in the upper left corner of the time "
+"scale. <note>You need to hoover over it with the mouse for it to show.</"
+"note></para><para>This view supports configuration and printing using the "
+"context menu.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
 
 #: ui/ResourceCoverageView.cpp:134 ui/ResourceCoverageView.cpp:249
 #, kde-kuit-format

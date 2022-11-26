@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
 "PO-Revision-Date: 2021-07-24 22:35+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -63,7 +63,7 @@ msgid "&Settings"
 msgstr "&Asetukset"
 
 #. i18n: ectx: Menu (help)
-#: calligraplan.rc:62 calligraplan_shell.rc:23
+#: calligraplan.rc:62 calligraplan_shell.rc:24
 #, kde-format
 msgid "&Help"
 msgstr "&Ohje"
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Project Defaults"
 msgstr "Projektin oletusarvot"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:635
+#: config/ConfigDialog.cpp:37 kptview.cpp:637
 #, kde-format
 msgid "Work & Vacation"
 msgstr "Työ- ja vapaapäivät"
@@ -1561,80 +1561,80 @@ msgstr "Planin asetukset…"
 msgid "Schedule Selector"
 msgstr "Aikataulun valinta"
 
-#: kptview.cpp:183
+#: kptview.cpp:185
 #, kde-format
 msgid "Create Project Template..."
 msgstr "Luo projektimalli…"
 
-#: kptview.cpp:187
+#: kptview.cpp:189
 #, kde-format
 msgid "Create New Project..."
 msgstr "Luo uusi projekti…"
 
-#: kptview.cpp:199
+#: kptview.cpp:201
 #, kde-format
 msgid "Show Selector"
 msgstr "Näytä valitsin"
 
-#: kptview.cpp:206 kptview.cpp:247
+#: kptview.cpp:208 kptview.cpp:249
 #, kde-format
 msgid "Edit..."
 msgstr "Muokkaa…"
 
-#: kptview.cpp:210
+#: kptview.cpp:212
 #, kde-format
 msgid "Define Estimate Conversions..."
 msgstr "Määritä arviomuunnokset…"
 
-#: kptview.cpp:214
+#: kptview.cpp:216
 #, kde-format
 msgid "Define WBS Pattern..."
 msgstr "Määrittele WBS-malli…"
 
-#: kptview.cpp:218
+#: kptview.cpp:220
 #, kde-format
 msgid "Define Currency..."
 msgstr "Määritä valuutta…"
 
-#: kptview.cpp:222
+#: kptview.cpp:224
 #, kde-format
 msgid "Edit Description..."
 msgstr "Muokkaa kuvausta…"
 
-#: kptview.cpp:227
+#: kptview.cpp:229
 #, kde-format
 msgid "Insert Project File..."
 msgstr "Lisää projektitiedosto…"
 
-#: kptview.cpp:231
+#: kptview.cpp:233
 #, fuzzy, kde-format
 #| msgid "Create Shared Resources"
 msgid "Update Shared Resources"
 msgstr "Luo jaettuja resursseja"
 
-#: kptview.cpp:236
+#: kptview.cpp:238
 #, kde-format
 msgid "Open Report Definition File..."
 msgstr "Avaa raportin määritystiedosto…"
 
-#: kptview.cpp:241
+#: kptview.cpp:243
 #, fuzzy, kde-format
 #| msgid "Create Project Template..."
 msgid "Create Report Template..."
 msgstr "Luo projektimalli…"
 
-#: kptview.cpp:257
+#: kptview.cpp:259
 #, kde-format
 msgid "Work Packages..."
 msgstr "Työpaketit…"
 
-#: kptview.cpp:258
+#: kptview.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
 msgstr "Saatavilla olevat työpaketit"
 
-#: kptview.cpp:349
+#: kptview.cpp:351
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1648,380 +1648,380 @@ msgstr ""
 ">Resurssien ja kalenterien henkilöyksiä ei muuteta.<nl/>Kaikki "
 "aikataulutustieto poistetaan.<nl/><nl/>Haluatko jatkaa?"
 
-#: kptview.cpp:489
+#: kptview.cpp:491
 #, kde-format
 msgid "Edit task scheduling constraints"
 msgstr "Muokkaa tehtävän aikataulurajoituksia"
 
-#: kptview.cpp:489
+#: kptview.cpp:491
 #, kde-format
 msgid "Task Constraints"
 msgstr "Tehtävän rajoitukset"
 
-#: kptview.cpp:499
+#: kptview.cpp:501
 #, kde-format
 msgid "Edit task cost"
 msgstr "Muokkaa tehtävän kustannuksia"
 
-#: kptview.cpp:499
+#: kptview.cpp:501
 #, kde-format
 msgid "Task Cost"
 msgstr "Tehtävän kustannukset"
 
-#: kptview.cpp:548
+#: kptview.cpp:550
 #, kde-format
 msgid "Generate reports"
 msgstr "Luo raportteja"
 
-#: kptview.cpp:554 kptview.cpp:2448
+#: kptview.cpp:556 kptview.cpp:2450
 #, kde-format
 msgid "Task Status Report"
 msgstr "Tehtävän tilaraportti"
 
-#: kptview.cpp:636
+#: kptview.cpp:638
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "Muokkaa resurssien työ- ja vapaapäiviä"
 
-#: kptview.cpp:638
+#: kptview.cpp:640
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "Kustannusrakenne"
 
-#: kptview.cpp:639
+#: kptview.cpp:641
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "Muokkaa kustannusrakennetta."
 
-#: kptview.cpp:641
+#: kptview.cpp:643
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Edit resource breakdown structure"
 msgid "Resource Breakdown Structure"
 msgstr "Muokkaa resurssierittelyn rakennetta"
 
-#: kptview.cpp:642
+#: kptview.cpp:644
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "Muokkaa resurssierittelyn rakennetta"
 
-#: kptview.cpp:644 SharedResourcesDialog.cpp:58
+#: kptview.cpp:646 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "Resurssit"
 
-#: kptview.cpp:645
+#: kptview.cpp:647
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "Muokkaa resursseja"
 
-#: kptview.cpp:647
+#: kptview.cpp:649
 #, kde-format
 msgid "Tasks"
 msgstr "Tehtävät"
 
-#: kptview.cpp:648
+#: kptview.cpp:650
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "Muokkaa työn rakennetta"
 
-#: kptview.cpp:650
+#: kptview.cpp:652
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "Riippuvuudet (graafinen)"
 
-#: kptview.cpp:651 kptview.cpp:654
+#: kptview.cpp:653 kptview.cpp:656
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "Muokkaa tehtävien riippuvuuksia"
 
-#: kptview.cpp:653
+#: kptview.cpp:655
 #, kde-format
 msgid "Dependencies (List)"
 msgstr "Riippuvuudet (luettelo)"
 
-#: kptview.cpp:657 kptview.cpp:659
+#: kptview.cpp:659 kptview.cpp:661
 #, kde-format
 msgid "Schedules"
 msgstr "Aikataulu"
 
-#: kptview.cpp:660
+#: kptview.cpp:662
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "Laske ja analysoi projektin aikatauluja"
 
-#: kptview.cpp:662 kptviewlistdialog.cpp:110
+#: kptview.cpp:664 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr "Projektin työtehokaavio"
 
-#: kptview.cpp:663
+#: kptview.cpp:665
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "Näytä projektin tilatiedot"
 
-#: kptview.cpp:665 kptviewlistdialog.cpp:101
+#: kptview.cpp:667 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "Tehtävän tila"
 
-#: kptview.cpp:666
+#: kptview.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "Näytä tehtävän edistymistiedot"
 
-#: kptview.cpp:668
+#: kptview.cpp:670
 #, kde-format
 msgid "Task Execution"
 msgstr "Tehtävän suoritus"
 
-#: kptview.cpp:669
+#: kptview.cpp:671
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "Näytä tehtävän suoritustiedot"
 
-#: kptview.cpp:671 kptviewlistdialog.cpp:103
+#: kptview.cpp:673 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr "Työpakettinäkymä"
 
-#: kptview.cpp:672
+#: kptview.cpp:674
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "Näytä tehtävätyöpakkaustiedot"
 
-#: kptview.cpp:674
+#: kptview.cpp:676
 #, kde-format
 msgid "Gantt"
 msgstr "Gantt"
 
-#: kptview.cpp:675
+#: kptview.cpp:677
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "Näytä Gantt-kaavio"
 
-#: kptview.cpp:677
+#: kptview.cpp:679
 #, kde-format
 msgid "Milestone Gantt"
 msgstr "Välitavoitteiden Gantt"
 
-#: kptview.cpp:678
+#: kptview.cpp:680
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "Näytä välitavoitteiden Gantt-kaavio"
 
-#: kptview.cpp:680 kptviewlistdialog.cpp:106
+#: kptview.cpp:682 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "Kohdistetut resurssit"
 
-#: kptview.cpp:681
+#: kptview.cpp:683
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "Näytä resurssikohdistukset taulukkona"
 
-#: kptview.cpp:683 kptviewlistdialog.cpp:107
+#: kptview.cpp:685 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "Resurssikohdistukset (Gantt)"
 
-#: kptview.cpp:684
+#: kptview.cpp:686
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "Näytä resurssikohdistukset Gantt-kaaviona"
 
-#: kptview.cpp:686 kptviewlistdialog.cpp:108
+#: kptview.cpp:688 kptviewlistdialog.cpp:108
 #, fuzzy, kde-format
 #| msgid "Resource Editor"
 msgid "Resource Coverage"
 msgstr "Resurssimuokkain"
 
-#: kptview.cpp:687
+#: kptview.cpp:689
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr ""
 
-#: kptview.cpp:689 kptviewlistdialog.cpp:109
+#: kptview.cpp:691 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Kuluerittely"
 
-#: kptview.cpp:690
+#: kptview.cpp:692
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "Näytä suunnitellut ja todelliset kulut"
 
-#: kptview.cpp:692 kptviewlistdialog.cpp:111
+#: kptview.cpp:694 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr "Tehtävien suorituskykykaavio"
 
-#: kptview.cpp:693
+#: kptview.cpp:695
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "Näytä tehtävien suorituskyvyn tilatiedot"
 
-#: kptview.cpp:695
+#: kptview.cpp:697
 #, kde-format
 msgid "Reports Generator"
 msgstr ""
 
-#: kptview.cpp:696
+#: kptview.cpp:698
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "Luo raportteja"
 
-#: kptview.cpp:698 kptview.cpp:2445 kptviewlistdialog.cpp:114
+#: kptview.cpp:700 kptview.cpp:2447 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "Raportti"
 
-#: kptview.cpp:699
+#: kptview.cpp:701
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "Näytä raportti"
 
-#: kptview.cpp:710
+#: kptview.cpp:712
 #, kde-format
 msgid "Editors"
 msgstr "Muokkaimet"
 
-#: kptview.cpp:712
+#: kptview.cpp:714
 #, kde-format
 msgid "Views"
 msgstr "Näkymät"
 
-#: kptview.cpp:714
+#: kptview.cpp:716
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "Suoritus"
 
-#: kptview.cpp:716
+#: kptview.cpp:718
 #, kde-format
 msgid "Reports"
 msgstr "Raportit"
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, fuzzy, kde-format
 #| msgid "Overtime"
 msgid "Overwrite"
 msgstr "Ylityö"
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, fuzzy, kde-format
 #| msgid "Project Templates"
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "Projektimallit"
 
-#: kptview.cpp:1477
+#: kptview.cpp:1479
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
-#: kptview.cpp:2024
+#: kptview.cpp:2026
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "Tiedostoa ei voitu avata:<br/><filename>%1</filename>"
 
-#: kptview.cpp:2139
+#: kptview.cpp:2141
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr ""
 "Muuta nimeä\n"
 "nimen muutos"
 
-#: kptview.cpp:2141
+#: kptview.cpp:2143
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr ""
 "Muuta tehtävän nimeä\n"
 "tehtävän nimen muutos"
 
-#: kptview.cpp:2142
+#: kptview.cpp:2144
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr ""
 "Muuta välitavoitteen nimeä\n"
 "välitavoitteen nimen muutos"
 
-#: kptview.cpp:2143
+#: kptview.cpp:2145
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr ""
 "Muuta yhteenvetotehtävän nimeä\n"
 "yhteenvetotehtävän nimen muutos"
 
-#: kptview.cpp:2144
+#: kptview.cpp:2146
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr ""
 "Muuta projektin nimeä\n"
 "projektin nimen muutos"
 
-#: kptview.cpp:2236
+#: kptview.cpp:2238
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "Ei ajastettu"
 
-#: kptview.cpp:2290
+#: kptview.cpp:2292
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr "Projektin työpaketti: %1"
 
-#: kptview.cpp:2446
+#: kptview.cpp:2448
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "Päällikkö:"
 
-#: kptview.cpp:2447
+#: kptview.cpp:2449
 #, kde-format
 msgid "Project:"
 msgstr "Projekti:"
 
-#: kptview.cpp:2449
+#: kptview.cpp:2451
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "/"
 
-#: kptview.cpp:2450
+#: kptview.cpp:2452
 #, kde-format
 msgid "Page"
 msgstr "Sivu"
 
-#: kptview.cpp:2451
+#: kptview.cpp:2453
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "Nimi"
 
-#: kptview.cpp:2452
+#: kptview.cpp:2454
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"

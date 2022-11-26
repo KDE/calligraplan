@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-13 00:46+0000\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
 "PO-Revision-Date: 2022-04-02 17:02+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -384,7 +384,7 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Project Manager"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:927
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
 #, kde-format
 msgid "Configure View..."
 msgstr "Configure View..."
