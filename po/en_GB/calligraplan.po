@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-08-29 12:08+0100\n"
+"PO-Revision-Date: 2022-11-26 13:49+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -313,16 +313,15 @@ msgstr "Estimate time unit"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Estimate type:"
+msgstr "Estimate"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risk"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -527,10 +526,9 @@ msgstr "List of paths to task modules"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
-msgstr "List of paths to project templates"
+msgstr "List of paths to report templates"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
@@ -586,10 +584,9 @@ msgid "Project Templates"
 msgstr "Project Templates"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Project Templates"
+msgstr "Report Templates"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1122,25 +1119,25 @@ msgstr "Scheduling constraint:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risk:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "None"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Low"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "High"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1200,27 +1197,25 @@ msgstr "Publish:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogue"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Base template:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Rename"
+msgstr "File name:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Open assistant"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1604,10 +1599,9 @@ msgid "Open Report Definition File..."
 msgstr "Open Report Definition File..."
 
 #: kptview.cpp:243
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Create Project Template..."
+msgstr "Create Report Template..."
 
 #: kptview.cpp:259
 #, kde-format
@@ -1909,19 +1903,18 @@ msgstr "Reports"
 #: kptview.cpp:1479
 #, kde-format
 msgid "Overwrite"
-msgstr ""
+msgstr "Overwrite"
 
 #: kptview.cpp:1479
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Project Templates"
+msgstr "Report Template"
 
 #: kptview.cpp:1479
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "The file '%1' already exists, do you want to overwrite it?"
 
 #: kptview.cpp:2026
 #, kde-kuit-format

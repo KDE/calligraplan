@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-10-29 12:18+0200\n"
+"PO-Revision-Date: 2022-11-26 13:19+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -6076,7 +6076,7 @@ msgstr "Mostra els separadors de fila"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:168
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Dies lliures:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -6866,12 +6866,10 @@ msgstr "Ctrl+O"
 
 #: ui/kptganttview.cpp:140 ui/MilestoneGanttView.cpp:95
 #: ui/ResourceAppointmentsGanttView.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
-msgstr "Sense dies festius"
+msgstr "Sense dies lliures"
 
 #: ui/kptganttview.cpp:172 ui/kptganttview.cpp:191
 #: ui/MilestoneGanttView.cpp:127 ui/MilestoneGanttView.cpp:144
