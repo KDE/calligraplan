@@ -1166,7 +1166,7 @@ QDebug operator<<(QDebug dbg, const KPlato::Appointment *a)
     if (a) {
         dbg<<'['<<a->node()<<a->resource()<<a->startTime()<<'-'<<a->endTime();
         const auto lst = a->intervals().map();
-        for (const auto i : lst) { // clazy:exclude=range-loop-reference
+        for (const auto &i : lst) { // clazy:exclude=range-loop-reference
             dbg<<'\n'<<'\t'<<i;
         }
         dbg<<']';
