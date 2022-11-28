@@ -49,6 +49,7 @@ set(calligraplankernel_LIB_SRCS
     commands/AddAlternativeRequestCmd.cpp
     commands/InsertProjectCmd.cpp
     commands/ProjectModifyTimeZoneCmd.cpp
+    commands/SetFreedaysCalendarCmd.cpp
 
     kptschedulerplugin.cpp
 

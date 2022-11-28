@@ -530,6 +530,9 @@ public:
 
     ulong granularity() const override;
 
+    void setFreedaysCalendar(Calendar *calendar);
+    Calendar *freedaysCalendar() const;
+
 public Q_SLOTS:
     /// Sets m_progress to @p progress and emits signal sigProgress()
     /// If @p sm is not 0, progress is also set for the schedule manager
@@ -541,6 +544,7 @@ public Q_SLOTS:
     void swapScheduleManagers(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
 
 Q_SIGNALS:
+    void freedaysCalendarChanged(KPlato::Calendar *calendar);
     void scheduleManagersSwapped(KPlato::ScheduleManager *from, KPlato::ScheduleManager *to);
     /// Emitted when the project is about to be deleted (The destroyed signal is disabled)
     void aboutToBeDeleted();
@@ -736,6 +740,7 @@ private:
     bool m_useSharedResources;
     bool m_sharedResourcesLoaded;
     QString m_sharedResourcesFile;
+    Calendar *m_freedaysCalendar= nullptr;
 
 public:
     class WorkPackageInfo {

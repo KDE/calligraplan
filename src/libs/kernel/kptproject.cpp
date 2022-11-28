@@ -1834,6 +1834,11 @@ void Project::saveSettings(QDomElement &element, const XmlSaveContext &context) 
     if (m_standardWorktime) {
         m_standardWorktime->save(settingsElement);
     }
+    QDomElement freedays = settingsElement.ownerDocument().createElement(QStringLiteral("freedays"));
+    settingsElement.appendChild(freedays);
+    if (m_freedaysCalendar) {
+        freedays.setAttribute(QStringLiteral("calendar-id"), m_freedaysCalendar->id());
+    }
 }
 
 void Project::save(QDomElement &element, const XmlSaveContext &context) const
@@ -3809,6 +3814,19 @@ void Project::emitProjectCalculated(KPlato::Project *project, KPlato::ScheduleMa
 {
     Q_UNUSED(project)
     Q_EMIT projectCalculated(sm);
+}
+
+void Project::setFreedaysCalendar(Calendar *calendar)
+{
+    if (m_freedaysCalendar != calendar) {
+        m_freedaysCalendar = calendar;
+        Q_EMIT freedaysCalendarChanged(calendar);
+    }
+}
+
+Calendar *Project::freedaysCalendar() const
+{
+    return m_freedaysCalendar;
 }
 
 }  //KPlato namespace

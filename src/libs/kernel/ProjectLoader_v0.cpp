@@ -190,6 +190,16 @@ bool ProjectLoader_v0::load(Project *project, const KoXmlElement &projectElement
             errorPlanXml<<"All calendars not saved!";
         }
         //debugPlanXml<<"Calendars<---";
+        // now we can load freedays calendar
+        e = projectElement.namedItem(QStringLiteral("project-settings")).toElement();
+        e = e.namedItem(QStringLiteral("freedays")).toElement();
+        if (e.isNull()) {
+            // set a calendar if loading an old project
+            project->setFreedaysCalendar(project->calendars().value(0));
+        } else {
+            const auto id = e.attribute("calendar-id");
+            project->setFreedaysCalendar(project->findCalendar(id));
+        }
     }
     status.setProgress(15);
 
