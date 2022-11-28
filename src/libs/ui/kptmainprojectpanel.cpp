@@ -7,6 +7,8 @@
 // clazy:excludeall=qstring-arg
 #include "kptmainprojectpanel.h"
 #include <commands/SetTaskModulesCommand.h>
+#include <commands/SetFreedaysCalendarCmd.h>
+
 #include "kptdebug.h"
 
 #include <KLocalizedString>
@@ -119,6 +121,24 @@ MainProjectPanel::MainProjectPanel(Project &p, QWidget *parent)
 
     initTaskModules();
 
+    freedays->disconnect();
+    freedays->clear();
+    freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    auto current = project.freedaysCalendar();
+    int currentIndex = 0;
+    const auto calendars = project.calendars();
+    for (auto *c : calendars) {
+        freedays->addItem(c->name(), c->id());
+        if (c == current) {
+            currentIndex = freedays->count() - 1;
+        }
+    }
+    freedays->setCurrentIndex(currentIndex);
+    connect(freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+        auto box = qobject_cast<QComboBox*>(sender());
+        project.setFreedaysCalendar(project.findCalendar(box->currentData().toString()));
+    });
+
     // signals and slots connections
     connect(m_documents, &DocumentsPanel::changed, this, &MainProjectPanel::slotCheckAllFieldsFilled);
     connect(m_description, &TaskDescriptionPanelImpl::textChanged, this, &MainProjectPanel::slotCheckAllFieldsFilled);
@@ -201,6 +221,11 @@ MacroCommand *MainProjectPanel::buildCommand() {
     if (project.sharedResourcesFile() != resourcesFile->text()) {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new SharedResourcesFileCmd(&project, resourcesFile->text()));
+    }
+    auto calendar = project.findCalendar(freedays->currentData().toString());
+    if (project.freedaysCalendar() != calendar) {
+        if (!m) m = new MacroCommand(c);
+        m->addCommand(new SetFreedaysCalendarCmd(&project, calendar));
     }
     MacroCommand *cmd = m_description->buildCommand();
     if (cmd) {

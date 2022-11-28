@@ -49,7 +49,7 @@ void MilestoneGanttChartOptionsPanel::slotOk()
 {
     debugPlan;
     auto id = ui.freedays->currentData().toString();
-    m_gantt->setCalendar(m_gantt->project()->findCalendar(id));
+    m_gantt->setCalendar(ui.freedays->currentIndex(), m_gantt->project()->findCalendar(id));
 
     m_gantt->delegate()->showTaskName = ui.showTaskName->checkState() == Qt::Checked;
 
@@ -93,10 +93,12 @@ void MilestoneGanttChartOptionsPanel::setValues(const GanttItemDelegate &del)
     ui.freedays->disconnect();
     ui.freedays->clear();
     ui.freedays->addItem(i18nc("@item:inlistbox", "No freedays"));
+    ui.freedays->addItem(i18nc("@item:inlistbox", "Project freedays"));
+    int currentIndex = m_gantt->freedaysType();
     const auto project = m_gantt->project();
     if (project) {
         auto current = m_gantt->calendar();
-        int currentIndex = 0;
+
         const auto calendars = project->calendars();
         for (auto *c : calendars) {
             ui.freedays->addItem(c->name(), c->id());
@@ -105,9 +107,9 @@ void MilestoneGanttChartOptionsPanel::setValues(const GanttItemDelegate &del)
             }
         }
         ui.freedays->setCurrentIndex(currentIndex);
-        connect(ui.freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int) {
+        connect(ui.freedays, qOverload<int>(&QComboBox::currentIndexChanged), this, [this](int idx) {
             auto box = qobject_cast<QComboBox*>(sender());
-            m_gantt->setCalendar(m_gantt->project()->findCalendar(box->currentData().toString()));
+            m_gantt->setCalendar(idx, m_gantt->project()->findCalendar(box->currentData().toString()));
         });
     }
 }

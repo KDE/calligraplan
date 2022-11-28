@@ -34,9 +34,6 @@ public:
 
     void paintGrid( QPainter* painter, const QRectF& sceneRect, const QRectF& exposedRect, KGantt::AbstractRowController* rowController = nullptr, QWidget* widget = nullptr ) override;
 
-    bool loadContext(const KoXmlElement &settings, Project *project);
-    void saveContext(QDomElement &settings) const;
-
 protected:
     void drawDayBackground(QPainter* painter, const QRectF& rect, const QDate& date) override;
 

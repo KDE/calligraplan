@@ -140,7 +140,8 @@ public:
     virtual void setProject(Project *project);
     virtual Project *project() const { return m_project; }
     Calendar *calendar() const;
-    void setCalendar(Calendar *calendar);
+    void setCalendar(int type, Calendar *calendar);
+    int freedaysType() const;
 
     DateTimeGrid *dateTimeGrid() const;
 
@@ -175,6 +176,8 @@ protected:
 
 protected:
     Project *m_project = nullptr;
+    int m_freedaysType = 0;
+    Calendar *m_freedaysCalendar = nullptr;
 
 private:
     QPoint m_dragStartPosition;

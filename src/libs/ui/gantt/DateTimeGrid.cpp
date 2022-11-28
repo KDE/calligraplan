@@ -226,26 +226,3 @@ qreal DateTimeGrid::dateTimeToChartX(const QDateTime& dt) const
     
     return result;
 }
-
-bool DateTimeGrid::loadContext(const KoXmlElement &settings, Project *project)
-{
-    if (!project) {
-        return false;
-    }
-    auto e = settings.namedItem("freedays").toElement();
-    if (e.isNull()) {
-        m_calendar = project->calendars().value(0);
-        return false;
-    }
-    const auto id = e.attribute("calendar-id");
-    m_calendar = project->findCalendar(id);
-
-    return true;
-}
-
-void DateTimeGrid::saveContext(QDomElement &settings) const
-{
-    auto e = settings.ownerDocument().createElement(QStringLiteral("freedays"));
-    settings.appendChild(e);
-    e.setAttribute(QStringLiteral("calendar-id"), m_calendar ? m_calendar->id() : QLatin1String());
-}

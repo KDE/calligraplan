@@ -466,14 +466,36 @@ GanttViewBase::~GanttViewBase()
 
 void GanttViewBase::setProject(Project *project)
 {
+    if (m_project) {
+        disconnect(m_project, &KPlato::Project::freedaysCalendarChanged, this, nullptr);
+    }
     m_project = project;
+    if (m_project) {
+        connect(m_project, &KPlato::Project::freedaysCalendarChanged, this, [this](Calendar *calendar) {
+            if (m_freedaysType == 1) {
+                setCalendar(1, calendar);
+            }
+        });
+    }
 }
 
-void GanttViewBase::setCalendar(Calendar *calendar)
+void GanttViewBase::setCalendar(int type, Calendar *calendar)
 {
+    m_freedaysType = std::min(type, 2);
+    switch (m_freedaysType) {
+        case 0: // no freedays
+            m_freedaysCalendar = nullptr;
+            break;
+        case 1: // project freedays
+            m_freedaysCalendar = m_project->freedaysCalendar();
+            break;
+        default:
+            m_freedaysCalendar = calendar;
+            break;
+    }
     auto g = qobject_cast<DateTimeGrid*>(grid());
     if (g) {
-        g->setCalendar(calendar);
+        g->setCalendar(m_freedaysCalendar);
     }
 }
 
@@ -485,6 +507,11 @@ Calendar *GanttViewBase::calendar() const
         c = g->calendar();
     }
     return c;
+}
+
+int GanttViewBase::freedaysType() const
+{
+    return m_freedaysType;
 }
 
 DateTimeGrid *GanttViewBase::dateTimeGrid() const
@@ -519,10 +546,15 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     g->setScale(static_cast<KGantt::DateTimeGrid::Scale>(settings.attribute(QStringLiteral("chart-scale"), QString::number(0)).toInt()));
     g->setDayWidth(settings.attribute(QStringLiteral("chart-daywidth"), QString::number(30)).toDouble());
-    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(g);
-    if (grid) {
-        grid->loadContext(settings, m_project);
+
+    const auto freedays = settings.namedItem(QStringLiteral("freedays")).toElement();
+    if (freedays.isNull()) {
+        // if loading an old project, set to project freedays
+        setCalendar(1, nullptr);
+    } else {
+        setCalendar(freedays.attribute(QStringLiteral("type")).toInt(), m_project->findCalendar(freedays.attribute(QStringLiteral("calendar-id"))));
     }
+
     DateTimeTimeLine::Options opt;
     opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute(QStringLiteral("timeline-foreground")).toInt());
     opt.setFlag(DateTimeTimeLine::Background, settings.attribute(QStringLiteral("timeline-background")).toInt());
@@ -546,10 +578,12 @@ void GanttViewBase::saveContext(QDomElement &settings) const
     KGantt::DateTimeGrid *g = static_cast<KGantt::DateTimeGrid*>(grid());
     settings.setAttribute(QStringLiteral("chart-scale"), QString::number(g->scale()));
     settings.setAttribute(QStringLiteral("chart-daywidth"), QString::number(g->dayWidth()));
-    DateTimeGrid *grid = qobject_cast<DateTimeGrid*>(g);
-    if (grid) {
-        grid->saveContext(settings);
-    }
+
+    auto freedays = settings.ownerDocument().createElement(QStringLiteral("freedays"));
+    settings.appendChild(freedays);
+    freedays.setAttribute(QStringLiteral("type"), m_freedaysType);
+    freedays.setAttribute(QStringLiteral("calendar-id"), m_freedaysCalendar ? m_freedaysCalendar->id() : QLatin1String());
+
     settings.setAttribute(QStringLiteral("timeline-foreground"), timeLine()->options() & DateTimeTimeLine::Foreground);
     settings.setAttribute(QStringLiteral("timeline-background"), timeLine()->options() & DateTimeTimeLine::Background);
     settings.setAttribute(QStringLiteral("timeline-interval"), timeLine()->interval() / 60000);

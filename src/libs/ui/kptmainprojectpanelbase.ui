@@ -250,6 +250,50 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Freedays</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Freedays:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="freedays">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <item>
+             <property name="text">
+              <string>None</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -492,7 +536,7 @@
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>KLineEdit</header>
+   <header>klineedit.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
