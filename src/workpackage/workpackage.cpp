@@ -21,6 +21,7 @@
 #include "kptconfigbase.h"
 #include "kptcommonstrings.h"
 
+#include <ProjectLoaderBase.h>
 #include <MimeTypes.h>
 
 #include <KoStore.h>
@@ -800,9 +801,11 @@ void CopySchedulesCmd::load(const QString &doc)
     KPlato::XMLLoaderObject status;
     status.setProject(&m_project);
     status.setVersion(PLAN_FILE_SYNTAX_VERSION);
+    status.setMimetype(PLAN_MIME_TYPE);
+    const auto loader = status.loader();
     // task first
     KPlato::NodeSchedule *ns = new KPlato::NodeSchedule();
-    if (ns->loadXML(ts, status)) {
+    if (loader->loadNodeSchedule(ns, ts, status)) {
         debugPlanWork<<ns->name()<<ns->type()<<ns->id();
         ns->setNode(m_project.childNode(0));
         m_project.childNode(0)->addSchedule(ns);
@@ -813,7 +816,7 @@ void CopySchedulesCmd::load(const QString &doc)
     if (!ps.isNull()) {
         // schedule manager next (includes main schedule and resource schedule)
         KPlato::ScheduleManager *sm = new KPlato::ScheduleManager(m_project);
-        if (sm->loadXML(ps, status)) {
+        if (loader->load(sm, ps, status)) {
             m_project.addScheduleManager(sm);
         } else {
             Q_ASSERT(false);
