@@ -103,7 +103,7 @@ public:
 
     bool isCritical() const { return positiveFloat == Duration::zeroDuration; }
 
-    virtual bool loadXML(const KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     virtual void saveXML(QDomElement &element) const;
     void saveCommonXML(QDomElement &element) const;
     void saveAppointments(QDomElement &element) const;
@@ -376,7 +376,7 @@ public:
     { return m_parent == nullptr ? true : m_parent->isDeleted(); }
     void setDeleted(bool on) override;
 
-    bool loadXML(const KoXmlElement &element, XMLLoaderObject &status) override;
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void saveXML(QDomElement &element) const override;
 
     // tasks------------>
@@ -460,7 +460,7 @@ public:
     bool checkExternalAppointments() const override;
     bool usePert() const override;
 
-    bool loadXML(const KoXmlElement &element, XMLLoaderObject &status) override;
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void saveXML(QDomElement &element) const override;
 
     void setManager(ScheduleManager *sm) { m_manager = sm; }
@@ -636,7 +636,7 @@ public:
     void setScheduling(bool on);
     bool scheduling() const { return m_scheduling; }
 
-    bool loadXML(KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void saveXML(QDomElement &element) const;
     
     /// Save a workpackage document
@@ -672,10 +672,10 @@ public:
     void logAdded(const Schedule::Log &log);
 
     /// Create and load a MainSchedule
-    MainSchedule *loadMainSchedule(KoXmlElement &element, XMLLoaderObject &status);
+    //MainSchedule *loadMainSchedule(KoXmlElement &element, XMLLoaderObject &status);
 
     /// Load an existing MainSchedule
-    bool loadMainSchedule(MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status);
+    //bool loadMainSchedule(MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status);
 
     QMap< int, QString > phaseNames() const;
 

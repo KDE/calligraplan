@@ -111,7 +111,7 @@ public:
     DateTime getBestAvailableTime(const Duration &duration);
     DateTime getBestAvailableTime(const DateTime &after, const Duration &duration);
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element) const;
 
     /// Return the list of appointments for schedule @p id.

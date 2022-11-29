@@ -17,6 +17,7 @@
 #include "kpttask.h"
 #include "kptxmlloaderobject.h"
 #include "kptschedulerplugin.h"
+#include "ProjectLoaderBase.h"
 #include "kptdebug.h"
 
 #include <KoXmlReader.h>
@@ -314,15 +315,6 @@ QStringList Schedule::resourceNameList() const
 QList<Resource*> Schedule::resources() const
 {
     return QList<Resource*>();
-}
-
-bool Schedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &)
-{
-    m_name = sch.attribute(QStringLiteral("name"));
-    setType(sch.attribute(QStringLiteral("type")));
-    m_id = sch.attribute(QStringLiteral("id")).toLong();
-
-    return true;
 }
 
 void Schedule::saveXML(QDomElement &element) const
@@ -795,62 +787,6 @@ void NodeSchedule::setDeleted(bool on)
             a->resource() ->setDeleted(on);
         }
     }
-}
-
-bool NodeSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
-{
-    //debugPlan;
-    QString s;
-    Schedule::loadXML(sch, status);
-    s = sch.attribute(QStringLiteral("earlystart"));
-    if (s.isEmpty()) { // try version < 0.6
-        s = sch.attribute(QStringLiteral("earlieststart"));
-    }
-    if (!s.isEmpty()) {
-        earlyStart = DateTime::fromString(s, status.projectTimeZone());
-    }
-    s = sch.attribute(QStringLiteral("latefinish"));
-    if (s.isEmpty()) { // try version < 0.6
-        s = sch.attribute(QStringLiteral("latestfinish"));
-    }
-    if (!s.isEmpty()) {
-        lateFinish = DateTime::fromString(s, status.projectTimeZone());
-    }
-    s = sch.attribute(QStringLiteral("latestart"));
-    if (!s.isEmpty()) {
-        lateStart = DateTime::fromString(s, status.projectTimeZone());
-    }
-    s = sch.attribute(QStringLiteral("earlyfinish"));
-    if (!s.isEmpty()) {
-        earlyFinish = DateTime::fromString(s, status.projectTimeZone());
-    }
-    s = sch.attribute(QStringLiteral("start"));
-    if (!s.isEmpty())
-        startTime = DateTime::fromString(s, status.projectTimeZone());
-    s = sch.attribute(QStringLiteral("end"));
-    if (!s.isEmpty())
-        endTime = DateTime::fromString(s, status.projectTimeZone());
-    s = sch.attribute(QStringLiteral("start-work"));
-    if (!s.isEmpty())
-        workStartTime = DateTime::fromString(s, status.projectTimeZone());
-    s = sch.attribute(QStringLiteral("end-work"));
-    if (!s.isEmpty())
-        workEndTime = DateTime::fromString(s, status.projectTimeZone());
-    duration = Duration::fromString(sch.attribute(QStringLiteral("duration")));
-
-    inCriticalPath = sch.attribute(QStringLiteral("in-critical-path")).toInt();
-    resourceError = sch.attribute(QStringLiteral("resource-error")).toInt();
-    resourceOverbooked = sch.attribute(QStringLiteral("resource-overbooked")).toInt();
-    resourceNotAvailable = sch.attribute(QStringLiteral("resource-not-available")).toInt();
-    constraintError = sch.attribute(QStringLiteral("scheduling-conflict")).toInt();
-    schedulingError = sch.attribute(QStringLiteral("scheduling-error")).toInt();
-    notScheduled = sch.attribute(QStringLiteral("not-scheduled"), QStringLiteral("1")).toInt();
-
-    positiveFloat = Duration::fromString(sch.attribute(QStringLiteral("positive-float")));
-    negativeFloat = Duration::fromString(sch.attribute(QStringLiteral("negative-float")));
-    freeFloat = Duration::fromString(sch.attribute(QStringLiteral("free-float")));
-
-    return true;
 }
 
 void NodeSchedule::saveXML(QDomElement &element) const
@@ -1367,75 +1303,6 @@ void MainSchedule::insertSummaryTask(Node *node)
 QList<Node*> MainSchedule::summaryTasks() const
 {
     return m_summarytasks;
-}
-
-bool MainSchedule::loadXML(const KoXmlElement &sch, XMLLoaderObject &status)
-{
-    //debugPlan;
-    QString s;
-    Schedule::loadXML(sch, status);
-
-    s = sch.attribute(QStringLiteral("start"));
-    if (!s.isEmpty())
-        startTime = DateTime::fromString(s, status.projectTimeZone());
-    s = sch.attribute(QStringLiteral("end"));
-    if (!s.isEmpty())
-        endTime = DateTime::fromString(s, status.projectTimeZone());
-
-    duration = Duration::fromString(sch.attribute(QStringLiteral("duration")));
-    constraintError = sch.attribute(QStringLiteral("scheduling-conflict")).toInt();
-    schedulingError = sch.attribute(QStringLiteral("scheduling-error")).toInt();
-    //NOTE: we use "scheduled" as default to match old format without "not-scheduled" element
-    notScheduled = sch.attribute(QStringLiteral("not-scheduled")).toInt();
-
-    KoXmlNode n = sch.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement el = n.toElement();
-        if (el.tagName() == QStringLiteral("appointment")) {
-            // Load the appointments.
-            // Resources and tasks must already be loaded
-            Appointment * child = new Appointment();
-            if (!child->loadXML(el, status, *this)) {
-                // TODO: Complain about this
-                errorPlan << "Failed to load appointment" << '\n';
-                delete child;
-            }
-        } else if (el.tagName() == QStringLiteral("criticalpath-list")) {
-            // Tasks must already be loaded
-            for (KoXmlNode n1 = el.firstChild(); ! n1.isNull(); n1 = n1.nextSibling()) {
-                if (! n1.isElement()) {
-                    continue;
-                }
-                KoXmlElement e1 = n1.toElement();
-                if (e1.tagName() != QStringLiteral("criticalpath")) {
-                    continue;
-                }
-                QList<Node*> lst;
-                for (KoXmlNode n2 = e1.firstChild(); ! n2.isNull(); n2 = n2.nextSibling()) {
-                    if (! n2.isElement()) {
-                        continue;
-                    }
-                    KoXmlElement e2 = n2.toElement();
-                    if (e2.tagName() != QStringLiteral("node")) {
-                        continue;
-                    }
-                    QString s = e2.attribute(QStringLiteral("id"));
-                    Node *node = status.project().findNode(s);
-                    if (node) {
-                        lst.append(node);
-                    } else {
-                        errorPlan<<"Failed to find node id="<<s;
-                    }
-                }
-                m_pathlists.append(lst);
-            }
-            criticalPathListCached = true;
-        }
-    }
-    return true;
 }
 
 void MainSchedule::saveXML(QDomElement &element) const
@@ -2025,98 +1892,6 @@ void ScheduleManager::setPhaseNames(const QMap<int, QString> &phasenames)
     }
 }
 
-
-bool ScheduleManager::loadXML(KoXmlElement &element, XMLLoaderObject &status)
-{
-    MainSchedule *sch = nullptr;
-    if (status.version() <= QStringLiteral("0.5")) {
-        m_usePert = false;
-        sch = loadMainSchedule(element, status);
-        if (sch) {
-            sch->setManager(this);
-            switch (sch->type()) {
-                case Schedule::Expected: setExpected(sch); break;
-            }
-        }
-        return true;
-    }
-    setName(element.attribute(QStringLiteral("name")));
-    m_id = element.attribute(QStringLiteral("id"));
-    m_usePert = (element.attribute(QStringLiteral("distribution")).toInt()) == 1;
-    m_allowOverbooking = (bool)(element.attribute(QStringLiteral("overbooking")).toInt());
-    m_checkExternalAppointments = (bool)(element.attribute(QStringLiteral("check-external-appointments")).toInt());
-    m_schedulingDirection = (bool)(element.attribute(QStringLiteral("scheduling-direction")).toInt());
-    m_baselined = (bool)(element.attribute(QStringLiteral("baselined")).toInt());
-    m_schedulerPluginId = element.attribute(QStringLiteral("scheduler-plugin-id"));
-    if (status.project().schedulerPlugins().contains(m_schedulerPluginId)) {
-        // atm we only load for current plugin
-        int g = element.attribute(QStringLiteral("granularity")).toInt();
-        status.project().schedulerPlugins().value(m_schedulerPluginId)->setGranularityIndex(g);
-    }
-    m_recalculate = (bool)(element.attribute(QStringLiteral("recalculate")).toInt());
-    m_recalculateFrom = DateTime::fromString(element.attribute(QStringLiteral("recalculate-from")), status.projectTimeZone());
-    if (element.hasAttribute(QStringLiteral("scheduling-mode"))) {
-        m_schedulingMode = element.attribute(QStringLiteral("scheduling-mode")).toInt();
-    }
-
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        //debugPlan<<e.tagName();
-        if (e.tagName() == QStringLiteral("project-schedule") || e.tagName() == QStringLiteral("schedule")) {
-            sch = loadMainSchedule(e, status);
-            if (sch) {
-                sch->setManager(this);
-                switch (sch->type()) {
-                    case Schedule::Expected: setExpected(sch); break;
-                }
-            }
-        } else if (e.tagName() == QStringLiteral("schedule-management") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("plan"))) {
-            ScheduleManager *sm = new ScheduleManager(status.project());
-            if (sm->loadXML(e, status)) {
-                m_project.addScheduleManager(sm, this);
-            } else {
-                errorPlan<<"Failed to load schedule manager"<<'\n';
-                delete sm;
-            }
-        }
-    }
-    return true;
-}
-
-MainSchedule *ScheduleManager::loadMainSchedule(KoXmlElement &element, XMLLoaderObject &status) {
-    MainSchedule *sch = new MainSchedule();
-    if (sch->loadXML(element, status)) {
-        status.project().addSchedule(sch);
-        sch->setNode(&(status.project()));
-        status.project().setParentSchedule(sch);
-    } else {
-        errorPlan << "Failed to load schedule" << '\n';
-        delete sch;
-        sch = nullptr;
-    }
-    return sch;
-}
-
-bool ScheduleManager::loadMainSchedule(MainSchedule *schedule, KoXmlElement &element, XMLLoaderObject &status) {
-    long sid = schedule->id();
-    if (schedule->loadXML(element, status)) {
-        if (sid != schedule->id() && status.project().findSchedule(sid)) {
-            status.project().takeSchedule(schedule);
-        }
-        if (! status.project().findSchedule(schedule->id())) {
-            status.project().addSchedule(schedule);
-        }
-        schedule->setNode(&(status.project()));
-        status.project().setParentSchedule(schedule);
-        return true;
-    }
-    return false;
-}
-
 void ScheduleManager::saveXML(QDomElement &element) const
 {
     QDomElement el = element.ownerDocument().createElement(QStringLiteral("schedule-management"));
@@ -2179,7 +1954,7 @@ QDebug operator<<(QDebug dbg, const KPlato::Schedule *s)
 }
 QDebug operator<<(QDebug dbg, const KPlato::Schedule &s)
 {
-    dbg.nospace()<<"Schedule["<<s.id();
+    dbg.nospace()<<"Schedule["<<(void*)&s<<' '<<s.id();
     if (s.isDeleted()) {
         dbg.nospace()<<": Deleted";
     } else {

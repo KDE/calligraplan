@@ -84,6 +84,8 @@ public:
     bool load(AppointmentIntervalList &lst, const KoXmlElement& element, XMLLoaderObject &status) override;
     bool load(AppointmentInterval &interval, const KoXmlElement& element, XMLLoaderObject &status) override;
 
+    bool loadResourceGroup(ResourceGroup *group, const KoXmlElement &element, XMLLoaderObject &status);
+
     void printProjectStatistics(const XMLLoaderObject& status);
 };
 

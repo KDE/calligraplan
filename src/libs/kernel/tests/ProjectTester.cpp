@@ -221,6 +221,7 @@ void ProjectTester::schedule()
 
     Debug::print(m_project, s, true);
 //     Debug::printSchedulingLog(*sm, s);
+    QVERIFY(sm->isScheduled());
 
     QCOMPARE(t->earlyStart(), t->requests().workTimeAfter(m_project->startTime()));
     QVERIFY(t->lateStart() >=  t->earlyStart());

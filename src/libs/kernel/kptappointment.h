@@ -211,7 +211,7 @@ public:
     /// Return intervals between @p start and @p end
     AppointmentIntervalList intervals(const DateTime &start, const DateTime &end) const;
 
-    bool loadXML(KoXmlElement &element, XMLLoaderObject &status, Schedule &sch);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void saveXML(QDomElement &element) const;
 
     /**

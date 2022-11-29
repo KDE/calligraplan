@@ -1002,19 +1002,42 @@ bool ProjectLoader_v0::load(Relation *relation, const KoXmlElement &element, XML
     return true;
 }
 
+bool ProjectLoader_v0::loadResourceGroup(ResourceGroup *group, const KoXmlElement &element, XMLLoaderObject &status)
+{
+    //debugPlan;
+    group->setId(element.attribute(QStringLiteral("id")));
+    group->setName(element.attribute(QStringLiteral("name")));
+    group->setType(element.attribute(QStringLiteral("type")));
+    if (status.version() < QStringLiteral("0.7.0")) {
+        group->setShared(element.attribute(QStringLiteral("shared"), QStringLiteral("0")).toInt());
+    } else {
+        group->setShared(element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local"));
+    }
+    group->setCoordinator(element.attribute(QStringLiteral("coordinator")));
+
+    if (status.version() < QStringLiteral("0.7.0")) {
+        KoXmlElement e;
+        forEachElement(e, element) {
+            if (e.tagName() == QStringLiteral("resource")) {
+                continue;
+            }
+            // Load the resource
+            Resource *child = new Resource();
+            if (load(child, e, status)) {
+                child->addParentGroup(group);
+            } else {
+                // TODO: Complain about this
+                delete child;
+            }
+        }
+    }
+    return true;
+}
+
 bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLLoaderObject &status)
 {
     debugPlanXml<<"resource-group";
-    rg->setId(element.attribute(QStringLiteral("id")));
-    rg->setName(element.attribute(QStringLiteral("name")));
-    rg->setType(element.attribute(QStringLiteral("type")));
-
-    if (status.version() < QStringLiteral("0.7.0")) {
-        rg->setShared(element.attribute(QStringLiteral("shared")).toInt());
-    } else {
-        rg->setShared(element.attribute(QStringLiteral("origin"), QStringLiteral("local")) != QStringLiteral("local"));
-    }
-    rg->setCoordinator(element.attribute(QStringLiteral("coordinator")));
+    loadResourceGroup(rg, element, status);
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {
@@ -1024,7 +1047,7 @@ bool ProjectLoader_v0::load(ResourceGroup *rg, const KoXmlElement &element, XMLL
         KoXmlElement e = n.toElement();
         if (e.tagName() == QStringLiteral("resource-group")) {
             ResourceGroup *child = new ResourceGroup();
-            if (child->load(e, status)) {
+            if (loadResourceGroup(child, e, status)) {
                 rg->addChildGroup(child);
             } else {
                 errorPlanXml<<"Failed to load ResourceGroup";
@@ -1319,6 +1342,9 @@ bool ProjectLoader_v0::loadMainSchedule(MainSchedule *ms, const KoXmlElement &el
     }
     ms->duration = Duration::fromString(element.attribute(QStringLiteral("duration")));
     ms->constraintError = element.attribute(QStringLiteral("scheduling-conflict")).toInt();
+    ms->schedulingError = element.attribute(QStringLiteral("scheduling-error")).toInt();
+    //NOTE: we use "scheduled" as default to match old format without "not-scheduled" element
+    ms->notScheduled = element.attribute(QStringLiteral("not-scheduled")).toInt();
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {

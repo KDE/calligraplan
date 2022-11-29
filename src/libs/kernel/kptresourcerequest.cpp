@@ -100,38 +100,6 @@ void ResourceRequest::unregisterRequest()
         m_resource->unregisterRequest(this);
 }
 
-bool ResourceRequest::load(KoXmlElement &element, Project &project) {
-    debugPlanXml<<this;
-    m_resource = project.resource(element.attribute(QStringLiteral("resource-id")));
-    if (m_resource == nullptr) {
-        warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
-        return false;
-    }
-    m_units  = element.attribute(QStringLiteral("units")).toInt();
-
-    KoXmlElement parent = element.namedItem(QStringLiteral("required-resources")).toElement();
-    KoXmlElement e;
-    forEachElement(e, parent) {
-        if (e.nodeName() == QStringLiteral("resource")) {
-            QString id = e.attribute(QStringLiteral("id"));
-            if (id.isEmpty()) {
-                errorPlan<<"Missing project id";
-                continue;
-            }
-            Resource *r = project.resource(id);
-            if (r == nullptr) {
-                warnPlan<<"The referenced resource does not exist: resource id="<<element.attribute(QStringLiteral("resource-id"));
-            } else {
-                if (r != m_resource) {
-                    m_required << r;
-                    debugPlanXml<<"added reqired"<<r;
-                }
-            }
-        }
-    }
-    return true;
-}
-
 void ResourceRequest::save(QDomElement &element) const {
     QDomElement me = element.ownerDocument().createElement(QStringLiteral("resource-request"));
     element.appendChild(me);

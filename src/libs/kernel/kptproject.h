@@ -109,7 +109,7 @@ public:
      */
     Duration *getRandomDuration() override;
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status) override;
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element, const XmlSaveContext &context) const override;
 
     using Node::saveWorkPackageXML;
@@ -668,7 +668,7 @@ protected:
     void tasksBackward();
 
     void saveSettings(QDomElement &element, const XmlSaveContext &context) const;
-    bool loadSettings(KoXmlElement &element, XMLLoaderObject &status);
+    //bool loadSettings(KoXmlElement &element, XMLLoaderObject &status);
 
 protected:
     friend class KPlatoXmlLoaderBase;

@@ -143,9 +143,8 @@ public:
      * Returns 0 if no project exists.
      */
     virtual const Node *projectNode() const;
-    
-    // The load and save methods
-    virtual bool load(KoXmlElement &, XMLLoaderObject &) { return true; }
+
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     virtual void save(QDomElement &element, const XmlSaveContext &context) const  = 0;
     /// Save me and my childrens relations.
     virtual void saveRelations(QDomElement &element, const XmlSaveContext &context) const;

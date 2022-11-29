@@ -130,7 +130,7 @@ public:
          */
     void deleteRequiredResource(int);
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element) const;
 
     void initiateCalculation(Schedule &sch);

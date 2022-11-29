@@ -200,6 +200,7 @@ public:
     void logDebug(Node *n, Resource *r, const QString &msg, int phase = -1);
 
     static void updateProject(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm);
+    static void updateMainSchedule(const ScheduleManager *tm, ScheduleManager *sm, XMLLoaderObject &status);
     static void updateNode(const Node *tn, Node *mn, long sid, XMLLoaderObject &status);
     static void updateResource(const KPlato::Resource *tr, Resource *r, XMLLoaderObject &status);
     static void updateAppointments(const Project *tp, const ScheduleManager *tm, Project *mp, ScheduleManager *sm, XMLLoaderObject &status);

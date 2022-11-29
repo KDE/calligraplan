@@ -12,6 +12,7 @@
 #include "kptschedule.h"
 #include "kptxmlloaderobject.h"
 #include "XmlSaveContext.h"
+#include "ProjectLoaderBase.h"
 #include "kptdebug.h"
 
 #include "KoXmlReader.h"
@@ -452,8 +453,6 @@ bool SchedulerThread::loadProject(Project *project, const KoXmlDocument &doc)
         return false;
     }
     XMLLoaderObject status;
-    status.setVersion(PLAN_FILE_SYNTAX_VERSION);
-    status.setProject(project);
     return status.loadProject(project, doc);
 }
 
@@ -473,9 +472,12 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
     sm->setCalculationResult(tm->calculationResult());
 
     XMLLoaderObject status;
-    status.setVersion(PLAN_FILE_SYNTAX_VERSION);
     status.setProject(mp);
     status.setProjectTimeZone(mp->timeZone());
+    status.setMimetype(PLAN_MIME_TYPE);
+    status.setVersion(PLAN_FILE_SYNTAX_VERSION);
+
+    updateMainSchedule(tm, sm, status);
 
     const auto nodes = tp->allNodes();
     for (const Node *tn : nodes) {
@@ -494,6 +496,32 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
     // update main schedule and appointments
     updateAppointments(tp, tm, mp, sm, status);
     sm->scheduleChanged(sm->expected());
+    qInfo()<<Q_FUNC_INFO<<(void*)tm->expected()<<tp->schedule()<<(void*)sm->expected()<<mp->schedules();
+}
+
+// static
+void SchedulerThread::updateMainSchedule(const ScheduleManager *tm, ScheduleManager *sm, XMLLoaderObject &status)
+{
+    //debugPlan<<tm<<"->"<<sm;
+    const auto ts = static_cast<MainSchedule*>(tm->expected());
+    if (ts == nullptr) {
+        errorPlan<<tm<<"no schedule";
+        return;
+    }
+    QDomDocument doc(QStringLiteral("tmp"));
+    QDomElement e = doc.createElement(QStringLiteral("main-schedule"));
+    doc.appendChild(e);
+    ts->saveXML(e);
+
+    auto ms = sm->expected();
+    Q_ASSERT(ms);
+
+    KoXmlDocument xd;
+    xd.setContent(doc.toString());
+    const auto loader = status.loader();
+    if (!loader->loadMainSchedule(ms, xd.documentElement(), status)) {
+        errorPlan<<"Could not load main schedule";
+    }
 }
 
 // static
@@ -502,7 +530,7 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
     //debugPlan<<Q_FUNC_INFO<<tn<<"->"<<mn;
     NodeSchedule *s = static_cast<NodeSchedule*>(tn->schedule(sid));
     if (s == nullptr) {
-        warnPlan<<Q_FUNC_INFO<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
+        errorPlan<<Q_FUNC_INFO<<"Task:"<<tn->name()<<"could not find schedule with id:"<<sid;
         return;
     }
     QDomDocument doc(QStringLiteral("tmp"));
@@ -518,7 +546,9 @@ void SchedulerThread::updateNode(const Node *tn, Node *mn, long sid, XMLLoaderOb
     KoXmlElement se = xd.documentElement().namedItem(QStringLiteral("task-schedule")).toElement();
     Q_ASSERT(! se.isNull());
 
-    s->loadXML(se, status);
+    auto loader = status.loader();
+    Q_ASSERT(loader);
+    loader->loadNodeSchedule(s, se, status);
     s->setDeleted(false);
     s->setNode(mn);
     mn->addSchedule(s);
@@ -567,7 +597,8 @@ void SchedulerThread::updateAppointments(const Project *tp, const ScheduleManage
     KoXmlElement se = xd.namedItem(QStringLiteral("schedule")).toElement(); // same as above
     Q_ASSERT(! se.isNull());
 
-    bool ret = sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
+    auto loader = status.loader();
+    bool ret = loader->loadMainSchedule(sm, se, status); // sm->loadMainSchedule(sm->expected(), se, status); // also loads appointments
     Q_ASSERT(ret);
 #ifdef NDEBUG
     Q_UNUSED(ret)

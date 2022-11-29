@@ -797,36 +797,6 @@ bool Appointment::isBusy(const DateTime &/*start*/, const DateTime &/*end*/) {
     return false;
 }
 
-bool Appointment::loadXML(KoXmlElement &element, XMLLoaderObject &status, Schedule &sch) {
-    //debugPlan<<project.name();
-    Node *node = status.project().findNode(element.attribute(QStringLiteral("task-id")));
-    if (node == nullptr) {
-        errorPlan<<"The referenced task does not exists: "<<element.attribute(QStringLiteral("task-id"));
-        return false;
-    }
-    Resource *res = status.project().resource(element.attribute(QStringLiteral("resource-id")));
-    if (res == nullptr) {
-        errorPlan<<"The referenced resource does not exists: resource id="<<element.attribute(QStringLiteral("resource-id"));
-        return false;
-    }
-    if (!res->addAppointment(this, sch)) {
-        errorPlan<<"Failed to add appointment to resource: "<<res->name();
-        return false;
-    }
-    if (!node->addAppointment(this, sch)) {
-        errorPlan<<"Failed to add appointment to node: "<<node->name();
-        m_resource->takeAppointment(this);
-        return false;
-    }
-    //debugPlan<<"res="<<m_resource->resource()->name()<<" node="<<m_node->node()->name();
-    m_intervals.loadXML(element, status);
-    if (isEmpty()) {
-        errorPlan<<"Appointment is empty (added anyway): "<<node->name()<<res->name();
-        return false;
-    }
-    return true;
-}
-
 void Appointment::saveXML(QDomElement &element) const {
     if (isEmpty()) {
         errorPlan<<"Incomplete appointment data: No intervals";

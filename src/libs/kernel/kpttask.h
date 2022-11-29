@@ -69,8 +69,7 @@ public:
      */
     void calcResourceOverbooked() override;
     
-    /// Load from document
-    bool load(KoXmlElement &element, XMLLoaderObject &status) override;
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     /// Save to document
     void save(QDomElement &element, const XmlSaveContext &context) const override;
     /// Save appointments for schedule with id

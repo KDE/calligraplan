@@ -93,47 +93,6 @@ void Relation::setChild(Node* node)
     m_child = node;
 }
 
-
-bool Relation::load(KoXmlElement &element, XMLLoaderObject &status) {
-    const Project &project = status.project();
-    m_parent = project.findNode(element.attribute(QStringLiteral("parent-id")));
-    if (m_parent == nullptr) {
-        return false;
-    }
-    m_child = project.findNode(element.attribute(QStringLiteral("child-id")));
-    if (m_child == nullptr) {
-        return false;
-    }
-    if (m_child == m_parent) {
-        debugPlan<<"child == parent";
-        return false;
-    }
-    if (m_child == m_parent) {
-        debugPlan<<"child == parent";
-        return false;
-    }
-    if (!m_parent->legalToLink(m_child))
-        return false;
-        
-    setType(element.attribute(QStringLiteral("type")));
-
-    m_lag = Duration::fromString(element.attribute(QStringLiteral("lag")));
-
-    if (!m_parent->addDependChildNode(this)) {
-        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<'\n';
-        return false;
-    }
-    if (!m_child->addDependParentNode(this)) {
-        m_parent->takeDependChildNode(this);
-        errorPlan<<"Failed to add relation: Child="<<m_child->name()<<" parent="<<m_parent->name()<<'\n';
-        return false;
-    }
-
-    //debugPlan<<"Added relation: Child="<<m_child->name()<<" parent="<<m_parent->name();
-    return true;
-}
-
-
 void Relation::save(QDomElement &element, const XmlSaveContext &context) const
 {
     if (!context.saveRelation(this)) {

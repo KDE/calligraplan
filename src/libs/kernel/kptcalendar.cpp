@@ -152,56 +152,6 @@ const CalendarDay &CalendarDay::copy(const CalendarDay &day) {
     return *this;
 }
 
-bool CalendarDay::load(KoXmlElement &element, XMLLoaderObject &status) {
-    //debugPlan;
-    bool ok=false;
-    m_state = QString(element.attribute(QStringLiteral("state"), QStringLiteral("-1"))).toInt(&ok);
-    if (m_state < 0)
-        return false;
-    //debugPlan<<" state="<<m_state;
-    QString s = element.attribute(QStringLiteral("date"));
-    if (!s.isEmpty()) {
-        m_date = QDate::fromString(s, Qt::ISODate);
-        if (!m_date.isValid())
-            m_date = QDate::fromString(s);
-    }
-    clearIntervals();
-    KoXmlNode n = element.firstChild();
-    for (; ! n.isNull(); n = n.nextSibling()) {
-        if (! n.isElement()) {
-            continue;
-        }
-        KoXmlElement e = n.toElement();
-        if (e.tagName() == QStringLiteral("time-interval") || (status.version() < QStringLiteral("0.7.0") && e.tagName() == QStringLiteral("interval"))) {
-            //debugPlan<<"Interval start="<<e.attribute("start")<<" end="<<e.attribute("end");
-            QString st = e.attribute(QStringLiteral("start"));
-            if (st.isEmpty()) {
-                errorPlan<<"Empty interval";
-                continue;
-            }
-            QTime start = QTime::fromString(st);
-            int length = 0;
-            if (status.version() <= QStringLiteral("0.6.1")) {
-                QString en = e.attribute(QStringLiteral("end"));
-                if (en.isEmpty()) {
-                    errorPlan<<"Invalid interval end";
-                    continue;
-                }
-                QTime end = QTime::fromString(en);
-                length = start.msecsTo(end);
-            } else {
-                length = e.attribute(QStringLiteral("length"), QStringLiteral("0")).toInt();
-            }
-            if (length <= 0) {
-                errorPlan<<"Invalid interval length";
-                continue;
-            }
-            addInterval(new TimeInterval(start, length));
-        }
-    }
-    return true;
-}
-
 void CalendarDay::save(QDomElement &element) const {
     //debugPlan<<m_date.toString();
     if (m_state == None)
@@ -520,7 +470,7 @@ const CalendarWeekdays &CalendarWeekdays::copy(const CalendarWeekdays &weekdays)
     }
     return *this;
 }
-
+#if 0
 bool CalendarWeekdays::load(KoXmlElement &element, XMLLoaderObject &status) {
     //debugPlan;
     bool ok;
@@ -538,7 +488,7 @@ bool CalendarWeekdays::load(KoXmlElement &element, XMLLoaderObject &status) {
         day->setState(CalendarDay::None);
     return true;
 }
-
+#endif
 void CalendarWeekdays::save(QDomElement &element) const {
     //debugPlan;
     QMapIterator<int, CalendarDay*> i(m_weekdays);
@@ -904,7 +854,7 @@ void Calendar::saveCacheVersion(QDomElement &element) const
     element.appendChild(me);
     me.setAttribute(QStringLiteral("version"), QString::number(m_cacheversion));
 }
-
+#if 0
 bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     //bool ok;
     m_blockversion = true;
@@ -969,7 +919,7 @@ bool Calendar::load(KoXmlElement &element, XMLLoaderObject &status) {
     m_blockversion = false;
     return true;
 }
-
+#endif
 void Calendar::save(QDomElement &element) const {
     //debugPlan<<m_name;
     QDomElement me = element.ownerDocument().createElement(QStringLiteral("calendar"));
@@ -1661,7 +1611,7 @@ QList<qint64> StandardWorktime::scales() const
 {
     return QList<qint64>() << m_year.milliseconds() << m_month.milliseconds() << m_week.milliseconds() << m_day.milliseconds() << 60*60*1000 << 60*1000 << 1000 << 1;
 }
-
+#if 0
 bool StandardWorktime::load(KoXmlElement &element, XMLLoaderObject &status) {
     //debugPlan;
     m_year = Duration::fromString(element.attribute(QStringLiteral("year")), Duration::Format_Hour); 
@@ -1696,7 +1646,7 @@ bool StandardWorktime::load(KoXmlElement &element, XMLLoaderObject &status) {
     }
     return true;
 }
-
+#endif
 void StandardWorktime::save(QDomElement &element) const {
     //debugPlan;
     QDomElement me = element.ownerDocument().createElement(QStringLiteral("standard-worktime"));

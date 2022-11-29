@@ -256,7 +256,7 @@ ResourceGroup* ResourceGroup::getRequiredResource(int) {
 
 void ResourceGroup::deleteRequiredResource(int) {
 }
-
+#if 0
 bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     //debugPlan;
     setId(element.attribute(QStringLiteral("id")));
@@ -296,7 +296,7 @@ bool ResourceGroup::load(KoXmlElement &element, XMLLoaderObject &status) {
     }
     return true;
 }
-
+#endif
 void ResourceGroup::save(QDomElement &element)  const {
     //debugPlan;
 

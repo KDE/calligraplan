@@ -62,7 +62,7 @@ public:
     Resource *resource() const { return m_resource; }
     void setResource(Resource* resource) { m_resource = resource; }
 
-    bool load(KoXmlElement &element, Project &project);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element) const;
 
     /**

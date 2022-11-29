@@ -81,7 +81,7 @@ public:
     Node *child() const { return m_child; }
     void setChild(Node *node);
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element, const XmlSaveContext &context) const;
 
 protected: // variables

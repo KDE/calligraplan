@@ -171,7 +171,7 @@ public:
     explicit CalendarDay(CalendarDay *day);
     ~CalendarDay();
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element) const;
 
     QList<TimeInterval*> timeIntervals() const { return m_timeIntervals; }
@@ -271,7 +271,7 @@ public:
     explicit CalendarWeekdays(const CalendarWeekdays *weekdays);
     ~CalendarWeekdays();
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    //bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     const QList<CalendarDay*> weekdays() const 
@@ -396,7 +396,7 @@ public:
     /// Return child calendar at @p index, 0 if index out of bounds
     Calendar *childAt(int index) const { return m_calendars.value(index); }
     
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    //bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     int state(QDate date) const;
@@ -665,7 +665,7 @@ public:
     
     QList<qint64> scales() const;
 
-    bool load(KoXmlElement &element, XMLLoaderObject &status);
+    //bool load(KoXmlElement &element, XMLLoaderObject &status);
     void save(QDomElement &element) const;
 
     void changed();

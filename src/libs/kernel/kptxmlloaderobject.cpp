@@ -55,15 +55,6 @@ void XMLLoaderObject::setVersion(const QString &ver)
     m_version = ver;
     delete m_loader;
     m_loader = nullptr;
-    if (m_mimetype == PLAN_MIME_TYPE || m_mimetype == PLANWORK_MIME_TYPE) {
-        if (m_version.split(QLatin1Char('.')).value(0).toInt() == 0) {
-            m_loader = new ProjectLoader_v0();
-        } else {
-            warnPlanXml<<"Unknown version:"<<ver<<"Failed to create a loader";
-        }
-    } else {
-        debugPlanXml<<"Unknown mimetype:"<<m_mimetype<<"Failed to create a loader";
-    }
 }
 
 QString XMLLoaderObject::mimetype() const
@@ -74,6 +65,8 @@ QString XMLLoaderObject::mimetype() const
 void XMLLoaderObject::setMimetype(const QString &mime)
 {
     m_mimetype = mime;
+    delete m_loader;
+    m_loader = nullptr;
 }
 
 const QTimeZone &XMLLoaderObject::projectTimeZone() const
@@ -88,6 +81,13 @@ void XMLLoaderObject::setProjectTimeZone(const QTimeZone &timeZone)
 
 ProjectLoaderBase *XMLLoaderObject::loader()
 {
+    if (!m_loader && !m_version.isEmpty() && (m_mimetype == PLAN_MIME_TYPE || m_mimetype == PLANWORK_MIME_TYPE)) {
+        if (m_version.split(QLatin1Char('.')).value(0).toInt() == 0) {
+            m_loader = new ProjectLoader_v0();
+        } else {
+            warnPlanXml<<"Unknown version:"<<m_version<<"Failed to create a loader";
+        }
+    }
     return m_loader;
 }
 
@@ -254,7 +254,7 @@ bool XMLLoaderObject::loadProject(Project *project, const KoXmlDocument &documen
     KoXmlElement plan = document.documentElement();
     setMimetype(plan.attribute(QStringLiteral("mime")));
     setVersion(plan.attribute(QStringLiteral("version"), PLAN_FILE_SYNTAX_VERSION));
-    if (m_loader) {
+    if (loader()) {
         result = m_loader->load(*this, document);
     } else {
         errorPlanXml<<"There is no loader for version:"<<m_version;
