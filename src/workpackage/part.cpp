@@ -876,7 +876,7 @@ bool Part::saveFile()
 void Part::setNoGui(bool nogui)
 {
     m_nogui = nogui;
-    for (auto wp : m_packageMap) {
+    for (auto wp : qAsConst(m_packageMap)) {
         wp->setNoGui(nogui);
     }
 }
