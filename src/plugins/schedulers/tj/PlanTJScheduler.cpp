@@ -219,7 +219,7 @@ bool PlanTJScheduler::check()
 
 bool PlanTJScheduler::solve()
 {
-    debugPlan<<"PlanTJScheduler::solve()";
+    debugPlan;
     TJ::Scenario *sc = m_tjProject->getScenario(0);
     if (! sc) {
         logError(m_project, nullptr, xi18nc("@info/plain" , "Failed to find scenario to schedule"));
@@ -323,10 +323,10 @@ void PlanTJScheduler::addStartEndJob()
     for (QMap<TJ::Task*, Node*>::ConstIterator it = m_taskmap.constBegin(); it != m_taskmap.constEnd(); ++it) {
         if (it.value()->isStartNode()) {
             it.key()->addDepends(start->getId());
-//             logDebug(m_project, 0, QString("'%1' depends on: '%2'").arg(it.key()->getName()).arg(start->getName()));
+            //logDebug(m_project, 0, QString("'%1' depends on: '%2'").arg(it.key()->getName()).arg(start->getName()));
             if (start->getScheduling() == TJ::Task::ALAP) {
                 start->addPrecedes(it.key()->getId());
-//                 logDebug(m_project, 0, QString("'%1' precedes: '%2'").arg(start->getName()).arg(it.key()->getName()));
+                //logDebug(m_project, 0, QString("'%1' precedes: '%2'").arg(start->getName()).arg(it.key()->getName()));
             }
         }
         if (it.value()->isEndNode()) {
@@ -710,6 +710,8 @@ TJ::Task *PlanTJScheduler::addTask(const KPlato::Node *node, TJ::Task *parent)
     if (node->type() == KPlato::Node::Type_Task) {
         m_taskmap[t] = const_cast<KPlato::Task*>(static_cast<const KPlato::Task*>(node));
         addWorkingTime(static_cast<const KPlato::Task*>(node), t);
+    } else if (node->type() == KPlato::Node::Type_Milestone) {
+        m_taskmap[t] = const_cast<KPlato::Task*>(static_cast<const KPlato::Task*>(node));
     } else if (node->type() == KPlato::Node::Type_Project) {
         if (node->constraint() == Node::MustStartOn) {
             t->setSpecifiedStart(0, node->constraintStartTime().toTime_t());
