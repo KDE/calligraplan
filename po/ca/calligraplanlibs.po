@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-11-26 13:19+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -33,7 +33,7 @@ msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
-#: kernel/ProjectLoader_v0.cpp:1474
+#: kernel/ProjectLoader_v0.cpp:1510
 #, kde-format
 msgid "Document loaded, URL=%1"
 msgstr "Document carregat, URL=%1"
@@ -197,7 +197,7 @@ msgstr "ms"
 msgid "Deleted"
 msgstr "Suprimit"
 
-#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1927
+#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1794
 #: models/kptschedulemodel.cpp:840
 #, kde-format
 msgid "Not scheduled"
@@ -245,6 +245,7 @@ msgctxt "project scheduling canceled by user"
 msgid "Canceled"
 msgstr "S'ha cancel·lat"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
 #: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
@@ -257,11 +258,12 @@ msgstr "S'ha cancel·lat"
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
 #: models/ResourceModel.cpp:365 models/ResourceModel.cpp:374
-#: ui/kptpertresult.cpp:130 ui/kptpertresult.cpp:547
-#: ui/kptresourcedialog.cpp:272 ui/kptresourcedialog.cpp:299
-#: ui/kpttaskcostpanel.cpp:36 ui/kpttaskgeneralpanel.cpp:59
-#: ui/kpttaskgeneralpanelbase.ui:386 ui/reports/reportview.cpp:1347
-#: ui/TasksGeneralPanel.cpp:55 ui/TasksGeneralPanel.ui:338
+#: ui/kptmainprojectpanelbase.ui:275 ui/kptpertresult.cpp:130
+#: ui/kptpertresult.cpp:547 ui/kptresourcedialog.cpp:272
+#: ui/kptresourcedialog.cpp:299 ui/kpttaskcostpanel.cpp:36
+#: ui/kpttaskgeneralpanel.cpp:59 ui/kpttaskgeneralpanelbase.ui:386
+#: ui/reports/reportview.cpp:1347 ui/TasksGeneralPanel.cpp:55
+#: ui/TasksGeneralPanel.ui:338
 #, kde-format
 msgid "None"
 msgstr "Cap"
@@ -553,7 +555,7 @@ msgstr "Inici de planificació enrere"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "La planificació enrere ha finalitzat: %1 ms"
 
-#: kernel/kptproject.cpp:3392
+#: kernel/kptproject.cpp:2755
 #, kde-format
 msgid "Plan"
 msgstr "Pla"
@@ -576,47 +578,47 @@ msgstr "Final-Final"
 msgid "Start-Start"
 msgstr "Inici-Inici"
 
-#: kernel/kptresourcerequest.cpp:754
+#: kernel/kptresourcerequest.cpp:722
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr "Replanificació però no s'ha trobat cap recurs usat"
 
-#: kernel/kptresourcerequest.cpp:851
+#: kernel/kptresourcerequest.cpp:819
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
 msgstr "Encaix de la desviació: granularitat: %1, desviació: %2"
 
-#: kernel/kptresourcerequest.cpp:1005
+#: kernel/kptresourcerequest.cpp:973
 #, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
 msgstr "No es pot encaixar l'esforç. Es vol: %1 i s'obté: %2 (%3)"
 
-#: kernel/kptresourcerequest.cpp:1008
+#: kernel/kptresourcerequest.cpp:976
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
 msgstr "Recurs %1 disponible de %2 a %3"
 
-#: kernel/kptschedule.cpp:164
+#: kernel/kptschedule.cpp:165
 #, kde-format
 msgid "Expected"
 msgstr "Esperat"
 
-#: kernel/kptschedule.cpp:1593
+#: kernel/kptschedule.cpp:1460
 #, kde-format
 msgid "Debug"
 msgstr "Depuració"
 
-#: kernel/kptschedule.cpp:1594
+#: kernel/kptschedule.cpp:1461
 #, kde-format
 msgid "Info"
 msgstr "Informació"
 
-#: kernel/kptschedule.cpp:1595 main/KoMainWindow.cpp:1834
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1834
 #, kde-format
 msgid "Warning"
 msgstr "Avís"
 
-#: kernel/kptschedule.cpp:1596 kernel/kptschedule.cpp:1931
+#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1798
 #: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
 #: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
 #: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
@@ -625,144 +627,144 @@ msgstr "Avís"
 msgid "Error"
 msgstr "Error"
 
-#: kernel/kptschedule.cpp:1921
+#: kernel/kptschedule.cpp:1788
 #, kde-format
 msgid "Baselined"
 msgstr "Basat en línia"
 
-#: kernel/kptschedule.cpp:1924
+#: kernel/kptschedule.cpp:1791
 #, kde-format
 msgid "Scheduling"
 msgstr "Planificació"
 
-#: kernel/kpttask.cpp:1258
+#: kernel/kpttask.cpp:1109
 #, kde-format
 msgid "Calculate early finish "
 msgstr "Calcula el final primerenc"
 
-#: kernel/kpttask.cpp:1296 kernel/kpttask.cpp:1314 kernel/kpttask.cpp:1331
-#: kernel/kpttask.cpp:1354 kernel/kpttask.cpp:1380 kernel/kpttask.cpp:1387
-#: kernel/kpttask.cpp:1397 kernel/kpttask.cpp:1570 kernel/kpttask.cpp:1593
-#: kernel/kpttask.cpp:1608 kernel/kpttask.cpp:1631 kernel/kpttask.cpp:1640
-#: kernel/kpttask.cpp:1649 kernel/kpttask.cpp:1657
+#: kernel/kpttask.cpp:1147 kernel/kpttask.cpp:1165 kernel/kpttask.cpp:1182
+#: kernel/kpttask.cpp:1205 kernel/kpttask.cpp:1231 kernel/kpttask.cpp:1238
+#: kernel/kpttask.cpp:1248 kernel/kpttask.cpp:1421 kernel/kpttask.cpp:1444
+#: kernel/kpttask.cpp:1459 kernel/kpttask.cpp:1482 kernel/kpttask.cpp:1491
+#: kernel/kpttask.cpp:1500 kernel/kpttask.cpp:1508
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint"
 msgstr "%1: no s'ha pogut trobar la restricció"
 
-#: kernel/kpttask.cpp:1426 kernel/kpttask.cpp:1679 kernel/kpttask.cpp:2082
-#: kernel/kpttask.cpp:2464
+#: kernel/kpttask.cpp:1277 kernel/kpttask.cpp:1530 kernel/kpttask.cpp:1933
+#: kernel/kpttask.cpp:2315
 #, kde-format
 msgid "Resource %1 booked from %2 to %3"
 msgstr "Recurs %1 reservat de %2 a %3"
 
-#: kernel/kpttask.cpp:1432
+#: kernel/kpttask.cpp:1283
 #, kde-format
 msgid "Early finish calculated: %1"
 msgstr "Final primerenc calculat: %1"
 
-#: kernel/kpttask.cpp:1532
+#: kernel/kpttask.cpp:1383
 #, kde-format
 msgid "Calculate late start"
 msgstr "Calcula l'inici tardà"
 
-#: kernel/kpttask.cpp:1685
+#: kernel/kpttask.cpp:1536
 #, kde-format
 msgid "Late start calculated: %1"
 msgstr "Inici tardà calculat: %1"
 
-#: kernel/kpttask.cpp:1782
+#: kernel/kpttask.cpp:1633
 #, kde-format
 msgid "Start schedule forward: %1 "
 msgstr "Inici de planificació endavant: %1 "
 
-#: kernel/kpttask.cpp:1784
+#: kernel/kpttask.cpp:1635
 #, kde-format
 msgid "Schedule from start %1"
 msgstr "Planificació des de l'inici %1"
 
-#: kernel/kpttask.cpp:1831
+#: kernel/kpttask.cpp:1682
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
 "%1: Ha fallat la planificació usant el final tardà, proveu amb un final més "
 "aviat."
 
-#: kernel/kpttask.cpp:1866 kernel/kpttask.cpp:1890 kernel/kpttask.cpp:1916
-#: kernel/kpttask.cpp:1940 kernel/kpttask.cpp:1958 kernel/kpttask.cpp:2029
-#: kernel/kpttask.cpp:2046 kernel/kpttask.cpp:2058 kernel/kpttask.cpp:2272
-#: kernel/kpttask.cpp:2291 kernel/kpttask.cpp:2313 kernel/kpttask.cpp:2329
-#: kernel/kpttask.cpp:2348 kernel/kpttask.cpp:2412 kernel/kpttask.cpp:2425
-#: kernel/kpttask.cpp:2442
+#: kernel/kpttask.cpp:1717 kernel/kpttask.cpp:1741 kernel/kpttask.cpp:1767
+#: kernel/kpttask.cpp:1791 kernel/kpttask.cpp:1809 kernel/kpttask.cpp:1880
+#: kernel/kpttask.cpp:1897 kernel/kpttask.cpp:1909 kernel/kpttask.cpp:2123
+#: kernel/kpttask.cpp:2142 kernel/kpttask.cpp:2164 kernel/kpttask.cpp:2180
+#: kernel/kpttask.cpp:2199 kernel/kpttask.cpp:2263 kernel/kpttask.cpp:2276
+#: kernel/kpttask.cpp:2293
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
 msgstr "%1: No s'ha pogut trobar cap restricció. Marge negatiu=%2"
 
-#: kernel/kpttask.cpp:1982 kernel/kpttask.cpp:2370
+#: kernel/kpttask.cpp:1833 kernel/kpttask.cpp:2221
 #, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
 msgstr "Desviació de l'esforç. Estimat: %1, planificat: %2, granularitat: %3"
 
-#: kernel/kpttask.cpp:1990 kernel/kpttask.cpp:2378
+#: kernel/kpttask.cpp:1841 kernel/kpttask.cpp:2229
 #, kde-format
 msgid "Effort not met. Estimate: %1, scheduled: %2"
 msgstr "Esforç no trobat. Estimat: %1, planificat: %2"
 
-#: kernel/kpttask.cpp:2078 kernel/kpttask.cpp:2460
+#: kernel/kpttask.cpp:1929 kernel/kpttask.cpp:2311
 #, kde-format
 msgid "Failed to schedule within project target time"
 msgstr "Ha fallat la planificació al temps d'objectiu del projecte"
 
-#: kernel/kpttask.cpp:2085 kernel/kpttask.cpp:2467
+#: kernel/kpttask.cpp:1936 kernel/kpttask.cpp:2318
 #, kde-format
 msgid "Starting earlier than early start"
 msgstr "Començant abans de l'inici més primerenc"
 
-#: kernel/kpttask.cpp:2088 kernel/kpttask.cpp:2470
+#: kernel/kpttask.cpp:1939 kernel/kpttask.cpp:2321
 #, kde-format
 msgid "Finishing later than late finish"
 msgstr "Acabant després del final més tardà"
 
-#: kernel/kpttask.cpp:2090 kernel/kpttask.cpp:2472
+#: kernel/kpttask.cpp:1941 kernel/kpttask.cpp:2323
 #, kde-format
 msgid "Scheduled: %1 to %2"
 msgstr "Planificació: de %1 a %2"
 
-#: kernel/kpttask.cpp:2093
+#: kernel/kpttask.cpp:1944
 #, kde-format
 msgid "Finished schedule forward: %1 ms"
 msgstr "La planificació endavant ha finalitzat: %1 ms"
 
-#: kernel/kpttask.cpp:2191
+#: kernel/kpttask.cpp:2042
 #, kde-format
 msgid "Schedule from end time: %1"
 msgstr "Planificació des del final: %1"
 
-#: kernel/kpttask.cpp:2215
+#: kernel/kpttask.cpp:2066
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within late finish."
 msgstr "%1: Ha fallat la planificació en el final tardà."
 
-#: kernel/kpttask.cpp:2221
+#: kernel/kpttask.cpp:2072
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
 msgstr "%1: No s'ha pogut planificar amb inici de temps successius"
 
-#: kernel/kpttask.cpp:2248 kernel/kpttask.cpp:2386
+#: kernel/kpttask.cpp:2099 kernel/kpttask.cpp:2237
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule after early start."
 msgstr "%1: Ha fallat la planificació després de l'inici primerenc."
 
-#: kernel/kpttask.cpp:2543
+#: kernel/kpttask.cpp:2394
 #, kde-format
 msgid "No resource has been allocated"
 msgstr "No hi ha cap recurs assignat"
 
-#: kernel/kpttask.cpp:2708
+#: kernel/kpttask.cpp:2559
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
 msgstr "No s'ha pogut encaixar la durada de la feina. Es volia: %1, s'obté: %2"
@@ -811,28 +813,28 @@ msgctxt "@item:inlistbox resource type"
 msgid "Team"
 msgstr "Equip"
 
-#: kernel/Resource.cpp:651
+#: kernel/Resource.cpp:577
 #, kde-format
 msgid "Make appointments: Invalid time"
 msgstr "Crea cites: temps no vàlid"
 
-#: kernel/Resource.cpp:656 kernel/Resource.cpp:717 kernel/Resource.cpp:967
-#: kernel/Resource.cpp:1042
+#: kernel/Resource.cpp:582 kernel/Resource.cpp:643 kernel/Resource.cpp:893
+#: kernel/Resource.cpp:968
 #, kde-format
 msgid "Resource %1 has no calendar defined"
 msgstr "El recurs %1 no té un calendari definit"
 
-#: kernel/Resource.cpp:680
+#: kernel/Resource.cpp:606
 #, kde-format
 msgid "Make appointments: Node start time is not valid"
 msgstr "Crea cites: el temps d'inici de node no és vàlid"
 
-#: kernel/Resource.cpp:684
+#: kernel/Resource.cpp:610
 #, kde-format
 msgid "Make appointments: Node end time is not valid"
 msgstr "Crea cites: el temps final del node no és vàlid"
 
-#: kernel/Resource.cpp:731 kernel/Resource.cpp:748
+#: kernel/Resource.cpp:657 kernel/Resource.cpp:674
 #, kde-format
 msgid "Resource %1 not available in interval: %2 to %3"
 msgstr "Recurs %1 no disponible a l'interval: %2 a %3"
@@ -1737,11 +1739,11 @@ msgstr "Atura"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
-#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:193
+#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:194
 #: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:146
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:148
 #: ui/performance/ProjectStatusView.cpp:170
-#: ui/ResourceAppointmentsGanttView.cpp:162
+#: ui/ResourceAppointmentsGanttView.cpp:163
 #, kde-format
 msgid "Printing"
 msgstr "Impressió"
@@ -2196,7 +2198,7 @@ msgstr "%1 (Compte per defecte)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:113 models/kptaccountsmodel.cpp:1055
-#: ui/kptmainprojectpanelbase.ui:269
+#: ui/kptmainprojectpanelbase.ui:313
 #, kde-format
 msgid "Description"
 msgstr "Descripció"
@@ -5920,10 +5922,10 @@ msgstr "Emmagatzematge del Calligra"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
-#: ui/kptganttview.cpp:193 ui/kptitemviewsettup.cpp:190
+#: ui/kptganttview.cpp:194 ui/kptitemviewsettup.cpp:190
 #: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
-#: ui/MilestoneGanttView.cpp:146 ui/performance/ProjectStatusView.cpp:171
-#: ui/ResourceAppointmentsGanttView.cpp:162
+#: ui/MilestoneGanttView.cpp:148 ui/performance/ProjectStatusView.cpp:171
+#: ui/ResourceAppointmentsGanttView.cpp:163
 #, kde-format
 msgid "Printing Options"
 msgstr "Opcions d'impressió"
@@ -6070,10 +6072,12 @@ msgstr "Decoracions"
 msgid "Show Row Separators"
 msgstr "Mostra els separadors de fila"
 
+#. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/gantt/kptganttchartdisplayoptions.ui:168
 #: ui/gantt/MilestoneGanttChartOptionsPanel.ui:168
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:168
+#: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
 msgstr "Dies lliures:"
@@ -6657,41 +6661,41 @@ msgid "Add Sub-Milestone..."
 msgstr "Afegeix una subfita..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:364 ui/kptpertresult.cpp:151
+#: ui/kptganttview.cpp:365 ui/kptpertresult.cpp:151
 #: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/MilestoneGanttView.cpp:452 ui/performance/PerformanceStatusView.cpp:329
-#: ui/ResourceAppointmentsGanttView.cpp:362
+#: ui/MilestoneGanttView.cpp:454 ui/performance/PerformanceStatusView.cpp:329
+#: ui/ResourceAppointmentsGanttView.cpp:363
 #, kde-format
 msgid "Edit..."
 msgstr "Edita..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:368
+#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:369
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:456
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:458
 #: ui/performance/PerformanceStatusView.cpp:333
-#: ui/ResourceAppointmentsGanttView.cpp:366
+#: ui/ResourceAppointmentsGanttView.cpp:367
 #, kde-format
 msgid "Progress..."
 msgstr "Progrés..."
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:372
+#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:373
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:460
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:462
 #: ui/performance/PerformanceStatusView.cpp:337
-#: ui/ResourceAppointmentsGanttView.cpp:370
+#: ui/ResourceAppointmentsGanttView.cpp:371
 #, kde-format
 msgid "Description..."
 msgstr "Descripció..."
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:376
+#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:377
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:464
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:466
 #: ui/performance/PerformanceStatusView.cpp:341
-#: ui/ResourceAppointmentsGanttView.cpp:374
+#: ui/ResourceAppointmentsGanttView.cpp:375
 #, kde-format
 msgid "Documents..."
 msgstr "Documents..."
@@ -6841,7 +6845,7 @@ msgstr "Ctrl+M"
 #. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
 #. i18n: ectx: property (text), widget (QPushButton, pbRemove)
 #: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
-#: ui/kptmainprojectpanelbase.ui:433 ui/kptwbsdefinitionpanelbase.ui:180
+#: ui/kptmainprojectpanelbase.ui:477 ui/kptwbsdefinitionpanelbase.ui:180
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
@@ -6864,30 +6868,39 @@ msgstr "Obre"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
-#: ui/kptganttview.cpp:140 ui/MilestoneGanttView.cpp:95
-#: ui/ResourceAppointmentsGanttView.cpp:112
+#: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
+#: ui/MilestoneGanttView.cpp:95 ui/ResourceAppointmentsGanttView.cpp:112
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Sense dies lliures"
 
-#: ui/kptganttview.cpp:172 ui/kptganttview.cpp:191
-#: ui/MilestoneGanttView.cpp:127 ui/MilestoneGanttView.cpp:144
+#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
+#: ui/ResourceAppointmentsGanttView.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@item:inlistbox"
+#| msgid "No freedays"
+msgctxt "@item:inlistbox"
+msgid "Project freedays"
+msgstr "Sense dies lliures"
+
+#: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
+#: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:155
-#: ui/ResourceAppointmentsGanttView.cpp:143
-#: ui/ResourceAppointmentsGanttView.cpp:160
+#: ui/ResourceAppointmentsGanttView.cpp:144
+#: ui/ResourceAppointmentsGanttView.cpp:161
 #, kde-format
 msgid "Chart"
 msgstr "Diagrama"
 
-#: ui/kptganttview.cpp:172 ui/MilestoneGanttView.cpp:127
-#: ui/ResourceAppointmentsGanttView.cpp:143
+#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:129
+#: ui/ResourceAppointmentsGanttView.cpp:144
 #, kde-format
 msgid "Gantt Chart Settings"
 msgstr "Arranjament del diagrama de Gantt"
 
-#: ui/kptganttview.cpp:252
+#: ui/kptganttview.cpp:253
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -6906,60 +6919,60 @@ msgstr ""
 "el menú contextual de la vista en arbre.<nl/><link url='%1'>Més...</link></"
 "para>"
 
-#: ui/kptganttview.cpp:303 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:304 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "Mostra el projecte"
 
-#: ui/kptganttview.cpp:311
+#: ui/kptganttview.cpp:312
 #, kde-format
 msgid "Show Unscheduled Tasks"
 msgstr "Mostra les tasques no planificades"
 
-#: ui/kptganttview.cpp:323 ui/MilestoneGanttView.cpp:411
-#: ui/ResourceAppointmentsGanttView.cpp:321
+#: ui/kptganttview.cpp:324 ui/MilestoneGanttView.cpp:413
+#: ui/ResourceAppointmentsGanttView.cpp:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr "Automàtic"
 
-#: ui/kptganttview.cpp:330 ui/MilestoneGanttView.cpp:418
-#: ui/ResourceAppointmentsGanttView.cpp:328
+#: ui/kptganttview.cpp:331 ui/MilestoneGanttView.cpp:420
+#: ui/ResourceAppointmentsGanttView.cpp:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "Mes"
 
-#: ui/kptganttview.cpp:336 ui/MilestoneGanttView.cpp:424
-#: ui/ResourceAppointmentsGanttView.cpp:334
+#: ui/kptganttview.cpp:337 ui/MilestoneGanttView.cpp:426
+#: ui/ResourceAppointmentsGanttView.cpp:335
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "Setmana"
 
-#: ui/kptganttview.cpp:342 ui/MilestoneGanttView.cpp:430
-#: ui/ResourceAppointmentsGanttView.cpp:340
+#: ui/kptganttview.cpp:343 ui/MilestoneGanttView.cpp:432
+#: ui/ResourceAppointmentsGanttView.cpp:341
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "Dia"
 
-#: ui/kptganttview.cpp:348 ui/MilestoneGanttView.cpp:436
-#: ui/ResourceAppointmentsGanttView.cpp:346
+#: ui/kptganttview.cpp:349 ui/MilestoneGanttView.cpp:438
+#: ui/ResourceAppointmentsGanttView.cpp:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr "Hora"
 
-#: ui/kptganttview.cpp:354 ui/MilestoneGanttView.cpp:442
-#: ui/ResourceAppointmentsGanttView.cpp:352
+#: ui/kptganttview.cpp:355 ui/MilestoneGanttView.cpp:444
+#: ui/ResourceAppointmentsGanttView.cpp:353
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr "Amplia"
 
-#: ui/kptganttview.cpp:359 ui/MilestoneGanttView.cpp:447
-#: ui/ResourceAppointmentsGanttView.cpp:357
+#: ui/kptganttview.cpp:360 ui/MilestoneGanttView.cpp:449
+#: ui/ResourceAppointmentsGanttView.cpp:358
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom Out"
@@ -7087,12 +7100,12 @@ msgstr "Modifica l'arranjament de moneda"
 msgid "Project Settings"
 msgstr "Arranjament del projecte"
 
-#: ui/kptmainprojectdialog.cpp:59 ui/kptmainprojectpanel.cpp:176
+#: ui/kptmainprojectdialog.cpp:59 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
 msgstr "Modifica el projecte principal"
 
-#: ui/kptmainprojectpanel.cpp:51
+#: ui/kptmainprojectpanel.cpp:53
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7106,13 +7119,13 @@ msgstr ""
 "codi WBS és generat automàticament.<nl/>Podeu definir el patró del codi WBS "
 "usant l'entrada de menú <interface>Defineix el patró WBS</interface>."
 
-#: ui/kptmainprojectpanel.cpp:107
+#: ui/kptmainprojectpanel.cpp:109
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Enables sharing resources with other projects"
 msgstr "Activa la compartició de recursos amb altres projectes"
 
-#: ui/kptmainprojectpanel.cpp:109
+#: ui/kptmainprojectpanel.cpp:111
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7127,13 +7140,13 @@ msgstr ""
 "accés de lectura. Els projectes que comparteixen els recursos també cal que "
 "siguin accessibles."
 
-#: ui/kptmainprojectpanel.cpp:117
+#: ui/kptmainprojectpanel.cpp:119
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "File where shared resources are defined"
 msgstr "Fitxer a on es defineixen els recursos compartits"
 
-#: ui/kptmainprojectpanel.cpp:340
+#: ui/kptmainprojectpanel.cpp:365
 #, kde-format
 msgid "Task Modules Path"
 msgstr "Camí als mòduls de tasques"
@@ -7219,88 +7232,95 @@ msgstr "&Usa recursos compartits"
 msgid "Browse..."
 msgstr "Navega..."
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptmainprojectpanelbase.ui:255
+#, fuzzy, kde-format
+#| msgid "Freedays:"
+msgid "Freedays"
+msgstr "Dies lliures:"
+
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptmainprojectpanelbase.ui:288 ui/kptworkpackagemergedialog.cpp:229
+#: ui/kptmainprojectpanelbase.ui:332 ui/kptworkpackagemergedialog.cpp:229
 #: ui/kptworkpackagemergepanel.ui:192
 #, kde-format
 msgid "Documents"
 msgstr "Documents"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
-#: ui/kptmainprojectpanelbase.ui:302
+#: ui/kptmainprojectpanelbase.ui:346
 #, kde-format
 msgid "Work Package"
 msgstr "Paquet de feina"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
-#: ui/kptmainprojectpanelbase.ui:308
+#: ui/kptmainprojectpanelbase.ui:352
 #, kde-format
 msgid "Publish"
 msgstr "Publica"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/kptmainprojectpanelbase.ui:316
+#: ui/kptmainprojectpanelbase.ui:360
 #, kde-format
 msgid "Publish:"
 msgstr "Publica:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptmainprojectpanelbase.ui:331
+#: ui/kptmainprojectpanelbase.ui:375
 #, kde-format
 msgid "Retrieve"
 msgstr "Recupera"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
-#: ui/kptmainprojectpanelbase.ui:337
+#: ui/kptmainprojectpanelbase.ui:381
 #, kde-format
 msgid "Check for work packages"
 msgstr "Comprova els paquets de feina"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptmainprojectpanelbase.ui:346
+#: ui/kptmainprojectpanelbase.ui:390
 #, kde-format
 msgid "Retrieve:"
 msgstr "Recupera:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptmainprojectpanelbase.ui:361
+#: ui/kptmainprojectpanelbase.ui:405
 #, kde-format
 msgid "Archive"
 msgstr "Arxiva"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
-#: ui/kptmainprojectpanelbase.ui:367
+#: ui/kptmainprojectpanelbase.ui:411
 #, kde-format
 msgid "Delete file after it has been retrieved"
 msgstr "Suprimeix el fitxer després que s'hagi recuperat"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
-#: ui/kptmainprojectpanelbase.ui:374
+#: ui/kptmainprojectpanelbase.ui:418
 #, kde-format
 msgid "Archive file after it has been retrieved"
 msgstr "Arxiva el fitxer després que s'hagi recuperat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptmainprojectpanelbase.ui:383
+#: ui/kptmainprojectpanelbase.ui:427
 #, kde-format
 msgid "Archive:"
 msgstr "Arxiu:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
-#: ui/kptmainprojectpanelbase.ui:412
+#: ui/kptmainprojectpanelbase.ui:456
 #, kde-format
 msgid "Task Modules"
 msgstr "Mòduls de tasques"
 
 #. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
-#: ui/kptmainprojectpanelbase.ui:457
+#: ui/kptmainprojectpanelbase.ui:501
 #, kde-format
 msgid "Insert"
 msgstr "Insereix"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
-#: ui/kptmainprojectpanelbase.ui:481
+#: ui/kptmainprojectpanelbase.ui:525
 #, kde-format
 msgid "Use local task modules"
 msgstr "Usa els mòduls de tasques locals"
@@ -8863,7 +8883,7 @@ msgstr "Símbol de moneda:"
 msgid "Fractional digits:"
 msgstr "Dígits fraccionaris:"
 
-#: ui/MilestoneGanttView.cpp:218
+#: ui/MilestoneGanttView.cpp:220
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9662,7 +9682,7 @@ msgstr "Requerits"
 msgid "Allocate"
 msgstr "Assigna"
 
-#: ui/ResourceAppointmentsGanttView.cpp:233
+#: ui/ResourceAppointmentsGanttView.cpp:234
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""

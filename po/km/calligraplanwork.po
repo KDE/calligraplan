@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2012-06-21 14:09+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -94,12 +94,12 @@ msgstr "មិនមាន​ឯកសារ ៖ %1"
 msgid "Document is already open:<br>%1"
 msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ​ ៖<br>%1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ពី​ឧបករណ៍​ផ្ទុក​ ៖<br>%1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr " URL មិន​​ត្រឹម​ត្រូវ ៖<br>%1"
@@ -539,32 +539,32 @@ msgstr "មិន​អាច​បើក​ឯកសារ​បណ្តោះ
 msgid "Work Package: %1"
 msgstr "កញ្ចប់​ការងារ ៖ %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "ឯកសារ​បាន​បើក​រួច​ហើយ"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​គម្រោង ៖ %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "មិន​អាច​រក្សា​ទុក​ឈ្មោះ​ឯកសារ​ទទេ​បាន​ទេ"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "មិន​អាច​បង្កើត​ឯកសារ​សម្រាប់​រក្សា​ទុក​បាន​ទេ"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "មិន​អាច​សរសេរ​ '%1' ។ ភាគ​ថាស​ពេញ​ឬ ?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
@@ -573,7 +573,7 @@ msgstr ""
 "បាន​បរាជ័យក្នុង​ការបើក​ឧបករណ៍​ផ្ទុក​ ៖\n"
 " %1"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -582,14 +582,14 @@ msgstr ""
 "មិន​អាច​រក្សា​ទុក​ទៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​បាន​ទេ ៖\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 #, fuzzy
 #| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "យក​ធាតុ​ចេញ"
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
@@ -598,7 +598,7 @@ msgstr ""
 "បាន​បរាជ័យ​ក្នុង​ការ​អាន​ឯកសារ ៖\n"
 " %1"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
@@ -607,12 +607,12 @@ msgstr ""
 "បាន​បរាជ័យ​ក្នុង​ការ​សរសេរ​ឯកសារ ៖\n"
 " %1"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "បញ្ចូល​ទិន្នន័យ​ចូល​គ្នា"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -624,19 +624,19 @@ msgstr[0] ""
 "កញ្ចប់​ការងារ​ '%2' មាន​ឯកសារ​បើក ។\n"
 "ទិន្នន័យ​អាច​នឹង​ត្រូវ​បាត់បង់ បើ​អ្នក​នៅ​តែ​បន្ត​បើក ។"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
 msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b> ត្រូវ​បាន​កែប្រែ ។</p><p>​តើ​អ្នក​ចង់​រក្សា​ទុក​វា​ឬ ?</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​បើក​ឧបករណ៍​ផ្ទុក​ ៖</p><p>%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>កញ្ចប់​ការងារ <b>'%1'</b></p><p>មិន​អាច​ស្រង់​ឯកសារ​ចេញ​ ៖</p><p>%2</p>"

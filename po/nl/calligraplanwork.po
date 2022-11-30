@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-10-28 10:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -91,12 +91,12 @@ msgstr "Het bestand %1 bestaat niet."
 msgid "Document is already open:<br>%1"
 msgstr "Document is reeds geopend:<br>%1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "Kon document niet uit de opslag halen:<br>%1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr "Ongeldig URL-adres:<br>%1"
@@ -517,39 +517,39 @@ msgstr "Kon tijdelijk bestand niet openen. Verzenden is afgebroken."
 msgid "Work Package: %1"
 msgstr "Werkpakket: %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "Document is reeds geopend"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "Project laden is mislukt: %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "Kan niet opslaan in een lege bestandsnaam"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Kon het bestand voor opslaan niet aanmaken"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Kon '%1' niet schrijven. Is de partitie vol?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr "Openen van opslag %1 is mislukt"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -558,31 +558,31 @@ msgstr ""
 "Opslaan in de projectopslag kan niet:\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Document verwijderen"
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
 " %1"
 msgstr "Lezen van bestand %1 is mislukt"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
 " %1"
 msgstr "Schrijven van bestand %1 is mislukt"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "Data samenvoegen"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -597,7 +597,7 @@ msgstr[1] ""
 "<p>Het werkpakket <b>'%2'</b> heeft open documenten.</p><p>Data kan verloren "
 "gaan als u doorgaat.</p>"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
@@ -605,13 +605,13 @@ msgid ""
 msgstr ""
 "<p>Het werkpakket <b>'%1'</b> is gewijzigd.</p><p>Wilt u het opslaan?.</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
 "<p>Werkpakket <b>'%1'</b></p><p>Kon de opslag niet openen:</p><p>%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>Werkpakket <b>'%1'</b></p><p>Kon bestand niet ophalen:</p><p>%2</p>"

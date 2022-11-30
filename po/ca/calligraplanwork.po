@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-03-08 09:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -95,12 +95,12 @@ msgstr "El fitxer %1 no existeix."
 msgid "Document is already open:<br>%1"
 msgstr "El document ja està obert:<br>%1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "No s'ha pogut extreure el document del magatzem:<br>%1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr "URL no vàlid:<br>%1"
@@ -522,32 +522,32 @@ msgstr "No s'ha pogut obrir el fitxer temporal. S'ha interromput l'enviament."
 msgid "Work Package: %1"
 msgstr "Paquet de feina: %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "El document ja està obert"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "Ha fallat la càrrega del projecte: %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "No s'ha pogut desar amb un nom de fitxer buit"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "No s'ha pogut crear el fitxer per a desar-lo"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "No s'ha pogut escriure «%1». La partició és plena?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
@@ -556,7 +556,7 @@ msgstr ""
 "Ha fallat l'obertura del magatzem:\n"
 "%1"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -565,12 +565,12 @@ msgstr ""
 "No es pot desar al magatzem del projecte:\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Elimina el document"
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
@@ -579,7 +579,7 @@ msgstr ""
 "Ha fallat la lectura del fitxer:\n"
 "%1"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
@@ -588,12 +588,12 @@ msgstr ""
 "Ha fallat l'escriptura del fitxer:\n"
 "%1"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "Fusiona les dades"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -608,7 +608,7 @@ msgstr[1] ""
 "<p>El paquet de feina <b>«%2»</b> té documents oberts.</p><p>Les dades es "
 "poden perdre si continueu.</p>"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
@@ -616,14 +616,14 @@ msgid ""
 msgstr ""
 "<p>El paquet de feina <b>«%1»</b> s'ha modificat.</p><p>Voleu desar-lo?</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
 "<p>El paquet de feina <b>«%1»</b></p><p>No es pot obrir el magatzem:</p><p>"
 "%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""

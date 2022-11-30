@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2019-10-18 20:59+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -91,12 +91,12 @@ msgstr "Súbor %1 neexistuje."
 msgid "Document is already open:<br>%1"
 msgstr "Dokument je už otvorený:<br>%1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "Nemôžem extrahovať dokument z úložiska:<br>%1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr "Neplatné URL:<br>%1"
@@ -526,32 +526,32 @@ msgstr "Nemôžem otvoriť dočasný súbor. Posielanie je zrušené."
 msgid "Work Package: %1"
 msgstr "Pracovný balík: %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "Dokument je už otvorený"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "Zlyhalo načítanie projektu: %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "Nemôžem uložiť do prázdneho názvu súboru"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Nemôžem vytvoriť súbor na uloženie"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Nedá sa zapísať '%1'. Plný disk?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
@@ -560,7 +560,7 @@ msgstr ""
 "Zlyhalo otvorenie úložiska:\n"
 " %1"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -569,14 +569,14 @@ msgstr ""
 "Nemôžem uložiť do úložiska projektov:\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 #, fuzzy
 #| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Odstrániť záznam"
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
@@ -585,7 +585,7 @@ msgstr ""
 "Zlyhalo čítanie súboru:\n"
 " %1"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
@@ -594,12 +594,12 @@ msgstr ""
 "Zlyhal zápis súboru:\n"
 " %1"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "Zlúčiť dáta"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -617,20 +617,20 @@ msgstr[2] ""
 "<p>Pracovný balík <b>'%2'</b> má otvorené dokumenty.</p><p>Pri pokračovaní "
 "môžete stratiť dáta.</p>"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
 msgstr "<p>Pracovný balík <b>'%1'</b> bol zmenený.</p><p>Chcete ho uložiť?</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
 "<p>Pracovný balík <b>'%1'</b></p><p>Nemôžem otvoriť úložisko:</p><p>%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""

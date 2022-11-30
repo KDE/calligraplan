@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-25 00:47+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-08-28 19:24+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -139,43 +139,43 @@ msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
 msgstr "No se ha podido satisfacer la dependencia. Fluctuación negativa=%1"
 
-#: PlanTJScheduler.cpp:777
+#: PlanTJScheduler.cpp:779
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
 msgstr "No se ha podido añadir como predecesor de la tarea «%1»"
 
-#: PlanTJScheduler.cpp:788
+#: PlanTJScheduler.cpp:790
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
 msgstr "No se ha podido añadir como sucesor de la tarea «%1»"
 
-#: PlanTJScheduler.cpp:809
+#: PlanTJScheduler.cpp:811
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
 msgstr "Tipo de dependencia «%1» no gestionada. Utilizando FinishStart."
 
-#: PlanTJScheduler.cpp:870
+#: PlanTJScheduler.cpp:872
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid start constraint"
 msgstr "%1: Restricción de inicio no válida"
 
-#: PlanTJScheduler.cpp:883
+#: PlanTJScheduler.cpp:885
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid end constraint"
 msgstr "%1: Restricción de finalización no válida"
 
-#: PlanTJScheduler.cpp:906
+#: PlanTJScheduler.cpp:908
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Unhandled time constraint type"
 msgstr "Tipo de restricción de tiempo no gestionada"
 
-#: PlanTJScheduler.cpp:917 PlanTJScheduler.cpp:935
+#: PlanTJScheduler.cpp:919 PlanTJScheduler.cpp:937
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
@@ -183,73 +183,73 @@ msgstr ""
 "No se puede utilizar el calendario correcto para el cálculo de la duración "
 "de la tarea"
 
-#: PlanTJScheduler.cpp:983
+#: PlanTJScheduler.cpp:985
 #, kde-format
 msgid "Recalculate, earliest start: %1"
 msgstr "Recalcular; inicio más antiguo: %1"
 
-#: PlanTJScheduler.cpp:997
+#: PlanTJScheduler.cpp:999
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
 msgstr "La tarea ha comenzado. Esfuerzo restante: %1d"
 
-#: PlanTJScheduler.cpp:1015
+#: PlanTJScheduler.cpp:1017
 #, kde-format
 msgid "No working hours defined for resource: %1"
 msgstr "No hay horas de trabajo definidas para el recurso: %1"
 
-#: PlanTJScheduler.cpp:1077
+#: PlanTJScheduler.cpp:1079
 #, kde-format
 msgid "Scheduling started: %1"
 msgstr "Planificación iniciada: %1"
 
-#: PlanTJScheduler.cpp:1079
+#: PlanTJScheduler.cpp:1081
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr "Volviendo a calcular desde: %1"
 
-#: PlanTJScheduler.cpp:1088 PlanTJScheduler.cpp:1171
+#: PlanTJScheduler.cpp:1090 PlanTJScheduler.cpp:1173
 #, kde-format
 msgid "Scheduling canceled"
 msgstr "Planificación cancelada"
 
-#: PlanTJScheduler.cpp:1091
+#: PlanTJScheduler.cpp:1093
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr ""
 "La planificación ha finalizado a las %1, tiempo transcurrido: %2 segundos"
 
-#: PlanTJScheduler.cpp:1108 PlanTJScheduler.cpp:1152
+#: PlanTJScheduler.cpp:1110 PlanTJScheduler.cpp:1154
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
 msgstr "Intervalo de planificación: %1 - %2, granularidad: %3 minutos"
 
-#: PlanTJScheduler.cpp:1113 PlanTJScheduler.cpp:1158
+#: PlanTJScheduler.cpp:1115 PlanTJScheduler.cpp:1160
 #, kde-format
 msgid "Invalid project, start > end"
 msgstr "Proyecto no válido: inicio > final"
 
-#: PlanTJScheduler.cpp:1122 PlanTJScheduler.cpp:1167
+#: PlanTJScheduler.cpp:1124 PlanTJScheduler.cpp:1169
 #, kde-format
 msgid "Project check failed"
 msgstr "La comprobación del proyecto ha fallado"
 
-#: PlanTJScheduler.cpp:1130
+#: PlanTJScheduler.cpp:1132
 #, kde-format
 msgid "Scheduled: %1 - %2"
 msgstr "Planificado: %1 - %2"
 
-#: PlanTJScheduler.cpp:1132
+#: PlanTJScheduler.cpp:1134
 #, kde-format
 msgid "Scheduling failed"
 msgstr "La planificación ha fallado"
 
-#: PlanTJScheduler.cpp:1136 PlanTJScheduler.cpp:1177
+#: PlanTJScheduler.cpp:1138 PlanTJScheduler.cpp:1179
 #, kde-format
 msgid "Project scheduling failed"
 msgstr "La planificación del proyecto ha fallado"
 
-#: PlanTJScheduler.cpp:1238
+#: PlanTJScheduler.cpp:1240
 #, kde-format
 msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "

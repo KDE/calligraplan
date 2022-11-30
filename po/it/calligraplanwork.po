@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-03-08 14:03+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -93,12 +93,12 @@ msgstr "Il file %1 non esiste."
 msgid "Document is already open:<br>%1"
 msgstr "Il documento è già aperto:<br>%1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "Impossibile estrarre il documento dall'archivio<br>%1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr "Indirizzo non valido:<br>%1"
@@ -520,32 +520,32 @@ msgstr "Impossibile aprire il file temporaneo. L'invio è annullato."
 msgid "Work Package: %1"
 msgstr "Work package: %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "Il documento è già aperto"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "Caricamento del progetto non riuscito: %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "Impossibile salvare un file senza il nome"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Impossibile creare il file da salvare"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Impossibile scrivere su «%1». La partizione è piena?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
@@ -554,7 +554,7 @@ msgstr ""
 "Apertura archivio non riuscita:\n"
 "%1"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -563,12 +563,12 @@ msgstr ""
 "Impossibile salvare nell'archivio dei progetti:\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Rimuovi il documento"
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
@@ -577,7 +577,7 @@ msgstr ""
 "Lettura file non riuscita:\n"
 " %1"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
@@ -586,12 +586,12 @@ msgstr ""
 "Scrittura file non riuscita:\n"
 " %1"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "Unisci i dati"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -606,7 +606,7 @@ msgstr[1] ""
 "<p>Il work package <b>'%2'</b> ha dei documenti aperti.</p><p>Se continui "
 "potresti perdere dei dati.</p>"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
@@ -614,13 +614,13 @@ msgid ""
 msgstr ""
 "<p>Il work package <b>'%1'</b> è stato modificato.</p><p>Vuoi salvarlo?</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
 "<p>Work package <b>'%1'</b></p><p>impossibile aprire l'archivio:</p><p>%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
