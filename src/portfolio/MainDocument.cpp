@@ -175,6 +175,10 @@ void MainDocument::slotProjectDocumentLoaded()
                 document->setProperty(SCHEDULEMANAGERNAME, sm->name());
             }
         }
+        const auto managers = document->project()->allScheduleManagers();
+        for (const auto m : managers) {
+            m->setProperty(ORIGINALSCHEDULEMANAGER, true);
+        }
         document->setModified(false);
     }
 }

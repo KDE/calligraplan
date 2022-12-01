@@ -7,6 +7,7 @@ set(calligraplanportfolioprivate_LIB_SRCS
     PlanGroupDebug.cpp
 
     ScheduleManagerDelegate.cpp
+    ScheduleManagerInfoDialog.cpp
 
     SummaryModel.cpp
     SummaryView.cpp
@@ -40,6 +41,7 @@ ki18n_wrap_ui(calligraplanportfolioprivate_LIB_SRCS
     SchedulingView.ui
     ResourceUsageView.ui
     DocumentsSaveDialog.ui
+    ScheduleManagerInfoDialog.ui
 )
 
 kconfig_add_kcfg_files(calligraplanportfoliosettings_SRCS config/portfoliosettings.kcfgc)

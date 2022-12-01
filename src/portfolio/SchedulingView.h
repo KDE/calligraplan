@@ -17,6 +17,8 @@
 
 #include <SchedulingContext.h>
 
+class ScheduleManagerInfo;
+
 class KoDocument;
 class KoPrintJob;
 class KoXmlElement;

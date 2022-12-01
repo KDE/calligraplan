@@ -1246,7 +1246,6 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
 void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::SchedulingContext &context)
 {
     auto project = doc->project();
-    project->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
     auto sm = getScheduleManager(project);
     Q_ASSERT(sm);
     doc->setProperty(SCHEDULEMANAGERNAME, sm->name());

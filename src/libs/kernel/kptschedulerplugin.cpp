@@ -496,7 +496,6 @@ void SchedulerThread::updateProject(const Project *tp, const ScheduleManager *tm
     // update main schedule and appointments
     updateAppointments(tp, tm, mp, sm, status);
     sm->scheduleChanged(sm->expected());
-    qInfo()<<Q_FUNC_INFO<<(void*)tm->expected()<<tp->schedule()<<(void*)sm->expected()<<mp->schedules();
 }
 
 // static
@@ -617,33 +616,9 @@ ScheduleManager *SchedulerThread::getScheduleManager(Project *project)
 {
     auto sm = project->findScheduleManagerByName(project->property(SCHEDULEMANAGERNAME).toString());
     if (!sm) {
-        sm = project->currentScheduleManager();
+        errorPlan<<"Internal error, no schedulemanager found:"<<project<<project->property(SCHEDULEMANAGERNAME).toString();
+        return nullptr;
     }
-    if (!sm) {
-        // create a new schedule top level schedule
-        sm = project->createScheduleManager(project->uniqueScheduleName());
-        project->addScheduleManager(sm);
-        project->setProperty(SCHEDULEMANAGERNAME, sm->name());
-        logDebug(project, nullptr, QStringLiteral("Could not find suitable schedule, creating a new top level schedule: %1").arg(sm->name()));
-    } else if (sm->isBaselined() || (sm->isScheduled() && project->isStarted() && !sm->parentManager())) {
-        // create a subschedule
-        KPlato::ScheduleManager *parent = sm;
-        sm = project->createScheduleManager(parent);
-        project->addScheduleManager(sm, parent);
-        project->setProperty(SCHEDULEMANAGERNAME, sm->name());
-        sm->setRecalculate(true);
-        sm->setRecalculateFrom(QDateTime::currentDateTime());
-        if (parent->isBaselined()) {
-            logDebug(project, nullptr, QStringLiteral("Selected schedule is baselined, a new sub-schedule is created: %1").arg(sm->name()));
-        } else {
-            logDebug(project, nullptr, QStringLiteral("Project is started, a new sub-schedule is created: %1").arg(sm->name()));
-        }
-    } else if (sm->parentManager()) {
-        sm->setRecalculate(true);
-        sm->setRecalculateFrom(QDateTime::currentDateTime());
-        logDebug(project, nullptr, QStringLiteral("Re-schedule selected schedule: %1").arg(sm->name()));
-    }
-    Q_ASSERT(sm);
     if (!sm->expected()) {
         sm->createSchedules();
     }

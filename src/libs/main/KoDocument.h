@@ -45,6 +45,7 @@ class QDomDocument;
 #define EMBEDDEDURL "embedded-url"
 #define ORIGINALMODIFICATIONTIME "original-modiication-time"
 #define STATUS "status"
+#define ORIGINALSCHEDULEMANAGER "portfolio-schedulemanager"
 
 #define SHAREDRESOURCESREMOVE 0
 #define SHAREDRESOURCESCONVERT 1

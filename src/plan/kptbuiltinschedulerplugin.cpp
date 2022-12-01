@@ -218,7 +218,7 @@ KoDocument *KPlatoScheduler::copyDocument(KoDocument *doc)
     xml.setContent(domDoc.toString());
     copy->loadXML(xml, nullptr);
     copy->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
-    copy->project()->setProperty(SCHEDULEMANAGERNAME, copy->property(SCHEDULEMANAGERNAME));
+    copy->project()->setProperty(SCHEDULEMANAGERNAME, doc->project()->property(SCHEDULEMANAGERNAME));
     return copy;
 }
 
@@ -286,6 +286,9 @@ void KPlatoScheduler::calculateProject(SchedulingContext &context, KoDocument *d
     KPlato::Project *project = doc->project();
     KPlato::ScheduleManager *sm = getScheduleManager(project);
     Q_ASSERT(sm);
+    if (!sm) {
+        return;
+    }
     project->setCurrentScheduleManager(sm);
     doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
     connect(sm, &KPlato::ScheduleManager::sigLogAdded, this, &KPlatoScheduler::slotAddLog);

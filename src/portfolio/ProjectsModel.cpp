@@ -351,6 +351,13 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                         return koIcon("list-remove");
                     }
                     return QVariant();
+                case Qt::FontRole:
+                    if (sm->property(ORIGINALSCHEDULEMANAGER).toBool()) {
+                        QFont f;
+                        f.setBold(true);
+                        return f;
+                    }
+                    break;
                 default:
                     return QVariant();
             }

@@ -9,6 +9,7 @@
 #include "SchedulingModel.h"
 #include "MainDocument.h"
 #include "PlanGroupDebug.h"
+#include "ScheduleManagerInfoDialog.h"
 
 #include <KoApplication.h>
 #include <KoComponentData.h>
@@ -404,13 +405,6 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         m_logView->resizeColumnToContents(0);
         return false;
     }
-    KPlato::Schedule::Log log(m_schedulingContext.project, KPlato::Schedule::Log::Type_Info, i18n("Scheduling running..."));
-    m_logModel.setLog(QVector<KPlato::Schedule::Log>() << log);
-    m_logView->resizeColumnToContents(0);
-    QCoreApplication::processEvents();
-
-    QApplication::setOverrideCursor(Qt::WaitCursor); // FIXME: workaround because progress dialog shown late, why?
-
     for (KoDocument *doc : qAsConst(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
@@ -428,6 +422,20 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         }
         return false;
     }
+    ScheduleManagerInfoDialog dlg(m_schedulingContext.projects.values());
+    if (dlg.exec() != QDialog::Accepted) {
+        return false;
+    }
+    for (const auto &info : dlg.scheduleManagerInfoList()) {
+        if (!info.manager) {
+            info.project->setProperty(SCHEDULEMANAGERNAME, info.document->property(SCHEDULEMANAGERNAME));
+            continue;
+        }
+        info.project->addScheduleManager(info.manager, info.parentManager);
+        info.project->setProperty(SCHEDULEMANAGERNAME, info.manager->name());
+    }
+    QApplication::setOverrideCursor(Qt::WaitCursor); // FIXME: workaround because progress dialog shown late, why?
+
     KPlato::DateTime targetEnd;
     QMultiMap<int, KoDocument*>::const_iterator it = m_schedulingContext.projects.constBegin();
     for (; it != m_schedulingContext.projects.constEnd(); ++it) {
