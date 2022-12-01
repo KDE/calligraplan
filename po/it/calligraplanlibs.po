@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-03 12:23+0100\n"
+"PO-Revision-Date: 2022-11-28 00:03+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6090,7 +6090,7 @@ msgstr "Mostra i separatori di riga"
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Giorni liberi:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -6883,12 +6883,10 @@ msgstr "Ctrl+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:95 ui/ResourceAppointmentsGanttView.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
-msgstr "Nessuna festività"
+msgstr "Nessun giorno libero"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113

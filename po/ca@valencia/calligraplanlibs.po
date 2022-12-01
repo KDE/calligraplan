@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-26 13:19+0100\n"
+"PO-Revision-Date: 2022-11-30 09:35+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -6881,12 +6881,10 @@ msgstr "Sense dies lliures"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "No freedays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Sense dies lliures"
+msgstr "Dies lliures del projecte"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
 #: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
@@ -7238,10 +7236,9 @@ msgstr "Navega..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Freedays:"
+#, kde-format
 msgid "Freedays"
-msgstr "Dies lliures:"
+msgstr "Dies lliures"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)

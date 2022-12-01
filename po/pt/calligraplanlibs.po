@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-28 18:22+0000\n"
+"PO-Revision-Date: 2022-11-30 09:26+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -6904,12 +6904,10 @@ msgstr "Sem dias livres"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox"
-#| msgid "No freedays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Sem dias livres"
+msgstr "Dias livres do projecto"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
 #: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
@@ -7261,10 +7259,9 @@ msgstr "Escolher..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Freedays:"
+#, kde-format
 msgid "Freedays"
-msgstr "Dias livres:"
+msgstr "Dias livres"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
