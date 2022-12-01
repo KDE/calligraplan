@@ -65,6 +65,7 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         cmd.redo();
         sm->createSchedules();
         doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
+        project->setProperty(SCHEDULEMANAGERNAME, sm->name());
         project->initiateCalculation(*(sm->expected()));
         project->setCurrentScheduleManager(sm);
         project->setCurrentSchedule(sm->expected()->id());
