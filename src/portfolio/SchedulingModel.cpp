@@ -63,28 +63,51 @@ Qt::ItemFlags SchedulingModel::flags(const QModelIndex &idx) const
     return f;
 }
 
-QVariant SchedulingModel::data(const QModelIndex &idx, int role) const
+bool SchedulingModel::validEndDate(const QModelIndex &idx) const
 {
-    if (m_calculateFrom.isValid() && idx.column() == 2 /*KPlato::NodeModel::NodeConstraintEnd*/) {
+    if (m_calculateFrom.isValid()) {
         auto doc = portfolio()->documents().at(idx.row());
         if (doc->property(SCHEDULINGCONTROL).toString() == m_controlKeys.at(0)) {
-             switch (role ) {
-                 case Qt::ForegroundRole: {
-                    auto targetEnd = KExtraColumnsProxyModel::data(idx, Qt::EditRole).toDateTime();
-                    if (m_calculateFrom > targetEnd) {
-                        return QBrush(Qt::red);
-                    }
-                    break;
-                 }
-                 case Qt::ToolTipRole: {
-                     auto targetEnd = KExtraColumnsProxyModel::data(idx, Qt::EditRole).toDateTime();
-                     if (m_calculateFrom > targetEnd) {
-                         return i18nc("@into:tooltip", "Scheduling not possible. Project target end time must be later than calculation time");
-                     }
-                     break;
-                 }
-                 default: break;
+            auto targetEnd = KExtraColumnsProxyModel::data(idx, Qt::EditRole).toDateTime();
+            return targetEnd > m_calculateFrom;
+        }
+    }
+    return true;
+}
+
+QVariant SchedulingModel::data(const QModelIndex &idx, int role) const
+{
+    if (idx.column() == 0 /*Name*/) {
+        switch (role) {
+            case Qt::DecorationRole: {
+                if (!validEndDate(idx.siblingAtColumn(2))) {
+                    return QColor(Qt::red);
+                }
+                break;
+            }
+            case Qt::ToolTipRole: {
+                if (!validEndDate(idx.siblingAtColumn(2))) {
+                    return i18nc("@into:tooltip", "Scheduling not possible. Project target end time must be later than calculation time");
+                }
+                break;
+            }
+            default: break;
+        }
+    } else if (m_calculateFrom.isValid() && idx.column() == 2 /*KPlato::NodeModel::NodeConstraintEnd*/) {
+         switch (role ) {
+             case Qt::ForegroundRole: {
+                 if (!validEndDate(idx)) {
+                    return QBrush(Qt::red);
+                }
+                break;
              }
+             case Qt::ToolTipRole: {
+                 if (!validEndDate(idx)) {
+                     return i18nc("@into:tooltip", "Scheduling not possible. Project target end time must be later than calculation time");
+                 }
+                 break;
+             }
+             default: break;
         }
     }
     return KExtraColumnsProxyModel::data(idx, role);

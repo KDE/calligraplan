@@ -45,6 +45,7 @@ protected:
 
     QString displayString(const QString &key) const;
     QString keyString(const QString &value) const;
+    bool validEndDate(const QModelIndex &idx) const;
 
 private:
     ProjectsFilterModel *m_baseModel;
