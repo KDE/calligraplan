@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-02 00:46+0000\n"
+"POT-Creation-Date: 2022-12-02 00:46+0000\n"
 "PO-Revision-Date: 2022-08-26 11:12+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -394,7 +394,7 @@ msgctxt "@info:tooltip"
 msgid "The external url of the project file"
 msgstr "L'URL extern del fitxer de projecte"
 
-#: PortfolioModel.cpp:100 SchedulingModel.cpp:158
+#: PortfolioModel.cpp:100 SchedulingModel.cpp:181
 #, kde-format
 msgid "Error"
 msgstr "S'ha produït un error"
@@ -671,7 +671,8 @@ msgctxt "@info:tooltip"
 msgid "Project description"
 msgstr "Descripció del projecte"
 
-#: ProjectsModel.cpp:186 SchedulingModel.cpp:28
+#: ProjectsModel.cpp:186 ScheduleManagerInfoDialog.cpp:35
+#: SchedulingModel.cpp:28
 #, kde-format
 msgid "Schedule"
 msgstr "Planificació"
@@ -803,6 +804,109 @@ msgstr "Apilada"
 msgid "Range"
 msgstr "Interval"
 
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Projects"
+msgctxt "@title:column"
+msgid "Project"
+msgstr "Projectes"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Schedule"
+msgctxt "@title:column"
+msgid "Schedule"
+msgstr "Planificació"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:column"
+msgid "Action"
+msgstr "Opcions"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Status"
+msgctxt "@title:column"
+msgid "State"
+msgstr "Estat"
+
+#: ScheduleManagerInfoDialog.cpp:31 ScheduleManagerInfoDialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Not scheduled"
+msgid "New schedule"
+msgstr "No es planifica"
+
+#: ScheduleManagerInfoDialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "Not scheduled"
+msgid "New sub-schedule"
+msgstr "No es planifica"
+
+#: ScheduleManagerInfoDialog.cpp:70
+#, kde-format
+msgid "New schedule '%1' will be created."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:76
+#, kde-format
+msgid ""
+"Existing schedule '%1' is not scheduled.\n"
+"'%1' will be scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:83
+#, kde-format
+msgid ""
+"Project is baselined.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:90 ScheduleManagerInfoDialog.cpp:102
+#, kde-format
+msgid ""
+"Project is started.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:94
+#, kde-format
+msgid ""
+"Project is started.\n"
+"Schedule '%1' will be re-scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:106
+#, kde-format
+msgid ""
+"Project is started.\n"
+"Existing schedule '%1' will be re-scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:115
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"New sub-schedule '%1'.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:117
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"New schedule '%1' will be created."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:121
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"Existing schedule '%1' will be re-scheduled."
+msgstr ""
+
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
 msgctxt "@title"
@@ -850,12 +954,12 @@ msgstr "Prioritat"
 msgid "Include"
 msgstr "Inclou"
 
-#: SchedulingModel.cpp:28 SchedulingModel.cpp:97
+#: SchedulingModel.cpp:28 SchedulingModel.cpp:120
 #, kde-format
 msgid "Exclude"
 msgstr "Exclou"
 
-#: SchedulingModel.cpp:82
+#: SchedulingModel.cpp:90 SchedulingModel.cpp:106
 #, kde-format
 msgctxt "@into:tooltip"
 msgid ""
@@ -865,37 +969,37 @@ msgstr ""
 "No és possible la planificació. L'hora final objectiu del projecte ha de ser "
 "posterior al temps de càlcul"
 
-#: SchedulingModel.cpp:166
+#: SchedulingModel.cpp:189
 #, kde-format
 msgid "Scheduling..."
 msgstr "S'està planificant..."
 
-#: SchedulingModel.cpp:168
+#: SchedulingModel.cpp:191
 #, kde-format
 msgid "Not scheduled"
 msgstr "No es planifica"
 
-#: SchedulingModel.cpp:170
+#: SchedulingModel.cpp:193
 #, kde-format
 msgid "Finished"
 msgstr "S'ha finalitzat"
 
-#: SchedulingModel.cpp:172
+#: SchedulingModel.cpp:195
 #, kde-format
 msgid "Started"
 msgstr "S'ha iniciat"
 
-#: SchedulingModel.cpp:174
+#: SchedulingModel.cpp:197
 #, kde-format
 msgid "Baselined"
 msgstr "És una línia base"
 
-#: SchedulingModel.cpp:176
+#: SchedulingModel.cpp:199
 #, kde-format
 msgid "Scheduled"
 msgstr "S'ha planificat"
 
-#: SchedulingModel.cpp:211
+#: SchedulingModel.cpp:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -905,31 +1009,31 @@ msgstr ""
 "No és possible la planificació. L'hora final objectiu del projecte ha de ser "
 "posterior al temps de càlcul"
 
-#: SchedulingModel.cpp:213
+#: SchedulingModel.cpp:236
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
 msgstr "Planifica este projecte"
 
-#: SchedulingModel.cpp:216
+#: SchedulingModel.cpp:239
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
 msgstr "Inclou les reserves de recursos des d'este projecte"
 
-#: SchedulingModel.cpp:219 SchedulingModel.cpp:222
+#: SchedulingModel.cpp:242 SchedulingModel.cpp:245
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
 msgstr "Exclou este projecte"
 
-#: SchedulingModel.cpp:237
+#: SchedulingModel.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
 msgstr "La prioritat més alta es planificarà primer"
 
-#: SchedulingView.cpp:115
+#: SchedulingView.cpp:116
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -958,7 +1062,7 @@ msgstr ""
 "funcionar correctament.</note></para><para><link url='%1'>Més...</link></"
 "para>"
 
-#: SchedulingView.cpp:178
+#: SchedulingView.cpp:179
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
@@ -966,28 +1070,23 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 minut"
 msgstr[1] "%1 minuts"
 
-#: SchedulingView.cpp:235 SummaryView.cpp:102
+#: SchedulingView.cpp:236 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
 msgstr "Descripció..."
 
-#: SchedulingView.cpp:395
+#: SchedulingView.cpp:396
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
 msgstr ""
 "S'ha produït un error intern. No s'ha trobat cap connector planificador."
 
-#: SchedulingView.cpp:402 SchedulingView.cpp:424
+#: SchedulingView.cpp:403 SchedulingView.cpp:418
 #, kde-format
 msgid "Nothing to schedule"
 msgstr "No hi ha res que s'haja de planificar"
 
-#: SchedulingView.cpp:407
-#, kde-format
-msgid "Scheduling running..."
-msgstr "S'està executant la planificació..."
-
-#: SchedulingView.cpp:437
+#: SchedulingView.cpp:445
 #, kde-format
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
@@ -996,7 +1095,7 @@ msgstr ""
 "No és possible la planificació. L'hora final objectiu del projecte ha de ser "
 "posterior al temps de càlcul."
 
-#: SchedulingView.cpp:449
+#: SchedulingView.cpp:457
 #, kde-format
 msgid "Scheduling projects"
 msgstr "Planificació de projectes"
@@ -1129,3 +1228,6 @@ msgstr "Ús dels recursos"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Resum de Gantt"
+
+#~ msgid "Scheduling running..."
+#~ msgstr "S'està executant la planificació..."

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-06 00:17+0000\n"
-"PO-Revision-Date: 2022-09-19 20:46+0200\n"
+"PO-Revision-Date: 2022-12-01 06:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,17 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
 msgctxt "(qtundo-format)"
 msgid "Add task"
-msgstr ""
+msgstr "ამოცანის დამატება"
 
 #: Project.cpp:420 Project.cpp:428
 msgctxt "(qtundo-format)"
 msgid "Add resource group"
-msgstr ""
+msgstr "რესურსების ჯგუფის დამატება"
 
 #: Project.cpp:506 Project.cpp:524
 msgctxt "(qtundo-format)"
@@ -36,22 +36,22 @@ msgstr "რესურსის დამატება"
 #: Project.cpp:627
 msgctxt "(qtundo-format)"
 msgid "Add external appointment"
-msgstr ""
+msgstr "გარე განაწესის დამატება"
 
 #: Project.cpp:637 Project.cpp:645
 msgctxt "(qtundo-format)"
 msgid "Clear external appointments"
-msgstr ""
+msgstr "გარე განაწესების გასუფთავება"
 
 #: Project.cpp:652
 msgctxt "(qtundo-format)"
 msgid "Clear all external appointments"
-msgstr ""
+msgstr "ყველა გარე განაწესის გასუფთავება"
 
 #: Resource.cpp:91
 msgctxt "(qtundo-format)"
 msgid "Set resource team members"
-msgstr ""
+msgstr "რესურსების გუფის წევრების დაყენება"
 
 #. i18n: ectx: Menu (tools)
 #: scripting.rc:4
@@ -87,25 +87,25 @@ msgstr "ანგარიშები"
 #: ScriptingDataQueryView.ui:63
 #, kde-format
 msgid "Include headers"
-msgstr ""
+msgstr "თავსართების ჩასმა"
 
 #: ScriptingWidgets.cpp:62
 #, kde-format
 msgid "Schedule Name"
-msgstr ""
+msgstr "განრიგის სახელი"
 
 #: scripts/busyinfoclear.py:10
 msgctxt "(qtundoformat)"
 msgid "Clear all external appointments"
-msgstr ""
+msgstr "ყველა გარე განაწესის გასუფთავება"
 
 #: scripts/busyinfoexport.py:26
 msgid "Busy Information Export"
-msgstr ""
+msgstr "დაკავებულობის ინფორმაციის გატანა"
 
 #: scripts/busyinfoexport.py:30
 msgid "Export Selected Schedule"
-msgstr ""
+msgstr "მონიშნული განრიგის გატანა"
 
 #: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
 #: scripts/plan2odsexport.py:106
@@ -114,7 +114,7 @@ msgstr "განრიგი"
 
 #: scripts/busyinfoexport.py:33
 msgid "Export Busy Info File"
-msgstr ""
+msgstr "დაკავებულობის ინფორმაციის ფაილის გატანა"
 
 #: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
 #: scripts/plan2odsexport.py:112
@@ -147,15 +147,15 @@ msgstr "ფაილი არჩეული არაა"
 
 #: scripts/busyinfoexport.py:51
 msgid "No schedule selected"
-msgstr ""
+msgstr "განრიგი მონიშნული არაა"
 
 #: scripts/busyinfoimport.py:18
 msgid "Busy Information Import"
-msgstr ""
+msgstr "დაკავებულობის ინფორმაციის შემოტანა"
 
 #: scripts/busyinfoimport.py:22
 msgid "Import Busy Info File"
-msgstr ""
+msgstr "დაკავებულობის ინფორმაციის ფაილის შემოტანა"
 
 #: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
 msgid "Open"
@@ -164,29 +164,32 @@ msgstr "გახსნა"
 #: scripts/busyinfoimport.py:29
 msgctxt "(qtundo_format)"
 msgid "Import resource busy information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის შემოტანა"
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
 msgstr ""
+"იგივე იდენტიფიკაციის მქონე პროექტიდან მონაცემების ჩატვირთვა შეუძლებელია"
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
-msgstr ""
+msgstr "Sheets-ის გაშვების შეცდომა. დარწმუნებული ბრძანდებით, რომ დაყენებულია?"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
 msgid "No data to export"
-msgstr ""
+msgstr "შემოსატანი მონაცემების გარეშე"
 
 #: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
 msgid "You must select a file to write to"
-msgstr ""
+msgstr "ფაილი, რომელშიც ჩავწერთ, აუცილებლად უნდა აირჩიოთ"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
 msgid ""
 "Data saved to file:\n"
 "%1"
 msgstr ""
+"მონაცემები შენახულია ფალში:\n"
+"%1"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
 msgid "Information"
@@ -194,11 +197,11 @@ msgstr "ინფორმაცია"
 
 #: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
 msgid "No properties to export"
-msgstr ""
+msgstr "გასატანი თვისებების გარეშე"
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
 msgid "Select schedule"
-msgstr ""
+msgstr "აირჩიეთ განრიგი"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Data"
@@ -206,11 +209,11 @@ msgstr "მონაცემები"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Select data"
-msgstr ""
+msgstr "აირჩიეთ მონაცემები"
 
 #: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
 msgid "Export ods file"
-msgstr ""
+msgstr "ODS ფაილში გატანა"
 
 #: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
 msgid "Spreadsheet"
@@ -218,25 +221,27 @@ msgstr "ელექტრონული ცხრილი"
 
 #: scripts/plan2odsexport.py:37
 msgid "No current sheet."
-msgstr ""
+msgstr "მიმდინარე ფურცლის გარეშე."
 
 #: scripts/plan2odsexport.py:39
 msgid "Invalid sheet '%1' defined."
-msgstr ""
+msgstr "აღწერილი ფურცელი '%1' არასწორია."
 
 #: scripts/plan2odsexport.py:42
 msgid "Could not select cell 'A1'"
-msgstr ""
+msgstr "უჯრედის ('A1') მონიშვნის შეცდომა"
 
 #: scripts/plan2odsexport.py:58
 msgid ""
 "Could not write to file:\n"
 "%1"
 msgstr ""
+"ფაილში ჩაწერის შეცდომა:\n"
+"%1"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Failed to set all properties of '%1' to cell '%2'"
-msgstr ""
+msgstr "'%1'-ის თვისებების '%2' უჯრედზე დაყენების შეცდომა"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Warning"
@@ -244,11 +249,11 @@ msgstr "გაფრთხილება"
 
 #: scripts/resourcesimport.py:17
 msgid "Resources Import"
-msgstr ""
+msgstr "რესურსების შემოტანა"
 
 #: scripts/resourcesimport.py:23
 msgid "Plan Resources"
-msgstr ""
+msgstr "რესურსების დაგეგმვა"
 
 #: scripts/resourcesimport.py:26
 msgid "Plan"
@@ -257,57 +262,57 @@ msgstr "Გეგმა"
 #: scripts/resourcesimport.py:30
 msgctxt "(qtundo_format )"
 msgid "Import resources"
-msgstr ""
+msgstr "რესურსების შემოტანა"
 
 #: scripts/resourcesimport.py:44
 msgid "Could not open document: %1"
-msgstr ""
+msgstr "დოკუმენტის გახსნის შეცდომა: %1"
 
 #: scripts/resourcesimport.py:48
 msgid "No project to import from"
-msgstr ""
+msgstr "შემოსატანი პროექტის გარეშე"
 
 #: scripts/resourcesimport.py:51
 msgid "Project identities are identical"
-msgstr ""
+msgstr "პროექტის იდენტიფიკატორები იდენტურია"
 
 #: scripts/resourcesimport.py:69
 msgid "Unable to create copy of resource group: %1"
-msgstr ""
+msgstr "რესურსების ჯგუფის ასლის შექმნის შეცდომა: %1"
 
 #: scripts/resourcesimport.py:74
 msgid "No resource to copy from"
-msgstr ""
+msgstr "რესურსი, რომლიდანაც დავაკოპირებდით, არ არსებობს"
 
 #: scripts/resourcesimport.py:83
 msgid "Unable to create copy of resource: %1"
-msgstr ""
+msgstr "რესურსის ასლის შექმნის შეცდომა: %1"
 
 #: scripts/resourcesimport.py:93
 msgid "Calendar already exists: %1"
-msgstr ""
+msgstr "კალენდარი უკვე არსებობს: %1"
 
 #: scripts/resourcesimport.py:97
 msgid "Unable to create copy of calendar: %1"
-msgstr ""
+msgstr "კალენდარის ასლის შექმნის შეცდომა: %1"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Resource Busy Information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაცია"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Handle resource busy information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის დამუშავება"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Export Resource Busy Information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის გატანა"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:8
@@ -349,7 +354,7 @@ msgstr "იმპორტი"
 #: scripts/scripts.rc:21
 #, kde-format
 msgid "Import content"
-msgstr ""
+msgstr "შემცველობის შემოტანა"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:22
@@ -373,13 +378,13 @@ msgstr "გატანა"
 #: scripts/scripts.rc:31
 #, kde-format
 msgid "Export content"
-msgstr ""
+msgstr "შემცველობის გატანა"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:32
 #, kde-format
 msgid "To csv"
-msgstr ""
+msgstr "CSV-ში"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:32
@@ -391,7 +396,7 @@ msgstr ""
 #: scripts/scripts.rc:36
 #, kde-format
 msgid "To ods"
-msgstr ""
+msgstr "ODS-ში"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:36
@@ -409,7 +414,7 @@ msgstr "ხელსაწყოები"
 #: scripts/scripts.rc:46
 #, kde-format
 msgid "Miscellaneous scripts"
-msgstr ""
+msgstr "სხვადასხვა სკრიპტები"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:47

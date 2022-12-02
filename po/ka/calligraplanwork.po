@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-09-22 08:03+0200\n"
+"PO-Revision-Date: 2022-12-01 06:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "ფაილი არ არსებობს: %1."
 #: part.cpp:139 part.cpp:170
 #, kde-format
 msgid "Document is already open:<br>%1"
-msgstr ""
+msgstr "დოკუმენტი უკვე ღიაა:<br>%1"
 
 #: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
@@ -98,17 +98,17 @@ msgstr ""
 #: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
-msgstr ""
+msgstr "არასწორი URL:<br>%1"
 
 #: part.cpp:198
 #, kde-format
 msgid "Document is already open:<br> %1"
-msgstr ""
+msgstr "დოკუმენტი უკვე ღიაა:<br> %1"
 
 #: part.cpp:202
 #, kde-format
 msgid "File does not exist:<br>%1"
-msgstr ""
+msgstr "ფაილი არ არსებობს:<br>%1"
 
 #: part.cpp:228
 #, kde-format
@@ -191,7 +191,7 @@ msgstr "გაგრძელება"
 #: part.cpp:600 part.cpp:648
 #, kde-format
 msgid "File-Format Mismatch"
-msgstr ""
+msgstr "ფაილის ფორმატები არ ემთხვევა"
 
 #: part.cpp:636
 #, kde-format
@@ -201,24 +201,24 @@ msgstr ""
 #: part.cpp:738
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
-msgstr ""
+msgstr "ჩასწორების შეცდომა. სამუშაო პაკეტი ვერ ვიპოვე."
 
 #: taskcompletiondialog.cpp:32
 #, kde-format
 msgid "Task Progress"
-msgstr ""
+msgstr "ამოცანის მიმდინარეობა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: taskcompletionpanel.ui:33
 #, kde-format
 msgid "Started:"
-msgstr ""
+msgstr "დაწყებულია:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: taskcompletionpanel.ui:50
 #, kde-format
 msgid "Finished:"
-msgstr ""
+msgstr "დასრულებული:"
 
 #. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
 #: taskcompletionpanel.ui:143
@@ -235,7 +235,7 @@ msgstr "ჩანაწერის ამოღება"
 #: taskworkpackagemodel.cpp:289
 #, kde-format
 msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
-msgstr ""
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 
 #: taskworkpackagemodel.cpp:411
 #, kde-kuit-format
@@ -286,7 +286,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
-msgstr ""
+msgstr "აღწერა"
 
 #: taskworkpackagemodel.cpp:606
 #, kde-kuit-format
@@ -545,7 +545,7 @@ msgstr ""
 #: workpackage.cpp:455
 msgctxt "(qtundo-format)"
 msgid "Remove document"
-msgstr ""
+msgstr "დოკუმენტის წაშლა"
 
 #: workpackage.cpp:464
 #, kde-format

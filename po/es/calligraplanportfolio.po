@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-02 00:46+0000\n"
+"POT-Creation-Date: 2022-12-02 00:46+0000\n"
 "PO-Revision-Date: 2022-08-28 19:28+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -397,7 +397,7 @@ msgctxt "@info:tooltip"
 msgid "The external url of the project file"
 msgstr "El URL externo del archivo de proyecto"
 
-#: PortfolioModel.cpp:100 SchedulingModel.cpp:158
+#: PortfolioModel.cpp:100 SchedulingModel.cpp:181
 #, kde-format
 msgid "Error"
 msgstr "Error"
@@ -676,7 +676,8 @@ msgctxt "@info:tooltip"
 msgid "Project description"
 msgstr "Descripción del proyecto"
 
-#: ProjectsModel.cpp:186 SchedulingModel.cpp:28
+#: ProjectsModel.cpp:186 ScheduleManagerInfoDialog.cpp:35
+#: SchedulingModel.cpp:28
 #, kde-format
 msgid "Schedule"
 msgstr "Programar"
@@ -808,6 +809,109 @@ msgstr "Apilada"
 msgid "Range"
 msgstr "Intervalo"
 
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Projects"
+msgctxt "@title:column"
+msgid "Project"
+msgstr "Proyectos"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Schedule"
+msgctxt "@title:column"
+msgid "Schedule"
+msgstr "Programar"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgid "Options"
+msgctxt "@title:column"
+msgid "Action"
+msgstr "Opciones"
+
+#: ScheduleManagerInfoDialog.cpp:21
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Status"
+msgctxt "@title:column"
+msgid "State"
+msgstr "Estado"
+
+#: ScheduleManagerInfoDialog.cpp:31 ScheduleManagerInfoDialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "No schedule"
+msgid "New schedule"
+msgstr "Sin programación"
+
+#: ScheduleManagerInfoDialog.cpp:33
+#, fuzzy, kde-format
+#| msgid "No schedule"
+msgid "New sub-schedule"
+msgstr "Sin programación"
+
+#: ScheduleManagerInfoDialog.cpp:70
+#, kde-format
+msgid "New schedule '%1' will be created."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:76
+#, kde-format
+msgid ""
+"Existing schedule '%1' is not scheduled.\n"
+"'%1' will be scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:83
+#, kde-format
+msgid ""
+"Project is baselined.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:90 ScheduleManagerInfoDialog.cpp:102
+#, kde-format
+msgid ""
+"Project is started.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:94
+#, kde-format
+msgid ""
+"Project is started.\n"
+"Schedule '%1' will be re-scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:106
+#, kde-format
+msgid ""
+"Project is started.\n"
+"Existing schedule '%1' will be re-scheduled."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:115
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"New sub-schedule '%1'.\n"
+"'%1' will be created as sub-schedule to '%2'."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:117
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"New schedule '%1' will be created."
+msgstr ""
+
+#: ScheduleManagerInfoDialog.cpp:121
+#, kde-format
+msgid ""
+"Project is not started.\n"
+"Existing schedule '%1' will be re-scheduled."
+msgstr ""
+
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
 msgctxt "@title"
@@ -855,12 +959,12 @@ msgstr "Prioridad"
 msgid "Include"
 msgstr "Incluir"
 
-#: SchedulingModel.cpp:28 SchedulingModel.cpp:97
+#: SchedulingModel.cpp:28 SchedulingModel.cpp:120
 #, kde-format
 msgid "Exclude"
 msgstr "Excluir"
 
-#: SchedulingModel.cpp:82
+#: SchedulingModel.cpp:90 SchedulingModel.cpp:106
 #, kde-format
 msgctxt "@into:tooltip"
 msgid ""
@@ -870,37 +974,37 @@ msgstr ""
 "La programación no es posible. El tiempo de finalización del objetivo del "
 "proyecto debe ser posterior al tiempo de cálculo"
 
-#: SchedulingModel.cpp:166
+#: SchedulingModel.cpp:189
 #, kde-format
 msgid "Scheduling..."
 msgstr "Programando..."
 
-#: SchedulingModel.cpp:168
+#: SchedulingModel.cpp:191
 #, kde-format
 msgid "Not scheduled"
 msgstr "No programado"
 
-#: SchedulingModel.cpp:170
+#: SchedulingModel.cpp:193
 #, kde-format
 msgid "Finished"
 msgstr "Terminado"
 
-#: SchedulingModel.cpp:172
+#: SchedulingModel.cpp:195
 #, kde-format
 msgid "Started"
 msgstr "Iniciado"
 
-#: SchedulingModel.cpp:174
+#: SchedulingModel.cpp:197
 #, kde-format
 msgid "Baselined"
 msgstr "Línea base"
 
-#: SchedulingModel.cpp:176
+#: SchedulingModel.cpp:199
 #, kde-format
 msgid "Scheduled"
 msgstr "Programado"
 
-#: SchedulingModel.cpp:211
+#: SchedulingModel.cpp:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -910,31 +1014,31 @@ msgstr ""
 "La programación no es posible. El tiempo de finalización del objetivo del "
 "proyecto debe ser posterior al tiempo de cálculo"
 
-#: SchedulingModel.cpp:213
+#: SchedulingModel.cpp:236
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
 msgstr "Programar este proyecto"
 
-#: SchedulingModel.cpp:216
+#: SchedulingModel.cpp:239
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
 msgstr "Incluir las reservas de recursos de este proyecto"
 
-#: SchedulingModel.cpp:219 SchedulingModel.cpp:222
+#: SchedulingModel.cpp:242 SchedulingModel.cpp:245
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
 msgstr "Excluir este proyecto"
 
-#: SchedulingModel.cpp:237
+#: SchedulingModel.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
 msgstr "La prioridad más alta se programa primero"
 
-#: SchedulingView.cpp:115
+#: SchedulingView.cpp:116
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -962,7 +1066,7 @@ msgstr ""
 "dichos proyectos para que la nivelación de recursos funcione correctamente.</"
 "note></para><para><link url='%1'>Más...</link></para>"
 
-#: SchedulingView.cpp:178
+#: SchedulingView.cpp:179
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
@@ -970,28 +1074,23 @@ msgid_plural "%1 minutes"
 msgstr[0] "%1 minuto"
 msgstr[1] "%1 minutos"
 
-#: SchedulingView.cpp:235 SummaryView.cpp:102
+#: SchedulingView.cpp:236 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
 msgstr "Descripción..."
 
-#: SchedulingView.cpp:395
+#: SchedulingView.cpp:396
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
 msgstr ""
 "Error interno. No se ha encontrado ningún complemento del planificador."
 
-#: SchedulingView.cpp:402 SchedulingView.cpp:424
+#: SchedulingView.cpp:403 SchedulingView.cpp:418
 #, kde-format
 msgid "Nothing to schedule"
 msgstr "No hay nada que programar"
 
-#: SchedulingView.cpp:407
-#, kde-format
-msgid "Scheduling running..."
-msgstr "Ejecutando programación..."
-
-#: SchedulingView.cpp:437
+#: SchedulingView.cpp:445
 #, kde-format
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
@@ -1000,7 +1099,7 @@ msgstr ""
 "La programación no es posible. El tiempo de finalización del objetivo del "
 "proyecto debe ser posterior al tiempo de cálculo."
 
-#: SchedulingView.cpp:449
+#: SchedulingView.cpp:457
 #, kde-format
 msgid "Scheduling projects"
 msgstr "Programando proyectos"
@@ -1135,11 +1234,11 @@ msgstr "Uso de recursos"
 msgid "Gantt Summary"
 msgstr "Resumen de Gantt"
 
+#~ msgid "Scheduling running..."
+#~ msgstr "Ejecutando programación..."
+
 #~ msgid "All"
 #~ msgstr "Todo"
-
-#~ msgid "No schedule"
-#~ msgstr "Sin programación"
 
 #~ msgid "Form"
 #~ msgstr "Formulario"

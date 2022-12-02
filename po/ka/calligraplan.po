@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-09-22 07:55+0200\n"
+"PO-Revision-Date: 2022-12-01 06:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -315,31 +315,31 @@ msgstr ""
 #: calligraplansettings.kcfg:239
 #, kde-format
 msgid "Estimate"
-msgstr ""
+msgstr "დაახლოებითი"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "რისკი"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
 #, kde-format
 msgid "Optimistic estimate"
-msgstr ""
+msgstr "ოპტიმისტური შეფასება"
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:256
 #, kde-format
 msgid "Pessimistic estimate"
-msgstr ""
+msgstr "პესიმისტური შეფასება"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
 #: calligraplansettings.kcfg:261
 #, kde-format
 msgid "Task description"
-msgstr ""
+msgstr "ამოცანის აღწერა"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:267
@@ -632,7 +632,7 @@ msgstr ""
 #: config/ConfigProjectPanel.ui:67
 #, kde-format
 msgid "&Manager:"
-msgstr ""
+msgstr "&მმართველი:"
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
@@ -841,7 +841,7 @@ msgstr "ნაგულისხმები:"
 #, kde-format
 msgctxt "@title:group"
 msgid "Use level colors"
-msgstr ""
+msgstr "დონის ფერების გამოყენება"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: config/kptcolorsconfigpanel.ui:110
@@ -869,7 +869,7 @@ msgstr "დონე 3"
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Level 4"
-msgstr ""
+msgstr "დონე 4"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/kptcolorsconfigpanel.ui:231
@@ -884,7 +884,7 @@ msgstr "დავალება"
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Normal:"
-msgstr ""
+msgstr "ნორმალური:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #. i18n: ectx: property (text), widget (QLabel, label_14)
@@ -892,7 +892,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Critical:"
-msgstr ""
+msgstr "კრიტიკული:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_13)
@@ -900,7 +900,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Finished:"
-msgstr ""
+msgstr "დასრულებული:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -939,7 +939,7 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:78
 #, kde-format
 msgid "Effort"
-msgstr ""
+msgstr "ძალისხმევა"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:83
@@ -1105,13 +1105,13 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "დაბალი"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "მაღალი"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1129,7 +1129,7 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:32
 #, kde-format
 msgid "Retrieve:"
-msgstr ""
+msgstr "გამოთხოვა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: config/kptworkpackageconfigpanel.ui:47
@@ -1153,7 +1153,7 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "დაარქივება:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
@@ -1165,7 +1165,7 @@ msgstr "გამოქვეყნება"
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "გამოქვეყნება:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
 #: CreateReportTemplateDialog.ui:14
@@ -1251,7 +1251,7 @@ msgstr ""
 #: kptaboutdata.h:32
 #, kde-format
 msgid "Dag Andersen"
-msgstr ""
+msgstr "Dag Andersen"
 
 #: kptaboutdata.h:33
 #, kde-format
@@ -1337,7 +1337,7 @@ msgstr ""
 #: kptinsertfiledlg.cpp:21
 #, kde-format
 msgid "Insert File"
-msgstr ""
+msgstr "ფაილის ჩასმა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
@@ -1456,12 +1456,12 @@ msgstr "ჯგუფი: %1"
 #: kptmaindocument.cpp:1444
 #, kde-format
 msgid "Resource: %1"
-msgstr ""
+msgstr "რესურსი: %1"
 
 #: kptmaindocument.cpp:1449
 #, kde-format
 msgid "Calendar: %1"
-msgstr ""
+msgstr "კალენდარი: %1"
 
 #: kptmaindocument.cpp:1451
 msgctxt "(qtundo-format)"
@@ -1590,7 +1590,7 @@ msgstr ""
 #: kptview.cpp:501
 #, kde-format
 msgid "Task Cost"
-msgstr ""
+msgstr "ამოცანის ფასი"
 
 #: kptview.cpp:550
 #, kde-format
@@ -1906,7 +1906,7 @@ msgstr ""
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
-msgstr ""
+msgstr "მმართველი:"
 
 #: kptview.cpp:2449
 #, kde-format
@@ -1917,7 +1917,7 @@ msgstr "პროექტი:"
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
-msgstr ""
+msgstr "-დან"
 
 #: kptview.cpp:2452
 #, kde-format
@@ -1928,7 +1928,7 @@ msgstr "გვერდი"
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: kptview.cpp:2454
 #, kde-format
@@ -2116,7 +2116,7 @@ msgstr ""
 #: kptviewlistdialog.cpp:102
 #, kde-format
 msgid "Task View"
-msgstr ""
+msgstr "დავალების ხედი"
 
 #: kptviewlistdialog.cpp:104
 #, kde-format

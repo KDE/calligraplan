@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-10-30 06:49+0100\n"
+"PO-Revision-Date: 2022-12-01 06:33+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -233,7 +233,7 @@ msgstr ""
 #: kernel/kptglobal.cpp:34
 #, kde-format
 msgid "Scheduling error"
-msgstr ""
+msgstr "დაგეგმვის შეცდომა"
 
 #: kernel/kptglobal.cpp:36
 #, kde-format
@@ -274,7 +274,7 @@ msgstr "პროექტი"
 #: kernel/kptnode.cpp:144
 #, kde-format
 msgid "Sub-Project"
-msgstr ""
+msgstr "ქვეპროექტი"
 
 #: kernel/kptnode.cpp:145
 #, kde-format
@@ -301,43 +301,43 @@ msgstr "შეჯამება"
 #: kernel/kptnode.cpp:777
 #, kde-format
 msgid "As Soon As Possible"
-msgstr ""
+msgstr "რაც შეიძლება სწრაფად"
 
 #: kernel/kptnode.cpp:778
 #, kde-format
 msgid "As Late As Possible"
-msgstr ""
+msgstr "რაც შეიძლება, გვიან"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
 #: kernel/kptnode.cpp:779 ui/kpttaskgeneralpanelbase.ui:227
 #: ui/TasksGeneralPanel.ui:179
 #, kde-format
 msgid "Must Start On"
-msgstr ""
+msgstr "უნდა დაიწყოს დროზე"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
 #: kernel/kptnode.cpp:780 ui/kpttaskgeneralpanelbase.ui:232
 #: ui/TasksGeneralPanel.ui:184
 #, kde-format
 msgid "Must Finish On"
-msgstr ""
+msgstr "უნდა დამთავრდეს დროზე"
 
 #: kernel/kptnode.cpp:781
 #, kde-format
 msgid "Start Not Earlier"
-msgstr ""
+msgstr "უნდა დაიწყოს არა უადრეს"
 
 #: kernel/kptnode.cpp:782
 #, kde-format
 msgid "Finish Not Later"
-msgstr ""
+msgstr "უნდა დამთავრდეს არა უგვიანეს"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
 #: kernel/kptnode.cpp:783 ui/kpttaskgeneralpanelbase.ui:247
 #: ui/TasksGeneralPanel.ui:199
 #, kde-format
 msgid "Fixed Interval"
-msgstr ""
+msgstr "ფიქსირებული ინტერვალი"
 
 #: kernel/kptnode.cpp:800 kernel/kptnode.cpp:809 kernel/kptnode.cpp:839
 #: kernel/kptnode.cpp:848
@@ -631,7 +631,7 @@ msgstr ""
 #: kernel/kptschedule.cpp:1791
 #, kde-format
 msgid "Scheduling"
-msgstr ""
+msgstr "დაგეგმილი"
 
 #: kernel/kpttask.cpp:1109
 #, kde-format
@@ -1136,7 +1136,7 @@ msgstr ""
 #: main/KoDocument.cpp:559
 #, kde-format
 msgid "Making backup..."
-msgstr ""
+msgstr "მარქაფი..."
 
 #: main/KoDocument.cpp:574
 #, kde-format
@@ -2695,13 +2695,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic estimate"
-msgstr ""
+msgstr "ოპტიმისტური შეფასება"
 
 #: models/kptcommonstrings.cpp:77 models/kptcommonstrings.cpp:82
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic estimate"
-msgstr ""
+msgstr "პესიმისტური შეფასება"
 
 #: models/kptcommonstrings.cpp:78
 #, kde-kuit-format
@@ -3787,7 +3787,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling error"
-msgstr ""
+msgstr "დაგეგმვის შეცდომა"
 
 #: models/kptnodeitemmodel.cpp:1938
 #, kde-kuit-format
@@ -3908,7 +3908,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Risk"
-msgstr ""
+msgstr "რისკი"
 
 #: models/kptnodeitemmodel.cpp:2331
 #, kde-kuit-format
@@ -6239,7 +6239,7 @@ msgstr "საწყისი თარიღი"
 #: ui/kptaccountsviewconfigurepanelbase.ui:107
 #, kde-format
 msgid "Project start"
-msgstr ""
+msgstr "პროექტის დასაწყისი"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
@@ -6466,7 +6466,7 @@ msgstr ""
 #: ui/ResourceAppointmentsGanttView.cpp:371
 #, kde-format
 msgid "Description..."
-msgstr ""
+msgstr "აღწერა..."
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:377
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
@@ -6655,8 +6655,7 @@ msgstr ""
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgid "Project name"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
 msgstr "პროექტის სახელი"
@@ -7023,7 +7022,7 @@ msgstr "გამოქვეყნება"
 #: ui/kptmainprojectpanelbase.ui:360
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "გამოქვეყნება:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/kptmainprojectpanelbase.ui:375
@@ -7041,7 +7040,7 @@ msgstr ""
 #: ui/kptmainprojectpanelbase.ui:390
 #, kde-format
 msgid "Retrieve:"
-msgstr ""
+msgstr "გამოთხოვა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/kptmainprojectpanelbase.ui:405
@@ -7065,7 +7064,7 @@ msgstr ""
 #: ui/kptmainprojectpanelbase.ui:427
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "დაარქივება:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
 #: ui/kptmainprojectpanelbase.ui:456
@@ -8033,7 +8032,7 @@ msgstr ""
 #: ui/kpttaskprogresspanelbase.ui:62
 #, kde-format
 msgid "Finished:"
-msgstr ""
+msgstr "დასრულებული:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskprogresspanelbase.ui:117
@@ -9013,7 +9012,7 @@ msgstr ""
 #: ui/reports/reportview.cpp:433
 #, kde-format
 msgid "Export to HTML failed"
-msgstr ""
+msgstr "HTML-ში გატანის შეცდომა"
 
 #: ui/reports/reportview.cpp:443
 #, kde-format
