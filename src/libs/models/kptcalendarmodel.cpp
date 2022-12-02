@@ -25,6 +25,8 @@
 #include <QPainter>
 #include <QLocale>
 #include <QTimeZone>
+#include <QApplication>
+#include <QPalette>
 
 #include <KFormat>
 #ifdef HAVE_KHOLIDAYS
@@ -1178,7 +1180,13 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
                 case Qt::FontRole:
                     break;//return QFont("Helvetica", 6);
                 case Qt::BackgroundRole:
-                    break;//return QColor("red");
+#ifdef HAVE_KHOLIDAYS
+                    if (m_calendar->isHoliday(date)) {
+                        const auto palette = QApplication::palette("QTreeView");
+                        return palette.brush(QPalette::AlternateBase);
+                    }
+#endif
+                    break;
                 default:
                     break;
             }
@@ -1241,6 +1249,13 @@ QRectF DateTableDateDelegate::paint(QPainter *painter, const StyleOptionViewItem
         f = v.value<QFont>();
     }
     painter->setFont(f);
+
+    v = model->data(date, Qt::BackgroundRole, 0);
+    if (v.isValid()) {
+        painter->setBackground(style.backgroundBrush);
+    } else {
+        painter->setBackground(v.value<QBrush>());
+    }
 
     if (option.state & QStyle::State_Selected) {
         painter->setPen(option.palette.highlightedText().color());
