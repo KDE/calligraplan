@@ -11,6 +11,8 @@
 #include <kptmaindocument.h>
 #include <ReportGeneratorOdt.h>
 
+#include <ExtraProperties.h>
+
 #include <QTest>
 #include <QTemporaryFile>
 

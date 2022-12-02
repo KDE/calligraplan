@@ -11,6 +11,7 @@
 #include <kptproject.h>
 
 #include <KoIcon.h>
+#include <ExtraProperties.h>
 
 ProjectsFilterModel::ProjectsFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)

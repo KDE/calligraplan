@@ -13,6 +13,7 @@
 #include <ScheduleManagerDelegate.h>
 
 #include <KoIcon.h>
+#include <ExtraProperties.h>
 
 #include <QAbstractItemView>
 #include <QDebug>

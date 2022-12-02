@@ -22,6 +22,8 @@
 #include "kptschedulerplugin.h"
 #include "SchedulingContext.h"
 
+#include <ExtraProperties.h>
+
 #include <QMultiMap>
 #include <QTest>
 

@@ -27,6 +27,7 @@
 #include <KoPart.h>
 #include <KoIcon.h>
 #include <performance/ProjectStatusView.h>
+#include <ExtraProperties.h>
 
 #include <KRecentFilesAction>
 #include <KActionCollection>

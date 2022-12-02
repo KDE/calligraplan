@@ -17,6 +17,7 @@
 
 #include "KoXmlReader.h"
 #include <KoDocument.h>
+#include <ExtraProperties.h>
 
 #include <KLocalizedString>
 

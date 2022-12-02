@@ -9,6 +9,7 @@
 #include "MainDocument.h"
 #include "kptproject.h"
 #include "kptnodechartmodel.h"
+#include <ExtraProperties.h>
 
 #include <QTimer>
 #include <QDebug>

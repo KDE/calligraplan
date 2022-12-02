@@ -14,6 +14,7 @@
 #include <kptproject.h>
 
 #include <KoIcon.h>
+#include <ExtraProperties.h>
 
 #define RESOURCEID_ROLE 100501
 #define RESOURCEAVAILABEROLE 100502

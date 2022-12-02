@@ -14,6 +14,7 @@
 #include <kpttask.h>
 
 #include <KoDocument.h>
+#include <ExtraProperties.h>
 
 #include <workpackage.h>
 #include <part.h>

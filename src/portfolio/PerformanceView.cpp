@@ -15,6 +15,7 @@
 
 #include <KoComponentData.h>
 #include <KoPart.h>
+#include <ExtraProperties.h>
 
 #include <KRecentFilesAction>
 

@@ -34,24 +34,6 @@ class KoXmlWriter;
 
 class QDomDocument;
 
-// Define extra properties to KPlato::MainDocument
-#define ISPORTFOLIO "is-portfolio"
-#define SCHEDULEMANAGERNAME "schedulemanager-name"
-#define SCHEDULINGCONTROL "scheduling-control"
-#define SCHEDULINGPRIORITY "scheduling-priority"
-#define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
-#define NOUI "noui"
-#define SAVEEMBEDDED "save-embedded"
-#define EMBEDDEDURL "embedded-url"
-#define ORIGINALMODIFICATIONTIME "original-modiication-time"
-#define STATUS "status"
-#define ORIGINALSCHEDULEMANAGER "portfolio-schedulemanager"
-
-#define SHAREDRESOURCESREMOVE 0
-#define SHAREDRESOURCESCONVERT 1
-#define SHAREDRESOURCESKEEP 2
-#define SHAREDRESOURCESACTION "sharedresources-action"
-
 // MSVC seems to need to know the declaration of the classes
 // we pass references of in, when used by external modules
 // e.g.

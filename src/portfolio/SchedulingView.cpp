@@ -16,6 +16,7 @@
 #include <KoDocument.h>
 #include <KoPart.h>
 #include <KoIcon.h>
+#include <ExtraProperties.h>
 
 #include <kptproject.h>
 #include <kptitemmodelbase.h>

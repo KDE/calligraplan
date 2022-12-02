@@ -32,6 +32,8 @@
 #include "SharedResourcesDialog.h"
 #include "kptdebug.h"
 
+#include <ExtraProperties.h>
+
 #include <KoStore.h>
 #include <KoXmlReader.h>
 #include <KoStoreDevice.h>

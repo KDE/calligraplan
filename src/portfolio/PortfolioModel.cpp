@@ -12,6 +12,7 @@
 #include <kptproject.h>
 
 #include <KoDocument.h>
+#include <ExtraProperties.h>
 
 #include <QAbstractItemView>
 #include <QDebug>

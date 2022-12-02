@@ -14,6 +14,7 @@
 
 #include <KoStore.h>
 #include <KoNetAccess.h>
+#include <ExtraProperties.h>
 
 #include <KMessageBox>
 #include <KLocalizedString>

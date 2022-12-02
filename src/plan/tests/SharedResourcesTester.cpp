@@ -13,6 +13,7 @@
 #include <Resource.h>
 #include <ResourceGroup.h>
 
+#include <ExtraProperties.h>
 #include <KoXmlReader.h>
 
 #include <QTest>

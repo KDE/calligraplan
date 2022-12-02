@@ -11,6 +11,7 @@
 #include "Part.h"
 
 #include <kptproject.h>
+#include <ExtraProperties.h>
 
 #include <KoApplication.h>
 #include <KoComponentData.h>

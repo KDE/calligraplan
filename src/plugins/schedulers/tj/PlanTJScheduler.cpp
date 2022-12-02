@@ -18,6 +18,7 @@
 #include "kptdebug.h"
 
 #include <KoDocument.h>
+#include <ExtraProperties.h>
 
 #include "taskjuggler/taskjuggler.h"
 #include "taskjuggler/Project.h"

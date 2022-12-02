@@ -23,6 +23,7 @@
 #include <KoProgressUpdater.h>
 #include <KoDocumentInfo.h>
 #include <KoApplication.h>
+#include <ExtraProperties.h>
 
 #include <KMessageBox>
 

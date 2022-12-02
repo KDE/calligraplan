@@ -9,6 +9,7 @@
 #include <kptproject.h>
 #include <kptschedule.h>
 #include <KoDocument.h>
+#include <ExtraProperties.h>
 
 #include <QStandardItemModel>
 #include <QStandardItem>

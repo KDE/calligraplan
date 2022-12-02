@@ -11,6 +11,7 @@
 
 #include <KoDocument.h>
 #include <KoNetAccess.h>
+#include <ExtraProperties.h>
 
 #include <KMessageBox>
 
