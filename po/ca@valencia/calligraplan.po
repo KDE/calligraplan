@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-10-14 13:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -753,8 +753,8 @@ msgid "Week"
 msgstr "Setmana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
-#: kptmaindocument.cpp:1690
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
+#: kptmaindocument.cpp:1692
 #, kde-format
 msgid "Holidays"
 msgstr "Dies festius"
@@ -1249,7 +1249,7 @@ msgstr ""
 "Si l'obriu amb Plan, podríeu perdre informació."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
@@ -1276,8 +1276,8 @@ msgstr ""
 "Versió de la sintaxi: %1\n"
 "Si l'obriu amb esta versió de Plan, podríeu perdre part de la informació."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
-#: kptmaindocument.cpp:694
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
+#: kptmaindocument.cpp:696
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "El format del fitxer és inconsistent"
@@ -1347,19 +1347,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aacid@kde.org,pau_tallada@telefonica.net,rcarreras@caliu.cat"
 
-#: kptbuiltinschedulerplugin.cpp:28
+#: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
 msgstr "Planificador de xarxa"
 
-#: kptbuiltinschedulerplugin.cpp:29
+#: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
 msgstr "Planificador integrat (PERT) basat en xarxa"
 
-#: kptbuiltinschedulerplugin.cpp:45
+#: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1386,27 +1386,27 @@ msgstr ""
 "disponible. També podeu canviar les ubicacions de recursos o afegir-hi "
 "dependències falses per tal d'evitar els conflictes.</note></para>"
 
-#: kptbuiltinschedulerplugin.cpp:250
+#: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
 msgstr "S'ha iniciat la planificació: %1"
 
-#: kptbuiltinschedulerplugin.cpp:252
+#: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr "Recalcula des del: %1"
 
-#: kptbuiltinschedulerplugin.cpp:264
+#: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
 msgid "Scheduling canceled"
 msgstr "S'ha cancel·lat la planificació"
 
-#: kptbuiltinschedulerplugin.cpp:270
+#: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr "La planificació finalitzarà en %1, temps transcorregut: %2 segons"
 
-#: kptbuiltinschedulerplugin.cpp:284
+#: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
 msgstr "Inserix les reserves de recursos des del projecte: %1"
@@ -1440,7 +1440,7 @@ msgstr "Inserix com a fill del node actual"
 msgid "Insert after current node"
 msgstr "Inserix després del node actual"
 
-#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Document no vàlid. No s'ha especificat cap tipus MIME."
@@ -1448,7 +1448,7 @@ msgstr "Document no vàlid. No s'ha especificat cap tipus MIME."
 # msgid ""
 # "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
 # "got %1"
-#: kptmaindocument.cpp:359
+#: kptmaindocument.cpp:361
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
@@ -1459,7 +1459,7 @@ msgstr ""
 # "This document was created with a newer version of KPlatoWork (syntax "
 # "version: %1)\n"
 # "Opening it in this version of KPlatoWork will lose some information."
-#: kptmaindocument.cpp:368
+#: kptmaindocument.cpp:370
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -1469,36 +1469,36 @@ msgstr ""
 "sintaxi: %1)\n"
 "Si l'obriu amb esta versió de Plan, es perdrà part de la informació."
 
-#: kptmaindocument.cpp:454
+#: kptmaindocument.cpp:456
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
 "No s'ha pogut guardar en el fitxer temporal. No s'ha especificat cap recurs"
 
-#: kptmaindocument.cpp:469
+#: kptmaindocument.cpp:471
 #, kde-format
 msgid "Failed to open work package file"
 msgstr "No s'ha pogut obrir el fitxer de paquet de faena"
 
-#: kptmaindocument.cpp:476
+#: kptmaindocument.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr ""
 "No s'ha pogut guardar en el fitxer temporal:<br/><filename>%1</filename>"
 
-#: kptmaindocument.cpp:552
+#: kptmaindocument.cpp:554
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr ""
 "No s'ha pogut crear el fitxer de paquet de treball per a guardar-hi: %1"
 
-#: kptmaindocument.cpp:560
+#: kptmaindocument.cpp:562
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "No s'ha pogut escriure «%1». La partició està plena?"
 
-#: kptmaindocument.cpp:587
+#: kptmaindocument.cpp:589
 #, kde-format
 msgid "Saving..."
 msgstr "S'està guardant..."
@@ -1506,7 +1506,7 @@ msgstr "S'està guardant..."
 # msgid ""
 # "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
 # "got %1"
-#: kptmaindocument.cpp:681
+#: kptmaindocument.cpp:683
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Document no vàlid. S'esperava el tipus MIME %2 i s'ha obtingut %1"
@@ -1515,7 +1515,7 @@ msgstr "Document no vàlid. S'esperava el tipus MIME %2 i s'ha obtingut %1"
 # "This document was created with a newer version of KPlatoWork (syntax "
 # "version: %1)\n"
 # "Opening it in this version of KPlatoWork will lose some information."
-#: kptmaindocument.cpp:692
+#: kptmaindocument.cpp:694
 #, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1527,12 +1527,12 @@ msgstr ""
 "Si l'obriu amb la versió actual del PlanWork, es perdrà part de la "
 "informació."
 
-#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "S'ha produït un error intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1177
+#: kptmaindocument.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1542,46 +1542,46 @@ msgstr ""
 "No s'han pogut carregar els recursos compartits en el projecte %1:<nl/>S'ha "
 "produït un error intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1187
+#: kptmaindocument.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr ""
 "No s'han pogut carregar els recursos compartits dins del projecte %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1357
+#: kptmaindocument.cpp:1359
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Inserix un projecte"
 
-#: kptmaindocument.cpp:1437
+#: kptmaindocument.cpp:1439
 #, kde-format
 msgid "Group: %1"
 msgstr "Grup: %1"
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1446
 #, kde-format
 msgid "Resource: %1"
 msgstr "Recurs: %1"
 
-#: kptmaindocument.cpp:1449
+#: kptmaindocument.cpp:1451
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Calendari: %1"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1453
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Actualitza els recursos compartits"
 
 #. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1466
+#: kptmaindocument.cpp:1468
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projecte: %1"
 
-#: kptmaindocument.cpp:1656
+#: kptmaindocument.cpp:1658
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

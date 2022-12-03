@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-10-16 12:11+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -764,8 +764,8 @@ msgid "Week"
 msgstr "Semana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
-#: kptmaindocument.cpp:1690
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
+#: kptmaindocument.cpp:1692
 #, kde-format
 msgid "Holidays"
 msgstr "Feriados"
@@ -1253,7 +1253,7 @@ msgstr ""
 "Se o abrir no Plan poderá perder algumas informações."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
 #, kde-format
 msgid "Continue"
 msgstr "Continuar"
@@ -1276,8 +1276,8 @@ msgstr ""
 "Versão da sintaxe: %1\n"
 "Se o abrir com esta versão do Plan poderá perder algumas informações."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
-#: kptmaindocument.cpp:694
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
+#: kptmaindocument.cpp:696
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Erro no Formato de Ficheiro"
@@ -1342,19 +1342,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com,morais@kde.org"
 
-#: kptbuiltinschedulerplugin.cpp:28
+#: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
 msgstr "Escalonamento em Rede"
 
-#: kptbuiltinschedulerplugin.cpp:29
+#: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
 msgstr "Escalonamento incorporado baseado na rede (PERT)"
 
-#: kptbuiltinschedulerplugin.cpp:45
+#: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1381,27 +1381,27 @@ msgstr ""
 "recursos ou adicionar dependências fictícias para evitar os conflitos.</"
 "note></para>"
 
-#: kptbuiltinschedulerplugin.cpp:250
+#: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
 msgstr "Agendamento iniciado: %1"
 
-#: kptbuiltinschedulerplugin.cpp:252
+#: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr "A recalcular de: %1"
 
-#: kptbuiltinschedulerplugin.cpp:264
+#: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
 msgid "Scheduling canceled"
 msgstr "Agendamento cancelado"
 
-#: kptbuiltinschedulerplugin.cpp:270
+#: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr "O agendamento terminou às %1, tempo decorrido: %2 segundos"
 
-#: kptbuiltinschedulerplugin.cpp:284
+#: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
 msgstr "A inserir as alocações do recurso do projecto: %1"
@@ -1435,19 +1435,19 @@ msgstr "Inserir como filhos do nó actual"
 msgid "Insert after current node"
 msgstr "Inserir após o nó actual"
 
-#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Documento inválido. Não foi indicado o tipo MIME."
 
-#: kptmaindocument.cpp:359
+#: kptmaindocument.cpp:361
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
 "Documento inválido. Esperado o tipo MIME application/x-vnd.kde.plan, "
 "recebido %1"
 
-#: kptmaindocument.cpp:368
+#: kptmaindocument.cpp:370
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -1457,46 +1457,46 @@ msgstr ""
 "sintaxe: %1)\n"
 "Se o abrir com esta versão do Plan irá perder algumas informações."
 
-#: kptmaindocument.cpp:454
+#: kptmaindocument.cpp:456
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
 "Não foi possível gravar no ficheiro temporário. Não foi indicado nenhum "
 "recurso"
 
-#: kptmaindocument.cpp:469
+#: kptmaindocument.cpp:471
 #, kde-format
 msgid "Failed to open work package file"
 msgstr "Não foi possível aceder ao ficheiro do pacote"
 
-#: kptmaindocument.cpp:476
+#: kptmaindocument.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr ""
 "Não foi possível gravar no ficheiro temporário:<br/><filename>%1</filename>"
 
-#: kptmaindocument.cpp:552
+#: kptmaindocument.cpp:554
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr "Não foi possível criar o ficheiro do pacote de trabalho a gravar: %1"
 
-#: kptmaindocument.cpp:560
+#: kptmaindocument.cpp:562
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Não é possível gravar em '%1'. A partição está cheia?"
 
-#: kptmaindocument.cpp:587
+#: kptmaindocument.cpp:589
 #, kde-format
 msgid "Saving..."
 msgstr "A gravar..."
 
-#: kptmaindocument.cpp:681
+#: kptmaindocument.cpp:683
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Documento inválido. Era esperado o tipo MIME %2, mas obteve-se %1"
 
-#: kptmaindocument.cpp:692
+#: kptmaindocument.cpp:694
 #, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1507,12 +1507,12 @@ msgstr ""
 "sintaxe: %1)\n"
 "Se o abrir com esta versão do PlanWork irá perder algumas informações."
 
-#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "Erro interno - não foi possível inserir o ficheiro."
 
-#: kptmaindocument.cpp:1177
+#: kptmaindocument.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1522,46 +1522,46 @@ msgstr ""
 "Não foi possível carregar os recursos partilhados para o projecto %1:<nl/"
 ">Erro interno - não foi possível inserir o ficheiro."
 
-#: kptmaindocument.cpp:1187
+#: kptmaindocument.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr ""
 "Não foi possível carregar os recursos partilhados para o projecto %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1357
+#: kptmaindocument.cpp:1359
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Inserir um Projecto"
 
-#: kptmaindocument.cpp:1437
+#: kptmaindocument.cpp:1439
 #, kde-format
 msgid "Group: %1"
 msgstr "Grupo: %1"
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1446
 #, kde-format
 msgid "Resource: %1"
 msgstr "Recurso: %1"
 
-#: kptmaindocument.cpp:1449
+#: kptmaindocument.cpp:1451
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Calendário: %1"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1453
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Actualizar os Recursos Partilhados"
 
 #. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1466
+#: kptmaindocument.cpp:1468
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projecto: %1"
 
-#: kptmaindocument.cpp:1656
+#: kptmaindocument.cpp:1658
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

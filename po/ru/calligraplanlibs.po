@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-03-09 17:39+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -256,7 +256,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
-#: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:420 models/kptcalendarmodel.cpp:440
 #: models/kptnodeitemmodel.cpp:423 models/kptnodeitemmodel.cpp:439
 #: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:678
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
@@ -2306,13 +2306,13 @@ msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
 msgstr "Неделя %1"
 
-#: models/kptcalendarmodel.cpp:289
+#: models/kptcalendarmodel.cpp:291
 #, kde-kuit-format
 msgctxt "1=calendar name"
 msgid "%1 (Default calendar)"
 msgstr "%1 (Календарь по умолчанию)"
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2320,7 +2320,7 @@ msgstr "%1 (Календарь по умолчанию)"
 msgid "Local"
 msgstr "Локальный"
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2328,71 +2328,71 @@ msgstr "Локальный"
 msgid "Shared"
 msgstr "Общий"
 
-#: models/kptcalendarmodel.cpp:311
+#: models/kptcalendarmodel.cpp:313
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Local</emphasis> calendar"
 msgstr "%1 — это <emphasis>локальный</emphasis> календарь"
 
-#: models/kptcalendarmodel.cpp:313
+#: models/kptcalendarmodel.cpp:315
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Shared</emphasis> calendar"
 msgstr "%1 — это <emphasis>общий</emphasis> календарь"
 
-#: models/kptcalendarmodel.cpp:330
+#: models/kptcalendarmodel.cpp:332
 msgctxt "(qtundo-format)"
 msgid "Modify calendar name"
 msgstr ""
 "Изменение названия календаря\n"
 "изменение названия календаря"
 
-#: models/kptcalendarmodel.cpp:338
+#: models/kptcalendarmodel.cpp:340
 msgctxt "(qtundo-format)"
 msgid "De-select as default calendar"
 msgstr ""
 "Отмена выбора календаря по умолчанию\n"
 "отмену выбора календаря по умолчанию"
 
-#: models/kptcalendarmodel.cpp:344
+#: models/kptcalendarmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
 msgstr ""
 "Выбор календаря по умолчанию\n"
 "выбор календаря по умолчанию"
 
-#: models/kptcalendarmodel.cpp:404
+#: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
 msgstr ""
 "Изменение часового пояса календаря\n"
 "изменение часового пояса календаря"
 
-#: models/kptcalendarmodel.cpp:421 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, kde-format
 msgid "Default"
 msgstr "По умолчанию"
 
-#: models/kptcalendarmodel.cpp:431
+#: models/kptcalendarmodel.cpp:433
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No holidays"
 msgstr "Без праздничных дней"
 
-#: models/kptcalendarmodel.cpp:433
+#: models/kptcalendarmodel.cpp:435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
 msgstr "Регион по умолчанию: <emphasis>%1</emphasis>"
 
-#: models/kptcalendarmodel.cpp:474
+#: models/kptcalendarmodel.cpp:476
 msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
 msgstr ""
 "Изменение профиля праздников в календаре\n"
 "изменение профиля праздников в календаре"
 
-#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
+#: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5256
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, kde-format, kde-kuit-format
@@ -2400,135 +2400,135 @@ msgctxt "@title:column"
 msgid "Name"
 msgstr "Название"
 
-#: models/kptcalendarmodel.cpp:533
+#: models/kptcalendarmodel.cpp:535
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr "Источник"
 
-#: models/kptcalendarmodel.cpp:534
+#: models/kptcalendarmodel.cpp:536
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Timezone"
 msgstr "Часовой пояс"
 
-#: models/kptcalendarmodel.cpp:536
+#: models/kptcalendarmodel.cpp:538
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Holiday Region"
 msgstr "Профиль праздников"
 
-#: models/kptcalendarmodel.cpp:552
+#: models/kptcalendarmodel.cpp:554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The holiday region"
 msgstr "Профиль праздников"
 
-#: models/kptcalendarmodel.cpp:629
+#: models/kptcalendarmodel.cpp:631
 msgctxt "(qtundo-format)"
 msgid "Re-parent calendar"
 msgstr ""
 "Переподчинение календаря\n"
 "переподчинение календаря"
 
-#: models/kptcalendarmodel.cpp:632
+#: models/kptcalendarmodel.cpp:634
 msgctxt "(qtundo-format)"
 msgid "Move calendar"
 msgstr ""
 "Перемещение календаря\n"
 "перемещение календаря"
 
-#: models/kptcalendarmodel.cpp:688
+#: models/kptcalendarmodel.cpp:690
 msgctxt "(qtundo-format)"
 msgid "Add calendar"
 msgstr ""
 "Добавление календаря\n"
 "добавление календаря"
 
-#: models/kptcalendarmodel.cpp:711
+#: models/kptcalendarmodel.cpp:713
 msgctxt "(qtundo-format)"
 msgid "Delete calendar"
 msgstr ""
 "Удаление календаря\n"
 "удаление календаря"
 
-#: models/kptcalendarmodel.cpp:880
+#: models/kptcalendarmodel.cpp:882
 #, kde-format
 msgctxt "Undefined"
 msgid "U"
 msgstr "н/о"
 
-#: models/kptcalendarmodel.cpp:881 models/kptcalendarmodel.cpp:1103
-#: models/kptcalendarmodel.cpp:1112
+#: models/kptcalendarmodel.cpp:883 models/kptcalendarmodel.cpp:1105
+#: models/kptcalendarmodel.cpp:1114
 #, kde-format
 msgctxt "NonWorking"
 msgid "NW"
 msgstr "Вых."
 
-#: models/kptcalendarmodel.cpp:882
+#: models/kptcalendarmodel.cpp:884
 #, kde-format
 msgctxt "Working"
 msgid "W"
 msgstr "Раб."
 
-#: models/kptcalendarmodel.cpp:911
+#: models/kptcalendarmodel.cpp:913
 msgctxt "(qtundo-format)"
 msgid "Modify calendar state"
 msgstr ""
 "Изменение состояния календаря\n"
 "изменение состояния календаря"
 
-#: models/kptcalendarmodel.cpp:933
+#: models/kptcalendarmodel.cpp:935
 #, kde-format
 msgctxt "1=time 2=The number of hours of work duration (non integer)"
 msgid "%1, %2 hours"
 msgstr "%1, %2 час(ов)"
 
-#: models/kptcalendarmodel.cpp:988 models/kptcalendarmodel.cpp:1155
+#: models/kptcalendarmodel.cpp:990 models/kptcalendarmodel.cpp:1157
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Undefined"
 msgstr "Не определено"
 
-#: models/kptcalendarmodel.cpp:991 models/kptcalendarmodel.cpp:1158
+#: models/kptcalendarmodel.cpp:993 models/kptcalendarmodel.cpp:1160
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Non-working"
 msgstr "Выходной"
 
-#: models/kptcalendarmodel.cpp:998 models/kptcalendarmodel.cpp:1165
+#: models/kptcalendarmodel.cpp:1000 models/kptcalendarmodel.cpp:1167
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=time 2=The work duration (non integer)"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: models/kptcalendarmodel.cpp:1152
+#: models/kptcalendarmodel.cpp:1154
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Праздник"
 
-#: models/kptcalendarmodel.cpp:1349 models/kptcalendarmodel.cpp:1373
+#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr ""
 "Изменение дня недели\n"
 "изменение дня недели"
 
-#: models/kptcalendarmodel.cpp:1401 models/kptcalendarmodel.cpp:1425
+#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr ""
 "Изменение даты\n"
 "изменение даты"
 
-#: models/kptcalendarmodel.cpp:1442
+#: models/kptcalendarmodel.cpp:1457
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "День недели"
 
-#: models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1458
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

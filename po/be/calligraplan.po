@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2007-05-25 12:30+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -731,8 +731,8 @@ msgid "Week"
 msgstr "Тыдзень"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
-#: kptmaindocument.cpp:1690
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
+#: kptmaindocument.cpp:1692
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1213,7 +1213,7 @@ msgstr ""
 "Адкрыццё яго ў гэтай версіі можа прывесці да страты некаторых дадзеных."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
 #, fuzzy, kde-format
 msgid "Continue"
 msgstr "Працягнуць"
@@ -1234,8 +1234,8 @@ msgstr ""
 "Дакумент створаны пазнейшай версіяй KPlato (версія фармату: %1)\n"
 "Адкрыццё яго ў гэтай версіі можа прывесці да страты некаторых дадзеных."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
-#: kptmaindocument.cpp:694
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
+#: kptmaindocument.cpp:696
 #, fuzzy, kde-format
 msgid "File-Format Mismatch"
 msgstr "Неадпаведнасць фармату файла"
@@ -1299,19 +1299,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "serzh.by@gmail.com"
 
-#: kptbuiltinschedulerplugin.cpp:28
+#: kptbuiltinschedulerplugin.cpp:29
 #, fuzzy, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
 msgstr "Не запланавана"
 
-#: kptbuiltinschedulerplugin.cpp:29
+#: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:45
+#: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1327,27 +1327,27 @@ msgid ""
 "note></para>"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:250
+#: kptbuiltinschedulerplugin.cpp:251
 #, fuzzy, kde-format
 msgid "Scheduling started: %1"
 msgstr "Дазвол канфліктаў"
 
-#: kptbuiltinschedulerplugin.cpp:252
+#: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:264
+#: kptbuiltinschedulerplugin.cpp:265
 #, fuzzy, kde-format
 msgid "Scheduling canceled"
 msgstr "Планаванне"
 
-#: kptbuiltinschedulerplugin.cpp:270
+#: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:284
+#: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
 msgstr ""
@@ -1381,19 +1381,19 @@ msgstr "Дакументы"
 msgid "Insert after current node"
 msgstr "Дакументы"
 
-#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
 #, fuzzy, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Недапушчальны фармат дакумента. Не паказаны тып MIME."
 
-#: kptmaindocument.cpp:359
+#: kptmaindocument.cpp:361
 #, fuzzy, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
 "Няслушны фармат дакумента. Чакаўся файл тыпу application/x-vnd.kde.kplato, "
 "атрыманы %1"
 
-#: kptmaindocument.cpp:368
+#: kptmaindocument.cpp:370
 #, fuzzy, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -1402,45 +1402,45 @@ msgstr ""
 "Дакумент створаны пазнейшай версіяй KPlato (версія фармату: %1)\n"
 "Адкрыццё яго ў гэтай версіі можа прывесці да страты некаторых дадзеных."
 
-#: kptmaindocument.cpp:454
+#: kptmaindocument.cpp:456
 #, fuzzy, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr "Немагчыма запампаваць файл шаблону: %1"
 
-#: kptmaindocument.cpp:469
+#: kptmaindocument.cpp:471
 #, fuzzy, kde-format
 msgid "Failed to open work package file"
 msgstr "Немагчыма запампаваць файл шаблону: %1"
 
-#: kptmaindocument.cpp:476
+#: kptmaindocument.cpp:478
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "Немагчыма запампаваць файл шаблону: %1"
 
-#: kptmaindocument.cpp:552
+#: kptmaindocument.cpp:554
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:560
+#: kptmaindocument.cpp:562
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr ""
 
-#: kptmaindocument.cpp:587
+#: kptmaindocument.cpp:589
 #, fuzzy, kde-format
 msgid "Saving..."
 msgstr "Выбраць..."
 
-#: kptmaindocument.cpp:681
+#: kptmaindocument.cpp:683
 #, fuzzy, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr ""
 "Няслушны фармат дакумента. Чакаўся файл тыпу application/x-vnd.kde.kplato, "
 "атрыманы %1"
 
-#: kptmaindocument.cpp:692
+#: kptmaindocument.cpp:694
 #, fuzzy, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1450,12 +1450,12 @@ msgstr ""
 "Дакумент створаны пазнейшай версіяй KPlato (версія фармату: %1)\n"
 "Адкрыццё яго ў гэтай версіі можа прывесці да страты некаторых дадзеных."
 
-#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1177
+#: kptmaindocument.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1463,48 +1463,48 @@ msgid ""
 "to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1187
+#: kptmaindocument.cpp:1189
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Прызначаныя рэсурсы:"
 
-#: kptmaindocument.cpp:1357
+#: kptmaindocument.cpp:1359
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Назоў праекту."
 
-#: kptmaindocument.cpp:1437
+#: kptmaindocument.cpp:1439
 #, fuzzy, kde-format
 msgid "Group: %1"
 msgstr "Група"
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1446
 #, fuzzy, kde-format
 msgid "Resource: %1"
 msgstr "Рэсурс"
 
-#: kptmaindocument.cpp:1449
+#: kptmaindocument.cpp:1451
 #, fuzzy, kde-format
 msgid "Calendar: %1"
 msgstr "Каляндар"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1453
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Прызначаныя рэсурсы:"
 
 #. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1466
+#: kptmaindocument.cpp:1468
 #, fuzzy, kde-format
 #| msgid "Project"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Праект"
 
-#: kptmaindocument.cpp:1656
+#: kptmaindocument.cpp:1658
 #, fuzzy, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

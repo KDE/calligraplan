@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-10-15 09:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -745,8 +745,8 @@ msgid "Week"
 msgstr "Teden"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
-#: kptmaindocument.cpp:1690
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
+#: kptmaindocument.cpp:1692
 #, kde-format
 msgid "Holidays"
 msgstr "Prazniki"
@@ -1232,7 +1232,7 @@ msgstr ""
 "Njegovo odpiranje v Planu lahko izgubi nekaj informacij."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
 #, kde-format
 msgid "Continue"
 msgstr "Nadaljuj"
@@ -1255,8 +1255,8 @@ msgstr ""
 "Verzija sintakse: %1\n"
 "Njegovo odpiranje v tej verziji Plana bo morda izgubilo nekaj informacij."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
-#: kptmaindocument.cpp:694
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
+#: kptmaindocument.cpp:696
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Neujemanje vrst datotek"
@@ -1322,19 +1322,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "gregor.rakar@kiss.si,andrej.vernekar@moj.net,matjaz.jeran@amis.net"
 
-#: kptbuiltinschedulerplugin.cpp:28
+#: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
 msgstr "Mrežni razporejevalnik"
 
-#: kptbuiltinschedulerplugin.cpp:29
+#: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
 msgstr "Vgrajeni mrežni razporejevalnik (PERT)"
 
-#: kptbuiltinschedulerplugin.cpp:45
+#: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1361,27 +1361,27 @@ msgstr ""
 "sredstev ali dodajanje navideznih odvisnosti, da se izognete konfliktom.</"
 "note></para>"
 
-#: kptbuiltinschedulerplugin.cpp:250
+#: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
 msgstr "Razporejanje začeto: %1"
 
-#: kptbuiltinschedulerplugin.cpp:252
+#: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr "Ponovno računanje od: %1"
 
-#: kptbuiltinschedulerplugin.cpp:264
+#: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
 msgid "Scheduling canceled"
 msgstr "Razporejanje preklicano"
 
-#: kptbuiltinschedulerplugin.cpp:270
+#: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr "Razporejanje končano ob %1, trajanje: %2 sekund"
 
-#: kptbuiltinschedulerplugin.cpp:284
+#: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
 msgstr "Vstavljanje rezervacij virov iz projekta: %1"
@@ -1415,19 +1415,19 @@ msgstr "Vstavi kot otroke trenutnega vozlišča"
 msgid "Insert after current node"
 msgstr "Vstavi za trenutnim vozliščem"
 
-#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Neveljaven dokument. Ni navedene zvrsti MIME."
 
-#: kptmaindocument.cpp:359
+#: kptmaindocument.cpp:361
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
 "Neveljaven dokument. Pričakovana zvrst MIME je bila application/x-vnd.kde."
 "plan, dobljena %1"
 
-#: kptmaindocument.cpp:368
+#: kptmaindocument.cpp:370
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -1438,43 +1438,43 @@ msgstr ""
 "Njegovo odpiranje v tej različici Plana bo povzročilo izgubo nekaj "
 "informacij."
 
-#: kptmaindocument.cpp:454
+#: kptmaindocument.cpp:456
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr "Ni moč shraniti v začasno datoteko. Ni določenega vira"
 
-#: kptmaindocument.cpp:469
+#: kptmaindocument.cpp:471
 #, kde-format
 msgid "Failed to open work package file"
 msgstr "Ni moč odpreti datoteke delovnega paketa"
 
-#: kptmaindocument.cpp:476
+#: kptmaindocument.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "Ni moč shraniti v začasno datoteko:<br/><filename>%1</filename>"
 
-#: kptmaindocument.cpp:552
+#: kptmaindocument.cpp:554
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr "Ni bilo mogoče tvoriti datoteke z delovnim paketom za shranjevanje: %1"
 
-#: kptmaindocument.cpp:560
+#: kptmaindocument.cpp:562
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Ni moč zapisati '%1'. Ali je particija polna?"
 
-#: kptmaindocument.cpp:587
+#: kptmaindocument.cpp:589
 #, kde-format
 msgid "Saving..."
 msgstr "Shranjevanje..."
 
-#: kptmaindocument.cpp:681
+#: kptmaindocument.cpp:683
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Neveljaven dokument. Pričakovana vrsta MIME %2, najdena %1"
 
-#: kptmaindocument.cpp:692
+#: kptmaindocument.cpp:694
 #, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1486,12 +1486,12 @@ msgstr ""
 "Njegovo odpiranje v tej različici PlanWork-a bo povzročilo izgubo nekaj "
 "informacij."
 
-#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "Interna napaka, vstavljanje datoteke ni uspelo."
 
-#: kptmaindocument.cpp:1177
+#: kptmaindocument.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1501,45 +1501,45 @@ msgstr ""
 "Nalaganje skupnih virov v projekt %1 ni uspelo:<nl/>Interna napaka, neuspelo "
 "vključevanje datoteke."
 
-#: kptmaindocument.cpp:1187
+#: kptmaindocument.cpp:1189
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Neuspelo nalaganje skupnih virov v projekt %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1357
+#: kptmaindocument.cpp:1359
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Vstavi projekt"
 
-#: kptmaindocument.cpp:1437
+#: kptmaindocument.cpp:1439
 #, kde-format
 msgid "Group: %1"
 msgstr "Grupa: %1"
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1446
 #, kde-format
 msgid "Resource: %1"
 msgstr "Vir: %1"
 
-#: kptmaindocument.cpp:1449
+#: kptmaindocument.cpp:1451
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Koledar: %1"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1453
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Posodobi skupne vire"
 
 #. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1466
+#: kptmaindocument.cpp:1468
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projekt: %1"
 
-#: kptmaindocument.cpp:1656
+#: kptmaindocument.cpp:1658
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

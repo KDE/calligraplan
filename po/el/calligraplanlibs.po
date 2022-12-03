@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2012-09-30 05:47+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -257,7 +257,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
-#: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:420 models/kptcalendarmodel.cpp:440
 #: models/kptnodeitemmodel.cpp:423 models/kptnodeitemmodel.cpp:439
 #: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:678
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
@@ -2283,13 +2283,13 @@ msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
 msgstr "Εβδομάδα %1"
 
-#: models/kptcalendarmodel.cpp:289
+#: models/kptcalendarmodel.cpp:291
 #, kde-kuit-format
 msgctxt "1=calendar name"
 msgid "%1 (Default calendar)"
 msgstr "%1 (Προκαθορισμένο ημερολόγιο)"
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2297,7 +2297,7 @@ msgstr "%1 (Προκαθορισμένο ημερολόγιο)"
 msgid "Local"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2305,58 +2305,58 @@ msgstr ""
 msgid "Shared"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:311
+#: models/kptcalendarmodel.cpp:313
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Local</emphasis> calendar"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:313
+#: models/kptcalendarmodel.cpp:315
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Shared</emphasis> calendar"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:330
+#: models/kptcalendarmodel.cpp:332
 msgctxt "(qtundo-format)"
 msgid "Modify calendar name"
 msgstr "Τροποποίηση ονόματος ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:338
+#: models/kptcalendarmodel.cpp:340
 msgctxt "(qtundo-format)"
 msgid "De-select as default calendar"
 msgstr "Αναίρεση επιλογής ημερολογίου ως προκαθορισμένο"
 
-#: models/kptcalendarmodel.cpp:344
+#: models/kptcalendarmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
 msgstr "Επιλογή ημερολογίου ως προκαθορισμένο"
 
-#: models/kptcalendarmodel.cpp:404
+#: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
 msgstr "Τροποποίηση ζώνης ώρας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:421 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, fuzzy, kde-format
 #| msgctxt "Default (calendar name)"
 #| msgid "Default (%1)"
 msgid "Default"
 msgstr "Προκαθορισμένο (%1)"
 
-#: models/kptcalendarmodel.cpp:431
+#: models/kptcalendarmodel.cpp:433
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No holidays"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:433
+#: models/kptcalendarmodel.cpp:435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:474
+#: models/kptcalendarmodel.cpp:476
 #, fuzzy
 #| msgctxt "(qtundo_format)"
 #| msgid "Modify calendar date"
@@ -2364,7 +2364,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
 msgstr "Τροποποίηση ημερομηνίας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
+#: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5256
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, kde-format, kde-kuit-format
@@ -2372,26 +2372,26 @@ msgctxt "@title:column"
 msgid "Name"
 msgstr "Όνομα"
 
-#: models/kptcalendarmodel.cpp:533
+#: models/kptcalendarmodel.cpp:535
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:534
+#: models/kptcalendarmodel.cpp:536
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Timezone"
 msgstr "Ζώνη ώρας"
 
-#: models/kptcalendarmodel.cpp:536
+#: models/kptcalendarmodel.cpp:538
 #, fuzzy, kde-kuit-format
 #| msgid "Modify Relation"
 msgctxt "@title:column"
 msgid "Holiday Region"
 msgstr "Τροποποίηση συσχέτισης"
 
-#: models/kptcalendarmodel.cpp:552
+#: models/kptcalendarmodel.cpp:554
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "The scheduling direction"
@@ -2399,82 +2399,82 @@ msgctxt "@info:tooltip"
 msgid "The holiday region"
 msgstr "Η κατεύθυνση του χρονικού προγραμματισμού"
 
-#: models/kptcalendarmodel.cpp:629
+#: models/kptcalendarmodel.cpp:631
 msgctxt "(qtundo-format)"
 msgid "Re-parent calendar"
 msgstr "Αναδιάταξη ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:632
+#: models/kptcalendarmodel.cpp:634
 msgctxt "(qtundo-format)"
 msgid "Move calendar"
 msgstr "Μετακίνηση ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:688
+#: models/kptcalendarmodel.cpp:690
 msgctxt "(qtundo-format)"
 msgid "Add calendar"
 msgstr "Προσθήκη ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:711
+#: models/kptcalendarmodel.cpp:713
 msgctxt "(qtundo-format)"
 msgid "Delete calendar"
 msgstr "Διαγραφή ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:880
+#: models/kptcalendarmodel.cpp:882
 #, kde-format
 msgctxt "Undefined"
 msgid "U"
 msgstr "Α"
 
-#: models/kptcalendarmodel.cpp:881 models/kptcalendarmodel.cpp:1103
-#: models/kptcalendarmodel.cpp:1112
+#: models/kptcalendarmodel.cpp:883 models/kptcalendarmodel.cpp:1105
+#: models/kptcalendarmodel.cpp:1114
 #, kde-format
 msgctxt "NonWorking"
 msgid "NW"
 msgstr "ΜΑπ"
 
-#: models/kptcalendarmodel.cpp:882
+#: models/kptcalendarmodel.cpp:884
 #, kde-format
 msgctxt "Working"
 msgid "W"
 msgstr "Απ"
 
-#: models/kptcalendarmodel.cpp:911
+#: models/kptcalendarmodel.cpp:913
 msgctxt "(qtundo-format)"
 msgid "Modify calendar state"
 msgstr "Τροποποίηση κατάστασης ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:933
+#: models/kptcalendarmodel.cpp:935
 #, kde-format
 msgctxt "1=time 2=The number of hours of work duration (non integer)"
 msgid "%1, %2 hours"
 msgstr "%1, %2 ώρες"
 
-#: models/kptcalendarmodel.cpp:988 models/kptcalendarmodel.cpp:1155
+#: models/kptcalendarmodel.cpp:990 models/kptcalendarmodel.cpp:1157
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Undefined"
 msgstr "Αόριστο"
 
-#: models/kptcalendarmodel.cpp:991 models/kptcalendarmodel.cpp:1158
+#: models/kptcalendarmodel.cpp:993 models/kptcalendarmodel.cpp:1160
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Non-working"
 msgstr "Μη-απασχολημένο"
 
-#: models/kptcalendarmodel.cpp:998 models/kptcalendarmodel.cpp:1165
+#: models/kptcalendarmodel.cpp:1000 models/kptcalendarmodel.cpp:1167
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=time 2=The work duration (non integer)"
 msgid "%1, %2"
 msgstr "%1, %2"
 
-#: models/kptcalendarmodel.cpp:1152
+#: models/kptcalendarmodel.cpp:1154
 #, fuzzy, kde-kuit-format
 #| msgid "Modify Relation"
 msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Τροποποίηση συσχέτισης"
 
-#: models/kptcalendarmodel.cpp:1349 models/kptcalendarmodel.cpp:1373
+#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
 #, fuzzy
 #| msgctxt "(qtundo_format)"
 #| msgid "Modify calendar weekday"
@@ -2482,7 +2482,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Τροποποίηση καθημερινής ημέρας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:1401 models/kptcalendarmodel.cpp:1425
+#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
 #, fuzzy
 #| msgctxt "(qtundo_format)"
 #| msgid "Modify calendar date"
@@ -2490,13 +2490,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Τροποποίηση ημερομηνίας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:1442
+#: models/kptcalendarmodel.cpp:1457
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Ημέρα εβδομάδας"
 
-#: models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1458
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

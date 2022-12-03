@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2011-11-01 00:09+0330\n"
 "Last-Translator: Mohammad Reza Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <>\n"
@@ -792,8 +792,8 @@ msgid "Week"
 msgstr "هفته"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1686
-#: kptmaindocument.cpp:1690
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
+#: kptmaindocument.cpp:1692
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1306,7 +1306,7 @@ msgstr ""
 "با باز کردن آن در این نسخه از KPlato، برخی اطلاعات از دست می‌روند."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:370 kptmaindocument.cpp:694
+#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
 #, kde-format
 msgid "Continue"
 msgstr "ادامه"
@@ -1332,8 +1332,8 @@ msgstr ""
 "این سند با نسخه جدیدتر KPlato )نسخه نحو: %1( ایجاد شده بود\n"
 "با باز کردن آن در این نسخه از KPlato، برخی اطلاعات از دست می‌روند."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:370
-#: kptmaindocument.cpp:694
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
+#: kptmaindocument.cpp:696
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "خطای قالب پرونده"
@@ -1402,20 +1402,20 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mohi@ubuntu.ir , razavi@itland.ir"
 
-#: kptbuiltinschedulerplugin.cpp:28
+#: kptbuiltinschedulerplugin.cpp:29
 #, fuzzy, kde-format
 #| msgid "Not scheduled"
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
 msgstr "زمان‌بندی‌نشده"
 
-#: kptbuiltinschedulerplugin.cpp:29
+#: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:45
+#: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1431,29 +1431,29 @@ msgid ""
 "note></para>"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:250
+#: kptbuiltinschedulerplugin.cpp:251
 #, fuzzy, kde-format
 #| msgid "Scheduling"
 msgid "Scheduling started: %1"
 msgstr "زمان‌بندی"
 
-#: kptbuiltinschedulerplugin.cpp:252
+#: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:264
+#: kptbuiltinschedulerplugin.cpp:265
 #, fuzzy, kde-format
 #| msgid "Scheduled"
 msgid "Scheduling canceled"
 msgstr "زمان‌بندی‌شده"
 
-#: kptbuiltinschedulerplugin.cpp:270
+#: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr ""
 
-#: kptbuiltinschedulerplugin.cpp:284
+#: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
 msgstr ""
@@ -1491,12 +1491,12 @@ msgstr "اسناد"
 msgid "Insert after current node"
 msgstr "اسناد"
 
-#: kptmaindocument.cpp:317 kptmaindocument.cpp:664
+#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "سند نامعتبر. نوع مایمی مشخص نشد."
 
-#: kptmaindocument.cpp:359
+#: kptmaindocument.cpp:361
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
@@ -1504,7 +1504,7 @@ msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
 "سند نامعتبر. کاربرد نوع مایم موردنظر/x-vnd.kde.kplato، %1 را دریافت کرد"
 
-#: kptmaindocument.cpp:368
+#: kptmaindocument.cpp:370
 #, fuzzy, kde-format
 #| msgid ""
 #| "This document was created with a newer version of KPlato (syntax version: "
@@ -1517,42 +1517,42 @@ msgstr ""
 "این سند با نسخه جدیدتر KPlato )نسخه نحو: %1( ایجاد شده بود\n"
 "با باز کردن آن در این نسخه از KPlato، برخی اطلاعات از دست می‌روند."
 
-#: kptmaindocument.cpp:454
+#: kptmaindocument.cpp:456
 #, fuzzy, kde-format
 #| msgid "Unable to download template file: %1"
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr "قادر به بارگیری پرونده قالب نیست: %1"
 
-#: kptmaindocument.cpp:469
+#: kptmaindocument.cpp:471
 #, fuzzy, kde-format
 #| msgid "Unable to download template file: %1"
 msgid "Failed to open work package file"
 msgstr "قادر به بارگیری پرونده قالب نیست: %1"
 
-#: kptmaindocument.cpp:476
+#: kptmaindocument.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgid "Unable to download template file: %1"
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "قادر به بارگیری پرونده قالب نیست: %1"
 
-#: kptmaindocument.cpp:552
+#: kptmaindocument.cpp:554
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:560
+#: kptmaindocument.cpp:562
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "قادر به نوشتن »%1« نیست. کامل افرازبندی شود؟"
 
-#: kptmaindocument.cpp:587
+#: kptmaindocument.cpp:589
 #, fuzzy, kde-format
 #| msgid "Choose..."
 msgid "Saving..."
 msgstr "ذخیره..."
 
-#: kptmaindocument.cpp:681
+#: kptmaindocument.cpp:683
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
@@ -1560,7 +1560,7 @@ msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr ""
 "سند نامعتبر. کاربرد نوع مایم موردنظر/x-vnd.kde.kplato، %1 را دریافت کرد"
 
-#: kptmaindocument.cpp:692
+#: kptmaindocument.cpp:694
 #, fuzzy, kde-format
 #| msgid ""
 #| "This document was created with a newer version of KPlato (syntax version: "
@@ -1574,12 +1574,12 @@ msgstr ""
 "این سند با نسخه جدیدتر KPlato )نسخه نحو: %1( ایجاد شده بود\n"
 "با باز کردن آن در این نسخه از KPlato، برخی اطلاعات از دست می‌روند."
 
-#: kptmaindocument.cpp:1105 kptmaindocument.cpp:1326
+#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1177
+#: kptmaindocument.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1587,39 +1587,39 @@ msgid ""
 "to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1187
+#: kptmaindocument.cpp:1189
 #, fuzzy, kde-kuit-format
 #| msgid "Assign resources:"
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "انتساب منابع:"
 
-#: kptmaindocument.cpp:1357
+#: kptmaindocument.cpp:1359
 #, fuzzy
 #| msgid "The project name."
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "نام پروژه."
 
-#: kptmaindocument.cpp:1437
+#: kptmaindocument.cpp:1439
 #, fuzzy, kde-format
 #| msgid "Group"
 msgid "Group: %1"
 msgstr "گروه"
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1446
 #, fuzzy, kde-format
 #| msgid "Resource"
 msgid "Resource: %1"
 msgstr "منبع"
 
-#: kptmaindocument.cpp:1449
+#: kptmaindocument.cpp:1451
 #, fuzzy, kde-format
 #| msgid "Calendar"
 msgid "Calendar: %1"
 msgstr "تقویم"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1453
 #, fuzzy
 #| msgid "Assign resources:"
 msgctxt "(qtundo-format)"
@@ -1627,14 +1627,14 @@ msgid "Update Shared Resources"
 msgstr "انتساب منابع:"
 
 #. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1466
+#: kptmaindocument.cpp:1468
 #, fuzzy, kde-format
 #| msgid "Project"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "پروژه"
 
-#: kptmaindocument.cpp:1656
+#: kptmaindocument.cpp:1658
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

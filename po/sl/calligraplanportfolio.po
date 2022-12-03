@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-12-01 08:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: AboutData.h:21
@@ -108,60 +108,60 @@ msgstr "Interval samodejnega shranjevanja"
 msgid "Create a backup file"
 msgstr "Ustvari varovalno kopijo"
 
-#: DocumentsSaveDialog.cpp:26 PortfolioModel.cpp:22
+#: DocumentsSaveDialog.cpp:27 PortfolioModel.cpp:23
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Portfolio"
 msgstr "Portelj"
 
-#: DocumentsSaveDialog.cpp:27
+#: DocumentsSaveDialog.cpp:28
 #, kde-format
 msgctxt "@title:column"
 msgid "Modified"
 msgstr "Spremenjeno"
 
-#: DocumentsSaveDialog.cpp:28
+#: DocumentsSaveDialog.cpp:29
 #, kde-format
 msgctxt "@title:column"
 msgid "Save"
 msgstr "Shrani"
 
-#: DocumentsSaveDialog.cpp:29
+#: DocumentsSaveDialog.cpp:30
 #, kde-format
 msgctxt "@title:column"
 msgid "Internal"
 msgstr "Interno"
 
-#: DocumentsSaveDialog.cpp:30
+#: DocumentsSaveDialog.cpp:31
 #, kde-format
 msgctxt "@title:column"
 msgid "Url"
 msgstr "Url"
 
-#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
-#: PortfolioModel.cpp:113
+#: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
+#: PortfolioModel.cpp:114
 #, kde-format
 msgid "Yes"
 msgstr "Da"
 
-#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
-#: PortfolioModel.cpp:113
+#: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
+#: PortfolioModel.cpp:114
 #, kde-format
 msgid "No"
 msgstr "Ne"
 
-#: DocumentsSaveDialog.cpp:86
+#: DocumentsSaveDialog.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Documents"
 msgstr "Shrani dokumente"
 
-#: DocumentsSaveDialog.cpp:134
+#: DocumentsSaveDialog.cpp:135
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
 msgstr "Datoteka že obstaja. Ali jo želite prepisati?"
 
-#: DocumentsSaveDialog.cpp:134
+#: DocumentsSaveDialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
@@ -192,17 +192,17 @@ msgstr ""
 msgid "Open Project"
 msgstr "Odpri projekt"
 
-#: MainDocument.cpp:88
+#: MainDocument.cpp:89
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Neveljaven dokument. Ni določen tip mime."
 
-#: MainDocument.cpp:93
+#: MainDocument.cpp:94
 #, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
 msgstr "Neveljaven dokument. Pričakovan tip mime %1, a je %2"
 
-#: MainDocument.cpp:99
+#: MainDocument.cpp:100
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -212,30 +212,30 @@ msgstr ""
 "%1)\n"
 "Če jo odprete v tej verziji plana, boste izgubili nekaj informacij."
 
-#: MainDocument.cpp:101
+#: MainDocument.cpp:102
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Neujemanje formata datoteke"
 
-#: MainDocument.cpp:101
+#: MainDocument.cpp:102
 #, kde-format
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: MainDocument.cpp:164
+#: MainDocument.cpp:165
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
 msgstr "Project že obstaja.<nl/>Projekt: %1<nl/>Dokument: %2"
 
-#: MainDocument.cpp:165 PortfolioView.cpp:256 PortfolioView.cpp:261
-#: PortfolioView.cpp:320 PortfolioView.cpp:324
+#: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
+#: PortfolioView.cpp:321 PortfolioView.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
 msgstr "NI bilo mogoče dodati projekta"
 
-#: MainWindow.cpp:147
+#: MainWindow.cpp:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -262,42 +262,42 @@ msgctxt "@title:window"
 msgid "Portfolio Settings"
 msgstr "Nastavitve portfelja"
 
-#: PerformanceView.cpp:169
+#: PerformanceView.cpp:170
 #, kde-format
 msgid "No data"
 msgstr "Ni podatkov"
 
-#: PerformanceView.cpp:183
+#: PerformanceView.cpp:184
 #, kde-format
 msgid "Cost (%1)"
 msgstr "Strošek (%1)"
 
-#: PerformanceView.cpp:185
+#: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
 msgstr "Trud (Ure)"
 
-#: PerformanceView.cpp:189 PerformanceView.cpp:209
+#: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
 msgid "SPI: %1"
 msgstr "SPI: %1"
 
-#: PerformanceView.cpp:193 PerformanceView.cpp:213
+#: PerformanceView.cpp:194 PerformanceView.cpp:214
 #, kde-format
 msgid "CPI: %1"
 msgstr "CPI: %1"
 
-#: PerformanceView.cpp:197 PerformanceView.cpp:217
+#: PerformanceView.cpp:198 PerformanceView.cpp:218
 #, kde-format
 msgid "BCWS: %1"
 msgstr "BCWS: %1"
 
-#: PerformanceView.cpp:201 PerformanceView.cpp:221
+#: PerformanceView.cpp:202 PerformanceView.cpp:222
 #, kde-format
 msgid "BCWP: %1"
 msgstr "BCWP: %1"
 
-#: PerformanceView.cpp:205 PerformanceView.cpp:225
+#: PerformanceView.cpp:206 PerformanceView.cpp:226
 #, kde-format
 msgid "ACWP: %1"
 msgstr "ACWP: %1"
@@ -359,25 +359,25 @@ msgstr "Datoteka"
 msgid "Edit"
 msgstr "Uredi"
 
-#: PortfolioModel.cpp:23
+#: PortfolioModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Storage"
 msgstr "Shramba"
 
-#: PortfolioModel.cpp:24
+#: PortfolioModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "File"
 msgstr "Datoteka"
 
-#: PortfolioModel.cpp:76
+#: PortfolioModel.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
 msgstr "Določa, če je projekt del portfelja"
 
-#: PortfolioModel.cpp:78
+#: PortfolioModel.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -387,40 +387,40 @@ msgstr ""
 "Določa, če je projekt shranjen kot del datoteke portfelja ali v zunanji "
 "datoteki"
 
-#: PortfolioModel.cpp:80
+#: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
 msgstr "Zunanji naslov datoteke projekta"
 
-#: PortfolioModel.cpp:100 SchedulingModel.cpp:181
+#: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
 msgid "Error"
 msgstr "Napaka"
 
-#: PortfolioModel.cpp:108
+#: PortfolioModel.cpp:109
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
 msgstr "Nalaganje dokumenta ni uspelo"
 
-#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "Embedded"
 msgstr "Vgrajeno"
 
-#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "External"
 msgstr "Eksterno"
 
-#: PortfolioView.cpp:77
+#: PortfolioView.cpp:78
 #, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
 msgstr "Zadnji portfelji"
 
-#: PortfolioView.cpp:132
+#: PortfolioView.cpp:133
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -448,7 +448,7 @@ msgstr ""
 "<emphasis>No</emphasis>  za te projekte.<para><nl/><link url='%1'>Več...</"
 "link></para>"
 
-#: PortfolioView.cpp:151
+#: PortfolioView.cpp:152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -464,13 +464,13 @@ msgstr ""
 "<shortcut>Dvigalka+F1</shortcut>.</para><para>Poskusite na tem besedilu!</"
 "para>"
 
-#: PortfolioView.cpp:160
+#: PortfolioView.cpp:161
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
 msgstr "<subtitle>Omrežni viri</subtitle>"
 
-#: PortfolioView.cpp:164
+#: PortfolioView.cpp:165
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -490,35 +490,35 @@ msgstr ""
 "para><para>Če vidite <link url='%1'>Več...</link> v besedilo, bo pritisk tja "
 "prikazal več informacij iz dokumentacije.</para>"
 
-#: PortfolioView.cpp:183
+#: PortfolioView.cpp:184
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
 
-#: PortfolioView.cpp:188
+#: PortfolioView.cpp:189
 #, kde-format
 msgid "Remove"
 msgstr "Odstrani"
 
-#: PortfolioView.cpp:209
+#: PortfolioView.cpp:210
 #, kde-format
 msgid "Add Project"
 msgstr "Dodaj projekt"
 
-#: PortfolioView.cpp:255 PortfolioView.cpp:319
+#: PortfolioView.cpp:256 PortfolioView.cpp:320
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
 msgstr "Ni bilo mogoče naložiti projekta. Ni veljavna datoteka plana:<nl/>%1"
 
-#: PortfolioView.cpp:260
+#: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
 msgstr ""
 "Ni bilo mogoče naložiti projekta. Zdi se, da je to datoteka portfelja:<nl/>%1"
 
-#: PortfolioView.cpp:323
+#: PortfolioView.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -631,53 +631,53 @@ msgstr ""
 msgid "Projects"
 msgstr "Projekti"
 
-#: ProjectsModel.cpp:141
+#: ProjectsModel.cpp:142
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project name"
 msgstr "Ime projekta"
 
-#: ProjectsModel.cpp:150
+#: ProjectsModel.cpp:151
 #, kde-format
 msgid "Target Start"
 msgstr "Ciljni začetek"
 
-#: ProjectsModel.cpp:153
+#: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
 msgstr "Obseg razporejanja: Najzgodnejši začetek"
 
-#: ProjectsModel.cpp:162
+#: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
 msgstr "Ciljni konec"
 
-#: ProjectsModel.cpp:165
+#: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
 msgstr "Obseg razporejanja: Najkasnejši konec"
 
-#: ProjectsModel.cpp:174
+#: ProjectsModel.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
 msgstr "Opis projekta"
 
-#: ProjectsModel.cpp:186 ScheduleManagerInfoDialog.cpp:35
-#: SchedulingModel.cpp:28
+#: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
+#: SchedulingModel.cpp:29
 #, kde-format
 msgid "Schedule"
 msgstr "Razporeditev"
 
-#: ProjectsModel.cpp:189
+#: ProjectsModel.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select schedule"
 msgstr "Izberi razporeditev"
 
-#: ProjectsModel.cpp:230
+#: ProjectsModel.cpp:231
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -689,7 +689,7 @@ msgstr ""
 "para><para><list><item>Ciljni začetek:\t%2</item><item>Ciljni zaključek:\t"
 "%3</item></list></para>"
 
-#: ProjectsModel.cpp:244
+#: ProjectsModel.cpp:245
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -701,7 +701,7 @@ msgstr ""
 "para><para><list><item>Ciljni začetek:\t%2</item><item>Ciljni zaključek:\t"
 "%3</item></list></para>"
 
-#: ProjectsModel.cpp:258
+#: ProjectsModel.cpp:259
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -714,48 +714,48 @@ msgstr ""
 "\t%3</item><item>Ciljni začetek:\t%4</item><item>Ciljni zaključek:\t%5</"
 "item></list></para>"
 
-#: ProjectsModel.cpp:291 ProjectsModel.cpp:312 ProjectsModel.cpp:342
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
 msgstr "Ni razporejeno"
 
-#: ProjectsModel.cpp:294 ProjectsModel.cpp:315
+#: ProjectsModel.cpp:295 ProjectsModel.cpp:316
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
 msgstr "Razporeditev: %1 ni razporejen"
 
-#: ProjectsModel.cpp:296
+#: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
 msgstr "Razporeditev %1: Razporejen začetek: %1"
 
-#: ProjectsModel.cpp:317
+#: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
 msgstr "Razporeditev %1: Razporejen konec: %1"
 
-#: ProjectsModel.cpp:336
+#: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Projekt ima nastavljeno osnovo"
 
-#: ProjectsModel.cpp:339
+#: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
 msgstr "Projekt nima nastavljene osnove"
 
-#: ResourceUsageModel.cpp:135
+#: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
 msgstr "Ni opravil"
 
-#: ResourceUsageModel.cpp:137
+#: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
@@ -797,28 +797,28 @@ msgstr "Naloženo"
 msgid "Range"
 msgstr "Obseg"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Projects"
 msgctxt "@title:column"
 msgid "Project"
 msgstr "Projekti"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Schedule"
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Razporeditev"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Options"
 msgctxt "@title:column"
 msgid "Action"
 msgstr "Možnosti"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Status"
@@ -826,59 +826,59 @@ msgctxt "@title:column"
 msgid "State"
 msgstr "Stanje"
 
-#: ScheduleManagerInfoDialog.cpp:31 ScheduleManagerInfoDialog.cpp:37
+#: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, fuzzy, kde-format
 #| msgid "No schedule"
 msgid "New schedule"
 msgstr "Ni razporeditve"
 
-#: ScheduleManagerInfoDialog.cpp:33
+#: ScheduleManagerInfoDialog.cpp:34
 #, fuzzy, kde-format
 #| msgid "No schedule"
 msgid "New sub-schedule"
 msgstr "Ni razporeditve"
 
-#: ScheduleManagerInfoDialog.cpp:70
+#: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:76
+#: ScheduleManagerInfoDialog.cpp:77
 #, kde-format
 msgid ""
 "Existing schedule '%1' is not scheduled.\n"
 "'%1' will be scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:83
+#: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
 msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:90 ScheduleManagerInfoDialog.cpp:102
+#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
 msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:94
+#: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
 msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:106
+#: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
 msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:115
+#: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
 msgid ""
 "Project is not started.\n"
@@ -886,14 +886,14 @@ msgid ""
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:117
+#: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
 msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:121
+#: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
 msgid ""
 "Project is not started.\n"
@@ -924,35 +924,35 @@ msgctxt "@title"
 msgid "Message"
 msgstr "Sporočilo"
 
-#: SchedulingModel.cpp:23
+#: SchedulingModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Stanje"
 
-#: SchedulingModel.cpp:24
+#: SchedulingModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Control"
 msgstr "Kontrola"
 
-#: SchedulingModel.cpp:25
+#: SchedulingModel.cpp:26
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
 msgstr "Prednost"
 
-#: SchedulingModel.cpp:28
+#: SchedulingModel.cpp:29
 #, kde-format
 msgid "Include"
 msgstr "Vključi"
 
-#: SchedulingModel.cpp:28 SchedulingModel.cpp:120
+#: SchedulingModel.cpp:29 SchedulingModel.cpp:121
 #, kde-format
 msgid "Exclude"
 msgstr "Izključi"
 
-#: SchedulingModel.cpp:90 SchedulingModel.cpp:106
+#: SchedulingModel.cpp:91 SchedulingModel.cpp:107
 #, kde-format
 msgctxt "@into:tooltip"
 msgid ""
@@ -962,37 +962,37 @@ msgstr ""
 "Razporejanje ni mogoče. Ciljni čas projekta mora biti kasnejši od "
 "izračunanega časa"
 
-#: SchedulingModel.cpp:189
+#: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
 msgstr "Razporejanje..."
 
-#: SchedulingModel.cpp:191
+#: SchedulingModel.cpp:192
 #, kde-format
 msgid "Not scheduled"
 msgstr "Ni razporejeno"
 
-#: SchedulingModel.cpp:193
+#: SchedulingModel.cpp:194
 #, kde-format
 msgid "Finished"
 msgstr "Zaključeno"
 
-#: SchedulingModel.cpp:195
+#: SchedulingModel.cpp:196
 #, kde-format
 msgid "Started"
 msgstr "Začeto"
 
-#: SchedulingModel.cpp:197
+#: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
 msgstr "Z osnovo"
 
-#: SchedulingModel.cpp:199
+#: SchedulingModel.cpp:200
 #, kde-format
 msgid "Scheduled"
 msgstr "Razporejeno"
 
-#: SchedulingModel.cpp:234
+#: SchedulingModel.cpp:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -1002,31 +1002,31 @@ msgstr ""
 "Razporejanje ni mogoče. Ciljni čas projekta mora biti kasnejši od "
 "izračunanega časa"
 
-#: SchedulingModel.cpp:236
+#: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
 msgstr "Razporedi ta projekt"
 
-#: SchedulingModel.cpp:239
+#: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
 msgstr "Vključi rezervacije virov iz tega projekta"
 
-#: SchedulingModel.cpp:242 SchedulingModel.cpp:245
+#: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
 msgstr "Izvzemi ta projekt"
 
-#: SchedulingModel.cpp:260
+#: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
 msgstr "Prednostna opravila so najprej razporejena"
 
-#: SchedulingView.cpp:116
+#: SchedulingView.cpp:117
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1054,7 +1054,7 @@ msgstr ""
 "vašega portfelja, morajo biti ti projekti vključeni, da bi uravnavanje virov "
 "delovalo pravilno.</note></para><para><link url='%1'>Več...</link></para>"
 
-#: SchedulingView.cpp:179
+#: SchedulingView.cpp:180
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
@@ -1064,22 +1064,22 @@ msgstr[1] "%1 minuti"
 msgstr[2] "%1 minute"
 msgstr[3] "%1 minut"
 
-#: SchedulingView.cpp:236 SummaryView.cpp:102
+#: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
 msgstr "Opis..."
 
-#: SchedulingView.cpp:396
+#: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
 msgstr "Notranja napaka. Ni najdenega vtičnika za razporejanje."
 
-#: SchedulingView.cpp:403 SchedulingView.cpp:418
+#: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
 msgstr "Ni kaj razporejati"
 
-#: SchedulingView.cpp:445
+#: SchedulingView.cpp:446
 #, kde-format
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
@@ -1088,7 +1088,7 @@ msgstr ""
 "Razporejanje ni mogoče. Ciljni čas projekta mora biti kasnejši od "
 "izračunanega časa."
 
-#: SchedulingView.cpp:457
+#: SchedulingView.cpp:458
 #, kde-format
 msgid "Scheduling projects"
 msgstr "Razporejanje projektov"
@@ -1159,13 +1159,13 @@ msgstr "Čas:"
 msgid "Tomorrow"
 msgstr "Jutri"
 
-#: SummaryModel.cpp:82
+#: SummaryModel.cpp:83
 #, kde-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
 msgstr "SPI"
 
-#: SummaryModel.cpp:87
+#: SummaryModel.cpp:88
 #, kde-format
 msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
@@ -1188,37 +1188,37 @@ msgstr ""
 "so prikazani tako za izračune vezane na stroške kot za trud.</para><para><nl/"
 "><link url='%1'>Več...</link></para>"
 
-#: View.cpp:57
+#: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
 msgstr "Vsebina portfelja"
 
-#: View.cpp:63
+#: View.cpp:64
 #, kde-format
 msgid "Scheduling"
 msgstr "Razporejanje"
 
-#: View.cpp:69
+#: View.cpp:70
 #, kde-format
 msgid "Summary"
 msgstr "Povzetek"
 
-#: View.cpp:77
+#: View.cpp:78
 #, kde-format
 msgid "Progress"
 msgstr "Napredek"
 
-#: View.cpp:82
+#: View.cpp:83
 #, kde-format
 msgid "Performance"
 msgstr "Performanse"
 
-#: View.cpp:89
+#: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
 msgstr "Raba vira"
 
-#: View.cpp:95
+#: View.cpp:96
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Ganttov povzetek"

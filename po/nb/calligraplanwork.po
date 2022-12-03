@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2013-02-02 10:27+0100\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -91,12 +91,12 @@ msgstr "Fila %1 finnes ikke."
 msgid "Document is already open:<br>%1"
 msgstr "Dokumentet er åpent fra før:<br /> %1"
 
-#: part.cpp:151 part.cpp:178 workpackage.cpp:607
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
 msgstr "Klarte ikke å pakke ut dokumentet fra lager:<br /> %1"
 
-#: part.cpp:159 part.cpp:186 workpackage.cpp:613
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
 msgid "Invalid URL:<br>%1"
 msgstr "Ugyldig URL: <br /> %1"
@@ -515,32 +515,32 @@ msgstr "Klarte ikke å åpne midlertidig fil. Sending avbrutt."
 msgid "Work Package: %1"
 msgstr "Arbeidspakke: %1"
 
-#: workpackage.cpp:102
+#: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
 msgstr "Dokumentet er åpent fra før"
 
-#: workpackage.cpp:168 workpackage.cpp:223
+#: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
 msgstr "Klarte ikke laste inn prosjekt: %1"
 
-#: workpackage.cpp:285
+#: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
 msgstr "Kan ikke lagre til tomt filnavn"
 
-#: workpackage.cpp:293
+#: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Klarte ikke opprette fila for lagring"
 
-#: workpackage.cpp:307
+#: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Kan ikke skrive «%1». Er partisjonen full?"
 
-#: workpackage.cpp:333
+#: workpackage.cpp:334
 #, kde-format
 msgid ""
 "Failed to open store:\n"
@@ -549,7 +549,7 @@ msgstr ""
 "Klarte ikke å åpne lageret:\n"
 "%1"
 
-#: workpackage.cpp:411
+#: workpackage.cpp:412
 #, kde-format
 msgid ""
 "Cannot save to projects store:\n"
@@ -558,12 +558,12 @@ msgstr ""
 "Kan  ikke lagre til prosjektlageret:\n"
 "%1"
 
-#: workpackage.cpp:454
+#: workpackage.cpp:455
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr ""
 
-#: workpackage.cpp:463
+#: workpackage.cpp:464
 #, kde-format
 msgid ""
 "Failed read file:\n"
@@ -572,7 +572,7 @@ msgstr ""
 "Klarte ikke å lese fil:\n"
 " %1"
 
-#: workpackage.cpp:469
+#: workpackage.cpp:470
 #, kde-format
 msgid ""
 "Failed write file:\n"
@@ -581,12 +581,12 @@ msgstr ""
 "Kunne ikke skrive fil:\n"
 "%1"
 
-#: workpackage.cpp:513
+#: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
 msgstr "Flett sammen data"
 
-#: workpackage.cpp:637
+#: workpackage.cpp:638
 #, kde-format
 msgid ""
 "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
@@ -601,7 +601,7 @@ msgstr[1] ""
 "<p>Arbeidspakka <b>«%2»</b> har åpne dokumenter.</p><p>Data kan gå tapt om "
 "du fortsetter.</p>"
 
-#: workpackage.cpp:660
+#: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
@@ -609,13 +609,13 @@ msgid ""
 msgstr ""
 "<p>Arbeidspakka <b>«%1»</b> er blitt endret.</p><p>Vil du lagre den?</p>"
 
-#: workpackage.cpp:687
+#: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
 "<p>Arbeidspakke <b>«%1»</b></p> <p>Kunne ikke åpne lager:</p> <p>%2</p>"
 
-#: workpackage.cpp:705
+#: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""

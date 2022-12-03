@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2009-08-20 10:18+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -258,7 +258,7 @@ msgstr ""
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:142 kernel/kptnode.cpp:1705 kernel/WorkPackage.cpp:132
-#: models/kptcalendarmodel.cpp:418 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:420 models/kptcalendarmodel.cpp:440
 #: models/kptnodeitemmodel.cpp:423 models/kptnodeitemmodel.cpp:439
 #: models/kptnodeitemmodel.cpp:449 models/kptnodeitemmodel.cpp:678
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
@@ -2278,13 +2278,13 @@ msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
 msgstr "Samwinne %1"
 
-#: models/kptcalendarmodel.cpp:289
+#: models/kptcalendarmodel.cpp:291
 #, fuzzy, kde-kuit-format
 msgctxt "1=calendar name"
 msgid "%1 (Default calendar)"
 msgstr "Difacer conte"
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2292,7 +2292,7 @@ msgstr "Difacer conte"
 msgid "Local"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:306 models/kptcalendarmodel.cpp:315
+#: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
 #: models/ResourceModel.cpp:83 models/ResourceModel.cpp:106
 #: models/ResourceModel.cpp:115
@@ -2300,67 +2300,67 @@ msgstr ""
 msgid "Shared"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:311
+#: models/kptcalendarmodel.cpp:313
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Local</emphasis> calendar"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:313
+#: models/kptcalendarmodel.cpp:315
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Shared</emphasis> calendar"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:330
+#: models/kptcalendarmodel.cpp:332
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar name"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:338
+#: models/kptcalendarmodel.cpp:340
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "De-select as default calendar"
 msgstr "Disfacer les contes di tchoezis"
 
-#: models/kptcalendarmodel.cpp:344
+#: models/kptcalendarmodel.cpp:346
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
 msgstr "Disfacer les contes di tchoezis"
 
-#: models/kptcalendarmodel.cpp:404
+#: models/kptcalendarmodel.cpp:406
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:421 models/kptcalendarmodel.cpp:438
+#: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, fuzzy, kde-format
 #| msgid "WBS Definition"
 msgid "Default"
 msgstr "Definixha WBS"
 
-#: models/kptcalendarmodel.cpp:431
+#: models/kptcalendarmodel.cpp:433
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No holidays"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:433
+#: models/kptcalendarmodel.cpp:435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:474
+#: models/kptcalendarmodel.cpp:476
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:532 models/kptnodeitemmodel.cpp:2321
+#: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5256
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, fuzzy, kde-format, kde-kuit-format
@@ -2369,84 +2369,84 @@ msgctxt "@title:column"
 msgid "Name"
 msgstr "No"
 
-#: models/kptcalendarmodel.cpp:533
+#: models/kptcalendarmodel.cpp:535
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Origin"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:534
+#: models/kptcalendarmodel.cpp:536
 #, fuzzy, kde-kuit-format
 #| msgid "Timezone"
 msgctxt "@title:column"
 msgid "Timezone"
 msgstr "Coisse d' eurêye"
 
-#: models/kptcalendarmodel.cpp:536
+#: models/kptcalendarmodel.cpp:538
 #, fuzzy, kde-kuit-format
 #| msgid "Modify Relation"
 msgctxt "@title:column"
 msgid "Holiday Region"
 msgstr "Candjî loyaedje"
 
-#: models/kptcalendarmodel.cpp:552
+#: models/kptcalendarmodel.cpp:554
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The holiday region"
 msgstr "Candjî completaedje del bouye"
 
-#: models/kptcalendarmodel.cpp:629
+#: models/kptcalendarmodel.cpp:631
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Re-parent calendar"
 msgstr "Radjouter calindrî"
 
-#: models/kptcalendarmodel.cpp:632
+#: models/kptcalendarmodel.cpp:634
 #, fuzzy
 #| msgid "Add Calendar"
 msgctxt "(qtundo-format)"
 msgid "Move calendar"
 msgstr "Radjouter calindrî"
 
-#: models/kptcalendarmodel.cpp:688
+#: models/kptcalendarmodel.cpp:690
 #, fuzzy
 #| msgid "Add Calendar"
 msgctxt "(qtundo-format)"
 msgid "Add calendar"
 msgstr "Radjouter calindrî"
 
-#: models/kptcalendarmodel.cpp:711
+#: models/kptcalendarmodel.cpp:713
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete calendar"
 msgstr "Disfacer calindrî di tchoezi"
 
-#: models/kptcalendarmodel.cpp:880
+#: models/kptcalendarmodel.cpp:882
 #, kde-format
 msgctxt "Undefined"
 msgid "U"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:881 models/kptcalendarmodel.cpp:1103
-#: models/kptcalendarmodel.cpp:1112
+#: models/kptcalendarmodel.cpp:883 models/kptcalendarmodel.cpp:1105
+#: models/kptcalendarmodel.cpp:1114
 #, kde-format
 msgctxt "NonWorking"
 msgid "NW"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:882
+#: models/kptcalendarmodel.cpp:884
 #, kde-format
 msgctxt "Working"
 msgid "W"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:911
+#: models/kptcalendarmodel.cpp:913
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar state"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:933
+#: models/kptcalendarmodel.cpp:935
 #, fuzzy, kde-format
 #| msgctxt "1=page number, 2=last page number"
 #| msgid "%1 (%2)"
@@ -2454,21 +2454,21 @@ msgctxt "1=time 2=The number of hours of work duration (non integer)"
 msgid "%1, %2 hours"
 msgstr "%1 (%2)"
 
-#: models/kptcalendarmodel.cpp:988 models/kptcalendarmodel.cpp:1155
+#: models/kptcalendarmodel.cpp:990 models/kptcalendarmodel.cpp:1157
 #, fuzzy, kde-kuit-format
 #| msgid "Undefined"
 msgctxt "@info:tooltip"
 msgid "Undefined"
 msgstr "Nén defini"
 
-#: models/kptcalendarmodel.cpp:991 models/kptcalendarmodel.cpp:1158
+#: models/kptcalendarmodel.cpp:993 models/kptcalendarmodel.cpp:1160
 #, fuzzy, kde-kuit-format
 #| msgid "Non-working"
 msgctxt "@info:tooltip"
 msgid "Non-working"
 msgstr "Nén ovråve"
 
-#: models/kptcalendarmodel.cpp:998 models/kptcalendarmodel.cpp:1165
+#: models/kptcalendarmodel.cpp:1000 models/kptcalendarmodel.cpp:1167
 #, fuzzy, kde-kuit-format
 #| msgctxt "1=page number, 2=last page number"
 #| msgid "%1 (%2)"
@@ -2476,33 +2476,33 @@ msgctxt "@info:tooltip 1=time 2=The work duration (non integer)"
 msgid "%1, %2"
 msgstr "%1 (%2)"
 
-#: models/kptcalendarmodel.cpp:1152
+#: models/kptcalendarmodel.cpp:1154
 #, fuzzy, kde-kuit-format
 #| msgid "Modify Relation"
 msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Candjî loyaedje"
 
-#: models/kptcalendarmodel.cpp:1349 models/kptcalendarmodel.cpp:1373
+#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:1401 models/kptcalendarmodel.cpp:1425
+#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Candjî calindrî"
 
-#: models/kptcalendarmodel.cpp:1442
+#: models/kptcalendarmodel.cpp:1457
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Samwinne"
 
-#: models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1458
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
 msgctxt "@title:column"

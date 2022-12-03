@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:46+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-10 00:15+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -108,60 +108,60 @@ msgstr ""
 msgid "Create a backup file"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:26 PortfolioModel.cpp:22
+#: DocumentsSaveDialog.cpp:27 PortfolioModel.cpp:23
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: DocumentsSaveDialog.cpp:27
+#: DocumentsSaveDialog.cpp:28
 #, kde-format
 msgctxt "@title:column"
 msgid "Modified"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:28
+#: DocumentsSaveDialog.cpp:29
 #, kde-format
 msgctxt "@title:column"
 msgid "Save"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:29
+#: DocumentsSaveDialog.cpp:30
 #, kde-format
 msgctxt "@title:column"
 msgid "Internal"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:30
+#: DocumentsSaveDialog.cpp:31
 #, kde-format
 msgctxt "@title:column"
 msgid "Url"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
-#: PortfolioModel.cpp:113
+#: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
+#: PortfolioModel.cpp:114
 #, kde-format
 msgid "Yes"
 msgstr "Ya"
 
-#: DocumentsSaveDialog.cpp:56 DocumentsSaveDialog.cpp:62 PortfolioModel.cpp:102
-#: PortfolioModel.cpp:113
+#: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
+#: PortfolioModel.cpp:114
 #, kde-format
 msgid "No"
 msgstr "Tidak"
 
-#: DocumentsSaveDialog.cpp:86
+#: DocumentsSaveDialog.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Documents"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:134
+#: DocumentsSaveDialog.cpp:135
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
 msgstr ""
 
-#: DocumentsSaveDialog.cpp:134
+#: DocumentsSaveDialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
@@ -188,17 +188,17 @@ msgstr ""
 msgid "Open Project"
 msgstr "Buka Projek"
 
-#: MainDocument.cpp:88
+#: MainDocument.cpp:89
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Dokumen tidak absah. Tidak ada mimetype yang ditentukan."
 
-#: MainDocument.cpp:93
+#: MainDocument.cpp:94
 #, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
 msgstr "Dokumen tidak absah. Mimetype yang diharapkan %1, yang didapat %2"
 
-#: MainDocument.cpp:99
+#: MainDocument.cpp:100
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -208,30 +208,30 @@ msgstr ""
 "sintaks: %1)\n"
 "Membukanya dalam versi Plan ini mungkin kehilangan beberapa informasi."
 
-#: MainDocument.cpp:101
+#: MainDocument.cpp:102
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Ketidaksesuaian Format-File"
 
-#: MainDocument.cpp:101
+#: MainDocument.cpp:102
 #, kde-format
 msgid "Continue"
 msgstr "Lanjutkan"
 
-#: MainDocument.cpp:164
+#: MainDocument.cpp:165
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
 msgstr ""
 
-#: MainDocument.cpp:165 PortfolioView.cpp:256 PortfolioView.cpp:261
-#: PortfolioView.cpp:320 PortfolioView.cpp:324
+#: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
+#: PortfolioView.cpp:321 PortfolioView.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
 msgstr ""
 
-#: MainWindow.cpp:147
+#: MainWindow.cpp:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -260,42 +260,42 @@ msgctxt "@title:window"
 msgid "Portfolio Settings"
 msgstr "Portfolio"
 
-#: PerformanceView.cpp:169
+#: PerformanceView.cpp:170
 #, kde-format
 msgid "No data"
 msgstr "Tidak ada data"
 
-#: PerformanceView.cpp:183
+#: PerformanceView.cpp:184
 #, kde-format
 msgid "Cost (%1)"
 msgstr "Biaya (%1)"
 
-#: PerformanceView.cpp:185
+#: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
 msgstr "Upaya (Jam)"
 
-#: PerformanceView.cpp:189 PerformanceView.cpp:209
+#: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
 msgid "SPI: %1"
 msgstr "SPI: %1"
 
-#: PerformanceView.cpp:193 PerformanceView.cpp:213
+#: PerformanceView.cpp:194 PerformanceView.cpp:214
 #, kde-format
 msgid "CPI: %1"
 msgstr "CPI: %1"
 
-#: PerformanceView.cpp:197 PerformanceView.cpp:217
+#: PerformanceView.cpp:198 PerformanceView.cpp:218
 #, kde-format
 msgid "BCWS: %1"
 msgstr "BCWS: %1"
 
-#: PerformanceView.cpp:201 PerformanceView.cpp:221
+#: PerformanceView.cpp:202 PerformanceView.cpp:222
 #, kde-format
 msgid "BCWP: %1"
 msgstr "BCWP: %1"
 
-#: PerformanceView.cpp:205 PerformanceView.cpp:225
+#: PerformanceView.cpp:206 PerformanceView.cpp:226
 #, kde-format
 msgid "ACWP: %1"
 msgstr "ACWP: %1"
@@ -359,25 +359,25 @@ msgstr "File"
 msgid "Edit"
 msgstr ""
 
-#: PortfolioModel.cpp:23
+#: PortfolioModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Storage"
 msgstr ""
 
-#: PortfolioModel.cpp:24
+#: PortfolioModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "File"
 msgstr "File"
 
-#: PortfolioModel.cpp:76
+#: PortfolioModel.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
 msgstr ""
 
-#: PortfolioModel.cpp:78
+#: PortfolioModel.cpp:79
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -385,34 +385,34 @@ msgid ""
 "external file"
 msgstr ""
 
-#: PortfolioModel.cpp:80
+#: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
 msgstr ""
 
-#: PortfolioModel.cpp:100 SchedulingModel.cpp:181
+#: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
 msgid "Error"
 msgstr "Error"
 
-#: PortfolioModel.cpp:108
+#: PortfolioModel.cpp:109
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
 msgstr ""
 
-#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "Embedded"
 msgstr ""
 
-#: PortfolioModel.cpp:125 PortfolioModel.cpp:130
+#: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "External"
 msgstr ""
 
-#: PortfolioView.cpp:77
+#: PortfolioView.cpp:78
 #, fuzzy, kde-format
 #| msgctxt "application name"
 #| msgid "Plan Portfolio"
@@ -420,7 +420,7 @@ msgctxt "@title:column"
 msgid "Recent Portfolios"
 msgstr "Plan Portfolio"
 
-#: PortfolioView.cpp:132
+#: PortfolioView.cpp:133
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -437,7 +437,7 @@ msgid ""
 "</note></para><para><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: PortfolioView.cpp:151
+#: PortfolioView.cpp:152
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -448,13 +448,13 @@ msgid ""
 "para><para>Try it on this text!</para>"
 msgstr ""
 
-#: PortfolioView.cpp:160
+#: PortfolioView.cpp:161
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
 msgstr ""
 
-#: PortfolioView.cpp:164
+#: PortfolioView.cpp:165
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -467,34 +467,34 @@ msgid ""
 "information from the documentation.</para>"
 msgstr ""
 
-#: PortfolioView.cpp:183
+#: PortfolioView.cpp:184
 #, kde-format
 msgid "Add"
 msgstr "Tambahkan"
 
-#: PortfolioView.cpp:188
+#: PortfolioView.cpp:189
 #, kde-format
 msgid "Remove"
 msgstr "Buang"
 
-#: PortfolioView.cpp:209
+#: PortfolioView.cpp:210
 #, kde-format
 msgid "Add Project"
 msgstr "Tambahkan Projek"
 
-#: PortfolioView.cpp:255 PortfolioView.cpp:319
+#: PortfolioView.cpp:256 PortfolioView.cpp:320
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
 msgstr ""
 
-#: PortfolioView.cpp:260
+#: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
 msgstr ""
 
-#: PortfolioView.cpp:323
+#: PortfolioView.cpp:324
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -592,54 +592,54 @@ msgstr ""
 msgid "Projects"
 msgstr "Tambahkan Projek"
 
-#: ProjectsModel.cpp:141
+#: ProjectsModel.cpp:142
 #, fuzzy, kde-format
 #| msgid "Add Project"
 msgctxt "@info:tooltip"
 msgid "Project name"
 msgstr "Tambahkan Projek"
 
-#: ProjectsModel.cpp:150
+#: ProjectsModel.cpp:151
 #, kde-format
 msgid "Target Start"
 msgstr ""
 
-#: ProjectsModel.cpp:153
+#: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
 msgstr ""
 
-#: ProjectsModel.cpp:162
+#: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
 msgstr ""
 
-#: ProjectsModel.cpp:165
+#: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
 msgstr ""
 
-#: ProjectsModel.cpp:174
+#: ProjectsModel.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
 msgstr ""
 
-#: ProjectsModel.cpp:186 ScheduleManagerInfoDialog.cpp:35
-#: SchedulingModel.cpp:28
+#: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
+#: SchedulingModel.cpp:29
 #, kde-format
 msgid "Schedule"
 msgstr "Jadwal"
 
-#: ProjectsModel.cpp:189
+#: ProjectsModel.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select schedule"
 msgstr "Pilih jadwal"
 
-#: ProjectsModel.cpp:230
+#: ProjectsModel.cpp:231
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -657,7 +657,7 @@ msgstr ""
 "rencana:\t%2</item><item>Akhir rencana:\t%3</item><item>Awal target:\t%4</"
 "item><item>Akhir target:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:244
+#: ProjectsModel.cpp:245
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -675,7 +675,7 @@ msgstr ""
 "rencana:\t%2</item><item>Akhir rencana:\t%3</item><item>Awal target:\t%4</"
 "item><item>Akhir target:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:258
+#: ProjectsModel.cpp:259
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -687,13 +687,13 @@ msgstr ""
 "rencana:\t%2</item><item>Akhir rencana:\t%3</item><item>Awal target:\t%4</"
 "item><item>Akhir target:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:291 ProjectsModel.cpp:312 ProjectsModel.cpp:342
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
 msgstr "Tidak dijadwal"
 
-#: ProjectsModel.cpp:294 ProjectsModel.cpp:315
+#: ProjectsModel.cpp:295 ProjectsModel.cpp:316
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule is baselined"
@@ -701,36 +701,36 @@ msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
 msgstr "Jadwal telah ter-baseline"
 
-#: ProjectsModel.cpp:296
+#: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
 msgstr ""
 
-#: ProjectsModel.cpp:317
+#: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
 msgstr ""
 
-#: ProjectsModel.cpp:336
+#: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Jadwal telah ter-baseline"
 
-#: ProjectsModel.cpp:339
+#: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
 msgstr "Terjadwal tetapi tidak ter-baseline"
 
-#: ResourceUsageModel.cpp:135
+#: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
 msgstr ""
 
-#: ResourceUsageModel.cpp:137
+#: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
@@ -770,27 +770,27 @@ msgstr ""
 msgid "Range"
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Add Project"
 msgctxt "@title:column"
 msgid "Project"
 msgstr "Tambahkan Projek"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Schedule"
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Jadwal"
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "Action"
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:21
+#: ScheduleManagerInfoDialog.cpp:22
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Status"
@@ -798,59 +798,59 @@ msgctxt "@title:column"
 msgid "State"
 msgstr "Status"
 
-#: ScheduleManagerInfoDialog.cpp:31 ScheduleManagerInfoDialog.cpp:37
+#: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, fuzzy, kde-format
 #| msgid "No schedule"
 msgid "New schedule"
 msgstr "Tidak ada jadwal"
 
-#: ScheduleManagerInfoDialog.cpp:33
+#: ScheduleManagerInfoDialog.cpp:34
 #, fuzzy, kde-format
 #| msgid "No schedule"
 msgid "New sub-schedule"
 msgstr "Tidak ada jadwal"
 
-#: ScheduleManagerInfoDialog.cpp:70
+#: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:76
+#: ScheduleManagerInfoDialog.cpp:77
 #, kde-format
 msgid ""
 "Existing schedule '%1' is not scheduled.\n"
 "'%1' will be scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:83
+#: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
 msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:90 ScheduleManagerInfoDialog.cpp:102
+#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
 msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:94
+#: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
 msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:106
+#: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
 msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:115
+#: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
 msgid ""
 "Project is not started.\n"
@@ -858,14 +858,14 @@ msgid ""
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:117
+#: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
 msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
 
-#: ScheduleManagerInfoDialog.cpp:121
+#: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
 msgid ""
 "Project is not started.\n"
@@ -896,35 +896,35 @@ msgctxt "@title"
 msgid "Message"
 msgstr ""
 
-#: SchedulingModel.cpp:23
+#: SchedulingModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Status"
 
-#: SchedulingModel.cpp:24
+#: SchedulingModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Control"
 msgstr "Kendalikan"
 
-#: SchedulingModel.cpp:25
+#: SchedulingModel.cpp:26
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
 msgstr "Prioritas"
 
-#: SchedulingModel.cpp:28
+#: SchedulingModel.cpp:29
 #, kde-format
 msgid "Include"
 msgstr "Sertakan"
 
-#: SchedulingModel.cpp:28 SchedulingModel.cpp:120
+#: SchedulingModel.cpp:29 SchedulingModel.cpp:121
 #, kde-format
 msgid "Exclude"
 msgstr "Kecuali"
 
-#: SchedulingModel.cpp:90 SchedulingModel.cpp:106
+#: SchedulingModel.cpp:91 SchedulingModel.cpp:107
 #, kde-format
 msgctxt "@into:tooltip"
 msgid ""
@@ -932,37 +932,37 @@ msgid ""
 "calculation time"
 msgstr ""
 
-#: SchedulingModel.cpp:189
+#: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
 msgstr "Penjadwalan..."
 
-#: SchedulingModel.cpp:191
+#: SchedulingModel.cpp:192
 #, kde-format
 msgid "Not scheduled"
 msgstr "Tidak dijadwal"
 
-#: SchedulingModel.cpp:193
+#: SchedulingModel.cpp:194
 #, kde-format
 msgid "Finished"
 msgstr "Selesai"
 
-#: SchedulingModel.cpp:195
+#: SchedulingModel.cpp:196
 #, kde-format
 msgid "Started"
 msgstr "Dimulai"
 
-#: SchedulingModel.cpp:197
+#: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
 msgstr "Di-baseline"
 
-#: SchedulingModel.cpp:199
+#: SchedulingModel.cpp:200
 #, kde-format
 msgid "Scheduled"
 msgstr "Dijadwal"
 
-#: SchedulingModel.cpp:234
+#: SchedulingModel.cpp:235
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -970,31 +970,31 @@ msgid ""
 "calculation time"
 msgstr ""
 
-#: SchedulingModel.cpp:236
+#: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
 msgstr "Jadwalkan projek ini"
 
-#: SchedulingModel.cpp:239
+#: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
 msgstr "Sertakan pembukuan sumberdaya dari projek ini"
 
-#: SchedulingModel.cpp:242 SchedulingModel.cpp:245
+#: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
 msgstr "Kecualikan projek ini"
 
-#: SchedulingModel.cpp:260
+#: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
 msgstr "Prioritas lebih tinggi dijadwalkan dulu"
 
-#: SchedulingView.cpp:116
+#: SchedulingView.cpp:117
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1011,7 +1011,7 @@ msgid ""
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: SchedulingView.cpp:179
+#: SchedulingView.cpp:180
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
@@ -1019,30 +1019,30 @@ msgid_plural "%1 minutes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: SchedulingView.cpp:236 SummaryView.cpp:102
+#: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
 msgstr ""
 
-#: SchedulingView.cpp:396
+#: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
 msgstr ""
 
-#: SchedulingView.cpp:403 SchedulingView.cpp:418
+#: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, fuzzy, kde-format
 #| msgid "Not scheduled"
 msgid "Nothing to schedule"
 msgstr "Tidak dijadwal"
 
-#: SchedulingView.cpp:445
+#: SchedulingView.cpp:446
 #, kde-format
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
 
-#: SchedulingView.cpp:457
+#: SchedulingView.cpp:458
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule this project"
@@ -1118,14 +1118,14 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
-#: SummaryModel.cpp:82
+#: SummaryModel.cpp:83
 #, fuzzy, kde-format
 #| msgid "SPI: %1"
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
 msgstr "SPI: %1"
 
-#: SummaryModel.cpp:87
+#: SummaryModel.cpp:88
 #, kde-format
 msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
@@ -1143,39 +1143,39 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: View.cpp:57
+#: View.cpp:58
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Portfolio"
 msgid "Portfolio Content"
 msgstr "Portfolio"
 
-#: View.cpp:63
+#: View.cpp:64
 #, kde-format
 msgid "Scheduling"
 msgstr "Penjadwalan"
 
-#: View.cpp:69
+#: View.cpp:70
 #, kde-format
 msgid "Summary"
 msgstr "Ringkasan"
 
-#: View.cpp:77
+#: View.cpp:78
 #, kde-format
 msgid "Progress"
 msgstr ""
 
-#: View.cpp:82
+#: View.cpp:83
 #, kde-format
 msgid "Performance"
 msgstr "Kinerja"
 
-#: View.cpp:89
+#: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
 msgstr ""
 
-#: View.cpp:95
+#: View.cpp:96
 #, fuzzy, kde-format
 #| msgid "Summary"
 msgid "Gantt Summary"

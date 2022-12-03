@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
 "PO-Revision-Date: 2022-08-25 12:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -34,121 +34,121 @@ msgstr ""
 "para><para><note>Plan gebruikt niet alles van zijn beschikbare "
 "functionaliteit.</note></para>"
 
-#: PlanTJScheduler.cpp:150
+#: PlanTJScheduler.cpp:151
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Init"
 msgstr "Init"
 
-#: PlanTJScheduler.cpp:157
+#: PlanTJScheduler.cpp:158
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Re-calculate project from start time: %1"
 msgstr "Project opnieuw berekenen vanaf begintijd: %1"
 
-#: PlanTJScheduler.cpp:163
+#: PlanTJScheduler.cpp:164
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from start time: %1"
 msgstr "Project plannen vanaf begintijd: %1"
 
-#: PlanTJScheduler.cpp:165
+#: PlanTJScheduler.cpp:166
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project target finish time: %1"
 msgstr "Beoogde eindtijd van het project: %1"
 
-#: PlanTJScheduler.cpp:168
+#: PlanTJScheduler.cpp:169
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from end time: %1"
 msgstr "Project plannen vanaf eindtijd: %1"
 
-#: PlanTJScheduler.cpp:184
+#: PlanTJScheduler.cpp:185
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule"
 msgstr "Plannen"
 
-#: PlanTJScheduler.cpp:191
+#: PlanTJScheduler.cpp:192
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to schedule project"
 msgstr "Planning van het project is mislukt"
 
-#: PlanTJScheduler.cpp:202
+#: PlanTJScheduler.cpp:203
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Update"
 msgstr "Bijwerken"
 
-#: PlanTJScheduler.cpp:210
+#: PlanTJScheduler.cpp:211
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Finish"
 msgstr "Voltooien"
 
-#: PlanTJScheduler.cpp:225
+#: PlanTJScheduler.cpp:226
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to find scenario to schedule"
 msgstr "Het zoeken naar een te plannen scenario is mislukt"
 
-#: PlanTJScheduler.cpp:427
+#: PlanTJScheduler.cpp:428
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project scheduled to start at %1 and finish at %2"
 msgstr "Project gepland om te starten op %1 en te eindigen op %2"
 
-#: PlanTJScheduler.cpp:475
+#: PlanTJScheduler.cpp:476
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid start time"
 msgstr "Ongeldige begintijd"
 
-#: PlanTJScheduler.cpp:479
+#: PlanTJScheduler.cpp:480
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid end time"
 msgstr "Ongeldige eindtijd"
 
-#: PlanTJScheduler.cpp:508
+#: PlanTJScheduler.cpp:509
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled milestone: %1"
 msgstr "Geplande mijlpalen: %1"
 
-#: PlanTJScheduler.cpp:510
+#: PlanTJScheduler.cpp:511
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled task: %1 - %2"
 msgstr "Geplande taak: %1 - %2"
 
-#: PlanTJScheduler.cpp:613
+#: PlanTJScheduler.cpp:614
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
 msgstr "%1: Niet voldaan aan voorwaarde. Negatieve speling=%2"
 
-#: PlanTJScheduler.cpp:629
+#: PlanTJScheduler.cpp:630
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
 msgstr "Niet voldaan aan voorwaarde. Negatieve speling=%1"
 
-#: PlanTJScheduler.cpp:779
+#: PlanTJScheduler.cpp:780
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
 msgstr "Als voorganger van taak '%1' toevoegen is mislukt"
 
-#: PlanTJScheduler.cpp:790
+#: PlanTJScheduler.cpp:791
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
 msgstr "Als opvolger van taak '%1' toevoegen is mislukt"
 
-#: PlanTJScheduler.cpp:811
+#: PlanTJScheduler.cpp:812
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
@@ -156,97 +156,97 @@ msgstr ""
 "Type afhankelijkheid '%1' niet behandeld. Beginnen vanaf het einde wordt "
 "gebruikt."
 
-#: PlanTJScheduler.cpp:872
+#: PlanTJScheduler.cpp:873
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid start constraint"
 msgstr "%1: Ongeldige beginvoorwaarde"
 
-#: PlanTJScheduler.cpp:885
+#: PlanTJScheduler.cpp:886
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid end constraint"
 msgstr "%1: Ongeldige eindvoorwaarde"
 
-#: PlanTJScheduler.cpp:908
+#: PlanTJScheduler.cpp:909
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Unhandled time constraint type"
 msgstr "Type tijdvoorwaarde niet behandeld"
 
-#: PlanTJScheduler.cpp:919 PlanTJScheduler.cpp:937
+#: PlanTJScheduler.cpp:920 PlanTJScheduler.cpp:938
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
 msgstr ""
 "Kon de juiste agenda voor berekenen van de duur van de taak niet gebruiken"
 
-#: PlanTJScheduler.cpp:985
+#: PlanTJScheduler.cpp:986
 #, kde-format
 msgid "Recalculate, earliest start: %1"
 msgstr "Opnieuw berekenen, vroegste begintijd: %1"
 
-#: PlanTJScheduler.cpp:999
+#: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
 msgstr "Taak is gestart. Resterende inspanning: %1d"
 
-#: PlanTJScheduler.cpp:1017
+#: PlanTJScheduler.cpp:1018
 #, kde-format
 msgid "No working hours defined for resource: %1"
 msgstr "Geen werkuren gedefinieerd voor hulpbron: %1"
 
-#: PlanTJScheduler.cpp:1079
+#: PlanTJScheduler.cpp:1080
 #, kde-format
 msgid "Scheduling started: %1"
 msgstr "Planning gestart: %1"
 
-#: PlanTJScheduler.cpp:1081
+#: PlanTJScheduler.cpp:1082
 #, kde-format
 msgid "Recalculating from: %1"
 msgstr "Opnieuw berekenen vanaf: %1"
 
-#: PlanTJScheduler.cpp:1090 PlanTJScheduler.cpp:1173
+#: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
 #, kde-format
 msgid "Scheduling canceled"
 msgstr "Plannen geannuleerd"
 
-#: PlanTJScheduler.cpp:1093
+#: PlanTJScheduler.cpp:1094
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr "Plannen is gereed om %1, verstreken tijd: %2 seconden"
 
-#: PlanTJScheduler.cpp:1110 PlanTJScheduler.cpp:1154
+#: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
 msgstr "Planningsinterval: %1 - %2, opdeling: %3 minuten"
 
-#: PlanTJScheduler.cpp:1115 PlanTJScheduler.cpp:1160
+#: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
 #, kde-format
 msgid "Invalid project, start > end"
 msgstr "Ongeldig project, begin > einde"
 
-#: PlanTJScheduler.cpp:1124 PlanTJScheduler.cpp:1169
+#: PlanTJScheduler.cpp:1125 PlanTJScheduler.cpp:1170
 #, kde-format
 msgid "Project check failed"
 msgstr "Project controle is mislukt"
 
-#: PlanTJScheduler.cpp:1132
+#: PlanTJScheduler.cpp:1133
 #, kde-format
 msgid "Scheduled: %1 - %2"
 msgstr "Gepland: %1 - %2"
 
-#: PlanTJScheduler.cpp:1134
+#: PlanTJScheduler.cpp:1135
 #, kde-format
 msgid "Scheduling failed"
 msgstr "Plannen is mislukt"
 
-#: PlanTJScheduler.cpp:1138 PlanTJScheduler.cpp:1179
+#: PlanTJScheduler.cpp:1139 PlanTJScheduler.cpp:1180
 #, kde-format
 msgid "Project scheduling failed"
 msgstr "Projectplannen is mislukt"
 
-#: PlanTJScheduler.cpp:1240
+#: PlanTJScheduler.cpp:1241
 #, kde-format
 msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "
