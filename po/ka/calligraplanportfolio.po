@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-01 06:35+0100\n"
+"PO-Revision-Date: 2022-12-03 06:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -191,7 +191,7 @@ msgstr "პროექტის გახსნა"
 #: MainDocument.cpp:89
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr ""
+msgstr "არასწორი დოკუმენტი. Mimetype მითითებული არაა."
 
 #: MainDocument.cpp:94
 #, kde-format
@@ -380,7 +380,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
-msgstr ""
+msgstr "პროექტის ფაილის გარე ბული"
 
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
@@ -407,7 +407,7 @@ msgstr "გარე"
 #, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
-msgstr ""
+msgstr "უახლესი პორტფოლიოები"
 
 #: PortfolioView.cpp:133
 #, kde-kuit-format
@@ -441,7 +441,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>ონლაინ რესურსები</subtitle>"
 
 #: PortfolioView.cpp:165
 #, kde-kuit-format
@@ -502,7 +502,7 @@ msgstr "ინფორმაცია"
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:246
@@ -512,6 +512,9 @@ msgid ""
 "text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">დასაწყისი</span></a></p></"
+"body></html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:259
@@ -598,7 +601,7 @@ msgstr "სამიზნის დასაწყისი"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
-msgstr ""
+msgstr "დაგეგმვის დიაპაზონი: უახლესი დაწყების დრო"
 
 #: ProjectsModel.cpp:163
 #, kde-format
@@ -609,7 +612,7 @@ msgstr "სამიზნის დასასრული"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
-msgstr ""
+msgstr "დაგეგმვის დიაპაზონი: უგვიანესი დასასრულის დრო"
 
 #: ProjectsModel.cpp:175
 #, kde-format
@@ -666,7 +669,7 @@ msgstr "დაგეგმილი არაა"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr ""
+msgstr "გეგმა: %1 დაგეგმილი არაა"
 
 #: ProjectsModel.cpp:297
 #, kde-format
@@ -738,45 +741,38 @@ msgid "Range"
 msgstr "დიაპაზონი"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
 msgstr "პროექტები"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "განრიგი"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
 msgstr "პარამეტრები"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
-msgstr "სტატუსი"
+msgstr "მდგომარეობა"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "New schedule"
-msgstr "დაგეგმილი არაა"
+msgstr "ახალი განრიგი"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "დაგეგმილი არაა"
+msgstr "ახალი ქვეგანრიგი"
 
 #: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
@@ -942,7 +938,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "ამ პროექტის დაგეგმვა"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
@@ -954,7 +950,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "ამ პროექტის გამორიცხვა"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
@@ -1048,7 +1044,7 @@ msgstr ""
 #: SchedulingView.ui:91
 #, kde-format
 msgid "Granularity:"
-msgstr ""
+msgstr "გრანულარულობა:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, parallel)
 #: SchedulingView.ui:101
@@ -1060,7 +1056,7 @@ msgstr "პარალელური"
 #: SchedulingView.ui:163
 #, kde-format
 msgid "Calculate From"
-msgstr ""
+msgstr "გამოთვლა საიდან"
 
 #. i18n: ectx: property (text), widget (QRadioButton, todayRB)
 #: SchedulingView.ui:169
@@ -1107,7 +1103,7 @@ msgstr ""
 #: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
-msgstr ""
+msgstr "პორტფოლიოს შემცველობა"
 
 #: View.cpp:64
 #, kde-format
@@ -1132,7 +1128,7 @@ msgstr "წარმადობა"
 #: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
-msgstr ""
+msgstr "რესურსების გამყენება"
 
 #: View.cpp:96
 #, kde-format
