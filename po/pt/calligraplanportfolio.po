@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-08-28 02:48+0100\n"
+"PO-Revision-Date: 2022-12-04 13:25+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -817,16 +817,13 @@ msgid "Schedule"
 msgstr "Agendamento"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Opções"
+msgstr "Acção"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Estado"
@@ -1225,6 +1222,3 @@ msgstr "Utilização dos Recursos"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Resumo do Gantt"
-
-#~ msgid "Scheduling running..."
-#~ msgstr "Agendamento em curso..."
