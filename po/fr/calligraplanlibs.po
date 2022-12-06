@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-10-30 14:36+0100\n"
+"PO-Revision-Date: 2022-12-04 18:08+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.11.90\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -6126,7 +6126,7 @@ msgstr "Afficher les séparateur de colonnes"
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Journées de vacances :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -6918,21 +6918,17 @@ msgstr "Ctrl+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:95 ui/ResourceAppointmentsGanttView.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
-msgstr "Pas de vacances"
+msgstr "Aucune vacance"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Pas de vacances"
+msgstr "Vacances du projet"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
 #: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
@@ -7288,11 +7284,9 @@ msgstr "Parcourir…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgid "Freedays"
-msgstr "Pas de vacances"
+msgstr "Journées de vacances"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
