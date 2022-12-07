@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 12:47+0100\n"
+"PO-Revision-Date: 2022-12-06 13:40+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -753,13 +753,13 @@ msgstr "Programación de %1: programada para terminar: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr "La programación es línea base"
+msgstr "La programación tiene punto de partida"
 
 #: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr "Programado pero no es línea base"
+msgstr "Programado pero sin punto de partida"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
@@ -863,6 +863,8 @@ msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"El proyecto tiene punto de partida.\n"
+"Se creará «%1» como subprogramación de «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
@@ -870,6 +872,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"El proyecto está iniciado\n"
+"Se creará «%1» como subprogramación de «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
@@ -877,6 +881,8 @@ msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
+"El proyecto está iniciado.\n"
+"La programación «%1» se volverá a programar."
 
 #: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
@@ -884,6 +890,8 @@ msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"El proyecto está iniciado.\n"
+"La programación existente «%1» se volverá a programar."
 
 #: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
@@ -892,6 +900,9 @@ msgid ""
 "New sub-schedule '%1'.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"El proyecto no está iniciado.\n"
+"Nueva subprogramación «%1».\n"
+"«%1» se creará como subprogramación de «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
@@ -899,6 +910,8 @@ msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
+"El proyecto no está iniciado.\n"
+"Se creará la nueva programación «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
@@ -906,6 +919,8 @@ msgid ""
 "Project is not started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"El proyecto no está iniciado.\n"
+"La programación existente «%1» se volverá a programar."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -992,7 +1007,7 @@ msgstr "Iniciado"
 #: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
-msgstr "Línea base"
+msgstr "Con punto de partida"
 
 #: SchedulingModel.cpp:200
 #, kde-format
