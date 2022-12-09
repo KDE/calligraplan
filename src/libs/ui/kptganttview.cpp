@@ -8,32 +8,30 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptganttview.h"
+#include "GanttViewBase.h"
+#include "NodeGanttViewBase.h"
+#include "DateTimeTimeLine.h"
+#include "DateTimeGrid.h"
 #include "kptnodeitemmodel.h"
-#include "kptappointment.h"
 #include "kptnode.h"
 #include "kptproject.h"
 #include "kpttask.h"
-#include "kptresource.h"
+#include "Resource.h"
 #include "kptrelation.h"
 #include "kptschedule.h"
-#include "kptviewbase.h"
 #include "kptitemviewsettup.h"
 #include "kptduration.h"
 #include "kptdatetime.h"
-#include "kptresourceappointmentsmodel.h"
-#include "kptdebug.h"
-#include "DateTimeTimeLine.h"
-#include "DateTimeGrid.h"
 #include "kptganttitemdelegate.h"
 #include "config.h"
-#include "kptcommand.h"
 #include "kpttaskdialog.h"
 #include "kptsummarytaskdialog.h"
 #include "kpttaskdescriptiondialog.h"
 #include "kpttaskprogressdialog.h"
 #include "kptmilestoneprogressdialog.h"
 #include "kptdocumentsdialog.h"
-#include "NodeGanttViewBase.h"
+#include "MacroCommand.h"
+#include "kptdebug.h"
 
 #include <KGanttGraphicsView>
 #include <KGanttTreeViewRowController>
@@ -43,7 +41,6 @@
 #include <KoPageLayoutWidget.h>
 #include <KoIcon.h>
 
-#include <QHeaderView>
 #include <QAction>
 #include <QMenu>
 #include <QPushButton>
