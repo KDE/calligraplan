@@ -1168,6 +1168,7 @@ QVariant ResourceAppointmentsRowModel::headerData(int section, Qt::Orientation o
             case Type: return i18n("Type");
             case StartTime: return i18n("Start Time");
             case EndTime: return i18n("End Time");
+                // Load is the amount in percent of a resources maximum capacity
             case Load: return xi18nc("@title:column noun", "Load");
         }
     }
