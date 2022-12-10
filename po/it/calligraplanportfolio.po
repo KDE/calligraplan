@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-08-30 08:04+0200\n"
+"PO-Revision-Date: 2022-12-03 10:40+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -808,50 +808,43 @@ msgid "Range"
 msgstr "Intervallo"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Progetti"
+msgstr "Progetto"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
-msgstr "Pianifica"
+msgstr "Pianificazione"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Opzioni"
+msgstr "Azione"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Stato"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "Nessuna pianificazione"
+msgstr "Nuova pianificazione"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Nessuna pianificazione"
+msgstr "Nuova sotto-pianificazione"
 
 #: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Sarà creata la nuova pianificazione «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:77
 #, kde-format
@@ -859,6 +852,8 @@ msgid ""
 "Existing schedule '%1' is not scheduled.\n"
 "'%1' will be scheduled."
 msgstr ""
+"La pianificazione esistente «%1» non è pianificata.\n"
+"«%1» sarà ri-pianificata."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -866,6 +861,8 @@ msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Il progetto è rilasciato.\n"
+"«%1» sarà creata come sotto-pianificazione di «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
@@ -873,6 +870,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Il progetto è iniziato.\n"
+"«%1» sarà creata come sotto- pianificazione di «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
@@ -880,6 +879,8 @@ msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
+"Il progetto è iniziato.\n"
+"La pianificazione «%1» sarà ri-pianificata."
 
 #: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
@@ -887,6 +888,8 @@ msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Il progetto è iniziato.\n"
+"La pianificazione esistente «%1» sarà ri-pianificata."
 
 #: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
@@ -895,6 +898,9 @@ msgid ""
 "New sub-schedule '%1'.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Il progetto non è iniziato.\n"
+"Nuova sotto-pianificazione «%1».\n"
+"«%1» sarà creata come sotto- pianificazione di «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
@@ -902,6 +908,8 @@ msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
+"Il progetto non è iniziato.\n"
+"Sarà creata la nuova pianificazione «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
@@ -909,6 +917,8 @@ msgid ""
 "Project is not started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Il progetto non è iniziato.\n"
+"La pianificazione esistente «%1» sarà ri-pianificata."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
