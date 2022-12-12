@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-07-15 11:39+0200\n"
+"PO-Revision-Date: 2022-12-11 21:49+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -107,7 +107,7 @@ msgstr "%1d %2h:%3m"
 #, kde-format
 msgctxt "<minutes>m:<seconds>s.<milliseconds>"
 msgid "%1m:%2s.%3"
-msgstr ""
+msgstr "%1m:%2s.%3"
 
 #: kernel/kptduration.cpp:217
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "Error de Planification"
 #, kde-format
 msgctxt "project scheduling canceled by user"
 msgid "Canceled"
-msgstr ""
+msgstr "Cancellate"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
@@ -421,10 +421,9 @@ msgid "Schedule tasks forward"
 msgstr "Planifica cargas in avante"
 
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Extension de planification"
+msgstr "Planificar cancellate"
 
 #: kernel/kptproject.cpp:299 kernel/kptproject.cpp:409
 #, kde-format
@@ -1658,11 +1657,9 @@ msgid "Import Document"
 msgstr "Importa documento"
 
 #: main/KoMainWindow.cpp:1534
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Cannot Attach Document"
+#, kde-format
 msgid "Cannot preview the document"
-msgstr "Non pote attachar documento"
+msgstr "Non pote facer vista preliminar del documento"
 
 #: main/KoMainWindow.cpp:1542
 #, kde-format
@@ -3565,12 +3562,10 @@ msgid "Assigned resources:<nl/>%1"
 msgstr ""
 
 #: models/kptnodeitemmodel.cpp:1343
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task finished at %1"
-msgstr "Le carca terminava a : %1"
+msgstr "Carga terminava a : %1"
 
 #: models/kptnodeitemmodel.cpp:1345
 #, kde-kuit-format
@@ -3579,12 +3574,10 @@ msgid "Task is %1% completed"
 msgstr "Carga es completate al %1%"
 
 #: models/kptnodeitemmodel.cpp:1348
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
-msgstr "Le carca terminava a : %1"
+msgstr "Petra miliari terminava a : %1"
 
 #: models/kptnodeitemmodel.cpp:1372
 #, kde-format
@@ -3926,20 +3919,16 @@ msgid "Estimate"
 msgstr "Estima"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimista (Dur)"
+msgstr "Optimista (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimista (Dur)"
+msgstr "Pessimista (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
@@ -5309,25 +5298,20 @@ msgid "Modify resource account"
 msgstr "Modifica conto de ressource"
 
 #: models/ResourceModel.cpp:79
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4"
-msgstr "%1: %2<nl/>%3: %4<nl/>Fuso Horari: %5<nl/>Disponibile: %6"
+msgstr "%1:<nl/>Typo: %2<nl/>Allocation: %3<nl/>Origine: %4"
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Manual"
+#, kde-format
 msgid "Manual"
 msgstr "Manual"
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgid "Task completion"
+#, kde-format
 msgid "On task creation"
-msgstr "Completion de carga"
+msgstr "Sur creation de carga"
 
 #: models/ResourceModel.cpp:109
 #, kde-kuit-format
@@ -6697,21 +6681,17 @@ msgstr "CTR+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:95 ui/ResourceAppointmentsGanttView.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
-msgstr "Nulle Dies feriate"
+msgstr "Nulle Dies libere"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Nulle Dies feriate"
+msgstr "Dies libere de Projecto"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
 #: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
@@ -7047,11 +7027,9 @@ msgstr "Naviga..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgid "Freedays"
-msgstr "Nulle Dies feriate"
+msgstr "Dies libere"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -7803,10 +7781,9 @@ msgid "Move Down"
 msgstr "Move a basso "
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "Scinde Vista"
+msgstr "Scinde"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -9222,22 +9199,19 @@ msgid "Nothing"
 msgstr "Nihil"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:254
-#, fuzzy, kde-format
-#| msgid "Report Template"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Patrono de reporto"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Adde"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
-#, fuzzy, kde-format
-#| msgid "Report File"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "File de reporto"
@@ -9292,10 +9266,9 @@ msgid "Generate Report"
 msgstr "Genera reporto"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:394
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open..."
-msgstr "Aperi"
+msgstr "Aperi..."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:430
 #, kde-format
@@ -9519,7 +9492,7 @@ msgstr "Aperi Ligamine"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
@@ -9627,13 +9600,9 @@ msgid "Pessimistic:"
 msgstr "Pessimista:"
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task"
-#| msgid_plural "Delete tasks"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "Dele carga"
+msgstr "Divide carga"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
@@ -9643,26 +9612,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify estimate"
+#, kde-format
 msgid "Migrate estimate"
-msgstr "Modifica estima"
+msgstr "Migra estima"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify resource allocations"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "Modifica allocation de ressource"
+msgstr "Migra allocation de ressource"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
-#, fuzzy, kde-format
-#| msgid "Task dependencies"
+#, kde-format
 msgid "Create dependencies"
-msgstr "Dependentias de carga"
+msgstr "Crea dependentias"
 
 #: widgets/KoDialog.cpp:251
 #, kde-format

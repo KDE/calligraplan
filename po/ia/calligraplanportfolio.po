@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-07-15 11:40+0200\n"
+"PO-Revision-Date: 2022-12-11 21:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -736,45 +736,38 @@ msgid "Range"
 msgstr "Extension"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Projectos"
+msgstr "Projecto:"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Planifica"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Optiones"
+msgstr "Action"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Stato"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "Nulle plano de horario"
+msgstr "Nove plano de horario"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Nulle plano de horario"
+msgstr "Nove sub plano de horario"
 
 #: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
@@ -982,8 +975,8 @@ msgstr ""
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minutas"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
@@ -996,10 +989,9 @@ msgid "Internal error. No scheduler plugin found."
 msgstr ""
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Nothing to schedule"
-msgstr "Non planificate"
+msgstr "Nihil a planificar"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -1009,11 +1001,9 @@ msgid ""
 msgstr ""
 
 #: SchedulingView.cpp:458
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Schedule this project"
+#, kde-format
 msgid "Scheduling projects"
-msgstr "Planifica iste projecto"
+msgstr "Planificante projectos"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54

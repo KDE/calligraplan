@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2013, 2020, 2021.
+# Giovanni Sora <g.sora@tiscali.it>, 2013, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2021-08-30 15:29+0200\n"
+"PO-Revision-Date: 2022-12-11 21:40+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: PlanTJPlugin.cpp:43
 #, kde-kuit-format
@@ -199,10 +199,9 @@ msgid "Recalculating from: %1"
 msgstr "Re-computar ex tempore: %1"
 
 #: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
-#, fuzzy, kde-format
-#| msgid "Scheduling failed"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Planificar falleva"
+msgstr "Planificar cancellate"
 
 #: PlanTJScheduler.cpp:1094
 #, kde-format
