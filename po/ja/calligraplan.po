@@ -2495,6 +2495,3 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr ""
-
-#~ msgid "Expected estimate"
-#~ msgstr "予想見積り"

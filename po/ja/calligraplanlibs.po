@@ -10825,14 +10825,3 @@ msgstr "分布"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Unknown"
-#~ msgid "Unknown report type: %1"
-#~ msgstr "不明"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Report Designer"
-#~ msgid "Report generator is already open"
-#~ msgstr "レポートデザイナー"
