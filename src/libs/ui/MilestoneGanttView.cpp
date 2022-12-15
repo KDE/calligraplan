@@ -18,6 +18,7 @@
 #include "kptmilestoneprogressdialog.h"
 #include "kpttaskdescriptiondialog.h"
 #include "kptdocumentsdialog.h"
+#include "FilterWidget.h"
 
 #include <kptnode.h>
 #include <kptproject.h>
@@ -304,8 +305,6 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     l->addWidget(m_splitter);
     m_splitter->setOrientation(Qt::Vertical);
 
-    setupGui();
-
     m_gantt = new MilestoneKGanttView(m_splitter);
     m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -316,6 +315,8 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     m_showNoInformation = false; //FIXME
 
     updateReadWrite(readWrite);
+
+    setupGui();
 
     connect(m_gantt->treeView(), &TreeViewBase::contextMenuRequested, this, &MilestoneGanttView::slotContextMenuRequested);
     connect(m_gantt, &MyKGanttView::contextMenuRequested, this, &MilestoneGanttView::slotContextMenuRequested);
@@ -469,6 +470,13 @@ void MilestoneGanttView::setupGui()
     actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &MilestoneGanttView::slotDocuments);
 
+    auto filter = new QWidgetAction(this);
+    filter->setObjectName(QStringLiteral("edit_filter"));
+    filter->setText(i18n("Filter"));
+    auto filterWidget = new FilterWidget(false, this);
+    filter->setDefaultWidget(filterWidget);
+    actionCollection()->addAction(filter->objectName(), filter);
+    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegExp));
 }
 
 void MilestoneGanttView::slotSelectionChanged()

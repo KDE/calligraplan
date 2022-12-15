@@ -39,7 +39,9 @@ void FilterWidget::init(bool enableExtendedOptions)
         l->addWidget(extendedOptions);
     }
     lineedit = new QLineEdit();
-//    lineedit->addAction(koIcon("view-filter"), QLineEdit::LeadingPosition);
+    if (!enableExtendedOptions) {
+        lineedit->addAction(koIcon("view-filter"), QLineEdit::LeadingPosition);
+    }
     lineedit->setToolTip(i18nc("@info:tooltip", "Filter names"));
     l->addWidget(lineedit);
 

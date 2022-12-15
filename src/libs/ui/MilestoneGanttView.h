@@ -148,7 +148,7 @@ private:
     bool m_readWrite;
     int m_defaultFontSize;
     QSplitter *m_splitter;
-    MilestoneKGanttView *m_gantt;
+    MilestoneKGanttView *m_gantt = nullptr;
     bool m_showTaskName;
     bool m_showProgress;
     bool m_showPositiveFloat;

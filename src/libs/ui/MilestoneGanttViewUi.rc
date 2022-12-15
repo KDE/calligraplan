@@ -35,7 +35,8 @@
         </Menu>-->
     </MenuBar>
 
-    <ToolBar name="mailestineviewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+    <ToolBar name="mailestoneviewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+        <Action name="edit_filter"/>
     </ToolBar>
 
     <Menu name="task_unscheduled_popup">
