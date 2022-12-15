@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-07-15 11:36+0200\n"
+"PO-Revision-Date: 2022-12-14 12:32+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -312,16 +312,15 @@ msgstr "Estimaunitate de tempore"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Typo de estima:"
+msgstr "Estima"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risco"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -582,10 +581,9 @@ msgid "Project Templates"
 msgstr "Patronos de Projecto"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Patronos de Projecto"
+msgstr "Patronos de Reporto"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1094,25 +1092,25 @@ msgstr "Coercition de planification:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risco:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Necun"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Basse"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alte"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1172,7 +1170,7 @@ msgstr "Publica:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
@@ -1182,11 +1180,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Renomina"
+msgstr "Nomine de file:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
@@ -1323,10 +1319,9 @@ msgid "Recalculating from: %1"
 msgstr "Re-computar ex tempore: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Maneator de planification"
+msgstr "Planification cancellate"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
@@ -1554,10 +1549,9 @@ msgid "Open Report Definition File..."
 msgstr ""
 
 #: kptview.cpp:243
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Crea patrono de projecto..."
+msgstr "Crea patrono de reporto..."
 
 #: kptview.cpp:259
 #, kde-format
@@ -1855,19 +1849,18 @@ msgstr "Reportos"
 #: kptview.cpp:1479
 #, kde-format
 msgid "Overwrite"
-msgstr ""
+msgstr "Super scribe"
 
 #: kptview.cpp:1479
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Patronos de Projecto"
+msgstr "Patrono de reporto"
 
 #: kptview.cpp:1479
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "Le file '%1' ja existe.Tu vole super scriber lo?"
 
 #: kptview.cpp:2026
 #, kde-kuit-format
