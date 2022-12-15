@@ -38,9 +38,7 @@ KAboutData * newAboutData()
                              i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     aboutData->setProductName("calligraplan/work");
-#if KCOREADDONS_VERSION >= 0x051600
-    aboutData->setDesktopFileName(QStringLiteral("org.kde.calligraplanworks"));
-#endif
+    aboutData->setDesktopFileName(QStringLiteral("org.kde.calligraplanwork"));
 
     return aboutData;
 }
