@@ -13,10 +13,8 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KAboutData>
-#include <KStartupInfo>
 #include <KWindowSystem>
 #include <KMessageBox>
-#include <kwindowsystem_version.h>
 
 #include <QApplication>
 #include <QDir>
@@ -52,14 +50,9 @@ void CommandLineParser::handleActivateRequest(const QStringList &arguments, cons
     handleCommandLine(QDir(workingDirectory));
 
     // terminate startup notification and activate the mainwindow
-#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5,62,0)
     m_mainwindow->setAttribute(Qt::WA_NativeWindow, true);
-    KStartupInfo::setNewStartupId(m_mainwindow->windowHandle(), KStartupInfo::startupId());
-#else
-    KStartupInfo::setNewStartupId(m_mainwindow, KStartupInfo::startupId());
-#endif
-    KWindowSystem::forceActiveWindow(m_mainwindow->winId());
-
+    KWindowSystem::updateStartupId(m_mainwindow->windowHandle());
+    KWindowSystem::activateWindow(m_mainwindow->windowHandle());
 }
 
 void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
