@@ -613,7 +613,11 @@ void ItemModelBase::setProject(Project *project)
 
 void ItemModelBase::setScheduleManager(ScheduleManager *sm)
 {
+    bool changed = m_manager != sm;
     m_manager = sm;
+    if (changed) {
+        Q_EMIT managerChanged(sm);
+    }
 }
 
 void ItemModelBase::slotLayoutChanged()

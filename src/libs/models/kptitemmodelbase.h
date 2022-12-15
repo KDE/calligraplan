@@ -274,7 +274,8 @@ public:
 Q_SIGNALS:
     /// Connect to this signal if your model modifies data using undo commands.
     void executeCommand(KUndo2Command*);
-    
+    void managerChanged(KPlato::ScheduleManager *sm);
+
 public Q_SLOTS:
     virtual void setProject(KPlato::Project *project);
     virtual void setScheduleManager(KPlato::ScheduleManager *sm);

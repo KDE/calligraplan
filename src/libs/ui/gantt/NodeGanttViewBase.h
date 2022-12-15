@@ -38,9 +38,6 @@ public:
     bool loadContext(const KoXmlElement &settings) override;
     void saveContext(QDomElement &settings) const override;
 
-public Q_SLOTS:
-    void setShowUnscheduledTasks(bool show);
-
 protected:
     GanttItemDelegate *m_ganttdelegate;
     NodeItemModel m_defaultModel;

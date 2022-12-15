@@ -17,6 +17,7 @@
 
 #include <KoXmlReader.h>
 #include <KoPageLayoutWidget.h>
+#include <KoIcon.h>
 
 #include <KGanttProxyModel>
 #include <KGanttConstraintModel>
@@ -34,6 +35,8 @@
 #include <QScrollBar>
 #include <QClipboard>
 #include <QGraphicsTextItem>
+#include <QLineEdit>
+#include <QPaintEvent>
 
 /// The main namespace
 namespace KPlato
@@ -382,27 +385,29 @@ void GanttPrintingDialog::printPage(int page, QPainter &painter)
 }
 
 //---------------------
-class HeaderView : public QHeaderView
+HeaderView::HeaderView(QWidget* parent)
+    : QHeaderView(Qt::Horizontal, parent)
 {
-public:
-    explicit HeaderView(QWidget* parent=nullptr) : QHeaderView(Qt::Horizontal, parent) {
-    }
+}
 
-    QSize sizeHint() const override { QSize s = QHeaderView::sizeHint(); s.rheight() *= 2; return s; }
-};
+QSize HeaderView::sizeHint() const
+{
+    QSize s = QHeaderView::sizeHint(); s.rheight() *= 2; return s;
+}
 
 GanttTreeView::GanttTreeView(QWidget* parent)
     : TreeViewBase(parent)
 {
     disconnect(header());
-    setHeader(new HeaderView);
+    auto header = new HeaderView;
+    setHeader(header);
 
     setSelectionMode(QAbstractItemView::ExtendedSelection);
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setTreePosition(-1); // always visual index 0
 
-    header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)));
+    header->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(header, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderContextMenuRequested(QPoint)));
 }
 
 class MyGraphicsView : public KGantt::GraphicsView

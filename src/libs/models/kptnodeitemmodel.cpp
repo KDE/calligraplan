@@ -4811,6 +4811,9 @@ QVariant MilestoneItemModel::data(const QModelIndex &index, int role) const
         return headerData(index.column(), Qt::Horizontal, role);
     }
     Node *n = node(index);
+    if (role == Role::Object) {
+        return n ? QVariant::fromValue(static_cast<QObject*>(n)) : QVariant();
+    }
     if (n != nullptr) {
         if (index.column() == NodeModel::NodeType && role == KGantt::ItemTypeRole) {
             result = m_nodemodel.data(n, index.column(), Qt::EditRole);
@@ -5140,12 +5143,16 @@ int MilestoneItemModel::sortRole(int column) const
 }
 
 //--------------
-NodeSortFilterProxyModel::NodeSortFilterProxyModel(ItemModelBase* model, QObject *parent, bool filterUnscheduled)
-    : QSortFilterProxyModel(parent),
-    m_filterUnscheduled(filterUnscheduled)
+NodeSortFilterProxyModel::NodeSortFilterProxyModel(ItemModelBase* model, QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
     setSourceModel(model);
     setDynamicSortFilter(true);
+    m_invalidateFilter.setInterval(100);
+    m_invalidateFilter.setSingleShot(true);
+    connect(&m_invalidateFilter, &QTimer::timeout, this, [this]() {
+        invalidateFilter();
+    });
 }
 
 ItemModelBase *NodeSortFilterProxyModel::itemModel() const
@@ -5153,9 +5160,156 @@ ItemModelBase *NodeSortFilterProxyModel::itemModel() const
     return static_cast<ItemModelBase *>(sourceModel());
 }
 
-void NodeSortFilterProxyModel::setFilterUnscheduled(bool on) {
-    m_filterUnscheduled = on;
-    invalidateFilter();
+bool NodeSortFilterProxyModel::showSummarytasks() const
+{
+    return m_showSummarytasks;
+}
+
+void NodeSortFilterProxyModel::setShowSummarytasks(bool on)
+{
+    m_showSummarytasks = on;
+    setFilterInvalid();
+}
+
+bool NodeSortFilterProxyModel::tasksAndMilestonesGroupEnabled() const
+{
+    return m_tasksAndMilestonesGroupEnabled;
+}
+
+void NodeSortFilterProxyModel::setTasksAndMilestonesGroupEnabled(bool on)
+{
+    m_tasksAndMilestonesGroupEnabled = on;
+    setFilterInvalid();
+}
+
+bool NodeSortFilterProxyModel::showProject() const
+{
+    return m_model->projectShown();
+}
+
+void NodeSortFilterProxyModel::setShowProject(bool on)
+{
+    m_model->setShowProject(on);
+}
+
+bool NodeSortFilterProxyModel::showUnscheduled() const
+{
+    return m_showUnscheduled;
+}
+
+void NodeSortFilterProxyModel::setShowUnscheduled(bool on)
+{
+    m_showUnscheduled = on;
+    if (m_tasksAndMilestonesGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+bool NodeSortFilterProxyModel::periodGroupEnabled() const
+{
+    return m_periodGroupEnabled;
+}
+
+void NodeSortFilterProxyModel::setPeriodGroupEnabled(bool on)
+{
+    m_periodGroupEnabled = on;
+    setFilterInvalid();
+}
+
+void NodeSortFilterProxyModel::setShowTasks(bool on)
+{
+    m_showTasks = on;
+    if (m_tasksAndMilestonesGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+bool NodeSortFilterProxyModel::showTasks() const
+{
+    return m_showTasks;
+}
+
+void NodeSortFilterProxyModel::setShowMilestones(bool on)
+{
+    m_showMilestones = on;
+    if (m_tasksAndMilestonesGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+bool NodeSortFilterProxyModel::showMilestones() const
+{
+    return m_showMilestones;
+}
+
+bool NodeSortFilterProxyModel::showRunning() const
+{
+    return m_showRunning;
+}
+
+void NodeSortFilterProxyModel::setShowRunning(bool on)
+{
+    m_showRunning = on;
+    if (m_periodGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+bool NodeSortFilterProxyModel::showFinished() const
+{
+    return m_showFinished;
+}
+
+void NodeSortFilterProxyModel::setShowFinished(bool on)
+{
+    m_showFinished = on;
+    if (m_periodGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+bool NodeSortFilterProxyModel::showNotStarted() const
+{
+    return m_showNotStarted;
+}
+
+void NodeSortFilterProxyModel::setShowNotStarted(bool on)
+{
+    m_showNotStarted = on;
+    if (m_periodGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+QDate NodeSortFilterProxyModel::periodStart() const
+{
+    return m_periodStart;
+}
+
+void NodeSortFilterProxyModel::setPeriodStart(const QDate &dt)
+{
+    m_periodStart = dt;
+    if (m_periodGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+QDate NodeSortFilterProxyModel::periodEnd() const
+{
+    return m_periodEnd;
+}
+
+void NodeSortFilterProxyModel::setPeriodEnd(const QDate &dt)
+{
+    m_periodEnd = dt;
+    if (m_periodGroupEnabled) {
+        setFilterInvalid();
+    }
+}
+
+void NodeSortFilterProxyModel::setFilterInvalid()
+{
+    m_invalidateFilter.start();
 }
 
 bool NodeSortFilterProxyModel::filterAcceptsRow (int row, const QModelIndex & parent) const
@@ -5165,16 +5319,72 @@ bool NodeSortFilterProxyModel::filterAcceptsRow (int row, const QModelIndex & pa
         //debugPlan<<itemModel()->project();
         return false;
     }
-    if (m_filterUnscheduled) {
+    if (!QSortFilterProxyModel::filterAcceptsRow(row, parent)) {
+        return false;
+    }
+    auto node = sourceModel()->data(sourceModel()->index(row, 0, parent), Role::Object).value<Node*>();
+    if (node && node->type() == Node::Type_Project) {
+        return true; // always show project if it appears here, it is filtered in sourcemodel
+    }
+    if (!m_showSummarytasks && node && node->type() == Node::Type_Summarytask) {
+        return false;
+    }
+    if (m_tasksAndMilestonesGroupEnabled) {
+        if (!node) {
+            return true;
+        }
+        int type = node->type();
+        if (!m_showTasks && type == Node::Type_Task) {
+            return false;
+        }
+        if (!m_showMilestones && type == Node::Type_Milestone) {
+            return false;
+        }
+        if (!m_showUnscheduled) {
+            QString s = sourceModel()->data(sourceModel()->index(row, NodeModel::NodeNotScheduled, parent), Qt::EditRole).toString();
+            if (s == QStringLiteral("true")) {
+                //debugPlan<<"Filtered unscheduled:"<<sourceModel()->index(row, 0, parent);
+                return false;
+            }
+        }
+    } else {
         QString s = sourceModel()->data(sourceModel()->index(row, NodeModel::NodeNotScheduled, parent), Qt::EditRole).toString();
         if (s == QStringLiteral("true")) {
             //debugPlan<<"Filtered unscheduled:"<<sourceModel()->index(row, 0, parent);
             return false;
         }
     }
-    bool accepted = QSortFilterProxyModel::filterAcceptsRow(row, parent);
-    //debugPlan<<this<<sourceModel()->index(row, 0, parent)<<"accepted ="<<accepted<<filterRegExp()<<filterRegExp().isEmpty()<<filterRegExp().capturedTexts();
-    return accepted;
+    if (m_periodGroupEnabled) {
+        auto task = qobject_cast<Task*>(node);
+        if (!task) {
+            return true;
+        }
+        if (!m_showRunning && task->completion().isStarted() && !task->completion().isFinished()) {
+            return false;
+        }
+        if (!m_showFinished && task->completion().isFinished()) {
+            return false;
+        }
+        if (!m_showNotStarted && !task->completion().isStarted()) {
+            return false;
+        }
+        const auto idx = sourceModel()->index(row, NodeModel::NodeStartTime, parent);
+        auto start = idx.data(Qt::EditRole).toDate();
+        if (task->completion().isStarted() && (task->completion().startTime().date() < start)) {
+            start = task->completion().startTime().date();
+        }
+        if (start < m_periodStart || start > m_periodEnd) {
+            return false;
+        }
+        auto end = idx.siblingAtColumn(NodeModel::NodeEndTime).data(Qt::EditRole).toDate();
+        if (task->completion().isFinished() && task->completion().finishTime().date() > end) {
+            end = task->completion().finishTime().date();
+        }
+        if (end < m_periodStart || end > m_periodEnd) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void NodeSortFilterProxyModel::sort(int column, Qt::SortOrder order)

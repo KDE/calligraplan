@@ -17,6 +17,9 @@
 #include <KGanttGlobal>
 #include <KGanttView>
 
+#include <QHeaderView>
+
+class QLineEdit;
 class QDomElement;
 
 class KoPrintJob;
@@ -122,12 +125,20 @@ protected:
     qreal m_rowLabelsWidth;
 };
 
+class HeaderView : public QHeaderView
+{
+    Q_OBJECT
+public:
+    explicit HeaderView(QWidget* parent=nullptr);
+
+    QSize sizeHint() const override;
+};
+
 class PLANUI_EXPORT GanttTreeView : public TreeViewBase
 {
     Q_OBJECT
 public:
     explicit GanttTreeView(QWidget *parent);
-
 };
 
 class PLANUI_EXPORT GanttViewBase : public KGantt::View

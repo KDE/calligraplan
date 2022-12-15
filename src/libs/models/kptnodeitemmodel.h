@@ -17,6 +17,7 @@
 #include <QMetaEnum>
 #include <QSortFilterProxyModel>
 #include <QUrl>
+#include <QTimer>
 
 class QMimeData;
 class KUndo2Command;
@@ -467,20 +468,58 @@ class PLANMODELS_EXPORT NodeSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    NodeSortFilterProxyModel(ItemModelBase* model, QObject *parent, bool filterUnscheduled = true);
+    NodeSortFilterProxyModel(ItemModelBase* model, QObject *parent);
 
     ItemModelBase *itemModel() const;
-    void setFilterUnscheduled(bool on);
-    bool filterUnscheduled() const { return m_filterUnscheduled; }
+    bool showSummarytasks() const;
+    bool tasksAndMilestonesGroupEnabled() const;
+    bool showProject() const;
+    bool showUnscheduled() const;
+    bool showTasks() const;
+    bool showMilestones() const;
+    bool periodGroupEnabled() const;
+    bool showRunning() const;
+    bool showFinished() const;
+    bool showNotStarted() const;
+    QDate periodStart() const;
+    QDate periodEnd() const;
 
     void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+
+public Q_SLOTS:
+    void setShowSummarytasks(bool on);
+    void setTasksAndMilestonesGroupEnabled(bool on);
+    void setShowProject(bool on);
+    void setShowUnscheduled(bool on);
+    void setShowTasks(bool on);
+    void setShowMilestones(bool on);
+    void setPeriodGroupEnabled(bool on);
+    void setShowRunning(bool on);
+    void setShowFinished(bool on);
+    void setShowNotStarted(bool on);
+    void setPeriodStart(const QDate &dt);
+    void setPeriodEnd(const QDate &dt);
 
 protected:
     bool filterAcceptsRow (int source_row, const QModelIndex & source_parent) const override;
 
 private:
+    void setFilterInvalid();
+
+private:
     NodeItemModel *m_model;
-    bool m_filterUnscheduled;
+    bool m_showSummarytasks = false;
+    bool m_tasksAndMilestonesGroupEnabled = false;
+    bool m_showUnscheduled = false;
+    bool m_showTasks = true;
+    bool m_showMilestones = true;
+    bool m_periodGroupEnabled = false;
+    bool m_showRunning = true;
+    bool m_showFinished = true;
+    bool m_showNotStarted = true;
+    QDate m_periodStart;
+    QDate m_periodEnd;
+    QTimer m_invalidateFilter;
 };
 
 class PLANMODELS_EXPORT TaskModuleModel : public QAbstractItemModel

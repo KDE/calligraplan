@@ -36,6 +36,7 @@
     </MenuBar>
 
     <ToolBar name="ganttviewToolBar" fullWidth="false" noMerge="1"><Text>Tools</Text>
+        <Action name="edit_filter"/>
     </ToolBar>
 
     <Menu name="task_unscheduled_popup">

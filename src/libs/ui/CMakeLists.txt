@@ -36,6 +36,8 @@ endif()
 set(calligraplanui_LIB_SRCS
     ${calligraplanreports_LIB_SRC}
 
+    FilterWidget.cpp
+
     ScrollableChartFilterModel.cpp
     ScrollableChart.cpp
 
@@ -49,6 +51,7 @@ set(calligraplanui_LIB_SRCS
 
     reportsgenerator/ReportsGeneratorView.cpp
 
+    gantt/GanttFilterOptionsWidget.cpp
     gantt/kptganttitemdelegate.cpp
     gantt/DateTimeTimeLine.cpp
     gantt/DateTimeGrid.cpp
@@ -129,6 +132,7 @@ ki18n_wrap_ui(calligraplanui_LIB_SRCS
 
     RelationEditorDialog.ui
 
+    gantt/GanttFilterOptionsWidget.ui
     gantt/kptganttchartdisplayoptions.ui
     gantt/kptganttprintingoptions.ui
     gantt/MilestoneGanttChartOptionsPanel.ui

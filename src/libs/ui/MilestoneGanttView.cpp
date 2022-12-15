@@ -175,9 +175,11 @@ MilestoneKGanttView::MilestoneKGanttView(QWidget *parent)
     setItemModel(mm);
     treeView()->createItemDelegates(mm);
 
-    sfModel()->setFilterRole (Qt::EditRole);
-    sfModel()->setFilterFixedString(QString::number(Node::Type_Milestone));
-    sfModel()->setFilterKeyColumn(NodeModel::NodeType);
+    sfModel()->setShowMilestones(true);
+    sfModel()->setShowTasks(false);
+    sfModel()->setShowUnscheduled(false);
+    sfModel()->setShowSummarytasks(false);
+    sfModel()->setTasksAndMilestonesGroupEnabled(true);
 
     QList<int> show;
     show << NodeModel::NodeWBSCode

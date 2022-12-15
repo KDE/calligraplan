@@ -37,6 +37,7 @@ class MyKGanttView;
 class GanttViewBase;
 class GanttItemDelegate;
 class GanttPrintingOptionsWidget;
+class GanttFilterOptionsWidget;
 
 class GanttChartDisplayOptionsPanel : public QWidget, public Ui::GanttChartDisplayOptions
 {
@@ -116,6 +117,7 @@ public Q_SLOTS:
     void setShowCriticalPath(bool on);
     void setShowNoInformation(bool on);
     void setShowAppointments(bool on);
+    void slotFilterOptions();
 
     void slotEditCopy() override;
 
@@ -156,7 +158,9 @@ private:
     int m_defaultFontSize;
     QSplitter *m_splitter;
     MyKGanttView *m_gantt;
-    Project *m_project;
+    GanttFilterOptionsWidget *m_filterOptions = nullptr;
+
+    Project *m_project = nullptr;
 
     QAction *actionShowProject;
     QAction *actionShowUnscheduled;

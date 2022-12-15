@@ -8,6 +8,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "kptganttview.h"
+#include "FilterWidget.h"
 #include "GanttViewBase.h"
 #include "NodeGanttViewBase.h"
 #include "DateTimeTimeLine.h"
@@ -31,6 +32,7 @@
 #include "kptmilestoneprogressdialog.h"
 #include "kptdocumentsdialog.h"
 #include "MacroCommand.h"
+#include "GanttFilterOptionsWidget.h"
 #include "kptdebug.h"
 
 #include <KGanttGraphicsView>
@@ -44,6 +46,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QPushButton>
+#include <QLineEdit>
 
 #include <KToggleAction>
 #include <KActionCollection>
@@ -202,24 +205,26 @@ void GanttViewSettingsDialog::slotOk()
 }
 
 GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWrite)
-    : ViewBase(part, doc, parent),
-    m_readWrite(readWrite),
-    m_project(nullptr)
+    : ViewBase(part, doc, parent)
+    , m_readWrite(readWrite)
 {
     debugPlan <<" ---------------- KPlato: Creating GanttView ----------------";
 
     setXMLFile(QStringLiteral("GanttViewUi.rc"));
 
-    QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
-    m_splitter = new QSplitter(this);
-    l->addWidget(m_splitter);
-    m_splitter->setOrientation(Qt::Vertical);
-
-    m_gantt = new MyKGanttView(m_splitter);
+    m_gantt = new MyKGanttView(this);
     m_gantt->graphicsView()->setHeaderContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, &ViewBase::expandAll, m_gantt->treeView(), &TreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_gantt->treeView(), &TreeViewBase::slotCollapse);
+
+    m_filterOptions = new GanttFilterOptionsWidget(m_gantt->sfModel(), this);
+    m_filterOptions->setMaximumWidth(m_filterOptions->sizeHint().width());
+    m_filterOptions->hide();
+
+    auto l = new QHBoxLayout(this);
+    l->setMargin(0);
+    l->addWidget(m_filterOptions);
+    l->addWidget(m_gantt);
 
     setupGui();
 
@@ -298,18 +303,23 @@ void GanttView::setZoom(double)
 
 void GanttView::setupGui()
 {
+    QAction *a;
+
     actionShowProject = new KToggleAction(i18n("Show Project"), this);
     actionCollection()->addAction(QStringLiteral("show_project"), actionShowProject);
+    actionShowProject->setChecked(m_gantt->model()->projectShown());
     // FIXME: Dependencies depend on these methods being called in the correct order
-    connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::clearDependencies);
-    connect(actionShowProject, &QAction::triggered, m_gantt->model(), &NodeItemModel::setShowProject);
-    connect(actionShowProject, &QAction::triggered, m_gantt, &MyKGanttView::createDependencies);
+    connect(actionShowProject, &QAction::toggled, m_gantt, &MyKGanttView::clearDependencies);
+    connect(actionShowProject, &QAction::toggled, m_gantt->model(), &NodeItemModel::setShowProject);
+    connect(actionShowProject, &QAction::toggled, m_gantt, &MyKGanttView::createDependencies);
     addContextAction(actionShowProject);
+    m_filterOptions->addAction(actionShowProject);
 
-    actionShowUnscheduled = new KToggleAction(i18n("Show Unscheduled Tasks"), this);
-    actionCollection()->addAction(QStringLiteral("show_unscheduled_tasks"), actionShowUnscheduled);
-    connect(actionShowUnscheduled, &QAction::triggered, m_gantt, &MyKGanttView::setShowUnscheduledTasks);
-    addContextAction(actionShowUnscheduled);
+    auto filterAction = new QAction(i18n("Filter Options..."));
+    filterAction->setIcon(koIcon("view-filter"));
+    filterAction->setObjectName(QStringLiteral("filter_options"));
+    connect(filterAction, &QAction::triggered, this, &GanttView::slotFilterOptions);
+    //addContextAction(filterAction);
 
     createOptionActions(ViewBase::OptionAll);
     const auto actionList = contextActionList();
@@ -317,8 +327,82 @@ void GanttView::setupGui()
         actionCollection()->addAction(a->objectName(), a);
     }
 
+    actionShowUnscheduled = new KToggleAction(i18n("Show Unscheduled Tasks"), this);
+    actionCollection()->addAction(QStringLiteral("show_unscheduled_tasks"), actionShowUnscheduled);
+    actionShowUnscheduled->setChecked(m_gantt->sfModel()->showUnscheduled());
+    connect(actionShowUnscheduled, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowUnscheduled);
+    //addContextAction(actionShowUnscheduled);
+    m_filterOptions->addAction(actionShowUnscheduled);
+
+    auto showTasks = new QAction(i18n("Show Tasks"));
+    actionCollection()->addAction(QStringLiteral("show_tasks"), showTasks);
+    showTasks->setCheckable(true);
+    showTasks->setChecked(m_gantt->sfModel()->showTasks());
+    connect(showTasks, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowTasks);
+    //addContextAction(showTasks);
+    m_filterOptions->addAction(showTasks);
+
+    auto showMilestones = new QAction(i18n("Show Milestones"));
+    actionCollection()->addAction(QStringLiteral("show_milestones"), showMilestones);
+    showMilestones->setCheckable(true);
+    showMilestones->setChecked(m_gantt->sfModel()->showMilestones());
+    connect(showMilestones, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowMilestones);
+    //addContextAction(showMilestones);
+    m_filterOptions->addAction(showMilestones);
+
+    a = new QAction(i18n("Tasks and Milestones"));
+    a->setToolTip(xi18nc("@info:tooltip", "Activates the Task and Milestones filter options."
+                        "<nl/>Deactivating this will show all scheduled tasks and milestones."));
+    actionCollection()->addAction(QStringLiteral("tasks_and_milestones_group"), a);
+    a->setCheckable(true);
+    a->setChecked(m_gantt->sfModel()->tasksAndMilestonesGroupEnabled());
+    connect(a, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setTasksAndMilestonesGroupEnabled);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("Period"));
+    a->setToolTip(i18nc("@info:tooltip", "Activates the Period filter options."));
+    actionCollection()->addAction(QStringLiteral("period_group"), a);
+    a->setCheckable(true);
+    a->setChecked(m_gantt->sfModel()->periodGroupEnabled());
+    connect(a, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setPeriodGroupEnabled);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("Show Running Tasks"));
+    a->setToolTip(i18nc("@info:tooltip", "Shows tasks that has been started before or during this period."));
+    actionCollection()->addAction(QStringLiteral("show_running"), a);
+    a->setCheckable(true);
+    a->setChecked(m_gantt->sfModel()->showRunning());
+    connect(a, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowRunning);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("Show Finished Tasks"));
+    a->setToolTip(i18nc("@info:tooltip", "Shows tasks and milstones that has been finished during this period."));
+    actionCollection()->addAction(QStringLiteral("show_finished"), a);
+    a->setCheckable(true);
+    a->setChecked(m_gantt->sfModel()->showFinished());
+    connect(a, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowFinished);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("Show Not Started Tasks"));
+    a->setToolTip(i18nc("@info:tooltip", "Shows tasks and milestones that should have been started by now."));
+    actionCollection()->addAction(QStringLiteral("show_not_started"), a);
+    a->setCheckable(true);
+    a->setChecked(m_gantt->sfModel()->showNotStarted());
+    connect(a, &QAction::toggled, m_gantt->sfModel(), &NodeSortFilterProxyModel::setShowNotStarted);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("Period:"));
+    actionCollection()->addAction(QStringLiteral("enable_period"), a);
+    a->setCheckable(true);
+    m_filterOptions->addAction(a);
+
+    a = new QAction(i18n("specific period:"));
+    actionCollection()->addAction(QStringLiteral("enable_spesific_period"), a);
+    a->setCheckable(true);
+    m_filterOptions->addAction(a);
+
     m_scalegroup = new QActionGroup(this);
-    QAction *a = new QAction(i18nc("@action:inmenu", "Auto"), this);
+    a = new QAction(i18nc("@action:inmenu", "Auto"), this);
     a->setCheckable(true);
     a->setChecked(true);
     actionCollection()->addAction(QStringLiteral("scale_auto"), a);
@@ -374,6 +458,16 @@ void GanttView::setupGui()
     auto actionDocuments  = new QAction(koIcon("document-edit"), i18n("Documents..."), this);
     actionCollection()->addAction(QStringLiteral("task_documents"), actionDocuments);
     connect(actionDocuments, &QAction::triggered, this, &GanttView::slotDocuments);
+
+    // filter
+    auto filter = new QWidgetAction(this);
+    filter->setObjectName(QStringLiteral("edit_filter"));
+    filter->setText(i18n("Filter"));
+    auto filterWidget = new FilterWidget(this);
+    filter->setDefaultWidget(filterWidget);
+    actionCollection()->addAction(filter->objectName(), filter);
+    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegExp));
+    connect(filterWidget->extendedOptions, &QToolButton::clicked, this, &GanttView::slotFilterOptions);
 }
 
 void GanttView::slotSelectionChanged()
@@ -530,6 +624,16 @@ void GanttView::setShowAppointments(bool on)
     m_gantt->delegate()->showAppointments = on;
 }
 
+void GanttView::slotFilterOptions()
+{
+    auto w = findChild<GanttFilterOptionsWidget*>();
+    if (w->isVisible()) {
+        w->hide();
+    } else {
+        w->show();
+    }
+}
+
 void GanttView::setShowTaskLinks(bool on)
 {
     m_gantt->delegate()->showTaskLinks = on;
@@ -544,6 +648,7 @@ void GanttView::setProject(Project *project)
     ViewBase::setProject(project);
     if (project) {
         connect(project, &Project::scheduleManagerChanged, this, &GanttView::setScheduleManager);
+
     }
 }
 
@@ -581,6 +686,27 @@ void GanttView::setScheduleManager(ScheduleManager *sm)
         m_gantt->treeView()->doExpand(doc);
     } else if (tryexpand) {
         m_gantt->treeView()->doExpand(m_domdoc);
+    }
+    if (sm && sm->expected()) {
+        auto m = m_gantt->sfModel();
+        const auto start = sm->expected()->start().date();
+        const auto end = sm->expected()->end().date();
+        if (m->periodStart() < start) {
+            m->setPeriodStart(start);
+        }
+        if (!m->periodEnd().isValid() || m->periodEnd() > end) {
+            m->setPeriodEnd(end);
+        }
+    } else if (project()) {
+        auto m = m_gantt->sfModel();
+        const auto start = project()->constraintStartTime().date();
+        const auto end = project()->constraintEndTime().date();
+        if (m->periodStart() < start) {
+            m->setPeriodStart(start);
+        }
+        if (!m->periodEnd().isValid() || m->periodEnd() > end) {
+            m->setPeriodEnd(end);
+        }
     }
 }
 
@@ -654,12 +780,56 @@ bool GanttView::loadContext(const KoXmlElement &settings)
 {
     debugPlan;
     ViewBase::loadContext(settings);
-    bool show = (bool)(settings.attribute("show-project", QString::number(0)).toInt());
-    actionShowProject->setChecked(show);
-    m_gantt->model()->setShowProject(show); // why is this not called by the action?
-    show = (bool)(settings.attribute(QStringLiteral("show-unscheduled"), QString::number(1)).toInt());
-    actionShowUnscheduled->setChecked(show);
-    m_gantt->setShowUnscheduledTasks(show);
+    const auto c = actionCollection();
+    bool value = (bool)(settings.attribute(actionShowProject->objectName(), QString::number(0)).toInt());
+    actionShowProject->setChecked(value);
+
+    auto a = c->action(QStringLiteral("tasks_and_milestones_group"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(0)).toInt());
+    a->setChecked(value);
+
+    value = (bool)(settings.attribute(actionShowUnscheduled->objectName(), QString::number(0)).toInt());
+    actionShowUnscheduled->setChecked(value);
+
+    a = c->action(QStringLiteral("show_tasks"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("show_milestones"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("period_group"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(0)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("show_running"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("show_finished"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("show_not_started"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    a = c->action(QStringLiteral("enable_period"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(1)).toInt());
+    a->setChecked(value);
+
+    auto days = settings.attribute("period-days", QString::number(7)).toInt();
+    m_filterOptions->setDays(days);
+
+    a = c->action(QStringLiteral("enable_spesific_period"));
+    value = (bool)(settings.attribute(a->objectName(), QString::number(0)).toInt());
+    a->setChecked(value);
+
+    auto date = QDate::fromString(settings.attribute(QStringLiteral("period-start")));
+    m_gantt->sfModel()->setPeriodStart(date);
+    date = QDate::fromString(settings.attribute(QStringLiteral("period-end")));
+    m_gantt->sfModel()->setPeriodEnd(date);
 
     return m_gantt->loadContext(settings);
 }
@@ -668,11 +838,45 @@ void GanttView::saveContext(QDomElement &settings) const
 {
     debugPlan;
     ViewBase::saveContext(settings);
-    settings.setAttribute(QStringLiteral("show-project"), QString::number(actionShowProject->isChecked()));
-    settings.setAttribute(QStringLiteral("show-unscheduled"), QString::number(actionShowUnscheduled->isChecked()));
+    const auto c = actionCollection();
+    settings.setAttribute(actionShowProject->objectName(), actionShowProject->isChecked());
+
+    auto a = c->action(QStringLiteral("tasks_and_milestones_group"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    settings.setAttribute(actionShowUnscheduled->objectName(), actionShowUnscheduled->isChecked());
+
+    a = c->action(QStringLiteral("show_tasks"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("show_milestones"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("period_group"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("show_running"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("show_finished"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("show_not_started"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    a = c->action(QStringLiteral("enable_period"));
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    settings.setAttribute(QStringLiteral("period-days"), m_filterOptions->days());
+
+    a = c->action(QStringLiteral("enable_spesific_period"));
+    qInfo()<<Q_FUNC_INFO<<a<<a->isChecked()<<a->isCheckable();
+    settings.setAttribute(a->objectName(), a->isChecked());
+
+    settings.setAttribute(QStringLiteral("period-start"), m_gantt->sfModel()->periodStart().toString(Qt::ISODate));
+    settings.setAttribute(QStringLiteral("period-end"), m_gantt->sfModel()->periodEnd().toString(Qt::ISODate));
 
     m_gantt->saveContext(settings);
-
 }
 
 void GanttView::updateReadWrite(bool on)

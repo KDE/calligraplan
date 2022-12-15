@@ -39,7 +39,8 @@ NodeGanttViewBase::NodeGanttViewBase(QWidget *parent)
     setRowController(m_rowController);
     tv->header()->setStretchLastSection(true);
 
-    NodeSortFilterProxyModel *m = new NodeSortFilterProxyModel(&m_defaultModel, this, true);
+    NodeSortFilterProxyModel *m = new NodeSortFilterProxyModel(&m_defaultModel, this);
+    m->setRecursiveFilteringEnabled(true);
     KGantt::View::setModel(m);
 }
 
@@ -114,14 +115,6 @@ void NodeGanttViewBase::saveContext(QDomElement &settings) const
     GanttViewBase::saveContext(e);
 
     m_printOptions.saveContext(e);
-}
-
-void NodeGanttViewBase::setShowUnscheduledTasks(bool show)
-{
-    NodeSortFilterProxyModel *m = qobject_cast<NodeSortFilterProxyModel*>(KGantt::View::model());
-    if (m) {
-        m->setFilterUnscheduled(!show);
-    }
 }
 
 //-------------------------------------------
