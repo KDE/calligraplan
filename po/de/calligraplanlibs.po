@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-16 00:50+0000\n"
 "PO-Revision-Date: 2022-07-23 23:07+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1038,6 +1038,7 @@ msgid "A&vailable actions:"
 msgstr "Verfügbar bis"
 
 #: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
+#: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
 #, fuzzy, kde-format
 #| msgctxt "@title:column"
 #| msgid "Estimate Type"
@@ -1775,7 +1776,7 @@ msgstr "Anhalten"
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
 #: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:194
 #: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:148
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:149
 #: ui/performance/ProjectStatusView.cpp:170
 #: ui/ResourceAppointmentsGanttView.cpp:163
 #, kde-format
@@ -2348,7 +2349,7 @@ msgid "Modify calendar holiday region"
 msgstr "Region für Feiertage im Kalender bearbeiten"
 
 #: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
-#: models/kptnodeitemmodel.cpp:5256
+#: models/kptnodeitemmodel.cpp:5466
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:253
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
@@ -4573,7 +4574,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify completion"
 msgstr "Komplettierung bearbeiten"
 
-#: models/kptnodeitemmodel.cpp:3692 models/kptnodeitemmodel.cpp:4842
+#: models/kptnodeitemmodel.cpp:3692 models/kptnodeitemmodel.cpp:4845
 #: models/kpttaskstatusmodel.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Set finished"
@@ -4607,7 +4608,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
 msgstr "Ressourcenzuordnungen bearbeiten"
 
-#: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5068
+#: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5071
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
 msgstr "Aufgaben verschieben"
@@ -4821,7 +4822,7 @@ msgstr "Startzeitpunkt"
 msgid "End Time"
 msgstr "Endzeitpunkt"
 
-#: models/kptresourceappointmentsmodel.cpp:1171
+#: models/kptresourceappointmentsmodel.cpp:1172
 #, kde-kuit-format
 msgctxt "@title:column noun"
 msgid "Load"
@@ -5968,17 +5969,125 @@ msgstr "Der Ordnermodus wird für entfernte Speicherorte nicht unterstützt."
 msgid "Calligra Storage"
 msgstr "Calligra-Speicher"
 
+#: ui/FilterWidget.cpp:38
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Toggle extended filter options"
+msgstr ""
+
+#: ui/FilterWidget.cpp:45
+#, fuzzy, kde-format
+#| msgctxt "@title:column"
+#| msgid "Estimate Type"
+msgctxt "@info:tooltip"
+msgid "Filter names"
+msgstr "Art der Schätzung"
+
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
 #: ui/kptganttview.cpp:194 ui/kptitemviewsettup.cpp:190
 #: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
-#: ui/MilestoneGanttView.cpp:148 ui/performance/ProjectStatusView.cpp:171
+#: ui/MilestoneGanttView.cpp:149 ui/performance/ProjectStatusView.cpp:171
 #: ui/ResourceAppointmentsGanttView.cpp:163
 #, kde-format
 msgid "Printing Options"
 msgstr "Druckoptionen"
 
-#: ui/gantt/GanttViewBase.cpp:154
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/gantt/GanttFilterOptionsWidget.ui:49
+#, fuzzy, kde-format
+#| msgid "Printing Options"
+msgid "Filter Options"
+msgstr "Druckoptionen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_project)
+#: ui/gantt/GanttFilterOptionsWidget.ui:120
+#, fuzzy, kde-format
+#| msgid "Show Project"
+msgid "Show project"
+msgstr "Projekt anzeigen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
+#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
+#, fuzzy, kde-format
+#| msgid "Add Milestone"
+msgid "Tasks and Milestones"
+msgstr "Meilenstein hinzufügen"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
+#. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
+#: ui/gantt/GanttFilterOptionsWidget.ui:139 ui/kptperteditor.ui:20
+#: ui/reports/reportdata.cpp:383
+#, kde-format
+msgid "Tasks"
+msgstr "Aufgaben"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
+#: ui/gantt/GanttFilterOptionsWidget.ui:146
+#, fuzzy, kde-format
+#| msgid "Milestone"
+msgid "Milestones"
+msgstr "Meilenstein"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
+#: ui/gantt/GanttFilterOptionsWidget.ui:153
+#, fuzzy, kde-format
+#| msgid "Show Unscheduled Tasks"
+msgid "Unscheduled tasks"
+msgstr "Nicht durchgeplant Aufgaben anzeigen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, period_group)
+#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
+#, fuzzy, kde-format
+#| msgid "Periodic"
+msgid "Period"
+msgstr "Periodisch"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_running)
+#: ui/gantt/GanttFilterOptionsWidget.ui:172
+#, fuzzy, kde-format
+#| msgid "Running late"
+msgid "Running tasks"
+msgstr "Verspätung"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_finished)
+#: ui/gantt/GanttFilterOptionsWidget.ui:179
+#, fuzzy, kde-format
+#| msgid "Finished late"
+msgid "Finished tasks"
+msgstr "Verspätet abgeschlossen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
+#: ui/gantt/GanttFilterOptionsWidget.ui:186
+#, fuzzy, kde-format
+#| msgid "Not started"
+msgid "Not started tasks"
+msgstr "Nicht begonnen"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
+#. i18n: ectx: property (toolTip), widget (QSpinBox, period)
+#: ui/gantt/GanttFilterOptionsWidget.ui:195
+#: ui/gantt/GanttFilterOptionsWidget.ui:205
+#, fuzzy, kde-format
+#| msgid "Re-calculate from current date/time"
+msgid "Number of days around current datetime"
+msgstr "Von aktuellem Zeitpunkt neu berechnen"
+
+#. i18n: ectx: property (text), widget (QRadioButton, enable_period)
+#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
+#, fuzzy, kde-format
+#| msgid "Periodic"
+msgid "Period:"
+msgstr "Periodisch"
+
+#. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
+#: ui/gantt/GanttFilterOptionsWidget.ui:236
+#, fuzzy, kde-format
+#| msgid "Specify time:"
+msgid "Specific period:"
+msgstr "Zeit angeben:"
+
+#: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Chart"
@@ -6700,29 +6809,29 @@ msgid "Add Sub-Milestone..."
 msgstr "Untergeordneten Meilenstein hinzufügen ..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:365 ui/kptpertresult.cpp:151
+#: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
 #: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/MilestoneGanttView.cpp:454 ui/performance/PerformanceStatusView.cpp:329
+#: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
 #, kde-format
 msgid "Edit..."
 msgstr "Bearbeiten ..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:369
+#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:458
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:461
 #: ui/performance/PerformanceStatusView.cpp:333
 #: ui/ResourceAppointmentsGanttView.cpp:367
 #, fuzzy, kde-format
 msgid "Progress..."
 msgstr "Fortschritt ..."
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:373
+#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:462
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:465
 #: ui/performance/PerformanceStatusView.cpp:337
 #: ui/ResourceAppointmentsGanttView.cpp:371
 #, fuzzy, kde-format
@@ -6730,10 +6839,10 @@ msgstr "Fortschritt ..."
 msgid "Description..."
 msgstr "Beschreibung"
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:377
+#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:466
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:469
 #: ui/performance/PerformanceStatusView.cpp:341
 #: ui/ResourceAppointmentsGanttView.cpp:375
 #, fuzzy, kde-format
@@ -6917,7 +7026,7 @@ msgid "Ctrl+O"
 msgstr "Strg+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
-#: ui/MilestoneGanttView.cpp:95 ui/ResourceAppointmentsGanttView.cpp:112
+#: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "No holidays"
@@ -6925,7 +7034,7 @@ msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Keine Feiertage"
 
-#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:96
+#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:97
 #: ui/ResourceAppointmentsGanttView.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
@@ -6935,7 +7044,7 @@ msgid "Project freedays"
 msgstr "Keine Feiertage"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
-#: ui/MilestoneGanttView.cpp:129 ui/MilestoneGanttView.cpp:146
+#: ui/MilestoneGanttView.cpp:130 ui/MilestoneGanttView.cpp:147
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:155
 #: ui/ResourceAppointmentsGanttView.cpp:144
@@ -6944,13 +7053,13 @@ msgstr "Keine Feiertage"
 msgid "Chart"
 msgstr "Diagramm"
 
-#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:129
+#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:130
 #: ui/ResourceAppointmentsGanttView.cpp:144
 #, kde-format
 msgid "Gantt Chart Settings"
 msgstr "Gantt-Diagrammeinstellungen"
 
-#: ui/kptganttview.cpp:253
+#: ui/kptganttview.cpp:255
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -6962,59 +7071,135 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptganttview.cpp:304 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "Projekt anzeigen"
 
-#: ui/kptganttview.cpp:312
+#: ui/kptganttview.cpp:318
+#, fuzzy, kde-format
+#| msgid "Print Options..."
+msgid "Filter Options..."
+msgstr "Druckeinstellungen ..."
+
+#: ui/kptganttview.cpp:330
 #, kde-format
 msgid "Show Unscheduled Tasks"
 msgstr "Nicht durchgeplant Aufgaben anzeigen"
 
-#: ui/kptganttview.cpp:324 ui/MilestoneGanttView.cpp:413
+#: ui/kptganttview.cpp:337
+#, fuzzy, kde-format
+#| msgid "Tasks"
+msgid "Show Tasks"
+msgstr "Aufgaben"
+
+#: ui/kptganttview.cpp:345
+#, fuzzy, kde-format
+#| msgid "Milestone"
+msgid "Show Milestones"
+msgstr "Meilenstein"
+
+#: ui/kptganttview.cpp:354
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Activates the Task and Milestones filter options.<nl/>Deactivating this will "
+"show all scheduled tasks and milestones."
+msgstr ""
+
+#: ui/kptganttview.cpp:363
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Activates the Period filter options."
+msgstr ""
+
+#: ui/kptganttview.cpp:370
+#, fuzzy, kde-format
+#| msgid "Running late"
+msgid "Show Running Tasks"
+msgstr "Verspätung"
+
+#: ui/kptganttview.cpp:371
+#, fuzzy, kde-format
+#| msgid "Tasks that have finished during this period"
+msgctxt "@info:tooltip"
+msgid "Shows tasks that has been started before or during this period."
+msgstr "Aufgaben, die während dieser Periode abgeschlossen wurden"
+
+#: ui/kptganttview.cpp:378
+#, fuzzy, kde-format
+#| msgid "Show Unscheduled Tasks"
+msgid "Show Finished Tasks"
+msgstr "Nicht durchgeplant Aufgaben anzeigen"
+
+#: ui/kptganttview.cpp:379
+#, fuzzy, kde-format
+#| msgid "Tasks that have finished during this period"
+msgctxt "@info:tooltip"
+msgid "Shows tasks and milstones that has been finished during this period."
+msgstr "Aufgaben, die während dieser Periode abgeschlossen wurden"
+
+#: ui/kptganttview.cpp:386
+#, fuzzy, kde-format
+#| msgid "Not Started"
+msgid "Show Not Started Tasks"
+msgstr "Nicht begonnen"
+
+#: ui/kptganttview.cpp:387
+#, fuzzy, kde-format
+#| msgid "Tasks that should have been started"
+msgctxt "@info:tooltip"
+msgid "Shows tasks and milestones that should have been started by now."
+msgstr "Aufgaben, die begonnen haben sollten"
+
+#: ui/kptganttview.cpp:399
+#, kde-format
+msgid "specific period:"
+msgstr ""
+
+#: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
 #: ui/ResourceAppointmentsGanttView.cpp:322
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr "Automatisch"
 
-#: ui/kptganttview.cpp:331 ui/MilestoneGanttView.cpp:420
+#: ui/kptganttview.cpp:412 ui/MilestoneGanttView.cpp:423
 #: ui/ResourceAppointmentsGanttView.cpp:329
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "Monat"
 
-#: ui/kptganttview.cpp:337 ui/MilestoneGanttView.cpp:426
+#: ui/kptganttview.cpp:418 ui/MilestoneGanttView.cpp:429
 #: ui/ResourceAppointmentsGanttView.cpp:335
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "Woche"
 
-#: ui/kptganttview.cpp:343 ui/MilestoneGanttView.cpp:432
+#: ui/kptganttview.cpp:424 ui/MilestoneGanttView.cpp:435
 #: ui/ResourceAppointmentsGanttView.cpp:341
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "Tag"
 
-#: ui/kptganttview.cpp:349 ui/MilestoneGanttView.cpp:438
+#: ui/kptganttview.cpp:430 ui/MilestoneGanttView.cpp:441
 #: ui/ResourceAppointmentsGanttView.cpp:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr "Stunde"
 
-#: ui/kptganttview.cpp:355 ui/MilestoneGanttView.cpp:444
+#: ui/kptganttview.cpp:436 ui/MilestoneGanttView.cpp:447
 #: ui/ResourceAppointmentsGanttView.cpp:353
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr "Vergrößern"
 
-#: ui/kptganttview.cpp:360 ui/MilestoneGanttView.cpp:449
+#: ui/kptganttview.cpp:441 ui/MilestoneGanttView.cpp:452
 #: ui/ResourceAppointmentsGanttView.cpp:358
 #, kde-format
 msgctxt "@action:inmenu"
@@ -7378,12 +7563,6 @@ msgstr "Meilensteinkomplettierung bearbeiten"
 msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "Aufgabenabhängigkeit entfernen"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
-#: ui/kptperteditor.ui:20 ui/reports/reportdata.cpp:383
-#, kde-format
-msgid "Tasks"
-msgstr "Aufgaben"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, available)
 #: ui/kptperteditor.ui:29
@@ -8913,7 +9092,7 @@ msgstr "Währungssymbol:"
 msgid "Fractional digits:"
 msgstr "Dezimalstellen:"
 
-#: ui/MilestoneGanttView.cpp:220
+#: ui/MilestoneGanttView.cpp:223
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -11915,9 +12094,6 @@ msgstr "Alle unterstützte Formate"
 
 #~ msgid "ALAP"
 #~ msgstr "Spätestmöglich"
-
-#~ msgid "Specify time:"
-#~ msgstr "Zeit angeben:"
 
 #~ msgid "&Notes"
 #~ msgstr "&Notizen"
