@@ -376,7 +376,7 @@ void GanttView::setupGui()
     m_filterOptions->addAction(a);
 
     a = new QAction(i18n("Show Finished Tasks"));
-    a->setToolTip(i18nc("@info:tooltip", "Shows tasks and milstones that has been finished during this period."));
+    a->setToolTip(i18nc("@info:tooltip", "Shows tasks and milestones that has been finished during this period."));
     actionCollection()->addAction(QStringLiteral("show_finished"), a);
     a->setCheckable(true);
     a->setChecked(m_gantt->sfModel()->showFinished());
