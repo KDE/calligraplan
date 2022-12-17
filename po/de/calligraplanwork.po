@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-03-13 10:46+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -68,12 +68,12 @@ msgstr "Ansicht"
 msgid "&View"
 msgstr "&Ansicht"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "Zu öffnende Datei"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "Öffnen des Dokuments fehlgeschlagen"

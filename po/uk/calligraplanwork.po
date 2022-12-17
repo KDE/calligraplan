@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-03-08 09:09+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -75,12 +75,12 @@ msgstr "Переглянути"
 msgid "&View"
 msgstr "П&ерегляд"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "Відкрити файл"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "Не вдалося відкрити документ"

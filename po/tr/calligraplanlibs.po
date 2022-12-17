@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
-"PO-Revision-Date: 2022-12-02 19:17+0300\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"PO-Revision-Date: 2022-12-16 19:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -293,7 +293,7 @@ msgstr "Dönüm Noktası"
 #: kernel/kptnode.cpp:147
 #, kde-format
 msgid "Periodic"
-msgstr "Aralıklı"
+msgstr "Periyodik"
 
 #: kernel/kptnode.cpp:148
 #, kde-format
@@ -3714,7 +3714,7 @@ msgstr "Geç kalındı"
 #: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
-msgstr "Çalışıyor"
+msgstr "Sürüyor"
 
 #: models/kptnodeitemmodel.cpp:1387
 #, kde-format
@@ -3792,7 +3792,7 @@ msgstr "Başlatıldı"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Running"
-msgstr "Çalışıyor"
+msgstr "Sürüyor"
 
 #: models/kptnodeitemmodel.cpp:1443
 #, kde-kuit-format
@@ -4073,7 +4073,7 @@ msgstr "Kısıtlama Bitişi"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Running Account"
-msgstr "Açık Hesap"
+msgstr "Süren Hesap"
 
 #: models/kptnodeitemmodel.cpp:2336
 #, kde-kuit-format
@@ -4487,7 +4487,7 @@ msgstr "Önceliği değiştir"
 #: models/kptnodeitemmodel.cpp:3012
 msgctxt "(qtundo-format)"
 msgid "Modify running account"
-msgstr "Çalışan hesabı değiştir"
+msgstr "Süren hesabı değiştir"
 
 #: models/kptnodeitemmodel.cpp:3034
 msgctxt "(qtundo-format)"
@@ -5122,22 +5122,22 @@ msgstr "Başlatılması gereken görevler"
 #: models/kpttaskstatusmodel.cpp:45
 #, kde-format
 msgid "Tasks that are running"
-msgstr "Çalıştırılan görevler"
+msgstr "Süren görevler"
 
 #: models/kpttaskstatusmodel.cpp:49
 #, kde-format
 msgid "Tasks that have finished during this period"
-msgstr "Bu aralıkta bitirilen görevler"
+msgstr "Bu periyotta bitirilen görevler"
 
 #: models/kpttaskstatusmodel.cpp:52
 #, kde-format
 msgid "Next Period"
-msgstr "Sonraki Dönem"
+msgstr "Sonraki Periyot"
 
 #: models/kpttaskstatusmodel.cpp:53
 #, kde-format
 msgid "Tasks that are scheduled to start next period"
-msgstr "Önümüzdeki aralıkta başlatılması planlanan görevler"
+msgstr "Önümüzdeki periyotta başlatılması planlanan görevler"
 
 #: models/kptworkpackagemodel.cpp:70
 #, kde-format
@@ -5905,14 +5905,13 @@ msgstr "Calligra Depo"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Genişletilmiş süzgeç seçeneklerini aç/kapat"
 
 #: ui/FilterWidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr "Süz"
+msgstr "Süzgeç adları"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
@@ -5926,24 +5925,21 @@ msgstr "Yazdırma Seçenekleri"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/GanttFilterOptionsWidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Printing Options"
+#, kde-format
 msgid "Filter Options"
-msgstr "Yazdırma Seçenekleri"
+msgstr "Süzgeç Seçenekleri"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
-msgstr "Projeyi Göster"
+msgstr "Projeyi göster"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
-#, fuzzy, kde-format
-#| msgid "Add Milestone"
+#, kde-format
 msgid "Tasks and Milestones"
-msgstr "Dönüm Noktası Ekle"
+msgstr "Görevler ve Dönüm Noktaları"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -5955,67 +5951,59 @@ msgstr "Görevler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Dönüm Noktası"
+msgstr "Dönüm Noktaları"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Unscheduled tasks"
-msgstr "Zamanlanmamış Görevleri Göster"
+msgstr "Zamanlanmamış görevler"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period"
-msgstr "Aralıklı"
+msgstr "Periyot"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_running)
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Running tasks"
-msgstr "Geç kalındı"
+msgstr "Süren görevler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
-#, fuzzy, kde-format
-#| msgid "Finished late"
+#, kde-format
 msgid "Finished tasks"
-msgstr "Geç Bitti"
+msgstr "Biten görevler"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Not started"
+#, kde-format
 msgid "Not started tasks"
-msgstr "Başlatılmadı"
+msgstr "Başlatılmamış görevler"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:195
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
-#, fuzzy, kde-format
-#| msgid "Re-calculate from current date/time"
+#, kde-format
 msgid "Number of days around current datetime"
-msgstr "Güncel tarih/saatten tekrar hesapla"
+msgstr "Geçerli tarih/zaman çevresindeki günlerin sayısı"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Aralıklı"
+msgstr "Periyot:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Belirli periyot:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -6468,7 +6456,7 @@ msgstr "Göster:"
 #: ui/kptaccountsviewconfigurepanelbase.ui:33
 #, kde-format
 msgid "Periodicity:"
-msgstr "Tekrarlanma:"
+msgstr "Periyodiklik:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
 #: ui/kptaccountsviewconfigurepanelbase.ui:44
@@ -7009,10 +6997,9 @@ msgid "Show Project"
 msgstr "Projeyi Göster"
 
 #: ui/kptganttview.cpp:318
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Yazdırma Seçenekleri..."
+msgstr "Süzgeç Seçenekleri..."
 
 #: ui/kptganttview.cpp:330
 #, kde-format
@@ -7020,16 +7007,14 @@ msgid "Show Unscheduled Tasks"
 msgstr "Zamanlanmamış Görevleri Göster"
 
 #: ui/kptganttview.cpp:337
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Görevler"
+msgstr "Görevleri Göster"
 
 #: ui/kptganttview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Dönüm Noktası"
+msgstr "Dönüm Noktalarını Göster"
 
 #: ui/kptganttview.cpp:354
 #, kde-kuit-format
@@ -7038,56 +7023,57 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Görev ve Dönüm Noktası süzgeç seçeneklerini etkinleştirir.<nl/>Bunu devre "
+"dışı bırakmak, tüm zamanlanan görevleri ve dönüm noktalarını gösterecektir."
 
 #: ui/kptganttview.cpp:363
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Periyot süzgeci seçeneklerini etkinleştirir."
 
 #: ui/kptganttview.cpp:370
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Show Running Tasks"
-msgstr "Geç kalındı"
+msgstr "Süren Görevleri Göster"
 
 #: ui/kptganttview.cpp:371
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
-msgstr "Bu aralıkta bitirilen görevler"
+msgstr "Bu periyottan önce veya sürerken başlatılmış görevleri gösterir."
 
 #: ui/kptganttview.cpp:378
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Show Finished Tasks"
-msgstr "Zamanlanmamış Görevleri Göster"
+msgstr "Bitmiş Görevleri Göster"
 
 #: ui/kptganttview.cpp:379
 #, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#| msgctxt "@info:tooltip"
+#| msgid "Shows tasks and milstones that has been finished during this period."
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
-msgstr "Bu aralıkta bitirilen görevler"
+msgid "Shows tasks and milestones that has been finished during this period."
+msgstr ""
+"Bu periyot çevresinde bitirilmiş görevleri veya dönüm noktalarını gösterir."
 
 #: ui/kptganttview.cpp:386
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Show Not Started Tasks"
-msgstr "Başlatılmadı"
+msgstr "Başlatılmamış Görevleri Göster"
 
 #: ui/kptganttview.cpp:387
-#, fuzzy, kde-format
-#| msgid "Tasks that should have been started"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
-msgstr "Başlatılması gereken görevler"
+msgstr ""
+"Şimdiye kadar başlatılmış olması gereken görevleri ve dönüm noktalarını "
+"gösterir."
 
 #: ui/kptganttview.cpp:399
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "belirli periyot:"
 
 #: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
 #: ui/ResourceAppointmentsGanttView.cpp:322
@@ -8572,16 +8558,14 @@ msgid ""
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Görev Durumu Görünümü</title><para>Görev Durumu Görünümü, görev "
-"ilerlemesini denetlemek için kullanılır. Görevler, görev durumuna göre "
-"gruplara bölünürler:<list><item><emphasis>Başlatılmadı:</emphasis> "
-"Halihazırda başlatılmış olması gereken görevler.</"
-"item><item><emphasis>Çalışıyor:</emphasis> Başlatılan ve henüz bitirilmeyen "
-"görevler.</item><item><emphasis>Bitirildi:</emphasis> Bu periyotta bitirilen "
-"görevler.</item><item><emphasis>Sonraki Periyot:</emphasis> Sonraki "
-"periyotta başlatılması için zamanlanan görevler.</item></list>Zaman periyodu "
-"yapılandırılabilirdir.</para><para>Bu görünüm, bağlam menüsü kullanarak  "
-"yapılandırma ve yazdırmayı destekler.<nl/><link url='%1'>Daha Fazla...</"
-"link></para>"
+"ilerleme bilgilerini incelemek için kullanılır. Görevler, görev durumuna "
+"bağlı olarak gruplara ayrılır:<list><item>Başlantılmadı \tŞimdiye kadar "
+"başlamış olması gereken görevler.</item><item>Süren \tBaşlatılmış ancak "
+"henüz bitmemiş Görevler. </item><item>Biten \tBu periyotta biten görevler.</"
+"item><item>Sonraki Periyot \tBir sonraki periyotta başlaması planlanan "
+"görevler.</item></list>Zaman aralığı yapılandırılabilir.</para><para>Bu "
+"görünüm, bağlam menüsü kullanılarak yapılandırmayı ve yazdırmayı destekler."
+"<nl/><link url='%1'>Diğer...</link></para>"
 
 #: ui/kpttaskstatusview.cpp:668
 #, kde-format
@@ -8592,13 +8576,13 @@ msgstr "Genel Ayarlar"
 #: ui/kpttaskstatusviewsettingspanel.ui:16
 #, kde-format
 msgid "Period Definition"
-msgstr "Devre Tanımı"
+msgstr "Periyot Tanımı"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskstatusviewsettingspanel.ui:25
 #, kde-format
 msgid "Period length (days):"
-msgstr "Aralık uzunluğu (gün):"
+msgstr "Periyot uzunluğu (gün):"
 
 #. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
 #: ui/kpttaskstatusviewsettingspanel.ui:48

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2013-11-08 01:28+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -7259,7 +7259,7 @@ msgstr "Жоспарланған жоқ"
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Осы мезгілде аяқталған тапсырмалар"
 
 #: ui/kptganttview.cpp:386

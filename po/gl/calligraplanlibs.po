@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2020-03-07 07:54+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -7240,7 +7240,7 @@ msgstr "Mostrar tarefas non planificadas"
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Tarefas que xa se remataron durante este período."
 
 #: ui/kptganttview.cpp:386

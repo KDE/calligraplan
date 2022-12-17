@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2015-12-29 16:09+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -7458,7 +7458,7 @@ msgstr "Suplanuotas"
 #: ui/kptganttview.cpp:379
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr ""
 
 #: ui/kptganttview.cpp:386

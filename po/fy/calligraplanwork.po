@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2008-04-17 13:57+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frisian <kde-i18n-doc@kde.org>\n"
@@ -73,12 +73,12 @@ msgstr "Byl&d"
 msgid "&View"
 msgstr "Byl&d"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "De te iepenjen triem"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, fuzzy, kde-format
 #| msgid "Failed to create KOffice document"
 msgid "Failed to open document"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-05-03 13:59-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7128,7 +7128,7 @@ msgstr "Mostrar tarefas não agendadas"
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "As tarefas concluídas durante este período"
 
 #: ui/kptganttview.cpp:386

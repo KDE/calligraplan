@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-07-23 23:07+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -7136,7 +7136,7 @@ msgstr "Nicht durchgeplant Aufgaben anzeigen"
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Aufgaben, die während dieser Periode abgeschlossen wurden"
 
 #: ui/kptganttview.cpp:386

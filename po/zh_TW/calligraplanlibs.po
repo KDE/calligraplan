@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2011-12-26 08:35+0800\n"
 "Last-Translator: Franklin Weng <franklin@mail.everfocus.com.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -7221,7 +7221,7 @@ msgstr "未排程"
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "此期間已完成工作"
 
 #: ui/kptganttview.cpp:386

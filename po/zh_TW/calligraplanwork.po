@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2011-12-10 19:42+0800\n"
 "Last-Translator: Franklin <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -74,12 +74,12 @@ msgstr "檢視(&V)"
 msgid "&View"
 msgstr "檢視(&V)"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "要開啟的檔案"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "開啟文件失敗"

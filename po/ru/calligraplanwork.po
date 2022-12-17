@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-03-09 16:29+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -76,12 +76,12 @@ msgstr "Вид"
 msgid "&View"
 msgstr "&Вид"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "Открываемый файл"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "Не удалось открыть документ"

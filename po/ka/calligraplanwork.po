@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-12-01 06:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -70,12 +70,12 @@ msgstr "ნახვა"
 msgid "&View"
 msgstr "&ხედი"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "გასახსნელი ფაილი"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "დოკუმენტის გახსნის შეცდომა"

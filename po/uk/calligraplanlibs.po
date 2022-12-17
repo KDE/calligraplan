@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
-"PO-Revision-Date: 2022-11-30 06:54+0200\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"PO-Revision-Date: 2022-12-16 08:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -6133,14 +6133,13 @@ msgstr "Сховище даних Calligra"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Увімкнути або вимкнути параметри розширеного фільтрування"
 
 #: ui/FilterWidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr "Фільтр"
+msgstr "Фільтрувати за назвою"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
@@ -6154,24 +6153,21 @@ msgstr "Параметри друку"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/GanttFilterOptionsWidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Printing Options"
+#, kde-format
 msgid "Filter Options"
-msgstr "Параметри друку"
+msgstr "Параметри фільтрування"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
 msgstr "Показати проєкт"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
-#, fuzzy, kde-format
-#| msgid "Add Milestone"
+#, kde-format
 msgid "Tasks and Milestones"
-msgstr "додавання етапу"
+msgstr "Завдання і етапи"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -6183,67 +6179,59 @@ msgstr "Завдання"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Етап"
+msgstr "Етапи"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Unscheduled tasks"
-msgstr "Показати незаплановані завдання"
+msgstr "Незаплановані завдання"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period"
-msgstr "Періодичність"
+msgstr "Період"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_running)
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Running tasks"
-msgstr "Запізнюється"
+msgstr "Поточні завдання"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
-#, fuzzy, kde-format
-#| msgid "Finished late"
+#, kde-format
 msgid "Finished tasks"
-msgstr "Завершено пізно"
+msgstr "Завершені завдання"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Not started"
+#, kde-format
 msgid "Not started tasks"
-msgstr "Не почато"
+msgstr "Непочаті завдання"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:195
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
-#, fuzzy, kde-format
-#| msgid "Re-calculate from current date/time"
+#, kde-format
 msgid "Number of days around current datetime"
-msgstr "Переобчислити з поточної дати/часу"
+msgstr "Кількість днів від поточної дати і часу"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Періодичність"
+msgstr "Період:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Вказаний період:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -7276,10 +7264,9 @@ msgid "Show Project"
 msgstr "Показати проєкт"
 
 #: ui/kptganttview.cpp:318
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Параметри друку…"
+msgstr "Параметри фільтрування…"
 
 #: ui/kptganttview.cpp:330
 #, kde-format
@@ -7287,16 +7274,14 @@ msgid "Show Unscheduled Tasks"
 msgstr "Показати незаплановані завдання"
 
 #: ui/kptganttview.cpp:337
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Завдання"
+msgstr "Показати завдання"
 
 #: ui/kptganttview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Етап"
+msgstr "Показати етапи"
 
 #: ui/kptganttview.cpp:354
 #, kde-kuit-format
@@ -7305,56 +7290,56 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Вмикає параметри фільтрування за завданням та етапом.<nl/>Вимикання призведе "
+"до показу усіх запланованих завдань та етапів."
 
 #: ui/kptganttview.cpp:363
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Вмикає параметри фільтрування за періодом."
 
 #: ui/kptganttview.cpp:370
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Show Running Tasks"
-msgstr "Запізнюється"
+msgstr "Показати поточні завдання"
 
 #: ui/kptganttview.cpp:371
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
-msgstr "Завдання, що було завершено протягом цього періоду"
+msgstr "Показати завдання, які було почато до або під час цього періоду."
 
 #: ui/kptganttview.cpp:378
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Show Finished Tasks"
-msgstr "Показати незаплановані завдання"
+msgstr "Показати завершені завдання"
 
 #: ui/kptganttview.cpp:379
 #, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#| msgctxt "@info:tooltip"
+#| msgid "Shows tasks and milstones that has been finished during this period."
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
-msgstr "Завдання, що було завершено протягом цього періоду"
+msgid "Shows tasks and milestones that has been finished during this period."
+msgstr "Показує завдання та етапи, які було завершено під час цього періоду."
 
 #: ui/kptganttview.cpp:386
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Show Not Started Tasks"
-msgstr "Не почато"
+msgstr "показати непочаті завдання"
 
 #: ui/kptganttview.cpp:387
-#, fuzzy, kde-format
-#| msgid "Tasks that should have been started"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
-msgstr "Завдання, що мали розпочатися"
+msgstr ""
+"Показати завдання та етапи, виконання яких мало розпочатися на поточний "
+"момент."
 
 #: ui/kptganttview.cpp:399
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "вказаний період:"
 
 #: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
 #: ui/ResourceAppointmentsGanttView.cpp:322

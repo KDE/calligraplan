@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-10-09 17:37+0200\n"
 "Last-Translator: Thomas Vergnaud <thomas.vergnaud@mailo.eu>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -84,12 +84,12 @@ msgstr "Affichage"
 msgid "&View"
 msgstr "&Affichage"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "Fichier à ouvrir"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
 msgstr "Impossible d'ouvrir un document"

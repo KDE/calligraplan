@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-16 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2022-12-13 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6873,7 +6873,7 @@ msgstr "推迟完成"
 #: ui/kptganttview.cpp:379
 #, kde-format
 msgctxt "@info:tooltip"
-msgid "Shows tasks and milstones that has been finished during this period."
+msgid "Shows tasks and milestones that has been finished during this period."
 msgstr ""
 
 #: ui/kptganttview.cpp:386

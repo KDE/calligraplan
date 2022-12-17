@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-17 00:50+0000\n"
 "PO-Revision-Date: 2014-03-16 20:12+0200\n"
 "Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -71,12 +71,12 @@ msgstr "Rodymas"
 msgid "&View"
 msgstr "&Rodymas"
 
-#: commandlineparser.cpp:35
+#: commandlineparser.cpp:33
 #, kde-format
 msgid "File to open"
 msgstr "Atverti failą"
 
-#: commandlineparser.cpp:92
+#: commandlineparser.cpp:85
 #, fuzzy, kde-format
 msgid "Failed to open document"
 msgstr "Nepavyko atverti failo: „%1“"
