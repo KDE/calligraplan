@@ -7071,8 +7071,6 @@ msgstr "Mostra les tasques finalitzades"
 
 #: ui/kptganttview.cpp:379
 #, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Shows tasks and milstones that has been finished during this period."
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Mostra les tasques i fites que han finalitzat durant aquest període."
