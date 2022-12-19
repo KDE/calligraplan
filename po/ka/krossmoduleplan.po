@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-06 00:17+0000\n"
-"PO-Revision-Date: 2022-12-01 06:45+0100\n"
+"PO-Revision-Date: 2022-12-18 13:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
 msgctxt "(qtundo-format)"
@@ -318,31 +318,31 @@ msgstr "რესურსის დაკავებულობის ინ�
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Python script to export busy information to file"
-msgstr ""
+msgstr "Python -ის სკრიპტი დაკავებულობის ინფორმაციის ფაილში გადასატანად"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Import Resource Busy Information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის შემოტანა"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Python script to import busy information from file"
-msgstr ""
+msgstr "Python -ის სკრიპტი დაკავებულობის ინფორმაციის ფაილიდან შემოსატანად"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Clear Resource Busy Information"
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის გასუფთავება"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Python script to clear the imported resource busy information"
-msgstr ""
+msgstr "Python -ის სკრიპტი რესურსის დაკავებულობის ინფორმაციის გასასუფთავებლად"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
@@ -360,13 +360,13 @@ msgstr "შემცველობის შემოტანა"
 #: scripts/scripts.rc:22
 #, kde-format
 msgid "Resources from Plan File"
-msgstr ""
+msgstr "რესურსები Plan ფაილიდან"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:22
 #, kde-format
 msgid "Python script to import resources from project file"
-msgstr ""
+msgstr "Python -ის სკრიპტი რესურსების პროექტის ფაილიდან შემოსატანად"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:31
@@ -390,7 +390,7 @@ msgstr "CSV-ში"
 #: scripts/scripts.rc:32
 #, kde-format
 msgid "Export data as comma separated values"
-msgstr ""
+msgstr "მონაცემების მძიმით გამოყოფილი მნიშვნელობებით გადაატნა"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:36
@@ -402,7 +402,7 @@ msgstr "ODS-ში"
 #: scripts/scripts.rc:36
 #, kde-format
 msgid "Export data to Open Spreadsheet document"
-msgstr ""
+msgstr "მონაცემების ღია ელცხრილის დოკუმენტში გატანა"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:46
@@ -429,6 +429,8 @@ msgid ""
 "Python script that uses the KHTML Part to display the Plan Scripting online "
 "help"
 msgstr ""
+"Python-ის სკრიპტი რომელიც Plan-ის სკრიპტინგის ონლაინ დახმარების საჩვენებლად "
+"KHTML-ის ნაწილს იყენებს"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:58
@@ -440,28 +442,30 @@ msgstr "სემპლები"
 #: scripts/scripts.rc:58
 #, kde-format
 msgid "Samples to demonstrate scripting with Plan"
-msgstr ""
+msgstr "Plan-ით სკრიპტინგის დემონსტრაციული მაგალითები"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Print Project Information..."
-msgstr ""
+msgstr "პროექტის ინფორმაციის გამოტანა..."
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Example python script that print project information"
-msgstr ""
+msgstr "Python-ის მაგალითი სკრიპტი, რომელსაც პროექტის ინფორმაცია გამოაქვს"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr ""
+msgstr "რესურსის დაკავებულობის ინფორმაციის გამოტანა..."
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Example python script that print resource busy information"
 msgstr ""
+"მაგალითი Python-ის სკრიპტი, რომელსაც რესურსის დაკავებულობის ინფორმაცია "
+"გამოაქვს"

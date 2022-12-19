@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-12-01 06:37+0100\n"
+"PO-Revision-Date: 2022-12-18 06:54+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -27,12 +27,12 @@ msgstr ""
 #, kde-format
 msgctxt "application name"
 msgid "Plan WorkPackage Handler"
-msgstr ""
+msgstr "Plan WorkPackage დამმუშავებელი"
 
 #: aboutdata.h:31
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr ""
+msgstr "1998-%1, Plan -ის გუნდი, ყველა უფლება დაცულია"
 
 #: aboutdata.h:35
 #, kde-format
@@ -113,7 +113,7 @@ msgstr "ფაილი არ არსებობს:<br>%1"
 #: part.cpp:228
 #, kde-format
 msgid "Edit with:"
-msgstr ""
+msgstr "რედაქტორი:"
 
 #: part.cpp:379
 #, kde-format
@@ -131,19 +131,19 @@ msgstr ""
 #: part.cpp:414
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
-msgstr ""
+msgstr "სამუშაო პაკეტის წაშლა"
 
 #: part.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "სამუშაო პაკეტის წაშლა"
+msgstr[1] "სამუშაო პაკეტების წაშლა"
 
 #: part.cpp:466
 #, kde-format
 msgid "Failed to load file:<br>%1"
-msgstr ""
+msgstr "ფაილის ჩატვირთვის შეცდომა:<br>%1"
 
 #: part.cpp:488
 #, kde-format
@@ -158,7 +158,7 @@ msgstr ""
 #: part.cpp:546
 #, kde-format
 msgid "Failed to open file: %1"
-msgstr ""
+msgstr "ფაილის გახსნის შეცდომა: %1"
 
 #: part.cpp:560
 #, kde-format
@@ -168,7 +168,7 @@ msgstr ""
 #: part.cpp:579 part.cpp:630
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr ""
+msgstr "არასწორი დოკუმენტი. Mimetype მითითებული არაა."
 
 #: part.cpp:587
 #, kde-format
@@ -247,12 +247,12 @@ msgstr "ტიპი: %1<nl/>Url: %2"
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
-msgstr ""
+msgstr "დასრულების შეცვლა"
 
 #: taskworkpackagemodel.cpp:468
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "დასრულებულად მონიშვნა"
 
 #: taskworkpackagemodel.cpp:489
 msgctxt "(qtundo-format)"
@@ -280,7 +280,7 @@ msgstr "ტიპი"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
-msgstr ""
+msgstr "პასუხისმგებელი"
 
 #: taskworkpackagemodel.cpp:603
 #, kde-kuit-format
@@ -292,19 +292,19 @@ msgstr "აღწერა"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Start"
-msgstr ""
+msgstr "დაგეგმილი დაწყება"
 
 #: taskworkpackagemodel.cpp:607
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Finish"
-msgstr ""
+msgstr "დაგეგმილი დასრულება"
 
 #: taskworkpackagemodel.cpp:608
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Assignments"
-msgstr ""
+msgstr "რესურსების მინიჭება"
 
 #: taskworkpackagemodel.cpp:611
 #, kde-kuit-format
@@ -381,7 +381,7 @@ msgstr "პროექტის მმართველი"
 #: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
 #, kde-format
 msgid "Configure View..."
-msgstr ""
+msgstr "ხედის მორგება..."
 
 #: taskworkpackageview.cpp:630
 #, kde-kuit-format
@@ -424,7 +424,7 @@ msgstr "სია"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "აირჩიეთ ამოცანების სია"
 
 #: view.cpp:97
 #, kde-format
@@ -435,7 +435,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "აირჩეთ დროის ხაზი"
 
 #: view.cpp:103
 #, kde-format
@@ -476,57 +476,57 @@ msgstr "აღწერილობის ნახვა..."
 #: view.cpp:315
 #, kde-format
 msgid "This file is not editable"
-msgstr ""
+msgstr "ფაილი ჩასწორებადი არაა"
 
 #: view.cpp:335
 #, kde-format
 msgid "No work package is selected"
-msgstr ""
+msgstr "სამუშაო პაკეტი არჩეული არაა"
 
 #: view.cpp:341
 #, kde-format
 msgid "Cannot find work package"
-msgstr ""
+msgstr "სამუშაო პაკეტი ვერ ვიპოვე"
 
 #: view.cpp:358
 #, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr ""
+msgstr "ფაილის გახსნის შეცდომა. გაგზავნა გაუქმებულია."
 
 #: view.cpp:366
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr ""
+msgstr "დროებით ფაილის გახსნის შეცდომა. გაგზავნა გაუქმებულია"
 
 #: view.cpp:375
 #, kde-format
 msgid "Work Package: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტი: %1"
 
 #: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
-msgstr ""
+msgstr "დოკუმენტი უკვე ღიაა"
 
 #: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
-msgstr ""
+msgstr "პროექტის ჩატვირთვის შეცდომა: %1"
 
 #: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
-msgstr ""
+msgstr "ცარიელ ფაილის სახელში შენახვა შეუძლებელია"
 
 #: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
-msgstr ""
+msgstr "შესანახი ფაილის შენახვის შეცდომა"
 
 #: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr ""
+msgstr "%1-ის ჩაწერის შეცდომა. დანაყოფი გადავსებულია?"
 
 #: workpackage.cpp:334
 #, kde-format
@@ -534,6 +534,8 @@ msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr ""
+"მაღაზიის გახსნის შეცდომა:\n"
+"%1"
 
 #: workpackage.cpp:412
 #, kde-format
@@ -541,6 +543,8 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
+"პროექტების მაღაზიის შენახვის შეცდომა:\n"
+"%1"
 
 #: workpackage.cpp:455
 msgctxt "(qtundo-format)"
@@ -553,6 +557,8 @@ msgid ""
 "Failed read file:\n"
 " %1"
 msgstr ""
+"ფაილის წაკითხვის შეცდომა:\n"
+" %1"
 
 #: workpackage.cpp:470
 #, kde-format
@@ -560,11 +566,13 @@ msgid ""
 "Failed write file:\n"
 " %1"
 msgstr ""
+"ფაილის ჩაწერის შეცდომა:\n"
+" %1"
 
 #: workpackage.cpp:514
 msgctxt "(qtundo-format)"
 msgid "Merge data"
-msgstr ""
+msgstr "მონაცემების შერწყმა"
 
 #: workpackage.cpp:638
 #, kde-format

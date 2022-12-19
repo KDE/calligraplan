@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-11-30 09:26+0000\n"
+"PO-Revision-Date: 2022-12-18 14:06+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -5951,14 +5951,13 @@ msgstr "Armazenamento do Calligra"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Comutar as opções estendidas de filtragem"
 
 #: ui/FilterWidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr "Filtro"
+msgstr "Nomes dos filtros"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
@@ -5972,24 +5971,21 @@ msgstr "Opções de impressão"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/GanttFilterOptionsWidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Printing Options"
+#, kde-format
 msgid "Filter Options"
-msgstr "Opções de impressão"
+msgstr "Opções do Filtro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
-msgstr "Mostrar o Projecto"
+msgstr "Mostrar o projecto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
-#, fuzzy, kde-format
-#| msgid "Add Milestone"
+#, kde-format
 msgid "Tasks and Milestones"
-msgstr "Adicionar um Marco"
+msgstr "Tarefas e Marcos"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -6001,67 +5997,59 @@ msgstr "Tarefas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Marco"
+msgstr "Marcos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Unscheduled tasks"
-msgstr "Mostrar as Tarefas Não Escalonadas"
+msgstr "Tarefas não escalonadas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period"
-msgstr "Periódica"
+msgstr "Período"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_running)
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Running tasks"
-msgstr "Atrasado"
+msgstr "Tarefas em execução"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
-#, fuzzy, kde-format
-#| msgid "Finished late"
+#, kde-format
 msgid "Finished tasks"
-msgstr "Terminado posteriormente"
+msgstr "Tarefas terminadas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Not started"
+#, kde-format
 msgid "Not started tasks"
-msgstr "Não iniciado"
+msgstr "Tarefas não iniciadas"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:195
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
-#, fuzzy, kde-format
-#| msgid "Re-calculate from current date/time"
+#, kde-format
 msgid "Number of days around current datetime"
-msgstr "Calcular de novo a partir da data/hora actuais"
+msgstr "Número de dias em torno da data/hora actual"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Periódica"
+msgstr "Período:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Período específico:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -7056,10 +7044,9 @@ msgid "Show Project"
 msgstr "Mostrar o Projecto"
 
 #: ui/kptganttview.cpp:318
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Opções de Impressão..."
+msgstr "Opções de Filtragem..."
 
 #: ui/kptganttview.cpp:330
 #, kde-format
@@ -7067,16 +7054,14 @@ msgid "Show Unscheduled Tasks"
 msgstr "Mostrar as Tarefas Não Escalonadas"
 
 #: ui/kptganttview.cpp:337
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Tarefas"
+msgstr "Mostrar as Tarefas"
 
 #: ui/kptganttview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Marco"
+msgstr "Mostrar os Marcos"
 
 #: ui/kptganttview.cpp:354
 #, kde-kuit-format
@@ -7085,56 +7070,52 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Activa as opções de filtragem de Tarefas e Marcos.<nl/>Se desactivar isto, "
+"irá mostrar todas as tarefas e marcos agendados."
 
 #: ui/kptganttview.cpp:363
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Activa as opções de filtragem do Período."
 
 #: ui/kptganttview.cpp:370
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Show Running Tasks"
-msgstr "Atrasado"
+msgstr "Mostrar as Tarefas em Execução"
 
 #: ui/kptganttview.cpp:371
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
-msgstr "As tarefas que terminaram durante este período"
+msgstr "Mostra as tarefas que foram iniciadas antes ou durante este período."
 
 #: ui/kptganttview.cpp:378
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Show Finished Tasks"
-msgstr "Mostrar as Tarefas Não Escalonadas"
+msgstr "Mostrar as Tarefas Terminadas"
 
 #: ui/kptganttview.cpp:379
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
-msgstr "As tarefas que terminaram durante este período"
+msgstr "Mostra as tarefas e marcos que terminaram durante este período."
 
 #: ui/kptganttview.cpp:386
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Show Not Started Tasks"
-msgstr "Não Iniciado"
+msgstr "Mostrar as Tarefas Não Iniciadas"
 
 #: ui/kptganttview.cpp:387
-#, fuzzy, kde-format
-#| msgid "Tasks that should have been started"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
-msgstr "As tarefas que deviam ter começado"
+msgstr "Mostra as tarefas e marcos que já deveriam ter iniciado."
 
 #: ui/kptganttview.cpp:399
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "período específico:"
 
 #: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
 #: ui/ResourceAppointmentsGanttView.cpp:322
