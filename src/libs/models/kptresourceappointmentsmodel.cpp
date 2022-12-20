@@ -334,6 +334,10 @@ QModelIndex ResourceAppointmentsItemModel::index(int row, int column, const QMod
         return QModelIndex();
     }
     const auto item = parent.isValid() ? static_cast<ItemData*>(parent.internalPointer()) : m_rootItem;
+    if (row >= item->children.count()) {
+        warnPlan<<"Invalid row:"<<"parent:"<<parent<<"row:"<<row<<"row count:"<<item->children.count();
+        return QModelIndex();
+    }
     return createIndex(row, column, (void*)item->children.value(row));
 }
 
