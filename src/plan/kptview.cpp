@@ -377,6 +377,7 @@ void View::slotCreateTemplate()
         part->setDocument(doc);
         doc->disconnect(); // doc shall not handle feedback from openUrl()
         doc->setAutoSave(0); //disable
+        doc->setSkipSharedResourcesAndProjects(true); // crashes if shared resources are not skipped
         bool ok = koDocument()->exportDocument(QUrl::fromUserInput(QStringLiteral("file:/") + tmpfile));
         ok &= doc->loadNativeFormat(tmpfile);
         if (ok) {
