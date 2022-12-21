@@ -689,6 +689,11 @@ Calendar::~Calendar() {
 //     copy(*calendar);
 // }
 
+void Calendar::copy(const Calendar *calendar)
+{
+    copy(*calendar);
+}
+
 const Calendar &Calendar::copy(const Calendar &calendar) {
     m_name = calendar.name();
     m_timeZone = calendar.timeZone();

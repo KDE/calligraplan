@@ -367,6 +367,8 @@ public:
     ~Calendar() override;
 
     const Calendar &operator=(const Calendar &calendar) { return copy(calendar); }
+    const Calendar &copy(const Calendar &calendar);
+    void copy(const Calendar *calendar);
 
     QString name() const { return m_name; }
     void setName(const QString& name);
@@ -536,7 +538,6 @@ Q_SIGNALS:
 
 protected:
     void init();
-    const Calendar &copy(const Calendar &calendar);
     
     /**
      * Returns the amount of 'worktime' that can be done on
