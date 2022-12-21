@@ -32,7 +32,10 @@ public:
 
     bool isEmpty() const { return cmds.isEmpty(); }
 
+    void setBusyCursorEnabled(bool on) { m_busyCursorEnabled = on; }
+
 protected:
+    bool m_busyCursorEnabled = false;
     QList<KUndo2Command*> cmds;
 };
 

@@ -210,6 +210,19 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
         debugPlanInsertProject<<"AddResourceCmd:"<<r->name()<<r->parentGroups();
     }
+    // Update resource groups <to project, from project>
+    {QHash<Resource*, Resource*>::const_iterator it = existingResources.constBegin();
+    QHash<Resource*, Resource*>::const_iterator end = existingResources.constEnd();
+    for (; it != end; ++it) {
+        const auto parentGroups = it.value()->parentGroups();
+        for (auto group : parentGroups) {
+            auto g = m_project->findResourceGroup(group->id());
+            if (g) {
+
+            }
+        }
+    }
+    }
     // Update resource account
     {QHash<Resource*, QString>::const_iterator it = resaccountmap.constBegin();
     QHash<Resource*, QString>::const_iterator end = resaccountmap.constEnd();

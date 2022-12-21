@@ -27,14 +27,26 @@ void MacroCommand::addCommand(KUndo2Command *cmd)
 
 void MacroCommand::execute()
 {
-    for (KUndo2Command *c : cmds) {
+    if (m_busyCursorEnabled) {
+        QApplication::setOverrideCursor(Qt::BusyCursor);
+    }
+    for (KUndo2Command *c : qAsConst(cmds)) {
         c->redo();
+    }
+    if (m_busyCursorEnabled) {
+        QApplication::restoreOverrideCursor();
     }
 }
 
 void MacroCommand::unexecute()
 {
+    if (m_busyCursorEnabled) {
+        QApplication::setOverrideCursor(Qt::BusyCursor);
+    }
     for (int i = cmds.count() - 1; i >= 0; --i) {
         cmds.at(i)->undo();
+    }
+    if (m_busyCursorEnabled) {
+        QApplication::restoreOverrideCursor();
     }
 }

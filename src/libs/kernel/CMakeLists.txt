@@ -50,6 +50,9 @@ set(calligraplankernel_LIB_SRCS
     commands/InsertProjectCmd.cpp
     commands/ProjectModifyTimeZoneCmd.cpp
     commands/SetFreedaysCalendarCmd.cpp
+    commands/ModifyResourceOriginCmd.cpp
+    commands/ModifyResourceGroupOriginCmd.cpp
+    commands/ModifyCalendarOriginCmd.cpp
 
     kptschedulerplugin.cpp
 

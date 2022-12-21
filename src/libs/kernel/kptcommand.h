@@ -50,6 +50,18 @@ class Resource;
 class Schedule;
 class StandardWorktime;
 
+class PLANKERNEL_EXPORT CalendarCopyCmd : public NamedCommand
+{
+public:
+    CalendarCopyCmd(Calendar *to, const Calendar &from, const KUndo2MagicString& name = KUndo2MagicString());
+    void execute() override;
+    void unexecute() override;
+
+private:
+    Calendar *m_calendar;
+    Calendar m_orig;
+    Calendar m_from;
+};
 
 class PLANKERNEL_EXPORT CalendarAddCmd : public NamedCommand
 {
@@ -944,6 +956,18 @@ private:
     Resource *m_resource;
     Account *m_newvalue;
     Account *m_oldvalue;
+};
+class PLANKERNEL_EXPORT ModifyResourceTeamMembersCmd : public NamedCommand
+{
+public:
+    ModifyResourceTeamMembersCmd(Resource *team, const QStringList &members, const KUndo2MagicString& name = KUndo2MagicString());
+    void execute() override;
+    void unexecute() override;
+
+private:
+    Resource *m_team;
+    QStringList m_newvalue;
+    QStringList m_oldvalue;
 };
 class PLANKERNEL_EXPORT AddResourceTeamCmd : public NamedCommand
 {

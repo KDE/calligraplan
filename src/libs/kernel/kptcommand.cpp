@@ -29,6 +29,24 @@
 namespace KPlato
 {
 
+CalendarCopyCmd::CalendarCopyCmd(Calendar *calendar, const Calendar &from, const KUndo2MagicString& name)
+    : NamedCommand(name)
+    , m_calendar(calendar)
+{
+    m_orig.copy(calendar);
+    m_from.copy(from);
+}
+
+void CalendarCopyCmd::execute()
+{
+    m_calendar->copy(m_from);
+}
+
+void CalendarCopyCmd::unexecute()
+{
+    m_calendar->copy(m_orig);
+}
+
 CalendarAddCmd::CalendarAddCmd(Project *project, Calendar *cal, int pos, Calendar *parent, const KUndo2MagicString& name)
         : NamedCommand(name),
         m_project(project),
@@ -1638,6 +1656,22 @@ void ModifyRequiredResourcesCmd::execute()
 void ModifyRequiredResourcesCmd::unexecute()
 {
     m_resource->setRequiredIds(m_oldvalue);
+}
+
+ModifyResourceTeamMembersCmd::ModifyResourceTeamMembersCmd(Resource *team, const QStringList &members, const KUndo2MagicString& name)
+    : NamedCommand(name),
+    m_team(team),
+    m_newvalue(members)
+{
+    m_oldvalue = team->teamMemberIds();
+}
+void ModifyResourceTeamMembersCmd::execute()
+{
+    m_team->setTeamMemberIds(m_newvalue);
+}
+void ModifyResourceTeamMembersCmd::unexecute()
+{
+    m_team->setTeamMemberIds(m_oldvalue);
 }
 
 AddResourceTeamCmd::AddResourceTeamCmd(Resource *team, const QString &member, const KUndo2MagicString& name)
