@@ -27,7 +27,8 @@ public:
 
     MacroCommand *buildCommand();
 
-    bool loadSharedResources();
+    /// Set if use shared resources was false and has been set true
+    bool updateSharedResources() const;
 
 Q_SIGNALS:
     void dialogFinished(int);

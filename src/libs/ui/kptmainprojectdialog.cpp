@@ -36,6 +36,11 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
     connect(panel, &MainProjectPanel::obligatedFieldsFilled, this, &KoDialog::enableButtonOk);
 }
 
+bool MainProjectDialog::updateSharedResources() const
+{
+    return panel->updateSharedResources();
+}
+
 void MainProjectDialog::slotRejected()
 {
     Q_EMIT dialogFinished(QDialog::Rejected);

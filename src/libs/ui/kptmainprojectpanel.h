@@ -40,6 +40,9 @@ public:
     void initTaskModules();
     MacroCommand *buildTaskModulesCommand();
 
+    /// Set if use shared resources was false and has been set true
+    bool updateSharedResources() const;
+
 public Q_SLOTS:
     virtual void slotCheckAllFieldsFilled();
     virtual void slotChooseLeader();
@@ -63,6 +66,7 @@ private:
     Project &project;
     DocumentsPanel *m_documents;
     TaskDescriptionPanel *m_description;
+    bool m_updateSharedResources = false;
 };
 
 

@@ -217,6 +217,7 @@ MacroCommand *MainProjectPanel::buildCommand() {
     if (project.useSharedResources() != useSharedResources->isChecked()) {
         if (!m) m = new MacroCommand(c);
         m->addCommand(new UseSharedResourcesCmd(&project, useSharedResources->isChecked()));
+        m_updateSharedResources = true;
     }
     if (project.sharedResourcesFile() != resourcesFile->text()) {
         if (!m) m = new MacroCommand(c);
@@ -314,6 +315,10 @@ void MainProjectPanel::slotChooseLeader()
 #endif
 }
 
+bool MainProjectPanel::updateSharedResources() const
+{
+    return m_updateSharedResources;
+}
 
 void MainProjectPanel::slotStartDateClicked()
 {

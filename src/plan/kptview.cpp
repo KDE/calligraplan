@@ -1815,7 +1815,13 @@ void View::slotProjectEditFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * cmd = dia->buildCommand();
         if (cmd) {
-            getPart() ->addCommand(cmd);
+            getPart()->addCommand(cmd);
+            if (dia->updateSharedResources()) {
+                int answer = QMessageBox::question(this, i18nc("ªtitle:window", "Shared Resources"), xi18nc("@info", "Use shared resources has been activated.<nl/>Shall resources be updated?"));
+                if (answer == QMessageBox::Yes) {
+                    slotUpdateSharedResources();
+                }
+            }
         }
     }
     dia->deleteLater();
