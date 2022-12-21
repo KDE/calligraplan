@@ -30,6 +30,9 @@
 #include "XmlSaveContext.h"
 #include "kptpackage.h"
 #include "SharedResourcesDialog.h"
+#include "ModifyCalendarOriginCmd.h"
+#include "ModifyResourceOriginCmd.h"
+#include "ModifyResourceGroupOriginCmd.h"
 #include "kptdebug.h"
 
 #include <ExtraProperties.h>
@@ -1394,6 +1397,7 @@ QList<Calendar*> sortedRemoveCalendars(Project &shared, const QList<Calendar*> &
 bool MainDocument::mergeResources(Project &project)
 {
     debugPlanShared<<&project;
+    QApplication::setOverrideCursor(Qt::WaitCursor);
     // Just in case, remove stuff not related to resources
     const QList<Node*> nodes = project.childNodeIterator();
     for (Node *n : nodes) {
@@ -1407,6 +1411,7 @@ bool MainDocument::mergeResources(Project &project)
         DeleteScheduleManagerCmd cmd(project, m);
         cmd.execute();
     }
+    // TODO? If a good idea, allow for shared accounts
     const QList<Account*> accounts = project.accounts().accountList();
     for (Account *a : accounts) {
         debugPlanShared<<"Project not empty, delete account:"<<a<<a->name();
@@ -1451,6 +1456,7 @@ bool MainDocument::mergeResources(Project &project)
         removed << i18n("Calendar: %1", c->name());
     }
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Update Shared Resources"));
+    cmd->setBusyCursorEnabled(true);
     if (!removed.isEmpty()) {
         //KMessageBox::ButtonCode result = KMessageBox::Yes;
         if (property(NOUI).toBool()) {
@@ -1464,7 +1470,6 @@ bool MainDocument::mergeResources(Project &project)
         } else {
             QApplication::setOverrideCursor(Qt::ArrowCursor);
             SharedResourcesDialog dlg(removedGroups, removedResources, removedCalendars);
-            //dlg.setWindowTitle(i18nc("@title:window", "Shared Resources"));
             dlg.setWindowTitle(i18nc("@title:window", "Project: %1", m_project->name()));
             dlg.exec();
             QApplication::restoreOverrideCursor();
@@ -1474,10 +1479,12 @@ bool MainDocument::mergeResources(Project &project)
             }
         }
     }
+    debugPlanShared<<"Shared objects:\n"<<"Groups:"<<project.resourceGroups()<<"\nResources:"<<project.resourceList()<<"\nCalendars:"<<project.calendars();
     // update values of already existing objects
     QStringList l1;
-    const QList<ResourceGroup*> groups3 = project.resourceGroups();
-    for (ResourceGroup *g : groups3) {
+    const QList<ResourceGroup*> sharedGroups = project.resourceGroups();
+#ifndef NDEBUG
+    for (ResourceGroup *g : sharedGroups) {
         l1 << g->id();
     }
     QStringList l2;
@@ -1486,60 +1493,69 @@ bool MainDocument::mergeResources(Project &project)
         l2 << g->id();
     }
     debugPlanShared<<'\n'<<"  This:"<<l2<<'\n'<<"Shared:"<<l1;
-    QList<ResourceGroup*> removegroups;
-    for (ResourceGroup *g : groups3) {
-        ResourceGroup *group = m_project->findResourceGroup(g->id());
+#endif
+    for (ResourceGroup *sharedGroup : sharedGroups) {
+        ResourceGroup *group = m_project->findResourceGroup(sharedGroup->id());
         if (group) {
             if (!group->isShared()) {
                 // User has probably created shared resources from this project,
                 // so the resources exists but are local ones.
                 // Convert to shared and do not load the group from shared.
-                removegroups << g;
-                group->setShared(true);
+                cmd->addCommand(new ModifyResourceGroupOriginCmd(group, true));
                 debugPlanShared<<"Set group to shared:"<<group<<group->id();
             }
-            group->setName(g->name());
-            group->setType(g->type());
-            debugPlanShared<<"Updated group:"<<group<<group->id();
+            cmd->addCommand(new ModifyResourceGroupNameCmd(group, sharedGroup->name()));
+            cmd->addCommand(new ModifyResourceGroupTypeCmd(group, sharedGroup->type()));
+            debugPlanShared<<"Updated existing group:"<<group<<group->id();
         }
     }
-    QList<Resource*> removeresources;
     const QList<Resource*> resources3 = project.resourceList();
-    for (Resource *r : resources3) {
-        Resource *resource = m_project->findResource(r->id());
+    for (Resource *sharedResource : resources3) {
+        Resource *resource = m_project->findResource(sharedResource->id());
         if (resource) {
             if (!resource->isShared()) {
                 // User has probably created shared resources from this project,
                 // so the resources exists but are local ones.
                 // Convert to shared and do not load the resource from shared.
-                removeresources << r;
-                resource->setShared(true);
+
+                cmd->addCommand(new ModifyResourceOriginCmd(resource, true));
                 debugPlanShared<<"Set resource to shared:"<<resource<<resource->id();
+
+                // Fix groups, InsertProjectCmd (below) will not do it in this case
+                const auto sharedGroups = sharedResource->parentGroups();
+                for (const auto sharedGroup : sharedGroups) {
+                    auto group = m_project->findResourceGroup(sharedGroup->id());
+                    if (!resource->parentGroups().contains(group)) {
+                        resource->addParentGroup(group);
+                        debugPlanShared<<"Merge parent group:"<<resource<<group;
+                    }
+                }
             }
-            resource->setName(r->name());
-            resource->setInitials(r->initials());
-            resource->setEmail(r->email());
-            resource->setType(r->type());
-            resource->setAutoAllocate(r->autoAllocate());
-            resource->setAvailableFrom(r->availableFrom());
-            resource->setAvailableUntil(r->availableUntil());
-            resource->setUnits(r->units());
-            resource->setNormalRate(r->normalRate());
-            resource->setOvertimeRate(r->overtimeRate());
+            cmd->addCommand(new ModifyResourceNameCmd(resource, sharedResource->name()));
+            cmd->addCommand(new ModifyResourceInitialsCmd(resource, sharedResource->initials()));
+            cmd->addCommand(new ModifyResourceEmailCmd(resource, sharedResource->email()));
+            cmd->addCommand(new ModifyResourceTypeCmd(resource, sharedResource->type()));
+            cmd->addCommand(new ModifyResourceAutoAllocateCmd(resource, sharedResource->autoAllocate()));
+            cmd->addCommand(new ModifyResourceAvailableFromCmd(resource, sharedResource->availableFrom()));
+            cmd->addCommand(new ModifyResourceAvailableUntilCmd(resource, sharedResource->availableUntil()));
+            cmd->addCommand(new ModifyResourceUnitsCmd(resource, sharedResource->units()));
+            cmd->addCommand(new ModifyResourceNormalRateCmd(resource, sharedResource->normalRate()));
+            cmd->addCommand(new ModifyResourceOvertimeRateCmd(resource, sharedResource->overtimeRate()));
 
-            QString id = r->calendar(true) ? r->calendar(true)->id() : QString();
-            resource->setCalendar(m_project->findCalendar(id));
+            cmd->addCommand(new ModifyRequiredResourcesCmd(resource, sharedResource->requiredIds()));
 
-            id = r->account() ? r->account()->name() : QString();
-            resource->setAccount(m_project->accounts().findAccount(id));
+            if (resource->type() == Resource::Type_Team) {
+                cmd->addCommand(new ModifyResourceTeamMembersCmd(resource, sharedResource->teamMemberIds()));
+            }
+            Calendar *calendar = nullptr;
+            if (sharedResource->calendar(true)) {
+                calendar = m_project->findCalendar(sharedResource->calendar(true)->id());
+            }
+            cmd->addCommand(new ModifyResourceCalendarCmd(resource, calendar));
 
-            resource->setRequiredIds(r->requiredIds());
-
-            resource->setTeamMemberIds(r->teamMemberIds());
-            debugPlanShared<<"Updated resource:"<<resource<<resource->id();
+            debugPlanShared<<"Updated existing resource:"<<resource<<resource->id();
         }
     }
-    QList<Calendar*> removecalendars;
     const QList<Calendar*> calendars2 = project.allCalendars();
     for (Calendar *c : calendars2) {
         Calendar *calendar = m_project->findCalendar(c->id());
@@ -1548,37 +1564,13 @@ bool MainDocument::mergeResources(Project &project)
                 // User has probably created shared resources from this project,
                 // so the calendar exists but are local ones.
                 // Convert to shared and do not load the resource from shared.
-                removecalendars << c;
-                calendar->setShared(true);
+                cmd->addCommand(new ModifyCalendarOriginCmd(calendar, true));
                 debugPlanShared<<"Set calendar to shared:"<<calendar<<calendar->id();
             }
-            *calendar = *c;
-            debugPlanShared<<"Updated calendar:"<<calendar<<calendar->id();
+            cmd->addCommand(new CalendarCopyCmd(calendar, *c));
+            debugPlanShared<<"Updated existing calendar:"<<calendar<<calendar->id();
         }
     }
-    debugPlanShared<<"Remove from shared resources:"<<'\n'<<"calendars:"<<removecalendars<<'\n'<<"resources:"<<removeresources<<'\n'<<"groups:"<<removegroups;
-    while (!removecalendars.isEmpty()) {
-        for (int i = 0; i < removecalendars.count(); ++i) {
-            Calendar *c = removecalendars.at(i);
-            if (c->childCount() == 0) {
-                removecalendars.removeAt(i);
-                debugPlanShared<<"Delete calendar:"<<c->project()<<c<<c->id();
-                CalendarRemoveCmd cmd(&project, c);
-                cmd.execute();
-            }
-        }
-    }
-    for (Resource *r : qAsConst(removeresources)) {
-        debugPlanShared<<"Delete resource:"<<r->project()<<r<<r->id();
-        RemoveResourceCmd cmd(r);
-        cmd.execute();
-    }
-    for (ResourceGroup *g : qAsConst(removegroups)) {
-        debugPlanShared<<"Delete group:"<<g->project()<<g<<g->id();
-        RemoveResourceGroupCmd cmd(&project, g);
-        cmd.execute();
-    }
-    debugPlanShared<<"insert new objects:\n"<<"Groups:"<<project.resourceGroups()<<"\nResources:"<<project.resourceList()<<"\nCalendars:"<<project.calendars();
     Q_ASSERT(project.childNodeIterator().isEmpty());
     auto icmd = new InsertProjectCmd(project, m_project, nullptr);
     if (icmd->isEmpty()) {
@@ -1590,6 +1582,7 @@ bool MainDocument::mergeResources(Project &project)
         debugPlanShared<<"Update:"<<cmd->text();
         addCommand(cmd);
     }
+    QApplication::restoreOverrideCursor();
     return true;
 }
 
