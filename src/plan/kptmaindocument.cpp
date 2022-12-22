@@ -1482,7 +1482,7 @@ bool MainDocument::mergeResources(Project &project)
     debugPlanShared<<"Shared objects:\n"<<"Groups:"<<project.resourceGroups()<<"\nResources:"<<project.resourceList()<<"\nCalendars:"<<project.calendars();
     // update values of already existing objects
     QStringList l1;
-    const QList<ResourceGroup*> sharedGroups = project.resourceGroups();
+    const QList<ResourceGroup*> sharedGroups = project.allResourceGroups();
 #ifndef NDEBUG
     for (ResourceGroup *g : sharedGroups) {
         l1 << g->id();
