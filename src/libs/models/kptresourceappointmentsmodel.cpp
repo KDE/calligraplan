@@ -304,9 +304,10 @@ Qt::ItemFlags ResourceAppointmentsItemModel::flags(const QModelIndex &index) con
 
 QModelIndex ResourceAppointmentsItemModel::parent(const QModelIndex &idx) const
 {
-    if (!idx.isValid() || m_project == nullptr || m_manager == nullptr) {
+    if (!idx.isValid()) {
         return QModelIndex();
     }
+    Q_ASSERT(idx.internalPointer());
     if (idx.internalPointer() == nullptr) {
         return QModelIndex();
     }
@@ -330,9 +331,6 @@ Resource *ResourceAppointmentsItemModel::parent(const Appointment *a) const
 
 QModelIndex ResourceAppointmentsItemModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (m_project == nullptr) {
-        return QModelIndex();
-    }
     const auto item = parent.isValid() ? static_cast<ItemData*>(parent.internalPointer()) : m_rootItem;
     if (row >= item->children.count()) {
         warnPlan<<"Invalid row:"<<"parent:"<<parent<<"row:"<<row<<"row count:"<<item->children.count();
@@ -425,9 +423,6 @@ int ResourceAppointmentsItemModel::columnCount(const QModelIndex &/*parent*/) co
 
 int ResourceAppointmentsItemModel::rowCount(const QModelIndex &parent) const
 {
-    if (m_project == nullptr) {
-        return 0;
-    }
     const auto item = parent.isValid() ? static_cast<const ItemData*>(parent.internalPointer()) : m_rootItem;
     return item->children.count();
 }
