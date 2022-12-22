@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-22 00:46+0000\n"
 "PO-Revision-Date: 2009-03-03 09:54+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -576,7 +576,7 @@ msgstr ""
 msgid "Project Defaults"
 msgstr "परियोजना"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:637
+#: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
 msgstr "काम अउ छुट्टी"
@@ -768,8 +768,8 @@ msgid "Week"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
-#: kptmaindocument.cpp:1692
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1681
+#: kptmaindocument.cpp:1685
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1261,7 +1261,7 @@ msgid ""
 msgstr ""
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
+#: kptmaindocument.cpp:375 kptmaindocument.cpp:699
 #, kde-format
 msgid "Continue"
 msgstr "जारी रखव"
@@ -1281,8 +1281,8 @@ msgid ""
 "Opening it in this version of Plan may lose some information."
 msgstr ""
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
-#: kptmaindocument.cpp:696
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:375
+#: kptmaindocument.cpp:699
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "फाइल फार्मेट मिसमैच"
@@ -1436,67 +1436,67 @@ msgstr "कागद भरव"
 msgid "Insert after current node"
 msgstr "कागद भरव"
 
-#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
+#: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "अवैध कागद. कोनो माइम-किसिम निरधारित नइ."
 
-#: kptmaindocument.cpp:361
+#: kptmaindocument.cpp:364
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato, मिलिस %1"
 
-#: kptmaindocument.cpp:370
+#: kptmaindocument.cpp:373
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
 
-#: kptmaindocument.cpp:456
+#: kptmaindocument.cpp:459
 #, fuzzy, kde-format
 #| msgid "Failed to save to temporary file: %1"
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
 
-#: kptmaindocument.cpp:471
+#: kptmaindocument.cpp:474
 #, fuzzy, kde-format
 #| msgid "Failed to open temporary file"
 msgid "Failed to open work package file"
 msgstr "अस्थायी फाइल खोले मं अक्छम"
 
-#: kptmaindocument.cpp:478
+#: kptmaindocument.cpp:481
 #, fuzzy, kde-kuit-format
 #| msgid "Failed to save to temporary file: %1"
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
 
-#: kptmaindocument.cpp:554
+#: kptmaindocument.cpp:557
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr "सहेजे बर वर्कपैकेज फाइल बनाय नइ जा सकिस: %1"
 
-#: kptmaindocument.cpp:562
+#: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "'%1' ल लिखे मं अक्छम. पार्टीसन पूरा भरे हो ?"
 
-#: kptmaindocument.cpp:589
+#: kptmaindocument.cpp:592
 #, kde-format
 msgid "Saving..."
 msgstr "सहेजत हे..."
 
-#: kptmaindocument.cpp:683
+#: kptmaindocument.cpp:686
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato, मिलिस %1"
 
-#: kptmaindocument.cpp:694
+#: kptmaindocument.cpp:697
 #, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1504,12 +1504,12 @@ msgid ""
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
 
-#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
+#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1179
+#: kptmaindocument.cpp:1182
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1517,52 +1517,51 @@ msgid ""
 "to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1189
+#: kptmaindocument.cpp:1192
 #, fuzzy, kde-kuit-format
 #| msgid "Tasks by resources"
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "संसाधन मन से काम"
 
-#: kptmaindocument.cpp:1359
+#: kptmaindocument.cpp:1362
 #, fuzzy
 #| msgid "Insert"
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "प्रविस्ट"
 
-#: kptmaindocument.cpp:1439
+#: kptmaindocument.cpp:1444
 #, kde-format
 msgid "Group: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:1446
+#: kptmaindocument.cpp:1451
 #, fuzzy, kde-format
 #| msgid "Resources"
 msgid "Resource: %1"
 msgstr "संसाधन "
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1456
 #, kde-format
 msgid "Calendar: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:1453
+#: kptmaindocument.cpp:1458
 #, fuzzy
 #| msgid "Tasks by resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "संसाधन मन से काम"
 
-#. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1468
+#: kptmaindocument.cpp:1473
 #, fuzzy, kde-format
 #| msgid "Project"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "परियोजना"
 
-#: kptmaindocument.cpp:1658
+#: kptmaindocument.cpp:1651
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
@@ -1670,418 +1669,432 @@ msgid ""
 "information is removed.<nl/><nl/>Do you want to continue?"
 msgstr ""
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, fuzzy, kde-format
 #| msgid "Cost and schedule monitoring"
 msgid "Edit task scheduling constraints"
 msgstr "लागत अउ समय सारिनी मानिटरिंग"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, fuzzy, kde-format
 #| msgid "Constraints"
 msgid "Task Constraints"
 msgstr "प्रतिबन्ध"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, fuzzy, kde-format
 #| msgid "Edit task dependencies"
 msgid "Edit task cost"
 msgstr "काम डिपेंडेंसीज संपादित करव"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, fuzzy, kde-format
 #| msgid "Task Editor"
 msgid "Task Cost"
 msgstr "काम संपादक "
 
-#: kptview.cpp:550
+#: kptview.cpp:551
 #, fuzzy, kde-format
 #| msgid "Generate WBS Code"
 msgid "Generate reports"
 msgstr "डबल्यूबीएस कोड तैयार करव"
 
-#: kptview.cpp:556 kptview.cpp:2450
+#: kptview.cpp:557 kptview.cpp:2457
 #, fuzzy, kde-format
 #| msgid "Task Status"
 msgid "Task Status Report"
 msgstr "काम स्थिति"
 
-#: kptview.cpp:638
+#: kptview.cpp:639
 #, fuzzy, kde-kuit-format
 #| msgid "Edit working- and vacation days for resources"
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "संसाधन मन बर काम अउ छुट्टी संपादित करव"
 
-#: kptview.cpp:640
+#: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "कीमत ब्रेकडाउन स्ट्रक्चर"
 
-#: kptview.cpp:641
+#: kptview.cpp:642
 #, fuzzy, kde-kuit-format
 #| msgid "Edit cost breakdown structure."
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "कीमत ब्रेकडाउन स्ट्रक्चर संपादित करव."
 
-#: kptview.cpp:643
+#: kptview.cpp:644
 #, fuzzy, kde-format
 #| msgid "Edit resource breakdown structure."
 msgid "Resource Breakdown Structure"
 msgstr "संसाधन ब्रेकडाउन स्ट्रक्चर संपादित करव."
 
-#: kptview.cpp:644
+#: kptview.cpp:645
 #, fuzzy, kde-kuit-format
 #| msgid "Edit resource breakdown structure."
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "संसाधन ब्रेकडाउन स्ट्रक्चर संपादित करव."
 
-#: kptview.cpp:646 SharedResourcesDialog.cpp:58
+#: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "संसाधन "
 
-#: kptview.cpp:647
+#: kptview.cpp:648
 #, fuzzy, kde-kuit-format
 #| msgid "Edit Resources..."
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "संसाधन संपादित करव..."
 
-#: kptview.cpp:649
+#: kptview.cpp:650
 #, kde-format
 msgid "Tasks"
 msgstr "काम"
 
-#: kptview.cpp:650
+#: kptview.cpp:651
 #, fuzzy, kde-kuit-format
 #| msgid "Edit work breakdown structure"
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "काम ब्रेकडाउन स्ट्रक्चर संपादित करव"
 
-#: kptview.cpp:652
+#: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "डिपेंडेंसीज (ग्राफिक)"
 
-#: kptview.cpp:653 kptview.cpp:656
+#: kptview.cpp:654 kptview.cpp:657
 #, fuzzy, kde-kuit-format
 #| msgid "Edit task dependencies"
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "काम डिपेंडेंसीज संपादित करव"
 
-#: kptview.cpp:655
+#: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
 msgstr "डिपेंडेंसीज (सूची)"
 
-#: kptview.cpp:659 kptview.cpp:661
+#: kptview.cpp:660 kptview.cpp:662
 #, kde-format
 msgid "Schedules"
 msgstr "समय सारिनी"
 
-#: kptview.cpp:662
+#: kptview.cpp:663
 #, fuzzy, kde-kuit-format
 #| msgid "Calculate and analyze project schedules"
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "परियोजना समय सारिनी के गनना अउ विस्लेसन करव "
 
-#: kptview.cpp:664 kptviewlistdialog.cpp:110
+#: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr "परियोजना परफारमेंस चार्ट"
 
-#: kptview.cpp:665
+#: kptview.cpp:666
 #, fuzzy, kde-kuit-format
 #| msgid "View project status information"
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "परियोजना स्थिति जानकारी देखव"
 
-#: kptview.cpp:667 kptviewlistdialog.cpp:101
+#: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "काम स्थिति"
 
-#: kptview.cpp:668
+#: kptview.cpp:669
 #, fuzzy, kde-kuit-format
 #| msgid "View task progress information"
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "काम प्रगति जानकारी देखव"
 
-#: kptview.cpp:670
+#: kptview.cpp:671
 #, fuzzy, kde-format
 #| msgid "Task Execution"
 msgid "Task Execution"
 msgstr "काम प्रोग्राम"
 
-#: kptview.cpp:671
+#: kptview.cpp:672
 #, fuzzy, kde-kuit-format
 #| msgid "View task execution information"
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "काम चले के जानकारी देखव"
 
-#: kptview.cpp:673 kptviewlistdialog.cpp:103
+#: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, fuzzy, kde-format
 #| msgid "Work Package"
 msgid "Work Package View"
 msgstr "काम पैकेज"
 
-#: kptview.cpp:674
+#: kptview.cpp:675
 #, fuzzy, kde-kuit-format
 #| msgid "View task progress information"
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "काम प्रगति जानकारी देखव"
 
-#: kptview.cpp:676
+#: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
 msgstr "गेंट"
 
-#: kptview.cpp:677
+#: kptview.cpp:678
 #, fuzzy, kde-kuit-format
 #| msgid "View gantt chart"
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "गेंट आरेख देखव"
 
-#: kptview.cpp:679
+#: kptview.cpp:680
 #, fuzzy, kde-format
 #| msgid "Milestone Gantt"
 msgid "Milestone Gantt"
 msgstr "माइलस्टोन गेंट"
 
-#: kptview.cpp:680
+#: kptview.cpp:681
 #, fuzzy, kde-kuit-format
 #| msgid "View milestone gantt chart"
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "माइलस्टोन गेंट चार्ट देखव"
 
-#: kptview.cpp:682 kptviewlistdialog.cpp:106
+#: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "संसाधन आबंटन"
 
-#: kptview.cpp:683
+#: kptview.cpp:684
 #, fuzzy, kde-kuit-format
 #| msgid "View resource assignments"
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "संसाधन आबंटन देखव"
 
-#: kptview.cpp:685 kptviewlistdialog.cpp:107
+#: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, fuzzy, kde-format
 #| msgid "Resource Assignments"
 msgid "Resource Assignments (Gantt)"
 msgstr "संसाधन आबंटन"
 
-#: kptview.cpp:686
+#: kptview.cpp:687
 #, fuzzy, kde-kuit-format
 #| msgid "View resource assignments"
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "संसाधन आबंटन देखव"
 
-#: kptview.cpp:688 kptviewlistdialog.cpp:108
+#: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, fuzzy, kde-format
 #| msgid "Resource Editor"
 msgid "Resource Coverage"
 msgstr "संसाधन संपादक"
 
-#: kptview.cpp:689
+#: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr ""
 
-#: kptview.cpp:691 kptviewlistdialog.cpp:109
+#: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "लागत ब्रेकडाउन"
 
-#: kptview.cpp:692
+#: kptview.cpp:693
 #, fuzzy, kde-kuit-format
 #| msgid "View planned and actual cost"
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "प्लान करे गे वास्तविक लागत देखव"
 
-#: kptview.cpp:694 kptviewlistdialog.cpp:111
+#: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr "परफारमेंस चार्ट"
 
-#: kptview.cpp:695
+#: kptview.cpp:696
 #, fuzzy, kde-kuit-format
 #| msgid "View tasks performance status information"
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "काम परफारमेस स्थित जानकारी देखव"
 
-#: kptview.cpp:697
+#: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
 msgstr ""
 
-#: kptview.cpp:698
+#: kptview.cpp:699
 #, fuzzy, kde-kuit-format
 #| msgid "Generate WBS Code"
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "डबल्यूबीएस कोड तैयार करव"
 
-#: kptview.cpp:700 kptview.cpp:2447 kptviewlistdialog.cpp:114
+#: kptview.cpp:701 kptview.cpp:2454 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, fuzzy, kde-format, kde-kuit-format
 #| msgid "Resources"
 msgid "Report"
 msgstr "संसाधन "
 
-#: kptview.cpp:701
+#: kptview.cpp:702
 #, fuzzy, kde-kuit-format
 #| msgid "View Selector"
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "दृस्य चुनइया"
 
-#: kptview.cpp:712
+#: kptview.cpp:713
 #, kde-format
 msgid "Editors"
 msgstr "संपादक"
 
-#: kptview.cpp:714
+#: kptview.cpp:715
 #, kde-format
 msgid "Views"
 msgstr "दृस्य"
 
-#: kptview.cpp:716
+#: kptview.cpp:717
 #, fuzzy, kde-format
 #| msgid "Task Execution"
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "काम प्रोग्राम"
 
-#: kptview.cpp:718
+#: kptview.cpp:719
 #, fuzzy, kde-format
 #| msgid "Resources"
 msgid "Reports"
 msgstr "संसाधन "
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, fuzzy, kde-format
 #| msgid "Overtime"
 msgid "Overwrite"
 msgstr "ओवरटाइम"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, fuzzy, kde-format
 #| msgid "Edit Main Project..."
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "मुख्य परियोजना संपादित करव..."
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
-#: kptview.cpp:2026
+#: kptview.cpp:1820
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgctxt "ªtitle:window"
+msgid "Shared Resources"
+msgstr "संसाधन मन से काम"
+
+#: kptview.cpp:1820
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Use shared resources has been activated.<nl/>Shall resources be updated?"
+msgstr ""
+
+#: kptview.cpp:2033
 #, fuzzy, kde-kuit-format
 #| msgid "Failed to save to temporary file: %1"
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
 
-#: kptview.cpp:2141
+#: kptview.cpp:2148
 #, fuzzy
 #| msgid "Modify Name"
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "नाम सुधारव"
 
-#: kptview.cpp:2143
+#: kptview.cpp:2150
 #, fuzzy
 #| msgid "Modify Name"
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "नाम सुधारव"
 
-#: kptview.cpp:2144
+#: kptview.cpp:2151
 #, fuzzy
 #| msgid "Modify Name"
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "नाम सुधारव"
 
-#: kptview.cpp:2145
+#: kptview.cpp:2152
 #, fuzzy
 #| msgid "Modify Name"
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "नाम सुधारव"
 
-#: kptview.cpp:2146
+#: kptview.cpp:2153
 #, fuzzy
 #| msgid "Project name:"
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "परियोजना नाम:"
 
-#: kptview.cpp:2238
+#: kptview.cpp:2245
 #, fuzzy, kde-kuit-format
 #| msgid "Not scheduled"
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "सारिनीबद्ध नइ"
 
-#: kptview.cpp:2292
+#: kptview.cpp:2299
 #, fuzzy, kde-format
 #| msgid "Work Package: %1"
 msgid "Work Package for project: %1"
 msgstr "काम पैकेज: %1"
 
-#: kptview.cpp:2448
+#: kptview.cpp:2455
 #, fuzzy, kde-format
 #| msgid "Page:"
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "पेजः"
 
-#: kptview.cpp:2449
+#: kptview.cpp:2456
 #, fuzzy, kde-format
 #| msgid "Project"
 msgid "Project:"
 msgstr "परियोजना"
 
-#: kptview.cpp:2451
+#: kptview.cpp:2458
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr ""
 
-#: kptview.cpp:2452
+#: kptview.cpp:2459
 #, fuzzy, kde-format
 #| msgid "Page:"
 msgid "Page"
 msgstr "पेजः"
 
-#: kptview.cpp:2453
+#: kptview.cpp:2460
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "Task name"
 msgid "Name"
 msgstr "नाम"
 
-#: kptview.cpp:2454
+#: kptview.cpp:2461
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
@@ -2535,12 +2548,6 @@ msgstr ""
 #~| msgid "Estimate:"
 #~ msgid "Expected estimate"
 #~ msgstr "एस्टीमेट:"
-
-#, fuzzy
-#~| msgid "Tasks by resources"
-#~ msgctxt "@title:window"
-#~ msgid "Shared Resources"
-#~ msgstr "संसाधन मन से काम"
 
 #, fuzzy
 #~| msgid "Tasks by resources"

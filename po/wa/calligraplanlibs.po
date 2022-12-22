@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2022-12-22 00:46+0000\n"
 "PO-Revision-Date: 2009-08-20 10:18+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -279,7 +279,7 @@ msgid "None"
 msgstr "Nouk"
 
 #: kernel/kptnode.cpp:143 models/kptpertcpmmodel.cpp:421
-#: models/kptresourceappointmentsmodel.cpp:375
+#: models/kptresourceappointmentsmodel.cpp:379
 #: models/reportgenerator/ReportGenerator.cpp:30 ui/reports/reportdata.cpp:941
 #, kde-format
 msgid "Project"
@@ -2048,9 +2048,9 @@ msgstr[1] "Candjî loyaedje"
 #: models/GroupAllocationItemModel.cpp:171 models/kptaccountsmodel.cpp:112
 #: models/kptaccountsmodel.cpp:1054 models/kptdocumentmodel.cpp:187
 #: models/kptresourceallocationmodel.cpp:526
-#: models/kptresourceappointmentsmodel.cpp:753
-#: models/kptresourceappointmentsmodel.cpp:768
-#: models/kptresourceappointmentsmodel.cpp:1167 models/kptschedulemodel.cpp:978
+#: models/kptresourceappointmentsmodel.cpp:757
+#: models/kptresourceappointmentsmodel.cpp:772
+#: models/kptresourceappointmentsmodel.cpp:1171 models/kptschedulemodel.cpp:978
 #: models/kptschedulemodel.cpp:1303
 #: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
@@ -2061,7 +2061,7 @@ msgstr "No"
 
 #: models/GroupAllocationItemModel.cpp:172 models/kptdocumentmodel.cpp:188
 #: models/kptrelationmodel.cpp:125 models/kptresourceallocationmodel.cpp:527
-#: models/kptresourceappointmentsmodel.cpp:1168
+#: models/kptresourceappointmentsmodel.cpp:1172
 #: models/ResourceGroupModel.cpp:192 models/ResourceModel.cpp:420
 #, kde-format
 msgid "Type"
@@ -2244,7 +2244,7 @@ msgstr[1] "Disfacer les contes di tchoezis"
 msgid "Actual total cost: %1, planned total cost: %2"
 msgstr ""
 
-#: models/kptaccountsmodel.cpp:1056 models/kptresourceappointmentsmodel.cpp:754
+#: models/kptaccountsmodel.cpp:1056 models/kptresourceappointmentsmodel.cpp:758
 #, kde-format
 msgid "Total"
 msgstr "Totå"
@@ -4909,60 +4909,60 @@ msgctxt "@info:tooltip"
 msgid "Team resources cannot have required resources"
 msgstr "Li rissource aroyeye n' a nén savou rescontrer l' efoirt aviré"
 
-#: models/kptresourceappointmentsmodel.cpp:589
+#: models/kptresourceappointmentsmodel.cpp:593
 #, kde-format
 msgid "The total booking on %1, along with the maximum hours for the resource"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:623
+#: models/kptresourceappointmentsmodel.cpp:627
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:674
+#: models/kptresourceappointmentsmodel.cpp:678
 #, kde-format
 msgid "Booking by this task on %1"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:769
+#: models/kptresourceappointmentsmodel.cpp:773
 #, kde-format
 msgid "The total hours booked"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:773
+#: models/kptresourceappointmentsmodel.cpp:777
 #, kde-format
 msgid "Bookings on %1"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:920
+#: models/kptresourceappointmentsmodel.cpp:924
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:954
+#: models/kptresourceappointmentsmodel.cpp:958
 #, fuzzy, kde-format
 msgid "Interval"
 msgstr "Tins ewal inte les deus"
 
-#: models/kptresourceappointmentsmodel.cpp:965
+#: models/kptresourceappointmentsmodel.cpp:969
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7"
 msgstr ""
 
-#: models/kptresourceappointmentsmodel.cpp:1169
+#: models/kptresourceappointmentsmodel.cpp:1173
 #, fuzzy, kde-format
 msgid "Start Time"
 msgstr "Ataké"
 
-#: models/kptresourceappointmentsmodel.cpp:1170
+#: models/kptresourceappointmentsmodel.cpp:1174
 #, fuzzy, kde-format
 msgid "End Time"
 msgstr "Durêye"
 
-#: models/kptresourceappointmentsmodel.cpp:1172
+#: models/kptresourceappointmentsmodel.cpp:1176
 #, fuzzy, kde-kuit-format
 #| msgid "Load"
 msgctxt "@title:column noun"
@@ -7529,7 +7529,7 @@ msgstr "Candjî estat do documint"
 msgid "Project Settings"
 msgstr "Apontiaedjes do pordjet"
 
-#: ui/kptmainprojectdialog.cpp:59 ui/kptmainprojectpanel.cpp:196
+#: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
 #, fuzzy
 #| msgid "Modify main project"
 msgctxt "(qtundo-format)"
@@ -7569,7 +7569,7 @@ msgctxt "@info:tooltip"
 msgid "File where shared resources are defined"
 msgstr "Candjî rissource"
 
-#: ui/kptmainprojectpanel.cpp:365
+#: ui/kptmainprojectpanel.cpp:370
 #, fuzzy, kde-format
 msgid "Task Modules Path"
 msgstr "Avançmint del bouye"

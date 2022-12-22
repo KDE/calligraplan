@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-22 00:46+0000\n"
 "PO-Revision-Date: 2022-10-14 13:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -566,7 +566,7 @@ msgstr "Crea un fitxer de còpia de seguretat"
 msgid "Project Defaults"
 msgstr "Valors predeterminats del projecte"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:637
+#: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
 msgstr "Feina i vacances"
@@ -755,8 +755,8 @@ msgid "Week"
 msgstr "Setmana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1688
-#: kptmaindocument.cpp:1692
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1681
+#: kptmaindocument.cpp:1685
 #, kde-format
 msgid "Holidays"
 msgstr "Dies festius"
@@ -1251,7 +1251,7 @@ msgstr ""
 "Si l'obriu amb el Plan, podríeu perdre informació."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
-#: kptmaindocument.cpp:372 kptmaindocument.cpp:696
+#: kptmaindocument.cpp:375 kptmaindocument.cpp:699
 #, kde-format
 msgid "Continue"
 msgstr "Continua"
@@ -1278,8 +1278,8 @@ msgstr ""
 "Versió de la sintaxi: %1\n"
 "Si l'obriu amb aquesta versió del Plan, podríeu perdre part de la informació."
 
-#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:372
-#: kptmaindocument.cpp:696
+#: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:375
+#: kptmaindocument.cpp:699
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "El format del fitxer és inconsistent"
@@ -1442,7 +1442,7 @@ msgstr "Insereix com a fill del node actual"
 msgid "Insert after current node"
 msgstr "Insereix després del node actual"
 
-#: kptmaindocument.cpp:319 kptmaindocument.cpp:666
+#: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Document no vàlid. No s'ha especificat cap tipus MIME."
@@ -1450,7 +1450,7 @@ msgstr "Document no vàlid. No s'ha especificat cap tipus MIME."
 # msgid ""
 # "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
 # "got %1"
-#: kptmaindocument.cpp:361
+#: kptmaindocument.cpp:364
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
@@ -1461,7 +1461,7 @@ msgstr ""
 # "This document was created with a newer version of KPlatoWork (syntax "
 # "version: %1)\n"
 # "Opening it in this version of KPlatoWork will lose some information."
-#: kptmaindocument.cpp:370
+#: kptmaindocument.cpp:373
 #, kde-format
 msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
@@ -1471,33 +1471,33 @@ msgstr ""
 "sintaxi: %1)\n"
 "Si l'obriu amb aquesta versió del Plan, es perdrà part de la informació."
 
-#: kptmaindocument.cpp:456
+#: kptmaindocument.cpp:459
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr "Ha fallat en desar al fitxer temporal. No s'ha especificat cap recurs"
 
-#: kptmaindocument.cpp:471
+#: kptmaindocument.cpp:474
 #, kde-format
 msgid "Failed to open work package file"
 msgstr "Ha fallat en obrir el fitxer de paquet de feina"
 
-#: kptmaindocument.cpp:478
+#: kptmaindocument.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "Ha fallat en desar al fitxer temporal:<br/><filename>%1</filename>"
 
-#: kptmaindocument.cpp:554
+#: kptmaindocument.cpp:557
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
 msgstr "No s'ha pogut crear el fitxer de paquet de treball per a desar-hi: %1"
 
-#: kptmaindocument.cpp:562
+#: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "No s'ha pogut escriure «%1». La partició és plena?"
 
-#: kptmaindocument.cpp:589
+#: kptmaindocument.cpp:592
 #, kde-format
 msgid "Saving..."
 msgstr "S'està desant..."
@@ -1505,7 +1505,7 @@ msgstr "S'està desant..."
 # msgid ""
 # "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
 # "got %1"
-#: kptmaindocument.cpp:683
+#: kptmaindocument.cpp:686
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Document no vàlid. S'esperava el tipus MIME %2 i s'ha obtingut %1"
@@ -1514,7 +1514,7 @@ msgstr "Document no vàlid. S'esperava el tipus MIME %2 i s'ha obtingut %1"
 # "This document was created with a newer version of KPlatoWork (syntax "
 # "version: %1)\n"
 # "Opening it in this version of KPlatoWork will lose some information."
-#: kptmaindocument.cpp:694
+#: kptmaindocument.cpp:697
 #, kde-format
 msgid ""
 "This document was created with a newer version of PlanWork (syntax version: "
@@ -1526,12 +1526,12 @@ msgstr ""
 "Si l'obriu amb la versió actual del PlanWork, es perdrà part de la "
 "informació."
 
-#: kptmaindocument.cpp:1107 kptmaindocument.cpp:1328
+#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "Error intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1179
+#: kptmaindocument.cpp:1182
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1541,46 +1541,45 @@ msgstr ""
 "Ha fallat en carregar els recursos compartits en el projecte %1:<nl/>Error "
 "intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1189
+#: kptmaindocument.cpp:1192
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr ""
 "Ha fallat en carregar els recursos compartits dins del projecte %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1359
+#: kptmaindocument.cpp:1362
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Insereix un projecte"
 
-#: kptmaindocument.cpp:1439
+#: kptmaindocument.cpp:1444
 #, kde-format
 msgid "Group: %1"
 msgstr "Grup: %1"
 
-#: kptmaindocument.cpp:1446
+#: kptmaindocument.cpp:1451
 #, kde-format
 msgid "Resource: %1"
 msgstr "Recurs: %1"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1456
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Calendari: %1"
 
-#: kptmaindocument.cpp:1453
+#: kptmaindocument.cpp:1458
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Actualitza els recursos compartits"
 
-#. i18nc("@title:window", "Shared Resources"));
-#: kptmaindocument.cpp:1468
+#: kptmaindocument.cpp:1473
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projecte: %1"
 
-#: kptmaindocument.cpp:1658
+#: kptmaindocument.cpp:1651
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
@@ -1685,370 +1684,384 @@ msgstr ""
 "identitats dels recursos i calendaris o es canvien.<nl/>S'eliminarà tota la "
 "informació de planificació.<nl/><nl/>Voleu continuar?"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
 msgstr "Edita les restriccions de planificació de la tasca"
 
 # msgid "Continue"
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Task Constraints"
 msgstr "Restriccions de la tasca"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
 msgstr "Edita el cost de la tasca"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Task Cost"
 msgstr "Cost de la tasca"
 
-#: kptview.cpp:550
+#: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
 msgstr "Genera informes"
 
-#: kptview.cpp:556 kptview.cpp:2450
+#: kptview.cpp:557 kptview.cpp:2457
 #, kde-format
 msgid "Task Status Report"
 msgstr "Informe de l'estat de la tasca"
 
-#: kptview.cpp:638
+#: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "Edita els dies de feina i de vacances per als recursos"
 
-#: kptview.cpp:640
+#: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "Estructura de descomposició de costos"
 
-#: kptview.cpp:641
+#: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "Edita l'estructura de descomposició de costos."
 
-#: kptview.cpp:643
+#: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
 msgstr "Estructura de descomposició de recursos"
 
-#: kptview.cpp:644
+#: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "Edita l'estructura de descomposició de recursos"
 
-#: kptview.cpp:646 SharedResourcesDialog.cpp:58
+#: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "Recursos"
 
-#: kptview.cpp:647
+#: kptview.cpp:648
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "Edita els recursos"
 
-#: kptview.cpp:649
+#: kptview.cpp:650
 #, kde-format
 msgid "Tasks"
 msgstr "Tasques"
 
-#: kptview.cpp:650
+#: kptview.cpp:651
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "Edita l'estructura de descomposició de treballs"
 
-#: kptview.cpp:652
+#: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "Dependències (Gràfic)"
 
-#: kptview.cpp:653 kptview.cpp:656
+#: kptview.cpp:654 kptview.cpp:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "Edita les dependències de tasca"
 
-#: kptview.cpp:655
+#: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
 msgstr "Dependències (Llista)"
 
-#: kptview.cpp:659 kptview.cpp:661
+#: kptview.cpp:660 kptview.cpp:662
 #, kde-format
 msgid "Schedules"
 msgstr "Planificacions"
 
-#: kptview.cpp:662
+#: kptview.cpp:663
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "Calcula i analitza les planificacions de projecte"
 
-#: kptview.cpp:664 kptviewlistdialog.cpp:110
+#: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr "Diagrama de compliment de projecte"
 
-#: kptview.cpp:665
+#: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "Visualitza la informació de l'estat del projecte"
 
-#: kptview.cpp:667 kptviewlistdialog.cpp:101
+#: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "Estat de la tasca"
 
-#: kptview.cpp:668
+#: kptview.cpp:669
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "Visualitza la informació de progrés de tasca"
 
-#: kptview.cpp:670
+#: kptview.cpp:671
 #, kde-format
 msgid "Task Execution"
 msgstr "Execució de tasca"
 
-#: kptview.cpp:671
+#: kptview.cpp:672
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "Visualitza la informació de l'execució de tasca"
 
 # msgid "KPlato WorkPackage Handler"
-#: kptview.cpp:673 kptviewlistdialog.cpp:103
+#: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr "Vista de paquet de feina"
 
-#: kptview.cpp:674
+#: kptview.cpp:675
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "Visualitza la informació del paquet de feina de la tasca"
 
-#: kptview.cpp:676
+#: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
 msgstr "Gantt"
 
-#: kptview.cpp:677
+#: kptview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "Visualitza el diagrama de Gantt"
 
-#: kptview.cpp:679
+#: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
 msgstr "Fita de Gantt"
 
-#: kptview.cpp:680
+#: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "Visualitza el diagrama de fita de Gantt"
 
-#: kptview.cpp:682 kptviewlistdialog.cpp:106
+#: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "Assignació de recursos"
 
-#: kptview.cpp:683
+#: kptview.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "Visualització d'assignació de recursos en una taula"
 
-#: kptview.cpp:685 kptviewlistdialog.cpp:107
+#: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "Assignació de recursos (Gantt)"
 
-#: kptview.cpp:686
+#: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "Visualització d'assignació de recursos en un diagrama de Gantt"
 
-#: kptview.cpp:688 kptviewlistdialog.cpp:108
+#: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
 msgstr "Cobertura de recursos"
 
-#: kptview.cpp:689
+#: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr "Inspecciona la cobertura de recursos"
 
-#: kptview.cpp:691 kptviewlistdialog.cpp:109
+#: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Descomposició de costos"
 
-#: kptview.cpp:692
+#: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "Visualitza el cost planificat i el real"
 
-#: kptview.cpp:694 kptviewlistdialog.cpp:111
+#: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr "Diagrama de compliment de tasca"
 
-#: kptview.cpp:695
+#: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "Visualitza la informació de l'estat de compliment de la tasca"
 
-#: kptview.cpp:697
+#: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
 msgstr "Generador d'informes"
 
-#: kptview.cpp:698
+#: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "Genera informes"
 
-#: kptview.cpp:700 kptview.cpp:2447 kptviewlistdialog.cpp:114
+#: kptview.cpp:701 kptview.cpp:2454 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "Informe"
 
-#: kptview.cpp:701
+#: kptview.cpp:702
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "Visualitza l'informe"
 
 # msgid "&Edit"
-#: kptview.cpp:712
+#: kptview.cpp:713
 #, kde-format
 msgid "Editors"
 msgstr "Editors"
 
 # msgid "&View"
-#: kptview.cpp:714
+#: kptview.cpp:715
 #, kde-format
 msgid "Views"
 msgstr "Visualitzacions"
 
-#: kptview.cpp:716
+#: kptview.cpp:717
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "Execució"
 
-#: kptview.cpp:718
+#: kptview.cpp:719
 #, kde-format
 msgid "Reports"
 msgstr "Informes"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, kde-format
 msgid "Overwrite"
 msgstr "Sobreescriu"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "Plantilla d'informe"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1480
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "El fitxer «%1» ja existeix. Voleu sobreescriure'l?"
 
-#: kptview.cpp:2026
+#: kptview.cpp:1820
+#, fuzzy, kde-format
+#| msgid "Update Shared Resources"
+msgctxt "ªtitle:window"
+msgid "Shared Resources"
+msgstr "Actualitza els recursos compartits"
+
+#: kptview.cpp:1820
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"Use shared resources has been activated.<nl/>Shall resources be updated?"
+msgstr ""
+
+#: kptview.cpp:2033
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "No s'ha pogut obrir el fitxer:<br/><filename>%1</filename>"
 
-#: kptview.cpp:2141
+#: kptview.cpp:2148
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "Modifica el nom"
 
-#: kptview.cpp:2143
+#: kptview.cpp:2150
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "Modifica el nom de la tasca"
 
-#: kptview.cpp:2144
+#: kptview.cpp:2151
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "Modifica el nom de la fita"
 
-#: kptview.cpp:2145
+#: kptview.cpp:2152
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "Modifica el nom del resum de la tasca"
 
-#: kptview.cpp:2146
+#: kptview.cpp:2153
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "Modifica el nom del projecte"
 
-#: kptview.cpp:2238
+#: kptview.cpp:2245
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "No planificat"
 
 # msgid "KPlato WorkPackage Handler"
-#: kptview.cpp:2292
+#: kptview.cpp:2299
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr "Paquet de feina per al projecte: %1"
 
-#: kptview.cpp:2448
+#: kptview.cpp:2455
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "Gestor:"
 
-#: kptview.cpp:2449
+#: kptview.cpp:2456
 #, kde-format
 msgid "Project:"
 msgstr "Projecte:"
 
-#: kptview.cpp:2451
+#: kptview.cpp:2458
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "de"
 
-#: kptview.cpp:2452
+#: kptview.cpp:2459
 #, kde-format
 msgid "Page"
 msgstr "Pàgina"
 
-#: kptview.cpp:2453
+#: kptview.cpp:2460
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "Nom"
 
-#: kptview.cpp:2454
+#: kptview.cpp:2461
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
