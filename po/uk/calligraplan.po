@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-14 17:40+0300\n"
+"PO-Revision-Date: 2022-12-22 05:29+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1931,9 +1931,7 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "Файл «%1» вже існує. Перезаписати його?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared Resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Спільні ресурси"
@@ -1944,6 +1942,7 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Було активовано використання спільних ресурсів.<nl/>Чи слід оновити ресурси?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format
