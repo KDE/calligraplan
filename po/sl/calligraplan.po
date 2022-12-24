@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-15 09:19+0200\n"
+"PO-Revision-Date: 2022-12-23 07:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Vernekar <andrej.vernekar@gmail.com>\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -1928,19 +1928,17 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "Datoteka '%1' že obstaja, ali jo želite prepisati?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Skupni deljeni viri"
+msgstr "Skupni viri"
 
 #: kptview.cpp:1820
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
-msgstr ""
+msgstr "Uporaba skupnih virov je bila aktivirana.<nl/>Naj bodo viri osveženi?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format

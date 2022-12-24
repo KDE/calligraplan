@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-03 06:39+0100\n"
+"PO-Revision-Date: 2022-12-23 07:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -704,7 +704,7 @@ msgstr "ამოცანის გარეშე"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr ""
+msgstr "WBS: %1<nl/>ამოცანა: %2<nl/>პროექტი: %3"
 
 #: ResourceUsageView.cpp:51
 #, kde-format

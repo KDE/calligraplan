@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-12-18 06:29+0100\n"
+"PO-Revision-Date: 2022-12-23 07:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -483,13 +483,13 @@ msgstr ""
 #: calligraplansettings.kcfg:355
 #, kde-format
 msgid "The smallest duration unit allowed"
-msgstr ""
+msgstr "ხანგრძლივობის მინიმალური დაშვებული პერიოდის ერთეული"
 
 #. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:359
 #, kde-format
 msgid "The largest duration unit allowed"
-msgstr ""
+msgstr "ხანგრძლივობის მაქსიმალური დაშვებული პერიოდის ერთეული"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
@@ -1241,7 +1241,7 @@ msgstr "Გეგმა"
 #: kptaboutdata.h:26
 #, kde-format
 msgid "Project Planning and Management Tool"
-msgstr ""
+msgstr "პროექტის დაგეგმვისა და მართვის პროგრამა"
 
 #: kptaboutdata.h:28
 #, kde-format
@@ -1427,7 +1427,7 @@ msgstr ""
 #: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr ""
+msgstr "შიდა შეცდომა. ფაილის ჩასმა შეუძლებელია."
 
 #: kptmaindocument.cpp:1182
 #, kde-kuit-format
@@ -1498,7 +1498,7 @@ msgstr ""
 #: kptview.cpp:189
 #, kde-format
 msgid "Create New Project..."
-msgstr ""
+msgstr "ახალი პროექტის შექმნა..."
 
 #: kptview.cpp:201
 #, kde-format
@@ -1523,7 +1523,7 @@ msgstr ""
 #: kptview.cpp:220
 #, kde-format
 msgid "Define Currency..."
-msgstr "ვალუტის აღწერა"
+msgstr "ვალუტის აღწერა..."
 
 #: kptview.cpp:224
 #, kde-format
@@ -1533,7 +1533,7 @@ msgstr "აღწერის ჩასწორება..."
 #: kptview.cpp:229
 #, kde-format
 msgid "Insert Project File..."
-msgstr ""
+msgstr "პროექტის ფაილის ჩასმა..."
 
 #: kptview.cpp:233
 #, kde-format
@@ -1638,7 +1638,7 @@ msgstr "რესურსები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr ""
+msgstr "რესურსების ჩასწორება"
 
 #: kptview.cpp:650
 #, kde-format
@@ -1654,7 +1654,7 @@ msgstr ""
 #: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
-msgstr ""
+msgstr "დამოკიდებულებები (გრაფიკული)"
 
 #: kptview.cpp:654 kptview.cpp:657
 #, kde-kuit-format
@@ -1665,7 +1665,7 @@ msgstr ""
 #: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
-msgstr ""
+msgstr "დამოკიდებულებები (სია)"
 
 #: kptview.cpp:660 kptview.cpp:662
 #, kde-format
@@ -1703,7 +1703,7 @@ msgstr ""
 #: kptview.cpp:671
 #, kde-format
 msgid "Task Execution"
-msgstr ""
+msgstr "ამოცანის შესრულება"
 
 #: kptview.cpp:672
 #, kde-kuit-format
@@ -1714,7 +1714,7 @@ msgstr ""
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
-msgstr ""
+msgstr "სამუშაო პაკეტის ხედი"
 
 #: kptview.cpp:675
 #, kde-kuit-format
@@ -1747,7 +1747,7 @@ msgstr ""
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
-msgstr ""
+msgstr "რესურსის მინიჭებები"
 
 #: kptview.cpp:684
 #, kde-kuit-format
@@ -1860,11 +1860,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgid "Update Shared Resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "გაზიარებული რესურსების განახლება"
+msgstr "გაზიარებული რესურსები"
 
 #: kptview.cpp:1820
 #, kde-kuit-format
@@ -1882,27 +1881,27 @@ msgstr ""
 #: kptview.cpp:2148
 msgctxt "(qtundo-format)"
 msgid "Modify name"
-msgstr ""
+msgstr "სახელის შეცვლა"
 
 #: kptview.cpp:2150
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
-msgstr ""
+msgstr "ამოცანის სახელის შეცვლა"
 
 #: kptview.cpp:2151
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
-msgstr ""
+msgstr "ნიშანსვეტის სახელის შეცვლა"
 
 #: kptview.cpp:2152
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის სახელის შეცვლა"
 
 #: kptview.cpp:2153
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
-msgstr ""
+msgstr "პროექტის სახელის შეცვლა"
 
 #: kptview.cpp:2245
 #, kde-kuit-format
@@ -1947,7 +1946,7 @@ msgstr "სახელი"
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
-msgstr ""
+msgstr "დასრულება (%)"
 
 #: kptviewlist.cpp:335
 #, kde-kuit-format
@@ -2020,7 +2019,7 @@ msgstr "ჩასმა..."
 #: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
 #, kde-format
 msgid "The category of the view"
-msgstr ""
+msgstr "ხედის კატეგორია"
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
@@ -2045,7 +2044,7 @@ msgstr "შემდეგ"
 #: kptviewlistaddview.ui:72
 #, kde-format
 msgid "The type of view"
-msgstr ""
+msgstr "ხედის ტიპი"
 
 #. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:75
@@ -2104,7 +2103,7 @@ msgstr "დავალებს რედაქტორი"
 #: kptviewlistdialog.cpp:96
 #, kde-format
 msgid "Work & Vacation Editor"
-msgstr ""
+msgstr "სამუშაოსა და დასვენების რედაქტორი"
 
 #: kptviewlistdialog.cpp:97
 #, kde-format
@@ -2114,17 +2113,17 @@ msgstr "ანგარიშების რედაქტორი"
 #: kptviewlistdialog.cpp:98
 #, kde-format
 msgid "Dependency Editor (Graphic)"
-msgstr ""
+msgstr "დამოკიდებულების რედაქტორი (გრაფიკა)"
 
 #: kptviewlistdialog.cpp:99
 #, kde-format
 msgid "Dependency Editor (List)"
-msgstr ""
+msgstr "დამოკიდებულების რედაქტორი (სია)"
 
 #: kptviewlistdialog.cpp:100
 #, kde-format
 msgid "Schedule Handler"
-msgstr ""
+msgstr "განრიგის დამმუშავებელი"
 
 #: kptviewlistdialog.cpp:102
 #, kde-format
@@ -2165,7 +2164,7 @@ msgstr "ზემოთ"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Configure View"
-msgstr ""
+msgstr "ხედის მორგება"
 
 #: kptviewlistdialog.cpp:362
 #, kde-kuit-format
@@ -2265,7 +2264,7 @@ msgstr ""
 #: kptviewlistdocker.ui:91
 #, kde-format
 msgid "Automatically refresh data"
-msgstr ""
+msgstr "მონაცემების ავტომატური განახლება"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlisteditcategory.ui:20
@@ -2338,7 +2337,7 @@ msgstr ""
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "მონიშვნა როგორც: წაშლა"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
@@ -2352,7 +2351,7 @@ msgstr ""
 #: SharedResourcesDialog.ui:53
 #, kde-format
 msgid "Mark as: Convert"
-msgstr ""
+msgstr "მონიშვნა როგორც: გადაყვანა"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
