@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-14 13:53+0200\n"
+"PO-Revision-Date: 2022-12-22 14:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1978,11 +1978,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "El fitxer «%1» ja existix. Voleu sobreescriure'l?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgid "Update Shared Resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Actualitza els recursos compartits"
+msgstr "Recursos compartits"
 
 #: kptview.cpp:1820
 #, kde-kuit-format
@@ -1990,6 +1989,7 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"S'ha activat l'ús dels recursos compartits.<nl/>Cal actualitzar els recursos?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format

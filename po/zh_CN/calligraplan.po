@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-12-13 12:20\n"
+"PO-Revision-Date: 2022-12-24 11:42\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1874,11 +1874,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgid "Use shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "使用共享资源"
+msgstr ""
 
 #: kptview.cpp:1820
 #, kde-kuit-format

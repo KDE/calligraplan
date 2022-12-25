@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-12-18 06:54+0100\n"
+"PO-Revision-Date: 2022-12-24 06:13+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -196,7 +196,7 @@ msgstr "ფაილის ფორმატები არ ემთხვე
 #: part.cpp:636
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
+msgstr "არასწორი დოკუმენტი. მოველოდი mimetype %2, მივიღე %1"
 
 #: part.cpp:738
 #, kde-format
@@ -257,12 +257,12 @@ msgstr "დასრულებულად მონიშვნა"
 #: taskworkpackagemodel.cpp:489
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოების ჩასწორება"
 
 #: taskworkpackagemodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "მიმდინარე სამუშაოების ჩასწორება"
 
 #: taskworkpackagemodel.cpp:600
 #, kde-kuit-format
@@ -316,25 +316,25 @@ msgstr "დასრულება"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
-msgstr ""
+msgstr "მიმდინარე სამუშაოები"
 
 #: taskworkpackagemodel.cpp:613
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოები"
 
 #: taskworkpackagemodel.cpp:614
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
-msgstr ""
+msgstr "დაგეგმილი სამუშაოები"
 
 #: taskworkpackagemodel.cpp:615
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
-msgstr ""
+msgstr "ფაქტიური დასაწყისი"
 
 #: taskworkpackagemodel.cpp:616
 #, kde-kuit-format
@@ -346,7 +346,7 @@ msgstr "დაიწყო"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
-msgstr ""
+msgstr "ფაქტიური დასასრული"
 
 #: taskworkpackagemodel.cpp:618
 #, kde-kuit-format
@@ -390,6 +390,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
+"ამოცანა: %1<nl/>ფაქტიური დასასრული: %2<nl/>დაგეგმილი დასასრული: %3<nl/"
+">სტატუსი: %4<nl/>პროექტი: %5"
 
 #: taskworkpackageview.cpp:645
 #, kde-kuit-format
@@ -398,12 +400,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"ამოცანა: %1<nl/>დასრულება: %2 %<nl/>ფაქტიური დასაწყისი: %3<nl/>დაგეგმილი: %4 "
+"- %5<nl/>სტატუსი: %6<nl/>პროექტი: %7"
 
 #: taskworkpackageview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "ამოცანა: %1<nl/>დაგეგმილი: %2 - %3<nl/>სტატუსი: %4<nl/>პროექტი: %5"
 
 #: view.cpp:84
 #, kde-format
@@ -429,7 +433,7 @@ msgstr "აირჩიეთ ამოცანების სია"
 #: view.cpp:97
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "განტის დიაგრამა"
 
 #: view.cpp:98
 #, kde-format
@@ -496,7 +500,7 @@ msgstr "ფაილის გახსნის შეცდომა. გა�
 #: view.cpp:366
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr "დროებით ფაილის გახსნის შეცდომა. გაგზავნა გაუქმებულია"
+msgstr "დროებით ფაილის გახსნის შეცდომა. გაგზავნა გაუქმებულია."
 
 #: view.cpp:375
 #, kde-format

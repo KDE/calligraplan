@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-16 12:11+0100\n"
+"PO-Revision-Date: 2022-12-23 23:03+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -1950,11 +1950,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "O ficheiro '%1' já existe; deseja substituí-lo?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgid "Update Shared Resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Actualizar os Recursos Partilhados"
+msgstr "Recursos Partilhados"
 
 #: kptview.cpp:1820
 #, kde-kuit-format
@@ -1962,6 +1961,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"O uso de recursos partilhados foi activado.<nl/>Deverão então os recursos "
+"ser actualizados?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format

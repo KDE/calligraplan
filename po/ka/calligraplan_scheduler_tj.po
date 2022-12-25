@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-09-22 07:56+0200\n"
+"PO-Revision-Date: 2022-12-24 06:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: PlanTJPlugin.cpp:43
 #, kde-kuit-format
@@ -40,25 +40,25 @@ msgstr "ერთეული"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Re-calculate project from start time: %1"
-msgstr ""
+msgstr "პროექტის გადათვლა დაწყების დროიდან: %1"
 
 #: PlanTJScheduler.cpp:164
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from start time: %1"
-msgstr ""
+msgstr "პროექტის გადათვლა დაწყების დროიდან: %1"
 
 #: PlanTJScheduler.cpp:166
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project target finish time: %1"
-msgstr ""
+msgstr "პროექტის დაგეგმილი დასრულების დრო: %1"
 
 #: PlanTJScheduler.cpp:169
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from end time: %1"
-msgstr ""
+msgstr "პროექტის გადათვლა დასრულების დროიდან: %1"
 
 #: PlanTJScheduler.cpp:185
 #, kde-kuit-format
@@ -70,7 +70,7 @@ msgstr "განრიგი"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to schedule project"
-msgstr ""
+msgstr "პროექტის დაგეგმვის შეცდომა"
 
 #: PlanTJScheduler.cpp:203
 #, kde-kuit-format
@@ -88,7 +88,7 @@ msgstr "დასრულება"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to find scenario to schedule"
-msgstr ""
+msgstr "დასაგეგმი სცენარი ვერ ვიპოვე"
 
 #: PlanTJScheduler.cpp:428
 #, kde-kuit-format
@@ -100,25 +100,25 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid start time"
-msgstr ""
+msgstr "დაწყების არასწორი დრო"
 
 #: PlanTJScheduler.cpp:480
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid end time"
-msgstr ""
+msgstr "დასრულების არასწორი დრო"
 
 #: PlanTJScheduler.cpp:509
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled milestone: %1"
-msgstr ""
+msgstr "დაგეგმილი ეტაპი: %1"
 
 #: PlanTJScheduler.cpp:511
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled task: %1 - %2"
-msgstr ""
+msgstr "დაგეგმილი ამოცანა: %1 - %2"
 
 #: PlanTJScheduler.cpp:614
 #, kde-format
@@ -154,19 +154,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid start constraint"
-msgstr ""
+msgstr "%1: დაწყების არასწორი შეზღუდვა"
 
 #: PlanTJScheduler.cpp:886
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid end constraint"
-msgstr ""
+msgstr "%1: დასრულების არასწორი შეზღუდვა"
 
 #: PlanTJScheduler.cpp:909
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Unhandled time constraint type"
-msgstr ""
+msgstr "დროის შეზღუდვის ტიპი დაუმუშავებელია"
 
 #: PlanTJScheduler.cpp:920 PlanTJScheduler.cpp:938
 #, kde-kuit-format
@@ -177,67 +177,67 @@ msgstr ""
 #: PlanTJScheduler.cpp:986
 #, kde-format
 msgid "Recalculate, earliest start: %1"
-msgstr ""
+msgstr "გადათვლა. უახლოესი დასაწყისი: %1"
 
 #: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
-msgstr ""
+msgstr "ამოცანა დაიწყო. დარჩენილი დრო: %1დ"
 
 #: PlanTJScheduler.cpp:1018
 #, kde-format
 msgid "No working hours defined for resource: %1"
-msgstr ""
+msgstr "რესურსისთვის სამუშაო საათები აღწერილი არაა: %1"
 
 #: PlanTJScheduler.cpp:1080
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "დაგეგმვის დაწყება: %1"
 
 #: PlanTJScheduler.cpp:1082
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "გადათვლა თარიღიდან: %1"
 
 #: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
 #, kde-format
 msgid "Scheduling canceled"
-msgstr ""
+msgstr "დაგეგმვა გაუქმდა"
 
 #: PlanTJScheduler.cpp:1094
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "დაგეგმვა გაუქმდა %1-ზე, დარჩენილი დროა: %2 წამი"
 
 #: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
-msgstr ""
+msgstr "დაგეგმვის ინტერვალი: %1 - %2, გრანულარობა: %3 წთ"
 
 #: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
 #, kde-format
 msgid "Invalid project, start > end"
-msgstr ""
+msgstr "არასწორი პროექტი. დასაწყისი > დასასრული"
 
 #: PlanTJScheduler.cpp:1125 PlanTJScheduler.cpp:1170
 #, kde-format
 msgid "Project check failed"
-msgstr ""
+msgstr "პროექტის შემოწმების შეცდომა"
 
 #: PlanTJScheduler.cpp:1133
 #, kde-format
 msgid "Scheduled: %1 - %2"
-msgstr ""
+msgstr "დაგეგმილი: %1 - %2"
 
 #: PlanTJScheduler.cpp:1135
 #, kde-format
 msgid "Scheduling failed"
-msgstr ""
+msgstr "დაგეგმვის შეცდომა"
 
 #: PlanTJScheduler.cpp:1139 PlanTJScheduler.cpp:1180
 #, kde-format
 msgid "Project scheduling failed"
-msgstr ""
+msgstr "პროეტქის დაგეგმვის შეცდომა"
 
 #: PlanTJScheduler.cpp:1241
 #, kde-format

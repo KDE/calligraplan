@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-12-23 07:11+0100\n"
+"PO-Revision-Date: 2022-12-24 05:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -279,7 +279,7 @@ msgstr "დაგეგმვის შეზღუდვის ტიპი"
 #: calligraplansettings.kcfg:192
 #, kde-format
 msgid "Defines how start constraint time is used"
-msgstr ""
+msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დაწყება"
 
 #. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
 #: calligraplansettings.kcfg:201
@@ -291,7 +291,7 @@ msgstr "დაწყების თარიღისა და დროის
 #: calligraplansettings.kcfg:204
 #, kde-format
 msgid "Defines how end constraint time is used"
-msgstr ""
+msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დასრულება"
 
 #. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
 #: calligraplansettings.kcfg:213
@@ -363,85 +363,85 @@ msgstr "ბრტყელი"
 #: calligraplansettings.kcfg:275
 #, kde-format
 msgid "Enable summary task level colors"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის დონის ფერების ჩართვა"
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
 #: calligraplansettings.kcfg:279
 #, kde-format
 msgid "Summary task default color"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის ნაგულისხმები ფერი"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
 #: calligraplansettings.kcfg:283
 #, kde-format
 msgid "Summary task color, level 1"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 1"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
 #: calligraplansettings.kcfg:287
 #, kde-format
 msgid "Summary task color, level 2"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 2"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
 #: calligraplansettings.kcfg:291
 #, kde-format
 msgid "Summary task color, level 3"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 3"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
 #: calligraplansettings.kcfg:295
 #, kde-format
 msgid "Summary task color, level 4"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 4"
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:299
 #, kde-format
 msgid "Task color in normal state"
-msgstr ""
+msgstr "ამოცანის ფერი ნორმალურ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:303
 #, kde-format
 msgid "Task color in critical state"
-msgstr ""
+msgstr "ამოცანის ფერი კრიტიკულ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:307
 #, kde-format
 msgid "Task color in finished state"
-msgstr ""
+msgstr "ამოცანის ფერი დასრულებულ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:311
 #, kde-format
 msgid "Task color in error state"
-msgstr ""
+msgstr "ამოცანის ფერი შეცდომის მდგომარეობაში"
 
 #. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:315
 #, kde-format
 msgid "Milestone color in normal state"
-msgstr ""
+msgstr "ეტაპის ფერი ნორმალურ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:319
 #, kde-format
 msgid "Milestone color in critical state"
-msgstr ""
+msgstr "ეტაპის ფერი კრიტიკულ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:323
 #, kde-format
 msgid "Milestone color in finished state"
-msgstr ""
+msgstr "ეტაპის ფერი დასრულებულ მდგომარეობაში"
 
 #. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:327
 #, kde-format
 msgid "Milestone color in error state"
-msgstr ""
+msgstr "ეტაპის ფერი შეცდომის მდგომარეობაში"
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
 #: calligraplansettings.kcfg:334
@@ -990,7 +990,7 @@ msgstr "შეფასების ტიპი:"
 #: config/kptconfigtaskpanelbase.ui:208
 #, kde-format
 msgid "Constraint Start time usage:"
-msgstr ""
+msgstr "შეზღუდული დაწყების დროის გამოყენება:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
@@ -1003,7 +1003,7 @@ msgstr "%"
 #: config/kptconfigtaskpanelbase.ui:257
 #, kde-format
 msgid "Constraint End time usage:"
-msgstr ""
+msgstr "შეზღუდული დასრულების დროის გამოყენება:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
 #: config/kptconfigtaskpanelbase.ui:279
@@ -1045,13 +1045,13 @@ msgstr "უნდა დამთავრდეს დროზე"
 #: config/kptconfigtaskpanelbase.ui:376
 #, kde-format
 msgid "Start Not Earlier Than"
-msgstr ""
+msgstr "დაწყება არა უადრეს"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:381
 #, kde-format
 msgid "Finish Not Later Than"
-msgstr ""
+msgstr "დასრულება არა უგვიანეს"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:386
@@ -1063,19 +1063,19 @@ msgstr "ფიქსირებული ინტერვალი"
 #: config/kptconfigtaskpanelbase.ui:400
 #, kde-format
 msgid "Constraint end time:"
-msgstr ""
+msgstr "დროის შეზღუდვის დასრულება:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:458
 #, kde-format
 msgid "Insert a person from your address book"
-msgstr ""
+msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:461
 #, kde-format
 msgid "Insert a person from your address book."
-msgstr ""
+msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:464
@@ -1087,7 +1087,7 @@ msgstr "აირჩიეთ..."
 #: config/kptconfigtaskpanelbase.ui:482
 #, kde-format
 msgid "Scheduling constraint:"
-msgstr ""
+msgstr "დაგეგმვის შეზღუდვა:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptconfigtaskpanelbase.ui:498
@@ -1141,13 +1141,13 @@ msgstr "არქივი"
 #: config/kptworkpackageconfigpanel.ui:53
 #, kde-format
 msgid "Delete file after it has been retrieved"
-msgstr ""
+msgstr "ფაილის წაშლა მისი მიღების შემდეგ"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
 #: config/kptworkpackageconfigpanel.ui:60
 #, kde-format
 msgid "Archive file after it has been retrieved"
-msgstr ""
+msgstr "ფაილის დაარქვივება მისი მიღების შემდეგ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: config/kptworkpackageconfigpanel.ui:69
@@ -1312,22 +1312,22 @@ msgstr ""
 #: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "დაგეგმვის დაწყება: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "გადათვლა თარიღიდან: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
 msgid "Scheduling canceled"
-msgstr ""
+msgstr "დაგეგმვა გაუქმდა"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "დაგეგმვა გაუქმდა %1-ზე, დარჩენილი დროა: %2 წამი"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
@@ -1349,19 +1349,19 @@ msgstr "მიმდინარე კვანძი:"
 #: kptinsertfilepanel.ui:68
 #, kde-format
 msgid "Insert on top level"
-msgstr ""
+msgstr "ზედა დონეზე ჩასმა"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
 #: kptinsertfilepanel.ui:75
 #, kde-format
 msgid "Insert as children to current node"
-msgstr ""
+msgstr "მიმდინარე კვანძში შვილებად ჩასმა"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
 #: kptinsertfilepanel.ui:82
 #, kde-format
 msgid "Insert after current node"
-msgstr ""
+msgstr "მიმდინარე კვანძის შემდეგ ჩასმა"
 
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
@@ -1372,6 +1372,8 @@ msgstr "არასწორი დოკუმენტი. Mimetype მით
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
+"არასწორი დოკუმენტი. მოველოდი mime-ის ტიპს application/x-vnd.kde.plan, მივიღე "
+"%1"
 
 #: kptmaindocument.cpp:373
 #, kde-format
@@ -1388,23 +1390,23 @@ msgstr ""
 #: kptmaindocument.cpp:474
 #, kde-format
 msgid "Failed to open work package file"
-msgstr ""
+msgstr "სამუშაო პაკეტის ფაილის გახსნის შეცდომა"
 
 #: kptmaindocument.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
-msgstr ""
+msgstr "დროებითი ფაილის შენახვის შეცდომა:<br/><filename>%1</filename>"
 
 #: kptmaindocument.cpp:557
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტის ფაილის შესანახად შექმნის შეცდომა: %1"
 
 #: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr ""
+msgstr "'%1'-ის ჩაწერის შეცდომა. დანაყოფი გადავსებულია?"
 
 #: kptmaindocument.cpp:592
 #, kde-format
@@ -1414,7 +1416,7 @@ msgstr "Შენახვა..."
 #: kptmaindocument.cpp:686
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
+msgstr "არასწორი დოკუმენტი. მოველოდი mimetype %2, მივიღე %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1488,12 +1490,12 @@ msgstr "გეგმის მორგება..."
 #: kptschedulesdocker.cpp:26
 #, kde-format
 msgid "Schedule Selector"
-msgstr ""
+msgstr "განრიგის არჩევანი"
 
 #: kptview.cpp:185
 #, kde-format
 msgid "Create Project Template..."
-msgstr ""
+msgstr "პროექტის შაბლონის შექმნა..."
 
 #: kptview.cpp:189
 #, kde-format
@@ -1503,7 +1505,7 @@ msgstr "ახალი პროექტის შექმნა..."
 #: kptview.cpp:201
 #, kde-format
 msgid "Show Selector"
-msgstr ""
+msgstr "არჩევის ფანჯრის ჩვენება"
 
 #: kptview.cpp:208 kptview.cpp:249
 #, kde-format
@@ -1513,12 +1515,12 @@ msgstr "ჩასწორება..."
 #: kptview.cpp:212
 #, kde-format
 msgid "Define Estimate Conversions..."
-msgstr ""
+msgstr "სამუშაო დროის მორგება..."
 
 #: kptview.cpp:216
 #, kde-format
 msgid "Define WBS Pattern..."
-msgstr ""
+msgstr "WBS ნიმუშის განსაზღვრა..."
 
 #: kptview.cpp:220
 #, kde-format
@@ -1543,23 +1545,23 @@ msgstr "გაზიარებული რესურსების გა�
 #: kptview.cpp:238
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr ""
+msgstr "ანგარიშის აღწერის ფაილის გახსნა..."
 
 #: kptview.cpp:243
 #, kde-format
 msgid "Create Report Template..."
-msgstr ""
+msgstr "ანგარიშის შაბლონის შექმნა..."
 
 #: kptview.cpp:259
 #, kde-format
 msgid "Work Packages..."
-msgstr ""
+msgstr "სამუშაო პაკეტები..."
 
 #: kptview.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr ""
+msgstr "სამუშაო პაკეტები ხელმისაწვდომია"
 
 #: kptview.cpp:351
 #, kde-kuit-format
@@ -1574,7 +1576,7 @@ msgstr ""
 #: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
-msgstr ""
+msgstr "დავალების დაგეგმვის შეზღუდვების ჩასწორება"
 
 #: kptview.cpp:492
 #, kde-format
@@ -1584,7 +1586,7 @@ msgstr "ამოცანის შეზღუდვები"
 #: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
-msgstr ""
+msgstr "დავალების ღირებულების ჩასწორება"
 
 #: kptview.cpp:502
 #, kde-format
@@ -1594,40 +1596,40 @@ msgstr "ამოცანის ფასი"
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr ""
+msgstr "ანგარიშების გენერირება"
 
 #: kptview.cpp:557 kptview.cpp:2457
 #, kde-format
 msgid "Task Status Report"
-msgstr ""
+msgstr "სამუშაო სტატუსის ანგარიში"
 
 #: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
-msgstr ""
+msgstr "რესურსებისთვის სამუშაო და დასვენების დღეების ჩასწორება"
 
 #: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
-msgstr ""
+msgstr "ხარჯების სტრუქტურული დეკომპოზიცია"
 
 #: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
-msgstr ""
+msgstr "ხარჯების სტრუქტურული დეკომპოზიციის ჩასწორება."
 
 #: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
-msgstr ""
+msgstr "რესურსების სტრუქტურული დეკომპოზიციის შეცვლა"
 
 #: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr ""
+msgstr "რესურსების სტრუქტურული დეკომპოზიციის ჩასწორება"
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
@@ -1649,7 +1651,7 @@ msgstr "ამოცანები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
-msgstr ""
+msgstr "სამუშაოს სტრუქტურული დეკომპოზიციის ჩასწორება"
 
 #: kptview.cpp:653
 #, kde-format
@@ -1660,7 +1662,7 @@ msgstr "დამოკიდებულებები (გრაფიკუ�
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
-msgstr ""
+msgstr "ამოცანის დამოკიდებულებების ჩასწორება"
 
 #: kptview.cpp:656
 #, kde-format
@@ -1676,18 +1678,18 @@ msgstr "განრიგი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
-msgstr ""
+msgstr "პროექტის გრაფიკის გამოთვლა და ანალიზი"
 
 #: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
-msgstr ""
+msgstr "პროექტის წარმადობის გრაფიკი"
 
 #: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
-msgstr ""
+msgstr "პროექტის სტატუსის ინფორმაციის ნახვა"
 
 #: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
@@ -1698,7 +1700,7 @@ msgstr "ამოცანის სტატუსი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
-msgstr ""
+msgstr "ამოცანის მიმდინარეობის ინფორმაციის ნახვა"
 
 #: kptview.cpp:671
 #, kde-format
@@ -1709,7 +1711,7 @@ msgstr "ამოცანის შესრულება"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
-msgstr ""
+msgstr "ამოცანის შესრულების ინფორმაციის ნახვა"
 
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
@@ -1720,29 +1722,29 @@ msgstr "სამუშაო პაკეტის ხედი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
-msgstr ""
+msgstr "ამოცანის სამუშაო პაკეტის ინფორმაციის ნახვა"
 
 #: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "განტის დიაგრამა"
 
 #: kptview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
-msgstr ""
+msgstr "განტის დიაგრამის ნახვა"
 
 #: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
-msgstr ""
+msgstr "განტის დიაგრამის ეტაპი"
 
 #: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
-msgstr ""
+msgstr "განტის დიაგრამის ეტაპის ნახვა"
 
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
@@ -1753,51 +1755,51 @@ msgstr "რესურსის მინიჭებები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
-msgstr ""
+msgstr "რესურსების მინიჭების ცხრილის ფორმით ნახვა"
 
 #: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
-msgstr ""
+msgstr "რესურსის მინიჭებები (განტი)"
 
 #: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr ""
+msgstr "განტის გრაფიკში რესურსების მინიჭების ნახვა"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
-msgstr ""
+msgstr "რესურსების დაფარვა"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "რესურსების დაფარვის შესწორება"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
-msgstr ""
+msgstr "ხარჯების დაშლა"
 
 #: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
-msgstr ""
+msgstr "დაგეგმილი და რეალური ფასების ნახვა"
 
 #: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
-msgstr ""
+msgstr "ამოცანების წარმადობის გრაფიკი"
 
 #: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
-msgstr ""
+msgstr "ამოცანის წარმადობის სტატუსის ინფორმაციის ნახვა"
 
 #: kptview.cpp:698
 #, kde-format
@@ -1808,7 +1810,7 @@ msgstr "ანგარიშების გენერატორი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr ""
+msgstr "ანგარიშების გენერირება"
 
 #: kptview.cpp:701 kptview.cpp:2454 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
@@ -1852,12 +1854,12 @@ msgstr "თავზე გადაწერა"
 #, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr ""
+msgstr "ანგარიშის ნიმუში"
 
 #: kptview.cpp:1480
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "ფაილი '%1' უკვე არსებობს. გნებავთ გადააწეროთ?"
 
 #: kptview.cpp:1820
 #, kde-format
@@ -1876,7 +1878,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
-msgstr ""
+msgstr "ფაილის გახსნის შეცდომა:<br/><filename>%1</filename>"
 
 #: kptview.cpp:2148
 msgctxt "(qtundo-format)"
@@ -1912,7 +1914,7 @@ msgstr "დაგეგმილი არაა"
 #: kptview.cpp:2299
 #, kde-format
 msgid "Work Package for project: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტი პროექტისთვის: %1"
 
 #: kptview.cpp:2455
 #, kde-format
@@ -1971,7 +1973,7 @@ msgstr ""
 #: kptviewlist.cpp:606
 #, kde-format
 msgid "Removing this category will also remove all its views."
-msgstr ""
+msgstr "ამ კატეგორიის წაშლა მის ყველა ხედსაც წაშლის."
 
 #: kptviewlist.cpp:739
 #, kde-kuit-format
@@ -2031,7 +2033,7 @@ msgstr "კატეგორია:"
 #: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
 #, kde-format
 msgid "The view is placed after this view"
-msgstr ""
+msgstr "ხედი ამ ხედის შემდეგ მოთავსდა"
 
 #. i18n: ectx: property (text), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
@@ -2133,17 +2135,17 @@ msgstr "დავალების ხედი"
 #: kptviewlistdialog.cpp:104
 #, kde-format
 msgid "Gantt View"
-msgstr ""
+msgstr "განტის დიაგრამის ნახვა"
 
 #: kptviewlistdialog.cpp:105
 #, kde-format
 msgid "Milestone Gantt View"
-msgstr ""
+msgstr "განტის დიაგრამის ეტაპის ნახვა"
 
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr ""
+msgstr "ანგარიშების გენერატორი"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
@@ -2192,13 +2194,13 @@ msgstr "ანგარიშის დამატება"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector [modified]"
-msgstr ""
+msgstr "ხედის პანელი [შეცვლილი]"
 
 #: kptviewlistdocker.cpp:62
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector"
-msgstr ""
+msgstr "ხედის პანელი"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:22
@@ -2228,19 +2230,19 @@ msgstr "ხაზები"
 #: kptviewlistdocker.ui:42
 #, kde-format
 msgid "Characters incl. spaces"
-msgstr ""
+msgstr "სიმბოლოები ჰარეების ჩათვლით"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:47
 #, kde-format
 msgid "Characters without spaces"
-msgstr ""
+msgstr "სიმბოლოები ჰარეების არჩათვლით"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:52
 #, kde-format
 msgid "Flesch reading ease"
-msgstr ""
+msgstr "კითხვის სიადვილის ინდექსი ფლეშის მიხედვით"
 
 #. i18n: ectx: property (text), widget (QLineEdit, count)
 #: kptviewlistdocker.ui:63

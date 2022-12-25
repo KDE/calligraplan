@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-18 12:32+0200\n"
+"PO-Revision-Date: 2022-12-23 19:12+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -1960,9 +1960,7 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "Le fichier « %1 » existe déjà. Voulez-vous vraiment l'écraser ?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Ressources partagées"
@@ -1973,6 +1971,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"L'utilisation de ressources partagées a été activée.<nl/>Les ressources "
+"doivent-elles être mises à jour ?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format
