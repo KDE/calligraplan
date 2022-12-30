@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: plan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-10-18 09:36+0200\n"
+"PO-Revision-Date: 2022-12-22 21:52+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -1933,9 +1933,7 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "Il file «%1» esiste già, vuoi sovrascriverlo?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Risorse condivise"
@@ -1946,6 +1944,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"L'utilizzo delle risorse condivise è stato attivato.<nl/>Le risorse devono "
+"essere aggiornate?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format
