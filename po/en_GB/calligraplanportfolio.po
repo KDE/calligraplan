@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-08-29 12:09+0100\n"
+"PO-Revision-Date: 2022-12-31 16:24+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -797,50 +797,43 @@ msgid "Range"
 msgstr "Range"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Projects"
+msgstr "Project"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Schedule"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Options"
+msgstr "Action"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
-msgstr "Status"
+msgstr "State"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "No schedule"
+msgstr "New schedule"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "No schedule"
+msgstr "New sub-schedule"
 
 #: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "New schedule '%1' will be created."
 
 #: ScheduleManagerInfoDialog.cpp:77
 #, kde-format
@@ -848,6 +841,8 @@ msgid ""
 "Existing schedule '%1' is not scheduled.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Existing schedule '%1' is not scheduled.\n"
+"'%1' will be scheduled."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -855,6 +850,8 @@ msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Project is baselined.\n"
+"'%1' will be created as sub-schedule to '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
@@ -862,6 +859,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Project is started.\n"
+"'%1' will be created as sub-schedule to '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
@@ -869,6 +868,8 @@ msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
+"Project is started.\n"
+"Schedule '%1' will be re-scheduled."
 
 #: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
@@ -876,6 +877,8 @@ msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Project is started.\n"
+"Existing schedule '%1' will be re-scheduled."
 
 #: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
@@ -884,6 +887,9 @@ msgid ""
 "New sub-schedule '%1'.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Project is not started.\n"
+"New sub-schedule '%1'.\n"
+"'%1' will be created as sub-schedule to '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
@@ -891,6 +897,8 @@ msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
+"Project is not started.\n"
+"New schedule '%1' will be created."
 
 #: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
@@ -898,6 +906,8 @@ msgid ""
 "Project is not started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Project is not started.\n"
+"Existing schedule '%1' will be re-scheduled."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format

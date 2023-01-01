@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-11-26 13:49+0000\n"
+"PO-Revision-Date: 2022-12-31 16:24+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1916,12 +1916,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr "The file '%1' already exists, do you want to overwrite it?"
 
 #: kptview.cpp:1820
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Shared resources"
+msgstr "Shared Resources"
 
 #: kptview.cpp:1820
 #, kde-kuit-format
@@ -1929,6 +1927,7 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Use shared resources has been activated.<nl/>Shall resources be updated?"
 
 #: kptview.cpp:2033
 #, kde-kuit-format
