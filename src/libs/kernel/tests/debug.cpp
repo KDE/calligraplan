@@ -51,27 +51,33 @@ class Debug
 public:
     Debug() {}
 static
-void print(Calendar *c, const QString &str, bool full = true) {
+void print(Calendar *calendar, const QString &str, bool full = true) {
     Q_UNUSED(full);
-    QTimeZone tz = c->timeZone();
+    QTimeZone tz = calendar->timeZone();
     QString s = tz.isValid() ? QString::fromLatin1(tz.id()) : QStringLiteral("LocalTime");
 
-    qDebug()<<"Debug info: Calendar"<<c->name()<<s<<str;
-    for (int wd = 1; wd <= 7; ++wd) {
-        CalendarDay *d = c->weekday(wd);
-        qDebug()<<QStringLiteral("    ")<<wd<<':'<<d->stateToString(d->state());
-        const auto intervals = d->timeIntervals();
-        for (TimeInterval *t : intervals) {
-            qDebug()<<"      interval:"<<t->first<<t->second<<'('<<Duration(qint64(t->second)).toString()<<')';
+    qDebug()<<"Debug info: Calendar"<<calendar->name()<<s<<str;
+    if (full) {
+        for (int wd = 1; wd <= 7; ++wd) {
+            CalendarDay *d = calendar->weekday(wd);
+            qDebug()<<QStringLiteral("    ")<<wd<<':'<<d->stateToString(d->state());
+            const auto intervals = d->timeIntervals();
+            for (TimeInterval *t : intervals) {
+                qDebug()<<"      interval:"<<t->first<<t->second<<'('<<Duration(qint64(t->second)).toString()<<')';
+            }
+        }
+        const auto days = calendar->days();
+        for (const CalendarDay *d : days) {
+            qDebug()<<QStringLiteral("    ")<<d->date()<<':';
+            const auto intervals = d->timeIntervals();
+            for (TimeInterval *t : intervals) {
+                qDebug()<<"      interval:"<<t->first<<t->second;
+            }
         }
     }
-    const auto days = c->days();
-    for (const CalendarDay *d : days) {
-        qDebug()<<QStringLiteral("    ")<<d->date()<<':';
-        const auto intervals = d->timeIntervals();
-        for (TimeInterval *t : intervals) {
-            qDebug()<<"      interval:"<<t->first<<t->second;
-        }
+    for (const auto c : calendar->calendars()) {
+        qDebug()<<"  Child calendar:";
+        print(c, "", full);
     }
 }
 static
@@ -101,12 +107,10 @@ void print(ResourceGroup *group, bool full = true, QString indent = QString()) {
         }
     }
     qDebug()<<(indent+QStringLiteral("  "))<<"Resource groups:"<<group->numChildGroups();
-    if (full) {
-        in = indent +  QStringLiteral("    ");
-        const auto childGroups = group->childGroups();
-        for (ResourceGroup *g : childGroups) {
-            print(g, true, in);
-        }
+    in = indent +  QStringLiteral("    ");
+    const auto childGroups = group->childGroups();
+    for (ResourceGroup *g : childGroups) {
+        print(g, full, in);
     }
 }
 static
@@ -195,9 +199,17 @@ void print(Project *p, const QString &str, bool all = false) {
     } else {
         qDebug()<<"  Not scheduled";
     }
+    qDebug()<<"  Accounts:"<<p->accounts().accountCount()<<"all:"<<p->accounts().allAccounts().count();
+    qDebug()<<"  Calendars:"<<p->calendarCount()<<"all:"<<p->allCalendars().count();
     qDebug()<<"  Default calendar:"<<(p->defaultCalendar()?p->defaultCalendar()->name():QStringLiteral("None"));
     if (! all) {
         return;
+    }
+    for (const auto a : p->accounts().accountList()) {
+        print(a, QStringLiteral("  "));
+    }
+    for (const auto c : p->calendars()) {
+        print(c, "", true);
     }
     qDebug()<<QStringLiteral("  ")<<"Resource groups:"<<p->resourceGroupCount();
     const auto resourceGroups = p->resourceGroups();
@@ -465,26 +477,26 @@ void printSchedulingLog(const ScheduleManager &sm, const QString &s = QString())
     }
 }
 static
-void print(Account *a, long id = -1, const QString &s = QString())
+void print(Account *a, const QString &indent = QString(), long scheduleId = -1, const QString &s = QString())
 {
-    qDebug()<<"Debug info Account:"<<a->name()<<s;
-    qDebug()<<"Account:"<<a->name()<<(a->isDefaultAccount() ? "Default" : "");
-    EffortCostMap ec = a->plannedCost(id);
-    qDebug()<<"Planned cost:"<<ec.totalCost()<<"effort:"<<ec.totalEffort().toString();
+    qDebug()<<indent+"Debug info Account:"<<a->name()<<s;
+    qDebug()<<indent+"Account:"<<a->name()<<(a->isDefaultAccount() ? "Default" : "");
+    EffortCostMap ec = a->plannedCost(scheduleId);
+    qDebug()<<indent+"Planned cost:"<<ec.totalCost()<<"effort:"<<ec.totalEffort().toString();
     if (! a->isElement()) {
         const auto accounts = a->accountList();
         for (Account *c : accounts) {
-            print(c);
+            print(c, indent+"  ", scheduleId);
         }
         return;
     }
-    qDebug()<<"Cost places:";
     const auto costs = a->costPlaces();
+    qDebug()<<indent+"Cost places:"<<costs.count();
     for (Account::CostPlace *cp : costs) {
-        qDebug()<<"     Node:"<<(cp->node() ? cp->node()->name() : QString());
-        qDebug()<<"  running:"<<cp->running();
-        qDebug()<<"  startup:"<<cp->startup();
-        qDebug()<<" shutdown:"<<cp->shutdown();
+        qDebug()<<indent+"     Node:"<<(cp->node() ? cp->node()->name() : QString());
+        qDebug()<<indent+"  running:"<<cp->running();
+        qDebug()<<indent+"  startup:"<<cp->startup();
+        qDebug()<<indent+" shutdown:"<<cp->shutdown();
     }
 }
 
