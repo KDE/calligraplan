@@ -1010,13 +1010,20 @@ protected:
     MacroCommand cmd;
 };
 
-class PLANKERNEL_EXPORT AddResourceGroupCmd : public RemoveResourceGroupCmd
+class PLANKERNEL_EXPORT AddResourceGroupCmd : public NamedCommand
 {
 public:
     AddResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     AddResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name = KUndo2MagicString());
     void execute() override;
     void unexecute() override;
+
+protected:
+    ResourceGroup *m_group;
+    Project *m_project;
+    ResourceGroup *m_parent;
+    int m_index;
+    bool m_mine;
 };
 
 class PLANKERNEL_EXPORT ModifyResourceGroupNameCmd : public NamedCommand

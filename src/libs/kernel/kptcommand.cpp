@@ -1753,23 +1753,37 @@ void RemoveResourceGroupCmd::unexecute()
 }
 
 AddResourceGroupCmd::AddResourceGroupCmd(Project *project, ResourceGroup *parent, ResourceGroup *group, const KUndo2MagicString& name)
-    : RemoveResourceGroupCmd(project, parent, group, name)
+    : NamedCommand(name)
+    , m_group(group)
+    , m_project(project)
+    , m_parent(parent)
 {
+    Q_ASSERT(group->project() == nullptr);
+    Q_ASSERT(!project->allResourceGroups().contains(group));
     m_mine = true;
 }
 
 AddResourceGroupCmd::AddResourceGroupCmd(Project *project, ResourceGroup *group, const KUndo2MagicString& name)
-    : RemoveResourceGroupCmd(project, group, name)
+    : NamedCommand(name)
+    , m_group(group)
+    , m_project(project)
+    , m_parent(nullptr)
 {
     m_mine = true;
 }
 void AddResourceGroupCmd::execute()
 {
-    RemoveResourceGroupCmd::unexecute();
+    if (m_project) {
+        m_project->addResourceGroup(m_group, m_parent);
+        m_mine = false;
+    }
 }
 void AddResourceGroupCmd::unexecute()
 {
-    RemoveResourceGroupCmd::execute();
+    if (m_project) {
+        m_project->takeResourceGroup(m_group);
+        m_mine = true;
+    }
 }
 
 ModifyResourceGroupNameCmd::ModifyResourceGroupNameCmd(ResourceGroup *group, const QString& value, const KUndo2MagicString& name)
