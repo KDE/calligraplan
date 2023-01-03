@@ -94,7 +94,7 @@ public:
     int groupIndexOf(ResourceGroup *group) const;
     void addParentGroup(ResourceGroup *parent);
     bool removeParentGroup(ResourceGroup *parent);
-    void setParentGroups(QList<ResourceGroup*> &parents);
+    void setParentGroups(const QList<ResourceGroup *> &parents);
     QList<ResourceGroup*> parentGroups() const;
 
     /// Set the time from when the resource is available to this project

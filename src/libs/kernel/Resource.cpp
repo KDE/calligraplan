@@ -278,7 +278,7 @@ bool Resource::removeParentGroup(ResourceGroup *parent)
     return result;
 }
 
-void Resource::setParentGroups(QList<ResourceGroup*> &parents)
+void Resource::setParentGroups(const QList<ResourceGroup*> &parents)
 {
     while (!m_parents.isEmpty()) {
         removeParentGroup(m_parents.at(0));
