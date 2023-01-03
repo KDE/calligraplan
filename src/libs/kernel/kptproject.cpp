@@ -1531,8 +1531,23 @@ const QList<ResourceGroup*> &Project::resourceGroups() const
     return m_resourceGroups;
 }
 
-QList<ResourceGroup *> Project::allResourceGroups() const
+void collectGroups(ResourceGroup *parent, QList<ResourceGroup*> &groups)
 {
+    groups << parent;
+    for (auto child : parent->childGroups()) {
+        collectGroups(child, groups);
+    }
+}
+
+QList<ResourceGroup*> Project::allResourceGroups(bool sorted) const
+{
+    if (sorted) {
+        QList<ResourceGroup*> groups;
+        for (auto g : m_resourceGroups) {
+            collectGroups(g, groups);
+        }
+        return groups;
+    }
     return resourceGroupIdDict.values();
 }
 
@@ -1601,6 +1616,14 @@ void Project::moveResource(ResourceGroup *group, Resource *resource)
     addResource(resource);
     group->addResource(resource);
     return;
+}
+
+void Project::removeResourceFromProject(Resource *resource)
+{
+    removeResourceId(resource->id());
+    resource->removeRequests();
+    m_resources.removeAll(resource);
+    resource->setProject(nullptr);
 }
 
 QMap< QString, QString > Project::externalProjects() const
@@ -2102,6 +2125,13 @@ ResourceGroup *Project::groupByName(const QString& name) const
         }
     }
     return nullptr;
+}
+
+void Project::removeResourceGroupFromProject(ResourceGroup *group)
+{
+    removeResourceGroupId(group->id());
+    m_resourceGroups.removeAll(group);
+    group->setProject(nullptr);
 }
 
 QList<Resource*> Project::autoAllocateResources() const

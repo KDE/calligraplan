@@ -167,7 +167,7 @@ public:
 
     int resourceGroupCount() const { return m_resourceGroups.count(); }
     const QList<ResourceGroup *> &resourceGroups() const;
-    QList<ResourceGroup*> allResourceGroups() const;
+    QList<ResourceGroup*> allResourceGroups(bool sorted = false) const;
     /// Adds the resource group to the project.
     virtual void addResourceGroup(ResourceGroup *resource, ResourceGroup *parent = nullptr,  int index = -1);
     /**
@@ -183,6 +183,8 @@ public:
     ResourceGroup *group(const QString& id);
     /// Returns the resource group with the matching name, 0 if no match is found.
     ResourceGroup *groupByName(const QString& name) const;
+
+    void removeResourceGroupFromProject(ResourceGroup *group);
 
     /**
      * Adds the resource to the project
@@ -207,6 +209,11 @@ public:
     int indexOf(Resource *resource) const;
     int resourceCount() const;
     Resource *resourceAt(int pos) const;
+
+    /// Removes @p resource from this project.
+    /// Does not touch parentgroups but removes any requests.
+    /// No signals are emitted.
+    void removeResourceFromProject(Resource *resource);
 
     EffortCostMap plannedEffortCostPrDay(QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
     EffortCostMap plannedEffortCostPrDay(const Resource *resource, QDate start, QDate end, long id = CURRENTSCHEDULE, EffortCostCalculationType = ECCT_All) const override;
@@ -325,9 +332,7 @@ public:
 
     ResourceGroup *findResourceGroup(const QString &id) const
     {
-        if (resourceGroupIdDict.contains(id) )
-            return resourceGroupIdDict[ id ];
-        return nullptr;
+        return resourceGroupIdDict.value(id);
     }
     /// Remove the resourcegroup with identity id from the register
     /// If group is not nullptr, remove recursively
