@@ -35,9 +35,8 @@ endif()
 if (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
-
 if (POLICY CMP0115)
-    cmake_policy(SET CMP0115 OLD) # TODO Fix cmake files and set to NEW
+    cmake_policy(SET CMP0115 NEW)
 endif()
 
 set(PLAN_VERSION_STRING ${PROJECT_VERSION})

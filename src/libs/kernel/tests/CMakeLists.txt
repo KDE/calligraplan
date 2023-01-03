@@ -28,7 +28,7 @@ plankernel_add_unit_test(ResourceTester ResourceTester.cpp  LINK_LIBRARIES calli
 
 plankernel_add_unit_test(ResourceGroupTester ResourceGroupTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
-plankernel_add_unit_test(XmlLoaderTester XmlLoaderTester  LINK_LIBRARIES calligraplankernel Qt5::Test)
+plankernel_add_unit_test(XmlLoaderTester XmlLoaderTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
 plankernel_add_unit_test(CommandsTester CommandsTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
@@ -46,6 +46,6 @@ plankernel_add_unit_test(ProjectTester ProjectTester.cpp  LINK_LIBRARIES calligr
 
 plankernel_add_unit_test(PerformanceTester PerformanceTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
-plankernel_add_unit_test(ReScheduleTester ReScheduleTester  LINK_LIBRARIES calligraplankernel Qt5::Test)
+plankernel_add_unit_test(ReScheduleTester ReScheduleTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
 
-plankernel_add_unit_test(AlternativeRequestTester AlternativeRequestTester  LINK_LIBRARIES calligraplankernel Qt5::Test)
+plankernel_add_unit_test(AlternativeRequestTester AlternativeRequestTester.cpp  LINK_LIBRARIES calligraplankernel Qt5::Test)
