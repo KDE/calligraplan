@@ -33,9 +33,46 @@ using namespace KPlato;
 
 //----------------
 InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *after, const KUndo2MagicString& name)
-    : MacroCommand(name),
-    m_project(static_cast<Project*>(parent->projectNode())),
-    m_parent(parent)
+    : MacroCommand(name)
+    , m_fromProject(&fromProject)
+    , m_project(static_cast<Project*>(parent->projectNode()))
+    , m_parent(parent)
+    , m_after(after)
+{
+}
+
+void InsertProjectCmd::execute()
+{
+    if (m_fromProject) {
+        createCommands(*m_fromProject);
+        m_fromProject = nullptr;
+    }
+//    debugPlanInsertProject<<"before execute:"<<m_project->resourceGroups()<<m_project->resourceList();
+    MacroCommand::execute();
+//    debugPlanInsertProject<<"after execute:"<<m_project->resourceGroups()<<m_project->resourceList();
+}
+void InsertProjectCmd::unexecute()
+{
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    MacroCommand::unexecute();
+    QApplication::restoreOverrideCursor();
+}
+
+ResourceGroup *findGroup(const QString &id, const Project *project, const QList<ResourceGroup*> &newGroups)
+{
+    auto group = project->findResourceGroup(id);
+    if (group) {
+        return group;
+    }
+    for (const auto g : newGroups) {
+        if (g->id() == id) {
+            return g;
+        }
+    }
+    return nullptr;
+}
+
+void InsertProjectCmd::createCommands(Project &fromProject)
 {
     Q_ASSERT(&fromProject != m_project);
 
@@ -46,7 +83,6 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
     if (! m_project->accounts().defaultAccount() && fromProject.accounts().defaultAccount()) {
         defaultAccount = fromProject.accounts().defaultAccount()->name();
     }
-
     QHash<Node*, QString> startupaccountmap;
     QHash<Node*, QString> shutdownaccountmap;
     QHash<Node*, QString> runningaccountmap;
@@ -54,7 +90,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
 
     // remove unhandled info in tasks and get accounts and calendars
     const auto nodes = fromProject.allNodes();
-    for (Node *n : nodes ) {
+    for (Node *n : nodes) {
         if (n->type() == Node::Type_Task) {
             Task *t = static_cast<Task*>(n);
             t->workPackage().clear();
@@ -63,6 +99,13 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
                 t->removeWorkPackage(wp);
                 delete wp;
             }
+        }
+        while (auto schedule = n->schedules().values().value(0)) {
+            n->takeSchedule(schedule);
+            if (schedule->resource()) {
+                schedule->resource()->takeSchedule(schedule->resource()->findSchedule(schedule->id()));
+            }
+            delete schedule;
         }
         if (n->startupAccount()) {
             startupaccountmap.insert(n, n->startupAccount()->name());
@@ -82,21 +125,21 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
     }
     // get resources pointing to calendars, accounts and parentgroups
-    QHash<Resource*, QString> resaccountmap;
-    QHash<Resource*, QString> rescalendarmap;
-    QHash<Resource*, QList<AddParentGroupCmd*> > resparentgroupcmds;
+    QHash<Resource*, QString> resourceaccountmap;
+    QHash<Resource*, QString> resourcecalendarmap;
+    QHash<Resource*, QList<AddParentGroupCmd*> > resourceparentgroupcmds;
     const auto resources = fromProject.resourceList();
     for (Resource *r : resources) {
         if (r->account()) {
-            resaccountmap.insert(r, r->account()->name());
+            resourceaccountmap.insert(r, r->account()->name());
             r->setAccount(nullptr);
         }
         if (r->calendar()) {
-            rescalendarmap.insert(r, r->calendar()->id());
+            resourcecalendarmap.insert(r, r->calendar()->id());
             r->setCalendar(nullptr);
         }
         if (!m_project->findResource(r->id())) {
-            // Need to move parentgroups to m_project groups
+            // Need to parentgroups to m_project groups
             // to avoid dangling pointers
             const auto groups = r->parentGroups();
             if (!groups.isEmpty()) {
@@ -109,7 +152,7 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
                     }
                 }
                 if (!cmds.isEmpty()) {
-                    resparentgroupcmds.insert(r, cmds);
+                    resourceparentgroupcmds.insert(r, cmds);
                 }
             }
         }
@@ -152,33 +195,27 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
     }
     debugPlanInsertProject<<"fromProject resource requests:"<<rreqs;
-    QList<ResourceGroup*> allGroups;
-    QList<ResourceGroup*> newGroups;
-    QHash<ResourceGroup*, ResourceGroup*> existingGroups; // QHash<fromProject group, toProject group>
-    const auto groups = fromProject.resourceGroups();
-    for (ResourceGroup *g : groups) {
-        ResourceGroup *gr = m_project->findResourceGroup(g->id());
-        if (gr == nullptr) {
-            gr = g;
-            newGroups << gr;
-        } else {
-            existingGroups[ gr ] = g;
-        }
-        allGroups << gr;
-    }
+    // Handle resources.
+    // Mainly collects resources in fromProject that does not exist in toProject
+    // and collects the parent groups before removing the resource from the parent groups.
+    // This makes it possible to add resources and groups and the re-add the parent groups.
     debugPlanInsertProject<<"fromProject resources:"<<fromProject.resourceList();
     QList<Resource*> allResources;
     QList<Resource*> newResources; // resource in fromProject that does not exist in toProject
     QHash<Resource*, Resource*> existingResources; // hash[toProject resource, fromProject resource]
+    QHash<Resource*, QStringList> newResourceParentGroups; // new resource with parent group ids
     const auto resources2 = fromProject.resourceList();
     for (Resource *r : resources2) {
-        while (Schedule *s = r->schedules().values().value(0)) {
-            r->deleteSchedule(s); // schedules not handled
-        }
         Resource *res = m_project->resource(r->id());
         if (res == nullptr) {
+            const auto groups = r->parentGroups();
+            for (auto g : groups) {
+                newResourceParentGroups[r].append(g->id());
+            }
+            r->setParentGroups(QList<ResourceGroup*>());
             newResources << r;
             allResources << r;
+            fromProject.removeResourceFromProject(r);
         } else {
             existingResources[ res ] = r;
             allResources << res;
@@ -192,40 +229,59 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
     }
     // Add new groups
-    for (ResourceGroup *g : qAsConst(newGroups)) {
-        debugPlanInsertProject<<"AddResourceGroupCmd:"<<g->name()<<g->resources();
-        addCommand(new AddResourceGroupCmd(m_project, g, kundo2_noi18n(QStringLiteral("ResourceGroup"))));
-        const auto resources = g->resources();
-        for (Resource *r : resources) {
-            addCommand(new AddParentGroupCmd(r, g));
+    QList<ResourceGroup*> allGroups;
+    QHash<ResourceGroup*, ResourceGroup*> existingGroups; // QHash<toProject group, fromProject group>
+    QList<ResourceGroup*> newGroups; // all new groups sorted by level: top1, child1..childn, top2, child1..childn ...
+    QHash<ResourceGroup*, ResourceGroup*> newGroupsWithParent; // QHash<group, parent group>
+    const auto groups = fromProject.allResourceGroups(true /*sorted*/);
+    debugPlanInsertProject<<"fromProject resource groups:"<<groups;
+    for (ResourceGroup *g : groups) {
+        ResourceGroup *gr = m_project->findResourceGroup(g->id());
+        if (gr) {
+            existingGroups[gr] = g;
+        } else {
+            gr = g;
+            newGroups << gr;
+            if (gr->parentGroup()) {
+                // try to map to toProject in case group exists there
+                auto parent = m_project->findResourceGroup(gr->parentGroup()->id());
+                if (!parent) {
+                    parent = gr->parentGroup();
+                }
+                newGroupsWithParent[gr] = parent;
+                parent->removeChildGroup(gr);
+            }
+            fromProject.removeResourceGroupFromProject(gr);
         }
+        allGroups << gr;
+    }
+    debugPlanInsertProject<<"New resource groups:"<<newGroups;
+    for (auto g : qAsConst(newGroups)) {
+        auto parent = newGroupsWithParent.value(g); // if nullptr it is a top level group
+        debugPlanInsertProject<<"AddResourceGroupCmd:"<<'f'<<&fromProject<<'t'<<m_project<<g<<parent<<g->resources();
+        addCommand(new AddResourceGroupCmd(m_project, parent, g, kundo2_noi18n(QStringLiteral("ResourceGroup"))));
     }
     // Add new resources
     for (Resource *r : qAsConst(newResources)) {
         addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n(QStringLiteral("Resource"))));
         // add any moved parent groups
-        auto cmds = resparentgroupcmds.take(r);
+        auto cmds = resourceparentgroupcmds.take(r);
         while (!cmds.isEmpty()) {
             addCommand(cmds.takeFirst());
         }
         debugPlanInsertProject<<"AddResourceCmd:"<<r->name()<<r->parentGroups();
-    }
-    // Update resource groups <to project, from project>
-    {QHash<Resource*, Resource*>::const_iterator it = existingResources.constBegin();
-    QHash<Resource*, Resource*>::const_iterator end = existingResources.constEnd();
-    for (; it != end; ++it) {
-        const auto parentGroups = it.value()->parentGroups();
-        for (auto group : parentGroups) {
-            auto g = m_project->findResourceGroup(group->id());
-            if (g) {
-
+        // Update resource parent groups
+        const auto groupIds = newResourceParentGroups.value(r);
+        for (const auto &id : groupIds) {
+            auto group = findGroup(id, m_project, newGroups);
+            if (group) {
+                addCommand(new AddParentGroupCmd(r, group));
             }
         }
     }
-    }
     // Update resource account
-    {QHash<Resource*, QString>::const_iterator it = resaccountmap.constBegin();
-    QHash<Resource*, QString>::const_iterator end = resaccountmap.constEnd();
+    {QHash<Resource*, QString>::const_iterator it = resourceaccountmap.constBegin();
+    QHash<Resource*, QString>::const_iterator end = resourceaccountmap.constEnd();
     for (; it != end; ++it) {
         Resource *r = it.key();
         if (newResources.contains(r)) {
@@ -234,8 +290,8 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         }
     }}
     // Update resource calendar
-    {QHash<Resource*, QString>::const_iterator it = rescalendarmap.constBegin();
-    QHash<Resource*, QString>::const_iterator end = rescalendarmap.constEnd();
+    {QHash<Resource*, QString>::const_iterator it = resourcecalendarmap.constBegin();
+    QHash<Resource*, QString>::const_iterator end = resourcecalendarmap.constEnd();
     for (; it != end; ++it) {
         Resource *r = it.key();
         if (newResources.contains(r)) {
@@ -300,20 +356,17 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
         addCommand(new AddResourceRequestCmd(&n->requests(), rr));
     }
     // Add nodes (ids are unique, no need to check)
-    Node *node_after = after;
+    Node *node_after = m_after;
     for (int i = 0; i < fromProject.numChildren(); ++i) {
         Node *n = fromProject.childNode(i);
         Q_ASSERT(n);
-        while (Schedule *s = n->schedules().values().value(0)) {
-            n->takeSchedule(s); // schedules not handled
-            delete s;
-        }
+        Q_ASSERT(n->schedules().isEmpty());
         n->setParentNode(nullptr);
         if (node_after) {
             addCommand(new TaskAddCmd(m_project, n, node_after, kundo2_noi18n(QStringLiteral("Task"))));
             node_after = n;
         } else {
-            addCommand(new SubtaskAddCmd(m_project, n, parent, kundo2_noi18n(QStringLiteral("Subtask"))));
+            addCommand(new SubtaskAddCmd(m_project, n, m_parent, kundo2_noi18n(QStringLiteral("Subtask"))));
         }
         addChildNodes(n);
     }
@@ -383,20 +436,24 @@ InsertProjectCmd::InsertProjectCmd(Project &fromProject, Node *parent, Node *aft
 
     for (Resource *r = fromProject.resourceList().value(0); r; r = fromProject.resourceList().value(0)) {
         debugPlanInsertProject<<"remove all resources from fromProject:"<<r;
-        if (!fromProject.takeResource(r)) {
-            errorPlanInsertProject<<"Internal error, failed to remove resource";
-            Q_ASSERT(false);
-            break;
-        }
+        fromProject.removeResourceFromProject(r);
+        Q_ASSERT(!fromProject.resourceList().contains(r));
     }
     while (fromProject.numResourceGroups() > 0) {
         ResourceGroup *g = fromProject.resourceGroupAt(0);
         debugPlanInsertProject<<"Take used group:"<<g;
-        fromProject.takeResourceGroup(g);
+        fromProject.removeResourceGroupFromProject(g);
+        Q_ASSERT(!fromProject.resourceGroups().contains(g));
     }
     debugPlanInsertProject<<"Delete unused resources:"<<existingResources;
     qDeleteAll(existingResources); // deletes unused resources
-    debugPlanInsertProject<<"Delete unused groups:"<<existingGroups;
+    debugPlanInsertProject<<"Delete unused groups:"<<existingGroups.count()<<existingGroups;
+    // avoid double delete
+    for (auto g : qAsConst(existingGroups)) {
+        while (g->numChildGroups() > 0) {
+            g->removeChildGroup(g->childGroupAt(0));
+        }
+    }
     qDeleteAll(existingGroups); // deletes unused resource groups
 }
 
@@ -410,6 +467,7 @@ void InsertProjectCmd::addCalendars(Calendar *calendar, Calendar *parent, QList<
     }
     Calendar *cal = calendarsmap.value(calendar->id());
     if (cal == nullptr) {
+        calendar->project()->takeCalendar(calendar);
         calendarsmap.insert(calendar->id(), calendar);
         addCommand(new CalendarAddCmd(m_project, calendar, -1, par));
     } else {
@@ -460,17 +518,3 @@ void InsertProjectCmd::addChildNodes(Node *node) {
         node->takeChildNode(ch);
     }
 }
-
-void InsertProjectCmd::execute()
-{
-    //debugPlanInsertProject<<"before execute:"<<m_project->resourceGroups()<<m_project->resourceList();
-    MacroCommand::execute();
-    //debugPlanInsertProject<<"after execute:"<<m_project->resourceGroups()<<m_project->resourceList();
-}
-void InsertProjectCmd::unexecute()
-{
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    MacroCommand::unexecute();
-    QApplication::restoreOverrideCursor();
-}
-

@@ -43,9 +43,9 @@ private Q_SLOTS:
     void testExistingTeamResourceRequest();
 
 private:
-    Account *addAccount(MainDocument &part, Account *parent = nullptr);
-    Calendar *addCalendar(MainDocument &part);
-    ResourceGroup *addResourceGroup(MainDocument &part);
+    Account *addAccount(MainDocument &part, Account *parent = nullptr, const QString &name = QString());
+    Calendar *addCalendar(MainDocument &part, Calendar *parent = nullptr, const QString &id = QString());
+    ResourceGroup *addResourceGroup(MainDocument &part, ResourceGroup *parent = nullptr, const QString &id = QString());
     Resource *addResource(MainDocument &part, ResourceGroup *g = nullptr);
     Task *addTask(MainDocument &part);
     void addResourceRequest(MainDocument &part);

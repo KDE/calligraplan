@@ -365,15 +365,18 @@ void SharedResources::testEmpty()
     QVERIFY(sharedDoc);
     auto sharedProject = sharedDoc->project();
     checkSharedResources(sharedProject);
+    QCOMPARE(sharedProject->calendarCount(), 1);
+    QCOMPARE(sharedProject->resourceGroupCount(), 2);
+    QCOMPARE(sharedProject->resourceCount(), 6);
 
     Part part(nullptr);
     auto doc = qobject_cast<MainDocument*>(part.createDocument(&part));
     part.setDocument(doc);
-//    doc->setProperty(NOUI, true);
+    doc->setProperty(NOUI, true);
 //    doc->setProperty(DEFAULTSHAREDRESOURCESRESULT, 2 /*keep*/);
 
     QVERIFY(static_cast<MainDocument*>(doc)->mergeResources(*sharedProject));
-
+    Debug::print(doc->project(), "", true);
     QCOMPARE(doc->project()->calendarCount(), 1);
     QCOMPARE(doc->project()->resourceGroupCount(), 2);
     QCOMPARE(doc->project()->resourceCount(), 6);

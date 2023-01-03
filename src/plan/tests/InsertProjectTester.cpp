@@ -25,12 +25,12 @@
 namespace KPlato
 {
 
-Account *InsertProjectTester::addAccount(MainDocument &part, Account *parent)
+Account *InsertProjectTester::addAccount(MainDocument &part, Account *parent, const QString &name)
 {
     Project &p = part.getProject();
     Account *a = new Account();
     QString s = parent == nullptr ? "Account" : parent->name();
-    a->setName(p.accounts().uniqueId(s));
+    a->setName(name.isEmpty()?p.accounts().uniqueId(s):name);
     KUndo2Command *c = new AddAccountCmd(p, a, parent);
     part.addCommand(c);
     return a;
@@ -38,45 +38,58 @@ Account *InsertProjectTester::addAccount(MainDocument &part, Account *parent)
 
 void InsertProjectTester::testAccount()
 {
-    Part pp(nullptr);
-    MainDocument part(&pp);
-    pp.setDocument(&part);
+    Part fromPart(nullptr);
+    MainDocument fromDoc(&fromPart);
+    fromPart.setDocument(&fromDoc);
 
-    addAccount(part);
-    Project &p = part.getProject();
-    QCOMPARE(p.accounts().accountCount(), 1);
+    addAccount(fromDoc, nullptr, QStringLiteral("Single account"));
+    Project &fromProject = fromDoc.getProject();
+    QCOMPARE(fromProject.accounts().accountCount(), 1);
 
-    Part pp2(nullptr);
-    MainDocument part2(&pp2);
-    pp2.setDocument(&part2);
+    Part toPart(nullptr);
+    MainDocument toDoc(&toPart);
+    toPart.setDocument(&toDoc);
 
-    part2.insertProject(p, nullptr, nullptr);
-    QCOMPARE(part2.getProject().accounts().accountCount(), 1);
+    qInfo()<<"--- Add new single account";
+    toDoc.insertProject(fromProject, nullptr, nullptr);
+    QCOMPARE(toDoc.getProject().accounts().accountCount(), 1);
 
-    part2.insertProject(part.getProject(), nullptr, nullptr);
-    QCOMPARE(part2.getProject().accounts().accountCount(), 1);
+    toDoc.insertProject(fromDoc.getProject(), nullptr, nullptr);
+    QCOMPARE(toDoc.getProject().accounts().accountCount(), 1);
 
-    Part ppB(nullptr);
-    MainDocument partB(&ppB);
-    ppB.setDocument(&partB);
+    Part fromPartB(nullptr);
+    MainDocument fromDocB(&fromPartB);
+    fromPartB.setDocument(&fromDocB);
 
-    Account *parent = addAccount(partB);
-    QCOMPARE(partB.getProject().accounts().accountCount(), 1);
-    addAccount(partB, parent);
-    QCOMPARE(partB.getProject().accounts().accountCount(), 1);
+    Account *parent = addAccount(fromDocB, nullptr, QStringLiteral("Parent Account"));
+    QCOMPARE(fromDocB.getProject().accounts().accountCount(), 1);
+    addAccount(fromDocB, parent, "Child acount");
+    QCOMPARE(fromDocB.getProject().accounts().accountCount(), 1);
     QCOMPARE(parent->childCount(), 1);
 
-    part2.insertProject(partB.getProject(), nullptr, nullptr);
-    QCOMPARE(part2.getProject().accounts().accountCount(), 1);
-    QCOMPARE(part2.getProject().accounts().accountAt(0)->childCount(), 1);
+    qInfo()<<"--- Add account with child";
+//    Debug::print(fromDocB.project(), "fromProjectB", true);
+    toDoc.insertProject(fromDocB.getProject(), nullptr, nullptr);
+    QCOMPARE(toDoc.getProject().accounts().accountCount(), 2);
+    QCOMPARE(toDoc.getProject().accounts().accountAt(1)->childCount(), 1);
+
+    qInfo()<<"--- Add child account with existing parent";
+    parent = addAccount(fromDocB, nullptr, parent->name());
+    addAccount(fromDocB, parent, QStringLiteral("New child"));
+//    Debug::print(fromDocB.project(), "fromProjectB", true);
+    toDoc.insertProject(fromDocB.getProject(), nullptr, nullptr);
+//    Debug::print(toDoc.project(), "toProject", true);
+    QCOMPARE(toDoc.getProject().accounts().accountCount(), 2);
+    QCOMPARE(toDoc.getProject().accounts().accountAt(1)->childCount(), 2);
 }
 
-Calendar *InsertProjectTester::addCalendar(MainDocument &part)
+Calendar *InsertProjectTester::addCalendar(MainDocument &part, Calendar *parent, const QString &id)
 {
     Project &p = part.getProject();
     Calendar *c = new Calendar();
+    c->setId(id);
     p.setCalendarId(c);
-    part.addCommand(new CalendarAddCmd(&p, c, -1, nullptr));
+    part.addCommand(new CalendarAddCmd(&p, c, -1, parent));
     return c;
 }
 
@@ -89,14 +102,45 @@ void InsertProjectTester::testCalendar()
     addCalendar(part);
     Project &p = part.getProject();
     QVERIFY(p.calendarCount() == 1);
+    Debug::print(part.project(), "From project:", true);
 
+    qInfo()<<"--- Add first calendar";
     Part pp2(nullptr);
     MainDocument part2(&pp2);
     pp2.setDocument(&part2);
 
     part2.insertProject(part.getProject(), nullptr, nullptr);
+//    Debug::print(part2.project(), "To project:", true);
     QVERIFY(part2.getProject().calendarCount() == 1);
     QVERIFY(part2.getProject().defaultCalendar() == nullptr);
+
+    qInfo()<<"--- Add second calendar";
+    QVERIFY(p.calendarCount() == 0);
+    addCalendar(part);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
+//    Debug::print(part2.project(), "To project:", true);
+    QVERIFY(part2.getProject().calendarCount() == 2);
+    QVERIFY(part2.getProject().defaultCalendar() == nullptr);
+
+    qInfo()<<"--- Add calendar with child calendar";
+    QVERIFY(p.calendarCount() == 0);
+    auto c = addCalendar(part);
+    addCalendar(part, c);
+    part2.insertProject(part.getProject(), nullptr, nullptr);
+//    Debug::print(part2.project(), "To project:", true);
+    QVERIFY(part2.getProject().calendarCount() == 3 /*toplevel calendars*/);
+    QVERIFY(part2.getProject().defaultCalendar() == nullptr);
+
+    qInfo()<<"--- Add child calendar to existing parent calendar";
+    auto parentId = part2.project()->calendarAt(0)->id();
+    c = addCalendar(part, nullptr, parentId);
+    c->setName(QStringLiteral("Parent"));
+    c = addCalendar(part, c);
+    c->setName(QStringLiteral("Child"));
+    part2.insertProject(part.getProject(), nullptr, nullptr);
+    Debug::print(part2.project(), "To project:", true);
+    QCOMPARE(part2.getProject().calendarCount(), 3 /*toplevel calendars*/);
+    QCOMPARE(part2.getProject().calendarAt(2)->calendars().count(), 1);
 }
 
 void InsertProjectTester::testDefaultCalendar()
@@ -130,32 +174,124 @@ void InsertProjectTester::testDefaultCalendar()
     QCOMPARE(part2.getProject().defaultCalendar(), c); // NB: still c, not c2
 }
 
-ResourceGroup *InsertProjectTester::addResourceGroup(MainDocument &part)
+ResourceGroup *InsertProjectTester::addResourceGroup(MainDocument &doc, ResourceGroup *parent, const QString &id)
 {
-    Project &p = part.getProject();
+    Project &p = doc.getProject();
     ResourceGroup *g = new ResourceGroup();
-    KUndo2Command *c = new AddResourceGroupCmd(&p, g);
-    part.addCommand(c);
-    QString s = QString("G%1").arg(part.getProject().indexOf(g));
+    g->setId(id);
+    KUndo2Command *c = new AddResourceGroupCmd(&p, parent, g);
+    doc.addCommand(c);
+    QString s = QString("G%1").arg(doc.getProject().indexOf(g));
     g->setName(s);
     return g;
 }
 
 void InsertProjectTester::testResourceGroup()
 {
-    Part pp(nullptr);
-    MainDocument part(&pp);
-    pp.setDocument(&part);
+    {
+        qInfo()<<"--- Add single group to empty project";
+        Part pp(nullptr);
+        MainDocument part(&pp);
+        pp.setDocument(&part);
 
-    addResourceGroup(part);
-    Project &p = part.getProject();
-    QVERIFY(p.resourceGroupCount() == 1);
+        addResourceGroup(part);
+        Project &p = part.getProject();
+        p.setName(QStringLiteral("From"));
+        QVERIFY(p.resourceGroupCount() == 1);
 
-    Part pp2(nullptr);
-    MainDocument part2(&pp2);
-    pp2.setDocument(&part2);
-    part2.insertProject(p, nullptr, nullptr);
-    QVERIFY(part2.getProject().resourceGroupCount() == 1);
+        Part pp2(nullptr);
+        MainDocument part2(&pp2);
+        pp2.setDocument(&part2);
+        part2.project()->setName(QStringLiteral("To"));
+        part2.insertProject(p, nullptr, nullptr);
+        QVERIFY(part2.getProject().resourceGroupCount() == 1);
+    }
+    {
+        qInfo()<<"--- Add single group to project with existing group";
+        Part pp(nullptr);
+        MainDocument part(&pp);
+        pp.setDocument(&part);
+
+        addResourceGroup(part);
+        Project &p = part.getProject();
+        p.setName(QStringLiteral("From"));
+        QVERIFY(p.resourceGroupCount() == 1);
+
+        Part pp2(nullptr);
+        MainDocument part2(&pp2);
+        pp2.setDocument(&part2);
+        part2.project()->setName(QStringLiteral("To"));
+        part2.insertProject(p, nullptr, nullptr);
+        addResourceGroup(part2);
+//        Debug::print(&part2.getProject(), "Result: ---------------------------", true);
+        QVERIFY(part2.getProject().resourceGroupCount() == 2);
+    }
+    {
+        qInfo()<<"--- Add single group to project with existing group with same id";
+        Part pp(nullptr);
+        MainDocument part(&pp);
+        pp.setDocument(&part);
+
+        auto group = addResourceGroup(part);
+        Project &p = part.getProject();
+        p.setName(QStringLiteral("From"));
+        QVERIFY(p.resourceGroupCount() == 1);
+
+        Part pp2(nullptr);
+        MainDocument part2(&pp2);
+        pp2.setDocument(&part2);
+        part2.project()->setName(QStringLiteral("To"));
+        addResourceGroup(part2, nullptr, group->id());
+        part2.insertProject(p, nullptr, nullptr);
+//        Debug::print(&part2.getProject(), "Result: ---------------------------", true);
+        QCOMPARE(part2.getProject().resourceGroupCount(), 1);
+    }
+    {
+        qInfo()<<"--- Add group with child";
+        Part pp(nullptr);
+        MainDocument part(&pp);
+        pp.setDocument(&part);
+
+        auto group = addResourceGroup(part);
+        addResourceGroup(part, group);
+        Project &p = part.getProject();
+        p.setName(QStringLiteral("From"));
+        QVERIFY(p.resourceGroupCount() == 1);
+//        Debug::print(&p, "From project: ---------------------------", true);
+
+        Part pp2(nullptr);
+        MainDocument part2(&pp2);
+        pp2.setDocument(&part2);
+        part2.project()->setName(QStringLiteral("To"));
+        part2.insertProject(p, nullptr, nullptr);
+//        Debug::print(&part2.getProject(), "Result: ---------------------------", true);
+        QCOMPARE(part2.getProject().resourceGroupCount(), 1);
+        QCOMPARE(part2.getProject().allResourceGroups().count(), 2);
+    }
+    {
+        qInfo()<<"--- Add group with child to existing parent";
+        Part pp(nullptr);
+        MainDocument part(&pp);
+        pp.setDocument(&part);
+
+        auto parent = addResourceGroup(part);
+        addResourceGroup(part, parent);
+        Project &fromProject = part.getProject();
+        fromProject.setName(QStringLiteral("From"));
+        QVERIFY(fromProject.resourceGroupCount() == 1);
+//        Debug::print(&fromProject, "From: ---------------------------", true);
+
+        Part pp2(nullptr);
+        MainDocument part2(&pp2);
+        pp2.setDocument(&part2);
+        part2.project()->setName(QStringLiteral("To"));
+        addResourceGroup(part2, nullptr, parent->id());
+//        Debug::print(&part2.getProject(), "Before: ---------------------------", true);
+        part2.insertProject(fromProject, nullptr, nullptr);
+//        Debug::print(&part2.getProject(), "Result: ---------------------------", true);
+        QCOMPARE(part2.getProject().resourceGroupCount(), 1);
+        QCOMPARE(part2.getProject().allResourceGroups().count(), 2);
+    }
 }
 
 Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
@@ -199,7 +335,8 @@ void InsertProjectTester::testResource()
     //Debug::print(&part2.getProject(), "Project to insert into: -----------", true);
     part2.insertProject(p, nullptr, nullptr);
     //Debug::print(&part2.getProject(), "Result: ---------------------------", true);
-    QVERIFY(part2.getProject().resourceGroupAt(0)->numResources() == 1);
+    QCOMPARE(part2.getProject().resourceCount(), 1);
+    QCOMPARE(part2.getProject().resourceGroupAt(0)->numResources(), 1);
 }
 
 void InsertProjectTester::testTeamResource()

@@ -44,11 +44,13 @@ protected:
     void addCalendars(Calendar *calendar, Calendar *parent, QList<Calendar*> &unused, QMap<QString, Calendar*> &all);
     void addChildNodes(Node *node);
 
+    void createCommands(Project &fromProject);
+
 private:
+    Project *m_fromProject = nullptr;
     Project *m_project;
     Node *m_parent;
     Node *m_after;
-
 };
 
 
