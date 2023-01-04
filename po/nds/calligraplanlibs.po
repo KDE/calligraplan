@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2011-10-06 09:19+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -573,7 +573,7 @@ msgstr "Opgaven achterrut planen"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Laat Enn utreekt: %1"
 
-#: kernel/kptproject.cpp:2755
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "Plaan"

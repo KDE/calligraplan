@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2013-07-07 22:46+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -586,7 +586,7 @@ msgstr "Ütemezés hiba"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Legkorábbi befejezés kiszámítva: %1"
 
-#: kernel/kptproject.cpp:2755
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "Plan"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2022-03-09 17:39+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -564,7 +564,7 @@ msgstr "Начать планирование по направлению впе
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Планирование по направлению назад завершено: %1 мс"
 
-#: kernel/kptproject.cpp:2755
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "План"

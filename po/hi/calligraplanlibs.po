@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2008-03-26 18:25+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -615,7 +615,7 @@ msgstr "सारिणी सीमा"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "अर्ली फ़िनिश तिथि"
 
-#: kernel/kptproject.cpp:2755
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "प्लान"

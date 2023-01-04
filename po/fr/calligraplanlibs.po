@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2022-12-18 20:15+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -564,7 +564,7 @@ msgstr "Commence la planification à rebours"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Planification à rebours terminée en %1 ms"
 
-#: kernel/kptproject.cpp:2755
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "Plan"

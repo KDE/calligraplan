@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:46+0000\n"
+"POT-Creation-Date: 2023-01-04 00:49+0000\n"
 "PO-Revision-Date: 2007-05-25 12:30+0300\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -731,8 +731,8 @@ msgid "Week"
 msgstr "Тыдзень"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1681
-#: kptmaindocument.cpp:1685
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
+#: kptmaindocument.cpp:1759
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1475,35 +1475,35 @@ msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Назоў праекту."
 
-#: kptmaindocument.cpp:1444
+#: kptmaindocument.cpp:1447
 #, fuzzy, kde-format
 msgid "Group: %1"
 msgstr "Група"
 
-#: kptmaindocument.cpp:1451
+#: kptmaindocument.cpp:1454
 #, fuzzy, kde-format
 msgid "Resource: %1"
 msgstr "Рэсурс"
 
-#: kptmaindocument.cpp:1456
+#: kptmaindocument.cpp:1459
 #, fuzzy, kde-format
 msgid "Calendar: %1"
 msgstr "Каляндар"
 
-#: kptmaindocument.cpp:1458
+#: kptmaindocument.cpp:1461
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Прызначаныя рэсурсы:"
 
-#: kptmaindocument.cpp:1473
+#: kptmaindocument.cpp:1478
 #, fuzzy, kde-format
 #| msgid "Project"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Праект"
 
-#: kptmaindocument.cpp:1651
+#: kptmaindocument.cpp:1725
 #, fuzzy, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
