@@ -203,22 +203,27 @@ void InsertProjectCmd::createCommands(Project &fromProject)
     QList<Resource*> allResources;
     QList<Resource*> newResources; // resource in fromProject that does not exist in toProject
     QHash<Resource*, Resource*> existingResources; // hash[toProject resource, fromProject resource]
+    QHash<Resource*, QStringList> existingResourceParentGroups; // existing resource with fromProject parentgroup ids
     QHash<Resource*, QStringList> newResourceParentGroups; // new resource with parent group ids
     const auto resources2 = fromProject.resourceList();
-    for (Resource *r : resources2) {
-        Resource *res = m_project->resource(r->id());
-        if (res == nullptr) {
-            const auto groups = r->parentGroups();
+    for (Resource *fromResource : resources2) {
+        Resource *toResource = m_project->resource(fromResource->id());
+        if (toResource == nullptr) {
+            const auto groups = fromResource->parentGroups();
             for (auto g : groups) {
-                newResourceParentGroups[r].append(g->id());
+                newResourceParentGroups[fromResource].append(g->id());
             }
-            r->setParentGroups(QList<ResourceGroup*>());
-            newResources << r;
-            allResources << r;
-            fromProject.removeResourceFromProject(r);
+            fromResource->setParentGroups(QList<ResourceGroup*>());
+            newResources << fromResource;
+            allResources << fromResource;
+            fromProject.removeResourceFromProject(fromResource);
         } else {
-            existingResources[ res ] = r;
-            allResources << res;
+            const auto groups = fromResource->parentGroups();
+            for (auto g : groups) {
+                existingResourceParentGroups[toResource].append(g->id());
+            }
+            existingResources[ toResource ] = fromResource;
+            allResources << toResource;
         }
     }
     for (auto r1 : qAsConst(allResources)) {
@@ -279,6 +284,19 @@ void InsertProjectCmd::createCommands(Project &fromProject)
             }
         }
     }
+    // Add the fromProjects parentgroups to existing resources
+    {QHash<Resource*, QStringList>::const_iterator it = existingResourceParentGroups.constBegin();
+    QHash<Resource*, QStringList>::const_iterator end = existingResourceParentGroups.constEnd();
+    for (; it != end; ++it) {
+        for (const auto &id : it.value()) {
+            auto group = findGroup(id, m_project, newGroups);
+            if (group) {
+                addCommand(new AddParentGroupCmd(it.key(), group));
+            } else {
+                warnPlanInsertProject<<"Failed to find parent group for resource:"<<it.key()<<"group id:"<<it.value();
+            }
+        }
+    }}
     // Update resource account
     {QHash<Resource*, QString>::const_iterator it = resourceaccountmap.constBegin();
     QHash<Resource*, QString>::const_iterator end = resourceaccountmap.constEnd();

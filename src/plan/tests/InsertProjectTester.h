@@ -13,6 +13,7 @@ namespace KPlato
 {
 
 class MainDocument;
+class Project;
 class Account;
 class ResourceGroup;
 class Resource;
@@ -46,7 +47,8 @@ private:
     Account *addAccount(MainDocument &part, Account *parent = nullptr, const QString &name = QString());
     Calendar *addCalendar(MainDocument &part, Calendar *parent = nullptr, const QString &id = QString());
     ResourceGroup *addResourceGroup(MainDocument &part, ResourceGroup *parent = nullptr, const QString &id = QString());
-    Resource *addResource(MainDocument &part, ResourceGroup *g = nullptr);
+    Resource *addResource(MainDocument &doc, ResourceGroup *g = nullptr);
+    Resource *addResource(Project *project, const QString &id = QString());
     Task *addTask(MainDocument &part);
     void addResourceRequest(MainDocument &part);
     Relation *addDependency(MainDocument &part, Task *t1, Task *t2);

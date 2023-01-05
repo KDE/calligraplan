@@ -294,9 +294,9 @@ void InsertProjectTester::testResourceGroup()
     }
 }
 
-Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
+Resource *InsertProjectTester::addResource(MainDocument &doc, ResourceGroup *g)
 {
-    Project &p = part.getProject();
+    Project &p = doc.getProject();
     if (p.resourceGroupCount() == 0) {
         qInfo()<<"No resource groups in project";
         return nullptr;
@@ -311,32 +311,71 @@ Resource *InsertProjectTester::addResource(MainDocument &part, ResourceGroup *g)
     }
     Resource *r = new Resource();
     KUndo2Command *c = new AddResourceCmd(g, r);
-    part.addCommand(c);
+    doc.addCommand(c);
     QString s = QString("%1.R%2").arg(g->name()).arg(g->indexOf(r));
     r->setName(s);
     return r;
 }
 
+Resource *InsertProjectTester::addResource(Project *project, const QString &id)
+{
+    Resource *r = new Resource();
+    r->setId(id.isEmpty() ? project->uniqueResourceId() : id);
+    QString s = QString("R%1").arg(project->resourceCount());
+    r->setName(s);
+    project->addResource(r);
+    return r;
+}
+
 void InsertProjectTester::testResource()
 {
-    Part pp(nullptr);
-    MainDocument part(&pp);
-    pp.setDocument(&part);
+    {
+        Part fromPart(nullptr);
+        MainDocument fromDoc(&fromPart);
+        fromPart.setDocument(&fromDoc);
+        auto fromProject = fromDoc.project();
 
-    addResourceGroup(part);
-    addResource(part);
-    Project &p = part.getProject();
-    QVERIFY(p.resourceGroupAt(0)->numResources() == 1);
+        addResourceGroup(fromDoc);
+        addResource(fromDoc);
+        QCOMPARE(fromProject->resourceGroupAt(0)->numResources(), 1);
 
-    Part pp2(nullptr);
-    MainDocument part2(&pp2);
-    pp2.setDocument(&part2);
-    //Debug::print(&part.getProject(), "Project to insert from: ------------", true);
-    //Debug::print(&part2.getProject(), "Project to insert into: -----------", true);
-    part2.insertProject(p, nullptr, nullptr);
-    //Debug::print(&part2.getProject(), "Result: ---------------------------", true);
-    QCOMPARE(part2.getProject().resourceCount(), 1);
-    QCOMPARE(part2.getProject().resourceGroupAt(0)->numResources(), 1);
+        Part toPart(nullptr);
+        MainDocument toDoc(&toPart);
+        toPart.setDocument(&toDoc);
+        auto toProject = toDoc.project();
+        //Debug::print(toProject, "Project to insert from: ------------", true);
+        //Debug::print(toProject, "Project to insert into: -----------", true);
+        toDoc.insertProject(*fromProject, nullptr, nullptr);
+        //Debug::print(toProject, "Result: ---------------------------", true);
+        QCOMPARE(toProject->resourceCount(), 1);
+        QCOMPARE(toProject->resourceGroupAt(0)->numResources(), 1);
+    }
+    {
+        qInfo()<<"--- Test existing resource with non-existing parent group";
+        Part fromPart(nullptr);
+        MainDocument fromDoc(&fromPart);
+        fromPart.setDocument(&fromDoc);
+        auto fromProject = fromDoc.project();
+
+        addResourceGroup(fromDoc);
+        auto resource = addResource(fromDoc);
+        QCOMPARE(fromProject->resourceGroupAt(0)->numResources(), 1);
+
+        Part toPart(nullptr);
+        MainDocument toDoc(&toPart);
+        toPart.setDocument(&toDoc);
+        auto toProject = toDoc.project();
+        addResource(toProject, resource->id());
+        QCOMPARE(toProject->resourceAt(0)->parentGroups().count(), 0);
+        //Debug::print(toProject, "Project to insert from: ------------", true);
+        //Debug::print(toProject, "Project to insert into: -----------", true);
+        toDoc.insertProject(*fromProject, nullptr, nullptr);
+        //Debug::print(toProject, "Result: ---------------------------", true);
+        QCOMPARE(toProject->resourceCount(), 1);
+        QCOMPARE(toProject->resourceGroupAt(0)->numResources(), 1);
+        QCOMPARE(toProject->resourceAt(0)->parentGroups().count(), 1);
+    }
+
 }
 
 void InsertProjectTester::testTeamResource()
