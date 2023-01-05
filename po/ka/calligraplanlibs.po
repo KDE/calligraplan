@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-04 00:49+0000\n"
-"PO-Revision-Date: 2022-12-24 06:10+0100\n"
+"PO-Revision-Date: 2023-01-04 09:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1103,7 +1103,7 @@ msgstr ""
 #: main/KoApplication.cpp:195
 #, kde-format
 msgid "File(s) or URL(s) to open"
-msgstr ""
+msgstr "გასახსნელი ბმულები და ფაილები"
 
 #: main/KoApplication.cpp:447 main/KoApplication.cpp:480
 #, kde-format
@@ -1394,7 +1394,7 @@ msgstr "არასწორი პაროლი"
 #: main/KoDocument.cpp:1806
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
-msgstr ""
+msgstr "არასწორი დოკუმენტი: ფაილი 'maindoc.xml' არ არსებობს."
 
 #: main/KoDocument.cpp:1830
 #, kde-format
@@ -1493,11 +1493,13 @@ msgid ""
 "Could not import file of type\n"
 "%1"
 msgstr ""
+"ამ ტიპის ფაილის შემოტანა შეუძლებელია\n"
+"%1"
 
 #: main/KoFilterManager.cpp:542
 #, kde-format
 msgid "Missing Import Filter"
-msgstr ""
+msgstr "აკლია შემოტანის ფილტრი"
 
 #: main/KoFilterManager_p.cpp:29
 #, kde-format
@@ -1507,7 +1509,7 @@ msgstr "აირჩიეთ ფილტრი"
 #: main/KoMainWindow.cpp:159
 #, kde-format
 msgid "%1 unsaved document (%2)"
-msgstr ""
+msgstr "%1 შეუნახავი დოკუმენტი (%2)"
 
 #: main/KoMainWindow.cpp:272 ui/kptviewbase.cpp:756
 #, kde-format
@@ -1557,13 +1559,13 @@ msgstr "მთელი ეკრანის რეჟიმი"
 #: main/KoMainWindow.cpp:342
 #, kde-format
 msgid "Show Dockers"
-msgstr ""
+msgstr "პანელების ჩვენება"
 
 #: main/KoMainWindow.cpp:347
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
-msgstr ""
+msgstr "პანელების სათაურის ჩვენება"
 
 #: main/KoMainWindow.cpp:354
 #, kde-format
@@ -4121,19 +4123,19 @@ msgstr "% დასრულებული"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
-msgstr ""
+msgstr "დაგეგმილი სამუშაოები"
 
 #: models/kptnodeitemmodel.cpp:2373
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
-msgstr ""
+msgstr "მიმდინარე სამუშაოები"
 
 #: models/kptnodeitemmodel.cpp:2374
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოები"
 
 #: models/kptnodeitemmodel.cpp:2375
 #, kde-kuit-format
@@ -4151,7 +4153,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
-msgstr ""
+msgstr "ფაქტიური დასაწყისი"
 
 #: models/kptnodeitemmodel.cpp:2378
 #, kde-kuit-format
@@ -4163,7 +4165,7 @@ msgstr "დაიწყო"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
-msgstr ""
+msgstr "ფაქტიური დასასრული"
 
 #: models/kptnodeitemmodel.cpp:2380
 #, kde-kuit-format
@@ -4392,12 +4394,12 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:3113 models/kpttaskstatusmodel.cpp:447
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოების ჩასწორება"
 
 #: models/kptnodeitemmodel.cpp:3125 models/kpttaskstatusmodel.cpp:460
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "მიმდინარე სამუშაოების ჩასწორება"
 
 #: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
@@ -5118,7 +5120,7 @@ msgstr ""
 #: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
-msgstr ""
+msgstr "შემნახველი პროგრამის გარეშე"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:681
 #, kde-kuit-format
@@ -5723,32 +5725,32 @@ msgstr ""
 #: store/KoEncryptedStore.cpp:737
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
-msgstr ""
+msgstr "შეიყვანეთ დოკუმენტის დასაშიფრი პაროლი."
 
 #: store/KoEncryptedStore.cpp:756
 #, kde-format
 msgid "Do you want to save the password?"
-msgstr ""
+msgstr "გნებავთ, შევინახოთ პაროლი?"
 
 #: store/KoNetAccess.cpp:86
 #, kde-format
 msgid "File '%1' is not readable"
-msgstr ""
+msgstr "ფაილი \"%1\" წაკითხვადი არაა"
 
 #: store/KoNetAccess.cpp:413
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
-msgstr ""
+msgstr "შეცდომა: უცნობი პროტოკოლი '%1'"
 
 #: store/KoStore.cpp:169
 #, kde-format
 msgid "The directory mode is not supported for remote locations."
-msgstr ""
+msgstr "დაშორებული მდებარეობებისთვის საქაღალდის რეჟიმი მხარდაუჭერელია."
 
 #: store/KoStore.cpp:170
 #, kde-format
 msgid "Calligra Storage"
-msgstr ""
+msgstr "Calligra -ის საცავი"
 
 #: ui/FilterWidget.cpp:38
 #, kde-format
@@ -8325,12 +8327,12 @@ msgstr ""
 #: ui/kptusedefforteditor.cpp:399
 #, kde-format
 msgid "Remaining Effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოები"
 
 #: ui/kptusedefforteditor.cpp:400
 #, kde-format
 msgid "Planned Effort"
-msgstr ""
+msgstr "დაგეგმილი სამუშაოები"
 
 #: ui/kptusedefforteditor.cpp:541
 #, kde-kuit-format
@@ -8545,7 +8547,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "დარჩენილი სამუშაოები"
 
 #: ui/kptworkpackagemergedialog.cpp:59
 #, kde-kuit-format
