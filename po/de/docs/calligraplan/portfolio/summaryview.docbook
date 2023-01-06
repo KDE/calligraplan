@@ -1,0 +1,27 @@
+<chapter id="summary"><title>Summary</title>
+  &WORK-IN-PROGRESS;
+  <para>
+  This view summarizes performance data for the projects in your portfolio.
+  </para><para>
+  <informaltable><tgroup cols="2">
+      <thead><row>
+          <entry><guilabel>Name</guilabel></entry>
+          <entry><guilabel>Description</guilabel></entry>
+        </row></thead>
+      <tbody>
+      <row><entry>Name</entry><entry>Project name</entry></row>
+      <row><entry>Schedule</entry><entry>Schedule name</entry></row>
+      <row><entry>SPI Cost</entry><entry>Schedule Performance Index (Cost based)</entry></row>
+      <row><entry>CPI Cost</entry><entry>Schedule Performance Index (Cost based)</entry></row>
+      <row><entry>SPI Effort</entry><entry>Schedule Performance Index (Effort based)</entry></row>
+      <row><entry>CPI Effort</entry><entry>Schedule Performance Index (effort based)</entry></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para><para>
+  SPI indicates if the progress is on schedule (1), behind schedule (less than 1) or ahead of schedule (greater than 1).
+  CPI indicates how much it has cost to obtain the actual progress. A value of 1 means as planned,
+  less than 1 means it has cost more than it should have done and a value greater than 1 means that
+  the progress has bean obtained with less resource usage than planned.
+  </para>
+</chapter>

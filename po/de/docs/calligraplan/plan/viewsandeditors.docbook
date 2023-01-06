@@ -1,0 +1,53 @@
+<chapter id="startup-view"><title>Views and Editors</title>
+  <sect1 id="startup-view-section"><title>Startup View</title>
+    &startup-view-section;
+  </sect1>
+  <sect1 id="task-editor"><title>Task Editor</title>
+    &task-editor-section;
+  </sect1>
+  <sect1 id="resource-editor"><title>Resource Editor</title>
+    &resource-editor-section;
+  </sect1>
+  <sect1 id="work-and-vacation-editor"><title>Work and Vacation Editor</title>
+    &work-and-vacation-editor-section;
+  </sect1>
+  <sect1 id="cost-breakdown-structure-editor"><title>Cost Breakdown Structure Editor</title>
+    &cost-breakdown-structure-editor-section;
+  </sect1>
+  <sect1 id="task-dependency-editor-graphical"><title>Task Dependency Editor (Graphical)</title>
+    &task-dependency-editor-graphical-section;
+  </sect1>
+  <sect1 id="task-dependency-editor-list"><title>Task Dependency Editor (List)</title>
+    &task-dependency-editor-list-section;
+  </sect1>
+  <sect1 id="schedules-editor"><title>Schedules Editor</title>
+    &schedules-editor-section;
+  </sect1>
+  <sect1 id="project-performance-view"><title>Project Performance View</title>
+    &project-performance-view-section;
+  </sect1>
+  <sect1 id="task-performance-view"><title>Task Performance View</title>
+    &task-performance-view-section;
+  </sect1>
+  <sect1 id="task-status-view"><title>Task Status View</title>
+    &task-status-view-section;
+  </sect1>
+  <sect1 id="task-execution-view"><title>Task Execution View</title>
+    &task-execution-view-section;
+  </sect1>
+  <sect1 id="task-gantt-view"><title>Task Gantt View</title>
+    &task-gantt-view-section;
+  </sect1>
+  <sect1 id="milestone-gantt-view"><title>Milestone Gantt View</title>
+    &milestone-gantt-view-section;
+  </sect1>
+  <sect1 id="resource-assignment-gantt-view"><title>Resource Assignment Gantt View</title>
+    &resource-assignment-gantt-view-section;
+  </sect1>
+  <sect1 id="resource-assignment-view"><title>Resource Assignment View</title>
+    &resource-assignment-view-section;
+  </sect1>
+  <sect1 id="cost-breakdown-view"><title>Cost Breakdown View</title>
+    &cost-breakdown-view-section;
+  </sect1>
+</chapter>

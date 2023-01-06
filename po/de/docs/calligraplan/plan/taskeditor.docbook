@@ -1,0 +1,369 @@
+<sect2><title/>
+<sect3 id="description4"><title>Description</title>
+  <para>
+    The Task Editor is used to create, edit, and delete tasks.</para><para>Tasks can be organized into a hierarchical tree structure to any depth.
+  </para>
+  <para>
+    <screenshot>
+      <screeninfo></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"><title>Toolbar</title>
+  <para>The toolbar provides the means to create, delete and move tasks and milestones:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry><guilabel>Button</guilabel></entry>
+            <entry><guilabel>Shortcut</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Add Task</para>
+            </entry>
+            <entry>
+              <para><keycombo>&Ctrl;<keycap>I</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Dropdown box to create a task or milestone. The new item is positioned after the currently selected item on the same level as the selected item. If no item is selected, the new item is appended at the top level.</para>
+            </entry>
+          </row>
+          <row>
+            <entry><para>&nbsp;</para></entry>
+            <entry>
+              <para><keycombo>&Ctrl;&Alt;<keycap>I</keycap></keycombo></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Add Sub-task</para>
+            </entry>
+            <entry>
+              <para><keycombo>&Ctrl;&Shift;<keycap>I</keycap></keycombo></para>
+            </entry>
+            <entry>
+              <para>Dropdown box to create a sub-task or -milestone. The new item is appended as a child to the currently selected item.</para>
+            </entry>
+          </row>
+          <row>
+            <entry><para>&nbsp;</para></entry>
+            <entry>
+              <para><keycombo>&Ctrl;&Shift;&Alt;<keycap>I</keycap></keycombo></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Delete Task</para>
+            </entry>
+            <entry>
+              <para><keycap>Delete</keycap></para>
+            </entry>
+            <entry>
+              <para>Deletes the selected tasks.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Indent Task</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>Appends the selected task as a child to the task above.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Unindent Task</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>Moves the selected task one level up, inserting it after its current parent task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Move Up</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>Moves the selected task up one place.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Move Down</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>Moves the selected task down one place.</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para>
+    Note that you can also move or copy tasks using drag and drop or copy/paste.
+  </para>
+</sect3>
+<sect3 id="editing-data5"><title>Editing data</title>
+  <para>Data can be edited inline as described <link linkend="using-the-views">here</link>  or by using the Task Settings Dialog.
+  </para>
+  <para>The following columns are displayed as default:
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry><guilabel>Column</guilabel></entry>
+            <entry><guilabel>Description</guilabel></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para>Name</para>
+            </entry>
+            <entry>
+              <para>The name of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Status</para>
+            </entry>
+            <entry>
+              <para>Task status</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Responsible</para>
+            </entry>
+            <entry>
+              <para>The person responsible for this task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Allocation</para>
+            </entry>
+            <entry>
+              <para>List of resource allocations.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Type</para>
+            </entry>
+            <entry>
+              <para>The type of task or the estimate type of the task.</para><para>The type can be set to <emphasis>Milestone</emphasis>, <emphasis>Effort</emphasis> or <emphasis>Duration</emphasis>.
+              </para>
+              <para><guilabel>Note:</guilabel> If the type is <emphasis>Summary</emphasis> or <emphasis>Project</emphasis> the type is not editable.
+              </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Calendar</para>
+            </entry>
+            <entry>
+              <para>The calendar used when estimate type is <emphasis>Duration</emphasis>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Estimate</para>
+            </entry>
+            <entry>
+              <para>The most likely estimate. The estimate is the expected amount of effort or time needed to complete a task. It can be expressed in different units: h (hours), d (days), w (weeks) and M (months).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Optimistic Ratio</para>
+            </entry>
+            <entry>
+              <para>Optimistic estimate expressed as a negative percentage of the most likely estimate. (E.g. -20%).</para><para>This is only used if a PERT distribution is used.
+              </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Pessimistic Ratio</para>
+            </entry>
+            <entry>
+              <para>Pessimistic estimate expressed as a positive percentage of the most likely estimate. (E.g. 50%).</para><para>This is only used if a PERT distribution is used.
+              </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Risk</para>
+            </entry>
+            <entry>
+              <para>Risk controls the PERT distribution used when calculating the actual estimate for this task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Constraint</para>
+            </entry>
+            <entry>
+              <para>The timing constraint type.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Constraint Start</para>
+            </entry>
+            <entry>
+              <para>Constraint start time.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Constraint End</para>
+            </entry>
+            <entry>
+              <para>Constraint end time.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Running Account</para>
+            </entry>
+            <entry>
+              <para>Account for running costs.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Startup Account</para>
+            </entry>
+            <entry>
+              <para>Account for cost incurred at startup of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Startup Cost</para>
+            </entry>
+            <entry>
+              <para>The cost incurred at startup of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Shutdown Account</para>
+            </entry>
+            <entry>
+              <para>Account for cost incurred at shutdown of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Shutdown Cost</para>
+            </entry>
+            <entry>
+              <para>The cost incurred at shutdown of the task.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>Description</para>
+            </entry>
+            <entry>
+              <para>Task notes.</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"><title>Task Modules Docker</title>
+  <para>Task Modules are groups of tasks that can be reused across projects.
+  </para>
+  <para>This makes it possible to draw on past experience and to standardize similar operations.
+  </para>
+  <para>A task module is inserted into your project by dragging it from the docker and dropping it into your project.
+  </para>
+  <para>A task module is a regular plan file, and is designed using &plan; in the same way as designing a regular project.
+  </para>
+  <para>A task module, however, typically includes only tasks, estimates, and dependencies.
+  </para>
+  <para>The project name is displayed in the docker, and the description is used as the tooltip.
+  </para>
+  <para>A module can be opened for inspection or editing by double-clicking on the module.
+  </para>
+  <para>The modules can be grouped by storing them in different directories. Where to search for them is configured using the Project Settings Dialog.
+  </para>
+  <para>Default values for new projects can be defined using the configuration dialog, see <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>.
+  </para>
+</sect3>
+<sect3 id="resources-docker"><title>Resources Docker</title>
+  <para>The Resources Docker offers a simple way to allocate resources to tasks by selecting the resources you need and dragging them onto the <emphasis>Allocation</emphasis> column.
+  </para>
+  <para>A resource can also be dropped on the <emphasis>Responsible</emphasis> column.
+  </para>
+</sect3>
+<sect3 id="allocations-docker"><title>Allocations Docker</title>
+  <para>The Allocations Docker displays the current resource allocation for the selected task.
+  </para>
+</sect3>
+<sect3 id="configuration"><title>Configuration</title>
+  <para>Using the context menu, the view can be configured to show / hide the Project, split / unsplit the tree view or it can be configured using the configure dialog.
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para>The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot></para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>
