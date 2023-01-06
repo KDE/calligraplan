@@ -11,7 +11,6 @@
 #define SCHEDULEMANAGERNAME "schedulemanager-name"
 #define SCHEDULINGCONTROL "scheduling-control"
 #define SCHEDULINGPRIORITY "scheduling-priority"
-#define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
 #define NOUI "noui"
 #define SAVEEMBEDDED "save-embedded"
 #define EMBEDDEDURL "embedded-url"
@@ -23,5 +22,11 @@
 #define SHAREDRESOURCESCONVERT 1
 #define SHAREDRESOURCESKEEP 2
 #define SHAREDRESOURCESACTION "sharedresources-action"
+
+// loading control
+#define SKIPLOADDOCUMENTINFO "skiploaddicumentinfo"
+#define BLOCKSHAREDPROJECTSLOADING "blocksharedprojectsloading"
+#define SKIPCOMPLETELOADING "skipcompleteloading"
+#define SKIPLOADMAINDOC "skiploadmainddoc"
 
 #endif // EXTRAPROPERIES_H
