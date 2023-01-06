@@ -23,6 +23,7 @@ class KoFileDialog;
 
 class QUrl;
 class QItemSelecteion;
+class QStandardItem;
 
 class RecentProjectsModel;
 
@@ -65,9 +66,11 @@ private Q_SLOTS:
     void slotOpenProjectTemplate(const QModelIndex &idx);
 
     void slotCreateResourceFile();
+    void slotTemplateDocumentLoaded();
 
 private:
     void setProjectTemplatesModel();
+    void setTemplateToolTip(QStandardItem *item);
 
 private:
     Ui::WelcomeView ui;

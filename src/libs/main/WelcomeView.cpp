@@ -7,6 +7,7 @@
 // clazy:excludeall=qstring-arg
 #include "WelcomeView.h"
 #include "config.h"
+#include "ExtraProperties.h"
 
 #include "KoApplication.h"
 #include "KoPart.h"
@@ -17,6 +18,7 @@
 #include <KoDocument.h>
 #include <KoFileDialog.h>
 #include <KoComponentData.h>
+#include <KoDocumentInfo.h>
 
 #include <KConfigGroup>
 #include <KRecentFilesAction>
@@ -344,8 +346,8 @@ void WelcomeView::setProjectTemplatesModel()
         for (const QString &file : entryList) {
             QStandardItem *item = new QStandardItem(file.left(file.lastIndexOf(QString::fromLatin1(".plant"))));
             item->setData(QString(path + QStringLiteral("/") + file));
-            item->setToolTip(item->data().toString());
             item->setIcon(koIcon("document-new-from-template"));
+            setTemplateToolTip(item);
             if (parent) {
                 parent->appendRow(item);
             } else {
@@ -356,6 +358,31 @@ void WelcomeView::setProjectTemplatesModel()
     delete ui.projectTemplates->model();
     ui.projectTemplates->setModel(m);
     ui.projectTemplates->expandAll();
+}
+
+void WelcomeView::setTemplateToolTip(QStandardItem *item)
+{
+    QString filename = item->data().toString();
+    item->setToolTip(filename);
+    auto part = this->part(QApplication::applicationName(), PLAN_MIME_TYPE);
+    if (part) {
+        auto doc = part->createDocument(part);
+        doc ->setCheckAutoSaveFile(false);
+        doc->setProperty(NOUI, true);
+        doc->setProperty(SKIPCOMPLETELOADING, true);
+        doc->setProperty(SKIPLOADMAINDOC, true);
+        if (doc->loadNativeFormat(item->data().toString())) {
+            auto description = doc->documentInfo()->aboutInfo("description");
+            if (!description.isEmpty()) {
+                item->setToolTip(description);
+            }
+        }
+    }
+}
+
+void WelcomeView::slotTemplateDocumentLoaded()
+{
+
 }
 
 KoPart *WelcomeView::part(const QString &appName, const QString &mimeType) const
