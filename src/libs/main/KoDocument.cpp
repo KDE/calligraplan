@@ -10,6 +10,7 @@
 
 // clazy:excludeall=qstring-arg
 #include "KoDocument.h"
+#include "ExtraProperties.h"
 
 #include "KoMainWindow.h" // XXX: remove
 #include <KMessageBox> // XXX: remove
@@ -1786,21 +1787,17 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
         }
 
     } else if (store->hasFile("root") || store->hasFile("maindoc.xml")) {   // Fallback to "old" file format (maindoc.xml)
-
-
-
-        oasis = false;
-
-        KoXmlDocument doc = KoXmlDocument(true);
-
-        bool ok = oldLoadAndParse(store, "root", doc);
-        if (ok)
-            ok = loadXML(doc, store);
-        if (!ok) {
-            QApplication::restoreOverrideCursor();
-            return false;
+        if (!property("SKIPLOADMAINDOC").toBool()) {
+            oasis = false;
+            KoXmlDocument doc = KoXmlDocument(true);
+            bool ok = oldLoadAndParse(store, "root", doc);
+            if (ok)
+                ok = loadXML(doc, store);
+            if (!ok) {
+                QApplication::restoreOverrideCursor();
+                return false;
+            }
         }
-
     } else {
         errorMain << "ERROR: No maindoc.xml" << '\n';
         d->lastErrorMessage = i18n("Invalid document: no file 'maindoc.xml'.");
@@ -1815,9 +1812,11 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
             d->docInfo->loadOasis(metaDoc);
         }
     } else if (!oasis && store->hasFile("documentinfo.xml")) {
-        KoXmlDocument doc = KoXmlDocument(true);
-        if (oldLoadAndParse(store, "documentinfo.xml", doc)) {
-            d->docInfo->load(doc);
+        if (!property(SKIPLOADDOCUMENTINFO).toBool()) {
+            KoXmlDocument doc = KoXmlDocument(true);
+            if (oldLoadAndParse(store, "documentinfo.xml", doc)) {
+                d->docInfo->load(doc);
+            }
         }
     } else {
         //kDebug(30003) <<"cannot open document info";
