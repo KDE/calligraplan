@@ -934,6 +934,9 @@ void MainDocument::setSavingTemplate(bool on)
 
 bool MainDocument::completeLoading(KoStore *store)
 {
+    if (property(SKIPCOMPLETELOADING).toBool()) {
+        return true;
+    }
     // If we get here the new project is loaded and set
     if (m_loadingSharedProject) {
         // this file is loaded by another project
