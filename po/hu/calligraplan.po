@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KOffice 1.6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:49+0000\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
 "PO-Revision-Date: 2012-12-12 23:19+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -783,8 +783,8 @@ msgid "Week"
 msgstr "Hét"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
-#: kptmaindocument.cpp:1759
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
+#: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1538,12 +1538,12 @@ msgstr ""
 "verziószám: %1)\n"
 "Ha ezzel a PlanWork verzióval nyitja meg, adatvesztés következhet be."
 
-#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
+#: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1182
+#: kptmaindocument.cpp:1185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1551,50 +1551,50 @@ msgid ""
 "to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1192
+#: kptmaindocument.cpp:1195
 #, fuzzy, kde-kuit-format
 #| msgid "Assign resources:"
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Erőforrások hozzárendelése:"
 
-#: kptmaindocument.cpp:1362
+#: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Projekt beszúrása"
 
-#: kptmaindocument.cpp:1447
+#: kptmaindocument.cpp:1450
 #, fuzzy, kde-format
 #| msgid "Group"
 msgid "Group: %1"
 msgstr "Csoport"
 
-#: kptmaindocument.cpp:1454
+#: kptmaindocument.cpp:1457
 #, fuzzy, kde-format
 #| msgid "Resource"
 msgid "Resource: %1"
 msgstr "Erőforrás"
 
-#: kptmaindocument.cpp:1459
+#: kptmaindocument.cpp:1462
 #, fuzzy, kde-format
 msgid "Calendar: %1"
 msgstr "A naptár neve"
 
-#: kptmaindocument.cpp:1461
+#: kptmaindocument.cpp:1464
 #, fuzzy
 #| msgid "Assign resources:"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Erőforrások hozzárendelése:"
 
-#: kptmaindocument.cpp:1478
+#: kptmaindocument.cpp:1481
 #, fuzzy, kde-format
 #| msgid "Project:"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projekt:"
 
-#: kptmaindocument.cpp:1725
+#: kptmaindocument.cpp:1728
 #, fuzzy, kde-format
 #| msgid "Base"
 msgctxt "Base calendar name"

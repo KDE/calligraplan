@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:49+0000\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
 "PO-Revision-Date: 2022-09-25 09:17+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -742,8 +742,8 @@ msgid "Week"
 msgstr "Vecka"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
-#: kptmaindocument.cpp:1759
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
+#: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
 msgstr "Helgdagar"
@@ -1479,12 +1479,12 @@ msgstr ""
 "%1)\n"
 "Öppnas det i den här versionen av Planwork går en del information förlorad."
 
-#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
+#: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "Internt fel, misslyckades infoga fil."
 
-#: kptmaindocument.cpp:1182
+#: kptmaindocument.cpp:1185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1494,44 +1494,44 @@ msgstr ""
 "Misslyckades läsa in delade resurser i projektet %1:<nl/>Internt fel, "
 "misslyckades infoga fil."
 
-#: kptmaindocument.cpp:1192
+#: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Misslyckades läsa in delade resurser i projektet %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1362
+#: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Infoga projekt"
 
-#: kptmaindocument.cpp:1447
+#: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
 msgstr "Grupp: %1"
 
-#: kptmaindocument.cpp:1454
+#: kptmaindocument.cpp:1457
 #, kde-format
 msgid "Resource: %1"
 msgstr "Resurs: %1"
 
-#: kptmaindocument.cpp:1459
+#: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Kalender: %1"
 
-#: kptmaindocument.cpp:1461
+#: kptmaindocument.cpp:1464
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Uppdatera delade resurser"
 
-#: kptmaindocument.cpp:1478
+#: kptmaindocument.cpp:1481
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projekt: %1"
 
-#: kptmaindocument.cpp:1725
+#: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

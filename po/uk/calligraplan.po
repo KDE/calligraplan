@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:49+0000\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
 "PO-Revision-Date: 2022-12-22 05:29+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -743,8 +743,8 @@ msgid "Week"
 msgstr "Тиждень"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
-#: kptmaindocument.cpp:1759
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
+#: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
 msgstr "Вихідні дні"
@@ -1487,12 +1487,12 @@ msgstr ""
 "Відкриття цього документа у поточній версії PlanWork призведе до втрати "
 "деякої інформації."
 
-#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
+#: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "Внутрішня помилка, не вдалося вставити файл."
 
-#: kptmaindocument.cpp:1182
+#: kptmaindocument.cpp:1185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1502,46 +1502,46 @@ msgstr ""
 "Не вдалося завантажити спільні ресурси до проєкту %1:<nl/>Внутрішня помилка, "
 "не вдалося вставити файл."
 
-#: kptmaindocument.cpp:1192
+#: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Не вдалося завантажити спільні ресурси до проєкту %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1362
+#: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr ""
 "Вставити проєкт\n"
 "вставлення проєкту"
 
-#: kptmaindocument.cpp:1447
+#: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
 msgstr "Група: %1"
 
-#: kptmaindocument.cpp:1454
+#: kptmaindocument.cpp:1457
 #, kde-format
 msgid "Resource: %1"
 msgstr "Ресурс: %1"
 
-#: kptmaindocument.cpp:1459
+#: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Календар: %1"
 
-#: kptmaindocument.cpp:1461
+#: kptmaindocument.cpp:1464
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Оновити спільні ресурси"
 
-#: kptmaindocument.cpp:1478
+#: kptmaindocument.cpp:1481
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Проєкт: %1"
 
-#: kptmaindocument.cpp:1725
+#: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

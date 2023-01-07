@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:49+0000\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
 "PO-Revision-Date: 2022-12-22 14:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -753,8 +753,8 @@ msgid "Week"
 msgstr "Setmana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
-#: kptmaindocument.cpp:1759
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
+#: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
 msgstr "Dies festius"
@@ -1527,12 +1527,12 @@ msgstr ""
 "Si l'obriu amb la versió actual del PlanWork, es perdrà part de la "
 "informació."
 
-#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
+#: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr "S'ha produït un error intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1182
+#: kptmaindocument.cpp:1185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1542,45 +1542,45 @@ msgstr ""
 "No s'han pogut carregar els recursos compartits en el projecte %1:<nl/>S'ha "
 "produït un error intern, ha fallat en inserir el fitxer."
 
-#: kptmaindocument.cpp:1192
+#: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr ""
 "No s'han pogut carregar els recursos compartits dins del projecte %1:<nl/>%2"
 
-#: kptmaindocument.cpp:1362
+#: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Inserix un projecte"
 
-#: kptmaindocument.cpp:1447
+#: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
 msgstr "Grup: %1"
 
-#: kptmaindocument.cpp:1454
+#: kptmaindocument.cpp:1457
 #, kde-format
 msgid "Resource: %1"
 msgstr "Recurs: %1"
 
-#: kptmaindocument.cpp:1459
+#: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
 msgstr "Calendari: %1"
 
-#: kptmaindocument.cpp:1461
+#: kptmaindocument.cpp:1464
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Actualitza els recursos compartits"
 
-#: kptmaindocument.cpp:1478
+#: kptmaindocument.cpp:1481
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Projecte: %1"
 
-#: kptmaindocument.cpp:1725
+#: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"

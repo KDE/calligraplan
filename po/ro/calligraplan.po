@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:49+0000\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
 "PO-Revision-Date: 2010-01-18 15:56+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu.bivol@jurnaltv.md>\n"
 "Language-Team: Română <kde-i18n-ro@kde.org>\n"
@@ -746,8 +746,8 @@ msgid "Week"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
-#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1755
-#: kptmaindocument.cpp:1759
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
+#: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
 msgstr ""
@@ -1460,12 +1460,12 @@ msgid ""
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
 
-#: kptmaindocument.cpp:1110 kptmaindocument.cpp:1331
+#: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1182
+#: kptmaindocument.cpp:1185
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1473,51 +1473,51 @@ msgid ""
 "to insert file."
 msgstr ""
 
-#: kptmaindocument.cpp:1192
+#: kptmaindocument.cpp:1195
 #, fuzzy, kde-kuit-format
 #| msgid "Delete Resource"
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr "Șterge resursa"
 
-#: kptmaindocument.cpp:1362
+#: kptmaindocument.cpp:1365
 #, fuzzy
 #| msgid "Insert File"
 msgctxt "(qtundo-format)"
 msgid "Insert project"
 msgstr "Inserează fișier"
 
-#: kptmaindocument.cpp:1447
+#: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:1454
+#: kptmaindocument.cpp:1457
 #, fuzzy, kde-format
 #| msgid "Resources"
 msgid "Resource: %1"
 msgstr "Resurse"
 
-#: kptmaindocument.cpp:1459
+#: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
 msgstr ""
 
-#: kptmaindocument.cpp:1461
+#: kptmaindocument.cpp:1464
 #, fuzzy
 #| msgid "Delete Resource"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Șterge resursa"
 
-#: kptmaindocument.cpp:1478
+#: kptmaindocument.cpp:1481
 #, fuzzy, kde-format
 #| msgid "Project"
 msgctxt "@title:window"
 msgid "Project: %1"
 msgstr "Proiect"
 
-#: kptmaindocument.cpp:1725
+#: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
