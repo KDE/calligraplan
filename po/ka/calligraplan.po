@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-04 09:07+0100\n"
+"PO-Revision-Date: 2023-01-07 09:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -477,7 +477,7 @@ msgstr ""
 #: calligraplansettings.kcfg:349
 #, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr ""
+msgstr "დირექტორია, სადაც სამუშაო პაკეტების გამოქვეყნება მოხდება"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
@@ -508,13 +508,13 @@ msgstr "ბილიკი კონტექსტის დახმარე�
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "კონტექსტის დახმარების დოკუმენტაციის ენაზე გადათარგმნა აუცილებელია"
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
 #: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
-msgstr ""
+msgstr "ამოცანის მოდულის პირადი საცავიდან გამოყენება"
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
 #: calligraplansettings.kcfg:384
@@ -1443,7 +1443,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr ""
+msgstr "პროექტში (%1) გაზიარებული რესურსების ჩატვირთვის შეცდომა:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"

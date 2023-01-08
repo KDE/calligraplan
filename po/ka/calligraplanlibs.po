@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-04 09:07+0100\n"
+"PO-Revision-Date: 2023-01-07 09:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -228,7 +228,7 @@ msgstr "შეზღუდვების შესრულება შეუ�
 #: kernel/kptglobal.cpp:32
 #, kde-format
 msgid "Effort not met"
-msgstr ""
+msgstr "სამუშაოების შეუთავსებელი რაოდენობა"
 
 #: kernel/kptglobal.cpp:34
 #, kde-format
@@ -384,7 +384,7 @@ msgstr "ერთეული"
 #: kernel/kptproject.cpp:278
 #, kde-format
 msgid "Schedule project from: %1"
-msgstr ""
+msgstr "პროექტის დაგეგმვის წყარო: %1"
 
 #: kernel/kptproject.cpp:283 kernel/kptproject.cpp:395
 #: kernel/kptproject.cpp:431
@@ -419,7 +419,7 @@ msgstr "განრიგი"
 #: kernel/kptproject.cpp:294 kernel/kptproject.cpp:406
 #, kde-format
 msgid "Schedule tasks forward"
-msgstr ""
+msgstr "ამოცანების წინასწარი დაგეგმვა"
 
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
 #, kde-format
@@ -429,22 +429,22 @@ msgstr "დაგეგმვა გაუქმდა"
 #: kernel/kptproject.cpp:299 kernel/kptproject.cpp:409
 #, kde-format
 msgid "Scheduled finish: %1"
-msgstr ""
+msgstr "დაგეგმილი დასასრული: %1"
 
 #: kernel/kptproject.cpp:301 kernel/kptproject.cpp:412
 #, kde-format
 msgid "Could not finish project in time: %1"
-msgstr ""
+msgstr "პროექტის დროზე დასრულება შეუძლებელია: %1"
 
 #: kernel/kptproject.cpp:303 kernel/kptproject.cpp:414
 #, kde-format
 msgid "Finished project exactly on time: %1"
-msgstr ""
+msgstr "პროექტი ზუსტად დროზე დასრულდა: %1"
 
 #: kernel/kptproject.cpp:305 kernel/kptproject.cpp:416
 #, kde-format
 msgid "Finished project before time: %1"
-msgstr ""
+msgstr "პროექტი დროზე ადრე დასრულდა: %1"
 
 #: kernel/kptproject.cpp:390
 #, kde-format
@@ -454,7 +454,7 @@ msgstr ""
 #: kernel/kptproject.cpp:396 kernel/kptproject.cpp:432
 #, kde-format
 msgid "Calculate late finish"
-msgstr ""
+msgstr "გვიანები დასრულების გამოთვლა"
 
 #: kernel/kptproject.cpp:399 kernel/kptproject.cpp:434
 #, kde-format
@@ -1650,7 +1650,7 @@ msgstr "დოკუმენტის შემოტანა"
 #: main/KoMainWindow.cpp:1534
 #, kde-format
 msgid "Cannot preview the document"
-msgstr ""
+msgstr "დოკუმენტის მინიატურის შექმნის შეცდომა"
 
 #: main/KoMainWindow.cpp:1542
 #, kde-format
@@ -2676,7 +2676,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is started"
-msgstr ""
+msgstr "აჩვენებს, გაშვებულია ამოცანა, თუ არა"
 
 #: models/kptcommonstrings.cpp:70
 #, kde-kuit-format
@@ -4027,25 +4027,25 @@ msgstr "დასასრულის Დრო"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Start"
-msgstr ""
+msgstr "ადრე დაწყება"
 
 #: models/kptnodeitemmodel.cpp:2352
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Finish"
-msgstr ""
+msgstr "ადრე დასრულება"
 
 #: models/kptnodeitemmodel.cpp:2353
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Start"
-msgstr ""
+msgstr "გვიან დაწყება"
 
 #: models/kptnodeitemmodel.cpp:2354
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Finish"
-msgstr ""
+msgstr "გვიან დასრულება"
 
 #: models/kptnodeitemmodel.cpp:2355
 #, kde-kuit-format
@@ -4219,7 +4219,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Effort Not Met"
-msgstr ""
+msgstr "სამუშაოების შეუთავსებელი რაოდენობა"
 
 #: models/kptnodeitemmodel.cpp:2391
 #, kde-kuit-format
@@ -4359,12 +4359,12 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:2977
 msgctxt "(qtundo-format)"
 msgid "Modify risk type"
-msgstr ""
+msgstr "რისკის ტიპის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2992
 msgctxt "(qtundo-format)"
 msgid "Modify priority"
-msgstr ""
+msgstr "პრიორიტეტისშეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3012
 msgctxt "(qtundo-format)"
@@ -4464,7 +4464,7 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5071
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
-msgstr ""
+msgstr "ამოცანების გადატანა"
 
 #: models/kptnodeitemmodel.cpp:4334 ui/kpttaskdialog.cpp:166
 #: ui/kpttaskdialog.cpp:203
@@ -4475,7 +4475,7 @@ msgstr "ამოცანის დამატება"
 #: models/kptnodeitemmodel.cpp:4349 ui/kpttaskdialog.cpp:201
 msgctxt "(qtundo-format)"
 msgid "Add sub-task"
-msgstr ""
+msgstr "ქვეამოცანის დამატება"
 
 #: models/kptpertcpmmodel.cpp:149
 #, kde-format
@@ -4510,7 +4510,7 @@ msgstr "ლაგი"
 #: models/kptrelationmodel.cpp:317
 msgctxt "(qtundo-format)"
 msgid "Modify relation type"
-msgstr ""
+msgstr "ურთიერთობის ტიპის შეცვლა"
 
 #: models/kptrelationmodel.cpp:333
 msgctxt "(qtundo-format)"
@@ -7554,7 +7554,7 @@ msgstr ""
 #: ui/kptscheduleeditor.cpp:392 ui/kptscheduleeditor.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
-msgstr ""
+msgstr "ქვეგეგმის დამატება"
 
 #: ui/kptscheduleeditor.cpp:403
 #, kde-format
@@ -9327,12 +9327,12 @@ msgstr "კი"
 #: ui/reports/reportview.cpp:1347
 #, kde-format
 msgid "After footer"
-msgstr ""
+msgstr "ქვესართის შემდეგ"
 
 #: ui/reports/reportview.cpp:1347
 #, kde-format
 msgid "Before header"
-msgstr ""
+msgstr "თავსართამდე"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-format
@@ -9355,13 +9355,13 @@ msgstr "დამატება"
 #, kde-format
 msgctxt "@title:column"
 msgid "Report File"
-msgstr ""
+msgstr "ანგარიშის ფაილი"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:259
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
-msgstr ""
+msgstr "ანგარიშის სახელი"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
