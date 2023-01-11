@@ -5,5 +5,5 @@ Mutators=true
 Inherits=ConfigSkeleton
 IncludeFiles="ConfigSkeleton.h"
 TranslationSystem=kde
-TranslationDomain=calligraplangroup
+TranslationDomain=calligraplanportfolio
 Visibility=PLANPORTFOLIO_EXPORT

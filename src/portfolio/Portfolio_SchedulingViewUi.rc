@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Scheduling View" version="1" translationDomain="calligraplangroup">
+<gui name="Scheduling View" version="2" translationDomain="calligraplanportfolio">
     <MenuBar>
         <Menu name="edit"><text>&amp;Edit</text>
             <Action name="calculate_schedule"/>

@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
     KoApplication app(PLANPORTFOLIO_MIME_TYPE.latin1(), QStringLiteral("calligraplanportfolio"), newAboutData, argc, argv);
+    KLocalizedString::setApplicationDomain("calligraplanportfolio");
 
     if (!app.start(PortfolioFactory::global())) {
         return 1;

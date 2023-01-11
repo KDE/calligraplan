@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Calligra Portfolio" version="1" translationDomain="calligraplangroup">
+<gui name="Calligra Portfolio" version="2" translationDomain="calligraplanportfolio">
     <MenuBar>
         <Menu name="file" noMerge="1"><text>&amp;File</text>
             <Merge/>
@@ -19,6 +19,7 @@
             <Action name="theme_menu" />
             <Separator/>
             <DefineGroup name="settings_configure"/>
+            <Action name="switch_application_language"/>
             <Action name="configure"/>
         </Menu>
         <Menu name="help" NoMerge="1"><text>&amp;Help</text>

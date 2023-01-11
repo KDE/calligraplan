@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd" >
-<gui name="Portfolio" version="56" translationDomain="calligraplangroup">
+<gui name="Portfolio" version="57" translationDomain="calligraplanportfolio">
     <MenuBar>
         <Menu name="file" NoMerge="1"><text>&amp;File</text>
             <Action name="file_new" />

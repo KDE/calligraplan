@@ -1,5 +1,5 @@
 
-add_definitions(-DTRANSLATION_DOMAIN=\"calligraplangroup\")
+add_definitions(-DTRANSLATION_DOMAIN=\"calligraplanportfolio\")
 
 include_directories(${PLANKERNEL_INCLUDES} ${PLANUI_INCLUDES} config)
 
