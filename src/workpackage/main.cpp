@@ -9,6 +9,7 @@
 #include "commandlineparser.h"
 
 #include <KDBusService>
+#include <KLocalizedString>
 
 #include <QApplication>
 #include <QLoggingCategory>
@@ -19,6 +20,7 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("calligraplanwork"); // activate tranlations
 #ifdef Q_OS_MACOS
         // app.applicationName() will return "Plan Work" because of the nice name
         // set in the Info.plist. DBus doesn't like the resulting space in the 

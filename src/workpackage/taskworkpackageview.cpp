@@ -696,6 +696,14 @@ GanttView::GanttView(Part *part, QWidget *parent)
     setRowController(m_rowController);
     tv->header()->setStretchLastSection(true);
 
+    // Set workdays so freedays can be indicated
+    const auto weekdays = QLocale().weekdays();
+    for (const auto w : weekdays) {
+        auto day = m_calendar.weekday(w);
+        day->setState(KPlato::CalendarDay::Working);
+    }
+    setCalendar(2, &m_calendar);
+
     QSortFilterProxyModel *sf = new QSortFilterProxyModel(tv);
     sf->setSortRole(Qt::EditRole);
     sf->setSourceModel(m_itemmodel);

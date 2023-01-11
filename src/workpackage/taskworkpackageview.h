@@ -10,7 +10,7 @@
 #include "planwork_export.h"
 
 #include "kptitemmodelbase.h"
-
+#include "kptcalendar.h"
 #include "kptviewbase.h"
 #include "gantt/GanttViewBase.h"
 #include "gantt/kptganttitemdelegate.h"
@@ -209,6 +209,7 @@ protected:
     GanttItemDelegate *m_ganttdelegate;
     TaskWorkPackageModel *m_itemmodel;
     KGantt::TreeViewRowController *m_rowController;
+    KPlato::Calendar m_calendar;
 };
 
 class PLANWORK_EXPORT TaskWPGanttView : public AbstractView
@@ -240,7 +241,6 @@ protected Q_SLOTS:
 
 private:
     GanttView *m_view;
-
 };
 
 } //namespace KPlatoWork
