@@ -552,14 +552,15 @@ bool GanttViewBase::loadContext(const KoXmlElement &settings)
     g->setScale(static_cast<KGantt::DateTimeGrid::Scale>(settings.attribute(QStringLiteral("chart-scale"), QString::number(0)).toInt()));
     g->setDayWidth(settings.attribute(QStringLiteral("chart-daywidth"), QString::number(30)).toDouble());
 
-    const auto freedays = settings.namedItem(QStringLiteral("freedays")).toElement();
-    if (freedays.isNull()) {
-        // if loading an old project, set to project freedays
-        setCalendar(1, nullptr);
-    } else {
-        setCalendar(freedays.attribute(QStringLiteral("type")).toInt(), m_project->findCalendar(freedays.attribute(QStringLiteral("calendar-id"))));
+    if (m_project) {
+        const auto freedays = settings.namedItem(QStringLiteral("freedays")).toElement();
+        if (freedays.isNull()) {
+            // if loading an old project, set to project freedays
+            setCalendar(1, nullptr);
+        } else {
+            setCalendar(freedays.attribute(QStringLiteral("type")).toInt(), m_project->findCalendar(freedays.attribute(QStringLiteral("calendar-id"))));
+        }
     }
-
     DateTimeTimeLine::Options opt;
     opt.setFlag(DateTimeTimeLine::Foreground, settings.attribute(QStringLiteral("timeline-foreground")).toInt());
     opt.setFlag(DateTimeTimeLine::Background, settings.attribute(QStringLiteral("timeline-background")).toInt());
