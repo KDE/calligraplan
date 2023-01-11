@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 
     QApplication::setAttribute(Qt::AA_ShareOpenGLContexts, true);
     KoApplication app(PLAN_MIME_TYPE.latin1(), QStringLiteral("calligraplan"), KPlato::newAboutData, argc, argv);
+    KLocalizedString::setApplicationDomain("calligraplan"); // activate translations
 
     // Migrate data from kde4 to kf5 locations
     Calligra2Migration m(QStringLiteral("calligraplan"), QStringLiteral("plan"));
