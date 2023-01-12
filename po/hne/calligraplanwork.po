@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2009-03-03 10:20+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -428,7 +428,7 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "परियोजना"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, fuzzy, kde-format
 #| msgid "Configure KPlatoWork..."
 msgid "Configure View..."

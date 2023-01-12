@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2020-03-27 09:04+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -393,7 +393,7 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Projektijuht"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, kde-format
 msgid "Configure View..."
 msgstr "Seadista vaadet..."

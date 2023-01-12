@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2022-12-06 13:40+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -69,7 +69,7 @@ msgid "&Settings"
 msgstr "&Preferencias"
 
 #. i18n: ectx: Menu (help)
-#: calligraplanportfolio_shell.rc:24 Portfolio_ViewUi.rc:40
+#: calligraplanportfolio_shell.rc:25 Portfolio_ViewUi.rc:40
 #, kde-format
 msgid "&Help"
 msgstr "Ay&uda"

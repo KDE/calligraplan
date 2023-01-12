@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2022-03-09 16:29+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -413,7 +413,7 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Руководитель проекта"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, kde-format
 msgid "Configure View..."
 msgstr "Настроить вид..."

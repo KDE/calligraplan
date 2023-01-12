@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2014-03-16 20:12+0200\n"
 "Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -400,7 +400,7 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Projektų tvarkyklė"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:926
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, kde-format
 msgid "Configure View..."
 msgstr "Konfigūruoti rodinį..."
