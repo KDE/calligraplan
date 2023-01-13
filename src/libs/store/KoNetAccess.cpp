@@ -28,7 +28,6 @@
 #include <KIO/MkdirJob>
 #include <KIO/CopyJob>
 #include <KIO/DeleteJob>
-#include <KIO/Scheduler>
 
 namespace KIO
 {
