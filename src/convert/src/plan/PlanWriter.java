@@ -236,6 +236,10 @@ public final class PlanWriter extends AbstractProjectWriter
             ProjectCalendar mpxjCalendar = mpxjCalendars.get(i);
             plan.schema.Calendar planCalendar = m_factory.createCalendar();
             writeCalendar(mpxjCalendar, planCalendar);
+            if (i == 0)
+            {
+                planCalendar.setDefault("1");
+            }
             planCalendars.getCalendar().add(planCalendar);
         }
     }
@@ -637,22 +641,46 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeProgress(Task mpxjTask, plan.schema.Task planTask)
     {
-        System.out.println("writeProgress: " + mpxjTask.getActualStart() + " - " + mpxjTask.getActualFinish());
         if (mpxjTask.getActualStart() == null)
         {
-            return;
-        }
-        Progress planProgress = m_factory.createProgress();
-        planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
+            int completion = mpxjTask.getPercentageComplete().intValue();
+            if (completion == 0)
+            {
+                return;
+            }
+            Progress planProgress = m_factory.createProgress();
+            planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
 
-        planProgress.setStarted("1");
-        planProgress.setStartTime(getDateTimeString(mpxjTask.getActualStart()));
-        if (mpxjTask.getActualFinish() != null)
-        {
-            planProgress.setFinished("1");
-            planProgress.setFinishTime(getDateTimeString(mpxjTask.getActualFinish()));
+            planProgress.setStarted("1");
+            Date date = mpxjTask.getActualStart() == null ? mpxjTask.getStart() : mpxjTask.getActualStart();
+            planProgress.setStartTime(getDateTimeString(date));
+            if (mpxjTask.getActualFinish() != null || completion == 100)
+            {
+                date = mpxjTask.getActualFinish() == null ? mpxjTask.getFinish() : mpxjTask.getActualFinish();
+                planProgress.setFinished("1");
+                planProgress.setFinishTime(getDateTimeString(date));
+            }
+            CompletionEntry planCompletionEntry = m_factory.createCompletionEntry();
+            planProgress.getCompletionEntryOrUsedEffort().add(planCompletionEntry);
+
+            planCompletionEntry.setDate(getDateTimeString(date));
+            planCompletionEntry.setPercentFinished(getIntegerString(completion));
+
+            System.out.println("writeProgress: " + mpxjTask.getName() + " start: " + planProgress.getStartTime() + " date: " + date + " completion: " + planCompletionEntry.getPercentFinished() + '%');
+        } else {
+            System.out.println("writeProgress: " + mpxjTask.getActualStart() + " - " + mpxjTask.getActualFinish());
+            Progress planProgress = m_factory.createProgress();
+            planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
+
+            planProgress.setStarted("1");
+            planProgress.setStartTime(getDateTimeString(mpxjTask.getActualStart()));
+            if (mpxjTask.getActualFinish() != null)
+            {
+                planProgress.setFinished("1");
+                planProgress.setFinishTime(getDateTimeString(mpxjTask.getActualFinish()));
+            }
+            writeCompletion(mpxjTask, planProgress);
         }
-        writeCompletion(mpxjTask, planProgress);
         //writeUsedEffort(mpxjTask, planProgress);
     }
     /**

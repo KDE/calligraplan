@@ -98,7 +98,7 @@
 
     <property name="test-class" value="TestConvert"/>
     <property name="test.dir" value="${basedir}/test"/>
-    <property name="test.data.dir" value="${test.dir}/data"/>
+    <property name="test.data.dir" value="${basedir}/testdata"/>
     <property name="result.dir" value="${test.dir}/result"/>
     <target name="clean-test">
         <delete dir="${result.dir}"/>

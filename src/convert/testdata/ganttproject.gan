@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2023-01-13" view-index="1" gantt-divider-location="691" resource-divider-location="300" version="3.2.3247" locale="da_DK">
+    <description/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Navn" width="394" order="0"/>
+        <field id="tpd4" name="Start dato" width="148" order="1"/>
+        <field id="tpd5" name="Slut dato" width="148" order="2"/>
+        <option id="filter.completedTasks" value="false"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Navn" width="210" order="0"/>
+        <field id="1" name="Standard rolle" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Task 1" color="#8cb6ce" meeting="false" start="2023-01-19" duration="5" complete="0" thirdDate="2023-01-12" thirdDate-constraint="0" expand="true"/>
+        <task id="1" name="Task 2" color="#8cb6ce" meeting="false" start="2023-01-12" duration="5" complete="30" thirdDate="2023-01-12" thirdDate-constraint="1" expand="true">
+            <depend id="0" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="2" name="Task 3" color="#8cb6ce" meeting="false" start="2023-01-13" duration="4" complete="100" thirdDate="2023-01-13" thirdDate-constraint="1" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="R1" function="Default:0" contacts="" phone="">
+            <rate name="standard" value="100"/>
+        </resource>
+        <resource id="1" name="R2" function="Default:0" contacts="" phone="">
+            <rate name="standard" value="200"/>
+        </resource>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations>
+        <vacation start="2023-01-16" end="2023-01-18" resourceid="1"/>
+    </vacations>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
