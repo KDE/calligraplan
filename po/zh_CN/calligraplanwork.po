@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2023-01-02 07:11\n"
+"PO-Revision-Date: 2023-01-12 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -121,6 +121,8 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
+"<p>该工作包所指任务已在项目存储中。</p><p>项目： %1<br>任务： %2</p><p>您想要"
+"更新现有工作包的数据吗？</p>"
 
 #: part.cpp:410
 #, kde-format
@@ -248,22 +250,22 @@ msgstr ""
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
-msgstr ""
+msgstr "修改完成度"
 
 #: taskworkpackagemodel.cpp:468
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "设置完成"
 
 #: taskworkpackagemodel.cpp:489
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "修改剩余工作量"
 
 #: taskworkpackagemodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "修改实际工作量"
 
 #: taskworkpackagemodel.cpp:600
 #, kde-kuit-format
@@ -390,7 +392,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
-msgstr ""
+msgstr "任务: %1<nl/>实际完成: %2<nl/>计划完成: %3<nl/>状态: %4<nl/>项目: %5"
 
 #: taskworkpackageview.cpp:645
 #, kde-kuit-format
@@ -399,12 +401,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"任务： %1<nl/>完成度： %2 %<nl/>实际开始： %3<nl/>计划： %4 - %5<nl/>状态： "
+"%6<nl/>项目： %7"
 
 #: taskworkpackageview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "任务： %1<nl/>计划： %2 - %3<nl/>状态： %4<nl/>项目： %5"
 
 #: view.cpp:84
 #, kde-format
@@ -425,7 +429,7 @@ msgstr "列表"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "选择任务列表"
 
 #: view.cpp:97
 #, kde-format
@@ -436,7 +440,7 @@ msgstr "甘特图"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "选择时间轴"
 
 #: view.cpp:103
 #, kde-format
@@ -584,20 +588,21 @@ msgid_plural ""
 "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
 "if you continue.</p>"
 msgstr[0] ""
+"<p>工作包 <b>'%2'</b> 有已打开的文档。</p><p>如果您继续，数据可能会丢失。</p>"
 
 #: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
-msgstr ""
+msgstr "<p>工作包<b>“%1”</b> 已被修改。</p><p>您想要保存它吗？</p>"
 
 #: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>工作包 <b>'%1'</b></p><p>无法打开存储：</p><p>%2</p>"
 
 #: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>工作包 <b>'%1'</b></p><p>无法提取文件：</p><p>%2</p>"

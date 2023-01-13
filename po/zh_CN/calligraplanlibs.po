@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-02 07:11\n"
+"PO-Revision-Date: 2023-01-12 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -223,12 +223,12 @@ msgstr "未分配资源"
 #: kernel/kptglobal.cpp:30
 #, kde-format
 msgid "Cannot fulfill constraints"
-msgstr ""
+msgstr "无法履行约束"
 
 #: kernel/kptglobal.cpp:32
 #, kde-format
 msgid "Effort not met"
-msgstr ""
+msgstr "无法满足工作量"
 
 #: kernel/kptglobal.cpp:34
 #, kde-format
@@ -384,7 +384,7 @@ msgstr "初始化"
 #: kernel/kptproject.cpp:278
 #, kde-format
 msgid "Schedule project from: %1"
-msgstr ""
+msgstr "从 %1 开始安排项目"
 
 #: kernel/kptproject.cpp:283 kernel/kptproject.cpp:395
 #: kernel/kptproject.cpp:431
@@ -419,7 +419,7 @@ msgstr "日程安排"
 #: kernel/kptproject.cpp:294 kernel/kptproject.cpp:406
 #, kde-format
 msgid "Schedule tasks forward"
-msgstr ""
+msgstr "向前规划任务"
 
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
 #, kde-format
@@ -434,62 +434,62 @@ msgstr "安排完成：%1"
 #: kernel/kptproject.cpp:301 kernel/kptproject.cpp:412
 #, kde-format
 msgid "Could not finish project in time: %1"
-msgstr ""
+msgstr "无法在该时间前完成工程： %1"
 
 #: kernel/kptproject.cpp:303 kernel/kptproject.cpp:414
 #, kde-format
 msgid "Finished project exactly on time: %1"
-msgstr ""
+msgstr "恰好在该时间完成项目：%1"
 
 #: kernel/kptproject.cpp:305 kernel/kptproject.cpp:416
 #, kde-format
 msgid "Finished project before time: %1"
-msgstr ""
+msgstr "在该时间前完成项目：%1"
 
 #: kernel/kptproject.cpp:390
 #, kde-format
 msgid "Schedule project forward from: %1"
-msgstr ""
+msgstr "从该时间向前规划项目：%1"
 
 #: kernel/kptproject.cpp:396 kernel/kptproject.cpp:432
 #, kde-format
 msgid "Calculate late finish"
-msgstr ""
+msgstr "计算推迟完成"
 
 #: kernel/kptproject.cpp:399 kernel/kptproject.cpp:434
 #, kde-format
 msgid "Late finish calculated: %1"
-msgstr ""
+msgstr "推迟完成计算：%1"
 
 #: kernel/kptproject.cpp:402 kernel/kptproject.cpp:426
 #, kde-format
 msgid "Calculate early start"
-msgstr ""
+msgstr "计算提前开始"
 
 #: kernel/kptproject.cpp:422
 #, kde-format
 msgid "Schedule project backward from: %1"
-msgstr ""
+msgstr "从该时间向后安排项目：%1"
 
 #: kernel/kptproject.cpp:429
 #, kde-format
 msgid "Early start calculated: %1"
-msgstr ""
+msgstr "提前开始计算：%1"
 
 #: kernel/kptproject.cpp:436
 #, kde-format
 msgid "Schedule tasks backward"
-msgstr ""
+msgstr "向后规划任务"
 
 #: kernel/kptproject.cpp:451
 #, kde-format
 msgid "Failed to finish project within target time"
-msgstr ""
+msgstr "无法在目标时间内完成项目"
 
 #: kernel/kptproject.cpp:454
 #, kde-format
 msgid "Scheduled start: %1, target time: %2"
-msgstr ""
+msgstr "计划开始时间：%1，目标时间：%2"
 
 #: kernel/kptproject.cpp:457
 #, kde-format
@@ -499,57 +499,57 @@ msgstr "要及时完成，必须提前启动项目：%1"
 #: kernel/kptproject.cpp:459
 #, kde-format
 msgid "Start project exactly on time: %1"
-msgstr ""
+msgstr "恰好在该时间启动项目：%1"
 
 #: kernel/kptproject.cpp:461
 #, kde-format
 msgid "Can start project later than time: %1"
-msgstr ""
+msgstr "可以在该时间后延迟启动项目：%1"
 
 #: kernel/kptproject.cpp:469
 #, kde-format
 msgid "Calculation took: %1"
-msgstr ""
+msgstr "计算消耗：%1"
 
 #: kernel/kptproject.cpp:871
 #, kde-format
 msgid "Start calculating forward"
-msgstr ""
+msgstr "开始向前计算"
 
 #: kernel/kptproject.cpp:932
 #, kde-format
 msgid "Finished calculating forward: %1 ms"
-msgstr ""
+msgstr "完成向前计算，用时：%1 毫秒"
 
 #: kernel/kptproject.cpp:950
 #, kde-format
 msgid "Start calculating backward"
-msgstr ""
+msgstr "开始向后计算"
 
 #: kernel/kptproject.cpp:1007
 #, kde-format
 msgid "Finished calculating backward: %1 ms"
-msgstr ""
+msgstr "完成向后计算，用时：%1 毫秒"
 
 #: kernel/kptproject.cpp:1023
 #, kde-format
 msgid "Start scheduling forward"
-msgstr ""
+msgstr "开始向前调度"
 
 #: kernel/kptproject.cpp:1057
 #, kde-format
 msgid "Finished scheduling forward: %1 ms"
-msgstr ""
+msgstr "完成向前调度，用时：%1 毫秒"
 
 #: kernel/kptproject.cpp:1077
 #, kde-format
 msgid "Start scheduling backward"
-msgstr ""
+msgstr "开始向后调度"
 
 #: kernel/kptproject.cpp:1098
 #, kde-format
 msgid "Finished scheduling backward: %1 ms"
-msgstr ""
+msgstr "完成向后调度，用时：%1 毫秒"
 
 #: kernel/kptproject.cpp:2785
 #, kde-format
@@ -592,7 +592,7 @@ msgstr ""
 #: kernel/kptresourcerequest.cpp:976
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
-msgstr ""
+msgstr "资源 %1 从 %2 到 %3 可用"
 
 #: kernel/kptschedule.cpp:165
 #, kde-format
@@ -626,7 +626,7 @@ msgstr "错误"
 #: kernel/kptschedule.cpp:1788
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "已基准化"
 
 #: kernel/kptschedule.cpp:1791
 #, kde-format
@@ -636,7 +636,7 @@ msgstr "调度中"
 #: kernel/kpttask.cpp:1109
 #, kde-format
 msgid "Calculate early finish "
-msgstr ""
+msgstr "计算提早完成 "
 
 #: kernel/kpttask.cpp:1147 kernel/kpttask.cpp:1165 kernel/kpttask.cpp:1182
 #: kernel/kpttask.cpp:1205 kernel/kpttask.cpp:1231 kernel/kpttask.cpp:1238
@@ -646,43 +646,43 @@ msgstr ""
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint"
-msgstr ""
+msgstr "%1：无法满足约束"
 
 #: kernel/kpttask.cpp:1277 kernel/kpttask.cpp:1530 kernel/kpttask.cpp:1933
 #: kernel/kpttask.cpp:2315
 #, kde-format
 msgid "Resource %1 booked from %2 to %3"
-msgstr ""
+msgstr "资源 %1 已从 %2 规划到 %3"
 
 #: kernel/kpttask.cpp:1283
 #, kde-format
 msgid "Early finish calculated: %1"
-msgstr ""
+msgstr "提早完成计算：%1"
 
 #: kernel/kpttask.cpp:1383
 #, kde-format
 msgid "Calculate late start"
-msgstr ""
+msgstr "计算延迟开始"
 
 #: kernel/kpttask.cpp:1536
 #, kde-format
 msgid "Late start calculated: %1"
-msgstr ""
+msgstr "延迟开始计算：%1"
 
 #: kernel/kpttask.cpp:1633
 #, kde-format
 msgid "Start schedule forward: %1 "
-msgstr ""
+msgstr "向前调度开始于：%1"
 
 #: kernel/kpttask.cpp:1635
 #, kde-format
 msgid "Schedule from start %1"
-msgstr ""
+msgstr "从开始时间开始调度：%1 "
 
 #: kernel/kpttask.cpp:1682
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
-msgstr ""
+msgstr "%1：根据推迟完成原则调度失败，尝试根据提早完成原则调度。"
 
 #: kernel/kpttask.cpp:1717 kernel/kpttask.cpp:1741 kernel/kpttask.cpp:1767
 #: kernel/kpttask.cpp:1791 kernel/kpttask.cpp:1809 kernel/kpttask.cpp:1880
@@ -708,50 +708,50 @@ msgstr ""
 #: kernel/kpttask.cpp:1929 kernel/kpttask.cpp:2311
 #, kde-format
 msgid "Failed to schedule within project target time"
-msgstr ""
+msgstr "无法在项目目标时间内调度"
 
 #: kernel/kpttask.cpp:1936 kernel/kpttask.cpp:2318
 #, kde-format
 msgid "Starting earlier than early start"
-msgstr ""
+msgstr "开始时比提早开始还早"
 
 #: kernel/kpttask.cpp:1939 kernel/kpttask.cpp:2321
 #, kde-format
 msgid "Finishing later than late finish"
-msgstr ""
+msgstr "完成时比推迟完成还晚"
 
 #: kernel/kpttask.cpp:1941 kernel/kpttask.cpp:2323
 #, kde-format
 msgid "Scheduled: %1 to %2"
-msgstr ""
+msgstr "已调度：自 %1 至 %2"
 
 #: kernel/kpttask.cpp:1944
 #, kde-format
 msgid "Finished schedule forward: %1 ms"
-msgstr ""
+msgstr "完成向前安排，用时：%1 毫秒"
 
 #: kernel/kpttask.cpp:2042
 #, kde-format
 msgid "Schedule from end time: %1"
-msgstr ""
+msgstr "从结束时间开始调度：%1"
 
 #: kernel/kpttask.cpp:2066
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within late finish."
-msgstr ""
+msgstr "%1：无法在推迟完成期限内调度。"
 
 #: kernel/kpttask.cpp:2072
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
-msgstr ""
+msgstr "%1：无法从继承的开始时间调度"
 
 #: kernel/kpttask.cpp:2099 kernel/kpttask.cpp:2237
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule after early start."
-msgstr ""
+msgstr "%1：无法在提早开始期限之后调度。"
 
 #: kernel/kpttask.cpp:2394
 #, kde-format
@@ -761,7 +761,7 @@ msgstr "未分配任何资源"
 #: kernel/kpttask.cpp:2559
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
-msgstr ""
+msgstr "无法满足工作持续时间。预期时间：%1 可用时间：%2"
 
 #: kernel/kptwbsdefinition.cpp:28
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:228
@@ -1713,7 +1713,7 @@ msgstr "停止"
 #: ui/ResourceAppointmentsGanttView.cpp:163
 #, kde-format
 msgid "Printing"
-msgstr "打印中"
+msgstr "打印"
 
 #: main/KoPrintingDialog_p.h:140
 #, kde-format
@@ -2115,22 +2115,22 @@ msgstr "描述"
 #: models/kptaccountsmodel.cpp:317
 msgctxt "(qtundo-format)"
 msgid "Modify account name"
-msgstr ""
+msgstr "修改账户名称"
 
 #: models/kptaccountsmodel.cpp:324
 msgctxt "(qtundo-format)"
 msgid "De-select as default account"
-msgstr ""
+msgstr "取消选择为默认账户"
 
 #: models/kptaccountsmodel.cpp:330
 msgctxt "(qtundo-format)"
 msgid "Select as default account"
-msgstr ""
+msgstr "选择为默认账户"
 
 #: models/kptaccountsmodel.cpp:347
 msgctxt "(qtundo-format)"
 msgid "Modify account description"
-msgstr ""
+msgstr "修改账户描述"
 
 #: models/kptaccountsmodel.cpp:419
 msgctxt "(qtundo-format)"
@@ -2142,12 +2142,12 @@ msgstr "添加账户"
 msgctxt "(qtundo-format)"
 msgid "Delete Account"
 msgid_plural "Delete %1 Accounts"
-msgstr[0] ""
+msgstr[0] "删除 %1 个账户"
 
 #: models/kptaccountsmodel.cpp:856
 #, kde-format
 msgid "Actual total cost: %1, planned total cost: %2"
-msgstr ""
+msgstr "实际总成本：%1，计划总成本：%2"
 
 #: models/kptaccountsmodel.cpp:1056 models/kptresourceappointmentsmodel.cpp:753
 #, kde-format
@@ -2173,7 +2173,7 @@ msgstr ""
 #: models/kptaccountsmodel.cpp:1123
 #, kde-format
 msgid "The total cost for the account shown as: Actual cost [ Planned cost ]"
-msgstr ""
+msgstr "账户的总成本称为：实际成本 [计划成本]"
 
 #: models/kptaccountsmodel.cpp:1136
 #, kde-format
@@ -2201,39 +2201,39 @@ msgstr "本地"
 #: models/ResourceModel.cpp:115
 #, kde-format
 msgid "Shared"
-msgstr ""
+msgstr "共享"
 
 #: models/kptcalendarmodel.cpp:313
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Local</emphasis> calendar"
-msgstr ""
+msgstr "%1 是<emphasis>本地</emphasis>日历"
 
 #: models/kptcalendarmodel.cpp:315
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "%1 is a <emphasis>Shared</emphasis> calendar"
-msgstr ""
+msgstr "%1 是<emphasis>共享</emphasis>日历"
 
 #: models/kptcalendarmodel.cpp:332
 msgctxt "(qtundo-format)"
 msgid "Modify calendar name"
-msgstr ""
+msgstr "修改日历名称"
 
 #: models/kptcalendarmodel.cpp:340
 msgctxt "(qtundo-format)"
 msgid "De-select as default calendar"
-msgstr ""
+msgstr "取消选择为默认日历"
 
 #: models/kptcalendarmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
-msgstr ""
+msgstr "选择为默认日历"
 
 #: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
-msgstr ""
+msgstr "修改日历时区"
 
 #: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, kde-format
@@ -2250,7 +2250,7 @@ msgstr "没有假日"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
-msgstr ""
+msgstr "默认地区：<emphasis>%1</emphasis>"
 
 #: models/kptcalendarmodel.cpp:476
 msgctxt "(qtundo-format)"
@@ -2281,33 +2281,33 @@ msgstr "时区"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Holiday Region"
-msgstr ""
+msgstr "节假日地区"
 
 #: models/kptcalendarmodel.cpp:554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The holiday region"
-msgstr ""
+msgstr "节假日地区"
 
 #: models/kptcalendarmodel.cpp:631
 msgctxt "(qtundo-format)"
 msgid "Re-parent calendar"
-msgstr ""
+msgstr "更改日历从属关系"
 
 #: models/kptcalendarmodel.cpp:634
 msgctxt "(qtundo-format)"
 msgid "Move calendar"
-msgstr ""
+msgstr "移动日历"
 
 #: models/kptcalendarmodel.cpp:690
 msgctxt "(qtundo-format)"
 msgid "Add calendar"
-msgstr ""
+msgstr "添加日历"
 
 #: models/kptcalendarmodel.cpp:713
 msgctxt "(qtundo-format)"
 msgid "Delete calendar"
-msgstr ""
+msgstr "删除日历"
 
 #: models/kptcalendarmodel.cpp:882
 #, kde-format
@@ -2331,7 +2331,7 @@ msgstr "W"
 #: models/kptcalendarmodel.cpp:913
 msgctxt "(qtundo-format)"
 msgid "Modify calendar state"
-msgstr ""
+msgstr "修改日历状态"
 
 #: models/kptcalendarmodel.cpp:935
 #, kde-format
@@ -2366,12 +2366,12 @@ msgstr "假日"
 #: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
-msgstr ""
+msgstr "修改工作日日历"
 
 #: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
-msgstr ""
+msgstr "修改日历日期"
 
 #: models/kptcalendarmodel.cpp:1457
 #, kde-kuit-format
@@ -2401,43 +2401,43 @@ msgstr "任务类型"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The person responsible for this task"
-msgstr ""
+msgstr "负责这项任务的人"
 
 #: models/kptcommonstrings.cpp:18
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "List of resource allocations"
-msgstr ""
+msgstr "资源分配列表"
 
 #: models/kptcommonstrings.cpp:19
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The timing constraint type"
-msgstr ""
+msgstr "工期约束类型"
 
 #: models/kptcommonstrings.cpp:20
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Constraint start time"
-msgstr ""
+msgstr "约束开始时间"
 
 #: models/kptcommonstrings.cpp:21
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Constraint end time"
-msgstr ""
+msgstr "约束结束时间"
 
 #: models/kptcommonstrings.cpp:22
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task notes"
-msgstr ""
+msgstr "任务注释"
 
 #: models/kptcommonstrings.cpp:23
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work Breakdown Structure Code"
-msgstr ""
+msgstr "工作分解结构编码"
 
 #: models/kptcommonstrings.cpp:24
 #, kde-kuit-format
@@ -2451,7 +2451,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task"
-msgstr ""
+msgstr "风险在计算任务的实际预估量时起控制PERT分布的作用"
 
 #: models/kptcommonstrings.cpp:26
 #, kde-kuit-format
@@ -2463,91 +2463,91 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for running costs"
-msgstr ""
+msgstr "用于支付运行成本的账户"
 
 #: models/kptcommonstrings.cpp:28
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at startup of the task"
-msgstr ""
+msgstr "用于支付任务启动所致成本的账户"
 
 #: models/kptcommonstrings.cpp:29
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at startup of the task"
-msgstr ""
+msgstr "因任务启动而产生的成本"
 
 #: models/kptcommonstrings.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at shutdown of the task"
-msgstr ""
+msgstr "用于支付任务关闭所致成本的账户"
 
 #: models/kptcommonstrings.cpp:31
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at shutdown of the task"
-msgstr ""
+msgstr "因任务关闭而产生的成本"
 
 #: models/kptcommonstrings.cpp:33
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start time"
-msgstr ""
+msgstr "计划开始时间"
 
 #: models/kptcommonstrings.cpp:34
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish time"
-msgstr ""
+msgstr "计划完成时间"
 
 #: models/kptcommonstrings.cpp:35
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest start time allowed by dependencies"
-msgstr ""
+msgstr "依赖关系允许的最早开始时间"
 
 #: models/kptcommonstrings.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest finish time allowed by dependencies"
-msgstr ""
+msgstr "依赖关系允许的最早完成时间"
 
 #: models/kptcommonstrings.cpp:37
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest start time allowed by dependencies"
-msgstr ""
+msgstr "依赖关系允许的最晚开始时间"
 
 #: models/kptcommonstrings.cpp:38
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest finish time allowed by dependencies"
-msgstr ""
+msgstr "依赖关系允许的最晚完成时间"
 
 #: models/kptcommonstrings.cpp:40
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The planned duration"
-msgstr ""
+msgstr "计划持续时间"
 
 #: models/kptcommonstrings.cpp:41
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The variance of the duration"
-msgstr ""
+msgstr "时长浮动"
 
 #: models/kptcommonstrings.cpp:42
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The optimistic duration"
-msgstr ""
+msgstr "乐观时长"
 
 #: models/kptcommonstrings.cpp:43
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The pessimistic duration"
-msgstr ""
+msgstr "悲观时长"
 
 #: models/kptcommonstrings.cpp:45
 #, kde-kuit-format
@@ -2555,7 +2555,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The duration by which a tasks start can be delayed without affecting the "
 "project completion time"
-msgstr ""
+msgstr "在不影响项目完成时间的情况下，任务可以被推迟启动的时长"
 
 #: models/kptcommonstrings.cpp:47
 #, kde-kuit-format
@@ -2563,7 +2563,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The duration by which the duration of a task or path has to be reduced in "
 "order to fulfill a timing constraint"
-msgstr ""
+msgstr "为达到时间限制，需要缩短的任务或路径的时长"
 
 #: models/kptcommonstrings.cpp:48
 #, kde-kuit-format
@@ -2571,7 +2571,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Negative float is the duration by which the duration of a task or path has "
 "to be reduced in order to fulfill a timing constraint."
-msgstr ""
+msgstr "反向浮动就是为达到时间约束，需要缩短的任务或路径的时长。"
 
 #: models/kptcommonstrings.cpp:50
 #, kde-kuit-format
@@ -2579,7 +2579,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "The duration by which a task can be delayed or extended without affecting "
 "the start of any succeeding task"
-msgstr ""
+msgstr "在不影响随后任务开始的情况下，任务可以被推迟或延长的时长"
 
 #: models/kptcommonstrings.cpp:51
 #, kde-kuit-format
@@ -2587,37 +2587,37 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Free float is the duration by which a task can be delayed or extended "
 "without affecting the start of any succeeding task."
-msgstr ""
+msgstr "自由浮动就是在不影响随后任务开始的情况下，任务可以被推迟或延长的时长."
 
 #: models/kptcommonstrings.cpp:53
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The duration from Early Start to Late Start"
-msgstr ""
+msgstr "从 提早开始 到 推迟开始 的时长"
 
 #: models/kptcommonstrings.cpp:54
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Start float is the duration from Early Start to Late Start."
-msgstr ""
+msgstr "开始浮动就是从 提早开始 到 推迟开始 的时长."
 
 #: models/kptcommonstrings.cpp:56
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The duration from Early Finish to Late Finish"
-msgstr ""
+msgstr "从 提早完成 到 推迟完成 的时长"
 
 #: models/kptcommonstrings.cpp:57
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Finish float is the duration from Early Finish to Late Finish."
-msgstr ""
+msgstr "完成浮动就是从 提早完成 到 推迟完成 的时长."
 
 #: models/kptcommonstrings.cpp:59
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The resources assigned to the task"
-msgstr ""
+msgstr "指派给该任务的资源"
 
 #: models/kptcommonstrings.cpp:61
 #, kde-kuit-format
@@ -2635,25 +2635,25 @@ msgstr "任务完成"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort"
-msgstr ""
+msgstr "计划工作量"
 
 #: models/kptcommonstrings.cpp:64
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual effort"
-msgstr ""
+msgstr "实际工作量"
 
 #: models/kptcommonstrings.cpp:65
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Remaining effort"
-msgstr ""
+msgstr "剩余工作量"
 
 #: models/kptcommonstrings.cpp:66
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned cost"
-msgstr ""
+msgstr "计划成本"
 
 #: models/kptcommonstrings.cpp:67
 #, kde-kuit-format
@@ -2665,25 +2665,25 @@ msgstr "实际成本"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually started"
-msgstr ""
+msgstr "任务实际开始的时间"
 
 #: models/kptcommonstrings.cpp:69
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is started"
-msgstr ""
+msgstr "显示任务是否开始"
 
 #: models/kptcommonstrings.cpp:70
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually finished"
-msgstr ""
+msgstr "任务实际完成的时间"
 
 #: models/kptcommonstrings.cpp:71
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is finished"
-msgstr ""
+msgstr "显示任务是否完成"
 
 #: models/kptcommonstrings.cpp:72
 #, kde-kuit-format
@@ -2695,13 +2695,13 @@ msgstr "状态备忘"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculated expected estimate"
-msgstr ""
+msgstr "计算所得预期估计"
 
 #: models/kptcommonstrings.cpp:75
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculated estimate variance"
-msgstr ""
+msgstr "计算所得估计浮动"
 
 #: models/kptcommonstrings.cpp:76 models/kptcommonstrings.cpp:81
 #, kde-kuit-format
@@ -2725,13 +2725,13 @@ msgstr "估计类型"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The calendar used when estimate type is Duration"
-msgstr ""
+msgstr "估计类型是持续时间时使用的日历"
 
 #: models/kptcommonstrings.cpp:80
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The most likely estimate"
-msgstr ""
+msgstr "最接近的估计"
 
 #: models/kptcommonstrings.cpp:83
 #, kde-kuit-format
@@ -2743,71 +2743,71 @@ msgstr "风险类型"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows the tasks scheduling status"
-msgstr ""
+msgstr "显示任务调度状态"
 
 #: models/kptcommonstrings.cpp:86
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task has not been scheduled"
-msgstr ""
+msgstr "任务尚未被安排"
 
 #: models/kptcommonstrings.cpp:87
 #, kde-format
 msgid "An effort has been estimated, but no resource has been assigned"
-msgstr ""
+msgstr "工作量已估计，但尚未指派资源"
 
 #: models/kptcommonstrings.cpp:88
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is overbooked"
-msgstr ""
+msgstr "指派到该项任务的资源已被超额预定"
 
 #: models/kptcommonstrings.cpp:89
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is not available"
-msgstr ""
+msgstr "指派到该项任务的资源不可用"
 
 #: models/kptcommonstrings.cpp:90
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A timing constraint could not be met"
-msgstr ""
+msgstr "无法满足时间约束"
 
 #: models/kptcommonstrings.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resource could not meet the estimated effort"
-msgstr ""
+msgstr "指派的资源无法满足估计的工作量"
 
 #: models/kptcommonstrings.cpp:92
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A scheduling error occurred"
-msgstr ""
+msgstr "出现了调度错误"
 
 #: models/kptcommonstrings.cpp:94 models/kptnodechartmodel.cpp:529
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled"
-msgstr ""
+msgstr "预定工作的预算成本 (BCWS)"
 
 #: models/kptcommonstrings.cpp:95 models/kptnodechartmodel.cpp:530
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed"
-msgstr ""
+msgstr "执行工作的预算成本 (BCWP)"
 
 #: models/kptcommonstrings.cpp:96 models/kptnodechartmodel.cpp:531
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed"
-msgstr ""
+msgstr "执行工作的实际成本 (ACWP)"
 
 #: models/kptcommonstrings.cpp:97
 #, kde-format
 msgid "Schedule performance index (BCWP/BCWS)"
-msgstr ""
+msgstr "进度绩效指标 (SPI=BCWP/BCWS)"
 
 #: models/kptcommonstrings.cpp:99
 #, kde-kuit-format
@@ -2831,19 +2831,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The initials of the resource"
-msgstr ""
+msgstr "资源的缩写名字 (一般是首字母)"
 
 #: models/kptcommonstrings.cpp:103
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The e-mail address of the resource"
-msgstr ""
+msgstr "资源的电子邮件地址"
 
 #: models/kptcommonstrings.cpp:104
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The calendar defines when the resource is working"
-msgstr ""
+msgstr "日历用于定义资源工作的时间"
 
 #: models/kptcommonstrings.cpp:105
 #, kde-kuit-format
@@ -2981,19 +2981,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduled start time"
-msgstr ""
+msgstr "计划开始时间"
 
 #: models/kptcommonstrings.cpp:143
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduled finish time"
-msgstr ""
+msgstr "计划完成时间"
 
 #: models/kptcommonstrings.cpp:144
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduling direction"
-msgstr ""
+msgstr "调度方向"
 
 #: models/kptcommonstrings.cpp:146
 #, kde-kuit-format
@@ -3129,70 +3129,70 @@ msgstr "%1%"
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Scheduled"
 msgid "BCWS Cost"
-msgstr ""
+msgstr "BCWS 成本"
 
 #: models/kptnodechartmodel.cpp:233
 #: models/reportgenerator/ReportGenerator.cpp:53
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Performed"
 msgid "BCWP Cost"
-msgstr ""
+msgstr "BCWP 成本"
 
 #: models/kptnodechartmodel.cpp:234
 #: models/reportgenerator/ReportGenerator.cpp:54
 #, kde-format
 msgctxt "Cost based Actual Cost of Work Performed"
 msgid "ACWP Cost"
-msgstr ""
+msgstr "ACWP 成本"
 
 #: models/kptnodechartmodel.cpp:235
 #: models/reportgenerator/ReportGenerator.cpp:57
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Scheduled"
 msgid "BCWS Effort"
-msgstr ""
+msgstr "BCWS 效益"
 
 #: models/kptnodechartmodel.cpp:236
 #: models/reportgenerator/ReportGenerator.cpp:58
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Performed"
 msgid "BCWP Effort"
-msgstr ""
+msgstr "BCWP 效益"
 
 #: models/kptnodechartmodel.cpp:237
 #: models/reportgenerator/ReportGenerator.cpp:59
 #, kde-format
 msgctxt "Effort based Actual Cost of Work Performed"
 msgid "ACWP Effort"
-msgstr ""
+msgstr "ACWP 效益"
 
 #: models/kptnodechartmodel.cpp:238
 #: models/reportgenerator/ReportGenerator.cpp:55
 #, kde-format
 msgctxt "Cost based Schedule Performance Index"
 msgid "SPI Cost"
-msgstr ""
+msgstr "SPI 成本"
 
 #: models/kptnodechartmodel.cpp:239
 #: models/reportgenerator/ReportGenerator.cpp:56
 #, kde-format
 msgctxt "Cost based Cost Performance Index"
 msgid "CPI Cost"
-msgstr ""
+msgstr "CPI 成本"
 
 #: models/kptnodechartmodel.cpp:240
 #: models/reportgenerator/ReportGenerator.cpp:60
 #, kde-format
 msgctxt "Effort based Schedule Performance Index"
 msgid "SPI Effort"
-msgstr ""
+msgstr "SPI 效益"
 
 #: models/kptnodechartmodel.cpp:241
 #: models/reportgenerator/ReportGenerator.cpp:61
 #, kde-format
 msgctxt "Effort based Cost Performance Index"
 msgid "CPI Effort"
-msgstr ""
+msgstr "CPI 效益"
 
 #: models/kptnodechartmodel.cpp:245
 #, kde-format
@@ -3266,21 +3266,21 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Scheduled"
 msgid "BCWS"
-msgstr "预定工作的预算成本"
+msgstr "BCWS"
 
 #: models/kptnodechartmodel.cpp:513 models/kptnodeitemmodel.cpp:2398
 #: models/reportgenerator/ReportGenerator.cpp:34
 #, kde-kuit-format
 msgctxt "@title:column Budgeted Cost of Work Performed"
 msgid "BCWP"
-msgstr "执行工作的预算成本"
+msgstr "BCWP"
 
 #: models/kptnodechartmodel.cpp:514 models/kptnodeitemmodel.cpp:2399
 #: models/reportgenerator/ReportGenerator.cpp:35
 #, kde-kuit-format
 msgctxt "@title:column Actual Cost of Work Performed"
 msgid "ACWP"
-msgstr "执行工作的实际成本"
+msgstr "ACWP"
 
 #: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
 #: models/reportgenerator/ReportGenerator.cpp:36
@@ -3312,13 +3312,13 @@ msgstr "工作量:"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index"
-msgstr ""
+msgstr "进度绩效指标"
 
 #: models/kptnodechartmodel.cpp:533
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cost Performance Index"
-msgstr ""
+msgstr "成本绩效指标"
 
 #: models/kptnodechartmodel.cpp:538
 #, kde-kuit-format
@@ -4058,7 +4058,7 @@ msgstr "自由浮动"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Negative Float"
-msgstr ""
+msgstr "反向浮动"
 
 #: models/kptnodeitemmodel.cpp:2358
 #, kde-kuit-format
@@ -4304,12 +4304,12 @@ msgstr "修改工程名称"
 #: models/kptnodeitemmodel.cpp:2744
 msgctxt "(qtundo-format)"
 msgid "Modify responsible"
-msgstr ""
+msgstr "修改负责人"
 
 #: models/kptnodeitemmodel.cpp:2769 ui/kpttaskdescriptiondialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
-msgstr ""
+msgstr "修改任务描述"
 
 #: models/kptnodeitemmodel.cpp:2792
 msgctxt "(qtundo-format)"
@@ -6051,7 +6051,7 @@ msgstr ""
 #: ui/gantt/kptganttchartdisplayoptions.ui:249
 #, kde-format
 msgid "Negative float"
-msgstr ""
+msgstr "反向浮动"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
 #: ui/gantt/kptganttchartdisplayoptions.ui:256
@@ -6104,6 +6104,8 @@ msgid ""
 "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Constraint type: %5<nl/"
 ">Constraint time: %6<nl/>Negative float: %7 h"
 msgstr ""
+"名称：%1<nl/>计划：%2 - %3<nl/>状态：%4<nl/>约束类型：%5<nl/>约束时间：%6<nl/"
+">反向浮动：%7 时"
 
 #: ui/gantt/kptganttitemdelegate.cpp:148
 #, kde-kuit-format
@@ -6118,6 +6120,8 @@ msgid ""
 "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Constraint type: %4<nl/"
 ">Constraint time: %5<nl/>Negative float: %6 h"
 msgstr ""
+"名称：%1<nl/>计划：%2<nl/>状态：%3<nl/>约束类型：%4<nl/>约束时间：%5<nl/>反向"
+"浮动：%6 时"
 
 #: ui/gantt/kptganttitemdelegate.cpp:200
 #, kde-kuit-format
@@ -10198,13 +10202,13 @@ msgstr "方向："
 #: widgets/KoPageLayoutWidget.ui:129
 #, kde-format
 msgid "Portrait"
-msgstr "肖像"
+msgstr "纵向"
 
 #. i18n: ectx: property (text), widget (QRadioButton, landscape)
 #: widgets/KoPageLayoutWidget.ui:136
 #, kde-format
 msgid "Landscape"
-msgstr "风景"
+msgstr "横向"
 
 #. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
 #: widgets/KoPageLayoutWidget.ui:143
