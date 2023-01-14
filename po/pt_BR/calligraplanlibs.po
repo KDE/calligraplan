@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2022-05-03 13:59-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -5935,12 +5935,12 @@ msgstr "Por favor, insira a senha com a qual deseja criptografar o documento."
 msgid "Do you want to save the password?"
 msgstr "Deseja salvar a senha?"
 
-#: store/KoNetAccess.cpp:86
+#: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "O arquivo '%1' não pode ser lido"
 
-#: store/KoNetAccess.cpp:413
+#: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "ERRO: protocolo desconhecido '%1'"

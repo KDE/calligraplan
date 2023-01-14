@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2021-04-03 23:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -5830,12 +5830,12 @@ msgstr "Sartu dokumentua zifratzeko pasahitza."
 msgid "Do you want to save the password?"
 msgstr "Pasahitza gorde nahi duzu?"
 
-#: store/KoNetAccess.cpp:86
+#: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "«%1» fitxategia ezin da irakurri"
 
-#: store/KoNetAccess.cpp:413
+#: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "ERROREA: Protokolo ezezaguna «%1»"

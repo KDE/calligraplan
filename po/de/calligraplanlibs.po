@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2022-07-23 23:07+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -5949,12 +5949,12 @@ msgstr ""
 msgid "Do you want to save the password?"
 msgstr "Möchten Sie das Passwort speichern?"
 
-#: store/KoNetAccess.cpp:86
+#: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "Die Datei „%1“ ist nicht lesbar"
 
-#: store/KoNetAccess.cpp:413
+#: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "Fehler: Unbekanntes Protokoll „%1“."

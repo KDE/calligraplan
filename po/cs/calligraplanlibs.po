@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2022-01-11 17:39+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -5767,12 +5767,12 @@ msgstr "Prosím, zadejte heslo, kterým bude dokument zašifrován."
 msgid "Do you want to save the password?"
 msgstr "Opravdu si přejete uložit toto heslo?"
 
-#: store/KoNetAccess.cpp:86
+#: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "Soubor \"%1\" nelze číst"
 
-#: store/KoNetAccess.cpp:413
+#: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "Chyba: Neznámý protokol '%1'"

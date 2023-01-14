@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2022-12-17 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -5904,12 +5904,12 @@ msgstr "Geef een wachtwoord op om het document te versleutelen met."
 msgid "Do you want to save the password?"
 msgstr "Wilt u het wachtwoord opslaan?"
 
-#: store/KoNetAccess.cpp:86
+#: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "Bestand '%1' is niet leesbaar"
 
-#: store/KoNetAccess.cpp:413
+#: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "Fout: Onbekend protocol '%1'"
