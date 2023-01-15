@@ -1181,7 +1181,7 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
                     break;//return QFont("Helvetica", 6);
                 case Qt::BackgroundRole:
 #ifdef HAVE_KHOLIDAYS
-                    if (m_calendar->isHoliday(date)) {
+                    if (m_calendar && m_calendar->isHoliday(date)) {
                         const auto palette = QApplication::palette("QTreeView");
                         return palette.brush(QPalette::AlternateBase);
                     }
@@ -1196,7 +1196,10 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
             if (m_calendar == nullptr) {
                 return QStringLiteral("");
             }
-            return data(*m_calendar, date, role);
+            if (m_calendar) {
+                return data(*m_calendar, date, role);
+            }
+            break;
         }
         default:
             break;
