@@ -1,5 +1,4 @@
 
-
 include_directories(
     ${PLANKERNEL_INCLUDES}
     ${PLANMODELS_INCLUDES}
@@ -191,7 +190,6 @@ target_link_libraries(calligraplanui
         KF5::KIOCore
         KF5::KIOFileWidgets
         KF5::KIOWidgets
-        KF5::KIONTLM
 )
 if (PLAN_USE_KREPORT)
     target_link_libraries(calligraplanui PUBLIC KReport PRIVATE KPropertyWidgets)
