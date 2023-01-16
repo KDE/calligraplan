@@ -641,10 +641,11 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeProgress(Task mpxjTask, plan.schema.Task planTask)
     {
+        System.out.println("writeProgress: " + mpxjTask);
         if (mpxjTask.getActualStart() == null)
         {
-            int completion = mpxjTask.getPercentageComplete().intValue();
-            if (completion == 0)
+            Number completion = mpxjTask.getPercentageComplete();
+            if (completion == null || completion.intValue() == 0)
             {
                 return;
             }
@@ -654,7 +655,7 @@ public final class PlanWriter extends AbstractProjectWriter
             planProgress.setStarted("1");
             Date date = mpxjTask.getActualStart() == null ? mpxjTask.getStart() : mpxjTask.getActualStart();
             planProgress.setStartTime(getDateTimeString(date));
-            if (mpxjTask.getActualFinish() != null || completion == 100)
+            if (mpxjTask.getActualFinish() != null || completion.intValue() == 100)
             {
                 date = mpxjTask.getActualFinish() == null ? mpxjTask.getFinish() : mpxjTask.getActualFinish();
                 planProgress.setFinished("1");
@@ -666,9 +667,9 @@ public final class PlanWriter extends AbstractProjectWriter
             planCompletionEntry.setDate(getDateTimeString(date));
             planCompletionEntry.setPercentFinished(getIntegerString(completion));
 
-            System.out.println("writeProgress: " + mpxjTask.getName() + " start: " + planProgress.getStartTime() + " date: " + date + " completion: " + planCompletionEntry.getPercentFinished() + '%');
+            //System.out.println("writeProgress: " + mpxjTask.getName() + " start: " + planProgress.getStartTime() + " date: " + date + " completion: " + planCompletionEntry.getPercentFinished() + '%');
         } else {
-            System.out.println("writeProgress: " + mpxjTask.getActualStart() + " - " + mpxjTask.getActualFinish());
+            //System.out.println("writeProgress: " + mpxjTask.getActualStart() + " - " + mpxjTask.getActualFinish());
             Progress planProgress = m_factory.createProgress();
             planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
 
