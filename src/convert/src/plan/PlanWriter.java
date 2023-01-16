@@ -468,7 +468,7 @@ public final class PlanWriter extends AbstractProjectWriter
         planTask.setId(getTaskId(mpxjTask));
         planTask.setWbs(mpxjTask.getWBS());
         planTask.setName(getString(mpxjTask.getName()));
-        planTask.setScheduling(getSchedulingString(mpxjTask.getConstraintType()));
+        setScheduling(mpxjTask, planTask);
 
         writeEstimate(mpxjTask, planTask);
         writeTaskSchedules(mpxjTask, planTask);
@@ -1608,42 +1608,50 @@ public final class PlanWriter extends AbstractProjectWriter
     /**
     * Gets the scheduling constraint
     */
-    private String getSchedulingString(ConstraintType mpjxConstraintType)
+    private void setScheduling(Task mpxjTask, plan.schema.Task planTask)
     {
-        String result = "ASAP";
+        ConstraintType mpjxConstraintType = mpxjTask.getConstraintType();
         if (mpjxConstraintType == null) {
-            return result;
+            planTask.setScheduling("ASAP");
         }
-        switch (mpjxConstraintType)
+        else
         {
-            case AS_SOON_AS_POSSIBLE :
-                result = "ASAP";
-                break;
-            case AS_LATE_AS_POSSIBLE :
-                result = "ALAP";
-                break;
-            case MUST_START_ON :
-                result = "MustStartOn";
-                break;
-            case MUST_FINISH_ON :
-                result = "MustFinishOn";
-                break;
-            case START_NO_EARLIER_THAN :
-                result = "StartNotEarlier";
-                break;
-            case START_NO_LATER_THAN :
-                result = "ASAP"; // Note: not supported
-                break;
-            case FINISH_NO_EARLIER_THAN :
-                result = "ALAP"; // Note: not supported
-                break;
-            case FINISH_NO_LATER_THAN :
-                result = "FinishNotLater";
-                break;
-            default:
-                break;
+            switch (mpjxConstraintType)
+            {
+                case AS_SOON_AS_POSSIBLE :
+                    planTask.setScheduling("ASAP");
+                    break;
+                case AS_LATE_AS_POSSIBLE :
+                    planTask.setScheduling("ALAP");
+                    break;
+                case MUST_START_ON :
+                    planTask.setScheduling("MustStartOn");
+                    planTask.setConstraintStarttime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                case MUST_FINISH_ON :
+                    planTask.setScheduling("MustFinishOn");
+                    planTask.setConstraintEndtime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                case START_NO_EARLIER_THAN :
+                    planTask.setScheduling("StartNotEarlier");
+                    planTask.setConstraintStarttime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                case START_NO_LATER_THAN :
+                    planTask.setScheduling("ASAP"); // Note: not supported
+                    planTask.setConstraintStarttime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                case FINISH_NO_EARLIER_THAN :
+                    planTask.setScheduling("ALAP"); // Note: not supported
+                    planTask.setConstraintEndtime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                case FINISH_NO_LATER_THAN :
+                    planTask.setScheduling("FinishNotLater");
+                    planTask.setConstraintEndtime(getDateTimeString(mpxjTask.getConstraintDate()));
+                    break;
+                default:
+                    break;
+            }
         }
-        return result;
     }
 
     /**
