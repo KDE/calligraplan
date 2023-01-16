@@ -25,3 +25,10 @@ plan_add_unit_test(SharedResourcesTester
     SharedResourcesTester.cpp
     LINK_LIBRARIES calligraplanprivate Qt5::Test
 )
+
+if (Java_FOUND)
+    plan_add_unit_test(MpxjImportTester
+        MpxjImportTester.cpp
+        LINK_LIBRARIES calligraplanprivate Qt5::Test
+    )
+endif()

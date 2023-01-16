@@ -326,6 +326,14 @@ if(WIN32)
                         ARCHIVE ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 endif()
 
+find_package(Java 8 COMPONENTS Runtime)
+set_package_properties(Java PROPERTIES
+    DESCRIPTION "Java Runtime Environment"
+    URL "https://www.java.com/"
+    PURPOSE "Used by MPXJ based import filters and unit tests"
+    TYPE OPTIONAL
+)
+
 #### Disable kreport for now, reconsider when it is stable ####
 if (TEST_FOR_KREPORT)
     #
