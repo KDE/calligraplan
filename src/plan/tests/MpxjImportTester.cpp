@@ -32,7 +32,34 @@ void MpxjImportTester::testGanttProject()
     QString file = QFINDTESTDATA("../../convert/testdata/ganttproject.gan");
     Part *part = loadDocument(file);
     auto project = part->document()->project();
-    Debug::print(project, "GanttProject: -----------------", true);
+
+    auto schedule = project->schedules().values().value(0);
+    QVERIFY(schedule);
+    project->setCurrentSchedule(schedule->id());
+
+//    Debug::print(project, "GanttProject: -----------------", true);
+    QCOMPARE(project->allCalendars().count(), 1);
+    QCOMPARE(project->allResourceGroups().count(), 0);
+    QCOMPARE(project->resourceList().count(), 2);
+    QCOMPARE(project->allNodes().count(), 7);
+
+    const auto tasks = project->allTasks();
+    QCOMPARE(tasks.count(), 5);
+
+    QCOMPARE(tasks.value(0)->priority(), 100);
+
+    QCOMPARE(tasks.value(1)->priority(), 400);
+    QVERIFY(tasks.value(1)->completion().isStarted());
+    QCOMPARE(tasks.value(1)->completion().percentFinished(), 30);
+
+    QCOMPARE(tasks.value(2)->priority(), 500);
+    QVERIFY(tasks.value(2)->completion().isFinished());
+    QCOMPARE(tasks.value(2)->completion().percentFinished(), 100);
+
+    QCOMPARE(tasks.value(3)->priority(), 600);
+
+    QCOMPARE(tasks.value(4)->priority(), 900);
+
     delete part;
 }
 
@@ -44,11 +71,27 @@ void MpxjImportTester::testProjectLibre()
     auto schedule = project->schedules().values().value(0);
     QVERIFY(schedule);
     project->setCurrentSchedule(schedule->id());
-    Debug::print(project, "ProjectLibre: -----------------", true);
-    QCOMPARE(project->allCalendars().count(), 3); // ProjectLibre generate 3 calendars by default
+
+//    Debug::print(project, "ProjectLibre: -----------------", true);
+    QCOMPARE(project->allCalendars().count(), 3); // ProjectLibre generates 3 calendars by default
     QCOMPARE(project->allResourceGroups().count(), 1); // ProjectLibre seems to generate an extra group
     QCOMPARE(project->resourceList().count(), 3); // ProjectLibre seems to generate an extra resource
     QCOMPARE(project->allNodes().count(), 6);
+
+    const auto tasks = project->allTasks();
+    QCOMPARE(tasks.count(), 4);
+
+    QCOMPARE(tasks.value(0)->priority(), 500);
+    QVERIFY(tasks.value(0)->completion().isFinished());
+    QCOMPARE(tasks.value(0)->completion().percentFinished(), 100);
+
+    QCOMPARE(tasks.value(1)->priority(), 500);
+    QVERIFY(tasks.value(1)->completion().isStarted());
+    QCOMPARE(tasks.value(1)->completion().percentFinished(), 30);
+
+    QCOMPARE(tasks.value(2)->priority(), 500);
+    QCOMPARE(tasks.value(3)->priority(), 500);
+
     delete part;
 }
 
