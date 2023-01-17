@@ -139,45 +139,17 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeProject()
     {
+        ProjectProperties projectProperties = m_projectFile.getProjectProperties();
+
         m_planProject = m_factory.createProject();
         m_plan.setProject(m_planProject);
         m_planProject.setId(getProjectId());
-        m_planProject.setName(m_projectFile.getProjectProperties().getProjectTitle());
-        m_planProject.setLeader(m_projectFile.getProjectProperties().getManager());
-        m_planProject.setScheduling(getScheduleFromString(m_projectFile.getProjectProperties().getScheduleFrom()));
-        m_planProject.setStartTime(getDateTimeString(m_projectFile.getProjectProperties().getStartDate()));
-        m_planProject.setEndTime(getDateTimeString(m_projectFile.getProjectProperties().getFinishDate()));
-
-//
-// //       m_planProject.setCompany(mpxjHeader.getCompany());
-//         m_planProject.setId(mpxjHeader.getUniqueID());
-//
-//         String name = mpxjHeader.getProjectTitle();
-//         if (name == null)
-//         {
-//             name = mpxjHeader.getName();
-//         }
-//         List<Task> tasks = m_projectFile.getChildTasks();
-//         if (name == null && ! tasks.isEmpty())
-//         {
-//             name = tasks.get(0).getName();
-//         }
-//         if (name == null)
-//         {
-//             name = "Imported project";
-//         }
-//         m_planProject.setLeader(mpxjHeader.getManager());
-//         m_planProject.setName(name);
-//         m_planProject.setStartTime(getDateTimeString(m_projectFile.getStartDate()));
-//         m_planProject.setEndTime(getDateTimeString(m_projectFile.getFinishDate()));
-//
-//         String s = "MustStartOn";
-//         if (mpxjHeader.getScheduleFrom() == ScheduleFrom.FINISH)
-//             s = "MustFinishOn";
-//         m_planProject.setScheduling(s);
-//
-//         Calendar cal = Calendar.getInstance();
-//         m_planProject.setTimezone(cal.getTimeZone().getID());
+        m_planProject.setName(projectProperties.getName());
+        m_planProject.setLeader(projectProperties.getManager());
+        m_planProject.setScheduling(getScheduleFromString(projectProperties.getScheduleFrom()));
+        m_planProject.setStartTime(getDateTimeString(projectProperties.getStartDate()));
+        m_planProject.setEndTime(getDateTimeString(projectProperties.getFinishDate()));
+      // m_planProject.setCompany(projectProperties.getCompany());
    }
 
     /**
