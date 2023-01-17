@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2023-01-13" view-index="1" gantt-divider-location="691" resource-divider-location="300" version="3.2.3247" locale="da_DK">
-    <description/>
+<?xml version="1.0" encoding="UTF-8"?><project name="Gantt Project - Test 1" company="" webLink="http://" view-date="2023-01-13" view-index="0" gantt-divider-location="691" resource-divider-location="300" version="3.2.3247" locale="da_DK">
+    <description>
+        <![CDATA[This is a test of Gantt Project importer.]]>
+    </description>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Navn" width="394" order="0"/>
         <field id="tpd4" name="Start dato" width="148" order="1"/>
@@ -34,11 +36,19 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Task 1" color="#8cb6ce" meeting="false" start="2023-01-19" duration="5" complete="0" thirdDate="2023-01-12" thirdDate-constraint="0" expand="true"/>
-        <task id="1" name="Task 2" color="#8cb6ce" meeting="false" start="2023-01-12" duration="5" complete="30" thirdDate="2023-01-12" thirdDate-constraint="1" expand="true">
+        <task id="0" name="Task 1" color="#8cb6ce" meeting="false" start="2023-01-19" duration="5" complete="0" thirdDate="2023-01-12" thirdDate-constraint="0" priority="3" expand="true"/>
+        <task id="1" name="Task 2" color="#8cb6ce" meeting="false" start="2023-01-12" duration="5" complete="30" thirdDate="2023-01-12" thirdDate-constraint="1" priority="0" expand="true">
             <depend id="0" type="2" difference="0" hardness="Strong"/>
         </task>
         <task id="2" name="Task 3" color="#8cb6ce" meeting="false" start="2023-01-13" duration="4" complete="100" thirdDate="2023-01-13" thirdDate-constraint="1" expand="true"/>
+        <task id="3" name="S1" meeting="false" start="2023-01-13" duration="2" complete="0" expand="true">
+            <task id="4" name="S1-T1" color="#8cb6ce" meeting="false" start="2023-01-13" duration="1" complete="0" thirdDate="2023-01-13" thirdDate-constraint="0" priority="2" expand="true">
+                <depend id="6" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="5" name="S1.1" meeting="false" start="2023-01-16" duration="1" complete="0" expand="true">
+                <task id="6" name="S1.1-T1" color="#8cb6ce" meeting="false" start="2023-01-16" duration="1" complete="0" thirdDate="2023-01-16" thirdDate-constraint="0" priority="4" expand="true"/>
+            </task>
+        </task>
     </tasks>
     <resources>
         <resource id="0" name="R1" function="Default:0" contacts="" phone="">
@@ -51,10 +61,15 @@
     <allocations>
         <allocation task-id="0" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="1" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="4" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="6" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
     </allocations>
     <vacations>
         <vacation start="2023-01-16" end="2023-01-18" resourceid="1"/>
     </vacations>
     <previous/>
     <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="Work"/>
+    </roles>
 </project>

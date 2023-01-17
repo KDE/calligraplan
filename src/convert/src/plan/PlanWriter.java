@@ -60,6 +60,7 @@ import net.sf.mpxj.ScheduleFrom;
 import net.sf.mpxj.TimeUnit;
 import net.sf.mpxj.Task;
 import net.sf.mpxj.TaskType;
+import net.sf.mpxj.Priority;
 import net.sf.mpxj.TimephasedWork;
 import net.sf.mpxj.writer.AbstractProjectWriter;
 
@@ -441,12 +442,17 @@ public final class PlanWriter extends AbstractProjectWriter
         planTask.setWbs(mpxjTask.getWBS());
         planTask.setName(getString(mpxjTask.getName()));
         setScheduling(mpxjTask, planTask);
+        Priority prio = mpxjTask.getPriority();
+        System.out.println("writeTask: " + mpxjTask + " prio: " + prio);
+        if (prio != null) {
+            planTask.setPriority(getIntegerString(prio.getValue()));
+        }
 
         writeEstimate(mpxjTask, planTask);
         writeTaskSchedules(mpxjTask, planTask);
 
         String note = mpxjTask.getNotes();
-        if (note != null )
+        if (note != null)
         {
             planTask.setDescription(note);
         }
