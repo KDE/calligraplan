@@ -187,10 +187,8 @@ target_link_libraries(calligraplanui
         KF5::ItemViews
         KF5::IconThemes
         KF5::Archive
-        KF5::KIOCore
-        KF5::KIOFileWidgets
-        KF5::KIOWidgets
 )
+
 if (PLAN_USE_KREPORT)
     target_link_libraries(calligraplanui PUBLIC KReport PRIVATE KPropertyWidgets)
 endif()
