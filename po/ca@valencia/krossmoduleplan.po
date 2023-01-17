@@ -106,7 +106,7 @@ msgstr "Neteja totes les cites externes"
 
 #: scripts/busyinfoexport.py:26
 msgid "Busy Information Export"
-msgstr "Exportació d'informació d'ocupació"
+msgstr "Exporteu la informació d'ocupació"
 
 #: scripts/busyinfoexport.py:30
 msgid "Export Selected Schedule"
@@ -156,7 +156,7 @@ msgstr "No s'ha seleccionat cap programació"
 
 #: scripts/busyinfoimport.py:18
 msgid "Busy Information Import"
-msgstr "Importació d'informació d'ocupació"
+msgstr "Importeu la informació d'ocupació"
 
 #: scripts/busyinfoimport.py:22
 msgid "Import Busy Info File"

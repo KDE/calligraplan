@@ -1206,7 +1206,7 @@ msgstr "Error durant la guardada automàtica! Partició plena?"
 #: main/KoDocument.cpp:831
 #, kde-format
 msgid "Could not create the file for saving"
-msgstr "No s'ha pogut crear el fitxer per a guardar-lo"
+msgstr "No s'ha pogut crear el fitxer per que es guardarà-lo"
 
 #: main/KoDocument.cpp:875 main/KoDocument.cpp:897 main/KoDocument.cpp:928
 #: main/KoDocument.cpp:962
@@ -4843,7 +4843,7 @@ msgstr "Manual"
 #: models/kptschedulemodel.cpp:453
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
-msgstr "Modificació del mode de planificació"
+msgstr "Modifiqueu el mode de planificació"
 
 #: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:542
 #, kde-format
@@ -5031,7 +5031,7 @@ msgstr "Avant"
 #: models/kptschedulemodel.cpp:777
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
-msgstr "Modificació de la direcció de planificació"
+msgstr "Modifiqueu la direcció de planificació"
 
 #: models/kptschedulemodel.cpp:796 odf/KoDocumentInfo.cpp:40
 #, kde-format
@@ -5041,7 +5041,7 @@ msgstr "Desconegut"
 #: models/kptschedulemodel.cpp:822
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
-msgstr "Modificació del planificador"
+msgstr "Modifiqueu el planificador"
 
 #: models/kptschedulemodel.cpp:865
 #, kde-format
@@ -6995,7 +6995,7 @@ msgstr "Diagrama"
 #: ui/ResourceAppointmentsGanttView.cpp:144
 #, kde-format
 msgid "Gantt Chart Settings"
-msgstr "Configuració del diagrama de Gantt"
+msgstr "Configureu el diagrama de Gantt"
 
 #: ui/kptganttview.cpp:255
 #, kde-kuit-format
@@ -7264,7 +7264,7 @@ msgstr "Modifica la configuració de moneda"
 #: ui/kptmainprojectdialog.cpp:24
 #, kde-format
 msgid "Project Settings"
-msgstr "Configuració del projecte"
+msgstr "Configureu el projecte"
 
 #: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
@@ -8455,7 +8455,7 @@ msgid ""
 "item></list><note>You should select the desired edit mode when starting the "
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Edició del progrés de la tasca</title><para>Este diàleg consistix en "
+"<title>Editeu el progrés de la tasca</title><para>Este diàleg consistix en "
 "les parts següents:<list><item>Control de mode d'edició per a definir el "
 "comportament del diàleg.</item><item>Controls per a marcar la tasca com a "
 "iniciada o finalitzada.</item><item>Taula per a introduir l'esforç utilitzat "
@@ -9092,7 +9092,7 @@ msgstr ""
 #: ui/performance/ProjectStatusView.cpp:156
 #, kde-format
 msgid "Chart Settings"
-msgstr "Configuració del diagrama"
+msgstr "Configureu el diagrama"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
