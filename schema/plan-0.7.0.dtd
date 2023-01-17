@@ -206,6 +206,7 @@
     leader CDATA #IMPLIED
     description CDATA #IMPLIED
     wbs CDATA #IMPLIED
+    priority CDATA #IMPLIED
     scheduling (ASAP|ALAP|MustStartOn|MustFinishOn|StratNotEarlier|FinishNotLater) "ASAP"
     constraint-starttime  CDATA #IMPLIED
     constraint-endtime CDATA #IMPLIED

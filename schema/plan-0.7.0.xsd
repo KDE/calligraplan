@@ -372,6 +372,7 @@
       <xs:attribute name="leader"/>
       <xs:attribute name="description"/>
       <xs:attribute name="wbs"/>
+      <xs:attribute name="priority"/>
       <xs:attribute name="scheduling" default="ASAP">
         <xs:simpleType>
           <xs:restriction base="xs:token">
