@@ -322,7 +322,7 @@
       <xs:attribute name="units" default="100"/>
       <xs:attribute name="calendar-id"/>
       <xs:attribute name="account"/>
-      <xs:attribute name="origin" default="Local">
+      <xs:attribute name="origin" default="local">
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="local"/>
@@ -348,7 +348,17 @@
   </xs:element>
   <!-- Resource-group-relations -->
   <xs:element name="resource-group-relations">
-    <xs:complexType/>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="resource-group-relation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="resource-group-relation">
+    <xs:complexType>
+      <xs:attribute name="group-id" use="required"/>
+      <xs:attribute name="resource-id" use="required"/>
+    </xs:complexType>
   </xs:element>
   <xs:element name="tasks">
     <xs:complexType>
