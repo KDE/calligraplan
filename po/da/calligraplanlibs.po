@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2020-08-02 17:39+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -2445,23 +2445,23 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Helligdag"
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Ændr kalenderens ugedag"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Ændr kalenderdato"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Ugedag"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

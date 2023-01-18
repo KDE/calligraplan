@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2009-04-22 00:17+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -2567,28 +2567,28 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 #, fuzzy
 #| msgid "Description"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "विवरण"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 #, fuzzy
 #| msgid "Description"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "विवरण"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "सप्ताह"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
 msgctxt "@title:column"

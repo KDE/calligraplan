@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2008-04-20 12:32+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frisian <kde-i18n-doc@kde.org>\n"
@@ -2563,28 +2563,28 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Relaasje oanpasse"
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 #, fuzzy
 #| msgid "Modify Calendar"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Kalinder oanpasse"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 #, fuzzy
 #| msgid "Modify Calendar"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Kalinder oanpasse"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Wike"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
 msgctxt "@title:column"

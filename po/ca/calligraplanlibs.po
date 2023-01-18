@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2022-12-21 13:43+0100\n"
 "Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2456,23 +2456,23 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "Festiu"
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Modifica el dia de setmana del calendari"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Modifica la data del calendari"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Dia de la setmana"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

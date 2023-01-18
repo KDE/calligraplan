@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-07 09:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2368,23 +2368,23 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr "დასვენება"
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "კალენდარის კვირის დღის შეცვლა"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "კალენდარის თარიღის შეცვლა"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "კვირის დღე"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

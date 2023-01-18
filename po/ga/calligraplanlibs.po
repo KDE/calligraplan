@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatoui.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2007-10-24 08:22-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -2471,25 +2471,25 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Mionathraigh ainm an fhéilire"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Mionathraigh ainm an fhéilire"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, fuzzy, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Seachtain"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

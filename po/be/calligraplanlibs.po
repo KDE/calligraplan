@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatokernel\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2008-01-06 21:50+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
 "Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
@@ -2515,27 +2515,27 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 #, fuzzy
 #| msgid "Add Calendar"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Дадаць каляндар"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 #, fuzzy
 #| msgid "% Completed"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "% выканана"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"

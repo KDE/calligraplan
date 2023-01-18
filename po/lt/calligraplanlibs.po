@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2015-12-29 16:09+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -2501,7 +2501,7 @@ msgctxt "@info:tooltip"
 msgid "Holiday"
 msgstr ""
 
-#: models/kptcalendarmodel.cpp:1364 models/kptcalendarmodel.cpp:1388
+#: models/kptcalendarmodel.cpp:1367 models/kptcalendarmodel.cpp:1391
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify name"
@@ -2509,7 +2509,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Keisti pavadinimą"
 
-#: models/kptcalendarmodel.cpp:1416 models/kptcalendarmodel.cpp:1440
+#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify name"
@@ -2517,13 +2517,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Keisti pavadinimą"
 
-#: models/kptcalendarmodel.cpp:1457
+#: models/kptcalendarmodel.cpp:1460
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Savaitės diena"
 
-#: models/kptcalendarmodel.cpp:1458
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
