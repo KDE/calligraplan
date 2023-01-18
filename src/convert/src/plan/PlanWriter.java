@@ -45,7 +45,6 @@ import net.sf.mpxj.ProjectCalendar;
 import net.sf.mpxj.ProjectCalendarContainer;
 import net.sf.mpxj.ProjectCalendarException;
 import net.sf.mpxj.ProjectCalendarHours;
-import net.sf.mpxj.ProjectCalendarDateRanges;
 import net.sf.mpxj.ProjectFile;
 import net.sf.mpxj.ProjectProperties;
 import net.sf.mpxj.Relation;
@@ -159,7 +158,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeProjectSettings()
     {
         ProjectSettings projectSettings = m_factory.createProjectSettings();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(projectSettings);
+        m_planProject.setProjectSettings(projectSettings);
 
         writeStandardWorktime(projectSettings);
         writeLocale(projectSettings);
@@ -173,7 +172,7 @@ public final class PlanWriter extends AbstractProjectWriter
         ProjectProperties projectProperties = m_projectFile.getProjectProperties();
 
         StandardWorktime planStandardWorktime = m_factory.createStandardWorktime();
-        projectSettings.getTaskModulesOrSharedResourcesOrWbsDefinitionOrLocaleOrWorkpackageinfoOrStandardWorktime().add(planStandardWorktime);
+        projectSettings.setStandardWorktime(planStandardWorktime);
 
         planStandardWorktime.setDay(getMinutesString(projectProperties.getMinutesPerDay().longValue()));
         planStandardWorktime.setWeek(getMinutesString(projectProperties.getMinutesPerWeek().longValue()));
@@ -189,7 +188,7 @@ public final class PlanWriter extends AbstractProjectWriter
         ProjectProperties projectProperties = m_projectFile.getProjectProperties();
 
         Locale planLocale = m_factory.createLocale();
-        projectSettings.getTaskModulesOrSharedResourcesOrWbsDefinitionOrLocaleOrWorkpackageinfoOrStandardWorktime().add(planLocale);
+        projectSettings.setLocale(planLocale);
 
         planLocale.setCurrencySymbol(projectProperties.getCurrencySymbol());
         planLocale.setCurrencyDigits(getIntegerString(projectProperties.getCurrencyDigits()));
@@ -202,7 +201,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         System.out.println("writeCalendars:");
         Calendars planCalendars = m_factory.createCalendars();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planCalendars);
+        m_planProject.setCalendars(planCalendars);
         ProjectCalendarContainer mpxjCalendars = m_projectFile.getCalendars();
         for (int i = 0; i < mpxjCalendars.size(); ++i)
         {
@@ -238,27 +237,28 @@ public final class PlanWriter extends AbstractProjectWriter
         //
         // Set working and non working days for weekdays
         //
+        List<Weekday> weekdays = planCalendar.getWeekday();
         Weekday weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.MONDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.TUESDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.WEDNESDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.THURSDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.FRIDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.SATURDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
         weekday = m_factory.createWeekday();
         writeWeekday(mpxjCalendar, Day.SUNDAY, weekday);
-        planCalendar.getCalendarOrWeekdayOrDay().add(weekday);
+        weekdays.add(weekday);
 
         //System.out.println("writeCalendar: exceptions:");
         //
@@ -268,6 +268,7 @@ public final class PlanWriter extends AbstractProjectWriter
         {
             Date rangeStartDay = mpxjCalendarException.getFromDate();
             Date rangeEndDay = mpxjCalendarException.getToDate();
+            List<plan.schema.Day> days = planCalendar.getDay();
             while (rangeStartDay.getTime() == rangeEndDay.getTime())
             {
                 System.out.println("Exception Day: " + mpxjCalendarException);
@@ -275,7 +276,7 @@ public final class PlanWriter extends AbstractProjectWriter
                 // Exception covers a single day
                 //
                 plan.schema.Day planDay = m_factory.createDay();
-                planCalendar.getCalendarOrWeekdayOrDay().add(planDay);
+                days.add(planDay);
                 planDay.setDate(getDateString(mpxjCalendarException.getFromDate()));
                 planDay.setState(mpxjCalendarException.getWorking() ? "2" : "1");
             }
@@ -291,7 +292,7 @@ public final class PlanWriter extends AbstractProjectWriter
             {
                 //System.out.println("writeCalendar: derived: " + mpxjDerivedCalendar);
                 plan.schema.Calendar planDerivedCalendar = m_factory.createCalendar();
-                planCalendar.getCalendarOrWeekdayOrDay().add(planDerivedCalendar);
+                planCalendar.getCalendar().add(planDerivedCalendar);
                 writeCalendar(mpxjDerivedCalendar, planDerivedCalendar);
             }
         }
@@ -335,10 +336,10 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         // prepare for possible resource groups
         m_resourcegroups = m_factory.createResourceGroups();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(m_resourcegroups);
+        m_planProject.setResourceGroups(m_resourcegroups);
 
         Resources planResources = m_factory.createResources();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planResources);
+        m_planProject.setResources(planResources);
 
         ResourceContainer mpxjResources = m_projectFile.getResources();
         for (int i = 0; i < mpxjResources.size(); ++i)
@@ -357,7 +358,7 @@ public final class PlanWriter extends AbstractProjectWriter
         plan.schema.Resource planResource = m_factory.createResource();
         planResources.getResource().add(planResource);
 
-//         ProjectCalendar resourceCalendar = mpxjResource.getResourceCalendar();
+//         ProjectCalendar resourceCalendar = mpxjResource.getCalendar();
 //         if (resourceCalendar != null)
 //         {
 //             planResource.setCalendarId(getIntegerString(resourceCalendar.getUniqueID()));
@@ -398,7 +399,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeResourceGroupRelations()
     {
         ResourceGroupRelations planRelations = m_factory.createResourceGroupRelations();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRelations);
+        m_planProject.setResourceGroupRelations(planRelations);
 
         for (Map.Entry<String,String> entry : m_groups.entrySet()) {
             ResourceGroupRelation planRelation = m_factory.createResourceGroupRelation();
@@ -417,7 +418,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeTasks()
     {
         Tasks planTasks = m_factory.createTasks();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planTasks);
+        m_planProject.setTasks(planTasks);
 
         for (Task mpxjTask : m_projectFile.getChildTasks())
         {
@@ -464,7 +465,7 @@ public final class PlanWriter extends AbstractProjectWriter
         for (Task task : mpxjTask.getChildTasks())
         {
             plan.schema.Task childTask = m_factory.createTask();
-            planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(childTask);
+            planTask.getTask().add(childTask);
             writeTask(task, childTask);
         }
    }
@@ -476,7 +477,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeRequests()
     {
         ResourceRequests planRequests = m_factory.createResourceRequests();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRequests);
+        m_planProject.setResourceRequests(planRequests);
 
         for (Task mpxjTask : m_projectFile.getTasks()) {
             if (mpxjTask.getMilestone() || mpxjTask.getSummary())
@@ -523,7 +524,7 @@ public final class PlanWriter extends AbstractProjectWriter
             return;
         }
         Estimate planEstimate = m_factory.createEstimate();
-        planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planEstimate);
+        planTask.setEstimate(planEstimate);
 
         planEstimate.setType(getEstimateType(mpxjTask.getType()));
 
@@ -628,7 +629,7 @@ public final class PlanWriter extends AbstractProjectWriter
                 return;
             }
             Progress planProgress = m_factory.createProgress();
-            planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
+            planTask.setProgress(planProgress);
 
             planProgress.setStarted("1");
             Date date = mpxjTask.getActualStart() == null ? mpxjTask.getStart() : mpxjTask.getActualStart();
@@ -640,7 +641,7 @@ public final class PlanWriter extends AbstractProjectWriter
                 planProgress.setFinishTime(getDateTimeString(date));
             }
             CompletionEntry planCompletionEntry = m_factory.createCompletionEntry();
-            planProgress.getCompletionEntryOrUsedEffort().add(planCompletionEntry);
+            planProgress.getCompletionEntry().add(planCompletionEntry);
 
             planCompletionEntry.setDate(getDateTimeString(date));
             planCompletionEntry.setPercentFinished(getIntegerString(completion));
@@ -649,7 +650,7 @@ public final class PlanWriter extends AbstractProjectWriter
         } else {
             //System.out.println("writeProgress: " + mpxjTask.getActualStart() + " - " + mpxjTask.getActualFinish());
             Progress planProgress = m_factory.createProgress();
-            planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planProgress);
+            planTask.setProgress(planProgress);
 
             planProgress.setStarted("1");
             planProgress.setStartTime(getDateTimeString(mpxjTask.getActualStart()));
@@ -674,7 +675,7 @@ public final class PlanWriter extends AbstractProjectWriter
         //System.out.println("writeCompletion: " + assignments);
         if (assignments.isEmpty()) {
             CompletionEntry planCompletionEntry = m_factory.createCompletionEntry();
-            planProgress.getCompletionEntryOrUsedEffort().add(planCompletionEntry);
+            planProgress.getCompletionEntry().add(planCompletionEntry);
 
             Date date = mpxjTask.getActualStart();
             if (mpxjTask.getActualFinish() != null) {
@@ -695,7 +696,7 @@ public final class PlanWriter extends AbstractProjectWriter
         List<CompletionEntry> entries = new ArrayList<>();
         List<Duration> efforts = new ArrayList<>();
         for (ResourceAssignment mpxjAssignment : assignments) {
-            ProjectCalendar resourceCalendar = mpxjAssignment.getResource().getResourceCalendar();
+            ProjectCalendar resourceCalendar = mpxjAssignment.getResource().getCalendar();
             for (TimephasedWork tpw : mpxjAssignment.getTimephasedActualWork()) {
                 //System.out.println("writeCompletion: " + mpxjAssignment.getResource() + " : " + tpw);
                 Calendar date = getCalendarDate(tpw.getStart());
@@ -730,7 +731,7 @@ public final class PlanWriter extends AbstractProjectWriter
             Duration effort = efforts.get(i);
             CompletionEntry planCompletionEntry = entries.get(i);
 
-            planProgress.getCompletionEntryOrUsedEffort().add(planCompletionEntry);
+            planProgress.getCompletionEntry().add(planCompletionEntry);
 
             planCompletionEntry.setDate(getDateTimeString(date.getTime()));
             planCompletionEntry.setPerformedEffort(getDurationString(effort));
@@ -744,7 +745,7 @@ public final class PlanWriter extends AbstractProjectWriter
             // Add percent finished to last entry
             if (entries.isEmpty()) {
                 entries.add(m_factory.createCompletionEntry());
-                planProgress.getCompletionEntryOrUsedEffort().add(entries.get(0));
+                planProgress.getCompletionEntry().add(entries.get(0));
                 //System.out.println("writeCompletion: No entries, added date=???");
             }
             entries.get(entries.size()-1).setPercentFinished(getIntegerString(percentageComplete));
@@ -764,7 +765,7 @@ public final class PlanWriter extends AbstractProjectWriter
             return;
         }
         UsedEffort planUsedEffort = m_factory.createUsedEffort();
-        planProgress.getCompletionEntryOrUsedEffort().add(planUsedEffort);
+        planProgress.setUsedEffort(planUsedEffort);
 
         for (ResourceAssignment mpxjAssignment : resourceAssignments) {
             Resource mpxjResource = mpxjAssignment.getResource();
@@ -772,7 +773,7 @@ public final class PlanWriter extends AbstractProjectWriter
             planUsedEffort.getResource().add(planResource);
             planResource.setId(getResourceId(mpxjResource));
 
-            ProjectCalendar resourceCalendar = mpxjResource.getResourceCalendar();
+            ProjectCalendar resourceCalendar = mpxjResource.getCalendar();
             for (TimephasedWork tpw : mpxjAssignment.getTimephasedActualWork()) {
                 //System.out.println("writeUsedEffort: " + mpxjAssignment.getResource() + " : " + tpw);
                 Calendar date = getCalendarDate(tpw.getStart());
@@ -850,7 +851,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeTaskSchedules(Task mpxjTask, plan.schema.Task planTask)
     {
         TaskSchedules planSchedules = m_factory.createTaskSchedules();
-        planTask.getTaskOrEstimateOrDocumentsOrTaskSchedulesOrProgress().add(planSchedules);
+        planTask.setTaskSchedules(planSchedules);
         writeTaskSchedule(mpxjTask, planSchedules);
 
     }
@@ -897,7 +898,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
         //System.out.println("writeRelations:");
         Relations planRelations = m_factory.createRelations();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planRelations);
+        m_planProject.setRelations(planRelations);
 
         for(Task mpxjTask : m_projectFile.getTasks())
         {
@@ -934,7 +935,7 @@ public final class PlanWriter extends AbstractProjectWriter
     private void writeProjectSchedules()
     {
         ProjectSchedules planProjectSchedules = m_factory.createProjectSchedules();
-        m_planProject.getProjectSettingsOrAccountsOrCalendarsOrResourceGroupsOrResourcesOrResourceGroupRelationsOrTasksOrRelationsOrProjectSchedulesOrResourceTeamsOrExternalAppointmentsOrResourceRequestsOrRequiredResourceRequestsOrAlternativeRequests().add(planProjectSchedules);
+        m_planProject.setProjectSchedules(planProjectSchedules);
 
         writeScheduleManagement(planProjectSchedules);
 
@@ -963,7 +964,7 @@ public final class PlanWriter extends AbstractProjectWriter
     {
 
         ProjectSchedule planProjectSchedule = m_factory.createProjectSchedule();
-        planScheduleManagement.getScheduleManagementOrProjectSchedule().add(planProjectSchedule);
+        planScheduleManagement.getProjectSchedule().add(planProjectSchedule);
 
         planProjectSchedule.setId("1");
         planProjectSchedule.setName("Plan");
@@ -997,7 +998,7 @@ public final class PlanWriter extends AbstractProjectWriter
             Resource resource = mpxjAssignment.getResource();
             if (task != null && resource != null) {
                 Appointment planAppointment = m_factory.createAppointment();
-                planProjectSchedule.getCriticalpathListOrAppointment().add(planAppointment);
+                planProjectSchedule.getAppointment().add(planAppointment);
 
                 planAppointment.setTaskId(getTaskId(task));
                 planAppointment.setResourceId(getResourceId(resource));
@@ -1014,11 +1015,11 @@ public final class PlanWriter extends AbstractProjectWriter
         }
         if (start == null)
         {
-            start = m_projectFile.getStartDate();
+            start = m_projectFile.getProjectProperties().getStartDate();
         }
         if (finish == null)
         {
-            finish = m_projectFile.getFinishDate();
+            finish = m_projectFile.getProjectProperties().getFinishDate();
         }
         planProjectSchedule.setStart(getDateTimeString(start));
         planProjectSchedule.setEnd(getDateTimeString(finish));
@@ -1055,7 +1056,7 @@ public final class PlanWriter extends AbstractProjectWriter
         {
             //System.out.println("writeIntervals: Date: " + currentDate.getTime());
             Day day = Day.getInstance(currentDate.get(Calendar.DAY_OF_WEEK));
-            ProjectCalendarDateRanges ranges = calendar.getHours(day);
+            ProjectCalendarHours ranges = calendar.getHours(day);
             Boolean incDate = true;
             //System.out.println("writeIntervals: ranges: " + ranges);
             for (DateRange range : ranges)
@@ -1222,7 +1223,7 @@ public final class PlanWriter extends AbstractProjectWriter
    {
       String result = null;
 
-      switch (mpxjCalendar.getWorkingDay(day))
+      switch (mpxjCalendar.getCalendarDayType(day))
       {
          case WORKING :
          {

@@ -5,10 +5,10 @@
     <property name="main-class"   value="plan.Convert"/>
 
     <property name="plan.version" value="0.7.0"/>
-    <property name="plan.dtd.dir" value="${basedir}/../../schema"/>
-    <property name="plan.dtd"     value="plan-${plan.version}.dtd"/>
+    <property name="plan.xsd.dir" value="${basedir}/../../schema"/>
+    <property name="plan.xsd"     value="plan-${plan.version}.xsd"/>
 
-    <property name="mpxj.version" value="9.8.2"/>
+    <property name="mpxj.version" value="10.15.0"/>
     <property name="mpxj.url"     value="https://sourceforge.net/projects/mpxj/files/mpxj/Version%20${mpxj.version}/mpxj-${mpxj.version}.zip"/>
     <property name="mpxj.dir"     value="${basedir}/mpxj"/>
     <property name="cp"           value="${mpxj.dir}/*.jar:${mpxj.dir}/lib/*.jar"/>
@@ -16,6 +16,9 @@
     <path id="classpath">
         <fileset dir="${mpxj.dir}" includes="**/*.jar"/>
     </path>
+
+    <!-- This might need adjustment -->
+    <property name ="jaxb.dir"    value="/usr/share/java/"/>
 
     <property name="wget"  value="wget"/>
     <property name="unzip" value="unzip"/>
@@ -61,14 +64,16 @@
 
     <target name="xjc" depends="clean-schema" description="JAXB must be installed">
         <mkdir dir="${schema.dir}"/>
-        <exec executable="xjc">
-            <arg line="-dtd ${plan.dtd.dir}/${plan.dtd} -d ${src.dir} -p plan.schema" />
+        <exec executable="java">
+            <arg line="-jar ${jaxb.dir}/jaxb-xjc.jar ${plan.xsd.dir}/${plan.xsd} -d ${src.dir} -p plan.schema" />
         </exec>
     </target>
 
     <target name="compile" depends="clean-build">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" includeantruntime="false"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" includeantruntime="false">
+          <compilerarg value="-Xlint:deprecation" />
+        </javac>
     </target>
 
     <target name="jar" depends="clean-jar,compile">
@@ -104,7 +109,7 @@
         <delete dir="${result.dir}"/>
         <mkdir dir="${result.dir}"/>
     </target>
-    <target name="run-test" depends="clean-test">
+    <target name="test" depends="clean-test">
         <exec executable="java">
             <arg line="-cp ${jar.dir}/${ant.project.name}.jar ${test-class}"/>
             <arg value="${test.data.dir}"/>

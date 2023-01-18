@@ -42,8 +42,6 @@ You need to update the build.xml file:
        This will download and unsip mpxj into 'mpxj.dir'.
 
 2) New plan dtd version:
-    NOTE: You need JAXB to generate classes from dtd. It is part of java 8 so need to install that.
-
     a) In build.xml: Change property 'plan.version' to the new version
     b) If mpxj is not present, execute 'ant get-mpxj'
     c) Execute: 'ant xjc'
@@ -64,7 +62,7 @@ Run tests
 ---------
 Note: These are not auto tests, you must run them manually AND check results manually!
 
-Execute: 'ant run-test'
+Execute: 'ant test'
 
 The test is run on files found in: ${test.data.dir}
 
