@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Descripció</title>
+  <para
+>L'Editor de les dependències de la tasca s'utilitza per a crear, editar i suprimir les dependències de la tasca. Per a més comoditat, les tasques també es poden inserir, suprimir o editar.</para
+><para
+>Les tasques s'ordenen d'acord amb l'Estructura de descomposició dels treballs (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Els símbols per a les tasques de resum, tasques i fites es mostren a continuació: </para>
+  <para
+>Com que la <emphasis
+>Tasca</emphasis
+> i la <emphasis
+>Fita</emphasis
+> són subelements de la <emphasis
+>Tasca de resum</emphasis
+>, estan amb sagnia. A més, tingueu en compte que el codi WBS es mostrarà juntament amb el nom. </para>
+  <para
+>En la següent figura, s'ha inserit una dependència <emphasis
+>Final-Inici</emphasis
+> per a fer que la <emphasis
+>Fita</emphasis
+> depengui de la <emphasis
+>Tasca</emphasis
+>. </para>
+  <para
+>Com es mostra a continuació, un element consta de tres àrees de selecció diferents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Àrea de l'element</para>
+            </entry>
+            <entry>
+              <para
+>Seleccioneu l'element per editar-lo</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Àrea d'inici</para>
+            </entry>
+            <entry>
+              <para
+>Es fa servir per a crear dependències <emphasis
+>Final-Inici</emphasis
+> i <emphasis
+>Inici-Inici</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Àrea final</para>
+            </entry>
+            <entry>
+              <para
+>Es fa servir per a crear dependències <emphasis
+>Final-Inici</emphasis
+> i <emphasis
+>Final-Final</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Editar les dependències</title>
+  <para
+>Les dependències es creen seleccionant primer una àrea d'inici o final de la tasca predecessora, després seleccionant l'àrea d'inici o final de la tasca successora. </para>
+  <para
+>Això es pot fer emprant el ratolí o el teclat. </para>
+  <para
+>De manera alternativa, podreu posar l'àrea de connexió del predecessor en l'àrea de connexió del successor. </para>
+  <para
+>Per editar o suprimir una dependència existent, podreu obrir una dependència seleccionant-la o obrint el seu menú contextual. </para>
+  <para
+>També podreu obrir el menú contextual sobre una àrea de connexió, el qual permetrà editar totes les dependències connectades amb aquesta àrea. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per a crear i suprimir les tasques: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix una tasca</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Llista desplegable per a crear una tasca o fita. L'element nou es col·loca després de l'element seleccionat al mateix nivell que l'element seleccionat. Si no se selecciona cap element, l'element nou s'annexarà al nivell superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix una subtasca...</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Llista desplegable per a crear una subtasca o fita. L'element nou s'annexarà com a element fill a l'element seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Suprimeix la tasca</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Suprimeix</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix les tasques seleccionades.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

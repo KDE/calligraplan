@@ -1,0 +1,1940 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Опис</title>
+  <para
+>Шаблони звітів у форматі Open Document Text є звичайними файлами ODT, які можна створити за допомогою будь-якого текстового процесора із підтримкою ODT, зокрема <emphasis
+>Calligra Words</emphasis
+> або <emphasis
+>LibreOffice Writer</emphasis
+>. Методологічно, слід використати змінні <emphasis
+>полів користувача</emphasis
+> для зберігання посилань на відомості, які має бути отримано від проєкту. Змінні <emphasis
+>Writer</emphasis
+> називаються <emphasis
+>поля користувача</emphasis
+>. Вставити їх можна за допомогою пункту меню <menuchoice
+><guimenu
+>Вставка</guimenu
+><guisubmenu
+>Поле</guisubmenu
+><guimenuitem
+>Інші поля</guimenuitem
+><guimenuitem
+>Змінні</guimenuitem
+><guimenuitem
+>Поле користувача</guimenuitem
+></menuchoice
+>. У <emphasis
+>Words</emphasis
+> ці поля мають назву <emphasis
+>нетипові змінні</emphasis
+>. Їх можна вставити за допомогою пункту <menuchoice
+><guimenu
+>бічної панелі «Редагування тексту»</guimenu
+><guisubmenu
+>Змінна</guisubmenu
+><guimenuitem
+>Нетипова</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Найпростішим способом створення шаблона проєкту є внесення змін до наявного шаблона, оскільки у ньому вже визначено усі поля користувача. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Змінні поля користувача</title>
+  <sect4 id="variables"
+><title
+>Змінні</title>
+    <para
+>Змінні використовуються для того, щоб засіб створення звітів міг видобути дані з проєкту. </para>
+    <para
+>Змінна може бути посиланням на окреме поле даних, посиланням на дані таблиці або посиланням на дані діаграми. </para>
+<sect5
+><title
+>Окреме поле даних</title
+> <para
+>Запис змінної окремого поля даних має такий формат:</para
+><para
+><replaceable
+>назва групи даних</replaceable
+>.<replaceable
+>властивість</replaceable
+> = <replaceable
+>ідентифікатор властивості</replaceable
+></para
+><para
+>де</para
+><itemizedlist
+><listitem
+><para
+>значенням <replaceable
+>назва групи даних</replaceable
+> може бути tr, project або schedule (див. нижче).</para
+></listitem
+><listitem
+><para
+>значення <replaceable
+>властивість</replaceable
+> робить назву поля користувача унікальною.</para
+></listitem
+><listitem
+><para
+><replaceable
+>ідентифікатор властивості</replaceable
+> ідентифікує властивість у групі даних.</para
+></listitem
+></itemizedlist
+></sect5
+><sect5
+><title
+>Дані таблиці</title
+><para
+>Таблиця у шаблоні звіту складається зі змінної, яка задає дані таблиці, яку слід використати.</para
+><para
+>Назва змінної має починатися з <replaceable
+>table</replaceable
+> (наприклад, tableTasks), з значенням змінної має бути назва таблиці даних (наприклад, tasks).</para
+><para
+>Одразу після змінної слід вставити таблиці і заповнити стовпчики змінними полів користувача, які визначають те, які з властивостей слід отримати з таблиці, яку вказано вище. Ці змінні повинні мати назви, які починаються із назви змінної таблиці, розташованої вище.</para
+><para
+>Формат цих змінних є таким:</para
+><para
+>tableTasks.<replaceable
+>властивість</replaceable
+> = <replaceable
+>ідентифікатор властивості</replaceable
+></para
+><para
+>де</para
+><itemizedlist
+><listitem
+><para
+><guilabel
+>властивість</guilabel
+> робить назву поля користувача унікальною.</para
+></listitem
+><listitem
+><para
+><guilabel
+>ідентифікатор властивості</guilabel
+> ідентифікує властивість у групі даних.</para
+></listitem
+></itemizedlist
+></sect5
+><sect5
+><title
+>Дані діаграми</title
+><para
+>Діаграма у шаблоні звіту складається зі змінної, яка задає дані, які слід використати у діаграмі.</para
+><para
+>Назва змінної має починатися з <replaceable
+>chart</replaceable
+> (наприклад, chartBudgetCost), а значення змінної вказує групу даних та значення, які буде використано для діаграми.</para
+><para
+>Запис змінної має такий формат (зверніть увагу на крапки з комами):</para
+><para
+><replaceable
+>назва</replaceable
+> = <replaceable
+>група даних</replaceable
+>; values=<replaceable
+>список властивостей даних, відокремлених комами</replaceable
+>;</para
+><para
+>де</para
+><itemizedlist
+><listitem
+><para
+><replaceable
+>назва</replaceable
+> має починатися з <guilabel
+>chart</guilabel
+> (наприклад, chartBudgetCost)</para
+></listitem
+><listitem
+><para
+><replaceable
+>група даних</replaceable
+></para
+></listitem
+><listitem
+><para
+><guilabel
+>список властивостей даних, відокремлених комами</guilabel
+> визначає властивості у групі даних.</para
+></listitem
+></itemizedlist
+><para
+>Приклад:</para
+><para
+>chartBudget = project; values=bcws cost, bcwp cost, acwp cost;</para
+></sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Перекладені мітки</title>
+    <para
+>Перекладені мітки надають змогу створювати загальні шаблони звітів, якими можна буде користуватися різними мовами. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Назва змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Значення змінної</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Проєкт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Керівник</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Розклад</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>БВЗР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>БВВР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ДВВР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>ІВП</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>ІВР</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Значення проєкту</title>
+    <para
+>Показує значення з головного проєкту. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Назва змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Значення змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Опис</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>Назва</para>
+              </entry>
+              <entry>
+                <para
+>Назва проєкту</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>Керівник</para>
+              </entry>
+              <entry>
+                <para
+>Ім'я керівника проєкту</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>БВЗР — Вартість</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість запланованої роботи на основі вартості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>БВВР — Вартість</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість виконаної роботи на основі вартості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ДВВР — Вартість</para>
+              </entry>
+              <entry>
+                <para
+>Поточна вартість виконаної роботи на основі вартості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>ІВП (вартість)</para>
+              </entry>
+              <entry>
+                <para
+>Індекс виконання плану на основі вартості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>ІВР (вартість)</para>
+              </entry>
+              <entry>
+                <para
+>Індекс вартості роботи на основі вартості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>БВЗР — Обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість запланованої роботи на основі обсягу робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>БВВР — Обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість виконаної роботи на основі обсягу робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ДВВР — Обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Поточна вартість виконаної роботи на основі обсягу робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>ІВП (обсяг)</para>
+              </entry>
+              <entry>
+                <para
+>Індекс виконання плану на основі обсягу робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>ІВР (обсяг)</para>
+              </entry>
+              <entry>
+                <para
+>Індекс вартості роботи на основі обсягу робіт</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Значення розкладу</title>
+    <para
+>Показує значення з поточного розкладу. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Назва змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Значення змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Опис</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>Назва</para>
+              </entry>
+              <entry>
+                <para
+>Назва розкладу</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Стан</para>
+              </entry>
+              <entry>
+                <para
+>Стан розкладу</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Назва</para>
+              </entry>
+              <entry>
+                <para
+>Напрям створення розкладу</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Перевищення</para>
+              </entry>
+              <entry>
+                <para
+>Перевищення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Розподіл</para>
+              </entry>
+              <entry>
+                <para
+>Розподіл</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Запланований початок</para>
+              </entry>
+              <entry>
+                <para
+>Запланований початок</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Заплановане завершення</para>
+              </entry>
+              <entry>
+                <para
+>Заплановане завершення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Планування</para>
+              </entry>
+              <entry>
+                <para
+>Планування</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Рівень модульності</para>
+              </entry>
+              <entry>
+                <para
+>Рівень модульності</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Режим</para>
+              </entry>
+              <entry>
+                <para
+>Режим планування (автоматичний або вручну)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Таблиці</title>
+    <para
+>Підтримувані типи таблиць: </para>
+    <itemizedlist>
+      <listitem
+><para
+>tasks</para
+></listitem>
+      <listitem
+><para
+>taskstatus</para
+></listitem>
+      <listitem
+><para
+>schedules</para
+></listitem>
+      <listitem
+><para
+>projects</para
+></listitem>
+    </itemizedlist>
+    <para
+>Щоб створити таблицю, вставте змінну одразу перед таблицею до вашого файл шаблона. Назва змінної ідетифікує таблицю. Вона має починатися зі слова <guilabel
+>table</guilabel
+>, наприклад <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>Значення змінної використовується для визначення даних, які буде отримано. Воно має збігатися із назвою однієї із підтримуваних таблиць із наведеного вище списку, наприклад <guilabel
+>taskstatus</guilabel
+>. </para>
+    <para
+>Ви можете вставляти змінні до комірок таблиці за допомогою назви і значення із наведеної нижче таблиці. </para>
+    <para
+>Зауважте, що у таблиці розкладів передбачено підтримку значень, які описано вище у розділі <link linkend="schedule-values"
+>значення розкладів</link
+>. </para>
+    <para
+>Для таблиць проєктів, завдань і стану завдань передбачено підтримку таких значень: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Назва змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Значення змінної</guilabel
+></entry>
+              <entry
+><guilabel
+>Опис</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Назва</para>
+              </entry>
+              <entry>
+                <para
+>Назва завдання або проєкту</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>Код СРР</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Тип</para>
+              </entry>
+              <entry>
+                <para
+>Тип завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Відповідальний</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Розподіл</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Тип оцінки</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Календар</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Оцінка</para>
+              </entry>
+              <entry>
+                <para
+>Найімовірніша оцінка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Оптимістичне</para>
+              </entry>
+              <entry>
+                <para
+>Оптимістична частка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Песимістичне</para>
+              </entry>
+              <entry>
+                <para
+>Песимістична частка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Ризик</para>
+              </entry>
+              <entry>
+                <para
+>Оцінка неточності</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Часові рамки</para>
+              </entry>
+              <entry>
+                <para
+>Тип часового обмеження</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Часові рамки початку</para>
+              </entry>
+              <entry>
+                <para
+>Часові рамки початку</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Часові рамки завершення</para>
+              </entry>
+              <entry>
+                <para
+>Часові рамки завершення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Поточний запис</para>
+              </entry>
+              <entry>
+                <para
+>Запис для поточних витрат</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Початковий запис</para>
+              </entry>
+              <entry>
+                <para
+>Запис для початкової вартості завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Початкова вартість</para>
+              </entry>
+              <entry>
+                <para
+>Витрати, заплановані на початку завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Остаточний запис</para>
+              </entry>
+              <entry>
+                <para
+>Запис для завершальної вартості завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Остаточна вартість</para>
+              </entry>
+              <entry>
+                <para
+>Витрати, понесені на момент завершення завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Опис</para>
+              </entry>
+              <entry>
+                <para
+>Опис завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Очікуване</para>
+              </entry>
+              <entry>
+                <para
+>Обчислена найімовірніша оцінка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Оптимістичне</para>
+              </entry>
+              <entry>
+                <para
+>Обчислена оптимістична оцінка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Песимістичне</para>
+              </entry>
+              <entry>
+                <para
+>Обчислена песимістична оцінка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Час початку</para>
+              </entry>
+              <entry>
+                <para
+>Час початку за розкладом</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Час завершення</para>
+              </entry>
+              <entry>
+                <para
+>Час завершення за розкладом</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Тривалість</para>
+              </entry>
+              <entry>
+                <para
+>Тривалість за розкладом</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Ранній початок</para>
+              </entry>
+              <entry>
+                <para
+>Перша можлива дата початку</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Раннє завершення</para>
+              </entry>
+              <entry>
+                <para
+>Перша можлива дата завершення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Пізній початок</para>
+              </entry>
+              <entry>
+                <para
+>Остання можлива дата початку</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Пізнє завершення</para>
+              </entry>
+              <entry>
+                <para
+>Остання можлива дата завершення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Додатній резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Вільний резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Від’ємний резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Початковий резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Завершальний резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Призначення</para>
+              </entry>
+              <entry>
+                <para
+>Призначення виконавців</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Відхилення (Оц)</para>
+              </entry>
+              <entry>
+                <para
+>Обчислене відхилення оцінки</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Відхилення (Трив)</para>
+              </entry>
+              <entry>
+                <para
+>Обчислене відхилення тривалості</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Оптимістична (Трив.)</para>
+              </entry>
+              <entry>
+                <para
+>Обчислена оптимістична тривалість</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Песимістична (Трив.)</para>
+              </entry>
+              <entry>
+                <para
+>Обчислена песимістична тривалість</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Стан</para>
+              </entry>
+              <entry>
+                <para
+>Стан завдання, який буде показано на панелі стану завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% виконання</para>
+              </entry>
+              <entry>
+                <para
+>Рівень виконання завдання</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Запланований обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Запланований обсяг робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Поточний обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Поточне виконання робіт</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Залишковий обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Обсяг робіт, що залишився</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Запланована вартість</para>
+              </entry>
+              <entry>
+                <para
+>Заплановану вартість</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Поточна вартість</para>
+              </entry>
+              <entry>
+                <para
+>Поточну вартість</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Поточний початок</para>
+              </entry>
+              <entry>
+                <para
+>Поточний початок</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Почато</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Поточне завершення</para>
+              </entry>
+              <entry>
+                <para
+>Поточне завершення</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Завершено</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Стан планування</para>
+              </entry>
+              <entry>
+                <para
+>Стан планування</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>БВЗР</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість запланованої роботи (на основі вартості)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>БВВР</para>
+              </entry>
+              <entry>
+                <para
+>Бюджетна вартість виконаної роботи (на основі вартості)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ДВВР</para>
+              </entry>
+              <entry>
+                <para
+>Поточна вартість виконаної роботи (на основі вартості)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>ІВП</para>
+              </entry>
+              <entry>
+                <para
+>Індекс виконання плану</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Критичний</para>
+              </entry>
+              <entry>
+                <para
+>Завдання є критичним</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Критичний ланцюжок</para>
+              </entry>
+              <entry>
+                <para
+>Завдання належить до критичного ланцюжка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Не включено до розкладу</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Не вказано призначення</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Перевищено можливості</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Виконавець недоступний</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Помилка у часових рамках</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиця</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Невідповідний обсяг робіт</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Помилка планування</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Рівень вузла, рівень</para>
+              </entry>
+              <entry>
+                <para
+>Не є цікавим</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Нотатки щодо стану</para>
+              </entry>
+              <entry>
+                <para
+>Зауваження: не реалізовано</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Власник</para>
+              </entry>
+              <entry>
+                <para
+>Не варто використовувати, не є аж надто цікавими</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Стан</para>
+              </entry>
+              <entry>
+                <para
+>Не варто використовувати, не є аж надто цікавими</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>назва таблиці</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Час</para>
+              </entry>
+              <entry>
+                <para
+>Не варто використовувати, не є аж надто цікавими</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Діаграма</title>
+  <para
+>Може бути використано вставленням змінної із назвою chartX (X=якийсь текст, щоб зробити назву змінної унікальною) зі значенням project до того, як діаграму буде використано. </para>
+  <para
+>Змінна має такий формат: </para>
+  <para
+>Змінна: <varname
+>Назва: chartX (X=якийсь текст) Значення: project; values=<replaceable
+>дані</replaceable
+>;</varname
+> </para>
+  <para
+>де <replaceable
+>дані</replaceable
+> є списком відокремлених комами значень, які слід включити до діаграми. </para>
+  <para
+>Можливі значення параметра <replaceable
+>дані</replaceable
+>: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>
+>bcws effort</guilabel
+> — бюджетна вартість запланованої роботи на основі обсягу робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp effort</guilabel
+> — бюджетна вартість виконаної роботи на основі обсягу робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp effort</guilabel
+> — поточна вартість виконаної роботи на основі обсягу робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi effort</guilabel
+> — індекс виконання плану на основі обсягу робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi effort</guilabel
+> — індекс вартості роботи на основі обсягу робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws cost</guilabel
+> — бюджетна вартість запланованої роботи на основі вартості.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp cost</guilabel
+> — бюджетна вартість виконаної роботи на основі вартості.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> — поточна вартість виконаної роботи на основі вартості.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> — індекс виконання плану на основі вартості робіт.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> — індекс вартості роботи на основі вартості.</para
+></listitem>
+  </itemizedlist>
+  <para
+>У діаграмі, яку ви створите у вашому шаблоні, має бути та сама (або більша) кількість стовпчиків, що і кількість значень, які ви вказали у вашій змінній. </para>
+  <para
+>Приклад: </para>
+  <para
+>Назва змінної: <varname
+>chart1</varname
+> Значення: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Зауважте, що не можна одночасно використовувати значення на основі обсягу робіт і на основі вартості робіт. Якщо вам потрібно показати обидва типи значень, створіть дві окремі діаграми. </para>
+  <sect4 id="gantt"
+><title
+>Діаграма Ґанта</title>
+    <para
+>Не підтримується. </para>
+  </sect4>
+</sect3>
+</sect2>

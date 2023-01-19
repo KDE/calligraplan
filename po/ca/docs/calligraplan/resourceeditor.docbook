@@ -1,0 +1,318 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Descripció</title>
+  <para
+>L'Editor de recursos s'utilitza per a crear, editar i suprimir recursos i grups de recursos. Els recursos hauran de pertànyer a un grup de recursos. De moment no es permeten subgrups. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Els recursos de treball hauran de referir-se a un <emphasis
+>calendari</emphasis
+> que defineixi les hores de treball per al recurs. Els calendaris es creen utilitzant l'<link linkend="work-and-vacation-editor"
+>Editor del treball i vacances</link
+>. </para>
+  <para
+>Els recursos materials estan sempre disponibles de manera predeterminada. Podreu utilitzar un calendari per a limitar la seva disponibilitat. </para>
+  <para
+>Els recursos poden ser <emphasis
+>Compartits</emphasis
+> o <emphasis
+>Locals</emphasis
+>. Un recurs local només s'utilitzarà en el projecte actual. Un recurs compartit es pot compartir entre múltiples projectes i s'emmagatzema en un fitxer separat, vegeu <link linkend="managing-resources"
+>Gestionar els recursos</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per a crear i suprimir els recursos i grups de recursos: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix un grup de recursos...</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un grup de recursos. El grup nou s'afegirà al final dels grups.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix un recurs</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un recurs. El recurs nou s'afegirà com a fill al grup actualment seleccionat. Si se selecciona un recurs, el recurs nou s'annexarà al seu grup pare.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Suprimeix</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Supr</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix els recursos i/o grups de recursos seleccionats.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Els recursos es poden crear deixant anar dades des de qualsevol aplicació que admeti arrossegar informació de vCard, com el &kaddressbook; o l'<application
+>Evolution</application
+>. </para>
+  <para
+>Els recursos es poden copiar o moure a un grup de recursos diferent utilitzant arrossega i deixa anar. </para>
+  <para
+><note
+><para
+>En moure un recurs, el recurs perdrà qualsevol adjudicació.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Editar les dades</title>
+  <para
+>Les dades es poden editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+>. </para>
+  <para
+>Els recursos també es poden editar utilitzant el diàleg Configuració dels recursos. </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom del recurs o el grup de recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Àmbit</para>
+            </entry>
+            <entry>
+              <para
+>Un recurs pot ser <emphasis
+>Compartit</emphasis
+> o <emphasis
+>Local</emphasis
+>. Un recurs compartit no es pot editar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipus</para>
+            </entry>
+            <entry>
+              <para
+>El tipus de recurs o grup de recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inicials</para>
+            </entry>
+            <entry>
+              <para
+>Les inicials del recurs.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Correu electrònic</para>
+            </entry>
+            <entry>
+              <para
+>L'adreça de correu electrònic del recurs.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendari</para>
+            </entry>
+            <entry>
+              <para
+>El calendari defineix quan treballa el recurs.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Límit (%)</para>
+            </entry>
+            <entry>
+              <para
+>La càrrega màxima que es pot assignar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponible des de</para>
+            </entry>
+            <entry>
+              <para
+>Defineix quan està disponible el recurs per al projecte.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponible fins</para>
+            </entry>
+            <entry>
+              <para
+>Defineix quan està disponible el recurs per al projecte.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Freqüència normal</para>
+            </entry>
+            <entry>
+              <para
+>El cost per hora, hores normals.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Compte</para>
+            </entry>
+            <entry>
+              <para
+>El compte on s'acumula el cost del recurs.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Configurar</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilitzant el menú contextual, la vista es podrà configurar per a dividir/no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració.</para
+><para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

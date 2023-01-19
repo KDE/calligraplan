@@ -1,0 +1,1151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kplatowork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2008-04-17 13:57+0100\n"
+"Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
+"Language-Team: Frisian <kde-i18n-doc@kde.org>\n"
+"Language: fy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: aboutdata.h:33 aboutdata.h:42
+#, fuzzy, kde-format
+#| msgid "KPlatoWP - Work Package handler for the KPlato Project Planning Tool"
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr "KPlatoWP - Wurkpakket hândeler foar it KPlato Projekt Plannings Ark"
+
+#: aboutdata.h:40
+#, fuzzy, kde-format
+#| msgid "KPlato WorkPackage Handler"
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "KDE wurkpakket handeler"
+
+#: aboutdata.h:44
+#, fuzzy, kde-format
+#| msgid "(c) 1998-2007, The KPlato Team"
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "(c) 1998-2007, it team fan KPlato"
+
+#: aboutdata.h:48
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:50
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Berend Ytsma"
+
+#: aboutdata.h:51
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "berendy@bigfoot.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "Be&wurkje"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, fuzzy, kde-format
+#| msgid "&View"
+msgid "View"
+msgstr "Byl&d"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Byl&d"
+
+#: commandlineparser.cpp:50
+#, kde-format
+msgid "File to open"
+msgstr "De te iepenjen triem"
+
+#: commandlineparser.cpp:107
+#, fuzzy, kde-format
+#| msgid "Failed to create KOffice document"
+msgid "Failed to open document"
+msgstr "It meitsjen fan in KOffice dokumint mislearre"
+
+#: mainwindow.cpp:110
+#, fuzzy, kde-format
+#| msgid "File does not exist: %1"
+msgid "The file %1 does not exist."
+msgstr "De triem %1 bestiet net."
+
+#: part.cpp:174 part.cpp:205
+#, fuzzy, kde-format
+#| msgid "Document is already open: %1"
+msgid "Document is already open:<br>%1"
+msgstr "Dokumint is al iepene: %1"
+
+#: part.cpp:186 part.cpp:213 workpackage.cpp:609
+#, fuzzy, kde-format
+#| msgid "Could not extract file: %1"
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Koe triem %1 net útpakke"
+
+#: part.cpp:194 part.cpp:221 workpackage.cpp:613
+#, fuzzy, kde-format
+#| msgid "Invalid url: %1"
+msgid "Invalid URL:<br>%1"
+msgstr "Ferkeard URL-adres: %1"
+
+#: part.cpp:233
+#, fuzzy, kde-format
+#| msgid "Document is already open: %1"
+msgid "Document is already open:<br> %1"
+msgstr "Dokumint is al iepene: %1"
+
+#: part.cpp:237
+#, fuzzy, kde-format
+#| msgid "File does not exist: %1"
+msgid "File does not exist:<br>%1"
+msgstr "De triem %1 bestiet net."
+
+#: part.cpp:263
+#, kde-format
+msgid "Edit with:"
+msgstr "BEwurkje mei:"
+
+#: part.cpp:391
+#, fuzzy, kde-format
+#| msgid ""
+#| "This workpackage already exists in your project store:\n"
+#| "%1\n"
+#| "Do you want to overwrite it?"
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"Dit wurkpakket bestiet al yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it oerskriuwe?"
+
+#: part.cpp:419
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr ""
+
+#: part.cpp:422 part.cpp:433
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: part.cpp:472
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed write file:\n"
+#| " %1"
+msgid "Failed to load file:<br>%1"
+msgstr ""
+"De triem koe net bewarre wurde:\n"
+" %1"
+
+#: part.cpp:486
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed write file:\n"
+#| " %1"
+msgid "Not a valid work package file:<br>%1"
+msgstr ""
+"De triem koe net bewarre wurde:\n"
+" %1"
+
+#: part.cpp:514
+#, fuzzy, kde-format
+#| msgid "Invalid document. No mimetype specified."
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Unjildich dokumint. Der is gjin mime triemtype oantsjutte."
+
+#: part.cpp:540
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to open store:\n"
+#| " %1"
+msgid "Failed to open file: %1"
+msgstr ""
+"Koe store net iepenje:\n"
+" %1"
+
+#: part.cpp:552
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+
+#: part.cpp:569 part.cpp:612
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Unjildich dokumint. Der is gjin mime triemtype oantsjutte."
+
+#: part.cpp:575
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#| "got %1"
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Unjildich dokumint. Mime-triemtype application/x-vnd.kde.kplato.work waard "
+"ferwachte, %1 waard sjoen"
+
+#: part.cpp:582 part.cpp:623
+#, fuzzy, kde-format
+#| msgid ""
+#| "This document was created with a newer version of KPlatoWork (syntax "
+#| "version: %1)\n"
+#| "Opening it in this version of KPlatoWork will lose some information."
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Dit dokumint is makke mei in nijere ferzje fan KPlatoWork (syntaksis-ferzje: "
+"%1)\n"
+"As jo it iepenje yn KPlatoWork , dan ferlieze jo wat ynformaasje."
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "Continue"
+msgstr "Trochgean"
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Triemtype komt net oerien"
+
+#: part.cpp:616
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#| "got %1"
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1"
+msgstr ""
+"Unjildich dokumint. Mime-triemtype application/x-vnd.kde.kplato.work waard "
+"ferwachte, %1 waard sjoen"
+
+#: part.cpp:713
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr ""
+
+#: taskcompletiondialog.cpp:45
+#, fuzzy, kde-format
+#| msgid "Progress..."
+msgid "Task Progress"
+msgstr "Fuortgong..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:298
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:420
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:442
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:477
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:498
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:511
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:609
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:610
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:621
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:624
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:625
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:626
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:627
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:628
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:629
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:631
+#, fuzzy, kde-kuit-format
+#| msgid "Project"
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Projekt"
+
+#: taskworkpackagemodel.cpp:632
+#, fuzzy, kde-kuit-format
+#| msgid "Project"
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Projekt"
+
+#: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
+#, fuzzy, kde-format
+#| msgid "Configure KPlatoWork..."
+msgid "Configure View..."
+msgstr "KPlatoWork &ynstelle..."
+
+#: taskworkpackageview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:657
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:96
+#, kde-format
+msgid "Remove Packages"
+msgstr ""
+
+#: view.cpp:100
+#, kde-format
+msgid "Remove Package"
+msgstr ""
+
+#: view.cpp:104
+#, kde-format
+msgid "List"
+msgstr ""
+
+#: view.cpp:105
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr ""
+
+#: view.cpp:109
+#, kde-format
+msgid "Gantt"
+msgstr ""
+
+#: view.cpp:110
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#. i18n("Progress..."), this);
+#. collection->addAction("task_progress", actionTaskProgress);
+#. connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
+#. ------ Settings
+#: view.cpp:119
+#, fuzzy, kde-format
+#| msgid "Configure KPlatoWork..."
+msgid "Configure PlanWork..."
+msgstr "KPlatoWork &ynstelle..."
+
+#: view.cpp:124
+#, fuzzy, kde-format
+#| msgid "&Edit"
+msgid "Edit..."
+msgstr "Be&wurkje"
+
+#: view.cpp:128
+#, fuzzy, kde-format
+#| msgid "&View"
+msgctxt "@verb"
+msgid "View..."
+msgstr "Byl&d"
+
+#: view.cpp:137
+#, kde-format
+msgid "Send Package..."
+msgstr ""
+
+#: view.cpp:141
+#, fuzzy, kde-format
+#| msgid "Progress..."
+msgid "Edit Progress..."
+msgstr "Fuortgong..."
+
+#: view.cpp:145
+#, kde-format
+msgid "View Description..."
+msgstr ""
+
+#: view.cpp:332
+#, kde-format
+msgid "This file is not editable"
+msgstr "Dizze triem is net te bewurkjen"
+
+#: view.cpp:352
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed write file:\n"
+#| " %1"
+msgid "No work package is selected"
+msgstr ""
+"De triem koe net bewarre wurde:\n"
+" %1"
+
+#: view.cpp:358
+#, kde-format
+msgid "Cannot find work package"
+msgstr ""
+
+#: view.cpp:375
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:383
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:394
+#, kde-format
+msgid "Work Package: %1"
+msgstr ""
+
+#: workpackage.cpp:111
+#, kde-format
+msgid "Document is already open"
+msgstr "Dokumint is al iepene"
+
+#: workpackage.cpp:184 workpackage.cpp:252
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to open store:\n"
+#| " %1"
+msgid "Failed to load project: %1"
+msgstr ""
+"Koe store net iepenje:\n"
+" %1"
+
+#: workpackage.cpp:311
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to open store:\n"
+#| " %1"
+msgid "Cannot save to empty filename"
+msgstr ""
+"Koe store net iepenje:\n"
+" %1"
+
+#: workpackage.cpp:317
+#, fuzzy, kde-format
+#| msgid "Could not extract file: %1"
+msgid "Could not create the file for saving"
+msgstr "Koe triem %1 net útpakke"
+
+#: workpackage.cpp:329
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr ""
+
+#: workpackage.cpp:353
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"Koe store net iepenje:\n"
+" %1"
+
+#: workpackage.cpp:428
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to open store:\n"
+#| " %1"
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Koe store net iepenje:\n"
+" %1"
+
+#: workpackage.cpp:478
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"Koe dizze triem net lêze:\n"
+" %1"
+
+#: workpackage.cpp:482
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"De triem koe net bewarre wurde:\n"
+" %1"
+
+#: workpackage.cpp:525
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr ""
+
+#: workpackage.cpp:634
+#, fuzzy, kde-format
+#| msgid ""
+#| "This workpackage is not in your project store:\n"
+#| "%1\n"
+#| "Do you want to save it?"
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"Dit wurkpakket sit net yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it bewarjen?"
+msgstr[1] ""
+"Dit wurkpakket sit net yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it bewarjen?"
+
+#: workpackage.cpp:655
+#, fuzzy, kde-format
+#| msgid ""
+#| "This workpackage is not in your project store:\n"
+#| "%1\n"
+#| "Do you want to save it?"
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+"Dit wurkpakket sit net yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it bewarjen?"
+
+#: workpackage.cpp:681
+#, fuzzy, kde-format
+#| msgid ""
+#| "This workpackage is not in your project store:\n"
+#| "%1\n"
+#| "Do you want to save it?"
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+"Dit wurkpakket sit net yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it bewarjen?"
+
+#: workpackage.cpp:697
+#, fuzzy, kde-format
+#| msgid ""
+#| "This workpackage is not in your project store:\n"
+#| "%1\n"
+#| "Do you want to save it?"
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+"Dit wurkpakket sit net yn jo projekt store:\n"
+"%1\n"
+"Wolle jo it bewarjen?"
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgid "Progress"
+#~ msgstr "Fuortgong..."
+
+#~ msgid "Documents"
+#~ msgstr "Dokuminten"
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Fuortgong..."
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Dokuminten"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "Be&wurkje"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "Byl&d"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Byl&d"
+
+#, fuzzy
+#~| msgid ""
+#~| "KPlatoWP - Work Package handler for the KPlato Project Planning Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr "KPlatoWP - Wurkpakket hândeler foar it KPlato Projekt Plannings Ark"
+
+#, fuzzy
+#~| msgid "KPlato WorkPackage Handler"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "KDE wurkpakket handeler"
+
+#, fuzzy
+#~| msgid "(c) 1998-2007, The KPlato Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "(c) 1998-2007, it team fan KPlato"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Berend Ytsma"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "berendy@bigfoot.com"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "De te iepenjen triem"
+
+#, fuzzy
+#~| msgid "Failed to create KOffice document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "It meitsjen fan in KOffice dokumint mislearre"
+
+#, fuzzy
+#~| msgid "File does not exist: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "De triem %1 bestiet net."
+
+#, fuzzy
+#~| msgid "Document is already open: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Dokumint is al iepene: %1"
+
+#, fuzzy
+#~| msgid "Could not extract file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Koe triem %1 net útpakke"
+
+#, fuzzy
+#~| msgid "Invalid url: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "Ferkeard URL-adres: %1"
+
+#, fuzzy
+#~| msgid "Document is already open: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Dokumint is al iepene: %1"
+
+#, fuzzy
+#~| msgid "File does not exist: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "De triem %1 bestiet net."
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "BEwurkje mei:"
+
+#, fuzzy
+#~| msgid ""
+#~| "This workpackage already exists in your project store:\n"
+#~| "%1\n"
+#~| "Do you want to overwrite it?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "Dit wurkpakket bestiet al yn jo projekt store:\n"
+#~ "%1\n"
+#~ "Wolle jo it oerskriuwe?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed write file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr ""
+#~ "De triem koe net bewarre wurde:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Unjildich dokumint. Der is gjin mime triemtype oantsjutte."
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr ""
+#~ "Koe store net iepenje:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Unjildich dokumint. Der is gjin mime triemtype oantsjutte."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Unjildich dokumint. Mime-triemtype application/x-vnd.kde.kplato.work "
+#~ "waard ferwachte, %1 waard sjoen"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlatoWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of KPlatoWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "Dit dokumint is makke mei in nijere ferzje fan KPlatoWork (syntaksis-"
+#~ "ferzje: %1)\n"
+#~ "As jo it iepenje yn KPlatoWork , dan ferlieze jo wat ynformaasje."
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Trochgean"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Triemtype komt net oerien"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Unjildich dokumint. Mime-triemtype application/x-vnd.kde.kplato.work "
+#~ "waard ferwachte, %1 waard sjoen"
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "Fuortgong..."
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Projekt"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Projekt"
+
+#, fuzzy
+#~| msgid "Configure KPlatoWork..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "KPlatoWork &ynstelle..."
+
+#, fuzzy
+#~| msgid "Configure KPlatoWork..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "KPlatoWork &ynstelle..."
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Be&wurkje"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Byl&d"
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "Fuortgong..."
+
+#, fuzzy
+#~| msgid "This file is not editable"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "Dizze triem is net te bewurkjen"
+
+#, fuzzy
+#~| msgid "Document is already open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "Dokumint is al iepene"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr ""
+#~ "Koe store net iepenje:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid "Could not extract file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Koe triem %1 net útpakke"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Koe store net iepenje:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Koe store net iepenje:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed read file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Koe dizze triem net lêze:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed write file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "De triem koe net bewarre wurde:\n"
+#~ " %1"
+
+#~ msgid "&Settings"
+#~ msgstr "&Ynstellings"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgid "Edit Mode:"
+#~ msgstr "BEwurkje mei:"
+
+#~ msgid ""
+#~ "Document is already open:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Dokumint is al iepene:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid "Could not extract file: %1"
+#~ msgid "Could not find %1"
+#~ msgstr "Koe triem %1 net útpakke"
+
+#, fuzzy
+#~| msgid ""
+#~| "Could not open workpackage store:\n"
+#~| " %1"
+#~ msgid "Failed to set workpackage, project: %1"
+#~ msgstr ""
+#~ "Koe wurkpakket store net iepenje:\n"
+#~ " %1"
+
+#, fuzzy
+#~| msgid "KPlato WorkPackage Handler"
+#~ msgid "No WorkPackage handles this document"
+#~ msgstr "KDE wurkpakket handeler"
+
+#~ msgid "Information"
+#~ msgstr "Ynformaasje"
+
+#~ msgid "Not scheduled"
+#~ msgstr "Net pland"
+
+#~ msgid "No template found for: %1 "
+#~ msgstr "Gjin sjabloan fûn foar: %1"
+
+#~ msgid "Too many templates found for: %1"
+#~ msgstr "Tefolle sjabloanen fûn foar: %1"
+
+#~ msgid "Template %1 failed to load."
+#~ msgstr "Sjabloan %1 koe net laden wurde."
+
+#~ msgid "Close"
+#~ msgstr "Slute"
+
+#~ msgid "Empty"
+#~ msgstr "Leech"
+
+#~ msgctxt "Main document"
+#~ msgid " [main]"
+#~ msgstr " [Haad]"
+
+#~ msgid " [write protected]"
+#~ msgstr " [skriuwbefeilige]"
+
+#~ msgid "Part Handbook"
+#~ msgstr "Underdiel-hânboek"
+
+#~ msgid "%1 Handbook"
+#~ msgstr "%1-hânboek"
+
+#~ msgid "Open Document"
+#~ msgstr "Dokumint iepenje"
+
+#~ msgid "Save"
+#~ msgstr "Bewarje"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "It útpakken fan dizze triem slagge net:\n"
+#~ " %1"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "It útpakken fan dizze triem slagge net:\n"
+#~ "%1"
+
+#~ msgid "none"
+#~ msgstr "gjint"
+
+#~ msgid "Add Schedule %1"
+#~ msgstr "Planning %1 taheakje"
+
+#~ msgid "Delete Schedule %1"
+#~ msgstr "Planning %1 wiskje"

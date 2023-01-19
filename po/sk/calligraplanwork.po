@@ -1,0 +1,1140 @@
+# translation of planwork.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2007, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2016, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: planwork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2019-10-18 20:59+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.04.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: aboutdata.h:33 aboutdata.h:42
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+"PlanWork - Spracovač pracovných balíkov pre nástroj plánovania projektov Plan"
+
+#: aboutdata.h:40
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Spracovač pracovných balíkov Plan"
+
+#: aboutdata.h:44
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright (C) 1998-%1, Tím Plan"
+
+#: aboutdata.h:48
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:50
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Richard Frič,Peter Adamka,Michal Šulek,Roman Paholík"
+
+#: aboutdata.h:51
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"Richard.Fric@kdemail.net,peter.adamka@gmail.com,misurel@gmail.com,"
+"wizzardsk@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Upraviť"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Zobraziť"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Zobraziť"
+
+#: commandlineparser.cpp:50
+#, kde-format
+msgid "File to open"
+msgstr "Súbor na otvorenie"
+
+#: commandlineparser.cpp:107
+#, kde-format
+msgid "Failed to open document"
+msgstr "Nepodarilo sa otvoriť dokument"
+
+#: mainwindow.cpp:110
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Súbor %1 neexistuje."
+
+#: part.cpp:174 part.cpp:205
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "Dokument je už otvorený:<br>%1"
+
+#: part.cpp:186 part.cpp:213 workpackage.cpp:609
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Nemôžem extrahovať dokument z úložiska:<br>%1"
+
+#: part.cpp:194 part.cpp:221 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "Neplatné URL:<br>%1"
+
+#: part.cpp:233
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "Dokument je už otvorený:<br>%1"
+
+#: part.cpp:237
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "Súbor neexistuje:<br>%1"
+
+#: part.cpp:263
+#, kde-format
+msgid "Edit with:"
+msgstr "Upraviť pomocou:"
+
+#: part.cpp:391
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"<p>Pracovný balík už existuje v úložisku projektov.</p><p>Projekt: "
+"%1<br>Úloha: %2</p><p>Chcete obnoviť existujúci balík s dátami z nového?</p>"
+
+#: part.cpp:419
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "Odstránenie zlyhalo. Nemôžem nájsť pracovný balík"
+
+#: part.cpp:422 part.cpp:433
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "Odstrániť pracovný balík"
+msgstr[1] "Odstrániť pracovné balíky"
+msgstr[2] "Odstrániť pracovné balíky"
+
+#: part.cpp:472
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Zlyhalo načítanie súboru:<br>%1"
+
+#: part.cpp:486
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "Nesprávny súbor pracovného balíka:<br>%1"
+
+#: part.cpp:514
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Neplatný dokument. Dokument neobsahuje 'maindoc.xml'."
+
+#: part.cpp:540
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Nepodarilo sa otvoriť súbor: %1"
+
+#: part.cpp:552
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+"Chyba spracovania v súbore '%1' na riadku %2, stĺpci %3<br>Chybová správa: %4"
+
+#: part.cpp:569 part.cpp:612
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Neplatný dokument. Neuvedený MIME typ."
+
+#: part.cpp:575
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan.work, "
+"získané %1"
+
+#: part.cpp:582 part.cpp:623
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Tento dokument je novšej verzie, akú podporuje PlanWork (verzia syntaxe: "
+"%1)<br>Otvorenie v tejto verzii PlanWork stratí niektoré informácie."
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Nevyhovujúci formátu súboru"
+
+#: part.cpp:616
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1"
+msgstr ""
+"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.kplato.work, "
+"získané %1"
+
+#: part.cpp:713
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "Úprava zlyhala. Nemôžem nájsť pracovný balík."
+
+#: taskcompletiondialog.cpp:45
+#, kde-format
+msgid "Task Progress"
+msgstr "Priebeh úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Spustené:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Dokončené:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Pridať záznam"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Odstrániť záznam"
+
+#: taskworkpackagemodel.cpp:298
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
+
+#: taskworkpackagemodel.cpp:420
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr "Typ: %1<nl/>Url: %2"
+
+#: taskworkpackagemodel.cpp:442
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "Upraviť dokončovanie"
+
+#: taskworkpackagemodel.cpp:477
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "Nastaviť ukončený"
+
+#: taskworkpackagemodel.cpp:498
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "Zmeniť zostávajúce úsilie"
+
+#: taskworkpackagemodel.cpp:511
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "Zmeniť aktuálne úsilie"
+
+#: taskworkpackagemodel.cpp:609
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Názov"
+
+#: taskworkpackagemodel.cpp:610
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Typ"
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Zodpovedný"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Popis"
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Plánované spustenie"
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Plánované ukončenie"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "Priradenia prostriedkov"
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Dokončovanie"
+
+#: taskworkpackagemodel.cpp:621
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Aktuálne úsilie"
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Zostávajúce úsilie"
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Plánované úsilie"
+
+#: taskworkpackagemodel.cpp:624
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Aktuálne spustenie"
+
+#: taskworkpackagemodel.cpp:625
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Spustené"
+
+#: taskworkpackagemodel.cpp:626
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "Aktuálne ukončenie"
+
+#: taskworkpackagemodel.cpp:627
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Dokončené"
+
+#: taskworkpackagemodel.cpp:628
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Stav"
+
+#: taskworkpackagemodel.cpp:629
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Poznámka"
+
+#: taskworkpackagemodel.cpp:631
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Meno projektu"
+
+#: taskworkpackagemodel.cpp:632
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Správca projektu"
+
+#: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
+#, kde-format
+msgid "Configure View..."
+msgstr "Nastaviť pohľad..."
+
+#: taskworkpackageview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+"Úloha: %1<nl/>Aktuálny koniec: %2<nl/>Plánovaný koniec: %3<nl/>Stav: %4<nl/"
+">Projekt: %5"
+
+#: taskworkpackageview.cpp:657
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+"Úloha: %1<nl/>Hotovo: %2 %<nl/>Aktuálny štart: %3<nl/>Plánované: %4 - %5<nl/"
+">Stav: %6<nl/>Projekt: %7"
+
+#: taskworkpackageview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr "Úloha: %1<nl/>Plánované: %2 - %3<nl/>Stav: %4<nl/>Projekt: %5"
+
+#: view.cpp:96
+#, kde-format
+msgid "Remove Packages"
+msgstr "Odstrániť balíčky"
+
+#: view.cpp:100
+#, kde-format
+msgid "Remove Package"
+msgstr "Odstrániť balíček"
+
+#: view.cpp:104
+#, kde-format
+msgid "List"
+msgstr "Zoznam"
+
+#: view.cpp:105
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr "Vybrať zoznam úloh"
+
+#: view.cpp:109
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view.cpp:110
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr "Vybrať časový prehľad"
+
+#. i18n("Progress..."), this);
+#. collection->addAction("task_progress", actionTaskProgress);
+#. connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
+#. ------ Settings
+#: view.cpp:119
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "Nastaveniť PlanWork..."
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit..."
+msgstr "Upraviť..."
+
+#: view.cpp:128
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "&Zobraziť..."
+
+#: view.cpp:137
+#, kde-format
+msgid "Send Package..."
+msgstr "Odoslať balík..."
+
+#: view.cpp:141
+#, kde-format
+msgid "Edit Progress..."
+msgstr "Upraviť priebeh..."
+
+#: view.cpp:145
+#, kde-format
+msgid "View Description..."
+msgstr "Zobraziť popis..."
+
+#: view.cpp:332
+#, kde-format
+msgid "This file is not editable"
+msgstr "Tento súbor nie je editovateľný"
+
+#: view.cpp:352
+#, kde-format
+msgid "No work package is selected"
+msgstr "Nie je vybratý pracovný balík"
+
+#: view.cpp:358
+#, kde-format
+msgid "Cannot find work package"
+msgstr "Nemôžem nájsť pracovný balík"
+
+#: view.cpp:375
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr "Nemôžem otvoriť súbor. Odosielanie je zrušené."
+
+#: view.cpp:383
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr "Nemôžem otvoriť dočasný súbor. Posielanie je zrušené."
+
+#: view.cpp:394
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Pracovný balík: %1"
+
+#: workpackage.cpp:111
+#, kde-format
+msgid "Document is already open"
+msgstr "Dokument je už otvorený"
+
+#: workpackage.cpp:184 workpackage.cpp:252
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "Zlyhalo načítanie projektu: %1"
+
+#: workpackage.cpp:311
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr "Nemôžem uložiť do prázdneho názvu súboru"
+
+#: workpackage.cpp:317
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Nemôžem vytvoriť súbor na uloženie"
+
+#: workpackage.cpp:329
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Nedá sa zapísať '%1'. Plný disk?"
+
+#: workpackage.cpp:353
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"Zlyhalo otvorenie úložiska:\n"
+" %1"
+
+#: workpackage.cpp:428
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Nemôžem uložiť do úložiska projektov:\n"
+"%1"
+
+#: workpackage.cpp:478
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"Zlyhalo čítanie súboru:\n"
+" %1"
+
+#: workpackage.cpp:482
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"Zlyhal zápis súboru:\n"
+" %1"
+
+#: workpackage.cpp:525
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr "Zlúčiť dáta"
+
+#: workpackage.cpp:634
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"<p>Pracovný balík <b>'%2'</b> má otvorený dokument.</p><p>Pri pokračovaní "
+"môžete stratiť dáta.</p>"
+msgstr[1] ""
+"<p>Pracovný balík <b>'%2'</b> má otvorené dokumenty.</p><p>Pri pokračovaní "
+"môžete stratiť dáta.</p>"
+msgstr[2] ""
+"<p>Pracovný balík <b>'%2'</b> má otvorené dokumenty.</p><p>Pri pokračovaní "
+"môžete stratiť dáta.</p>"
+
+#: workpackage.cpp:655
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr "<p>Pracovný balík <b>'%1'</b> bol zmenený.</p><p>Chcete ho uložiť?</p>"
+
+#: workpackage.cpp:681
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+"<p>Pracovný balík <b>'%1'</b></p><p>Nemôžem otvoriť úložisko:</p><p>%2</p>"
+
+#: workpackage.cpp:697
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+"<p>Pracovný balík <b>'%1'</b></p><p>Nemôžem extrahovať súbor:</p><p>%2</p>"
+
+#~ msgid "Work Package Settings"
+#~ msgstr "Nastavenia pracovného balíka"
+
+#, fuzzy
+#~| msgid ""
+#~| "Package data:\n"
+#~| "These settings indicates to the receiver of the package which "
+#~| "information is relevant."
+#~ msgid ""
+#~ "Package: %1\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Dáta balíka:\n"
+#~ "Tieto nastavenia indikujú prijímateľovi balíka, ktoré informácie sú "
+#~ "relevantné."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr "Zmeniť nastavenia balíka"
+
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Úsilie, ktoré ste použili na tejto úlohe."
+
+#~ msgid "Used effort"
+#~ msgstr "Použité úsilie"
+
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Priebeh zahŕňa spustený / čas spustenia, skončený / čas skončenia a "
+#~ "ukončenie"
+
+#~ msgid "Progress"
+#~ msgstr "Priebeh"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "Dokumenty pripojené k tejto úlohe"
+
+#~ msgid "Documents"
+#~ msgstr "Dokumenty"
+
+#~ msgid "Package Settings..."
+#~ msgstr "Nastavenia balíka..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr "Zmeniť ukončenie úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "Spustené:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Dokončené:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Pridať záznam"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Odstrániť záznam"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Package data:\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Dáta balíka:\n"
+#~ "Tieto nastavenia indikujú prijímateľovi balíka, ktoré informácie sú "
+#~ "relevantné."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Úsilie, ktoré ste použili na tejto úlohe."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Used effort"
+#~ msgstr "Použité úsilie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Priebeh zahŕňa spustený / čas spustenia, skončený / čas skončenia a "
+#~ "ukončenie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Priebeh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "Dokumenty pripojené k tejto úlohe"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Dokumenty"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Upraviť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Zobraziť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Zobraziť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr ""
+#~ "PlanWork - Spracovač pracovných balíkov pre nástroj plánovania projektov "
+#~ "Plan"
+
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Spracovač pracovných balíkov Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "Copyright (C) 1998-%1, Tím Plan"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "Otvoriť súbor"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "Nepodarilo sa otvoriť dokument"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Súbor %1 neexistuje."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package Settings"
+#~ msgstr "Nastavenia pracovného balíka"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Dokument je už otvorený:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Nemôžem extrahovať dokument z úložiska:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "Neplatné URL:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Dokument je už otvorený:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "Súbor neexistuje:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Upraviť pomocou:"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "<p>Pracovný balík už existuje v úložisku projektov.</p><p>Projekt: "
+#~ "%1<br>Úloha: %2</p><p>Chcete obnoviť existujúci balík s dátami z nového?</"
+#~ "p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove failed. Cannot find work package"
+#~ msgstr "Odstránenie zlyhalo. Nemôžem nájsť pracovný balík"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Zlyhalo načítanie súboru:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not a valid work package file:<br>%1"
+#~ msgstr "Nesprávny súbor pracovného balíka:<br>%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Neplatný dokument. Dokument neobsahuje 'maindoc.xml'."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Nepodarilo sa otvoriť súbor: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgstr ""
+#~ "Chyba spracovania v súbore '%1' na riadku %2, stĺpci %3<br>Chybová "
+#~ "správa: %4"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Neplatný dokument. MIME typ musí byť uvedený."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan."
+#~ "work, získané %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "Tento dokument je novšej verzie, akú podporuje PlanWork (verzia syntaxe: "
+#~ "%1)<br>Otvorenie v tejto verzii PlanWork stratí niektoré informácie."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Pokračovať"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Nehodiace sa formáty súborov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.kplato."
+#~ "work, získané %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit failed. Cannot find a work package."
+#~ msgstr "Úprava zlyhala. Nemôžem nájsť pracovný balík."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "Priebeh úlohy"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Názov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Typ"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "Zodpovedný"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Popis"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "Plánované spustenie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "Plánované ukončenie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Priradenia prostriedkov"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Dokončovanie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "Aktuálne úsilie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "Zostávajúce úsilie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "Plánované úsilie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "Aktuálne spustenie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "Spustené"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "Aktuálne ukončenie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Ukončené"
+
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "Stav"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Poznámka"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Meno projektu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Správca projektu"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Nastaviť pohľad..."
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+#~ ">Project: %5"
+#~ msgstr ""
+#~ "Úloha: %1<nl/>Aktuálny koniec: %2<nl/>Plánovaný koniec: %3<nl/>Stav: "
+#~ "%4<nl/>Projekt: %5"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - "
+#~ "%5<nl/>Status: %6<nl/>Project: %7"
+#~ msgstr ""
+#~ "Úloha: %1<nl/>Hotovo: %2 %<nl/>Aktuálny štart: %3<nl/>Plánované: %4 - "
+#~ "%5<nl/>Stav: %6<nl/>Projekt: %7"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+#~ msgstr "Úloha: %1<nl/>Plánované: %2 - %3<nl/>Stav: %4<nl/>Projekt: %5"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "Odstrániť balíčky"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "Odstrániť balíček"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Zoznam"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select task list"
+#~ msgstr "Vybrať zoznam úloh"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select timeline"
+#~ msgstr "Vybrať časový prehľad"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "Nastaveniť PlanWork..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Upraviť..."
+
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "&Zobraziť"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Send Package..."
+#~ msgstr "Odoslať balík..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Package Settings..."
+#~ msgstr "Nastavenia balíka..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "Upraviť priebeh..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View Description..."
+#~ msgstr "Zobraziť popis..."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "Tento súbor nie je editovateľný"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No work package is selected"
+#~ msgstr "Nie je vybratý pracovný balík"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot find work package"
+#~ msgstr "Nemôžem nájsť pracovný balík"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not open temporary file. Sending is aborted."
+#~ msgstr "Nemôžem otvoriť dočasný súbor. Posielanie je zrušené."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Pracovný balík: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "Dokument je už otvorený"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr "Zlyhalo načítanie projektu: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot save to empty filename"
+#~ msgstr "Nemôžem uložiť do prázdneho názvu súboru"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Nemôžem vytvoriť súbor na uloženie"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Nedá sa zapísať '%1'. Plný disk?"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Zlyhalo otvorenie úložiska:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Nemôžem uložiť do úložiska projektov:\n"
+#~ "%1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Zlyhalo čítanie súboru:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Zlyhal zápis súboru:\n"
+#~ " %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgid_plural ""
+#~ "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgstr[0] ""
+#~ "<p>Pracovný balík <b>'%2'</b> má otvorený dokument.</p><p>Pri pokračovaní "
+#~ "môžete stratiť dáta.</p>"
+#~ msgstr[1] ""
+#~ "<p>Pracovný balík <b>'%2'</b> má otvorené dokumenty.</p><p>Pri "
+#~ "pokračovaní môžete stratiť dáta.</p>"
+#~ msgstr[2] ""
+#~ "<p>Pracovný balík <b>'%2'</b> má otvorené dokumenty.</p><p>Pri "
+#~ "pokračovaní môžete stratiť dáta.</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~ "save it?</p>"
+#~ msgstr ""
+#~ "<p>Pracovný balík <b>'%1'</b> bol zmenený.</p><p>Chcete ho uložiť?</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Pracovný balík <b>'%1'</b></p><p>Nemôžem otvoriť úložisko:</p><p>%2</p>"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Pracovný balík <b>'%1'</b></p><p>Nemôžem extrahovať súbor:</p><p>%2</p>"

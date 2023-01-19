@@ -1,0 +1,16 @@
+<chapter id="creating-a-project"
+><title
+>Riktlinjer</title>
+  <sect1 id="creating-a-project-section"
+><title
+>Skapa ett projekt</title
+>&creating-project-section; </sect1>
+  <sect1 id="managing-resources"
+><title
+>Hantera resurser</title
+>&managing-resources-section; </sect1>
+  <sect1 id="creating-odt-report-templates"
+><title
+>Skapa ODT-rapportmallar</title
+>&creating-odt-report-templates-section; </sect1>
+</chapter>

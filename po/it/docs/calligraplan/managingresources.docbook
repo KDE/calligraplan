@@ -1,0 +1,16 @@
+<sect2 id="description"
+><title
+>Descrizione</title>
+  <para
+>È possibile creare risorse per un progetto utilizzando <link linkend="resource-editor"
+>Editor delle risorse</link
+> e l'<link linkend="work-and-vacation-editor"
+>Editor del lavoro e delle ferie</link
+>. </para>
+  <para
+>Tuttavia, se si ha intenzione di utilizzare le stesse risorse in molti progetti (che è spesso il caso), è più conveniente mantenere le risorse in un file separato. Il modo migliore per farlo è creare prima il file delle risorse e quindi impostare Plan per caricare sempre questo file durante la creazione di un nuovo progetto. </para>
+  <para
+>Se si gestiscono progetti che utilizzano insiemi di risorse totalmente diversi, è possibile creare più file di risorse, ma un progetto può fare riferimento solo a un file di risorse. </para>
+  <para
+>È possibile selezionare il file delle risorse da utilizzare quando si crea un nuovo progetto. </para>
+</sect2>

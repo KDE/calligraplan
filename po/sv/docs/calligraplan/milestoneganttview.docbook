@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Beskrivning</title>
+  <para
+>GANTT-vyn med milstolpar används för att visa milstolpar på en tidslinje. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>GANTT-vy</phrase>
+        </textobject>
+        <caption>
+          <para
+>GANTT-vy</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Redigera data</title>
+  <para
+>Milstensbeskrivning och förlopp kan redigeras genom att använda den sammanhangsberoende menyn. </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Arbetsfördelningskod</para>
+            </entry>
+            <entry>
+              <para
+>Kod för arbetsfördelningsstruktur</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Milstenens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Starttid</para>
+            </entry>
+            <entry>
+              <para
+>Schemalagd starttid.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in med inställningsdialogrutan.</para>
+              <para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Inställningsdialogrutan</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Inställningsdialogrutan</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

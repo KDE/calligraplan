@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Funktioner omfattar: </para>
+<itemizedlist>
+  <listitem
+><para
+>Aktivitetshantering genom att använda <link linkend="task-editor"
+>Aktivitetseditorn</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Arbetsfördelningsstruktur med inställningsbara koder</para
+></listitem>
+        <listitem
+><para
+>Aktiviteter, sammanfattningsaktiviteter och milstolpar</para
+></listitem>
+        <listitem
+><para
+>Olika typer av tidsbegränsningar</para
+></listitem>
+        <listitem
+><para
+>Olika typer av beroenden.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Resurshantering genom att använda <link linkend="resource-editor"
+>Resurseditorn</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Resursfördelningsstruktur</para
+></listitem>
+        <listitem
+><para
+>Arbets- och materialresurstyper</para
+></listitem>
+        <listitem
+><para
+>Resurstilldelning på gruppnivå</para
+></listitem>
+        <listitem
+><para
+>Resurslag</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Arbetstids- och semesterdefinitioner genom att använda <link linkend="work-and-vacation-editor"
+>Arbete- och semestereditor</link
+>&amp;</para
+></listitem>
+  <listitem
+><para
+>Kostnadshantering genom att använda <link linkend="cost-breakdown-structure-editor"
+>Kostnadsfördelningsstruktureditor</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Intjänat värdehantering</para
+></listitem>
+  <listitem
+><para
+>Projektschemaläggning genom att använda <link linkend="schedules-editor"
+>Tidplaneditorn</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Schemalägg framåt från starttiden eller bakåt från sluttiden</para
+></listitem>
+        <listitem
+><para
+>Tillåt eller undvik överbokning</para
+></listitem>
+        <listitem
+><para
+>PERT-fördelning med optimistiska, pessimistiska och troligaste uppskattningar</para
+></listitem>
+        <listitem
+><para
+>Flera scheman med möjlighet att schemalägga från aktuell förloppsinformation</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Aktivitetsuppföljning genom att använda <link linkend="task-execution-view"
+>Aktivitetsutförandevyn</link
+> eller <link linkend="task-status-view"
+>Aktivitetsstatusvyn</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

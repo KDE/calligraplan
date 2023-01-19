@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Descrizione</title>
+  <para
+>L'editor delle risorse è utilizzato per creare, modificare ed eliminare risorse e gruppi di risorse. Le risorse devono appartenere a un gruppo di risorse. Al momento i sottogruppi non sono ammessi. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Le risorse di lavoro devono fare riferimento a un <emphasis
+>calendario</emphasis
+> che definisce l'orario di lavoro della risorsa. I calendari sono creati utilizzando l'<link linkend="work-and-vacation-editor"
+>Editore del lavoro e delle ferie</link
+>. </para>
+  <para
+>Le risorse materiali sono sempre disponibili per impostazione predefinita. È possibile utilizzare un calendario per limitarne la disponibilità. </para>
+  <para
+>Le risorse possono essere <emphasis
+>condivise</emphasis
+> o <emphasis
+>locali</emphasis
+>. Una risorsa locale viene utilizzata solo nel progetto attuale. Una risorsa condivisa può essere condivisa tra più progetti e viene archiviata in un file separato, vedere <link linkend="managing-resources"
+>Gestione delle risorse</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti fornisce il modo per creare ed eliminare le risorse e i gruppi di risorse: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi gruppo di risorse</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare un gruppo di risorse. Il nuovo gruppo viene aggiunto alla fine dei gruppi.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi risorsa</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare una risorsa. La nuova risorsa viene aggiunta come figlio al gruppo attualmente selezionato. Se si seleziona una risorsa, la nuova risorsa viene aggiunta al suo gruppo padre.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina le risorse selezionate e/o i gruppi di risorse.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Le risorse possono essere create rilasciando i dati da qualsiasi applicazione che supporti il trascinamento delle informazioni vCard, come <emphasis
+>KAddressBook</emphasis
+> o <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Le risorse possono essere copiate o spostate in un diverso gruppo di risorse mediante il trascinamento della selezione. </para>
+  <para
+><note
+><para
+>Quando si sposta una risorsa, la risorsa perderà qualsiasi allocazione.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Modificare i dati</title>
+  <para
+>I dati possono essere modificati in linea come descritti <link linkend="using-the-views"
+>qui</link
+>. </para>
+  <para
+>Le risorse possono anche essere modificate utilizzando la finestra Impostazioni delle risorse. </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome della risorsa o del gruppo di risorse.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ambito</para>
+            </entry>
+            <entry>
+              <para
+>Una risorsa può essere <emphasis
+>Condivisa</emphasis
+> o <emphasis
+>Locale</emphasis
+>. Una risorsa condivisa non può essere modificata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>Il tipo della risorsa o del gruppo di risorse.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Iniziali</para>
+            </entry>
+            <entry>
+              <para
+>Le iniziali della risorsa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Posta elettronica</para>
+            </entry>
+            <entry>
+              <para
+>L'indirizzo di posta elettronica della risorsa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendario</para>
+            </entry>
+            <entry>
+              <para
+>Il calendario definisce quando la risorsa sta lavorando.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Limite (%)</para>
+            </entry>
+            <entry>
+              <para
+>Il carico massimo che può essere assegnato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponibile dal</para>
+            </entry>
+            <entry>
+              <para
+>Definisce quando una risorsa è disponibile per il progetto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponibile fino al</para>
+            </entry>
+            <entry>
+              <para
+>Definisce quando una risorsa è disponibile per il progetto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo normale</para>
+            </entry>
+            <entry>
+              <para
+>Il costo all'ora, ore normali.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Conto</para>
+            </entry>
+            <entry>
+              <para
+>Il conto dove è accumulato il costo della risorsa.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Configurazione</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilizzando il menu contestuale, la vista può essere configurata per dividere/riunire la vista ad albero o può essere configurata utilizzando la finestra di configurazione.</para
+><para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

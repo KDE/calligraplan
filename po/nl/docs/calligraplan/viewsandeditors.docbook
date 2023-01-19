@@ -1,0 +1,68 @@
+<chapter id="startup-view"
+><title
+>Weergaven en bewerkers</title>
+  <sect1 id="startup-view-section"
+><title
+>Opstartbeeld</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Takenbewerker</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Hulpbronbewerker</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Bewerker van werk en vakantie</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Bewerker voor Structuur voor opsplitsing kosten</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Bewerker van taakafhankelijkheid (grafisch)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Bewerker van taakafhankelijkheid (lijst)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Bewerker voor planning</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Projectprestatieweergave</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Beeld van taakprestatie</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Beeld van taakstatus</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Beeld van taakuitvoering</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Ganttweergave van taken</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Gantt-mijlpaalweergave</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Ganttweergave van hulpbrontoewijzingen</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Weergave van hulpbrontoewijzingen</title
+>&resource-assignment-gantt-view-section; </sect1>
+</chapter>

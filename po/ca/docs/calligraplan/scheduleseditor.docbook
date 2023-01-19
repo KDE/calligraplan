@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Descripció</title>
+  <para
+>L'Editor de planificacions s'utilitza per a crear, editar, calcular i suprimir les planificacions. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>L'Editor de planificacions té tres subvistes que mostren el resultat de la planificació. </para>
+  <para
+>La subvista Resultat mostra els valors necessaris per a l'anàlisi PERT incloent començament i final més primerenc, així com el començament i final més tardà juntament amb diferents tipus de marge. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La subvista Camí crític mostra les tasques que pertanyen al camí crític. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La subvista Registre de la planificació mostra una llista de missatges produïts durant la planificació. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per a crear, suprimir i calcular les planificacions: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Afegeix una planificació</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear un grup de recursos. El grup nou s'afegirà al final dels grups.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Afegeix una subplanificació</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botó per a crear una subplanificació. La planificació nova s'annexarà com un fill a la planificació actualment seleccionada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Suprimeix</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Supr</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix la planificació seleccionada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Calcula</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Calcula la planificació seleccionada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Línia base</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Línies base de la planificació seleccionada. Impedeix que la planificació es torni a calcular o suprimir.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Separa</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Fa que la subplanificació seleccionada sigui una planificació superior</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Editar les dades</title>
+  <para
+>Les dades es poden editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+>. </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de la planificació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estat</para>
+            </entry>
+            <entry>
+              <para
+>L'estat de les planificacions. Mostra una barra de progrés durant la planificació.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Direcció</para>
+            </entry>
+            <entry>
+              <para
+>La direcció de la planificació.</para
+><para
+>Si la direcció és Endavant, el projecte es planificarà començant al temps de començament més primerenc especificat al diàleg del projecte principal. Si la direcció és Enrere, el projecte es planificarà començant al temps de finalització més tardana especificat al diàleg del projecte principal. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sobreutilització</para>
+            </entry>
+            <entry>
+              <para
+>Controla la sobreutilització dels recursos en la planificació.</para
+><para
+>Si es permet la sobreutilització, un recurs es podrà reservar (en dies laborables) per a treballar més del que hi ha disponible. Això pot passar si el recurs està adjudicat a múltiples tasques o està reservat en altres projectes. </para>
+              <para
+>Si s'ha d'evitar la sobreutilització, els recursos no es podran reservar més del que hi ha disponible. En cas de conflicte en el recurs, les tasques es retardaran fins que aquest estigui disponible. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Distribució</para>
+            </entry>
+            <entry>
+              <para
+>La distribució a utilitzar durant la planificació.</para
+><para
+>Si la distribució és «Cap», s'emprarà l'estimació de la tasca com durant la planificació. </para>
+              <para
+>Si la distribució és «PERT», l'estimació emprada es calcularà basant-se en les estimacions introduïdes optimistes (O), pessimistes (P) i més probable (M). La fórmula utilitzada per a això és: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Començament planificat</para>
+            </entry>
+            <entry>
+              <para
+>El temps de començament planificat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalització planificada</para>
+            </entry>
+            <entry>
+              <para
+>El temps de finalització planificat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Planificador</para>
+            </entry>
+            <entry>
+              <para
+>El planificador emprat per a calcular la planificació del projecte.</para
+><para
+>El planificador integrat de manera predeterminada és el Planificador de xarxa. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Configurar</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilitzant el menú contextual, la vista es podrà configurar per a dividir/no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració.</para
+><para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

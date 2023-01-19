@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Опис</title>
+  <para
+>Панель призначення виконавців на діаграмі Ґанта призначено для показу запланованих призначень виконавців до завдань на діаграмі Ґанта. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Дані</title>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назву об'єкта (групи виконавців (ресурсів), виконавця (ресурсу), завдання)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип об'єкта</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Час початку</para>
+            </entry>
+            <entry>
+              <para
+>Початок призначення</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Час завершення</para>
+            </entry>
+            <entry>
+              <para
+>Кінець призначення</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Редагування даних</title>
+  <para
+>За допомогою контекстного меню можна редагувати опис завдання та параметри поступу. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Налаштування</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою контекстного меню можна налаштувати панель перегляду, викликавши діалогове вікно налаштовування.</para
+><para
+>За допомогою діалогового вікна налаштовування ви можете вибрати стовпчики, які буде показано. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Діалогове вікно налаштовування</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Діалогове вікно налаштовування</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

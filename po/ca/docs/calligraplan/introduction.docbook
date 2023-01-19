@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Característiques incloses: </para>
+<itemizedlist>
+  <listitem
+><para
+>Gestió de les tasques utilitzant l'<link linkend="task-editor"
+>Editor de tasques</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estructura de descomposició dels treballs amb codis WBS configurables</para
+></listitem>
+        <listitem
+><para
+>Tasques, tasques de resum i fites</para
+></listitem>
+        <listitem
+><para
+>Diferents tipus de restriccions de temps</para
+></listitem>
+        <listitem
+><para
+>Diferents tipus de dependències.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Gestió de recursos utilitzant l'<link linkend="resource-editor"
+>Editor de recursos</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estructura de descomposició dels recursos</para
+></listitem>
+        <listitem
+><para
+>Tipus de recursos de treball i materials</para
+></listitem>
+        <listitem
+><para
+>Adjudicació de recursos a nivell de grup</para
+></listitem>
+        <listitem
+><para
+>Equips de recursos</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Definició del temps de treball i vacances amb l'<link linkend="work-and-vacation-editor"
+>Editor del treball i vacances</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestió dels costos utilitzant l'<link linkend="cost-breakdown-structure-editor"
+>Editor de l'estructura de descomposició del cost</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestió del valor guanyat</para
+></listitem>
+  <listitem
+><para
+>Planificació de projectes utilitzant l'<link linkend="schedules-editor"
+>Editor de les planificacions</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Planificació cap endavant des del temps de començament o cap enrere des del temps de finalització</para
+></listitem>
+        <listitem
+><para
+>Permetre o evitar la sobreutilització dels recursos</para
+></listitem>
+        <listitem
+><para
+>Distribució PERT amb estimacions optimistes, pessimistes i més probables</para
+></listitem>
+        <listitem
+><para
+>Múltiples planificacions amb la possibilitat de planificar des de la informació sobre el progrés actual</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Seguiment de la tasca utilitzant la <link linkend="task-execution-view"
+>vista Execució de la tasca</link
+> o la <link linkend="task-status-view"
+>vista Estat de la tasca</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

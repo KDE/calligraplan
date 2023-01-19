@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>La vista di avvio viene visualizzata all'avvio e quando è selezionato <menuchoice
+><guimenu
+>File</guimenu
+><guimenuitem
+>Nuovo</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Ha tre sezioni per: </para>
+<itemizedlist>
+  <listitem
+><para
+>Creazione di nuovi progetti. Vedere anche <link linkend="creating-a-project"
+>Creare un progetto</link
+> e <link linkend="managing-resources"
+>Gestire le risorse</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Aprire progetti esistenti. Questa sezione fornisce la possibilità di aprire un file di progetto esistente o uno dei dieci progetti più recenti che sia stato aperto.</para
+></listitem>
+  <listitem
+><para
+>La sezione Aiuto fornisce collegamenti alle pagine introduttive, alla documentazione e al forum della comunità.</para
+></listitem>
+</itemizedlist>
+</sect2>

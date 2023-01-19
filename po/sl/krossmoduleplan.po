@@ -1,0 +1,559 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Vernekar <andrej.vernekar@moj.net>, 2010, 2012.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2021-03-20 22:19+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "Dodaj opravilo"
+
+#: Project.cpp:433 Project.cpp:441
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "Dodaj skupino virov"
+
+#: Project.cpp:519 Project.cpp:537
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "Dodaj vir"
+
+#: Project.cpp:640
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "Dodaj zunanji sestanek"
+
+#: Project.cpp:650 Project.cpp:657
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "Briši zunanje sestanke"
+
+#: Project.cpp:664
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "Briši vse zunanje sestanke"
+
+#: Resource.cpp:102
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr "Postavi člane virov"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "O&rodja"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "Izberi z:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Opravila"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Viri"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Računi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "Vključi glave"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "Ime razporeda"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "Briši vse zunanje sestanke"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "Izvozi informacijo o zasedenosti"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "Izvozi izbrani razpored"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "Razporedi"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "Uvozi informacije o zasedenosti"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Shrani"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "Vse datoteke"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Napaka"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Datoteka ni izbrana"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "Razpored ni izbran"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "Uvozi informacije o zasedenosti"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "Uvozi zasedenost v datoteko"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Odpri"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "Uvozi informacije o zasedenosti virov"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "Ne morem naložiti podatkov iz projekta z enako identifikacijo"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr "Ni uspel zagon preglednice. Ali je program Sheets nameščen?"
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+msgid "No data to export"
+msgstr "Ni nobenih podatkov za izvoz"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr "Izbrati morate datoteko, kamor boste pisali"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr ""
+"Podatki shranjeni na datoteko\n"
+": %1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid "Information"
+msgstr "Informacije"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+msgid "No properties to export"
+msgstr "Ni nobene lastnosti za izvoziti"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+msgid "Select schedule"
+msgstr "Izberi razpored"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr "Podatki"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Select data"
+msgstr "Izberi podatke"
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+msgid "Export ods file"
+msgstr "Izvozi datoteko ods"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr "Preglednica"
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr "Ni trenutnega lista preglednice."
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr "Določen je neveljaven list '%1'."
+
+#: scripts/plan2odsexport.py:42
+msgid "Could not select cell 'A1'"
+msgstr "Ni bilo mogoče izbrati celice 'A1'"
+
+#: scripts/plan2odsexport.py:58
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr ""
+"Ni bilo moč pisati na datoteko:\n"
+"%1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr "Ni bilo moč nastaviti vseh lastnosti '%1' v celico '%2'"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr "Opozorilo"
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "Uvoz virov"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Planiraj vire"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Uvozi vire"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Dokumenta ni bilo moč odpreti: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "Ni nobenega projekta za uvoz"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "Imeni projektov sta identični"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "Ni bilo mogoče tvoriti kopijo skupine virov: %1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "Ni vira iz katerega bi napravil kopijo"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "Ni bilo moč tvoriti kopije vira: %1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "Koledar že obstaja: %1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "Ni bilo moč tvoriti kopije koledarja: %1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "Informacija o zasedenosti virov"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "Obravnavaj informacijo o zasedenosti virov"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr "Izvozi informacijo o zasedenosti virov"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr "Pythonov skript za izvoz informacije o zasedenosti virov na datoteko"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "Uvozi informacijo o zasedenosti virov"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr "Pythonov skript za uvoz informacije o zasedenosti virov iz datoteke"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "Briši informacijo o zasedenosti virov"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr "Pythonov skript za brisanje informacije o zasedenosti virov"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Uvozi"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Uvozi vsebino"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "Viri iz datoteke plana"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr "Pythonov skript za uvoz virov iz datoteke plana"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Izvozi"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export content"
+msgstr "Uvozi vsebino"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr "V csv"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr "Izvozi kot csv"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr "Na ods"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr "Izvozi podatke v preglednico Open Spreadsheet document"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Orodja"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "Razni skripti"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Pomoč na spletu"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+"Pythonov skript, ki uporablja KHTML Part za prikaz sprotne pomoči za skripte "
+"za Plan"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Vzorci"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "Vzorci, ki ilustrirajo skripte za Plan"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "Tiskaj informacije o projektu..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "Primer pythovonega skripta, ki tiska informacije o projektu"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "Tiskaj informacije o zasedenosti virov..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr "Primer pythonovega skripta, ki tiska informacijo o zasedenosti virov"
+
+#, fuzzy
+#~| msgid "Select from:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Select from:"
+#~ msgstr "Izberi z:"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Opravila"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Viri"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Računi"
+
+#, fuzzy
+#~| msgid "Include headers"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include headers"
+#~ msgstr "Vključi glave"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "O&rodja"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Uvozi"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Uvozi vsebino"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Izvozi"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export content"
+#~ msgstr "Uvozi vsebino"
+
+#, fuzzy
+#~| msgid "Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Orodja"
+
+#, fuzzy
+#~| msgid "Miscellaneous scripts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Miscellaneous scripts"
+#~ msgstr "Razni skripti"
+
+#, fuzzy
+#~| msgid "Online Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Pomoč na spletu"
+
+#, fuzzy
+#~| msgid "Samples"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Vzorci"
+
+#, fuzzy
+#~| msgid "Schedule Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Name"
+#~ msgstr "Ime razporeda"

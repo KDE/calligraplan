@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>Descrizione</title>
+  <para
+>La vista di stato delle attività viene utilizzata per ispezionare le informazioni sull'avanzamento dell'attività in un determinato periodo, impostato nella configurazione. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Le attività sono divise in gruppi in base allo stato dell'attività: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Non avviate</para>
+            </entry>
+            <entry>
+              <para
+>Attività che dovrebbe essere già iniziate.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>In esecuzione</para>
+            </entry>
+            <entry>
+              <para
+>Attività iniziate, ma non ancora terminate.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Terminate</para>
+            </entry>
+            <entry>
+              <para
+>Attività che sono terminate in questo periodo</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Periodo successivo</para>
+            </entry>
+            <entry>
+              <para
+>Attività che sono pianificate per iniziare nel periodo successivo.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>Modificare i dati</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Le informazioni di avanzamento possono essere modificate in linea come descritto <link linkend="using-the-views"
+>qui</link
+> o utilizzando la finestra di avanzamento dell'attività.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stato</para>
+            </entry>
+            <entry>
+              <para
+>Stato dell'attività</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% completamento</para>
+            </entry>
+            <entry>
+              <para
+>Completamento dell'attività</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lavoro pianificato</para>
+            </entry>
+            <entry>
+              <para
+>La quantità di lavoro pianificata per essere utilizzata alla fine del periodo attuale.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lavoro effettivo</para>
+            </entry>
+            <entry>
+              <para
+>La quantità di lavoro speso.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lavoro rimanente</para>
+            </entry>
+            <entry>
+              <para
+>Il lavoro rimanente necessario per completare l'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo previsto</para>
+            </entry>
+            <entry>
+              <para
+>Il costo pianificato alla fine del periodo attuale.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Costo effettivo</para>
+            </entry>
+            <entry>
+              <para
+>Il costo effettivo sostenuto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inizio effettivo</para>
+            </entry>
+            <entry>
+              <para
+>L'ora iniziale effettiva dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fine effettiva</para>
+            </entry>
+            <entry>
+              <para
+>L'ora finale effettiva dell'attività.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>Configurazione</title>
+  <para
+>Utilizzando il menu contestuale, la vista può essere configurata per dividere/riunire la vista ad albero o può essere configurata utilizzando la finestra di configurazione. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

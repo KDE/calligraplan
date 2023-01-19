@@ -1,0 +1,481 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2010.
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmodulekplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2011-09-20 08:48+0800\n"
+"Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
+"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "新增工作"
+
+#: Project.cpp:433 Project.cpp:441
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "新增資源群組"
+
+#: Project.cpp:519 Project.cpp:537
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "新增資源"
+
+#: Project.cpp:640
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "新增外部約會"
+
+#: Project.cpp:650 Project.cpp:657
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "清除外部約會"
+
+#: Project.cpp:664
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "清除所有外部約會"
+
+#: Resource.cpp:102
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr "設定資源團隊成員"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "工具(&T)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "選取從："
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "工作"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "資源"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "帳號"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "包含標頭"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "排程名稱"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "清除所有外部約會"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "忙碌資訊匯出"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "匯出選取的排程"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "排程"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "匯出忙碌資訊檔案"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "儲存"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "所有檔案"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "錯誤"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "沒有選取檔案"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "沒有選取排程"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "忙碌資訊匯入"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "匯入忙碌資訊檔案"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "開啟"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "匯入資源行程資訊"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "無法從相同身份的專案載入資料"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr ""
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+#, fuzzy
+#| msgid "No project to import from"
+msgid "No data to export"
+msgstr "沒來源可匯入專案"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr ""
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr "無法開啟文件：%1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+#, fuzzy
+#| msgid "Busy Information Export"
+msgid "Information"
+msgstr "忙碌資訊匯出"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+#, fuzzy
+#| msgid "No project to import from"
+msgid "No properties to export"
+msgstr "沒來源可匯入專案"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+#, fuzzy
+#| msgid "Export Selected Schedule"
+msgid "Select schedule"
+msgstr "匯出選取的排程"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr ""
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+#, fuzzy
+#| msgid "Select from:"
+msgid "Select data"
+msgstr "選取從："
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+#, fuzzy
+#| msgid "Export Busy Info File"
+msgid "Export ods file"
+msgstr "匯出忙碌資訊檔案"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr ""
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr ""
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr ""
+
+#: scripts/plan2odsexport.py:42
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid "Could not select cell 'A1'"
+msgstr "無法開啟文件：%1"
+
+#: scripts/plan2odsexport.py:58
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr "無法開啟文件：%1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr ""
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr ""
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "資源匯入"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Plan 資源"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "匯入資源"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "無法開啟文件：%1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "沒來源可匯入專案"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "專案身份完全相同"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "無法建立資源群組的複本：%1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "沒有可複製資源來源"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "無法建立資源複本：%1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "行事曆已存在：%1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "無法建立行事曆複本：%1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "資源忙碌資訊"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "處理資源忙碌資訊"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr "匯出資源忙碌資訊"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr "匯出忙碌資訊到檔案中的 Python 文稿"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "匯入資源忙碌資訊"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr "從檔案匯入忙碌資訊的 Python 文稿"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "清除資源忙碌資訊"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr "清除匯入的忙碌資訊到檔案中的 Python 文稿"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "匯入"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "匯入內容"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "從 Plan 檔案中匯入資源"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr "從專案檔案中匯入資源的 Python 文稿"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "匯出"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, fuzzy, kde-format
+#| msgid "Import content"
+msgid "Export content"
+msgstr "匯入內容"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "工具"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "雜項文稿"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "線上說明"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr "使用 KHTML 部件顯示 KPlan 文稿線上說明的 Python 文稿"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "樣本"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "展示 Plan 文稿的範例"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "列印專案資訊..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "列印專案資訊的範例 Python 文稿"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "列印資源忙碌資訊..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr "列印資源忙碌資訊的範例 python 文稿"

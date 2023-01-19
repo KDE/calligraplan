@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>Початкову панель буде показано одразу після запуску програми і після вибору пункту меню <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Створити</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Її поділено на 3 розділи: </para>
+<itemizedlist>
+  <listitem
+><para
+>Створення проєктів. Див. також <link linkend="creating-a-project"
+>створення проєкту</link
+> та <link linkend="managing-resources"
+>керування ресурсами</link
+>.</para
+></listitem>
+  <listitem
+><para
+>Відкриття наявних проєктів. За допомогою цього розділу ви можете відкрити наявний файл проєкту або один із 10 останніх відкритих вами проєктів.</para
+></listitem>
+  <listitem
+><para
+>У розділі «Довідка» наведено посилання на сторінки із настановами, документацію та форум спільноти користувачів.</para
+></listitem>
+</itemizedlist>
+</sect2>

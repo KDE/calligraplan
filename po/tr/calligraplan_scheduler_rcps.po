@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: calligra-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2017-05-02 20:06+0000\n"
+"Last-Translator: Kaan <kaanozdincer@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/calligra-k-tr/"
+"language/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: KPlatoRCPSPlugin.cpp:60
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+"Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+"resources. It still respects task dependencies and also tries to fulfill "
+"time constraints. However, time constraints can make it very difficult to "
+"find a good solution, so it may be preferable to use a different scheduler "
+"in these cases.</para>"
+msgstr ""
+"<title>KKP Zamanlayıcısı</title><para> Kaynak Kısıtlı Proje Zamanlayıcının "
+"(KKP) esas amacı proje kaynaklarını zamanlayarak kaynakları boşa "
+"harcamamaktır. Yine de görev gereksinimlerini göz önünde bulundurur ve zaman "
+"kısıtlamalarına uymaya çalışır. Fakat zaman kısıtlamaları iyi bir çözüm "
+"bulmak adına işi zorlaştırabilir. Bu durumlarda farklı bir zamanlayıcı "
+"kullanmak daha iyi bir seçenek olarak değerlendirilebilir.</para>"
+
+#: KPlatoRCPSScheduler.cpp:117
+#, kde-format
+msgid "Scheduling halted after %1 generations"
+msgstr "%1 oluşturmadan sonra zamanlama durdu"
+
+#: KPlatoRCPSScheduler.cpp:436
+#, kde-format
+msgid "Init"
+msgstr "Başla"
+
+#: KPlatoRCPSScheduler.cpp:441
+#, kde-format
+msgid "Re-calculate project from start time: %1"
+msgstr "Şu zamandan başlayarak projeyi yeniden hesapla: %1"
+
+#: KPlatoRCPSScheduler.cpp:443
+#, kde-format
+msgid "Schedule project from start time: %1"
+msgstr "Şu zamandan itibaren projeyi zamanla: %1"
+
+#: KPlatoRCPSScheduler.cpp:447
+#, kde-format
+msgid "Schedule project from end time: %1"
+msgstr "Projeyi şu bitiş zamanından zamanla: %1"
+
+#: KPlatoRCPSScheduler.cpp:458
+#, kde-format
+msgid "Failed to build a valid RCPS project"
+msgstr "Geçerli bir KKP oluşturma işlemi başarısız oldu"
+
+#: KPlatoRCPSScheduler.cpp:462
+#, kde-format
+msgid "Schedule"
+msgstr "Zamanla"
+
+#: KPlatoRCPSScheduler.cpp:471
+#, kde-format
+msgid "Invalid scheduling solution. Result: %1"
+msgstr "Geçersiz zamanlama çözümü. Sonuç: %1"
+
+#: KPlatoRCPSScheduler.cpp:556 KPlatoRCPSScheduler.cpp:697
+#, kde-format
+msgid "No resource request is registered"
+msgstr "Kayıtlı kaynak talebi yok"
+
+#: KPlatoRCPSScheduler.cpp:586 KPlatoRCPSScheduler.cpp:727
+#, kde-format
+msgid "No resource has been allocated"
+msgstr "Ayrılmış kaynak bulunmuyor"
+
+#: KPlatoRCPSScheduler.cpp:599 KPlatoRCPSScheduler.cpp:740
+#, kde-format
+msgid "Scheduled task to start at %1 and finish at %2"
+msgstr "Zamanlanmış görev %1 de başlayıp %2 de bitiyor"
+
+#: KPlatoRCPSScheduler.cpp:647 KPlatoRCPSScheduler.cpp:772
+#, kde-format
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Zamanlanmış proje %1 de başlayıp %2 de bitiyor"
+
+#: KPlatoRCPSScheduler.cpp:775
+#, kde-format
+msgid "Must start project early in order to finish in time: %1"
+msgstr "Projenin zamanında bitmesi için %1 den daha erken başlaması gerekiyor"
+
+#: KPlatoRCPSScheduler.cpp:810
+#, kde-format
+msgctxt "Project Evaluation and Review Technique"
+msgid "PERT"
+msgstr "PERT"
+
+#: KPlatoRCPSScheduler.cpp:850
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "Kısıtlama karşılanamıyor: %1. Negatif float=%2"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~| "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~| "resources. It still respects task dependencies and also tries to "
+#~| "fullfill time constraints. However, time constraints can make it very "
+#~| "difficult to find a good solution, so it may be preferable to use a "
+#~| "different scheduler in these cases.</para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~ "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~ "resources. It still respects task dependencies and also tries to fullfill "
+#~ "time constraints. However, time constraints can make it very difficult to "
+#~ "find a good solution, so it may be preferable to use a different "
+#~ "scheduler in these cases.</para>"
+#~ msgstr ""
+#~ "<title>KKP Zamanlayıcısı</title><para> Kaynak Kısıtlı Proje "
+#~ "Zamanlayıcının (KKP) esas amacı proje kaynaklarını zamanlayarak "
+#~ "kaynakları boşa harcamamaktır Yinede görev gereksinimlerini göz önünde "
+#~ "bulundurur ve zaman kısıtlamalarına uymaya çalışırFakat zaman "
+#~ "kısıtlamaları iyi bir çözüm bulmak adına işi zorlaştırabilir.Bu "
+#~ "durumlarda farklı bir zamanlayıcı kullanmak daha iyi bir seçenek olarak "
+#~ "değerlendirilebilir.</para>"
+
+#, fuzzy
+#~| msgid "Scheduling halted after %1 generations"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling halted after %1 generations"
+#~ msgstr "%1 oluşturmadan sonra zamanlama durdu"
+
+#, fuzzy
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Init"
+#~ msgstr "Başla"
+
+#, fuzzy
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Şu zamandan başlayarak projeyi yeniden hesapla: %1"
+
+#, fuzzy
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Şu zamandan itibaren projeyi zamanla: %1"
+
+#, fuzzy
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Projeyi şu bitiş zamanından zamanla: %1"
+
+#, fuzzy
+#~| msgid "Failed to build a valid RCPS project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to build a valid RCPS project"
+#~ msgstr "Geçerli bir KKP oluşturma işlemi başarısız oldu"
+
+#, fuzzy
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule"
+#~ msgstr "Zamanla"
+
+#, fuzzy
+#~| msgid "Invalid scheduling solution. Result: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid scheduling solution. Result: %1"
+#~ msgstr "Geçersiz zamanlama çözümü. Sonuç: %1"
+
+#, fuzzy
+#~| msgid "No resource request is registered"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource request is registered"
+#~ msgstr "Kayıtlı kaynak talebi yok"
+
+#, fuzzy
+#~| msgid "No resource has been allocated"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource has been allocated"
+#~ msgstr "Ayrılmış kaynak bulunmuyor"
+
+#, fuzzy
+#~| msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgstr "Zamanlanmış görev %1 de başlayıp %2 de bitiyor"
+
+#, fuzzy
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Zamanlanmış proje %1 de başlayıp %2 de bitiyor"
+
+#, fuzzy
+#~| msgid "Must start project early in order to finish in time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must start project early in order to finish in time: %1"
+#~ msgstr ""
+#~ "Projenin zamanında bitmesi için %1 den daha erken başlaması gerekiyor"
+
+#, fuzzy
+#~| msgctxt "Project Evaluation and Review Technique"
+#~| msgid "PERT"
+#~ msgctxt "(qtundo-format) Project Evaluation and Review Technique"
+#~ msgid "PERT"
+#~ msgstr "PERT"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "Kısıtlama karşılanamıyor: %1. Negatif float=%2"

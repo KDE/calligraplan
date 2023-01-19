@@ -1,0 +1,46 @@
+<sect2
+><title/>
+<para
+>Es pot crear un projecte nou prement el botó <guibutton
+>Projecte nou</guibutton
+> o seleccionant una <emphasis
+>plantilla de projecte</emphasis
+> a la <link linkend="startup-view"
+>Vista inicial</link
+>. </para>
+<para
+>Això crearà un projecte nou amb els valors predeterminats definits a la <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
+>Configuració</ulink
+> o a partir dels valors definits a la plantilla. S'obrirà el diàleg Configuració del projecte per permetre definir les propietats específiques del projecte, com el <emphasis
+>nom del projecte</emphasis
+>, <emphasis
+>gestor</emphasis
+> i els <emphasis
+>temps d'objectiu</emphasis
+>. </para>
+<para
+>En crear el vostre primer projecte, considereu crear els recursos en un fitxer separat. Quan feu referència a aquesta imatge en el/s projecte/s, no necessitareu definir de nou els vostres recursos, i podreu coordinar l'ús dels recursos entre els projectes. </para>
+<para
+>Vegeu <link linkend="managing-resources"
+>Gestionar els recursos</link
+>. </para>
+<para
+>Si voleu coordinar l'ús dels recursos entre els projectes, els fitxers de projecte s'hauran d'emmagatzemar a la mateixa carpeta. </para>
+<para
+>Una estructura útil podria ser quelcom com això: </para>
+<para
+><screen
+>Plan
+    &nbsp;!-- Recursos
+    &nbsp;!      !-- SharedResources.plan
+    &nbsp;!-- Models de tasca
+    &nbsp;!      !-- Mòduls de tasca (si n'hi ha)
+    &nbsp;!-- Plantilles
+    &nbsp;!      !-- Plantilles de projecte (si n'hi ha)
+    &nbsp;!-- Projectes
+    &nbsp;!      !-- &lt;projecte 1&gt;.plan
+    &nbsp;!      !-- &lt;projecte 2&gt;.plan
+    &nbsp;!      !-- &etc;
+  </screen>
+</para>
+</sect2>

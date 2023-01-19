@@ -1,0 +1,299 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Maxime Corteel <maxime.corteel@gadz.org>, 2010.
+# Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2011.
+# xavier <xavier.besnard@neuf.fr>, 2012, 2013.
+# Simon Depiets <sdepiets@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2018-07-13 14:56+0800\n"
+"Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: KPlatoRCPSPlugin.cpp:60
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+"Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+"resources. It still respects task dependencies and also tries to fulfill "
+"time constraints. However, time constraints can make it very difficult to "
+"find a good solution, so it may be preferable to use a different scheduler "
+"in these cases.</para>"
+msgstr ""
+"<title>Ordonnanceur RCPS</title><para>L'ordonnanceur de projet par "
+"contraintes de ressources (RCPS) s'attache à planifier le projet de manière "
+"à éviter la sur-allocation des ressources. Il respecte toujours les "
+"dépendances de tâches et essaie également de remplir les contraintes de "
+"planification. Cependant, les contraintes de planification peuvent rendre "
+"très difficile la découverte d'une bonne solution. Ainsi, il pourrait être "
+"préférable d'utiliser un planificateur différent dans ces cas.</para>"
+
+#: KPlatoRCPSScheduler.cpp:117
+#, kde-format
+msgid "Scheduling halted after %1 generations"
+msgstr "La planification s'est arrêtée après %1 générations"
+
+#: KPlatoRCPSScheduler.cpp:436
+#, kde-format
+msgid "Init"
+msgstr "Initialiser"
+
+#: KPlatoRCPSScheduler.cpp:441
+#, kde-format
+msgid "Re-calculate project from start time: %1"
+msgstr "Re-calculer le projet à partir de la date de début : %1"
+
+#: KPlatoRCPSScheduler.cpp:443
+#, kde-format
+msgid "Schedule project from start time: %1"
+msgstr "Planifier le projet à partir de la date de début : %1"
+
+#: KPlatoRCPSScheduler.cpp:447
+#, kde-format
+msgid "Schedule project from end time: %1"
+msgstr "Planifier le projet à partir de la date de fin : %1"
+
+#: KPlatoRCPSScheduler.cpp:458
+#, kde-format
+msgid "Failed to build a valid RCPS project"
+msgstr "Impossible de créer un projet RCPS valable"
+
+#: KPlatoRCPSScheduler.cpp:462
+#, kde-format
+msgid "Schedule"
+msgstr "Planification"
+
+#: KPlatoRCPSScheduler.cpp:471
+#, kde-format
+msgid "Invalid scheduling solution. Result: %1"
+msgstr "Solution de planification non valable. Résultat : %1"
+
+#: KPlatoRCPSScheduler.cpp:556 KPlatoRCPSScheduler.cpp:697
+#, kde-format
+msgid "No resource request is registered"
+msgstr "Aucune demande de ressource n'a été enregistrée"
+
+#: KPlatoRCPSScheduler.cpp:586 KPlatoRCPSScheduler.cpp:727
+#, kde-format
+msgid "No resource has been allocated"
+msgstr "Aucune ressource n'a été allouée"
+
+#: KPlatoRCPSScheduler.cpp:599 KPlatoRCPSScheduler.cpp:740
+#, kde-format
+msgid "Scheduled task to start at %1 and finish at %2"
+msgstr "Tâche planifiée pour commencer à %1 et finir à %2"
+
+#: KPlatoRCPSScheduler.cpp:647 KPlatoRCPSScheduler.cpp:772
+#, kde-format
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Projet planifié pour commencer à %1 et finir à %2"
+
+#: KPlatoRCPSScheduler.cpp:775
+#, kde-format
+msgid "Must start project early in order to finish in time: %1"
+msgstr "Doit démarrer le projet tôt pour le terminer à temps : %1"
+
+#: KPlatoRCPSScheduler.cpp:810
+#, kde-format
+msgctxt "Project Evaluation and Review Technique"
+msgid "PERT"
+msgstr "PERT"
+
+#: KPlatoRCPSScheduler.cpp:850
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1 : impossible de satisfaire les contraintes. Marge négative = %2"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~| "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~| "resources. It still respects task dependencies and also tries to "
+#~| "fullfill time constraints. However, time constraints can make it very "
+#~| "difficult to find a good solution, so it may be preferable to use a "
+#~| "different scheduler in these cases.</para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~ "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~ "resources. It still respects task dependencies and also tries to fullfill "
+#~ "time constraints. However, time constraints can make it very difficult to "
+#~ "find a good solution, so it may be preferable to use a different "
+#~ "scheduler in these cases.</para>"
+#~ msgstr ""
+#~ "<title>Ordonnanceur RCPS</title><para>L'ordonnanceur de projet par "
+#~ "contraintes de ressources (RCPS) s'attache à planifier le projet de "
+#~ "manière à éviter la sur-allocation des ressources. Il respecte toujours "
+#~ "les dépendances de tâches et essaie également de remplir les contraintes "
+#~ "de planification. Cependant, les contraintes de planification peuvent "
+#~ "rendre très difficile la découverte d'une bonne solution. Ainsi, il "
+#~ "pourrait être préférable d'utiliser un planificateur différent dans ces "
+#~ "cas.</para>"
+
+#, fuzzy
+#~| msgid "Scheduling halted after %1 generations"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling halted after %1 generations"
+#~ msgstr "La planification s'est arrêtée après %1 générations"
+
+#, fuzzy
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Init"
+#~ msgstr "Initialiser"
+
+#, fuzzy
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Re-calculer le projet à partir de la date de début : %1"
+
+#, fuzzy
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Planifier le projet à partir de la date de début : %1"
+
+#, fuzzy
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Planifier le projet à partir de la date de fin : %1"
+
+#, fuzzy
+#~| msgid "Failed to build a valid RCPS project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to build a valid RCPS project"
+#~ msgstr "Impossible de créer un projet RCPS valable"
+
+#, fuzzy
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule"
+#~ msgstr "Planification"
+
+#, fuzzy
+#~| msgid "Invalid scheduling solution. Result: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid scheduling solution. Result: %1"
+#~ msgstr "Solution de planification non valable. Résultat : %1"
+
+#, fuzzy
+#~| msgid "No resource request is registered"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource request is registered"
+#~ msgstr "Aucune demande de ressource n'a été enregistrée"
+
+#, fuzzy
+#~| msgid "No resource has been allocated"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource has been allocated"
+#~ msgstr "Aucune ressource n'a été allouée"
+
+#, fuzzy
+#~| msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgstr "Tâche planifiée pour commencer à %1 et finir à %2"
+
+#, fuzzy
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Projet planifié pour commencer à %1 et finir à %2"
+
+#, fuzzy
+#~| msgid "Must start project early in order to finish in time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must start project early in order to finish in time: %1"
+#~ msgstr "Doit démarrer le projet tôt pour le terminer à temps : %1"
+
+#, fuzzy
+#~| msgctxt "Project Evaluation and Review Technique"
+#~| msgid "PERT"
+#~ msgctxt "(qtundo-format) Project Evaluation and Review Technique"
+#~ msgid "PERT"
+#~ msgstr "PERT"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "%1 : impossible de satisfaire les contraintes. Marge négative = %2"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling backwards from target end time is not supported."
+#~ msgstr ""
+#~ "La planification vers l'arrière à partir de l'instant final sélectionné "
+#~ "n'est pas prise en charge."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "The project will be scheduled forward from target start time."
+#~ msgstr ""
+#~ "Le projet sera planifié vers l'avant à partir de l'instant de départ "
+#~ "sélectionné."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<b>This scheduler does not support all the requested scheduling "
+#~ "functionality.</b>"
+#~ msgstr ""
+#~ "<b>Ce planificateur ne prend pas en charge pas toutes les fonctionnalités "
+#~ "de planification sélectionnées.</b>"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling tasks with time constraints is not supported."
+#~ msgstr ""
+#~ "La planification de tâches avec contrainte temporelle n'est pas prise en "
+#~ "charge."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Tasks will be scheduled As Soon As Possible (ASAP)."
+#~ msgstr "Les tâches seront placées le plus tôt possible."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling tasks As Late As Possible (ALAP) is not supported."
+#~ msgstr ""
+#~ "Le placement des tâches le plus tard possible n'est pas pris en charge."
+
+#~ msgid "Task '%1' estimate: %2"
+#~ msgstr "Estimation de la tâche « %1 » : %2"
+
+#~ msgid "Task '%1' duration called %2 times, cached values: %3"
+#~ msgstr ""
+#~ "La durée de la tâche « %1 » a été invoquée %2 fois, valeur mise en "
+#~ "cache : %3"
+
+#~ msgid "Task '%1' start: %2, duration: %3 (%4, %5 hours)"
+#~ msgstr "Début de la tâche « %1 » : %2, durée : %3 (%4, %5 heures)"
+
+#~ msgid "Task '%1' start=%2, duration=%3: %4 - %5"
+#~ msgstr "Tâche « %1 » début=%2, durée=%3 : %4 - %5"
+
+#~ msgid "Job %1: resource %2 is %3 available"
+#~ msgstr "Tâche %1 : la ressource %2 est %3 disponible"
+
+#~ msgid "Project scheduling finished at %1"
+#~ msgstr "La planification du projet s'est terminé à %1"
+
+#~ msgid "Schedule project using RCPS Scheduler, starting at %1"
+#~ msgstr ""
+#~ "Projet de planification utilisant le planificateur RCPS, en cours de "
+#~ "démarrage sur %1"

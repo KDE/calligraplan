@@ -1,0 +1,138 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Beschrijving</title>
+  <para
+>De weergave van hulpbrontoewijzingen toont de geplande toekenningen van taakhulpbronnen in een tabel. <note
+><para
+>Deze weergave kan een ernstige aanslag op de prestaties hebben in grote projecten.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Gegevens</title>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van het object (hulpbrongroep, hulpbron, taak)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Totaal</para>
+            </entry>
+            <entry>
+              <para
+>De totale toekenning voor een hulpbron</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Datums</para>
+            </entry>
+            <entry>
+              <para
+>De totale toekenning voor een hulpbron per dag en de toekenningen voor de hulpbron per taak.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Gegevens bewerken </title>
+  <para
+>De taakbeschrijving en voortgang kan bewerkt worden met het contextmenu. </para>
+</sect3>
+<sect3 id="configuration36"
+><title
+>Configuratie</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Met het contextmenu kan de weergave geconfigureerd worden met de configuratiedialoog.</para
+><para
+>De configuratiedialoog biedt u het in of uitsluiten van toekenningen. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Configuratiedialoog</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Configuratiedialoog</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,518 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Beskrivning</title>
+  <para
+>Aktivitetseditorn används för att skapa, redigera och ta bort aktiviteter.</para
+><para
+>Aktiviteter kan organiseras i en hierarkisk trädstruktur med godtyckligt djup. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa, ta bort och flytta aktiviteter och milstolpar: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till aktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Kombinationsruta för att skapa en aktivitet eller milsten. Det nya objektet placeras efter objektet som för närvarande är markerat eller på samma nivå som det markerade objektet. Om inget objekt är markerat, läggs det nya objektet till sist på toppnivån.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till delaktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Kombinationsruta för att skapa en delaktivitet eller milsten. Det nya objektet läggs till sist som ett underliggande objekt till objektet som för närvarande är markerat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort aktivitet</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Ta bort</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort de markerade aktiviteterna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Indentera aktivitet</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Lägger till markerad aktivitet som ett underliggande objekt till aktiviteten ovan.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Avindentera aktivitet</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Flyttar upp den markerade aktiviteten en nivå, och infogar den efter den nuvarande överliggande aktiviteten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Flytta upp</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Flyttar den markerade aktiviteten upp ett steg.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Flytta ner</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Flyttar den markerade aktiviteten ner ett steg.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Observera att du också kan flytta eller kopiera aktiviteter genom att använda dra och släpp eller kopiera och klistra in. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Redigera data</title>
+  <para
+>Data kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+> eller genom att använda Aktivitetsinställningsdialogrutan. </para>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetsstatus</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ansvarig</para>
+            </entry>
+            <entry>
+              <para
+>Personen ansvarig för aktiviteten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tilldelning</para>
+            </entry>
+            <entry>
+              <para
+>Lista över resurstilldelningar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Typ</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens typ, eller aktivitetens uppskattningstyp.</para
+><para
+>Typen kan ställas in till <emphasis
+>Milstolpe</emphasis
+>, <emphasis
+>Insats</emphasis
+> eller <emphasis
+>Varaktighet</emphasis
+>. </para>
+              <para
+><guilabel
+>Observera:</guilabel
+> Om typen är <emphasis
+>Sammanfattning</emphasis
+> eller <emphasis
+>Projekt</emphasis
+> är den inte redigerbar. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Kalender</para>
+            </entry>
+            <entry>
+              <para
+>Kalendern som används när uppskattningstypen är <emphasis
+>Varaktighet</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Uppskattning</para>
+            </entry>
+            <entry>
+              <para
+>Den troligaste uppskattningen. Uppskattningen är förväntad insats eller tid som behövs för att slutföra en aktivitet. Den kan uttryckas i olika enheter: t (timmar), d (dagar), v (veckor) och M (månader).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Optimistiskt förhållande</para>
+            </entry>
+            <entry>
+              <para
+>Optimistisk uppskattning uttryckt som ett negativt procentvärde av den troligaste uppskattningen (t.ex. -20 %).</para
+><para
+>Det används bara om en PERT-distribution används. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Pessimistiskt förhållande</para>
+            </entry>
+            <entry>
+              <para
+>Pessimistisk uppskattning uttryckt som ett positivt procentvärde av den troligaste uppskattningen (t.ex. 50 %).</para
+><para
+>Det används bara om en PERT-distribution används. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Risk</para>
+            </entry>
+            <entry>
+              <para
+>Risken bestämmer fördelning som används i projektstyrningsmodellen när den verkliga uppskattningen för aktiviteten beräknas</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Begränsning</para>
+            </entry>
+            <entry>
+              <para
+>Typ av tidsbegränsning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Begränsning start</para>
+            </entry>
+            <entry>
+              <para
+>Begränsningens starttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Begränsning slut</para>
+            </entry>
+            <entry>
+              <para
+>Begränsningens sluttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Löpande konto</para>
+            </entry>
+            <entry>
+              <para
+>Konto för löpande kostnader.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Startkonto</para>
+            </entry>
+            <entry>
+              <para
+>Konto för kostnader som uppstod vid aktivitetens start.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Startkostnad</para>
+            </entry>
+            <entry>
+              <para
+>Kostnaden som uppstod vid aktivitetens start.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Avslutningskonto</para>
+            </entry>
+            <entry>
+              <para
+>Konto för kostnader som uppstod vid aktivitetens avslutning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Avslutningskostnad</para>
+            </entry>
+            <entry>
+              <para
+>Kostnaden som uppstod vid aktivitetens avslutning.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beskrivning</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetsanteckningar.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Aktivitetsmodulpanelen</title>
+  <para
+>Aktivitetsmoduler är grupper av aktiviteter som kan återanvändas över projekt. </para>
+  <para
+>Det gör det möjligt att dra nytta av tidigare erfarenheter och standardisera liknande operationer. </para>
+  <para
+>En aktivitetsmodul infogas i projektet genom att dra den från panelen och släppa den i projektet. </para>
+  <para
+>En aktivitetsmodul är en vanlig planfil, och konstrueras genom att använda <guilabel
+>Plan</guilabel
+> på samma sätt som ett vanligt projekt. </para>
+  <para
+>En aktivitetsmodul innehåller dock typiskt bara aktiviteter, uppskattningar och beroenden. </para>
+  <para
+>Projektnamnet visas i panelen, och beskrivningen används som verktygstips. </para>
+  <para
+>Modulen kan öppnas för inspektion eller för att redigeras genom att dubbelklicka på den. </para>
+  <para
+>Modulerna kan grupperas genom att lagra dem i olika kataloger. Var man söker efter dem ställs in genom att använda projektinställningsdialogrutan. </para>
+  <para
+>Standardvärden för nya projekt kan definieras genom att använda inställningsdialogrutan i Plan. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Resurspanel</title>
+  <para
+>Resurspanelen erbjuder ett enkelt sätt att tilldela resurser till aktiviteter genom att markera resurserna som du behöver och dra dem till kolumnen <emphasis
+>Tilldelning</emphasis
+>. </para>
+  <para
+>En resurs kan också släppas på kolumnen <emphasis
+>Ansvarig</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Tilldelningspanel</title>
+  <para
+>Tilldelningspanelen visar nuvarande resurstilldelningar för den markerade aktiviteten. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Inställning</title>
+  <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in att visa eller dölja projektet, dela eller dra ihop trädvyn, eller anpassas med inställningsdialogrutan. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

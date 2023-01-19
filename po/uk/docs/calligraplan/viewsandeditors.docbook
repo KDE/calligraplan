@@ -1,0 +1,68 @@
+<chapter id="startup-view"
+><title
+>Панелі перегляду та редагування</title>
+  <sect1 id="startup-view-section"
+><title
+>Початкова панель перегляду</title>
+&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Редактор завдань</title>
+&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Редактор виконавців</title>
+&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Редактор робочого часу і відпусток</title>
+&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Редактор структури розподілу вартості</title>
+&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Редактор залежностей завдання (графік)</title>
+&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Редактор залежностей завдання (список)</title>
+&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Редактор розкладів</title>
+&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Панель швидкодії проєкту</title>
+&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Панель швидкодії завдань</title>
+&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Панель стану завдання</title>
+&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Панель виконання завдання</title>
+&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Панель завдань Ґанта</title>
+&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Перегляд діаграми Ґанта етапів</title>
+&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Панель призначення виконавців (Ґант)</title>
+&resource-assignment-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Панель призначення виконавців</title>
+&resource-assignment-gantt-view-section; </sect1>
+</chapter>

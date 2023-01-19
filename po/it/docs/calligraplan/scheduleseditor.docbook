@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Descrizione</title>
+  <para
+>L'editor delle pianificazioni è utilizzato per creare, modificare, calcolare ed eliminare le pianificazioni. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>L'editor delle pianificazioni ha tre sotto-viste che mostrano i risultati della pianificazione. </para>
+  <para
+>La sotto-vista Risultato mostra i valori necessari per l'analisi PERT tra cui inizio e fine anticipati, inizio e fine ritardati insieme a diversi tipi di scorrimenti. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La sotto-vista Percorso critico mostra le attività che appartengono al percorso critico. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La sotto-vista Registro di pianificazione mostra un elenco di messaggi prodotti durante la pianificazione. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti forniscono il modo per creare, eliminare e calcolare le pianificazioni: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Aggiungi pianificazione</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare un gruppo di risorse. Il nuovo gruppo viene aggiunto alla fine dei gruppi.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Aggiungi sotto-pianificazione</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare una sotto-pianificazione. La nuova pianificazione viene aggiunta come figlia all'elemento attualmente selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Elimina</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina la pianificazione selezionata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Calcola</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Calcolo la pianificazione selezionata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Punto di riferimento</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Crea punto di riferimento con la pianificazione selezionata. Impedisce che la pianificazione venga ricalcolata o eliminata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Stacca</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Trasforma la sotto-pianificazione selezionata in una pianificazione principale</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Modificare i dati</title>
+  <para
+>I dati possono essere modificati in linea come descritto <link linkend="using-the-views"
+>qui</link
+>. </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome della pianificazione.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stato</para>
+            </entry>
+            <entry>
+              <para
+>Lo stato della pianificazione. Mostra una barra di avanzamento durante la pianificazione.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Direzione</para>
+            </entry>
+            <entry>
+              <para
+>La direzione della pianificazione.</para
+><para
+>Se la direzione è Avanti, il progetto è programmato a partire dal primo orario di inizio del progetto specificato nella finestra principale del progetto. Se la direzione è indietro, il progetto è pianificato a partire dall'ultimo orario di fine del progetto specificato nella finestra principale del progetto. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sovra-utilizzo</para>
+            </entry>
+            <entry>
+              <para
+>Controlla il sovra-utilizzo della risorsa quando si pianifica.</para
+><para
+>Se il sovra-utilizzo è consentito, una risorsa può essere prenotata (nei giorni lavorativi) per lavorare più di quanto sia disponibile. Ciò può accadere se la risorsa è allocata su più attività o è prenotata su altri progetti. </para>
+              <para
+>Se si deve evitare il sovra-utilizzo, le risorse non saranno prenotate più di quanto siano disponibili. In caso di conflitto di risorse, le attività saranno ritardate fino a quando la risorsa non sarà disponibile. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Distribuzione</para>
+            </entry>
+            <entry>
+              <para
+>La distribuzione da usare durante la pianificazione.</para
+><para
+>Se la distribuzione è «Nessuna», la stima dell'attività viene utilizzata così com'è durante la pianificazione. </para>
+              <para
+>Se la distribuzione è «PERT», la stima (E) utilizzata viene calcolata in base alla stima ottimistica (O), pessimistica (P) e più probabile (M) immessa. La formula utilizzata per questo è: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inizio pianificato</para>
+            </entry>
+            <entry>
+              <para
+>L'ora d'inizio pianificata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fine pianificata</para>
+            </entry>
+            <entry>
+              <para
+>L'ora di fine pianificata.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Pianificatore</para>
+            </entry>
+            <entry>
+              <para
+>Il pianificatore usato per calcolare la pianificazione del progetto.</para
+><para
+>Il pianificatore integrato predefinito è Network Scheduler. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Configurazione</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilizzando il menu contestuale, la vista può essere configurata per dividere/riunire la vista ad albero o può essere configurata utilizzando la finestra di configurazione.</para
+><para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

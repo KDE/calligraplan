@@ -1,0 +1,225 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligra-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2022-08-25 21:55+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#: PlanTJPlugin.cpp:57
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+"version of the scheduler used in TaskJuggler. It has been enhanced to handle "
+"resource units.</para><para>Scheduling backwards is simulated by scheduling "
+"all tasks as late as possible.</para><para><note>Plan does not utilize all "
+"of its functionality.</note></para>"
+msgstr ""
+"<title>Görev Dengeleyici Zamanlayıcı</title><para>Bu, Görev Dengeleyici'deki "
+"Zamanlayıcı'nın ufak değişiklikler içeren halidir. Kaynak birimlerini idare "
+"etmek için geliştirilmiştir.</para><para>Geriye dönük zamanlama işlemi bütün "
+"zamanlanan görevlerin mümkün olabilecek en geç zamanda bitmesi benzetimini "
+"gerçekleştirir.</para><para><note>Tasarının işlemesi için bütün "
+"gereksinimlerden yararlanılmaz.</note></para>"
+
+#: PlanTJScheduler.cpp:142
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Init"
+msgstr "İlklendir"
+
+#: PlanTJScheduler.cpp:148
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Re-calculate project from start time: %1"
+msgstr "Başlangıç zamanından bu yana projeyi yeniden hesapla: %1"
+
+#: PlanTJScheduler.cpp:150
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from start time: %1"
+msgstr "Başlangıç zamanından bu yana projeyi yeniden zamanla: %1"
+
+#: PlanTJScheduler.cpp:152
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project target finish time: %1"
+msgstr "Proje hedefi bitiş zamanı: %1"
+
+#: PlanTJScheduler.cpp:155
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from end time: %1"
+msgstr "Bitiş zamanından bu yana projeyi zamanla: %1"
+
+#: PlanTJScheduler.cpp:170
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule"
+msgstr "Zamanla"
+
+#: PlanTJScheduler.cpp:176
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to schedule project"
+msgstr "Proje zamanlama işlemi başarısız"
+
+#: PlanTJScheduler.cpp:186
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Update"
+msgstr "Güncelle"
+
+#: PlanTJScheduler.cpp:192
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Finish"
+msgstr "Bitir"
+
+#: PlanTJScheduler.cpp:207
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to find scenario to schedule"
+msgstr "Zamanlamak için plan bulunamadı"
+
+#: PlanTJScheduler.cpp:397
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Proje, %1 saatinde başlayıp %2 saatinde bitmek üzere zamanlandı"
+
+#: PlanTJScheduler.cpp:437
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid start time"
+msgstr "Geçersiz başlangıç zamanı"
+
+#: PlanTJScheduler.cpp:441
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid end time"
+msgstr "Geçersiz bitiş zamanı"
+
+#: PlanTJScheduler.cpp:464
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled milestone: %1"
+msgstr "Zamanlanan aşama: %1"
+
+#: PlanTJScheduler.cpp:466
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled task: %1 - %2"
+msgstr "Zamanlanan görev: %1 - %2"
+
+#: PlanTJScheduler.cpp:549
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "Kısıtlama karşılanamıyor: %1. Negatif float=%2"
+
+#: PlanTJScheduler.cpp:564
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to meet dependency. Negative float=%1"
+msgstr "Bağımlılık karşılanamıyor:  Negatif float=%1"
+
+#: PlanTJScheduler.cpp:721
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Dependency type '%1' not handled. Using FinishStart."
+msgstr "Bağımlılık türü: '%1' işlenemedi. FinishStart'a geçiliyor"
+
+#: PlanTJScheduler.cpp:782
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid start constraint"
+msgstr "%1: Geçersiz başlangıç kısıtlaması"
+
+#: PlanTJScheduler.cpp:795
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid end constraint"
+msgstr "%1: Geçersiz bitiş kısıtlaması"
+
+#: PlanTJScheduler.cpp:818
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Unhandled time constraint type"
+msgstr "İşlenemeyen zaman kısıtlama türü"
+
+#: PlanTJScheduler.cpp:829 PlanTJScheduler.cpp:847
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Could not use the correct calendar for calculation of task duration"
+msgstr "Görev süre hesaplaması için doğru takvim kullanılamadı"
+
+#: PlanTJScheduler.cpp:900
+#, kde-format
+msgid "No working hours defined for resource: %1"
+msgstr "Şu özkaynak için çalışma saatleri tanımlanmadı: %1"
+
+#~ msgctxt "@info/plain"
+#~ msgid "Failed to add as predecessor to task '%1'"
+#~ msgstr "'%1' görevine önceki olarak eklenemedi"
+
+#~ msgctxt "@info/plain"
+#~ msgid "Failed to add as successor to task '%1'"
+#~ msgstr "'%1' görevine sonraki olarak eklenemedi"
+
+#~ msgid "Recalculate, earliest start: %1"
+#~ msgstr "Yeniden hesapla, en erken başlangıç: %1"
+
+#~ msgid "Task has started. Remaining effort: %1d"
+#~ msgstr "Görev başlatıldı. Kalan efor: %1 g"
+
+#~ msgid "Scheduling started: %1"
+#~ msgstr "Zamanlanan başlatıldı: %1"
+
+#~ msgid "Recalculating from: %1"
+#~ msgstr "Şuradan bu yana yeniden hesaplanıyor: %1"
+
+#~ msgid "Scheduling canceled"
+#~ msgstr "Zamanlama iptal edildi"
+
+#~ msgid "Scheduling finished at %1, elapsed time: %2 seconds"
+#~ msgstr "Zamanlama %1 saatinde bitti, geçen süre: %2 saniye"
+
+#~ msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
+#~ msgstr "Zamanlama aralığı: %1 - %2, ayrıntılılık: %3 dakika"
+
+#~ msgid "Invalid project, start > end"
+#~ msgstr "Geçersiz proje; başlangıç, bitişten büyük"
+
+#~ msgid "Project check failed"
+#~ msgstr "Proje denetimi başarısız"
+
+#~ msgid "Scheduled: %1 - %2"
+#~ msgstr "Zamanlandı: %1 - %2"
+
+#~ msgid "Scheduling failed"
+#~ msgstr "Zamanlama başarısız"
+
+#~ msgid "Project scheduling failed"
+#~ msgstr "Proje zamanlaması başarısız"
+
+#~ msgid ""
+#~ "Appointment with load (%1) less than available resource units (%2) not "
+#~ "supported"
+#~ msgstr ""
+#~ "Var olan kaynak birimlerinden (%2) daha az yüklü (%1) randevu "
+#~ "desteklenmiyor"

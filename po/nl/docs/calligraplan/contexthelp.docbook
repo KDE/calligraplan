@@ -1,0 +1,23 @@
+<sect2
+><title/>
+<para
+>Veel functies en weergaven hebben hulp en tips die getoond kunnen worden met de functie <emphasis
+>Wat is dit</emphasis
+>. </para>
+<para
+>U kunt het activeren met het menu-item <menuchoice
+><guimenu
+>Help</guimenu
+><guimenuitem
+>WatIsDit</guimenuitem
+></menuchoice
+> of sneltoets <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>In dialogen is het geactiveerd door op het <varname
+>?</varname
+> in de dialogentitelbalk te klikken. </para>
+</sect2>

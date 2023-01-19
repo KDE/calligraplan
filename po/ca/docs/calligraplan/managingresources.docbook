@@ -1,0 +1,18 @@
+<sect2 id="description"
+><title
+>Descripció</title>
+  <para
+>Podeu crear recursos per a un projecte utilitzant l'<link linkend="resource-editor"
+>Editor de recursos</link
+> i l'<link linkend="work-and-vacation-editor"
+>Editor del treball i vacances</link
+>. </para>
+  <para
+>No obstant això, si utilitzeu els mateixos recursos en molts projectes (el qual sol ser el cas), és més pràctic mantenir els recursos en un fitxer separat. La millor manera de fer això és crear primer el fitxer de recursos i després configurar el <application
+>Plan</application
+> per a carregar sempre aquest fitxer en crear un projecte nou. </para>
+  <para
+>Si esteu gestionant projectes que fan servir grups de recursos totalment diferents, podreu crear múltiples fitxers de recursos, però un projecte només podrà referir-se a un fitxer de recursos. </para>
+  <para
+>Podreu seleccionar el fitxer de recursos a emprar en crear un projecte nou. </para>
+</sect2>

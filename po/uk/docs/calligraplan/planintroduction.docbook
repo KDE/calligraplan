@@ -1,0 +1,25 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Вступ до Plan</title>
+  <sect1 id="introduction-section"
+><title
+>Вступ</title>
+&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Визначення</title>
+&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Контекстна довідка</title>
+&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>Основний робочий простір</title>
+&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>Користування панелями перегляду</title>
+&using-the-views-section; </sect1>
+</chapter>

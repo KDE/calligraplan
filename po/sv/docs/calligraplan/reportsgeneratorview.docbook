@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Beskrivning</title>
+  <para
+>Rapportgeneratorvyn används för att lägga till och generera rapporter med formatet Open Document Text (odt).</para
+><para
+>Rapporterna kan baseras på rapportmallarna som tillhandahålls, eller så kan du <link linkend="creating-odt-report-templates"
+>skriva dina egna mallar</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Ett valfritt namn</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapportmall</para>
+            </entry>
+            <entry>
+              <para
+>Sökväg till rapportmallfilen. Du kan välja en av standardmallarna som tillhandahålls, eller skriva in filnamnet på en mall som du själv tillhandahåller.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapportfil</para>
+            </entry>
+            <entry>
+              <para
+>Namnet på filen som kommer att genereras.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till</para>
+            </entry>
+            <entry>
+              <para
+>Information som kan läggas till i rapportfilen för att skilja den från tidigare skapade versioner. Det kan vara:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Ingenting</emphasis
+>: använd filnamnet som det är</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Nummer</emphasis
+>: lägg till ett sekvensnummer i filnamnet</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Datum</emphasis
+>: lägg till aktuellt datum i filnamnet</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att lägga till, ta bort och skapa rapporter. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till rapport</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Lägg till en ny rapport</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort rapport</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ta bort markerad rapport</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Generera rapport</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Skapa den valda rapporten</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

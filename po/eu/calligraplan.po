@@ -1,0 +1,2662 @@
+# Translation for calligraplan.po to Euskara/Basque (eu).
+# Copyright (C) 2020-2021, This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
+# KDE eukaratzeko proiektuko arduraduna <xalba@ni.eus>.
+#
+# Tranlators:
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligraplan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-09 09:01+0100\n"
+"PO-Revision-Date: 2021-01-15 01:13+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Fitxategia"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "&Editatu"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Ikuspegia"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "&Proiektua"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "&Tresnak"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "E&zarpenak"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "&Laguntza"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "Editatu"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "Urteko orduak:"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "Hilabeteko orduak:"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "Asteko orduak:"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "Eguneko orduak:"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "Sortu lan-astea"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "Sortu lan-asteko aukerak"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "Bat ere ez badago"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "Beti"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "Sortu jaiegunak"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "Sortu jaiegunen aukerak"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "Oinarrizko egutegiak"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "Azpi-egutegi gisa"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "Egutegi bereizi gisa"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "Jaiegun eskualdea"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "Astelehena:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "Lanegunaren hasiera"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "Lanegunaren bukaera"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "Asteartea:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "Asteazkena:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "Osteguna:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "Ostirala:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "Larunbata:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "Igandea:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "Proiektu kudeatzailearen izena"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "Erabili partekatutako baliabideak"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "Partekatutako baliabideak edukitzeko fitxategia"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr "Baliabideak partekatzen dituzten proiektuak dituen direktorioa"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, kde-format
+msgid "Project description"
+msgstr "Proiektuaren deskribapena"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Zereginaren arduradunaren izena"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Planifikazio murrizketa mota"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Hasierako murrizketa denbora nola erabiltzen den definitzen du"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Hasierako data eta ordu murrizketa"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Bukaerako murrizketa denbora nola erabiltzen den definitzen du"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Bukaerako data eta ordu murrizketa"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, kde-format
+msgid "Type of estimate"
+msgstr "Balioztapen mota"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Balioztapen denbora unitatea"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, kde-format
+msgid "Expected estimate"
+msgstr "Espero den balioztapena"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Balioztapen baikorra"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Balioztapen ezkorra"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "Zereginaren deskribapena"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "Gradientea"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, kde-format
+msgid "Linear"
+msgstr "Lineala"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, kde-format
+msgid "Flat"
+msgstr "Laua"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Gaitu laburpen-zereginaren mailetako koloreak"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr "Laburpen-zereginaren kolore lehenetsia"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Laburpen-zereginaren kolorea, 1. maila"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Laburpen-zereginaren kolorea, 2. maila"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Laburpen-zereginaren kolorea, 3. maila"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Laburpen-zereginaren kolorea, 4. maila"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Zereginaren kolorea egoera arruntean"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Zereginaren kolorea egoera kritikoan"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Zereginaren kolorea bukatutako egoeran"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "Zereginaren kolorea errore egoeran"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Mugarriaren kolorea egoera arruntean"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Mugarriaren kolorea egoera kritikoan"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Mugarriaren kolorea egoera bukatutako egoeran"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Mugarriaren kolorea errore egoeran"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Aztertu automatikoki lan-pakete berrien bila"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr ""
+"Plan-ek proiektuko kideen lan-paketeak zein direktoriotik berreskuratzen "
+"dituen"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Ezarrita badago, Plan-ek fitxategia ezabatuko du irakurri ondoren"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Ezarrita badago, Plan-ek fitxategia gordeko du irakurri ondoren"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+"Plan-ek, lan-paketeak irakurri ondoren, haiek gordetzeko erabiliko duen "
+"direktorioa"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "Plan-ek lan-paketeak argitaratzeko direktorioa"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Onartutako iraupen-unitate txikiena"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Onartutako iraupen-unitate handiena"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Dokumentaziorako bide-izena"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Testuinguruko laguntza-dokumentaziorako bide-izena"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "Testuinguru-laguntzako dokumentazioa hizkuntzara itzuli behar izan da"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "Erabili zure biltegi pribatuko zereginen moduluak"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "Zeregin moduluetarako bide-izenen zerrenda"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "Proiektu-txantiloietarako bide-izenen zerrenda"
+
+#: config/ConfigDialog.cpp:47
+#, kde-format
+msgid "Project Defaults"
+msgstr "Proiektuaren balio lehenetsiak"
+
+#: config/ConfigDialog.cpp:48 kptview.cpp:660
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Lana eta oporrak"
+
+#: config/ConfigDialog.cpp:49
+#, kde-format
+msgid "Task Defaults"
+msgstr "Zereginaren lehenespenak"
+
+#: config/ConfigDialog.cpp:50
+#, kde-format
+msgid "Task Colors"
+msgstr "Zereginaren koloreak"
+
+#: config/ConfigDialog.cpp:52
+#, kde-format
+msgid "Task Modules"
+msgstr "Zereginen moduluak"
+
+#: config/ConfigDialog.cpp:56
+#, kde-format
+msgid "Work Package"
+msgstr "Lan-paketea"
+
+#: config/ConfigDialog.cpp:57
+#, kde-format
+msgid "Documentation"
+msgstr "Dokumentazioa"
+
+#: config/ConfigDialog.cpp:60
+#, kde-format
+msgid "Project Templates"
+msgstr "Proiektuen txantiloiak"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Zeregin honen arduraduna.\n"
+"\n"
+"Hau ez dago mugatuta baliabide-talde batean erabilgarri dauden pertsonetara, "
+"baizik eta edozein izan daiteke. «Hautatu» botoia erabiliz zure helbide-"
+"liburura ere sar zaitezke."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, kde-format
+msgid "Documentation:"
+msgstr "Dokumentazioa:"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr "Testuinguru-laguntza:"
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr "Testuinguru-hizkuntza"
+
+#: config/ConfigProjectPanel.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr "Proiektu honetako proiektu arduraduna."
+
+#: config/ConfigProjectPanel.cpp:53
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Markatu baliabide partekatuak gaitzeko"
+
+#: config/ConfigProjectPanel.cpp:56
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Partekatutako baliabideak definitzen diren fitxategia"
+
+#: config/ConfigProjectPanel.cpp:59
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The directory where projects sharing the resources are placed"
+msgstr "Baliabideak partekatzen dituzten proiektuak ipintzen diren direktorioa"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Orokorra"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, kde-format
+msgid "&Manager:"
+msgstr "&Kudeatzailea:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, kde-format
+msgid "Use shared resources:"
+msgstr "Erabili partekatutako baliabideak:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, kde-format
+msgid "Shared resource file:"
+msgstr "Partekatutako baliabide-fitxategia:"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, kde-format
+msgid "Browse..."
+msgstr "Arakatu..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, kde-format
+msgid "Shared projects:"
+msgstr "Partekatutako proiektuak:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Deskribapena"
+
+#: config/ConfigProjectTemplatesPanel.cpp:61
+#, kde-format
+msgid "Project Templates Path"
+msgstr "Proiektu-txantiloien bide-izena"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "Txertatu"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, kde-format
+msgid "Remove"
+msgstr "Kendu"
+
+#: config/ConfigTaskModulesPanel.cpp:61
+#, kde-format
+msgid "Task Modules Path"
+msgstr "Zeregin moduluen bide-izena"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr "Erabili zeregin modulu lokalak"
+
+#: config/ConfigWorkVacationPanel.cpp:52
+#, kde-format
+msgid "Default"
+msgstr "Lehenetsia"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr "Laneko orduak"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Laneko asteen eta oporren egutegi lehenetsiak sortzeko "
+"erabilitako balioak.</p><p><span style=\" font-style:italic;\">Astea</span> "
+"egutegiak <span style=\" font-style:italic;\">Laneko astea</span>n "
+"definitutako balioak erabiltzen ditu.</p><p><span style=\" font-style:italic;"
+"\">Astea</span> egutegia <span style=\" font-style:italic;\">Beti</span> sor "
+"daiteke edo soilik sor daiteke <span style=\" font-style:italic;\">Batere ez "
+"dagoenean</span>. Azken aukera hori da ohikoena; izan ere, askotan, "
+"egutegiak txantiloien edo partekatutako baliabideen zati gisa definitzen "
+"dira.</p><p><span style=\" font-style:italic;\">Oporrak</span> zure "
+"eskualderako (lehenetsia) edo aukeratzen duzun beste edozein eskualderako "
+"sor daitezke. Oporrak asteko egutegian gehitu daitezke, asteko egutegiko "
+"azpi-egutegi gisa edo egutegi bereizi gisa.</p><p>Asteko egutegirik sortzen "
+"ez bada, opor egunak egutegi bereizi batean ipintzen dira.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "Egutegia sortzea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Astea"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr "Jaiegunak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "Asteko egutegian"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "&Jaiegun-eskualdea:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "Laneko astea"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "Markatu laneguna bada"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "Markatu laneguna bada"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "Zenbatespen bihurketak"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Balio hauek, zure zenbatespena ordutan ez badago erabiltzen dira.\n"
+"Demagun Eguneko orduak 8 direla. Zeregin batek osatzeko 3 eguneko ahalegina "
+"beharko duela kalkulatzen baduzu, hori 24 ordura bihurtuko da zeregina "
+"planifikatzen denean. Osatzeko beharko duen denbora, jakina, zereginari "
+"esleitutako pertsonaren (edo pertsonen) eskuragarritasunaren araberakoa "
+"izango da."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "Urteko or&duak:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "&Hilabeteko orduak:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "Aste&ko orduak:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Balio hauek erabiltzen dira zeregina burutzeko behar den ahalegina "
+"zenbatesteko."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "E&guneko orduak:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Gradientea:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Laburpen zeregina"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Lehenetsia:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Erabili mailetako koloreak"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "1. maila"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "2. maila"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "3. maila"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "4. maila"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Zeregina"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Arrunta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Kritikoa:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Bukatuta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Errorea:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Mugarria"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Arduraduna:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Txertatu zure helbide-liburuko pertsona bat"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Txertatu zure helbide-liburuko pertsona bat."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Hautatu..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Planifikazio murrizketa:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Ahalik azkarren"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Ahalik beranduen"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Hemen hasi behar du"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Hemen bukatu behar du"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Ez hasi hau baino lehenago"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Ez bukatu hau baino beranduago"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Bitarte finkoa"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Hasteko garaia murrizketaren erabilera:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Uneko data eta ordua"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Uneko data, zehaztutako ordua"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Zehaztutako data eta ordua"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Hasteko garaia murrizketa:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Bukaerako garaia murrizketaren erabilera:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Bukaerako garaia murrizketa:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Balioztatze mota:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Ahalegina"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Iraupena"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Espero den balioztapena:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Balioztapen baikorra"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Balioztapen ezkorra:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "Eskuratu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Aztertu lan-pakete bila"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "Eskuratu:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "Artxibatu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Ezabatu fitxategia hura berreskuratu ondoren"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Artxibatu fitxategi hura berreskuratu ondoren"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "Artxibatu:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "Argitaratu"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "Argitaratu:"
+
+#: KPlatoXmlLoader.cpp:69
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"Dokumentu honek ez du sintaxiaren bertsiorik.\n"
+"Plan-en irekitzeak informazioa galtzea eragin dezake."
+
+#: KPlatoXmlLoader.cpp:71 KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125
+#: kptmaindocument.cpp:357 kptmaindocument.cpp:644
+#, kde-format
+msgid "Continue"
+msgstr "Jarraitu"
+
+#: KPlatoXmlLoader.cpp:71
+#, kde-format
+msgid "File-Format Error"
+msgstr "Fitxategi-formatuaren errorea"
+
+#: KPlatoXmlLoader.cpp:80
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Dokumentu hau Plan-ek zama dezakeena baino KPlato-ren bertsio berriagoarekin "
+"sortu zen.\n"
+"Sintaxi bertsioa: %1\n"
+"Plan-en bertsio honekin irekita informazioa gal daiteke."
+
+#: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
+#: kptmaindocument.cpp:644
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Fitxategi-formatua ez dator bat"
+
+#: KPlatoXmlLoader.cpp:123
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Dokumentu hau KPlatoWork-en (sintaxi bertsioa: %1) bertsio berriago batekin "
+"sortu zen.\n"
+"PlanWork-en bertsio honekin irekita informazioa galduko da."
+
+#: kptaboutdata.h:37
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "Proiektuak planifikatu eta kudeatzeko tresna"
+
+#: kptaboutdata.h:41
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998-%1, Plan taldea"
+
+#: kptaboutdata.h:45
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:46
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:47
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:48
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:51
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Iñigo Salvador Azurmendi"
+
+#: kptaboutdata.h:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xalba@euskalnet.net"
+
+#: kptbuiltinschedulerplugin.cpp:35
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Sare planifikatzailea"
+
+#: kptbuiltinschedulerplugin.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Sarean (PERT) oinarritutako barneratutako planifikatzailea"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+"<title>Sare (PERT) planifikatzailea</title><para>Sare planifikatzaileak "
+"zereginak haien mendekotasunen arabera planifikatu ohi ditu. Zeregin bat "
+"planifikatzen denean, osorik planifikatzen da, alokatutako baliabideak, "
+"erabilgarri baleude, erreserbatuz. Gainerreserba onartzen ez bada, baliabide "
+"bera eskatzen duten ondorengo zereginak denboran beranduago planifikatuko "
+"dira.</para><para>Denbora murrizketak dituzten zereginak lehenengo "
+"planifikatuko dira baliabide-gatazka arazoak minimizatzeko</"
+"para><para><note>Planifikatzaile honek ez ditu ondo maneiatzen baliabideen "
+"gatazkak.<nl/>Erabilgarri badago, planifikatzaile ezberdin bat proba "
+"dezakezu. Baliabide-esleipenak aldatu edo gezurrezko mendekotasunak gehitu "
+"ditzakezu gatazkak saihesteko.</note></para>"
+
+#: kptinsertfiledlg.cpp:34
+#, kde-format
+msgid "Insert File"
+msgstr "Txertatu fitxategia"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Uneko nodoa:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Sartu maila gorenean"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Sartu uneko nodoaren haur gisa"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Sartu uneko nodoaren ondoren"
+
+#: kptloadsharedprojectsdialog.cpp:40
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Load Resource Assignments"
+msgstr "Zamatu baliabidearen esleipenak"
+
+#: kptmaindocument.cpp:309 kptmaindocument.cpp:614
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Dokumentu baliogabea. Ez da MIME-motarik zehaztu."
+
+#: kptmaindocument.cpp:348
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"Dokumentu baliogabea. «application/x-vnd.kde.plan» MIME-mota espero zen, "
+"«%1» jaso da"
+
+#: kptmaindocument.cpp:355
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Dokumentu hau Plan-en (sintaxi bertsioa: %1) bertsio berriago batekin sortu "
+"zen.\n"
+"Plan-en bertsio honekin irekita informazioa galduko da."
+
+#: kptmaindocument.cpp:502
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "Ezin izan da sortu lan-paketea gordetzeko fitxategia: %1"
+
+#: kptmaindocument.cpp:510
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Ezin da «%1» idatzi. Partizioa beteta?"
+
+#: kptmaindocument.cpp:537
+#, kde-format
+msgid "Saving..."
+msgstr "Gordetzen..."
+
+#: kptmaindocument.cpp:631
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Dokumentu baliogabea. «application/x-vnd.kde.plan.work» MIME-mota espero "
+"zen, «%1» jaso da"
+
+#: kptmaindocument.cpp:642
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Dokumentu hau PlanWork-en (sintaxi bertsioa: %1) bertsio berriago batekin "
+"sortu zen.\n"
+"PlanWork-en bertsio honekin irekita informazioa galduko da."
+
+#: kptmaindocument.cpp:1038 kptmaindocument.cpp:1074 kptmaindocument.cpp:1207
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr "Barneko errorea, ezin izan du fitxategia txertatu."
+
+#: kptmaindocument.cpp:1236
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "Txertatu proiektua"
+
+#: kptmaindocument.cpp:1309
+#, kde-format
+msgid "Group: %1"
+msgstr "Taldea: %1"
+
+#: kptmaindocument.cpp:1315
+#, kde-format
+msgid "Resource: %1"
+msgstr "Baliabidea: %1"
+
+#: kptmaindocument.cpp:1320
+#, kde-format
+msgid "Calendar: %1"
+msgstr "Egutegia: %1"
+
+#: kptmaindocument.cpp:1325
+#, kde-format
+msgid ""
+"Shared resources has been removed from the shared resources file.\n"
+"Select how they shall be treated in this project."
+msgstr ""
+"Partekatutako baliabideak kendu dira partekatutako baliabideen "
+"fitxategitik.\n"
+"Hautatu proiektu honetan zer trataera izan beharko luketen."
+
+#: kptmaindocument.cpp:1328
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Shared resources"
+msgstr "Baliabide partekatuak"
+
+#: kptmaindocument.cpp:1330
+#, kde-format
+msgid "Convert"
+msgstr "Bihurtu"
+
+#: kptmaindocument.cpp:1331
+#, kde-format
+msgid "Keep"
+msgstr "Mantendu"
+
+#: kptmaindocument.cpp:1542
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr "Oinarria"
+
+#: kptschedulesdocker.cpp:39
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Plangintza hautatzailea"
+
+#: kptview.cpp:197
+#, kde-format
+msgid "Create Project Template..."
+msgstr "Sortu proiektu-txantiloia..."
+
+#: kptview.cpp:201
+#, kde-format
+msgid "Create New Project..."
+msgstr "Sortu proiektu berria..."
+
+#: kptview.cpp:213
+#, kde-format
+msgid "Show Selector"
+msgstr "Erakutsi hautatzailea"
+
+#: kptview.cpp:220 kptview.cpp:256
+#, kde-format
+msgid "Edit..."
+msgstr "Editatu..."
+
+#: kptview.cpp:224
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr "Definitu zenbatetsitako bihurketa..."
+
+#: kptview.cpp:228
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Definitu WBS eredua..."
+
+#: kptview.cpp:232
+#, kde-format
+msgid "Define Currency..."
+msgstr "Definitu moneta..."
+
+#: kptview.cpp:236
+#, kde-format
+msgid "Edit Description..."
+msgstr "Editatu azalpena..."
+
+#: kptview.cpp:241
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Txertatu proiektu-fitxategia..."
+
+#: kptview.cpp:245
+#, kde-format
+msgid "Load Shared Projects..."
+msgstr "Zamatu partekatutako proiektuak..."
+
+#: kptview.cpp:250
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr "Ireki txostena definitzeko fitxategia..."
+
+#: kptview.cpp:259
+#, kde-format
+msgid "Progress..."
+msgstr "Aurrerapena..."
+
+#: kptview.cpp:262
+#, kde-format
+msgid "Delete Task"
+msgstr "Ezabatu zeregina"
+
+#: kptview.cpp:265
+#, kde-format
+msgid "Description..."
+msgstr "Azalpena..."
+
+#: kptview.cpp:268
+#, kde-format
+msgid "Documents..."
+msgstr "Dokumentuak..."
+
+#: kptview.cpp:271
+#, kde-format
+msgid "Indent Task"
+msgstr "Koskatu zeregina"
+
+#: kptview.cpp:274
+#, kde-format
+msgid "Unindent Task"
+msgstr "Zereginari koska kendu"
+
+#: kptview.cpp:277
+#, kde-format
+msgid "Move Task Up"
+msgstr "Eraman zeregina gora"
+
+#: kptview.cpp:280
+#, kde-format
+msgid "Move Task Down"
+msgstr "Eraman zeregina behera"
+
+#: kptview.cpp:284
+#, kde-format
+msgid "Edit Resource..."
+msgstr "Editatu baliabidea..."
+
+#: kptview.cpp:288
+#, kde-format
+msgid "Edit Dependency..."
+msgstr "Editatu mendekotasuna..."
+
+#: kptview.cpp:291
+#, kde-format
+msgid "Delete Dependency"
+msgstr "Ezabatu mendekotasuna"
+
+#: kptview.cpp:301
+#, kde-format
+msgid "Work Packages..."
+msgstr "Lan-paketeak..."
+
+#: kptview.cpp:302
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Lan-paketeak erabilgarriak"
+
+#: kptview.cpp:393
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+"<note>Ekintza hau ezin da desegin.</note><nl/><nl/>Sortu proiektu berri bat, "
+"uneko proiektutik abitatuta, proiektu- eta zeregin identitate berriekin.<nl/"
+">Baliabide- eta egutegi identitateak ez dira aldatzen.<nl/>Plangintza "
+"informazio dena kendu egiten da.<nl/><nl/>Jarraitu nahi duzu?"
+
+#: kptview.cpp:520
+#, kde-format
+msgid "Edit task scheduling constraints"
+msgstr "Editatu zeregina planifikatzeko murrizketak"
+
+#: kptview.cpp:520
+#, kde-format
+msgid "Task Constraints"
+msgstr "Zereginaren murrizketak"
+
+#: kptview.cpp:530
+#, kde-format
+msgid "Edit task cost"
+msgstr "Editatu zereginaren kostua"
+
+#: kptview.cpp:530
+#, kde-format
+msgid "Task Cost"
+msgstr "Zereginaren kostua"
+
+#: kptview.cpp:577
+#, kde-format
+msgid "Generate reports"
+msgstr "Sortu txostenak"
+
+#: kptview.cpp:583 kptview.cpp:3201
+#, kde-format
+msgid "Task Status Report"
+msgstr "Zeregin egoeraren txostena"
+
+#: kptview.cpp:661
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Editatu baliabideetarako lan eta opor egunak"
+
+#: kptview.cpp:663
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "Kostu sailkapenaren egitura"
+
+#: kptview.cpp:664
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Editatu kostu sailkapenaren egitura."
+
+#: kptview.cpp:666
+#, kde-format
+msgid "Resources"
+msgstr "Baliabideak"
+
+#: kptview.cpp:667
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Editatu baliabideen sailkapenaren egitura"
+
+#: kptview.cpp:669
+#, kde-format
+msgid "Tasks"
+msgstr "Zereginak"
+
+#: kptview.cpp:670
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Editatu lan sailkapenaren egitura"
+
+#: kptview.cpp:672
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Mendekotasunak (Grafikoa)"
+
+#: kptview.cpp:673 kptview.cpp:676
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Editatu zereginen mendekotasunak"
+
+#: kptview.cpp:675
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Mendekotasunak (Zerrenda)"
+
+#: kptview.cpp:679 kptview.cpp:681
+#, kde-format
+msgid "Schedules"
+msgstr "Plangintzak"
+
+#: kptview.cpp:682
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Proiektuen plangintzak kalkulatu eta aztertzea"
+
+#: kptview.cpp:684 kptviewlistdialog.cpp:118
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Proiektu jardueraren diagrama"
+
+#: kptview.cpp:685
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Ikusi proiektu egoeraren gaineko informazioa"
+
+#: kptview.cpp:687 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Task Status"
+msgstr "Zereginen egoera"
+
+#: kptview.cpp:688
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "Ikusi zereginaren aurrerapenaren informazioa"
+
+#: kptview.cpp:690
+#, kde-format
+msgid "Task Execution"
+msgstr "Zereginen exekuzioa"
+
+#: kptview.cpp:691
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Ikusi zereginen exekuzioaren gaineko informazioa"
+
+#: kptview.cpp:693 kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Work Package View"
+msgstr "Lan-pakete ikuspegia"
+
+#: kptview.cpp:694
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "Ikusi zereginaren lan-paketearen informazioa"
+
+#: kptview.cpp:696
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: kptview.cpp:697
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Ikusi Gantt diagrama"
+
+#: kptview.cpp:699
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Mugarrien Gantt"
+
+#: kptview.cpp:700
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Ikusi mugarrien Gantt diagrama"
+
+#: kptview.cpp:702 kptviewlistdialog.cpp:115
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Baliabide esleipena"
+
+#: kptview.cpp:703
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Ikusi baliabideen esleipena taula batean"
+
+#: kptview.cpp:705 kptviewlistdialog.cpp:116
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Baliabide esleipenak (Gantt)"
+
+#: kptview.cpp:706
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Ikusi baliabide-esleipenak Gantt diagraman"
+
+#: kptview.cpp:708 kptviewlistdialog.cpp:117
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "Kostuen sailkapena"
+
+#: kptview.cpp:709
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Ikusi planifikatutako eta benetako kostua"
+
+#: kptview.cpp:711 kptviewlistdialog.cpp:119
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "Zereginen jardueraren diagrama"
+
+#: kptview.cpp:712
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "Ikusi zereginen jardueraren gaineko informazioa"
+
+#: kptview.cpp:714
+#, kde-format
+msgid "Reports Generator"
+msgstr "Txosten sortzailea"
+
+#: kptview.cpp:715
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "Sortu txostenak"
+
+#: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Txostena"
+
+#: kptview.cpp:718
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Ikusi txostena"
+
+#: kptview.cpp:729
+#, kde-format
+msgid "Editors"
+msgstr "Editoreak"
+
+#: kptview.cpp:731
+#, kde-format
+msgid "Views"
+msgstr "Ikuspegiak"
+
+#: kptview.cpp:733
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Exekuzioa"
+
+#: kptview.cpp:735
+#, kde-format
+msgid "Reports"
+msgstr "Txostenak"
+
+#: kptview.cpp:1695
+#, kde-format
+msgctxt "(qtundo-format) @info:status 1=schedule name"
+msgid "Calculate %1"
+msgstr "Kalkulatu %1"
+
+#: kptview.cpp:1714
+#, kde-format
+msgid "Cannot baseline. The project is already baselined."
+msgstr "Ezin da oinarri-lerroa sortu. Proiektuak jada oinarri-lerroa du."
+
+#: kptview.cpp:1719
+#, kde-format
+msgid "This schedule is baselined. Do you want to remove the baseline?"
+msgstr "Plangintza honek oinarri-lerroa du. Oinarri-lerroa kendu nahi duzu?"
+
+#: kptview.cpp:1723
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Reset baseline %1"
+msgstr "Berrezarri %1 oinarri-lerroa"
+
+#: kptview.cpp:1726 kptview.cpp:1730
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Baseline %1"
+msgstr "Oinarri-lerroa %1"
+
+#: kptview.cpp:1741
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Add schedule %1"
+msgstr "Gehitu %1 plangintza"
+
+#: kptview.cpp:1750
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Delete schedule %1"
+msgstr "Ezabatu %1 plangintza"
+
+#: kptview.cpp:1759
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Move schedule %1"
+msgstr "Mugitu %1 plangintza"
+
+#: kptview.cpp:1822
+msgctxt "(qtundo-format)"
+msgid "Add milestone"
+msgstr "Gehitu mugarria"
+
+#: kptview.cpp:1846
+msgctxt "(qtundo-format)"
+msgid "Add sub-milestone"
+msgstr "Gehitu azpi-mugarria"
+
+#: kptview.cpp:2228
+#, kde-format
+msgid ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Planifikatu den zeregin bat ezabatuko da. Horrek plangintza baliogabetuko du."
+
+#: kptview.cpp:2236 kptview.cpp:2240 kptview.cpp:2256 kptview.cpp:2280
+msgctxt "(qtundo-format)"
+msgid "Delete task"
+msgid_plural "Delete tasks"
+msgstr[0] "Ezabatu zeregina"
+msgstr[1] "Ezabatu zereginak"
+
+#: kptview.cpp:2275
+#, kde-format
+msgid "This task has been scheduled. This will invalidate the schedule."
+msgstr "Zeregin hau planifikatu da. Horrek plangintza baliogabetuko du."
+
+#: kptview.cpp:2299
+msgctxt "(qtundo-format)"
+msgid "Indent task"
+msgstr "Koskatu zeregina"
+
+#: kptview.cpp:2313
+msgctxt "(qtundo-format)"
+msgid "Unindent task"
+msgstr "Zereginari koska kendu"
+
+#: kptview.cpp:2335
+msgctxt "(qtundo-format)"
+msgid "Move task up"
+msgstr "Eraman zeregina gora"
+
+#: kptview.cpp:2356
+msgctxt "(qtundo-format)"
+msgid "Move task down"
+msgstr "Eraman zeregina behera"
+
+#: kptview.cpp:2392
+msgctxt "(qtundo-format)"
+msgid "Add task dependency"
+msgstr "Gehitu zereginaren mendekotasuna"
+
+#: kptview.cpp:2453
+msgctxt "(qtundo-format)"
+msgid "Delete task dependency"
+msgstr "Ezabatu zereginaren mendekotasuna"
+
+#: kptview.cpp:2490 kptview.cpp:2551
+msgctxt "(qtundo-format)"
+msgid "Delete resource"
+msgid_plural "Delete resources"
+msgstr[0] "Ezabatu baliabidea"
+msgstr[1] "Ezabatu baliabideak"
+
+#: kptview.cpp:2495 kptview.cpp:2553
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroup"
+msgid_plural "Delete resourcegroups"
+msgstr[0] "Ezabatu baliabide-taldea"
+msgstr[1] "Ezabatu baliabide-taldeak"
+
+#: kptview.cpp:2504 kptview.cpp:2512
+#, kde-format
+msgid ""
+"A resource that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Planifikatu den baliabide bat ezabatuko da. Horrek plangintza baliogabetuko "
+"du."
+
+#: kptview.cpp:2549
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroups and resources"
+msgstr "Ezabatu baliabide-taldeak eta baliabideak"
+
+#: kptview.cpp:2720
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Fitxategia ezin da ireki:<br/><filename>%1</filename>"
+
+#: kptview.cpp:2846
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "Aldatu izena"
+
+#: kptview.cpp:2848
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "Aldatu zereginaren izena"
+
+#: kptview.cpp:2849
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "Aldatu mugarriaren izena"
+
+#: kptview.cpp:2850
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "Aldatu laburpen-zereginaren izena"
+
+#: kptview.cpp:2851
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "Aldatu proiektuaren izena"
+
+#: kptview.cpp:2943
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Planifikatu gabe"
+
+#: kptview.cpp:2985
+#, kde-format
+msgid "Failed to open temporary file"
+msgstr "Ezin izan da aldi baterako fitxategia ireki"
+
+#: kptview.cpp:2991
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgstr ""
+"Ezin izan da aldi baterako fitxategira gorde:<br/> <filename>%1</filename>"
+
+#: kptview.cpp:2999
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Lan-paketea: %1"
+
+#: kptview.cpp:3000
+#, kde-format
+msgctxt "1=project name, 2=task name"
+msgid ""
+"%1\n"
+"%2"
+msgstr ""
+"%1\n"
+"%2"
+
+#: kptview.cpp:3030
+#, kde-format
+msgid "Failed to open work package file"
+msgstr "Ezin izan da lan-pakete fitxategia ireki"
+
+#: kptview.cpp:3037
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr ""
+"Ezin izan da aldi baterako fitxategira gorde:<br/><filename>%1</filename>"
+
+#: kptview.cpp:3046
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr "Proiekturako lan-paketea: %1"
+
+#: kptview.cpp:3199
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Kudeatzailea:"
+
+#: kptview.cpp:3200
+#, kde-format
+msgid "Project:"
+msgstr "Proiektua:"
+
+#: kptview.cpp:3202
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "/"
+
+#: kptview.cpp:3203
+#, kde-format
+msgid "Page"
+msgstr "Orrialdea"
+
+#: kptview.cpp:3204
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Izena"
+
+#: kptview.cpp:3205
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Osatze-maila (%)"
+
+#: kptviewlist.cpp:349
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Ikuspegi hautatzailea</title><para>Hau da ikuspegi eta editoreen "
+"zerrenda.</para><para>Zerrenda, testuinguru-menua erabiliz konfigura "
+"dezakezu:<list><item>Berrizendatu kategoriak edo ikuspegiak</"
+"item><item>Konfiguratu. Mugitu, kendu, berrizendatu edo editatu kategoria "
+"edo ikuspegien tresna iradokizunak</item><item>Txertatu kategoriak eta "
+"ikuspegiak</item> </list><nl/><link url='%1'>Gehiago...</link></para>"
+
+#: kptviewlist.cpp:371
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Plangintza hautatzailea</title><para>Plangintzarekiko mendekoak diren "
+"datuak azaltzean erabili beharreko plangintza hautatzen du.<nl/><note> "
+"Plangintzarik gabeko zereginak editorean baino ez dira erakusten.</note><nl/"
+"><link url='%1'>Gehiago...</link></para>"
+
+#: kptviewlist.cpp:604
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr "Kategoria hori kentzeak, bere ikuspegi guztiak ere ezabatuko ditu."
+
+#: kptviewlist.cpp:738
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Berrizendatu"
+
+#: kptviewlist.cpp:742
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Konfiguratu..."
+
+#: kptviewlist.cpp:746
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Kendu"
+
+#: kptviewlist.cpp:755
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Berrizendatu"
+
+#: kptviewlist.cpp:759
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Konfiguratu..."
+
+#: kptviewlist.cpp:763
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Kendu"
+
+#: kptviewlist.cpp:772
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Txertatu..."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Ikuspegiaren kategoria"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Kategoria:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Ikuspegia beste ikuspegi honen ondoren kokatzen da"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Ondoren"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "The type of view"
+msgstr "Ikuspegiaren mota"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "Ikuspegi mota:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Ikuspegiaren izena"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Izena:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Ikuspegiaren azalpena"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Azalpena:"
+
+#: kptviewlistdialog.cpp:42
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Gehitu ikuspegia"
+
+#: kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Resource Editor"
+msgstr "Baliabide editorea"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Task Editor"
+msgstr "Zeregin editorea"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Lan eta oporren editorea"
+
+#: kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Accounts Editor"
+msgstr "Kontuen editorea"
+
+#: kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Mendekotasun editorea (Grafikoa)"
+
+#: kptviewlistdialog.cpp:108
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Mendekotasun editorea (Zerrenda)"
+
+#: kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Plangintza maneiatzailea"
+
+#: kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Task View"
+msgstr "Zeregin ikuspegia"
+
+#: kptviewlistdialog.cpp:113
+#, kde-format
+msgid "Gantt View"
+msgstr "Gantt ikuspegia"
+
+#: kptviewlistdialog.cpp:114
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Mugarrien Gantt ikuspegia"
+
+#: kptviewlistdialog.cpp:120
+#, kde-format
+msgid "Reports generator"
+msgstr "Txosten sortzailea"
+
+#: kptviewlistdialog.cpp:148
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+"<title>Ikuspegiaren kategoria</title><nl/>Ikuspegia kategoria horren azpian "
+"jartzen da, ikuspegi hautatzailean.<nl/>Kategoriaren izena alda dezakezu "
+"kategoria berri bat sortzeko."
+
+#: kptviewlistdialog.cpp:200 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:631
+#, kde-format
+msgid "Top"
+msgstr "Goian"
+
+#: kptviewlistdialog.cpp:306
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Konfiguratu ikuspegia"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+"<title>Ikuspegiaren kategoria</title><nl/>Ikuspegia kategoria horren azpian "
+"jartzen da, ikuspegi hautatzailean.<nl/>Beste kategoria bat hautatzeak, "
+"ikuspegia kategoria berrira aldatuko du.<nl/>Kategoriaren izena alda "
+"dezakezu kategoria berri bat sortzeko."
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Konfiguratu kategoria"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Gehitu txostena"
+
+#: kptviewlistdocker.cpp:68 kptviewlistdocker.cpp:74
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "Ikuspegi hautatzailea [aldatuta]"
+
+#: kptviewlistdocker.cpp:76
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "Ikuspegi hautatzailea"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Hitzak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Esaldiak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Silabak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Lerroak"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Karaktereak zuriuneak barne"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Karaktereak zuriunerik gabe"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Flesch-en irakurgarritasuna"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Sartu oineko- eta bukaerako-oharretako testua"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Datuak automatikoki freskatzea"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Kategoria beste kategoria honen atzetik ipintzen da"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Kategoriaren izena"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Kategoriaren azalpena"
+
+#: welcome/WelcomeView.cpp:125
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Create a new project</title><para>Creates a new project with default "
+"values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+"<emphasis>project dialog</emphasis> so you can define project specific "
+"properties like <resource>Project Name</resource>, <resource>Target Start</"
+"resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+"<title>Sortu proiektu berri bat</title><para>Proiektu berri bat sortzen "
+"du<emphasis>Ezarpenetan</emphasis> definitutako balio lehenetsiak erabiliz."
+"<nl/><emphasis>Proiektua elkarrizketa-koadroa</emphasis> irekitzen du "
+"proiektuaren berariazko propietateak definitu ahal izan ditzazun, "
+"<resource>Proiektuaren izena</resource>, <resource>Hasteko-</resource> eta "
+"<resource>Bukatzeko-</resource> garaiak, besteak beste.<nl/><link "
+"url='%1'>Gehiago...</link></para>"
+
+#: welcome/WelcomeView.cpp:139
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared resources</title><para>Create a shared resources file.<nl/"
+">This enables you to only create your resources once, you just refer to your "
+"resources file when you create a new project.<nl/>These resources can then "
+"be shared between projects to avoid overbooking resources across projects."
+"<nl/>Shared resources must be defined in a separate file.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+"<title>Partekatutako baliabideak</title><para>Sortu baliabide partekatuen "
+"fitxategi bat.<nl/>Horri esker, zure baliabideak behin bakarrik sortu "
+"beharko dituzu, proiektu berri bat sortzen duzunean hari aipu egitea "
+"besterik ez duzu.<nl/>Baliabide horiek proiektuen artean partekatu daitezke "
+"proiektuen arteko baliabideen gehiegizko erreserba ekiditeko.<nl/"
+">Partekatutako baliabideak fitxategi bereizi batean definitu behar dira.<nl/"
+"><link url='%1'>Gehiago...</link></para>"
+
+#: welcome/WelcomeView.cpp:152
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Recent Projects</title><para>A list of the 10 most recent project "
+"files opened.</para><para><nl/>This enables you to quickly open projects you "
+"have worked on recently.</para>"
+msgstr ""
+"<title>Azken proiektuak</title><para>Irekitako azken 10 proiektu-fitxategien "
+"zerrenda bat.</para><para><nl/>Horri esker azken aldian erabili dituzun "
+"proiektuak azkar irekiko dituzu.</para>"
+
+#: welcome/WelcomeView.cpp:161
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para>"
+msgstr ""
+"<title>Testuinguruko laguntza</title><para>Laguntza erabilgarri dago leku "
+"askotan <emphasis>Zer da hau</emphasis> erabiliz.<nl/><interface>Laguntza-"
+">Zer da hau?</interface> menuko sarrera edo <shortcut>Maius+F1</shortcut> "
+"teklatuko lasterbidea erabiliz aktibatzen da.</para><para>Elkarrizketa-"
+"koadroetan titulu-barrako <interface>?</interface> bidez erabilgarri dago.</"
+"para><para>Testuan <link url='%1'>Gehiago...</link> ikusten baduzu, hura "
+"sakatuta, zure arakatzailean, lerroko baliabideetako informazio gehiago "
+"azalduko da.</para>"
+
+#: welcome/WelcomeView.cpp:179
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Proiektu-txantiloiak</title><para>Aukeratu txantiloi bat, txantiloi "
+"horretan oinarritutako proiektu berri bat sortzeko.</para><para>Plan-ek, "
+"ezarpenen elkarrizketa-koadroan definitu ditzakezun lekuetan txantiloiak "
+"bilatzen ditu: <interface>Ezarpenak->Konfiguratu Plan</interface>.</"
+"para><para>Txantiloi berriak sor ditzakezu proiektuetatik abiatuta "
+"<interface>Fitxategia->Sortu proiektu-txantiloia</interface> menu sarrera "
+"erabiliz.<nl/><link url='%1'>Gehiago...</link></para>"
+
+#: welcome/WelcomeView.cpp:312
+#, kde-format
+msgid "Open Document"
+msgstr "Ireki dokumentua"
+
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, kde-format
+msgid "New project"
+msgstr "Proiektu berria"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Txantiloi-proiektuak:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, kde-format
+msgid "Create Shared Resources"
+msgstr "Sortu baliabide partekatuak"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Ireki proiektua</"
+"span></p><p>Lehendik dagoen proiektu baten fitxategia irekitzeko aukera "
+"ematen duen elkarrizketa-koadro bat irekitzen du.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, kde-format
+msgid "Open Project..."
+msgstr "Ireki proiektua..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Oraintsuko proiektuak:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr "Sarrerakoa"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Testuinguruko "
+"laguntza</span></p><p>Funtzio ugarik <span style=\" font-style:italic;\">Zer "
+"da hau</span> erabiliz azaldu daitezkeen laguntza eta iradokizunak dituzte.</"
+"p><p>Aktiba ezazu <span style=\" font-style:italic;\">Laguntza-&gt;Zer da "
+"hau</span> edo <span style=\" font-style:italic;\"> Maius+F1</span> hautatuz."
+"</p> <p>Proba ezazu testu honekin!</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr "https://userbase.kde.org/Plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"erabiltzailearen dokumentazioa</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Komunitatearen foro</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr "https://calligra.org"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr "<a href=\"https://calligra.org\">Calligra</a>"

@@ -1,0 +1,358 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2021, 2022.
+# Simon Depiets <sdepiets@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2018-07-13 14:57+0800\n"
+"Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: PlanTJPlugin.cpp:57
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+"version of the scheduler used in TaskJuggler. It has been enhanced to handle "
+"resource units.</para><para>Scheduling backwards is simulated by scheduling "
+"all tasks as late as possible.</para><para><note>Plan does not utilize all "
+"of its functionality.</note></para>"
+msgstr ""
+"<title>Planificateur TaskJuggler</title><para>C'est une version légèrement "
+"modifiée du planificateur utilisé dans TaskJuggler. Il a été amélioré pour "
+"gérer les unités de ressources.</para><para>La planification arrière est "
+"simulée en lançant toutes les tâches aussi tard que possible.</"
+"para><para><note>Plan n'utilise pas toutes ses fonctionnalités.</note></para>"
+
+#: PlanTJScheduler.cpp:142
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Init"
+msgstr "Initialisation"
+
+#: PlanTJScheduler.cpp:148
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Re-calculate project from start time: %1"
+msgstr "Re-calculer le projet depuis la date de départ : %1"
+
+#: PlanTJScheduler.cpp:150
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from start time: %1"
+msgstr "Planifier le projet depuis la date de départ : %1"
+
+#: PlanTJScheduler.cpp:152
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project target finish time: %1"
+msgstr "Date d'objectif de fin du projet : %1"
+
+#: PlanTJScheduler.cpp:155
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from end time: %1"
+msgstr "Planifier le projet à partir de la date de fin : %1"
+
+#: PlanTJScheduler.cpp:170
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule"
+msgstr "Planification "
+
+#: PlanTJScheduler.cpp:176
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to schedule project"
+msgstr "Impossible de planifier le projet"
+
+#: PlanTJScheduler.cpp:186
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: PlanTJScheduler.cpp:192
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Finish"
+msgstr "Finir"
+
+#: PlanTJScheduler.cpp:207
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to find scenario to schedule"
+msgstr "Impossible de trouver un scénario à planifier"
+
+#: PlanTJScheduler.cpp:397
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Projet planifié pour démarrer à %1 et pour finir à %2"
+
+#: PlanTJScheduler.cpp:437
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid start time"
+msgstr "Date de départ non valable"
+
+#: PlanTJScheduler.cpp:441
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid end time"
+msgstr "Date de fin non valable"
+
+#: PlanTJScheduler.cpp:464
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled milestone: %1"
+msgstr "Jalon planifié : %1"
+
+#: PlanTJScheduler.cpp:466
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled task: %1 - %2"
+msgstr "Tâche planifiée : %1 - %2"
+
+#: PlanTJScheduler.cpp:549
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1 : impossible de satisfaire la dépendance Marge négative = %2"
+
+#: PlanTJScheduler.cpp:564
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to meet dependency. Negative float=%1"
+msgstr "Impossible de satisfaire la dépendance. Marge négative = %1"
+
+#: PlanTJScheduler.cpp:721
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Dependency type '%1' not handled. Using FinishStart."
+msgstr ""
+"Type de dépendance « %1 » non géré. Utilisation de « Fin » / « Début »."
+
+#: PlanTJScheduler.cpp:782
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid start constraint"
+msgstr "%1 : contrainte de date de départ non valable"
+
+#: PlanTJScheduler.cpp:795
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid end constraint"
+msgstr "%1 : contrainte de date de fin non valable"
+
+#: PlanTJScheduler.cpp:818
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Unhandled time constraint type"
+msgstr "Type non géré de contrainte de temps\t\t"
+
+#: PlanTJScheduler.cpp:829 PlanTJScheduler.cpp:847
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Could not use the correct calendar for calculation of task duration"
+msgstr ""
+"Impossible d'utiliser le calendrier correct pour le calcul de la durée de la "
+"tâche"
+
+#: PlanTJScheduler.cpp:900
+#, kde-format
+msgid "No working hours defined for resource: %1"
+msgstr "Pas d'heures de travail définies pour la ressource : %1"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~| "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~| "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~| "scheduling all tasks as late as possible.</para><para><note>Plan does "
+#~| "not utilize all of its functionality.</note></para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~ "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~ "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~ "scheduling all tasks as late as possible.</para><para><note>Plan does not "
+#~ "utilize all of its functionality.</note></para>"
+#~ msgstr ""
+#~ "<title>Planificateur TaskJuggler</title><para>C'est une version "
+#~ "légèrement modifiée du planificateur utilisé dans TaskJuggler. Il a été "
+#~ "amélioré pour gérer les unités de ressources.</para><para>La "
+#~ "planification arrière est simulée en lançant toutes les tâches aussi tard "
+#~ "que possible.</para><para><note>Plan n'utilise pas toutes ses "
+#~ "fonctionnalités.</note></para>"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Init"
+#~ msgstr "Initialisation"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Re-calculer le projet depuis la date de départ : %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Planifier le projet depuis la date de départ : %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project target finish time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project target finish time: %1"
+#~ msgstr "Date d'objectif de fin du projet : %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Planifier le projet à partir de la date de fin : %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule"
+#~ msgstr "Planification "
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to schedule project"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to schedule project"
+#~ msgstr "Impossible de planifier le projet"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Update"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Update"
+#~ msgstr "Mettre à jour"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Finish"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Finish"
+#~ msgstr "Finir"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to find scenario to schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to find scenario to schedule"
+#~ msgstr "Impossible de trouver un scénario à planifier"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Projet planifié pour démarrer à %1 et pour finir à %2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid start time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid start time"
+#~ msgstr "Date de départ non valable"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid end time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid end time"
+#~ msgstr "Date de fin non valable"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled milestone: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled milestone: %1"
+#~ msgstr "Jalon planifié : %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled task: %1 - %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled task: %1 - %2"
+#~ msgstr "Tâche planifiée : %1 - %2"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "%1 : impossible de satisfaire la dépendance Marge négative = %2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to meet dependency. Negative float=%1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to meet dependency. Negative float=%1"
+#~ msgstr "Impossible de satisfaire la dépendance. Marge négative = %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgstr ""
+#~ "Type de dépendance « %1 » non géré. Utilisation de « Fin » / « Début »."
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid start constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid start constraint"
+#~ msgstr "%1 : contrainte de date de départ non valable"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid end constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid end constraint"
+#~ msgstr "%1 : contrainte de date de fin non valable"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Unhandled time constraint type"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Unhandled time constraint type"
+#~ msgstr "Type non géré de contrainte de temps\t\t"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgstr ""
+#~ "Impossible d'utiliser le calendrier correct pour le calcul de la durée de "
+#~ "la tâche"

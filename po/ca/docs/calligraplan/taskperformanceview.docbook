@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>En el gràfic de compliment de la tasca, podem analitzar en profunditat cada subtasca o tasca amb els mateixos índexs que per a la vista Realització del projecte. </para>
+<para
+>Això és realment útil en un projecte llarg i complicat. </para>
+<para
+>A la finestra esquerra, podreu triar cada subtasca individual i una tasca completa, després a la finestra dreta apareixerà en el gràfic corresponent. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>On: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS vol dir el cost pressupostat de la feina planificada,</para
+></listitem>
+  <listitem
+><para
+>BCWP vol dir el cost pressupostat de la feina realitzada,</para
+></listitem>
+  <listitem
+><para
+>ACWP vol dir el cost real de la feina realitzada.</para
+></listitem>
+</itemizedlist>
+<para
+>Tots aquests són considerats com a esforç en hores i costos. </para>
+<para
+>PI són els índexs de compliment, on: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI és l'índex de compliment del cost,</para
+></listitem>
+  <listitem
+><para
+>SPI és l'índex de compliment de la planificació.</para
+></listitem>
+</itemizedlist>
+</sect2>

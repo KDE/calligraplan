@@ -1,0 +1,4295 @@
+# translation of kplato.po to Slovenian
+# Translation of kplato.po to Slovenian
+# Copyright (C) 2002,2003, 2004, 2005, 2006 Free Software Foundation, Inc.
+# $Id: kplato.po 512753 2006-02-23 15:01:58Z scripty $
+# $Source$
+#
+# Gregor Rakar <gregor.rakar@kiss.si>, 2002, 2003, 2004.
+# Andrej Vernekar <andrej.vernekar@moj.net>, 2005, 2006, 2008, 2012, 2013.
+# Jure Repinc <jlp@holodeck1.com>, 2006.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-09 09:01+0100\n"
+"PO-Revision-Date: 2021-03-31 12:43+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "Datoteka"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "Uredi"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Pogled"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "&Projekt"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "Orodja"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "Na&stavitve"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "Pomoč"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "Uredi"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "Ur na leto"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "Ur na mesec"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "Ur na teden"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "Ur na dan"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "Ustvari delovni teden"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "Ustvari možnosti delovnega tedna"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "Če ne obstaja noben"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "Vedno"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "Ustvari praznike"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "Ustvari možnosti praznikov"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "Osnovni koledar"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "Podrejeni koledar"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "Ločeni koledar"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "Regija praznikov"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "Ponedeljek:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "Začetek delovnega dne"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "Konec delovnega dne"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "Torek:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "Sreda:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "Četrtek:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "Petek:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "Sobota:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "Nedelja:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "Ime projektnega managerja"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "Uporabite skupne vire"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "Datoteka, ki vsebuje skupne vire"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr "Direktorij, ki vsebuje projekte, ki si delijo skupne vire"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, kde-format
+msgid "Project description"
+msgstr "Opis projekta"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Ime odgovorne osebe za opravilo"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Tip omejitve planiranja"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Določa, kako je časovno omejen začetek opravila"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Omejitve začetnega datuma in časa"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Določa, kako je časovno omejen konec opravila"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Omejitev končnega datuma in časa"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, kde-format
+msgid "Type of estimate"
+msgstr "Vrsta ocene"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Časovna enota ocene"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, kde-format
+msgid "Expected estimate"
+msgstr "Pričakovana ocena"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Optimistična ocena"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Pesimistična ocena"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "Opis opravila"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "Preliv"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, kde-format
+msgid "Linear"
+msgstr "Linearno"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, kde-format
+msgid "Flat"
+msgstr "Plosko"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Omogoči barve povzetka opravil"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr "Privzete barve povzetka opravil"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Barva povzetka opravil nivoja 1"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Barva povzetka opravil nivoja 2"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Barva povzetka opravil nivoja 3"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Barva povzetka opravil nivoja 4"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Barva opravila v normalnem stanju"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Barva opravila v kritičnem stanju"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Barva opravila v zaključenem stanju"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "Barva opravila v napačnem stanju"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Barva mejnika v normalnem stanju"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Barva mejnika v kritičnem stanju"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Barva mejnika v zaključenem stanju"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Barva mejnika v napačnem stanju"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Avtomatično preveri za nove delovne pakete"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "Direktorij, kjer Plan pridobiva delovne pakete članov projekta"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Če je nastavljeno, bo Plan zbrisal datoteko potem ko je bila prebrana"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Če je nastavljeno, bo Plan shranil datoteko potem ko je bila prebrana"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr "Direktorij kamor Plan shranjuje delovne pakete, ko so bili prebrani"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "Mapa, kjer Plan publicira delovne pakete"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Najmanjša dovoljena enota trajanja"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Največja dovoljena enota trajanja"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Pot do dokumentacije"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Pot do kontekstne dokumentacije pomoči"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "Dokumentacija za pomoč je morala biti prevedena v ustrezni jezik"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "Uporabi module opravil iz vaše zasebne zbirke"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "Seznam poti za module opravil"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "Seznam poti za predloge projekta"
+
+#: config/ConfigDialog.cpp:47
+#, kde-format
+msgid "Project Defaults"
+msgstr "Privzete vrednosti projekta"
+
+#: config/ConfigDialog.cpp:48 kptview.cpp:660
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Delo in dopust"
+
+#: config/ConfigDialog.cpp:49
+#, kde-format
+msgid "Task Defaults"
+msgstr "Privzetosti opravila"
+
+#: config/ConfigDialog.cpp:50
+#, kde-format
+msgid "Task Colors"
+msgstr "Barve opravila"
+
+#: config/ConfigDialog.cpp:52
+#, kde-format
+msgid "Task Modules"
+msgstr "Moduli opravila"
+
+#: config/ConfigDialog.cpp:56
+#, kde-format
+msgid "Work Package"
+msgstr "Delovni paket"
+
+#: config/ConfigDialog.cpp:57
+#, kde-format
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: config/ConfigDialog.cpp:60
+#, kde-format
+msgid "Project Templates"
+msgstr "Predloge projekta"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Oseba, ki je odgovorna za to opravilo.\n"
+"\n"
+"Ni omejeno samo na osebe, ki so na voljo v skupini virov. To je lahko "
+"kdorkoli. Z gumbom Izbor lahko neposredno dostopate do svojega adresarja."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, kde-format
+msgid "Documentation:"
+msgstr "Dokumentacija:"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr "Kontekstna pomoč:"
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr "Kontekstni jezik"
+
+#: config/ConfigProjectPanel.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr "Projektni manager tega projekta."
+
+#: config/ConfigProjectPanel.cpp:53
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Izpolni za omogočanje skupnih virov"
+
+#: config/ConfigProjectPanel.cpp:56
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Datoteka, kjer so določeni skupni viri"
+
+#: config/ConfigProjectPanel.cpp:59
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The directory where projects sharing the resources are placed"
+msgstr "Mapa, kjer se nahajajo skupni viri projektov"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Splošno"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, kde-format
+msgid "&Manager:"
+msgstr "Manager:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, kde-format
+msgid "Use shared resources:"
+msgstr "Uporaba skupnih virov:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, kde-format
+msgid "Shared resource file:"
+msgstr "Datoteka skupnih virov:"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, kde-format
+msgid "Browse..."
+msgstr "Brskaj..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, kde-format
+msgid "Shared projects:"
+msgstr "Skupni projekti:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Opis"
+
+#: config/ConfigProjectTemplatesPanel.cpp:61
+#, kde-format
+msgid "Project Templates Path"
+msgstr "Pot do šablon projekta"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "Vstavi"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, kde-format
+msgid "Remove"
+msgstr "Odstrani"
+
+#: config/ConfigTaskModulesPanel.cpp:61
+#, kde-format
+msgid "Task Modules Path"
+msgstr "Pot do modulov opravil"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr "Uporabi module lokalnih opravil"
+
+#: config/ConfigWorkVacationPanel.cpp:52
+#, kde-format
+msgid "Default"
+msgstr "Privzeto"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr "Delovne ure"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Vrednosti, uporabljene za ustvarjanje privzetih "
+"koledarjev za delovne tedne in praznike.</p><p><span style=\" font-style:"
+"italic;\">Tedenski</span > koledar uporablja vrednosti, opredeljene v <span "
+"style=\" font-style:italic;\">Delovnem tednu</span>.</p><p><span style = "
+"\"font-style: italic;\">Tedenski</span> koledar je mogoče ustvariti za<span "
+"style = \"font-style: italic;\">Vedno</span> ali pa  ustvarite le <span "
+"style=\" font-style:italic;\"> Če noben ne obstaja</span>. Slednja izbira je "
+"najpogostejša, saj imate pogosto koledarje definirane kot del predlog ali "
+"skupnih virov.</p><p><span style=\" font-style:italic;\">Dopust</span> lahko "
+"ustvarite za (privzeto) ali katero koli regijo, ki jo izberete. Praznike "
+"lahko dodate v tedenski koledar kot podkoledar tedenskemu koledarju ali kot "
+"ločen koledar.</p><p>Če tedenski koledar ni ustvarjen, so prazniki v "
+"posebnem koledarju.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "Tvorba koledarjev"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Teden"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr "Prazniki"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "V tedenskem koledarju"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "Regija praznikov:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "Delovni teden"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "Odkljukajte,  če je delovni dan"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "Odkljukajte, če je delovni dan"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "Ocene konverzij"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Te vrednosti se uporabljajo, če vaša ocena ni v urah.\n"
+"Recimo, da je število ur na dan 8. Če ocenite, da opravilo traja 3 dni "
+"delovnih naporov, se to pretvori v 24 ur, ko je opravilo razporejeno. "
+"Dejanski čas, ki ga bo treba opraviti, je seveda odvisen od razpoložljivosti "
+"osebe (ali oseb), ki je dodeljena nalogi."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "Ur na leto:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "Ur na mesec:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "Ur na teden:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Te vrednosti se uporabijo, ko ocenite delovni napor, potreben za dokončanje "
+"opravila."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "Ur na dan:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Preliv:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Izvleček opravila"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Privzeto:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Uporabi barve nivojev"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Stopnja 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Stopnja 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Stopnja 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Stopnja 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Opravilo"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Običajno:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Kritično:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Končano:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Napaka:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Mejnik"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Odgovorni:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Vstavite osebo iz vašega adresarja"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Vstavite osebo iz vašega adresarja."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Izberite ..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Omejitev pri razporejanju:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Takoj, ko je mogoče"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Tako pozno, kot je mogoče"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Mora se začeti"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Mora se končati"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Ne začni prej kot"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Ne končaj kasneje kot"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Fiksen interval"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Omejitev rabe časa začetka:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Trenutni datum in čas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Trenutni datum, naveden čas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Naveden datum in čas"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Omejitev začetnega časa:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Omejitev končnega časa:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Omejitev končnega časa:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Oceni vrsto:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Trud"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Trajanje"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Pričakovana ocena:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Optimistična ocena:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Pesimistična ocena:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "Pridobi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Preveri delovne pakete"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "Pridobi:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "Arhiviraj"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Izbriši datoteko potem, ko je bila pridobljena"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Arhiviraj datoteko potem, ko je bila pridobljena"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "Arhiv:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "Objavi"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "Objavi:"
+
+#: KPlatoXmlLoader.cpp:69
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"Ta dokument ne vsebuje informacije o verziji sintakse.\n"
+"Njegovo odpiranje v Planu lahko izgubi nekaj informacij."
+
+#: KPlatoXmlLoader.cpp:71 KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125
+#: kptmaindocument.cpp:357 kptmaindocument.cpp:644
+#, kde-format
+msgid "Continue"
+msgstr "Nadaljuj"
+
+#: KPlatoXmlLoader.cpp:71
+#, kde-format
+msgid "File-Format Error"
+msgstr "Napaka oblike datoteke"
+
+#: KPlatoXmlLoader.cpp:80
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Ta dokument je bil ustvarjen z novejšo različico KPlato kot pa ga lahko plan "
+"naloži\n"
+"Različica skladnje: %1\n"
+"Njegovo odpiranje v tej različici Plana bo morda izgubilo nekaj informacij."
+
+#: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
+#: kptmaindocument.cpp:644
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Neujemanje vrst datotek"
+
+#: KPlatoXmlLoader.cpp:123
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Ta dokument je bil ustvarjen z novejšo različico KPlatoWork (različica "
+"skladnje %1)\n"
+"Njegovo odpiranje v tej različici PlanWork-a bo povzročilo izgubo nekaj "
+"informacij."
+
+#: kptaboutdata.h:37
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "Orodje za planiranje in projektno vodenje"
+
+#: kptaboutdata.h:41
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998-%1. ekipa Plana"
+
+#: kptaboutdata.h:45
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:46
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:47
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:48
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:51
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Gregor Rakar,Andrej Vernekar"
+
+#: kptaboutdata.h:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "gregor.rakar@kiss.si,andrej.vernekar@moj.net"
+
+#: kptbuiltinschedulerplugin.cpp:35
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Mrežni razporejevalnik"
+
+#: kptbuiltinschedulerplugin.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Vgrajeni mrežni razporejevalnik (PERT)"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+"<title>Mrežni razporejevalnik (PERT)</title><para>Mrežni razporejevalnik na "
+"splošno razporeja opravila glede na njihove odvisnosti. Ko je opravilo "
+"razporejeno, je razporejeno v celoti, vključno z rezervacijo dodeljenih "
+"sredstev, če so na voljo. Če večkratno dodeljevanje virov ni dovoljeno, bodo "
+"naslednja opravila, ki zahtevajo iste vire razporejena kasneje.</para> "
+"<para>Opravila s časovnimi omejitvami bodo razporejena kot prva, da se "
+"minimizira možnost konfliktov z viri.</para><para><note>Ta razporejevalnik "
+"ne obdeluje dobro konfliktov z viri.<nl/>Lahko poskusite z drugim "
+"razporejevalnikom, če je na voljo. Lahko pa tudi spremenite dodelitev "
+"sredstev ali dodajanje navideznih odvisnosti, da se izognete konfliktom.</"
+"note></para>"
+
+#: kptinsertfiledlg.cpp:34
+#, kde-format
+msgid "Insert File"
+msgstr "Vstavi datoteko"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Trenutno vozlišče:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Vstavi na vrhu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Vstavi kot otroke trenutnega vozlišča"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Vstavi po trenutnem vozlišču"
+
+#: kptloadsharedprojectsdialog.cpp:40
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Load Resource Assignments"
+msgstr "Naloži dodelitve virov"
+
+#: kptmaindocument.cpp:309 kptmaindocument.cpp:614
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Neveljaven dokument. Ni navedene zvrsti MIME."
+
+#: kptmaindocument.cpp:348
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"Neveljaven dokument. Pričakovana zvrst MIME je bila application/x-vnd.kde."
+"plan, dobljena %1"
+
+#: kptmaindocument.cpp:355
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Ta dokument je bil ustvarjen z novejšo različico Plana (različica skladnje "
+"%1)\n"
+"Njegovo odpiranje v tej različici Plana bo povzročilo izgubo nekaj "
+"informacij."
+
+#: kptmaindocument.cpp:502
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "Ni bilo mogoče tvoriti datoteke z delovnim paketom za shranjevanje: %1"
+
+#: kptmaindocument.cpp:510
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Ni moč zapisati »%1«. Ali je particija polna?"
+
+#: kptmaindocument.cpp:537
+#, kde-format
+msgid "Saving..."
+msgstr "Shranjevanje ..."
+
+#: kptmaindocument.cpp:631
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Neveljaven dokument. Pričakovana zvrst MIME je bila application/x-vnd.kde."
+"plan.work, dobljena %1"
+
+#: kptmaindocument.cpp:642
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Ta dokument je bil ustvarjen z novejšo različico PlanWork (različica "
+"skladnje %1)\n"
+"Njegovo odpiranje v tej različici PlanWork-a bo povzročilo izgubo nekaj "
+"informacij."
+
+#: kptmaindocument.cpp:1038 kptmaindocument.cpp:1074 kptmaindocument.cpp:1207
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr "Interna napaka, vstavljanje datoteke ni uspelo."
+
+#: kptmaindocument.cpp:1236
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "Vstavi projekt"
+
+#: kptmaindocument.cpp:1309
+#, kde-format
+msgid "Group: %1"
+msgstr "Grupa: %1"
+
+#: kptmaindocument.cpp:1315
+#, kde-format
+msgid "Resource: %1"
+msgstr "Vir: %1"
+
+#: kptmaindocument.cpp:1320
+#, kde-format
+msgid "Calendar: %1"
+msgstr "Koledar: %1"
+
+#: kptmaindocument.cpp:1325
+#, kde-format
+msgid ""
+"Shared resources has been removed from the shared resources file.\n"
+"Select how they shall be treated in this project."
+msgstr ""
+"Skupni viri so bili odstranjeni iz datoteke z deljenimi viri.\n"
+"Izberite, kako naj bodo v tem projektu obravnavani."
+
+#: kptmaindocument.cpp:1328
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Shared resources"
+msgstr "Skupni deljeni viri"
+
+#: kptmaindocument.cpp:1330
+#, kde-format
+msgid "Convert"
+msgstr "Pretvori"
+
+#: kptmaindocument.cpp:1331
+#, kde-format
+msgid "Keep"
+msgstr "Ohrani"
+
+#: kptmaindocument.cpp:1542
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr "Baza"
+
+#: kptschedulesdocker.cpp:39
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Selektor razporejanja"
+
+#: kptview.cpp:197
+#, kde-format
+msgid "Create Project Template..."
+msgstr "Ustvari predlogo projekta..."
+
+#: kptview.cpp:201
+#, kde-format
+msgid "Create New Project..."
+msgstr "Ustvari nov projekt..."
+
+#: kptview.cpp:213
+#, kde-format
+msgid "Show Selector"
+msgstr "Pokaži izbirnik"
+
+#: kptview.cpp:220 kptview.cpp:256
+#, kde-format
+msgid "Edit..."
+msgstr "Uredi ..."
+
+#: kptview.cpp:224
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr "Določi konvencije ocen..."
+
+#: kptview.cpp:228
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Določi vzorec SRD ..."
+
+#: kptview.cpp:232
+#, kde-format
+msgid "Define Currency..."
+msgstr "Določi valuto ..."
+
+#: kptview.cpp:236
+#, kde-format
+msgid "Edit Description..."
+msgstr "Uredi opis..."
+
+#: kptview.cpp:241
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Vstavi projektno datoteko ..."
+
+#: kptview.cpp:245
+#, kde-format
+msgid "Load Shared Projects..."
+msgstr "Naloži skupne projekte..."
+
+#: kptview.cpp:250
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr "Odpri definicijsko datoteko poročila..."
+
+#: kptview.cpp:259
+#, kde-format
+msgid "Progress..."
+msgstr "Napredek ..."
+
+#: kptview.cpp:262
+#, kde-format
+msgid "Delete Task"
+msgstr "Izbriši opravilo"
+
+#: kptview.cpp:265
+#, kde-format
+msgid "Description..."
+msgstr "Opis ..."
+
+#: kptview.cpp:268
+#, kde-format
+msgid "Documents..."
+msgstr "Dokumenti..."
+
+#: kptview.cpp:271
+#, kde-format
+msgid "Indent Task"
+msgstr "Zamakni opravilo"
+
+#: kptview.cpp:274
+#, kde-format
+msgid "Unindent Task"
+msgstr "Odzamakni opravilo"
+
+#: kptview.cpp:277
+#, kde-format
+msgid "Move Task Up"
+msgstr "Premakni opravilo gor"
+
+#: kptview.cpp:280
+#, kde-format
+msgid "Move Task Down"
+msgstr "Premakni opravilo dol"
+
+#: kptview.cpp:284
+#, kde-format
+msgid "Edit Resource..."
+msgstr "Uredi vir ..."
+
+#: kptview.cpp:288
+#, kde-format
+msgid "Edit Dependency..."
+msgstr "Uredi odvisnost ..."
+
+#: kptview.cpp:291
+#, kde-format
+msgid "Delete Dependency"
+msgstr "Izbriši odvisnost"
+
+#: kptview.cpp:301
+#, kde-format
+msgid "Work Packages..."
+msgstr "Delovni paketi..."
+
+#: kptview.cpp:302
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Delovni paketi na voljo"
+
+#: kptview.cpp:393
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+"<note>Tega dejanja ni mogoče razveljaviti.</note><nl/><nl/>Ustvari nov "
+"projektiz trenutnega projekta z novimi identitetami projektov in opravil.<nl/"
+">Identitete virov in koledarja se ne spremenijo.<nl/>Vse načrtovanje "
+"informacije so odstranjene.<nl/><nl/>Ali želite nadaljevati?"
+
+#: kptview.cpp:520
+#, kde-format
+msgid "Edit task scheduling constraints"
+msgstr "Uredi omejitve pri razporejanju"
+
+#: kptview.cpp:520
+#, kde-format
+msgid "Task Constraints"
+msgstr "Omejitve opravila"
+
+#: kptview.cpp:530
+#, kde-format
+msgid "Edit task cost"
+msgstr "Uredi stroške opravila"
+
+#: kptview.cpp:530
+#, kde-format
+msgid "Task Cost"
+msgstr "Stroški opravila"
+
+#: kptview.cpp:577
+#, kde-format
+msgid "Generate reports"
+msgstr "Ustvari poročila"
+
+#: kptview.cpp:583 kptview.cpp:3201
+#, kde-format
+msgid "Task Status Report"
+msgstr "Poročilo stanja opravil"
+
+#: kptview.cpp:661
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Uredi delovne in proste dneve za vire"
+
+#: kptview.cpp:663
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "Struktura razčlenitve stroškov"
+
+#: kptview.cpp:664
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Uredi strukturo razčlenitve stroškov."
+
+#: kptview.cpp:666
+#, kde-format
+msgid "Resources"
+msgstr "Viri"
+
+#: kptview.cpp:667
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Uredi strukturo razčlenitve virov"
+
+#: kptview.cpp:669
+#, kde-format
+msgid "Tasks"
+msgstr "Opravila"
+
+#: kptview.cpp:670
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Uredi strukturo razčlenitve dela"
+
+#: kptview.cpp:672
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Odvisnosti (grafično)"
+
+#: kptview.cpp:673 kptview.cpp:676
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Uredi odvisnosti opravila"
+
+#: kptview.cpp:675
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Odvisnosti (seznam)"
+
+#: kptview.cpp:679 kptview.cpp:681
+#, kde-format
+msgid "Schedules"
+msgstr "Razporedi"
+
+#: kptview.cpp:682
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Izračunaj in analiziraj razporeditve projekta"
+
+#: kptview.cpp:684 kptviewlistdialog.cpp:118
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Graf uspešnosti projekta"
+
+#: kptview.cpp:685
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Poglej podatke o stanju projekta"
+
+#: kptview.cpp:687 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Task Status"
+msgstr "Stanje opravila"
+
+#: kptview.cpp:688
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "Poglej podatke o poteku opravila"
+
+#: kptview.cpp:690
+#, kde-format
+msgid "Task Execution"
+msgstr "Izvedba opravila"
+
+#: kptview.cpp:691
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Pogled informacij o izvajanju projekta"
+
+#: kptview.cpp:693 kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Work Package View"
+msgstr "Pogled delovnega paketa"
+
+#: kptview.cpp:694
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "Pregled informacij delovnega paketa opravil"
+
+#: kptview.cpp:696
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: kptview.cpp:697
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Poglej Ganttov grafikon"
+
+#: kptview.cpp:699
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Ganttov mejnik"
+
+#: kptview.cpp:700
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Pogled mejnikov v Ganttovem diagramu"
+
+#: kptview.cpp:702 kptviewlistdialog.cpp:115
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Dodelitve virov"
+
+#: kptview.cpp:703
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Pogled dodelitev virov v tabeli"
+
+#: kptview.cpp:705 kptviewlistdialog.cpp:116
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Dodelitve virov (Gantt)"
+
+#: kptview.cpp:706
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Pogled dodelitve virov v Ganttovem diagramu"
+
+#: kptview.cpp:708 kptviewlistdialog.cpp:117
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "Razrez stroškov"
+
+#: kptview.cpp:709
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Poglej načrtovane in dejanske stroške"
+
+#: kptview.cpp:711 kptviewlistdialog.cpp:119
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "Diagram uspešnosti opravil"
+
+#: kptview.cpp:712
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "Ogled informacij o stanju uspešnosti nalog"
+
+#: kptview.cpp:714
+#, kde-format
+msgid "Reports Generator"
+msgstr "Generator poročil"
+
+#: kptview.cpp:715
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "Ustvari poročila"
+
+#: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Poročilo"
+
+#: kptview.cpp:718
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Poglej poročilo"
+
+#: kptview.cpp:729
+#, kde-format
+msgid "Editors"
+msgstr "Urejevalniki"
+
+#: kptview.cpp:731
+#, kde-format
+msgid "Views"
+msgstr "Pogledi"
+
+#: kptview.cpp:733
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Izvedba"
+
+#: kptview.cpp:735
+#, kde-format
+msgid "Reports"
+msgstr "Poročila"
+
+#: kptview.cpp:1695
+#, kde-format
+msgctxt "(qtundo-format) @info:status 1=schedule name"
+msgid "Calculate %1"
+msgstr "Izračunaj %1"
+
+#: kptview.cpp:1714
+#, kde-format
+msgid "Cannot baseline. The project is already baselined."
+msgstr "Ni mogoče postaviti na osnovo. Projekt že ima nastavljeno osnovo."
+
+#: kptview.cpp:1719
+#, kde-format
+msgid "This schedule is baselined. Do you want to remove the baseline?"
+msgstr "Ta razporeditev je glede na osnovo. Ali želite odstraniti osnovo?"
+
+#: kptview.cpp:1723
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Reset baseline %1"
+msgstr "Ponovno nastavi osnovo %1"
+
+#: kptview.cpp:1726 kptview.cpp:1730
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Baseline %1"
+msgstr "Osnova %1"
+
+#: kptview.cpp:1741
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Add schedule %1"
+msgstr "Dodaj razpored %1"
+
+#: kptview.cpp:1750
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Delete schedule %1"
+msgstr "Izbriši razpored %1"
+
+#: kptview.cpp:1759
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Move schedule %1"
+msgstr "Premakni razpored %1"
+
+#: kptview.cpp:1822
+msgctxt "(qtundo-format)"
+msgid "Add milestone"
+msgstr "Dodaj mejnik"
+
+#: kptview.cpp:1846
+msgctxt "(qtundo-format)"
+msgid "Add sub-milestone"
+msgstr "Dodaj podmejnik"
+
+#: kptview.cpp:2228
+#, kde-format
+msgid ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Že razporejeno opravilo bo brisano. Posledično bo razporeditev neveljavna."
+
+#: kptview.cpp:2236 kptview.cpp:2240 kptview.cpp:2256 kptview.cpp:2280
+msgctxt "(qtundo-format)"
+msgid "Delete task"
+msgid_plural "Delete tasks"
+msgstr[0] "Izbriši %1 opravil"
+msgstr[1] "Izbriši %1 opravilo"
+msgstr[2] "Izbriši %1 opravili"
+msgstr[3] "Izbriši %1 opravila"
+
+#: kptview.cpp:2275
+#, kde-format
+msgid "This task has been scheduled. This will invalidate the schedule."
+msgstr ""
+"To opravilo je bilo že razporejeno. Posledično bo razporeditev neveljavna."
+
+#: kptview.cpp:2299
+msgctxt "(qtundo-format)"
+msgid "Indent task"
+msgstr "Zamakni opravilo"
+
+#: kptview.cpp:2313
+msgctxt "(qtundo-format)"
+msgid "Unindent task"
+msgstr "Odzamakni opravilo"
+
+#: kptview.cpp:2335
+msgctxt "(qtundo-format)"
+msgid "Move task up"
+msgstr "Premakni opravilo gor"
+
+#: kptview.cpp:2356
+msgctxt "(qtundo-format)"
+msgid "Move task down"
+msgstr "Premakni opravilo dol"
+
+#: kptview.cpp:2392
+msgctxt "(qtundo-format)"
+msgid "Add task dependency"
+msgstr "Dodaj odvisnost opravila"
+
+#: kptview.cpp:2453
+msgctxt "(qtundo-format)"
+msgid "Delete task dependency"
+msgstr "Izbriši odvisnost opravila"
+
+#: kptview.cpp:2490 kptview.cpp:2551
+msgctxt "(qtundo-format)"
+msgid "Delete resource"
+msgid_plural "Delete resources"
+msgstr[0] "Izbriši vir"
+msgstr[1] "Izbriši vira"
+msgstr[2] "Izbriši vire"
+msgstr[3] "Izbriši vire"
+
+#: kptview.cpp:2495 kptview.cpp:2553
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroup"
+msgid_plural "Delete resourcegroups"
+msgstr[0] "Izbriši skupino virov"
+msgstr[1] "Izbriši skupini virov"
+msgstr[2] "Izbriši skupine virov"
+msgstr[3] "Izbriši skupine virov"
+
+#: kptview.cpp:2504 kptview.cpp:2512
+#, kde-format
+msgid ""
+"A resource that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Vir, ki je bil že razporejen, bo izbrisan. To bo razveljavilo razporeditev."
+
+#: kptview.cpp:2549
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroups and resources"
+msgstr "Izbriši skupine virov in vire"
+
+#: kptview.cpp:2720
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Ni moč odpreti datoteke<br/><filename>%1</filename>"
+
+#: kptview.cpp:2846
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "Spremeni ime"
+
+#: kptview.cpp:2848
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "Spremeni ime opravila"
+
+#: kptview.cpp:2849
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "Spremeni ime mejnika"
+
+#: kptview.cpp:2850
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "Spremeni ime povzemajočega opravila"
+
+#: kptview.cpp:2851
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "Spremeni ime projekta"
+
+#: kptview.cpp:2943
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Ni razporejeno"
+
+#: kptview.cpp:2985
+#, kde-format
+msgid "Failed to open temporary file"
+msgstr "Ni moč naložiti začasne datoteke"
+
+#: kptview.cpp:2991
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgstr "Ni moč shraniti v začasno datoteko:<br/> <filename>%1</filename>"
+
+#: kptview.cpp:2999
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Delovni paket: %1"
+
+#: kptview.cpp:3000
+#, kde-format
+msgctxt "1=project name, 2=task name"
+msgid ""
+"%1\n"
+"%2"
+msgstr ""
+"%1\n"
+"%2"
+
+#: kptview.cpp:3030
+#, kde-format
+msgid "Failed to open work package file"
+msgstr "Ni moč odpreti datoteke delovnega paketa"
+
+#: kptview.cpp:3037
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "Ni moč shraniti v začasno datoteko:<br/><filename>%1</filename>"
+
+#: kptview.cpp:3046
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr "Delovni paket za projekt: %1"
+
+#: kptview.cpp:3199
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Vodja:"
+
+#: kptview.cpp:3200
+#, kde-format
+msgid "Project:"
+msgstr "Projekt:"
+
+#: kptview.cpp:3202
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "izmed"
+
+#: kptview.cpp:3203
+#, kde-format
+msgid "Page"
+msgstr "Stran"
+
+#: kptview.cpp:3204
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Ime"
+
+#: kptview.cpp:3205
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Dokončano (%)"
+
+#: kptviewlist.cpp:349
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Izbirnik ogledov</title><para>To je seznam pogledov in urejevalnikov."
+"</para> <para>Seznam lahko nastavljate s kontekstnim menijem:"
+"<list><item>Preimenuj kategorije ali poglede</item> <item>Nastavi. Premakni, "
+"odstrani, preimenuj ali uredi namig orodja za kategorije ali poglede</item> "
+"<item> Vstavi kategorije in poglede</item></list><nl/><link url='%1'>Več...</"
+"link></para>"
+
+#: kptviewlist.cpp:371
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Izbirnik razporeditve</title><para>Izbere razporeditev, ki se uporabi "
+"za prikaz podatkov, odvisnih od razporeditve.<nl/><note>Nerazporejena "
+"opravila so prikazana samo v urejevalnikih.</note><nl/><link url='%1'>Več..."
+"</link></para>"
+
+#: kptviewlist.cpp:604
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr "Odstranitev te kategorije bo odstranila tudi vse njene poglede."
+
+#: kptviewlist.cpp:738
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Preimenuj"
+
+#: kptviewlist.cpp:742
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Nastavi ..."
+
+#: kptviewlist.cpp:746
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: kptviewlist.cpp:755
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Preimenuj"
+
+#: kptviewlist.cpp:759
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Nastavi ..."
+
+#: kptviewlist.cpp:763
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: kptviewlist.cpp:772
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Vstavi .."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Kategorija pogleda"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Kategorija:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Pogled je postavljen za ta pogled"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Po"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "The type of view"
+msgstr "Tip pogleda"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "Vrsta pogleda:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Ime pogleda"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Ime:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Opis pogledov"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Opis:"
+
+#: kptviewlistdialog.cpp:42
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Dodaj pogled"
+
+#: kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Resource Editor"
+msgstr "Urejevalnik virov"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Task Editor"
+msgstr "Urejevalnik opravil"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Urejevalnik dela in počitnic"
+
+#: kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Accounts Editor"
+msgstr "Urejevalnik računov"
+
+#: kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Urejevalnik odvisnosti (grafični)"
+
+#: kptviewlistdialog.cpp:108
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Urejevalnik odvisnosti (seznam)"
+
+#: kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Obdelovalnik razporeditev"
+
+#: kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Task View"
+msgstr "Pogled opravil"
+
+#: kptviewlistdialog.cpp:113
+#, kde-format
+msgid "Gantt View"
+msgstr "Pogled Gantt"
+
+#: kptviewlistdialog.cpp:114
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Pogled mejnik po Ganttu"
+
+#: kptviewlistdialog.cpp:120
+#, kde-format
+msgid "Reports generator"
+msgstr "Generator poročil"
+
+#: kptviewlistdialog.cpp:148
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+"<title>Kategorija pogleda</title><nl/>Pogled je postavljen pod to kategorije "
+"v izbirniku pogleda.<nl/>Ime kategorije lahko uredite za ustvarjanje nove "
+"kategorije."
+
+#: kptviewlistdialog.cpp:200 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:631
+#, kde-format
+msgid "Top"
+msgstr "Na vrhu"
+
+#: kptviewlistdialog.cpp:306
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Nastavi pogled"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+"<title>Kategorija pogleda</title><nl/>Pogled je postavljen pod to kategorijo "
+"v izbirniku pogleda.<nl/>Izbira druge kategorije bo premaknila pogled na "
+"novo kategorijo.<nl/>Ime kategorije lahko uredite tako, da ustvarite novo "
+"kategorijo."
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Nastavi kategorijo"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Dodaj poročilo"
+
+#: kptviewlistdocker.cpp:68 kptviewlistdocker.cpp:74
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "Prikaži selektor (spremenjeni)"
+
+#: kptviewlistdocker.cpp:76
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "Prikaži selektor"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Besede"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Stavki"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Zlogi"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Črte"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Znaki vključno s presledki"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Znaki brez presledkov"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Flescheva preprostost branja"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Vključi besedilo iz nožnih in končnih opomb"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Samodejno osveži podatke"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Kategorija je postavljena za to kategorijo"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Ime kategorije"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Opis kategorije"
+
+#: welcome/WelcomeView.cpp:125
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Create a new project</title><para>Creates a new project with default "
+"values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+"<emphasis>project dialog</emphasis> so you can define project specific "
+"properties like <resource>Project Name</resource>, <resource>Target Start</"
+"resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+"<title>Ustvari nov projekt</title><para>Ustvari nov projekt s privzetimi "
+"vrednostmi, določenimi v <emphasis>Nastavitvah</emphasis>.<nl/>Odpre "
+"pogovorno okno <emphasis>projekta</emphasis>, da lahko definirajte lastnosti "
+"projekta, kot so <resource>Ime projekta</resource>, <resource>Ciljni "
+"začetek</resource> in <resource>- Konec</resource><nl/><link url='%1'>Več..."
+"</link></para>"
+
+#: welcome/WelcomeView.cpp:139
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared resources</title><para>Create a shared resources file.<nl/"
+">This enables you to only create your resources once, you just refer to your "
+"resources file when you create a new project.<nl/>These resources can then "
+"be shared between projects to avoid overbooking resources across projects."
+"<nl/>Shared resources must be defined in a separate file.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+"<title>Skupni viri</title><para>Ustvarite datoteko z viri v skupni rabi.<nl/"
+">To vam omogoča, da vire ustvarite samo enkrat, pri ustvarjanju novega "
+"projekta se samo sklicujete na datoteko z viri. <nl/>Te vire je nato mogoče "
+"deliti med projekti, da se prepreči sočasno večkratno dodeljevanje virov med "
+"projekti.<nl/>Skupne vire je treba definirati v ločeni datoteki.<nl/><link "
+"url='%1'>Več...</link></para>"
+
+#: welcome/WelcomeView.cpp:152
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Recent Projects</title><para>A list of the 10 most recent project "
+"files opened.</para><para><nl/>This enables you to quickly open projects you "
+"have worked on recently.</para>"
+msgstr ""
+"<title>Nedavni projekti</title><para>Seznam 10 nedavnih odprtih datotek "
+"projekta.</para><para><nl/>To vam omogoča hitro odpiranje projektov, na "
+"katerih ste nedavno delali.</para >"
+
+#: welcome/WelcomeView.cpp:161
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para>"
+msgstr ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para> <title>Kontekstna "
+"pomoč</title><para>Pomoč je na voljo na mnogih mestih z uporabo "
+"<emphasis>Kaj je to</emphasis>.<nl/>Aktiviramo ga v menijski točki "
+"<interface>Pomoč->Kaj je to?</interface> ali s pritiskom tipk <shortcut>Shift"
+"+F1</shortcut>.</para><para>V pogovornem oknu, ki je na voljo z <interface>?"
+"</interface> v naslovni letvici pogovornega okna.</para><para>Če vidite "
+"<link url='%1'>Več...</link> v besedilu, bo pritisk na to prikazal več "
+"informacij s spleta v vašem brskalniku.</para>"
+
+#: welcome/WelcomeView.cpp:179
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<title>Predloge projektov</title><para>Izberite predlogo, da na podlagi "
+"izbrane predloge ustvarite nov projekt. </para><para>Načrtujte iskanja "
+"predlog na mestih, ki jih lahko določite v pogovornem oknu z nastavitvami: "
+"<interface>Nastavitve->Nastavljanje načrta</interface>.</para><para>Nove "
+"predloge iz projekta lahko ustvarite z vnosom menija <interface>Datoteka-"
+">Ustvari predlogo projekta</interface>.<nl/><link url='%1'>Več...</link></"
+"para>"
+
+#: welcome/WelcomeView.cpp:312
+#, kde-format
+msgid "Open Document"
+msgstr "Odpri dokument"
+
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, kde-format
+msgid "New project"
+msgstr "Novi projekt"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Predloge projektov:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, kde-format
+msgid "Create Shared Resources"
+msgstr "Ustvari skupne vire"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Odpri projekt</"
+"span></p><p>Prikaže pogovorno okno datotek, da odprete obstoječi projekt.</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, kde-format
+msgid "Open Project..."
+msgstr "Odpri projekt..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Nedavni projekti:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr "Uvod"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Kontekstna pomoč</"
+"span></p><p>Številne funkcije imajo pomoč in namige, ki jih je mogoče "
+"prikazati z <span style=\" font-style:italic;\">Kaj je to</span>. </"
+"p><p>Aktivirajte ga tako, da izberete <span style=\" font-style:italic;"
+"\">Pomoč-&gt;Kaj je to</span> ali <span style=\" font-style:italic;\">Shift"
+"+F1</span>.</p><p>Preizkusite v tem besedilu!</p></body></html >"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr "https://userbase.kde.org/Plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan"
+"\">Uporabniška dokumentacija za Plan</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Forum skupnosti</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr "https://calligra.org"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr "<a href=\"https://calligra.org\">Calligra</a>"
+
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Bodi prost."
+
+#, fuzzy
+#~| msgid "Calligra Plan - KDE Project Planning and Management Tool"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Calligra Plan - KDE-jevo orodje za projektno vodenje"
+
+#~ msgid "Welcome to Plan."
+#~ msgstr "Dobrodošli v Planu."
+
+#~ msgid "A short introduction."
+#~ msgstr "Kratek uvod."
+
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Namigi kako obdelati in pregledati podatke."
+
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Majhen vodnik da lahko pričnete."
+
+#~ msgid "Next: Tips"
+#~ msgstr "Naslednje: namigi"
+
+#~ msgid "Editing tips."
+#~ msgstr "Konec namigov."
+
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Naslednje: ustvarite preprost projekt"
+
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Ustvari najpreprostejši projekt."
+
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Naslednje: dodelitev virov"
+
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Dodeli vir opravilu."
+
+#~ msgid "Next: Introduction"
+#~ msgstr "Naslednje: uvod"
+
+#~ msgid "Introduction to Plan"
+#~ msgstr "Uvod v Plan"
+
+#~ msgid "Calculation"
+#~ msgstr "Izračun"
+
+#~ msgid "Manual"
+#~ msgstr "Ročno"
+
+#~ msgid "Immediate on change"
+#~ msgstr "Takoj ob spremembi"
+
+#~ msgid "Constraints"
+#~ msgstr "Omejitve"
+
+#~ msgid "Configure Plan..."
+#~ msgstr "Nastavi Plan ..."
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgid "Save URL:"
+#~ msgstr "Shrani URL:"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Ustvari predlogo iz dokumenta ..."
+
+#, fuzzy
+#~| msgid "Gradient:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "Preliv:"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Default:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "Privzeto:"
+
+#, fuzzy
+#~| msgctxt "@title:group"
+#~| msgid "Use level colors"
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "Uporabi barve nivojev"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 1"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "Stopnja 1"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 2"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "Stopnja 2"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 3"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "Stopnja 3"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 4"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "Stopnja 4"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Task"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "Opravilo"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Normal:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "Običajno:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Critical:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "Kritično:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "Končano:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Error:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "Napaka:"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Milestone"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "Mejnik"
+
+#, fuzzy
+#~| msgid "Calculation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "Izračun"
+
+#, fuzzy
+#~| msgid "Manual"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "Ročno"
+
+#, fuzzy
+#~| msgid "Immediate on change"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "Takoj ob spremembi"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "Splošno"
+
+#, fuzzy
+#~| msgid ""
+#~| "The person responsible for this task.\n"
+#~| "\n"
+#~| "This is not limited to persons available in a resource group but can be "
+#~| "anyone. You can even directly access your address book with the Choose "
+#~| "button."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "Oseba, ki je odgovorna za to opravilo.\n"
+#~ "\n"
+#~ "Ni omejeno samo na osebe, ki so na voljo v skupini virov. To je lahko "
+#~ "kdorkoli. Z gumbom Izbor lahko neposredno dostopate do svojega adresarja."
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "Odgovorni:"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Vstavite osebo iz vašega adresarja"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Vstavite osebo iz vašega adresarja."
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "Izberite ..."
+
+#, fuzzy
+#~| msgid "Scheduling constraint:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr "Omejitev pri razporejanju:"
+
+#, fuzzy
+#~| msgid "As Soon as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "Takoj, ko je mogoče"
+
+#, fuzzy
+#~| msgid "As Late as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "Tako pozno, kot je mogoče"
+
+#, fuzzy
+#~| msgid "Must Start On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "Mora se začeti"
+
+#, fuzzy
+#~| msgid "Must Finish On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "Mora se končati"
+
+#, fuzzy
+#~| msgid "Start Not Earlier Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Ne začni prej kot"
+
+#, fuzzy
+#~| msgid "Finish Not Later Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Ne končaj kasneje kot"
+
+#, fuzzy
+#~| msgid "Fixed Interval"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "Fiksen interval"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~| msgid "Current date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "Trenutni datum in čas"
+
+#, fuzzy
+#~| msgid "Current date, specified time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "Trenutni datum, naveden čas"
+
+#, fuzzy
+#~| msgid "Specified date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "Naveden datum in čas"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~| msgid "Estimate type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "Oceni vrsto:"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "Trud"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "Trajanje"
+
+#, fuzzy
+#~| msgid "Expected estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "Pričakovana ocena:"
+
+#, fuzzy
+#~| msgid "Optimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "Optimistična ocena:"
+
+#, fuzzy
+#~| msgid "%"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "Pesimistična ocena:"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#, fuzzy
+#~| msgid "Current node:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "Trenutno vozlišče:"
+
+#, fuzzy
+#~| msgid "Insert on top level"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "Vstavi na vrhu"
+
+#, fuzzy
+#~| msgid "Insert as children to current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "Vstavi kot otroke trenutnega vozlišča"
+
+#, fuzzy
+#~| msgid "Insert after current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "Vstavi po trenutnem vozlišču"
+
+#, fuzzy
+#~| msgid "Category:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "Kategorija:"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "Po"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "Vrsta ocene"
+
+#, fuzzy
+#~| msgid "View type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "Vrsta pogleda:"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "Opis opravila"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "Opis"
+
+#, fuzzy
+#~| msgid "Words"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "Besede"
+
+#, fuzzy
+#~| msgid "Sentences"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "Stavki"
+
+#, fuzzy
+#~| msgid "Syllables"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "Zlogi"
+
+#, fuzzy
+#~| msgid "Lines"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "Črte"
+
+#, fuzzy
+#~| msgid "Characters incl. spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "Znaki vključno s presledki"
+
+#, fuzzy
+#~| msgid "Characters without spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "Znaki brez presledkov"
+
+#, fuzzy
+#~| msgid "Flesch reading ease"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "Flescheva preprostost branja"
+
+#, fuzzy
+#~| msgid "0"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~| msgid "..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~| msgid "Include text from foot- and endnotes"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "Vključi besedilo iz nožnih in končnih opomb"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "Samodejno osveži podatke"
+
+#, fuzzy
+#~| msgid "Retrieve URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Retrieve URL:"
+#~ msgstr "Pridobi URL:"
+
+#, fuzzy
+#~| msgid "Delete file after it has been retrieved"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete file after it has been retrieved"
+#~ msgstr "Izbriši datoteko potem, ko je bila pridobljena"
+
+#, fuzzy
+#~| msgid "Save file after it has been retrieved"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save file after it has been retrieved"
+#~ msgstr "Shrani datoteko potem ko je bila pridobljena"
+
+#, fuzzy
+#~| msgid "Save URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save URL:"
+#~ msgstr "Shrani URL:"
+
+#, fuzzy
+#~| msgid "Scheduling conflict"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr "Spor pri razporejanju"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "Omejitve"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "Vrsta ocene"
+
+#, fuzzy
+#~| msgid "Estimate time unit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "Časovna enota ocene"
+
+#, fuzzy
+#~| msgid "Expected estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "Pričakovana ocena"
+
+#, fuzzy
+#~| msgid "Optimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "Optimistična ocena"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "Pesimistična ocena"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "Opis opravila"
+
+#, fuzzy
+#~| msgid "Gradient"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "Preliv"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgid "Summary Task Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "Nastavitve povzemajočega opravila"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "Samodejno osveži podatke"
+
+#, fuzzy
+#~| msgid "If set, Plan will delete the file after it has been read"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will delete the file after it has been read"
+#~ msgstr ""
+#~ "Če je nastavljeno, bo Plan zbrisal datoteko potem ko je bila prebrana"
+
+#, fuzzy
+#~| msgid "If set, Plan will save the file after it has been read"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will save the file after it has been read"
+#~ msgstr ""
+#~ "Če je nastavljeno, bo Plan shranil datoteko potem ko je bila prebrana"
+
+#, fuzzy
+#~| msgid "The smallest duration unit allowed"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The smallest duration unit allowed"
+#~ msgstr "Najmanjša dovoljena enota trajanja"
+
+#, fuzzy
+#~| msgid "The largest duration unit allowed"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The largest duration unit allowed"
+#~ msgstr "Največja dovoljena enota trajanja"
+
+#, fuzzy
+#~| msgid "&File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "&Datoteka"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Uredi"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "Po&gled"
+
+#, fuzzy
+#~| msgid "&Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "&Projekt"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "O&rodja"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "Na&stavitve"
+
+#, fuzzy
+#~| msgid "&Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Help"
+#~ msgstr "&Pomoč"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~| msgid "Be free."
+#~ msgctxt "(qtundo-format) KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Bodi prost."
+
+#, fuzzy
+#~| msgid "Welcome to Plan."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Welcome to Plan."
+#~ msgstr "Dobrodošli v Planu."
+
+#, fuzzy
+#~| msgid "A short introduction."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A short introduction."
+#~ msgstr "Kratek uvod."
+
+#, fuzzy
+#~| msgid "Tips on how to manipulate and inspect data."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Namigi kako obdelati in pregledati podatke."
+
+#, fuzzy
+#~| msgid "A small tutorial to get you started."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Majhen vodnik da lahko pričnete."
+
+#, fuzzy
+#~| msgid "Next: Tips"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Tips"
+#~ msgstr "Naslednje: namigi"
+
+#, fuzzy
+#~| msgid "Editing tips."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editing tips."
+#~ msgstr "Konec namigov."
+
+#, fuzzy
+#~| msgid "Next: Create a simple project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Naslednje: ustvarite preprost projekt"
+
+#, fuzzy
+#~| msgid "Create the simplest project ever."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Ustvari najpreprostejši projekt."
+
+#, fuzzy
+#~| msgid "Next: Resource allocation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Naslednje: dodelitev virov"
+
+#, fuzzy
+#~| msgid "Allocate a resource to the task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Dodeli vir opravilu."
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Introduction"
+#~ msgstr "Naslednje: uvod"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlato (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of KPlato will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document has no syntax version.\n"
+#~ "Opening it in Plan may lose information."
+#~ msgstr ""
+#~ "Ta dokument je bil ustvarjen z novejšo različico KPlato (različica "
+#~ "skladnje %1)\n"
+#~ "Njegovo odpiranje v tej različici KPlatoja bo izgubilo nekaj informacij."
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Nadaljuj"
+
+#, fuzzy
+#~| msgid "File-Format Error"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "Napaka oblike datoteke"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlato than Plan can "
+#~| "load.\n"
+#~| "Syntax version: %1\n"
+#~| "Opening it in this version of Plan may lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "Ta dokument je bil ustvarjen z novejšo različico KPlato kot pa ga lahko "
+#~ "plan naloži\n"
+#~ "Različica skladnje: %1\n"
+#~ "Njegovo odpiranje v tej različici Plana bo morda izgubilo nekaj "
+#~ "informacij."
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Neujemanje vrst datotek"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlatoWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Ta dokument je bil ustvarjen z novejšo različico KPlatoWork (različica "
+#~ "skladnje %1)\n"
+#~ "Njegovo odpiranje v tej različici PlanWork-a bo povzročilo izgubo nekaj "
+#~ "informacij."
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgid "Calligra Plan - KDE Project Planning and Management Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "Calligra Plan - KDE-jevo orodje za projektno vodenje"
+
+#, fuzzy
+#~| msgid "(c) 1998-2012, The Plan Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "(c) 1998-2012, ekipa Plana"
+
+#, fuzzy
+#~| msgid "Thomas Zander"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "Thomas Zander"
+
+#, fuzzy
+#~| msgid "Bo Thorsen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo Thorsen"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgid "Raphael Langerhorst"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "Raphael Langerhorst"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Gregor Rakar,Andrej Vernekar"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "gregor.rakar@kiss.si,andrej.vernekar@moj.net"
+
+#, fuzzy
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "Ni razporejeno"
+
+#, fuzzy
+#~| msgid "Linear"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "Linearno"
+
+#, fuzzy
+#~| msgid "Flat"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "Plosko"
+
+#, fuzzy
+#~| msgid "Insert File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "Vstavi datoteko"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Neveljaven dokument. Ni navedene zvrsti MIME."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr ""
+#~ "Neveljaven dokument. Pričakovana zvrst MIME je bila application/x-vnd.kde."
+#~ "plan, dobljena %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of Plan (syntax version: "
+#~| "%1)\n"
+#~| "Opening it in this version of Plan will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "Ta dokument je bil ustvarjen z novejšo različico Plana (različica "
+#~ "skladnje %1)\n"
+#~ "Njegovo odpiranje v tej različici Plana bo povzročilo izgubo nekaj "
+#~ "informacij."
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Ni moč zapisati »%1«. Ali je particija polna?"
+
+#, fuzzy
+#~| msgid "Saving..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "Shranjevanje ..."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Neveljaven dokument. Pričakovana zvrst MIME je bila application/x-vnd.kde."
+#~ "plan.work, dobljena %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of PlanWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Ta dokument je bil ustvarjen z novejšo različico PlanWork (različica "
+#~ "skladnje %1)\n"
+#~ "Njegovo odpiranje v tej različici PlanWork-a bo povzročilo izgubo nekaj "
+#~ "informacij."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "Prikaži dodelitve"
+
+#, fuzzy
+#~| msgid "&Create Template From Document..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Ustvari predlogo iz dokumenta ..."
+
+#, fuzzy
+#~| msgid "Create Report..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "Ustvari poročilo ..."
+
+#, fuzzy
+#~| msgid "Show Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "Pokaži izbirnik"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "Uredi glavni projekt ..."
+
+#, fuzzy
+#~| msgid "Define WBS Pattern..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "Določi vzorec SRD ..."
+
+#, fuzzy
+#~| msgid "Insert Project File..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "Vstavi projektno datoteko ..."
+
+#, fuzzy
+#~| msgid "Configure Plan..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "Nastavi Plan ..."
+
+#, fuzzy
+#~| msgid "Define Currency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "Določi valuto ..."
+
+#, fuzzy
+#~| msgid "Introduction to Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Introduction to Plan"
+#~ msgstr "Uvod v Plan"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Uredi ..."
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "Napredek ..."
+
+#, fuzzy
+#~| msgid "Delete Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "Izbriši opravilo"
+
+#, fuzzy
+#~| msgid "Description..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "Opis ..."
+
+#, fuzzy
+#~| msgid "Indent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "Zamakni opravilo"
+
+#, fuzzy
+#~| msgid "Unindent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "Odzamakni opravilo"
+
+#, fuzzy
+#~| msgid "Move Task Up"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "Premakni opravilo gor"
+
+#, fuzzy
+#~| msgid "Move Task Down"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "Premakni opravilo dol"
+
+#, fuzzy
+#~| msgid "Edit Resource..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "Uredi vir ..."
+
+#, fuzzy
+#~| msgid "Edit Dependency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "Uredi odvisnost ..."
+
+#, fuzzy
+#~| msgid "Delete Dependency"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "Izbriši odvisnost"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "Nastavitve opravila"
+
+#, fuzzy
+#~| msgid "Work & Vacation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "Delo in dopust"
+
+#, fuzzy
+#~| msgid "Cost Breakdown Structure"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "Struktura razčlenitve stroškov"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "Struktura razčlenitve dela"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Viri"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "Struktura razčlenitve dela"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Opravila"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit work breakdown structure"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "Uredi strukturo razčlenitve dela"
+
+#, fuzzy
+#~| msgid "Dependencies (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "Odvisnosti (grafično)"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit task dependencies"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "Uredi odvisnosti opravila"
+
+#, fuzzy
+#~| msgid "Dependencies (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "Odvisnosti (seznam)"
+
+#, fuzzy
+#~| msgid "Schedules"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "Razporedi"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "Izračunaj in analiziraj projektne razporede"
+
+#, fuzzy
+#~| msgid "Project Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "Nastavitve projekta"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View project status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "Poglej podatke o stanju projekta"
+
+#, fuzzy
+#~| msgid "Task Status"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "Stanje opravila"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View task progress information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "Poglej podatke o poteku opravila"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "Izvedba opravila"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "Spremeni razmerja"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "Spremeni razmerja"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "Poglej grafikon gantt"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "Mejnik ..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "Mejnik ..."
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Dodelitve virov"
+
+#, fuzzy
+#~| msgid "No resource assigned"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "Viri niso dodeljeni"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "Viri niso dodeljeni"
+
+#, fuzzy
+#~| msgid "No resource assigned"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "Viri niso dodeljeni"
+
+#, fuzzy
+#~| msgid "Cost Breakdown"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown"
+#~ msgstr "Razrez stroškov"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View planned and actual cost"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "Poglej načrtovane in dejanske stroške"
+
+#, fuzzy
+#~| msgid "Project Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Nastavitve projekta"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "Spremeni razmerja"
+
+#, fuzzy
+#~| msgid "Report"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "Poročilo"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View report"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "Poglej poročilo"
+
+#, fuzzy
+#~| msgid "Editors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "Urejevalniki"
+
+#, fuzzy
+#~| msgid "Views"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "Pogledi"
+
+#, fuzzy
+#~| msgctxt "Project execution views"
+#~| msgid "Execution"
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "Izvedba"
+
+#, fuzzy
+#~| msgid "Reports"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "Poročila"
+
+#, fuzzy
+#~| msgid "Task Defaults"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "Privzetosti opravila"
+
+#, fuzzy
+#~| msgid "Task Colors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "Barve opravila"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "Ni moč odpreti datoteke<br/><filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "Ni razporejeno"
+
+#, fuzzy
+#~| msgid "Failed to open temporary file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Ni moč naložiti začasne datoteke"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr "Ni moč shraniti v začasno datoteko:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "1=project name, 2=task name"
+#~| msgid ""
+#~| "%1\n"
+#~| "%2"
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr "Ni moč shraniti v začasno datoteko:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "Project manager"
+#~| msgid "Manager:"
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "Vodja"
+
+#, fuzzy
+#~| msgid "Project:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "Projekt:"
+
+#, fuzzy
+#~| msgctxt "As in: Page 1 of 2"
+#~| msgid "of"
+#~ msgctxt "(qtundo-format) As in: Page 1 of 2"
+#~ msgid "of"
+#~ msgstr "izmed"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "Stran"
+
+#, fuzzy
+#~| msgctxt "Task name"
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "Ime"
+
+#, fuzzy
+#~| msgctxt "Task completion"
+#~| msgid "Completion (%)"
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "Dokončanje (%1)"
+
+#, fuzzy
+#~| msgid "Removing this category will also remove all its views."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Removing this category will also remove all its views."
+#~ msgstr "Odstranitev te kategorije bo odstranila tudi vse njene poglede."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "Preimenuj"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "Nastavi ..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "Odstrani"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "Preimenuj"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "Nastavi ..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "Odstrani"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu Insert View"
+#~| msgid "Insert..."
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "Vstavi .."
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "Dodaj pogled"
+
+#, fuzzy
+#~| msgid "Resource Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "Urejevalnik virov"
+
+#, fuzzy
+#~| msgid "Task Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "Urejevalnik opravil"
+
+#, fuzzy
+#~| msgid "Work & Vacation Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "Urejevalnik dela in počitnic"
+
+#, fuzzy
+#~| msgid "Accounts Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "Urejevalnik računov"
+
+#, fuzzy
+#~| msgid "Dependency Editor (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "Urejevalnik odvisnosti (seznam)"
+
+#, fuzzy
+#~| msgid "Scheduled"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "Ročnik razporedov"
+
+#, fuzzy
+#~| msgid "Task View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "Pogled opravil"
+
+#, fuzzy
+#~| msgid "Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "Pogled Gantt"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "Mejnik ..."
+
+#, fuzzy
+#~| msgid "Top"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "Na vrhu"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "Nastavi pogled"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Category"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "Nastavi kategorijo"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add Report"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "Dodaj poročilo"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "Prikaži dodelitve"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "Prikaži dodelitve"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Ni moč shraniti v začasno datoteko:<br><filename>%1</filename>"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "Ni moč shraniti v začasno datoteko:<br><filename>%1</filename>"
+
+#~ msgid "Tip:"
+#~ msgstr "Nasvet:"
+
+#~ msgid "File to open"
+#~ msgstr "Datoteka za odprtje"
+
+#, fuzzy
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "Skupina virov"
+#~ msgstr[1] "Skupina virov"
+#~ msgstr[2] "Skupina virov"
+#~ msgstr[3] "Skupina virov"

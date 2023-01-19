@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Beschrijving</title>
+  <para
+>De Takenbewerker is een weergave die taakgegevens in een boomstructuur toont. de meeste gegevens in de Takenbewerker kunnen ter plekke bewerkt worden. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navigatie</title>
+  <para
+>U kunt met het toetsenbord door de boomstructuur navigeren: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Een uit te vouwen rij uitvouwen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Een in te vouwen item invouwen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pijl links</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de vorige kolom in dezelfde rij.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pijl rechts</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de volgende kolom in dezelfde rij.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pijl omhoog</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de vorige rij in dezelfde kolom.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pijl omlaag</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de volgende rij in dezelfde kolom.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Home</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de eerste rij, eerste kolom.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>End</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de laatste rij, laatste kolom.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pagina omhoog</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de eerste zichtbare rij in dezelfde kolom.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Pagina omlaag</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar de laatst zichtbare rij in dezelfde kolom.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Gegevens bewerken </title>
+  <para
+>Te bewerken items worden geopend voor bewerken door dubbel te klikken op het item of als u het toetsenbord gebruikt, op <keycap
+>F2</keycap
+> te drukken waarmee het huidige item wordt geopend. </para>
+  <para
+>Bij bewerken van een item kunt u naar het volgende te bewerken item navigeren als volgt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt; <keycap
+>Pijl links</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar het vorige te bewerken item in dezelfde rij.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Pijl rechts</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar het volgende te bewerken item in dezelfde rij.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Pijl omhoog</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar het volgende te bewerken item in voorgaande rijen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Pijl omlaag</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ga naar het volgende te bewerken item in opvolgende rijen.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Slepen &amp; loslaten en kopiëren/plakken</title>
+  <para
+>De meeste weergaven ondersteunen slepen &amp; loslaten en kopiëren/plakken. Grafieken en Gantt grafieken kunnen versleept worden naar toepassingen die afbeeldingen ondersteunen. Tabelgegevens gebruiken het MIME-type html, dus kunnen losgelaten worden op elke toepassing die dat ondersteunt. Als de weergave intern verplaatsen of kopiëren van items ondersteunt &eg; de <link linkend="task-editor"
+>Taakbewerker</link
+>, kunnen items ook verplaatst of gekopieerd worden. </para>
+</sect3>
+</sect2>

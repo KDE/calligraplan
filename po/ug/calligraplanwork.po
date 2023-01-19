@@ -1,0 +1,966 @@
+# Uyghur translation for planwork.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sahran <sahran.ug@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: planwork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2013-09-08 07:04+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: aboutdata.h:33 aboutdata.h:42
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+
+#: aboutdata.h:40
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Plan خىزمەت بوغچا بىر تەرەپ قىلغۇچ"
+
+#: aboutdata.h:44
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr ""
+
+#: aboutdata.h:48
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:50
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+
+#: aboutdata.h:51
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "تەھرىر(&E)"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "كۆرۈنۈش"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "كۆرۈنۈش(&V)"
+
+#: commandlineparser.cpp:50
+#, kde-format
+msgid "File to open"
+msgstr "ئاچىدىغان ھۆججەت"
+
+#: commandlineparser.cpp:107
+#, kde-format
+msgid "Failed to open document"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: mainwindow.cpp:110
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "ھۆججەت %1 مەۋجۇت ئەمەس."
+
+#: part.cpp:174 part.cpp:205
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr ""
+
+#: part.cpp:186 part.cpp:213 workpackage.cpp:609
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr ""
+
+#: part.cpp:194 part.cpp:221 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr ""
+
+#: part.cpp:233
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr ""
+
+#: part.cpp:237
+#, fuzzy, kde-format
+#| msgid "The file %1 does not exist."
+msgid "File does not exist:<br>%1"
+msgstr "ھۆججەت %1 مەۋجۇت ئەمەس."
+
+#: part.cpp:263
+#, kde-format
+msgid "Edit with:"
+msgstr "ئىشلىتىدىغان تەھرىرلىگۈچ:"
+
+#: part.cpp:391
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+
+#: part.cpp:419
+#, fuzzy, kde-format
+#| msgid "Remove Package"
+msgid "Remove failed. Cannot find work package"
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: part.cpp:422 part.cpp:433
+#, fuzzy
+#| msgid "Remove Package"
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] "بوغچا چىقىرىۋېتىش"
+
+#: part.cpp:472
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid "Failed to load file:<br>%1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: part.cpp:486
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr ""
+
+#: part.cpp:514
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr ""
+
+#: part.cpp:540
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid "Failed to open file: %1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: part.cpp:552
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+
+#: part.cpp:569 part.cpp:612
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
+
+#: part.cpp:575
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#| "got %1"
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"ئىناۋەتسىز پۈتۈك. MIME تىپى application/x-vnd.kde.kplato.work بولۇشى كېرەك "
+"ئىدى، بىراق %1 ئىكەن"
+
+#: part.cpp:582 part.cpp:623
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "Continue"
+msgstr "داۋاملاشتۇر"
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "ھۆججەت پىچىمى ماسلاشمىدى"
+
+#: part.cpp:616
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1"
+msgstr ""
+"ئىناۋەتسىز پۈتۈك. MIME تىپى application/x-vnd.kde.kplato.work بولۇشى كېرەك "
+"ئىدى، بىراق %1 ئىكەن"
+
+#: part.cpp:713
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr ""
+
+#: taskcompletiondialog.cpp:45
+#, fuzzy, kde-format
+#| msgid "Progress"
+msgid "Task Progress"
+msgstr "سۈرئەت"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "باشلاندى:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "تاماملاندى:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "كىرگۈ قوش"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "تۈرنى چىقىرىۋەت"
+
+#: taskworkpackagemodel.cpp:298
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:420
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:442
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr "تاماملاشنى تۈزىتىش"
+
+#: taskworkpackagemodel.cpp:477
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr "تاماملاندى قىلىپ بەلگىلە"
+
+#: taskworkpackagemodel.cpp:498
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr "قېلىپ قالغان خىزمەتنى ئۆزگەرت"
+
+#: taskworkpackagemodel.cpp:511
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr "ئەمەلىي خىزمەتنى ئۆزگەرت"
+
+#: taskworkpackagemodel.cpp:609
+#, fuzzy, kde-kuit-format
+#| msgid "Name"
+msgctxt "@title:column"
+msgid "Name"
+msgstr "ئاتى"
+
+#: taskworkpackagemodel.cpp:610
+#, fuzzy, kde-kuit-format
+#| msgid "Type"
+msgctxt "@title:column"
+msgid "Type"
+msgstr "تىپى"
+
+#: taskworkpackagemodel.cpp:611
+#, fuzzy, kde-kuit-format
+#| msgid "Responsible"
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "مەسئۇل"
+
+#: taskworkpackagemodel.cpp:612
+#, fuzzy, kde-kuit-format
+#| msgid "Description"
+msgctxt "@title:column"
+msgid "Description"
+msgstr "چۈشەندۈرۈش"
+
+#: taskworkpackagemodel.cpp:615
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Start"
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "پىلاندىكى باشلىنىش ۋاقتى"
+
+#: taskworkpackagemodel.cpp:616
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Finish"
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "پىلاندىكى تاماملىنىش ۋاقتى"
+
+#: taskworkpackagemodel.cpp:617
+#, fuzzy, kde-kuit-format
+#| msgid "Resource Assignments"
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "مەنبە تەقسىملەش"
+
+#: taskworkpackagemodel.cpp:620
+#, fuzzy, kde-kuit-format
+#| msgid "Completion"
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "تاماملاش"
+
+#: taskworkpackagemodel.cpp:621
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Effort"
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "ئەمەلىي خىزمەت"
+
+#: taskworkpackagemodel.cpp:622
+#, fuzzy, kde-kuit-format
+#| msgid "Remaining Effort"
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "قالغان خىزمەت"
+
+#: taskworkpackagemodel.cpp:623
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Effort"
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "پىلاندىكى خىزمەت"
+
+#: taskworkpackagemodel.cpp:624
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Start"
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "ئەمەلىيەتتە باشلىغان ۋاقىت"
+
+#: taskworkpackagemodel.cpp:625
+#, fuzzy, kde-kuit-format
+#| msgid "Started"
+msgctxt "@title:column"
+msgid "Started"
+msgstr "باشلاندى"
+
+#: taskworkpackagemodel.cpp:626
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Finish"
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "ئەمەلىيەتتە تاماملىغان ۋاقىت"
+
+#: taskworkpackagemodel.cpp:627
+#, fuzzy, kde-kuit-format
+#| msgid "Finished"
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "تاماملاندى"
+
+#: taskworkpackagemodel.cpp:628
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "ھالىتى"
+
+#: taskworkpackagemodel.cpp:629
+#, fuzzy, kde-kuit-format
+#| msgid "Note"
+msgctxt "@title:column"
+msgid "Note"
+msgstr "ئىزاھات"
+
+#: taskworkpackagemodel.cpp:631
+#, fuzzy, kde-kuit-format
+#| msgid "Project Name"
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "قۇرۇلۇش ئاتى"
+
+#: taskworkpackagemodel.cpp:632
+#, fuzzy, kde-kuit-format
+#| msgid "Project Manager"
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "قۇرۇلۇش باشقۇرغۇچ"
+
+#: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
+#, kde-format
+msgid "Configure View..."
+msgstr "كۆرۈنۈشنى سەپلەش…"
+
+#: taskworkpackageview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:657
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:96
+#, fuzzy, kde-format
+#| msgid "Remove Package"
+msgid "Remove Packages"
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: view.cpp:100
+#, kde-format
+msgid "Remove Package"
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: view.cpp:104
+#, kde-format
+msgid "List"
+msgstr "تىزىم"
+
+#: view.cpp:105
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr ""
+
+#: view.cpp:109
+#, kde-format
+msgid "Gantt"
+msgstr ""
+
+#: view.cpp:110
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#. i18n("Progress..."), this);
+#. collection->addAction("task_progress", actionTaskProgress);
+#. connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
+#. ------ Settings
+#: view.cpp:119
+#, fuzzy, kde-format
+#| msgid "Configure View..."
+msgid "Configure PlanWork..."
+msgstr "كۆرۈنۈشنى سەپلەش…"
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit..."
+msgstr "تەھرىر…"
+
+#: view.cpp:128
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "كۆرۈنۈش…"
+
+#: view.cpp:137
+#, fuzzy, kde-format
+#| msgid "Remove Package"
+msgid "Send Package..."
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: view.cpp:141
+#, fuzzy, kde-format
+#| msgid "Progress"
+msgid "Edit Progress..."
+msgstr "سۈرئەت"
+
+#: view.cpp:145
+#, fuzzy, kde-format
+#| msgid "Description"
+msgid "View Description..."
+msgstr "چۈشەندۈرۈش"
+
+#: view.cpp:332
+#, fuzzy, kde-format
+#| msgid "The file %1 does not exist."
+msgid "This file is not editable"
+msgstr "ھۆججەت %1 مەۋجۇت ئەمەس."
+
+#: view.cpp:352
+#, fuzzy, kde-format
+#| msgid "Remove Package"
+msgid "No work package is selected"
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: view.cpp:358
+#, fuzzy, kde-format
+#| msgid "Remove Package"
+msgid "Cannot find work package"
+msgstr "بوغچا چىقىرىۋېتىش"
+
+#: view.cpp:375
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:383
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:394
+#, kde-format
+msgid "Work Package: %1"
+msgstr "ئىش بوغچىسى: %1"
+
+#: workpackage.cpp:111
+#, kde-format
+msgid "Document is already open"
+msgstr ""
+
+#: workpackage.cpp:184 workpackage.cpp:252
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid "Failed to load project: %1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: workpackage.cpp:311
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr ""
+
+#: workpackage.cpp:317
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "ساقلايدىغان ھۆججەتنى قۇرالمىدى"
+
+#: workpackage.cpp:329
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "‹%1› غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
+
+#: workpackage.cpp:353
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: workpackage.cpp:428
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: workpackage.cpp:478
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: workpackage.cpp:482
+#, fuzzy, kde-format
+#| msgid "Failed to open document"
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#: workpackage.cpp:525
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr ""
+
+#: workpackage.cpp:634
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+
+#: workpackage.cpp:655
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+
+#: workpackage.cpp:681
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+
+#: workpackage.cpp:697
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgid "Work Package Settings"
+#~ msgstr "ئىش بوغچىسى: %1"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr "ئىش بوغچىسى: %1"
+
+#, fuzzy
+#~| msgid "Planned Effort"
+#~ msgid "Used effort"
+#~ msgstr "پىلاندىكى خىزمەت"
+
+#~ msgid "Progress"
+#~ msgstr "سۈرئەت"
+
+#~ msgid "Documents"
+#~ msgstr "پۈتۈكلەر"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgid "Package Settings..."
+#~ msgstr "ئىش بوغچىسى: %1"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr "ۋەزىپە تاماملىنىشىنى تۈزىتىش"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "باشلاندى:"
+
+#, fuzzy
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "تاماملاندى:"
+
+#, fuzzy
+#~| msgid "Add Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "كىرگۈ قوش"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "تۈرنى چىقىرىۋەت"
+
+#, fuzzy
+#~| msgid "Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "سۈرئەت"
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "پۈتۈكلەر"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "تەھرىر(&E)"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "كۆرۈنۈش(&V)"
+
+#, fuzzy
+#~| msgid "View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "كۆرۈنۈش"
+
+#, fuzzy
+#~| msgctxt "application name"
+#~| msgid "Plan WorkPackage Handler"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Plan خىزمەت بوغچا بىر تەرەپ قىلغۇچ"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "ئاچىدىغان ھۆججەت"
+
+#, fuzzy
+#~| msgid "Failed to open document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "پۈتۈكنى ئېچىش مەغلۇپ بولدى"
+
+#, fuzzy
+#~| msgid "The file %1 does not exist."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "ھۆججەت %1 مەۋجۇت ئەمەس."
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "ئىشلىتىدىغان تەھرىرلىگۈچ:"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "داۋاملاشتۇر"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "ھۆججەت پىچىمى ماسلاشمىدى"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "ئىناۋەتسىز پۈتۈك. MIME تىپى application/x-vnd.kde.kplato.work بولۇشى "
+#~ "كېرەك ئىدى، بىراق %1 ئىكەن"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "ئاتى"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "تىپى"
+
+#, fuzzy
+#~| msgid "Responsible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "مەسئۇل"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "چۈشەندۈرۈش"
+
+#, fuzzy
+#~| msgid "Planned Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "پىلاندىكى باشلىنىش ۋاقتى"
+
+#, fuzzy
+#~| msgid "Planned Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "پىلاندىكى تاماملىنىش ۋاقتى"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "مەنبە تەقسىملەش"
+
+#, fuzzy
+#~| msgid "Completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "تاماملاش"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "ئەمەلىي خىزمەت"
+
+#, fuzzy
+#~| msgid "Remaining Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "قالغان خىزمەت"
+
+#, fuzzy
+#~| msgid "Planned Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "پىلاندىكى خىزمەت"
+
+#, fuzzy
+#~| msgid "Actual Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "ئەمەلىيەتتە باشلىغان ۋاقىت"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "باشلاندى"
+
+#, fuzzy
+#~| msgid "Actual Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "ئەمەلىيەتتە تاماملىغان ۋاقىت"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "تاماملاندى"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Status"
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "ھالىتى"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "ئىزاھات"
+
+#, fuzzy
+#~| msgid "Project Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "قۇرۇلۇش ئاتى"
+
+#, fuzzy
+#~| msgid "Project Manager"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "قۇرۇلۇش باشقۇرغۇچ"
+
+#, fuzzy
+#~| msgid "Configure View..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "كۆرۈنۈشنى سەپلەش…"
+
+#, fuzzy
+#~| msgid "Remove Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "بوغچا چىقىرىۋېتىش"
+
+#, fuzzy
+#~| msgid "List"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "تىزىم"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "تەھرىر…"
+
+#, fuzzy
+#~| msgctxt "@verb"
+#~| msgid "View..."
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "كۆرۈنۈش…"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "ئىش بوغچىسى: %1"
+
+#, fuzzy
+#~| msgid "Could not create the file for saving"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "ساقلايدىغان ھۆججەتنى قۇرالمىدى"
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "‹%1› غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
+
+#~ msgid "&Settings"
+#~ msgstr "تەڭشەك(&S)"
+
+#~ msgid "Calculate"
+#~ msgstr "ھېسابلا"
+
+#~ msgid "Remaining effort"
+#~ msgstr "قالغان خىزمەت"

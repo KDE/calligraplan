@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Descrizione</title>
+  <para
+>L'editor del lavoro e delle ferie viene utilizzato per creare, modificare ed eliminare i calendari.</para
+><para
+>I calendari definiscono l'orario di lavoro per le risorse. I calendari possono anche essere utilizzati da attività con il tipo di stima <emphasis
+>Durata</emphasis
+>. </para>
+  <para
+>I calendari hanno una specifica del fuso orario in modo da poter definire l'orario di lavoro nell'ora locale delle risorse. </para>
+  <para
+>Un calendario è costituito da definizioni per giorni feriali e date. Se la data ha una definizione, viene utilizzata questa definizione. Se lo stato della data è <emphasis
+>Non definito</emphasis
+>, viene utilizzata la definizione per il giorno della settimana. Se anche questo è <emphasis
+>Non definito</emphasis
+>, il calendario principale viene controllato. </para>
+  <para
+>Un calendario può essere definito come <emphasis
+>Predefinito</emphasis
+> e viene quindi utilizzato da tutte le risorse di lavoro senza un riferimento al calendario. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>La barra degli strumenti fornisce il modo per creare ed eliminare i calendari: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi calendario</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare un calendario. Il nuovo calendario viene aggiunto allo stesso livello del calendario selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi sotto-calendario</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pulsante per creare il calendario figlio. Il nuovo calendario viene aggiunto come figlio al calendario attualmente selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina calendario selezionato</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina il calendario selezionato.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Modificare i dati</title>
+  <para
+>Il nome del calendario e il fuso orario possono essere modificati in linea come descritto <link linkend="using-the-views"
+>qui</link
+>. </para>
+  <para
+>Lo stato di giorni e giorni della settimana viene modificati selezionando il giorno o i giorni che si desidera modificare e aprendo il menu di scelta contestuale. </para>
+  <para
+>Selezionando <emphasis
+>Lavoro...</emphasis
+>, si apre la finestra Modifica intervalli di lavoro. </para>
+  
+</sect3>
+</sect2>

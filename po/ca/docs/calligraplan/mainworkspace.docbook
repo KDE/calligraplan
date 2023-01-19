@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Descripció</title>
+  <para
+>L'espai de treball principal normalment s'organitza amb el selector de vistes a l'esquerra i la vista de les dades a la dreta.</para
+><para
+>Com de costum, també trobareu les barres de menús i d'eines a la part superior, i la barra d'estat a la part inferior. </para>
+  <para
+>Atès que tant el selector de vistes com l'acoblador Scripts són acobladors, es poden moure a una vora diferent, flotant o ocultar-los. Per a mostrar un acoblador ocult, utilitzeu l'entrada de menú <menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Acobladors</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>El selector de vistes</title>
+  <para
+>El <link linkend="the-view-selector"
+>selector de vistes</link
+> permet seleccionar la vista de les dades que voleu mostrar des de les vistes llistades. </para>
+  <para
+>Les vistes s'agrupen en categories per a una recuperació més fàcil: de manera predeterminada Editors, Vistes, Execució i Informes: </para>
+  <itemizedlist>
+    <listitem
+><para
+>Editors conté els editors que necessitareu per a definir i planificar el projecte.</para
+></listitem>
+    <listitem
+><para
+>Vistes conté les vistes que s'utilitzen per a inspeccionar el projecte.</para
+></listitem>
+    <listitem
+><para
+>Execució conté les vistes que són especialment útils durant l'execució del projecte.</para
+></listitem>
+    <listitem
+><para
+>Informes conté les vistes per a la generació dels informes.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Les vistes també es poden moure dins o mitjançant categories, així com afegir o eliminar des del <link linkend="the-view-selector"
+>Selector de vistes</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Selector de la planificació</title>
+  <para
+>El Selector de la planificació permet seleccionar la planificació en la qual totes les vistes (&pex;, la <link linkend="task-gantt-view"
+>Vista de Gantt</link
+>) mostraran els valors. Les tasques que no s'han planificat a la planificació seleccionada, normalment no es mostraran en cap de les vistes. (Per descomptat, es mostren en els editors). </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Barra d'estat</title>
+  <para
+>La barra d'estat mostra els missatges i la informació sobre el progrés. El més notable és la planificació seleccionada que es mostra a la dreta de la barra d'estat. Tingueu en compte que la majoria de les vistes a la categoria <emphasis
+>Vistes</emphasis
+> mostren la informació segons la planificació seleccionada, de manera que si el projecte no està planificat (<emphasis
+>No planificat</emphasis
+>), la majoria de les vistes estaran buides. </para>
+</sect3>
+</sect2>

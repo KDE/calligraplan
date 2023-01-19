@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Descrizione</title>
+  <para
+>La vista di esecuzione delle attività viene utilizzata per ispezionare le informazioni sulle prestazioni dell'attività. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Dati</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Le informazioni di avanzamento possono essere modificate in linea come descritto <link linkend="using-the-views"
+>qui</link
+> o utilizzando la finestra di avanzamento dell'attività.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome dell'attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stato</para>
+            </entry>
+            <entry>
+              <para
+>Stato dell'attività</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% completata</para>
+            </entry>
+            <entry>
+              <para
+>Completamento dell'attività</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsabile</para>
+            </entry>
+            <entry>
+              <para
+>Il responsabile di questa attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Assegnazione</para>
+            </entry>
+            <entry>
+              <para
+>Le risorse assegnate a questa attività.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>Indice prestazioni pianificazione (BCWP/BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWS</para>
+            </entry>
+            <entry>
+              <para
+>Costo preventivato del lavoro pianificato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWP</para>
+            </entry>
+            <entry>
+              <para
+>Costo preventivato del lavoro eseguito.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ACWP</para>
+            </entry>
+            <entry>
+              <para
+>Costo effettivo del lavoro eseguito</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descrizione</para>
+            </entry>
+            <entry>
+              <para
+>Descrizione dell'attività</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Configurazione</title>
+  <para
+>Utilizzando il menu contestuale, la vista può essere configurata per mostrare/nascondere il progetto, dividere/riunire la vista ad albero o può essere configurata utilizzando la finestra di configurazione. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La finestra di configurazione consente di personalizzare la quantità di informazioni visualizzate dalla vista in base alle proprie esigenze.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Beschrijving</title>
+  <para
+>De Gantt-weergave wordt gebruikt om taken in een tijdlijn te tonen. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Ganttweergave</phrase>
+        </textobject>
+        <caption>
+          <para
+>Ganttweergave</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Gegevens bewerken </title>
+  <para
+>Taakbeschrijving en voortgang kan bewerkt worden met het contextmenu. </para>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Starttijd</para>
+            </entry>
+            <entry>
+              <para
+>De geplande starttijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Eindtijd</para>
+            </entry>
+            <entry>
+              <para
+>De geplande eindtijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% voltooid</para>
+            </entry>
+            <entry>
+              <para
+>Voltooiing</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Configuratie</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Met het contextmenu kan de weergave geconfigureerd worden met de configuratiedialoog.</para>
+              <para
+>De configuratiedialoog biedt u het aanpassen van de hoeveelheid informatie die de weergave toont om in uw behoefte te voorzien.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Configuratiedialoog</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Configuratiedialoog</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

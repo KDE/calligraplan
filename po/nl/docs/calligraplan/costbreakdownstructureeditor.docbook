@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Beschrijving</title>
+  <para
+>De bewerker voor Structuur voor opsplitsing kosten wordt gebruikt om accounts aan te maken, te bewerken en te verwijderen. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Accounts kunnen verbonden worden door taken en hulpbronnen om kosten uit die taken en hulpbronnen te accumuleren. </para>
+  <para
+>Het standaard account accumuleert kosten komend van taken die niet verbonden zijn met een account. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om accounts aan te maken en te verwijderen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Account toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een account aan te maken. Het nieuwe account wordt ingevoegd na het geselecteerde account. Als geen account is geselecteerd wordt het nieuwe account toegevoegd aan het hoogste niveau.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Subaccount toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knop om een sub-account aan te maken. Het nieuwe account is toegevoegd als een afgeleide van het geselecteerde account.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Verwijdert het geselecteerde account.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Gegevens bewerken </title>
+  <para
+>Gegevens kunnen inline bewerkt worden zoals <link linkend="using-the-views"
+>hier</link
+> beschreven. </para>
+  <para
+>De volgende kolommen zijn beschikbaar: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van het account.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beschrijving</para>
+            </entry>
+            <entry>
+              <para
+>De omschrijving van het account.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

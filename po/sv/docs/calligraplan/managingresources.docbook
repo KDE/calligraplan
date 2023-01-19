@@ -1,0 +1,16 @@
+<sect2 id="description"
+><title
+>Beskrivning</title>
+  <para
+>Du kan skapa resurser för ett projekt genom att använda <link linkend="resource-editor"
+>Resurseditorn</link
+> och <link linkend="work-and-vacation-editor"
+>Arbets- och semestereditorn</link
+>. </para>
+  <para
+>Om du dock ska använda samma resurser i många projekt (vilket ofta är fallet) är det bekvämare att underhålla resurser i en separat fil. Det bästa sättet att göra det är att först skapa en egen resursfil och sedan ställa in Plan att alltid läsa in filen när ett nytt projekt skapas. </para>
+  <para
+>Om du hanterar projekt som använder helt olika resurspooler kan du skapa flera resursfiler, men ett projekt kan bara referera till en resursfil. </para>
+  <para
+>Du kan välja resursfil att använda när ett nytt projekt skapas. </para>
+</sect2>

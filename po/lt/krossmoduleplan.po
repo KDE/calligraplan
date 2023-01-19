@@ -1,0 +1,587 @@
+# Lithuanian translations for krossmodulekplato package.
+# This file is distributed under the same license as the krossmodulekplato package.
+#
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>, 2012.
+# Liudas Ališauskas <liudas@akmc.lt>, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmoduleplan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2014-03-16 19:52+0200\n"
+"Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add task"
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "Pridėti užduotį"
+
+#: Project.cpp:433 Project.cpp:441
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource group"
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "Pridėti išteklių grupę"
+
+#: Project.cpp:519 Project.cpp:537
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource"
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "Pridėti resursą"
+
+#: Project.cpp:640
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "Pridėti išorinį susitikimą"
+
+#: Project.cpp:650 Project.cpp:657
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "Pridėti išorinį susitikimą"
+
+#: Project.cpp:664
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "Pridėti išorinį susitikimą"
+
+#: Resource.cpp:102
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr ""
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "Įrank&iai"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Užduotys"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Resursai"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Paskyros"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr ""
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr ""
+
+#: scripts/busyinfoclear.py:10
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "Pridėti išorinį susitikimą"
+
+#: scripts/busyinfoexport.py:26
+#, fuzzy
+#| msgid "Information"
+msgid "Busy Information Export"
+msgstr "Informacija"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr ""
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr ""
+
+#: scripts/busyinfoexport.py:33
+#, fuzzy
+#| msgid "Import content"
+msgid "Export Busy Info File"
+msgstr "Importuoti turinį"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Įrašyti"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "Visi failai"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Klaida"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Nepasirinktas failas"
+
+#: scripts/busyinfoexport.py:51
+#, fuzzy
+#| msgid "No file selected"
+msgid "No schedule selected"
+msgstr "Nepasirinktas failas"
+
+#: scripts/busyinfoimport.py:18
+#, fuzzy
+#| msgid "Information"
+msgid "Busy Information Import"
+msgstr "Informacija"
+
+#: scripts/busyinfoimport.py:22
+#, fuzzy
+#| msgid "Information"
+msgid "Import Busy Info File"
+msgstr "Informacija"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Atverti"
+
+#: scripts/busyinfoimport.py:29
+#, fuzzy
+#| msgid "Information"
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "Informacija"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr ""
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr ""
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+msgid "No data to export"
+msgstr ""
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr ""
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+#, fuzzy
+#| msgid ""
+#| "Could not write to file:\n"
+#| "%1"
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr ""
+"Nepavyko rašyti į failą:\n"
+"%1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid "Information"
+msgstr "Informacija"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+msgid "No properties to export"
+msgstr ""
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+msgid "Select schedule"
+msgstr ""
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr "Duomenys"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Select data"
+msgstr ""
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+#, fuzzy
+#| msgid "Import content"
+msgid "Export ods file"
+msgstr "Importuoti turinį"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr "Skaičiuoklė"
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr ""
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr ""
+
+#: scripts/plan2odsexport.py:42
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid "Could not select cell 'A1'"
+msgstr "Nepavyko atverti dokumento: %1"
+
+#: scripts/plan2odsexport.py:58
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr ""
+"Nepavyko rašyti į failą:\n"
+"%1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr ""
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr "Perspėjimas"
+
+#: scripts/resourcesimport.py:17
+#, fuzzy
+#| msgid "Resources"
+msgid "Resources Import"
+msgstr "Resursai"
+
+#: scripts/resourcesimport.py:23
+#, fuzzy
+#| msgid "Resources"
+msgid "Plan Resources"
+msgstr "Resursai"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Planas"
+
+#: scripts/resourcesimport.py:30
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource"
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Pridėti resursą"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Nepavyko atverti dokumento: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr ""
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr ""
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr ""
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr ""
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr ""
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr ""
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Resource Busy Information"
+msgstr "Informacija"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Handle resource busy information"
+msgstr "Informacija"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Export Resource Busy Information"
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Import Resource Busy Information"
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Clear Resource Busy Information"
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Python script to clear the imported resource busy information"
+msgstr "Informacija"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Importuoti"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Importuoti turinį"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Resources from Plan File"
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Eksportuoti"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, fuzzy, kde-format
+#| msgid "Import content"
+msgid "Export content"
+msgstr "Importuoti turinį"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Įrankiai"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Pagalba internete"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Pavyzdžiai"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Print Project Information..."
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Print Resource busy Information..."
+msgstr "Informacija"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, fuzzy, kde-format
+#| msgid "Information"
+msgid "Example python script that print resource busy information"
+msgstr "Informacija"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Užduotys"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Resursai"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Paskyros"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "Įrank&iai"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Importuoti"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Importuoti turinį"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Eksportuoti"
+
+#, fuzzy
+#~| msgid "Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Įrankiai"
+
+#, fuzzy
+#~| msgid "Online Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Pagalba internete"
+
+#, fuzzy
+#~| msgid "Samples"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Pavyzdžiai"

@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Inleiding</title>
+  <para
+>In projectbeheer kunnen termen op verschillende manieren in verschillende programma's of verschillende bedrijven of projecttypen worden gebruikt. Kijken in uitgebreidere woordenlijsten voor projectbeheer, zal alternatieve definities voor de meeste termen leveren. </para>
+  <para
+>Deze lijst definieert hoe bepaalde termen gebruikt worden in <guilabel
+>Plan</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Termen</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Account</emphasis
+></term>
+      <listitem>
+      <para
+>Een account wordt gebruikt in een <emphasis
+>Structuur voor opsplitsing kosten</emphasis
+> (<link linkend="cbs"
+>CBS</link
+>) om een plaats te representeren waar kosten uit <link linkend="task"
+>taken</link
+> of <link linkend="resource"
+>hulpbronnen</link
+> samengevat kunnen worden.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ACWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Werkelijke kosten van uitgevoerd werk</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Werkelijke kosten van uitgevoerd werk</emphasis
+></term>
+      <listitem>
+      <para
+>De werkelijke kosten (of inspanning) die zijn/is gemaakt.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Toewijzing</emphasis
+></term>
+      <listitem>
+      <para
+>Taken zijn toegepast aan <link linkend="resource"
+>Hulpbronnen</link
+> tijdens de planningsfase van het project. De werkelijke toekenning wordt gedaan tijdens planning. Merk op dat toekenning niet gegarandeerd is omdat de hulpbron niet beschikbaar kan zijn.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Toekenning</emphasis
+></term>
+      <listitem>
+      <para
+>Taken zijn toegekend aan <link linkend="resource"
+>Hulpbronnen</link
+> tijdens planning.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BCWS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Geraamde kosten van gepland werk</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Geraamde kosten van gepland werk</emphasis
+></term>
+      <listitem>
+      <para
+>De kosten (of inspanning) die gebruikt zou moeten worden om de bedoelde voortgang te bereiken.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BCWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Geraamde kosten van uitgevoerd werk</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Geraamde kosten van uitgevoerd werk</emphasis
+></term>
+      <listitem>
+      <para
+>De kosten (of inspanning) die zijn/is gemaakt.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>CBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Structuur voor opsplitsing kosten</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>De <emphasis
+>Prestatie-index van kosten</emphasis
+> is gelijk aan <link linkend="bcwp"
+>BCWP</link
+>/<link linkend="acwp"
+>ACWP</link
+>. Wanneer deze index minder is dan 1, betekent dat u over uw budget bent gegaan. Als de index groter is dan 1, betekent dat de kosten onder het budget zijn gebleven.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Structuur voor opsplitsing kosten</emphasis
+></term>
+      <listitem>
+      <para
+>De CBS organiseert <link linkend="account"
+>accounts</link
+> in een structuur om zodat kosten geaggregeerd worden onafhankelijk van de <link linkend="wbs"
+>WBS</link
+> en <link linkend="rbs"
+>RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Schatting</emphasis
+></term>
+      <listitem>
+      <para
+>De schatting is de verwachte hoeveelheid inspanning of tijd nodig om een <link linkend="task"
+>taak</link
+> te voltooien.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Mijlpaal</emphasis
+></term>
+      <listitem>
+      <para
+>Een mijlpaal is een <link linkend="task"
+>taak</link
+> met inspanning 0.00h. Het wordt typisch gebruikt om een belangrijke uitkomst te markeren, bijvoorbeeld het voltooien van een oplevering bij acceptatie door de klant.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Programma-evaluatie en reviewtechniek</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Evaluatie van programma en herzieningstechniek</emphasis
+></term>
+      <listitem>
+      <para
+>De Evaluatie van programma en herzieningstechniek is een verbetering van de Kritieke pad methode. Schattingen van <link linkend="task"
+>Taak</link
+>-inspanningen in CPM zijn puntschattingen, terwijl schattingen van <link linkend="task"
+>taak</link
+>-inspanningen in PERT berekend worden door het wegen van de Optimistische, Meest waarschijnlijke en Pessimistische schattingen (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>PERT verdeling</emphasis
+></term>
+      <listitem>
+      <para
+>Een vereenvoudigde manier om Verwachte schatting uit Optimistische-, Meest waarschijnlijke- en Pessimistische schatting te berekenen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Structuur voor opsplitsing hulpbronnen</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Structuur voor opsplitsing hulpbronnen</emphasis
+></term>
+      <listitem>
+      <para
+>De RBS organiseert hulpbronnen in <link linkend="Resource-Group"
+>hulpbrongroepen</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Hulpbron</emphasis
+></term>
+      <listitem>
+      <para
+>Een hulpbron kan van het type <emphasis
+>Werk</emphasis
+>, <emphasis
+>Materiaal</emphasis
+> of <emphasis
+>Team</emphasis
+> zijn. Een hulpbron moet altijd behoren tot een <link linkend="Resource-Group"
+>Hulpbrongroep</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Hulpbrongroep</emphasis
+></term>
+      <listitem>
+      <para
+>Een hulpbrongroep wordt gebruikt om overeenkomende <link linkend="resource"
+>hulpbronnen</link
+> te groeperen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Hulpbronteam</emphasis
+></term>
+      <listitem>
+      <para
+>Een <link linkend="resource"
+>hulpbron</link
+>team is een hulpbrongroep die bestaat uit een aantal andere hulpbronnen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>Is de Planningprestatieindex en is gelijk aan BCWP/BCWS. Wanneer deze index lager is dan 1, betekent dat u achter loopt op de planning. Als de index groter is dan 1 betekent dat u voorloopt op de planning.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Samenvattingstaak</emphasis
+></term>
+      <listitem>
+      <para
+>Een Samenvattingtaak heeft ondergeschikte subtaken en rolt informatie op gebaseerd op de subtaken.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Taak</emphasis
+></term>
+      <listitem>
+      <para
+>Een taak is een eenheid werk. <link linkend="resource"
+>Hulpbronnen</link
+> zijn in het algemeen toegekend op het taakniveau.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard is een standaard bestandsformaat voor elektronische visitekaartjes.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>WBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Structuur voor opsplitsing werktaken</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Structuur voor opsplitsing werktaken</emphasis
+></term>
+      <listitem>
+      <para
+>De WBS wordt gebruikt om grote projecten op te breken in beheerbare stukken om planning en beheer te vergemakkelijken.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

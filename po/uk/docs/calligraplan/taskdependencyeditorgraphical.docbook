@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Опис</title>
+  <para
+>Редактор залежностей завдань призначено для створення, редагування і вилучення записів залежностей завдань. Крім того, для зручності, у ньому передбачено можливості вставлення, вилучення та редагування завдань.</para
+><para
+>Записи завдань буде впорядковано відповідно до структури розподілу роботи (СРР). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Позначки для сумарних завдань, завдань та етапів наведено нижче: </para>
+  <para
+>Оскільки <emphasis
+>Завдання</emphasis
+> і <emphasis
+>Етап</emphasis
+> є підпунктами <emphasis
+>Сумарного завдання</emphasis
+>, їхні пункти у списку буде показано із відступами. Крім того, слід зауважити, що поряд із назвою буде показано код СРР. </para>
+  <para
+>На наведеному нижче знімку було вставлено залежність <emphasis
+>Завершення-Початок</emphasis
+> з метою створення залежності між <emphasis
+>етапом</emphasis
+> і <emphasis
+>завданням</emphasis
+>. </para>
+  <para
+>Як показано нижче, запис складається із трьох різних областей вибору: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Область запису</para>
+            </entry>
+            <entry>
+              <para
+>Вибір запису для редагування</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область початку</para>
+            </entry>
+            <entry>
+              <para
+>Використовується для створення залежностей <emphasis
+>завершення-початок</emphasis
+> та <emphasis
+>початок-початок</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область завершення</para>
+            </entry>
+            <entry>
+              <para
+>Використовується для створення залежностей <emphasis
+>завершення-початок</emphasis
+> та <emphasis
+>завершення-завершення</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Редагування залежностей</title>
+  <para
+>Щоб створити залежність, слід спочатку вибрати область початку або завершення завдання-попередника, потім вибрати область початку або завершення завдання-наступника. </para>
+  <para
+>Зробити це можна за допомогою миші або клавіатури. </para>
+  <para
+>Крім того, ви можете скинути область з'єднання завдання-попередника на область з'єднання завдання-наступника. </para>
+  <para
+>Для редагування або вилучення наявної залежності ви можете відкрити залежність її позначенням або скористатися контекстним меню. </para>
+  <para
+>Ви також можете відкрити контекстне меню у області з'єднання. За його допомогою ви зможете змінити усі залежності, які пов'язано із відповідною областю. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів розташовано кнопки для створення та вилучення записів завдань: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>додавання завдання</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Спадне меню-кнопка для створення завдання або етапу. Новий пункт буде розташовано у списку після поточного позначеного пункту на тому самому рівні, що і позначений пункт. Якщо жодного пункту не позначено, новий запис буде додано на найвищому рівні.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Додати підзавдання</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Спадне меню-кнопка для створення підзавдання або підетапу. Новий запис буде дописано як дочірній до поточного позначеного запису.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Вилучити завдання</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучити позначені завдання.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

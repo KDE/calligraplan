@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>Опис</title>
+  <para
+>Панель перегляду стану завдання призначено для інспектування даних щодо поступу завдання за певний період, який визначається у налаштуваннях. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Завдання поділено на групи, залежно від стану завдання: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Не почато</para>
+            </entry>
+            <entry>
+              <para
+>Завдання, виконання яких мало розпочатися на поточний момент.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточна</para>
+            </entry>
+            <entry>
+              <para
+>Завдання, виконання яких було розпочато, але ще не було завершено.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Завершено</para>
+            </entry>
+            <entry>
+              <para
+>Завдання, які було завершено протягом цього періоду</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Наступний період</para>
+            </entry>
+            <entry>
+              <para
+>Завдання, виконання яких заплановано розпочати у наступному періоді.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>Редагування даних</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Дані щодо поступу можна редагувати на місці, як це описано <link linkend="using-the-views"
+>тут</link
+>, або за допомогою  діалогового вікна параметрів поступу завдання.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Стан</para>
+            </entry>
+            <entry>
+              <para
+>Стан завдання</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Завершеність у відсотках</para>
+            </entry>
+            <entry>
+              <para
+>Рівень виконання завдання</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланований обсяг робіт</para>
+            </entry>
+            <entry>
+              <para
+>Обсяг роботи, яку заплановано виконати на кінець поточного періоду.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточний обсяг робіт</para>
+            </entry>
+            <entry>
+              <para
+>Обсяг виконаної роботи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Залишковий обсяг робіт</para>
+            </entry>
+            <entry>
+              <para
+>Залишковий обсяг робіт, який потрібен для завершення завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланована вартість</para>
+            </entry>
+            <entry>
+              <para
+>Запланована вартість на кінець поточного періоду.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточна вартість</para>
+            </entry>
+            <entry>
+              <para
+>Поточна вартість.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточний початок</para>
+            </entry>
+            <entry>
+              <para
+>Поточний час початку виконання завдання.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Поточне завершення</para>
+            </entry>
+            <entry>
+              <para
+>Поточний час завершення завдання.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>Налаштування</title>
+  <para
+>За допомогою контекстного меню можна налаштувати панель перегляду на показ поділу або з'єднання ієрархічного перегляду. Крім того, налаштувати панель перегляду можна за допомогою діалогового вікна налаштовування. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

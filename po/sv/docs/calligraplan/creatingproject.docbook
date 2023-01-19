@@ -1,0 +1,46 @@
+<sect2
+><title/>
+<para
+>Ett nytt projekt kan skapas genom att klicka på knappen <emphasis
+>Nytt projekt</emphasis
+> eller välja en <emphasis
+>projektmall</emphasis
+> i <link linkend="startup-view"
+>Startvyn</link
+>. </para>
+<para
+>Det skapar ett nytt projekt med standardvärden definierade i <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
+>Inställningar</ulink
+> eller från värden definierade i mallen. Projektinställningsdialogrutan visas för att låta dig definiera projektspecifika egenskaper som <emphasis
+>projektnamn</emphasis
+>, <emphasis
+>hantering</emphasis
+> och <emphasis
+>definierade tider</emphasis
+>. </para>
+<para
+>När du skapar ditt första projekt, överväg att skapa resurser i en separat fil. När du refererar till den filen i dina projekt, behöver du inte definiera resurserna igen, och du kan koordinera resursanvändning mellan projekt. </para>
+<para
+>Se <link linkend="managing-resources"
+>Hantera resurser</link
+>. </para>
+<para
+>Om du vill koordinera resursanvändning i olika projekt, måste projektfilerna vara lagrade i samma katalog. </para>
+<para
+>En användbar struktur skulle kunna vara något som liknar det här: </para>
+<para
+><screen
+>Plan
+    &nbsp;!-- Resurser
+    &nbsp;!      !-- Delade_resurser.plan
+    &nbsp;!-- Aktivitetsmoduler
+    &nbsp;!      !-- Aktivitetsmoduler (om några finns)
+    &nbsp;!-- Mallar
+    &nbsp;!      !-- Projektmallar (om några finns)
+    &nbsp;!-- Projekt
+    &nbsp;!      !-- &lt;projekt 1&gt;.plan
+    &nbsp;!      !-- &lt;projekt 2&gt;.plan
+    &nbsp;!      !-- etc
+  </screen>
+</para>
+</sect2>

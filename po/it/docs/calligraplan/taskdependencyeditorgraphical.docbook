@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Descrizione</title>
+  <para
+>L'editor delle dipendenze delle attività è utilizzato per creare, modificare ed eliminare le dipendenze delle attività. Per comodità, le attività possono anche essere inserite, eliminate o modificate.</para
+><para
+>Le attività sono ordinate secondo la struttura funzionale del progetto (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>I simboli per le attività di riepilogo, le attività e le milestone sono mostrati di seguito: </para>
+  <para
+>Dato che <emphasis
+>Attività</emphasis
+> e <emphasis
+>Milestone</emphasis
+> sono sotto-elementi dell'operazione <emphasis
+>Attività di riepilogo</emphasis
+>, sono rientrati. Inoltre, si noti che il codice WBS viene visualizzato insieme al nome. </para>
+  <para
+>Nella figura seguente, è stata inserita una dipendenza <emphasis
+>Fine-Inizio</emphasis
+> per fare in modo che <emphasis
+>Milestone</emphasis
+> dipenda da <emphasis
+>Attività</emphasis
+>. </para>
+  <para
+>Come mostrato di seguito, un elemento consiste di tre aree di selezione differenti: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Area degli elementi</para>
+            </entry>
+            <entry>
+              <para
+>Selezionare l'elemento per la modifica</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Area di inizio</para>
+            </entry>
+            <entry>
+              <para
+>Utilizzato per creare dipendenze <emphasis
+>Fine-Inizio</emphasis
+> e <emphasis
+>Inizio-Inizio</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Area di fine</para>
+            </entry>
+            <entry>
+              <para
+>Utilizzato per creare dipendenze <emphasis
+>Fine-Inizio</emphasis
+> e <emphasis
+>Fine-Fine</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Modificare le dipendenze</title>
+  <para
+>Le dipendenze vengono create selezionando prima un'area di inizio o fine dell'attività precedente, quindi selezionando l'area di inizio o fine dell'attività successiva. </para>
+  <para
+>Questo può essere fatto utilizzando il mouse o la tastiera. </para>
+  <para
+>In alternativa, è possibile rilasciare l'area di connessione del predecessore nell'area di connessione del successore. </para>
+  <para
+>Per modificare o eliminare una dipendenza esistente, è possibile aprire una dipendenza selezionandola, o aprire il suo menu contestuale. </para>
+  <para
+>È possibile anche aprire il menu contestuale su un'area di connessione che permetterà di modificare tutte le dipendenze connesse a quell'area. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti fornisce il modo per creare ed eliminare le attività: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi attività</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Casella a discesa per creare un'attività o una milestone. Il nuovo elemento viene posizionato dopo l'elemento attualmente selezionato sullo stesso livello dell'elemento selezionato. Se non viene selezionato alcun elemento, il nuovo elemento viene aggiunto al livello superiore.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi sotto-attività</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Casella a discesa per creare una sotto-attività o sotto-milestone. Il nuovo articolo viene aggiunto come figlio all'elemento attualmente selezionato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Elimina attività</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Elimina</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Elimina le attività selezionate.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

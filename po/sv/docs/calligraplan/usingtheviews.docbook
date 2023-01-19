@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Beskrivning</title>
+  <para
+>Aktivitetseditorn är en vy som visar aktivitetsdata i en trädstruktur. Största delen av data i aktivitetseditorn kan redigeras på plats. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navigering</title>
+  <para
+>Du kan navigera igenom trädstrukturen genom att använda tangentbordet: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Expandera en expanderbar rad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Dra ihop ett ihopdragbart objekt.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Vänsterpil</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till föregående kolumn på samma rad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Högerpil</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till nästa kolumn på samma rad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Uppåtpil</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till föregående rad i samma kolumn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Neråtpil</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till nästa rad i samma kolumn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Home</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till första raden, första kolumnen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>End</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till sista raden, sista kolumnen.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page up</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till första synliga rad i samma kolumn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page down</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till sista synliga rad i samma kolumn.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Redigera data</title>
+  <para
+>Redigerbara objekt öppnas för att redigera genom att dubbelklicka på objektet eller, om tangentbordet används, så öppnas det aktuella objektet genom att trycka på <keycap
+>F2</keycap
+>. </para>
+  <para
+>När ett objekt redigeras kan du gå till nästa redigerbara objekt på följande sätt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>vänsterpil</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till föregående redigerbara objekt på samma rad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>högerpil</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till nästa redigerbara objekt på samma rad.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>uppåtpil</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till nästa redigerbara objekt på föregående rader.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>neråtpil</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gå till nästa redigerbara objekt på efterföljande rader.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Dra och släpp och kopiera eller klistra in</title>
+  <para
+>De flesta vyer stöder dra och släpp och kopiera eller klistra in. Diagram och GANTT-diagram kan dras till program som stöder bilder. Tabelldata stöder mime-typen HTML, så den kan släppas på vilket program som helst som stöder det. Om vyn stöder att flytta eller kopiera objekt internt, t.ex. <link linkend="task-editor"
+>Aktivitetseditorn</link
+>, kan också objekt flyttas eller kopieras. </para>
+</sect3>
+</sect2>

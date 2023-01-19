@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Descrizione</title>
+  <para
+>La vista del generatore di resoconti è utilizzata per aggiungere e generare i resoconti nel formato Open Document Text (odt).</para
+><para
+>I resoconti possono essere basati sui modelli di resoconti forniti, oppure è possibile <link linkend="creating-odt-report-templates"
+>scrivere i propri modelli</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Un nome di propria scelta</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Modello del resoconto</para>
+            </entry>
+            <entry>
+              <para
+>Il percorso del file modello di resoconto. È possibile selezionare uno dei modelli standard forniti o è possibile immettere il nome file di un modello fornito dall'utente.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>File del resoconto</para>
+            </entry>
+            <entry>
+              <para
+>Il nome del file che sarà generato.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Aggiungi</para>
+            </entry>
+            <entry>
+              <para
+>Informazioni che possono essere aggiunte al nome del file di report per distinguerlo dalle versioni generate in precedenza. Questo può essere:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Niente</emphasis
+>; utilizza il nome del file così come è</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Numero</emphasis
+>; aggiunge un numero di sequenza al nome del file</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Data</emphasis
+>; aggiunge la data attuale al nome del file</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Barra degli strumenti</title>
+  <para
+>La barra degli strumenti fornisce il modo per aggiungere, rimuovere e generare i resoconti. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Pulsante</guilabel
+></entry>
+            <entry
+><guilabel
+>Scorciatoia</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Aggiungi resoconto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Aggiungere un nuovo resoconto</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rimuovi resoconto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Rimuovere il resoconto selezionato</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Genera resoconto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Generare il resoconto selezionato</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

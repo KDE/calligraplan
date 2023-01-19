@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Beskrivning</title>
+  <para
+>GANTT-resurstilldelningsvyn visar de schemalagda aktiviteternas resurstilldelningarna i ett GANTT-diagram. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Data</title>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Objektets namn (resursgrupp, resurs, aktivitet)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Typ</para>
+            </entry>
+            <entry>
+              <para
+>Objekttyp</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Starttid</para>
+            </entry>
+            <entry>
+              <para
+>Tilldelningens start</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sluttid</para>
+            </entry>
+            <entry>
+              <para
+>Tilldelningens slut</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Redigera data</title>
+  <para
+>Aktivitetsbeskrivningen och förloppet kan redigeras genom att använda den sammanhangsberoende menyn. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in med inställningsdialogrutan.</para
+><para
+>Inställningsdialogrutan låter dig välja vilka kolumner som visas. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Inställningsdialogruta</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Inställningsdialogruta</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

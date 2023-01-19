@@ -1,0 +1,1939 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Beskrivning</title>
+  <para
+>Open Document Text rapportmallar är vanliga ODT-filer som kan konstrueras genom att använda vilken ODT-ordbehandlare som helt såsom <emphasis
+>Calligra Words</emphasis
+> eller <emphasis
+>LibreOffice Writer</emphasis
+>. Den använda tekniken är variabler med <emphasis
+>användarfält</emphasis
+> som innehåller referenser till informationen som ska hämtas från projektet. Variablerna kallas <emphasis
+>User Fields</emphasis
+> i <emphasis
+>Writer</emphasis
+> och hittas under <menuchoice
+><guimenu
+>Infoga</guimenu
+><guisubmenu
+>Fält</guisubmenu
+><guimenuitem
+>Fler fält</guimenuitem
+><guimenuitem
+>Variabler</guimenuitem
+><guimenuitem
+>Användarfält</guimenuitem
+></menuchoice
+>. I <emphasis
+>Words</emphasis
+> kallas de <emphasis
+>Egna Variabler</emphasis
+> och finns under panelen <menuchoice
+><guimenu
+>Textredigering</guimenu
+><guisubmenu
+>Variabel</guisubmenu
+><guimenuitem
+>Egen</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Det enklaste sättet att skapa en ny rapportmall är att ändra en befintlig, eftersom alla användarfält är definierade. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Användarfältvariabler</title>
+  <sect4 id="variables"
+><title
+>Variabler</title>
+    <para
+>Variablerna används för att göra det möjligt för generatorn att extrahera data från projektet. </para>
+    <para
+>En variabel kan vara en referens till ett enskilt datafält, en referens till tabelldata eller en referens till diagramdata. </para
+><sect5
+><title
+>Enskilt datafält</title
+> <para
+>En variabel för ett enskilt datafält har följande format: </para
+> <para
+><replaceable
+>datagruppnamn</replaceable
+>.<replaceable
+>egenskap</replaceable
+> = <replaceable
+>egenskapsidentifierare</replaceable
+> </para
+> <para
+>där: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>datagruppnamn</replaceable
+> kan vara tr, project eller schedule (se nedan).</para
+></listitem
+> <listitem
+><para
+><replaceable
+>egenskap</replaceable
+> gör användarfältnamnet unikt.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>egenskapsidentitet</replaceable
+> identifierar egenskapen i datagruppen.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Tabelldata</title
+> <para
+>En tabell i en rapportmall består av en variabel för att ange datatabellen som ska användas. </para
+> <para
+>Variabelnamn måste börja med <replaceable
+>table</replaceable
+> (t.ex. tableTasks) och variabelvärde måste vara namnet på datatabellen (t.ex. tasks). </para
+> <para
+>Omedelbart efter variabeln måste en tabell infogas och kolumner ifyllda med användarfältvariabler som anger vilka egenskaper som ska hämtas från tabellen angiven ovan. Dessa variabler måste ha namn som börjar med namnet på tabellvariabeln ovan. </para
+> <para
+>Variablerna har följande format: </para
+> <para
+>tableTasks.<replaceable
+>egenskap</replaceable
+> = <replaceable
+>egenskapsidentifierare</replaceable
+> </para
+> <para
+>där: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>egenskap</guilabel
+> gör användarfältnamnet unikt.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>egenskapsidentifierare</guilabel
+> identifierar egenskapen i datagrupp.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Diagramdata</title
+> <para
+>Ett diagram i en rapportmall består av en variabel för att ange data som ska användas i tabellen. </para
+> <para
+>Variabelnamnet måste börja med <replaceable
+>chart</replaceable
+> (t.ex. chartBudgetCost) och variabelvärdet anger datagruppen och värden som ska fylla i diagrammet. </para
+> <para
+>Variabeln har följande format (observera semikolonen): </para
+> <para
+><replaceable
+>namn</replaceable
+> = <replaceable
+>datagrupp</replaceable
+>; values=<replaceable
+>lista över dataegenskaper åtskilda av kommatecken</replaceable
+>; </para
+> <para
+>där: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>namn</replaceable
+> måste börja med <guilabel
+>chart</guilabel
+> (t.ex. chartBudgetCost)</para
+></listitem
+> <listitem
+><para
+><replaceable
+>datagrupp</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>lista över dataegenskaper åtskilda av kommatecken</guilabel
+> identifierar egenskaperna i datagruppen.</para
+></listitem
+> </itemizedlist
+> <para
+>T.ex.: </para
+> <para
+>chartBudget = project; values=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Översatta beteckningar</title>
+    <para
+>Översatta beteckningar gör det möjligt för oss att skapa generella rapportmallar som kan användas med olika språk. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Variabelnamn</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabelvärde</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Projekt</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Chef</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Tidplan</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BKSA</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BKUA</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>VKUA</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>KPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Projektvärden</title>
+    <para
+>Visar värden från huvudprojektet. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Variabelnamn</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabelvärde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>Namn</para>
+              </entry>
+              <entry>
+                <para
+>Projektets namn</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>Chef</para>
+              </entry>
+              <entry>
+                <para
+>Projektledarens namn</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>BKSA-kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnadsbaserad budgeterad kostnad av schemalagt arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>BKUA-kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnadsbaserad budgeterad kostnad av utfört arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>VKUA-kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnadsbaserad verklig kostnad av utfört arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>SPI-kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnadsbaserat schemalagd prestationsindex</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>KPI-kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnadsbaserat kostnadsprestationsindex</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>BKSA-insats</para>
+              </entry>
+              <entry>
+                <para
+>Insatsbaserad budgeterad kostnad av schemalagt arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>BKUA-insats</para>
+              </entry>
+              <entry>
+                <para
+>Insatsbaserad budgeterad kostnad av utfört arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>VKUA-insats</para>
+              </entry>
+              <entry>
+                <para
+>Insatsbaserad verklig kostnad av utfört arbete</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>SPI-insats</para>
+              </entry>
+              <entry>
+                <para
+>Insatsbaserat schemalagd prestationsindex</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>KPI-insats</para>
+              </entry>
+              <entry>
+                <para
+>Insatsbaserat kostnadsprestationsindex</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Tidplanvärden</title>
+    <para
+>Visar värden från den aktuell tidplanen. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Variabelnamn</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabelvärde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>Namn</para>
+              </entry>
+              <entry>
+                <para
+>Tidplanens namn</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Tillstånd</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggningstillstånd</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Namn</para>
+              </entry>
+              <entry>
+                <para
+>Schematläggningsriktning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Överbokning</para>
+              </entry>
+              <entry>
+                <para
+>Överbokning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Fördelning</para>
+              </entry>
+              <entry>
+                <para
+>Fördelning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Planerad start</para>
+              </entry>
+              <entry>
+                <para
+>Planerad start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Planerat slut</para>
+              </entry>
+              <entry>
+                <para
+>Planerat slut</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggning</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Detaljnivå</para>
+              </entry>
+              <entry>
+                <para
+>Detaljnivå</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Läge</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggningsmetod (automatisk eller manuell)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Tabeller</title>
+    <para
+>Tabelltyper som stöds: </para>
+    <itemizedlist>
+      <listitem
+><para
+>aktiviteter</para
+></listitem>
+      <listitem
+><para
+>aktivitetsstatus</para
+></listitem>
+      <listitem
+><para
+>tidplaner</para
+></listitem>
+      <listitem
+><para
+>projekt</para
+></listitem>
+    </itemizedlist>
+    <para
+>Placera en variabel precis innan en tabell i mallfilen för att skapa en tabell. Variabelnamnet identifierar tabellen och måste börja med <guilabel
+>table</guilabel
+>, t.ex. <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>Variabelns värde används för att peka på data som ska hämtas och måste vara en av tabellerna som listas ovan, t.ex. <guilabel
+>taskstatus</guilabel
+>. </para>
+    <para
+>Därefter placeras variablerna inne i tabellcellerna med namn och värde från tabellen nedanför. </para>
+    <para
+>Observera att tidplantabellerna stöder värdena beskrivna under <link linkend="schedule-values"
+>Tidplanvärden</link
+> ovan. </para>
+    <para
+>Tabellerna över projekten, aktiviteterna och aktivitetsstatus stöder följande värden: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Variabelnamn</guilabel
+></entry>
+              <entry
+><guilabel
+>Variabelvärde</guilabel
+></entry>
+              <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Namn</para>
+              </entry>
+              <entry>
+                <para
+>Namn på aktiviteten eller projektet</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>Arbetsfördelningskod</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Typ</para>
+              </entry>
+              <entry>
+                <para
+>Aktivitetstyp</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Ansvarig</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Tilldelning</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Typ av uppskattning</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Kalender</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Uppskattning</para>
+              </entry>
+              <entry>
+                <para
+>Troligaste uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisk</para>
+              </entry>
+              <entry>
+                <para
+>Optimistiskt förhållande</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisk</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistiskt förhållande</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Risk</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad osäkerhet</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Begränsning</para>
+              </entry>
+              <entry>
+                <para
+>Typ av tidsbegränsning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Begränsning start</para>
+              </entry>
+              <entry>
+                <para
+>Begränsningens starttid</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Begränsning slut</para>
+              </entry>
+              <entry>
+                <para
+>Begränsningens sluttid</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Löpande konto</para>
+              </entry>
+              <entry>
+                <para
+>Konto för löpande kostnader</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Startkonto</para>
+              </entry>
+              <entry>
+                <para
+>Konto för startkostnad</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Startkostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnaden som uppstod vid aktivitetens start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Avslutningskonto</para>
+              </entry>
+              <entry>
+                <para
+>Konto för avslutningkostnad</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Avslutningskostnad</para>
+              </entry>
+              <entry>
+                <para
+>Kostnaden som uppstod vid aktivitetens avslutning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Beskrivning</para>
+              </entry>
+              <entry>
+                <para
+>Aktivitetsbeskrivning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Förväntad</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad troligaste uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisk</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad optimistisk uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisk</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad pessimistisk uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Starttid</para>
+              </entry>
+              <entry>
+                <para
+>Schemalagd starttid</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Sluttid</para>
+              </entry>
+              <entry>
+                <para
+>Schemalagd sluttid</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Varaktighet</para>
+              </entry>
+              <entry>
+                <para
+>Schemalagd varaktighet</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Tidig start</para>
+              </entry>
+              <entry>
+                <para
+>Tidigast möjliga start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Tidigt slut</para>
+              </entry>
+              <entry>
+                <para
+>Tidigast möjliga slut</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Sen start</para>
+              </entry>
+              <entry>
+                <para
+>Senaste möjliga start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Sent slut</para>
+              </entry>
+              <entry>
+                <para
+>Senaste möjliga slut</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Positiv marginal</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Fri marginal</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Negativ marginal</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Startmarginal</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Slutmarginal</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Tilldelningar</para>
+              </entry>
+              <entry>
+                <para
+>Resurstilldelningar</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Varians (uppskattning)</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad varians för uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Varians (varaktighet)</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad varians för uppskattning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Optimistisk (varaktighet)</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad optimistisk varaktighet</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Pessimistisk (varaktighet)</para>
+              </entry>
+              <entry>
+                <para
+>Beräknad pessimistisk varaktighet</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Status</para>
+              </entry>
+              <entry>
+                <para
+>Aktivitetsstatus som den visas i aktivitetsstatusvyn</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% färdiga</para>
+              </entry>
+              <entry>
+                <para
+>När aktiviteten är färdig</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Planerad insats</para>
+              </entry>
+              <entry>
+                <para
+>Planerad insats</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Verklig insats</para>
+              </entry>
+              <entry>
+                <para
+>Verklig insats</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Återstående insats</para>
+              </entry>
+              <entry>
+                <para
+>Återstående insats</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Planerad kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Planerad kostnad</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Verklig kostnad</para>
+              </entry>
+              <entry>
+                <para
+>Verklig kostnad</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Verklig start</para>
+              </entry>
+              <entry>
+                <para
+>Verklig start</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Startad</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Verklig avslutning</para>
+              </entry>
+              <entry>
+                <para
+>Verklig avslutning</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Avslutad</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggningsstatus</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggningsstatus</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BKSA</para>
+              </entry>
+              <entry>
+                <para
+>Budgeterad kostnad av schemalagt arbete (kostnadsbaserad)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BKUA</para>
+              </entry>
+              <entry>
+                <para
+>Budgeterad kostnad av utfört arbete (kostnadsbaserad)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>VKUA</para>
+              </entry>
+              <entry>
+                <para
+>Verklig kostnad av utfört arbete (kostnadsbaserad)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Schemalagd prestationsindex</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Kritisk</para>
+              </entry>
+              <entry>
+                <para
+>Aktiviteten är kritisk</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Kritisk linje</para>
+              </entry>
+              <entry>
+                <para
+>Aktiviteten är på den kritiska linjen</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Inte schemalagd</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Tilldelning saknas</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Resursen överbokad</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Resursen inte tillgänglig</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Begränsningsfel</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Insats klaras inte</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Schemaläggningsfel</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Nodnivå, nivå</para>
+              </entry>
+              <entry>
+                <para
+>Inte intressant</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Statusanteckning</para>
+              </entry>
+              <entry>
+                <para
+>Observera: Inte implementerat</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Ägare</para>
+              </entry>
+              <entry>
+                <para
+>Får inte användas, och är inte särskilt intressant.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Status</para>
+              </entry>
+              <entry>
+                <para
+>Får inte användas, och är inte särskilt intressant.</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>tabellnamn</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Tid</para>
+              </entry>
+              <entry>
+                <para
+>Får inte användas, och är inte särskilt intressant.</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Diagram</title>
+  <para
+>Använd genom att placera en variabel kallad chartX (X=någon text för att göra variabelnamnet unikt) med ett värde projekt innan diagrammet som ska användas. </para>
+  <para
+>Variabeln har detta format: </para>
+  <para
+>Variable: <varname
+>Name: chartX (X=någon text) Value: project; values=<replaceable
+>data</replaceable
+>;</varname
+> </para>
+  <para
+>där <replaceable
+>data</replaceable
+> är en lista av värden åtskilda med kommatecken som ska inkluderas i diagrammet. </para>
+  <para
+>Möjliga värden på <replaceable
+>data</replaceable
+> är: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>bcws effort</guilabel
+> Insatsbaserad budgeterad kostnad av schemalagt arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp effort</guilabel
+> Insatsbaserad budgeterad kostnad av utfört arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp effort</guilabel
+> Insatsbaserad verklig kostnad av utfört arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi effort</guilabel
+> Insatsbaserat schemalagd prestationsindex.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi effort</guilabel
+> Insatsbaserat kostnadsprestationsindex.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws cost</guilabel
+> Kostnadsbaserad budgeterad kostnad av schemalagt arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp cost</guilabel
+> Kostnadsbaserad budgeterad kostnad av utfört arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> Kostnadsbaserad verklig kostnad av utfört arbete.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> Kostnadsbaserat schemalagd prestationsindex.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> Kostnadsbaserat kostnadsprestationsindex.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Diagrammen du skapar in mallen måste ha lika många (eller fler) kolumner som antal värden du anger i variabeln. </para>
+  <para
+>Exempel: </para>
+  <para
+>Variable name: <varname
+>chart1</varname
+> Value: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Observera att du inte kan blanda insats- och kostnadsbaserade värden. Om du vill visa båda, skapa två diagram. </para>
+  <sect4 id="gantt"
+><title
+>GANTT</title>
+    <para
+>Stöds inte. </para>
+  </sect4>
+</sect3>
+</sect2>

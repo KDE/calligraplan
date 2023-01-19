@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Descrizione</title>
+  <para
+>L'area di lavoro principale è normalmente organizzata con il selettore delle viste a sinistra e la vista dei dati a destra.</para
+><para
+>Come al solito, la barra dei menu e la barra degli strumenti si troveranno in alto e la barra di stato in basso. </para>
+  <para
+>Poiché sia il selettore delle viste, sia l'area di aggancio degli script sono aree di aggancio, possono essere spostate sul bordo diverso, mobili o nascoste. Per mostrare un'area di aggancio nascosta, utilizzare la voce di menu <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guimenuitem
+>Aree di aggancio</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>Il selettore della vista</title>
+  <para
+>Il <link linkend="the-view-selector"
+>Selettore delle viste</link
+> consente di selezionare la vista dei dati che si desidera visualizzare dalle viste attualmente elencate. </para>
+  <para
+>Le viste sono raggruppate in categorie per facilitarne il recupero: editor, viste, esecuzione e resoconti per impostazione predefinita: </para>
+  <itemizedlist>
+    <listitem
+><para
+>Gli editor contengono gli editor necessari per definire e pianificare il progetto.</para
+></listitem>
+    <listitem
+><para
+>Le viste contengono le viste utilizzate per l'ispezione del progetto.</para
+></listitem>
+    <listitem
+><para
+>Le esecuzioni contengono le viste particolarmente utili durante l'esecuzione del proprio progetto.</para
+></listitem>
+    <listitem
+><para
+>I resoconti contengono le viste per la generazione dei resoconti.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Le viste possono anche essere spostate all'interno o tra le categorie o aggiunte o rimosse dal <link linkend="the-view-selector"
+>Selettore delle viste</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Il selettore della pianificazione</title>
+  <para
+>Il selettore delle pianificazioni consente di selezionare la pianificazione da cui tutte le viste (&eg; la <link linkend="task-gantt-view"
+>Vista Gantt</link
+>) devono visualizzare i valori. Le attività che non sono state pianificate nella pianificazione selezionata non vengono normalmente visualizzate in nessuna delle viste. (sono mostrate negli editor, ovviamente.) </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Barra di stato</title>
+  <para
+>La barra di stato mostra messaggi e informazioni sullo stato. In particolare, è il programma attualmente selezionato mostrato a destra della barra di stato. Si noti che la maggior parte delle viste nella categoria <emphasis
+>Viste</emphasis
+> visualizzano le informazioni in base alla pianificazione selezionata, quindi se il progetto non è pianificato (<emphasis
+>Non pianificato</emphasis
+>), la maggior parte delle viste sarà vuota. </para>
+</sect3>
+</sect2>

@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Опис</title>
+  <para
+>Редактор розкладів призначено для створення, редагування, обчислення та вилучення розкладів. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Панель редактора розкладів поділено на три частини, у яких буде показано результати планування. </para>
+  <para
+>На панелі результатів буде показано значення, потрібні для PERT-аналізу, зокрема перші дати початку і завершення, останні дати початку і завершення, а також різні типи рухомих дат. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>На панелі критичного ланцюжка буде показано завдання, які належать до критичного ланцюжка. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>На панелі журналу планування буде показано список повідомлень, які було виведено програмою під час планування. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів розташовано кнопки для створення, вилучення і обчислення розкладів: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Додати розклад</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення групи виконавців (ресурсів). Нову групу буде дописано наприкінці списку груп.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Додати підрозклад</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для створення підрозкладу. Новий розклад буде додано як дочірній до поточного позначеного розкладу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Вилучити</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучає позначений розклад.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Обчислити</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Виконує обчислення за позначеним розкладом.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Скомпонувати план</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Компонує план за вибраним розкладом. Запобігає повторному обчисленню або вилученню відповідного розкладу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Відокремити</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Зробити позначений підрозклад розкладом верхнього рівня</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Редагування даних</title>
+  <para
+>Дані можна редагувати на місці у спосіб, який описано <link linkend="using-the-views"
+>тут</link
+>. </para>
+  <para
+>Типово буде показано такі стовпчики: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Назва розкладу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Стан</para>
+            </entry>
+            <entry>
+              <para
+>Стан розкладу. Показує панель поступу під час планування.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Напрямок</para>
+            </entry>
+            <entry>
+              <para
+>Напрям створення розкладу.</para
+><para
+>Якщо буде обрано напрям «Вперед», планування проєкту буде розпочато з найпершої дати початку, вказаної за допомогою головного діалогового вікна проєкту.Якщо буде обрано напрям «Назад», планування проєкту буде розпочато з найпізнішої дати завершення, вказаної за допомогою головного діалогового вікна проєкту. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Перевищення</para>
+            </entry>
+            <entry>
+              <para
+>Контролює перевищення можливостей під час формування розкладу.</para
+><para
+>Якщо понаднормову роботу буде дозволено, використання виконавця може бути заплановано (протягом робочих днів) для понаднормової роботи Подібну стратегію планування можна використовувати, якщо виконавця призначено для виконання декількох завдань або призначено для роботи над іншими проєктами. </para>
+              <para
+>Якщо ви накажете програмі уникати понаднормового планування, виконавця можна буде використовувати, лише коли він буде вільним від іншої роботи. У разі конфліктів доступності, завдання буде відкладено до того часу, коли виконавець стане доступним. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Розподіл</para>
+            </entry>
+            <entry>
+              <para
+>Розподіл, який буде використано для планування.</para
+><para
+>Якщо буде встановлено варіант розподілу «Немає», під час планування буде використано оцінку завдання. </para>
+              <para
+>Якщо буде вказано варіант «PERT», для обчислень буде використано оцінку на основі введених оптимістичної (О), песимістичної (П) та найбільш ймовірної (Н) оцінок. Обчислення буде виконано за такою формулою: </para>
+              <para
+>Е= (О + 4 * Н + П) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланований початок</para>
+            </entry>
+            <entry>
+              <para
+>Час початку за розкладом.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Заплановане завершення</para>
+            </entry>
+            <entry>
+              <para
+>Час завершення за розкладом.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Планування</para>
+            </entry>
+            <entry>
+              <para
+>Засіб планування, який буде використано для створення розкладу проєкту.</para
+><para
+>Типовим вбудованим планувальником є засіб мережевого планування. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Налаштування</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>За допомогою контекстного меню можна налаштувати панель перегляду на показ поділу або з'єднання ієрархічного перегляду. Крім того, налаштувати панель перегляду можна за допомогою діалогового вікна налаштовування.</para
+><para
+>За допомогою діалогового вікна налаштовування можна обмежити обсяг відомостей, які буде показано на панелі перегляду. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

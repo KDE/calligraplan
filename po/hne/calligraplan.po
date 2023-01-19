@@ -1,0 +1,4178 @@
+# translation of kplato.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2008.
+# Ravishankar Shrivastava <raviratlami@aol.in>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-09 09:01+0100\n"
+"PO-Revision-Date: 2009-03-03 09:54+0530\n"
+"Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
+"Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
+"Language: hne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "फाइल (&F)"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "संपादन (&E)"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "देखव (&V)"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "परियोजना (&P)"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "औजार (&T)"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "सेटिंग (&S)"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "संपादन"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate working week"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate working week options"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate holidays"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate holidays options"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr ""
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, fuzzy, kde-format
+#| msgid "Project manager:"
+msgid "Name of project manager"
+msgstr "परियोजना प्रबंधक:"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Use shared resources"
+msgstr "संसाधन मन से काम"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "File to contain shared resources"
+msgstr "संसाधन मन से काम"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Project description"
+msgstr "काम प्रोग्राम"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr ""
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint start date and time"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint end date and time"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Type of estimate"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Estimate time unit"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Expected estimate"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, fuzzy, kde-format
+#| msgid "Optimistic:"
+msgid "Optimistic estimate"
+msgstr "आसावादी:"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, fuzzy, kde-format
+#| msgid "Pessimistic:"
+msgid "Pessimistic estimate"
+msgstr "निस्क्रियवादी:"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Task description"
+msgstr "काम प्रोग्राम"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, fuzzy, kde-format
+#| msgid "Gantt"
+msgid "Gradient"
+msgstr "गेंट"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, fuzzy, kde-format
+#| msgid "Lines"
+msgid "Linear"
+msgstr "पंक्तियाँ"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, fuzzy, kde-format
+#| msgid "KPlato"
+msgid "Flat"
+msgstr "के-प्लेटो"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr ""
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr ""
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr ""
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr ""
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr ""
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, fuzzy, kde-format
+#| msgid "Automatically refresh data"
+msgid "Automatically check for new work packages"
+msgstr "डाटा अपने अपन ताजा करव"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr ""
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr ""
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr ""
+
+#: config/ConfigDialog.cpp:47
+#, fuzzy, kde-format
+#| msgid "Project"
+msgid "Project Defaults"
+msgstr "परियोजना"
+
+#: config/ConfigDialog.cpp:48 kptview.cpp:660
+#, kde-format
+msgid "Work & Vacation"
+msgstr "काम अउ छुट्टी"
+
+#: config/ConfigDialog.cpp:49
+#, kde-format
+msgid "Task Defaults"
+msgstr "काम डिफाल्ट"
+
+#: config/ConfigDialog.cpp:50
+#, fuzzy, kde-format
+#| msgid "Task Editor"
+msgid "Task Colors"
+msgstr "काम संपादक "
+
+#: config/ConfigDialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Task Editor"
+msgid "Task Modules"
+msgstr "काम संपादक "
+
+#: config/ConfigDialog.cpp:56
+#, kde-format
+msgid "Work Package"
+msgstr "काम पैकेज"
+
+#: config/ConfigDialog.cpp:57
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Documentation"
+msgstr "अवधि"
+
+#: config/ConfigDialog.cpp:60
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Project Templates"
+msgstr "मुख्य परियोजना संपादित करव..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Documentation:"
+msgstr "अवधि"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:53
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "संसाधन मन से काम"
+
+#: config/ConfigProjectPanel.cpp:56
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "संसाधन मन से काम"
+
+#: config/ConfigProjectPanel.cpp:59
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The directory where projects sharing the resources are placed"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "सामान्य"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, fuzzy, kde-format
+#| msgid "Page:"
+msgid "&Manager:"
+msgstr "पेजः"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Use shared resources:"
+msgstr "संसाधन मन से काम"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, fuzzy, kde-format
+#| msgid "Add resource"
+msgid "Shared resource file:"
+msgstr "संसाधन जोड़व"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, fuzzy, kde-format
+#| msgid "Choose..."
+msgid "Browse..."
+msgstr "चुनव..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Shared projects:"
+msgstr "संसाधन मन से काम"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Description"
+msgstr "काम प्रोग्राम"
+
+#: config/ConfigProjectTemplatesPanel.cpp:61
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Project Templates Path"
+msgstr "मुख्य परियोजना संपादित करव..."
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgid "Insert"
+msgstr "प्रविस्ट"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove"
+msgstr "हटाव"
+
+#: config/ConfigTaskModulesPanel.cpp:61
+#, fuzzy, kde-format
+#| msgid "Task Editor"
+msgid "Task Modules Path"
+msgstr "काम संपादक "
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr ""
+
+#: config/ConfigWorkVacationPanel.cpp:52
+#, fuzzy, kde-format
+#| msgid "Task Defaults"
+msgid "Default"
+msgstr "काम डिफाल्ट"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr ""
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Working week"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, fuzzy, kde-format
+#| msgid "Gantt"
+msgid "Gradient:"
+msgstr "गेंट"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, fuzzy, kde-format
+#| msgid "Task Defaults"
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "काम डिफाल्ट"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, fuzzy, kde-format
+#| msgid "Tasks"
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "काम"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, fuzzy, kde-format
+#| msgid "Milestone Gantt"
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "माइलस्टोन गेंट"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "जवाबदार:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "अपन पता पुस्तिका से एक मनखे भरव"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "अपन पता पुस्तिका से एक मनखे भरव"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "चुनव..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, fuzzy, kde-format
+#| msgid "Cost and schedule monitoring"
+msgid "Scheduling constraint:"
+msgstr "लागत अउ समय सारिनी मानिटरिंग"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "जितनी जल्दी संभव हो"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "जितनी देरी से संभव हो"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "पर चालू होना ही चाही"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "पर पूरा होना ही चाही"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "से पहिली प्रारंब नइ हो"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "के बाद पूरा नइ हो"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "स्थिर अंतराल"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint Start time usage:"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Current date and time"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Current date, specified time"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Specified date and time"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint start time:"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint End time usage:"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Constraint end time:"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Estimate type:"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "प्रयास"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "अवधि"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Expected estimate:"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, fuzzy, kde-format
+#| msgid "Optimistic:"
+msgid "Optimistic estimate:"
+msgstr "आसावादी:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, fuzzy, kde-format
+#| msgid "Pessimistic:"
+msgid "Pessimistic estimate:"
+msgstr "निस्क्रियवादी:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, fuzzy, kde-format
+#| msgid "Update from Work Package"
+msgid "Check for work packages"
+msgstr "काम पैकेज से अपडेट करव"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr ""
+
+#: KPlatoXmlLoader.cpp:69
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+
+#: KPlatoXmlLoader.cpp:71 KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125
+#: kptmaindocument.cpp:357 kptmaindocument.cpp:644
+#, kde-format
+msgid "Continue"
+msgstr "जारी रखव"
+
+#: KPlatoXmlLoader.cpp:71
+#, fuzzy, kde-format
+#| msgid "File-Format Mismatch"
+msgid "File-Format Error"
+msgstr "फाइल फार्मेट मिसमैच"
+
+#: KPlatoXmlLoader.cpp:80
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+
+#: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
+#: kptmaindocument.cpp:644
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "फाइल फार्मेट मिसमैच"
+
+#: KPlatoXmlLoader.cpp:123
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: kptaboutdata.h:37
+#, fuzzy, kde-format
+#| msgid "KPlato"
+msgctxt "application name"
+msgid "Plan"
+msgstr "के-प्लेटो"
+
+#: kptaboutdata.h:39
+#, fuzzy, kde-format
+#| msgid "KPlato - KDE Planning Tool"
+msgid "Project Planning and Management Tool"
+msgstr "केप्लेटो - केडीई प्लानिंग औजार"
+
+#: kptaboutdata.h:41
+#, fuzzy, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "(c) 1998-2008, के-प्लेटो टोली"
+
+#: kptaboutdata.h:45
+#, kde-format
+msgid "Dag Andersen"
+msgstr "डैग वडरसन"
+
+#: kptaboutdata.h:46
+#, kde-format
+msgid "Thomas Zander"
+msgstr "थामस जेंडर"
+
+#: kptaboutdata.h:47
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "बो थार्सेन"
+
+#: kptaboutdata.h:48
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "राफेल लेंगरहोर्स्ट"
+
+#. i18n translator strings
+#: kptaboutdata.h:51
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "रविसंकर सिरीवास्तव, जी. करूनाकर"
+
+#: kptaboutdata.h:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "raviratlami@aol.in,"
+
+#: kptbuiltinschedulerplugin.cpp:35
+#, fuzzy, kde-format
+#| msgid "Not scheduled"
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "सारिनीबद्ध नइ"
+
+#: kptbuiltinschedulerplugin.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+
+#: kptinsertfiledlg.cpp:34
+#, fuzzy, kde-format
+#| msgid "Insert Document"
+msgid "Insert File"
+msgstr "कागद भरव"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Current node:"
+msgstr "प्रतिबन्ध"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, fuzzy, kde-format
+#| msgid "Insert Document"
+msgid "Insert on top level"
+msgstr "कागद भरव"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, fuzzy, kde-format
+#| msgid "Insert Document"
+msgid "Insert as children to current node"
+msgstr "कागद भरव"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, fuzzy, kde-format
+#| msgid "Insert Document"
+msgid "Insert after current node"
+msgstr "कागद भरव"
+
+#: kptloadsharedprojectsdialog.cpp:40
+#, fuzzy, kde-kuit-format
+#| msgid "Resource Assignments"
+msgctxt "@title:window"
+msgid "Load Resource Assignments"
+msgstr "संसाधन आबंटन"
+
+#: kptmaindocument.cpp:309 kptmaindocument.cpp:614
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "अवैध कागद. कोनो माइम-किसिम निरधारित नइ."
+
+#: kptmaindocument.cpp:348
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato, मिलिस %1"
+
+#: kptmaindocument.cpp:355
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+
+#: kptmaindocument.cpp:502
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "सहेजे बर वर्कपैकेज फाइल बनाय नइ जा सकिस: %1"
+
+#: kptmaindocument.cpp:510
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "'%1' ल लिखे मं अक्छम. पार्टीसन पूरा भरे हो ?"
+
+#: kptmaindocument.cpp:537
+#, kde-format
+msgid "Saving..."
+msgstr "सहेजत हे..."
+
+#: kptmaindocument.cpp:631
+#, fuzzy, kde-format
+#| msgid ""
+#| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#| "got %1"
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato.work, मिलिस %1"
+
+#: kptmaindocument.cpp:642
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: kptmaindocument.cpp:1038 kptmaindocument.cpp:1074 kptmaindocument.cpp:1207
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr ""
+
+#: kptmaindocument.cpp:1236
+#, fuzzy
+#| msgid "Insert"
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "प्रविस्ट"
+
+#: kptmaindocument.cpp:1309
+#, kde-format
+msgid "Group: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:1315
+#, fuzzy, kde-format
+#| msgid "Resources"
+msgid "Resource: %1"
+msgstr "संसाधन "
+
+#: kptmaindocument.cpp:1320
+#, kde-format
+msgid "Calendar: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:1325
+#, kde-format
+msgid ""
+"Shared resources has been removed from the shared resources file.\n"
+"Select how they shall be treated in this project."
+msgstr ""
+
+#: kptmaindocument.cpp:1328
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@title:window"
+msgid "Shared resources"
+msgstr "संसाधन मन से काम"
+
+#: kptmaindocument.cpp:1330
+#, kde-format
+msgid "Convert"
+msgstr ""
+
+#: kptmaindocument.cpp:1331
+#, kde-format
+msgid "Keep"
+msgstr ""
+
+#: kptmaindocument.cpp:1542
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr ""
+
+#: kptschedulesdocker.cpp:39
+#, fuzzy, kde-format
+#| msgid "Show Selector"
+msgid "Schedule Selector"
+msgstr "चुनइया देखाव"
+
+#: kptview.cpp:197
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Create Project Template..."
+msgstr "मुख्य परियोजना संपादित करव..."
+
+#: kptview.cpp:201
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Create New Project..."
+msgstr "मुख्य परियोजना संपादित करव..."
+
+#: kptview.cpp:213
+#, kde-format
+msgid "Show Selector"
+msgstr "चुनइया देखाव"
+
+#: kptview.cpp:220 kptview.cpp:256
+#, kde-format
+msgid "Edit..."
+msgstr "संपादन..."
+
+#: kptview.cpp:224
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr ""
+
+#: kptview.cpp:228
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "डबल्यूबीएस पैटर्न परिभासित करव..."
+
+#: kptview.cpp:232
+#, fuzzy, kde-format
+#| msgid "Define WBS Pattern..."
+msgid "Define Currency..."
+msgstr "डबल्यूबीएस पैटर्न परिभासित करव..."
+
+#: kptview.cpp:236
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Edit Description..."
+msgstr "काम प्रोग्राम"
+
+#: kptview.cpp:241
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgid "Insert Project File..."
+msgstr "प्रविस्ट"
+
+#: kptview.cpp:245
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Load Shared Projects..."
+msgstr "संसाधन मन से काम"
+
+#: kptview.cpp:250
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr ""
+
+#: kptview.cpp:259
+#, kde-format
+msgid "Progress..."
+msgstr "प्रगति..."
+
+#: kptview.cpp:262
+#, kde-format
+msgid "Delete Task"
+msgstr "...काम मेटाव"
+
+#: kptview.cpp:265
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Description..."
+msgstr "काम प्रोग्राम"
+
+#: kptview.cpp:268
+#, fuzzy, kde-format
+#| msgid "Documents"
+msgid "Documents..."
+msgstr "कागद"
+
+#: kptview.cpp:271
+#, kde-format
+msgid "Indent Task"
+msgstr "काम इंडेंट करव"
+
+#: kptview.cpp:274
+#, kde-format
+msgid "Unindent Task"
+msgstr "काम अनइंडेंट करव"
+
+#: kptview.cpp:277
+#, kde-format
+msgid "Move Task Up"
+msgstr "काम ऊपर खिसकाव"
+
+#: kptview.cpp:280
+#, kde-format
+msgid "Move Task Down"
+msgstr "काम नीचे खिसकाव"
+
+#: kptview.cpp:284
+#, kde-format
+msgid "Edit Resource..."
+msgstr "संसाधन संपादित करव..."
+
+#: kptview.cpp:288
+#, kde-format
+msgid "Edit Dependency..."
+msgstr "डिपेंडेंसी संपादित करव..."
+
+#: kptview.cpp:291
+#, kde-format
+msgid "Delete Dependency"
+msgstr "डिपेंडेंसी मेटाव"
+
+#: kptview.cpp:301
+#, fuzzy, kde-format
+#| msgid "Work Package"
+msgid "Work Packages..."
+msgstr "काम पैकेज"
+
+#: kptview.cpp:302
+#, fuzzy, kde-format
+#| msgid "Work Package"
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "काम पैकेज"
+
+#: kptview.cpp:393
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+#| msgid "Cost and schedule monitoring"
+msgid "Edit task scheduling constraints"
+msgstr "लागत अउ समय सारिनी मानिटरिंग"
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Task Constraints"
+msgstr "प्रतिबन्ध"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+#| msgid "Edit task dependencies"
+msgid "Edit task cost"
+msgstr "काम डिपेंडेंसीज संपादित करव"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+#| msgid "Task Editor"
+msgid "Task Cost"
+msgstr "काम संपादक "
+
+#: kptview.cpp:577
+#, fuzzy, kde-format
+#| msgid "Generate WBS Code"
+msgid "Generate reports"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#: kptview.cpp:583 kptview.cpp:3201
+#, fuzzy, kde-format
+#| msgid "Task Status"
+msgid "Task Status Report"
+msgstr "काम स्थिति"
+
+#: kptview.cpp:661
+#, fuzzy, kde-kuit-format
+#| msgid "Edit working- and vacation days for resources"
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "संसाधन मन बर काम अउ छुट्टी संपादित करव"
+
+#: kptview.cpp:663
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "कीमत ब्रेकडाउन स्ट्रक्चर"
+
+#: kptview.cpp:664
+#, fuzzy, kde-kuit-format
+#| msgid "Edit cost breakdown structure."
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "कीमत ब्रेकडाउन स्ट्रक्चर संपादित करव."
+
+#: kptview.cpp:666
+#, kde-format
+msgid "Resources"
+msgstr "संसाधन "
+
+#: kptview.cpp:667
+#, fuzzy, kde-kuit-format
+#| msgid "Edit resource breakdown structure."
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "संसाधन ब्रेकडाउन स्ट्रक्चर संपादित करव."
+
+#: kptview.cpp:669
+#, kde-format
+msgid "Tasks"
+msgstr "काम"
+
+#: kptview.cpp:670
+#, fuzzy, kde-kuit-format
+#| msgid "Edit work breakdown structure"
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "काम ब्रेकडाउन स्ट्रक्चर संपादित करव"
+
+#: kptview.cpp:672
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "डिपेंडेंसीज (ग्राफिक)"
+
+#: kptview.cpp:673 kptview.cpp:676
+#, fuzzy, kde-kuit-format
+#| msgid "Edit task dependencies"
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "काम डिपेंडेंसीज संपादित करव"
+
+#: kptview.cpp:675
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "डिपेंडेंसीज (सूची)"
+
+#: kptview.cpp:679 kptview.cpp:681
+#, kde-format
+msgid "Schedules"
+msgstr "समय सारिनी"
+
+#: kptview.cpp:682
+#, fuzzy, kde-kuit-format
+#| msgid "Calculate and analyze project schedules"
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "परियोजना समय सारिनी के गनना अउ विस्लेसन करव "
+
+#: kptview.cpp:684 kptviewlistdialog.cpp:118
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "परियोजना परफारमेंस चार्ट"
+
+#: kptview.cpp:685
+#, fuzzy, kde-kuit-format
+#| msgid "View project status information"
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "परियोजना स्थिति जानकारी देखव"
+
+#: kptview.cpp:687 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Task Status"
+msgstr "काम स्थिति"
+
+#: kptview.cpp:688
+#, fuzzy, kde-kuit-format
+#| msgid "View task progress information"
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "काम प्रगति जानकारी देखव"
+
+#: kptview.cpp:690
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Task Execution"
+msgstr "काम प्रोग्राम"
+
+#: kptview.cpp:691
+#, fuzzy, kde-kuit-format
+#| msgid "View task execution information"
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "काम चले के जानकारी देखव"
+
+#: kptview.cpp:693 kptviewlistdialog.cpp:112
+#, fuzzy, kde-format
+#| msgid "Work Package"
+msgid "Work Package View"
+msgstr "काम पैकेज"
+
+#: kptview.cpp:694
+#, fuzzy, kde-kuit-format
+#| msgid "View task progress information"
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "काम प्रगति जानकारी देखव"
+
+#: kptview.cpp:696
+#, kde-format
+msgid "Gantt"
+msgstr "गेंट"
+
+#: kptview.cpp:697
+#, fuzzy, kde-kuit-format
+#| msgid "View gantt chart"
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "गेंट आरेख देखव"
+
+#: kptview.cpp:699
+#, fuzzy, kde-format
+#| msgid "Milestone Gantt"
+msgid "Milestone Gantt"
+msgstr "माइलस्टोन गेंट"
+
+#: kptview.cpp:700
+#, fuzzy, kde-kuit-format
+#| msgid "View milestone gantt chart"
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "माइलस्टोन गेंट चार्ट देखव"
+
+#: kptview.cpp:702 kptviewlistdialog.cpp:115
+#, kde-format
+msgid "Resource Assignments"
+msgstr "संसाधन आबंटन"
+
+#: kptview.cpp:703
+#, fuzzy, kde-kuit-format
+#| msgid "View resource assignments"
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "संसाधन आबंटन देखव"
+
+#: kptview.cpp:705 kptviewlistdialog.cpp:116
+#, fuzzy, kde-format
+#| msgid "Resource Assignments"
+msgid "Resource Assignments (Gantt)"
+msgstr "संसाधन आबंटन"
+
+#: kptview.cpp:706
+#, fuzzy, kde-kuit-format
+#| msgid "View resource assignments"
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "संसाधन आबंटन देखव"
+
+#: kptview.cpp:708 kptviewlistdialog.cpp:117
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "लागत ब्रेकडाउन"
+
+#: kptview.cpp:709
+#, fuzzy, kde-kuit-format
+#| msgid "View planned and actual cost"
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "प्लान करे गे वास्तविक लागत देखव"
+
+#: kptview.cpp:711 kptviewlistdialog.cpp:119
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "परफारमेंस चार्ट"
+
+#: kptview.cpp:712
+#, fuzzy, kde-kuit-format
+#| msgid "View tasks performance status information"
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "काम परफारमेस स्थित जानकारी देखव"
+
+#: kptview.cpp:714
+#, kde-format
+msgid "Reports Generator"
+msgstr ""
+
+#: kptview.cpp:715
+#, fuzzy, kde-kuit-format
+#| msgid "Generate WBS Code"
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "डबल्यूबीएस कोड तैयार करव"
+
+#: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
+#: kptviewlistdialog.cpp:564
+#, fuzzy, kde-format, kde-kuit-format
+#| msgid "Resources"
+msgid "Report"
+msgstr "संसाधन "
+
+#: kptview.cpp:718
+#, fuzzy, kde-kuit-format
+#| msgid "View Selector"
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "दृस्य चुनइया"
+
+#: kptview.cpp:729
+#, kde-format
+msgid "Editors"
+msgstr "संपादक"
+
+#: kptview.cpp:731
+#, kde-format
+msgid "Views"
+msgstr "दृस्य"
+
+#: kptview.cpp:733
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "काम प्रोग्राम"
+
+#: kptview.cpp:735
+#, fuzzy, kde-format
+#| msgid "Resources"
+msgid "Reports"
+msgstr "संसाधन "
+
+#: kptview.cpp:1695
+#, fuzzy, kde-format
+#| msgid "Calculate %1"
+msgctxt "(qtundo-format) @info:status 1=schedule name"
+msgid "Calculate %1"
+msgstr "गनना करव %1"
+
+#: kptview.cpp:1714
+#, kde-format
+msgid "Cannot baseline. The project is already baselined."
+msgstr ""
+
+#: kptview.cpp:1719
+#, kde-format
+msgid "This schedule is baselined. Do you want to remove the baseline?"
+msgstr ""
+
+#: kptview.cpp:1723
+#, fuzzy, kde-format
+#| msgid "Delete Schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Reset baseline %1"
+msgstr "समय-सारिनी %1 मेटाव"
+
+#: kptview.cpp:1726 kptview.cpp:1730
+#, fuzzy, kde-format
+#| msgid "Delete Schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Baseline %1"
+msgstr "समय-सारिनी %1 मेटाव"
+
+#: kptview.cpp:1741
+#, fuzzy, kde-format
+#| msgid "Add Schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Add schedule %1"
+msgstr "समय सारिनी जोड़व %1"
+
+#: kptview.cpp:1750
+#, fuzzy, kde-format
+#| msgid "Delete Schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Delete schedule %1"
+msgstr "समय-सारिनी %1 मेटाव"
+
+#: kptview.cpp:1759
+#, fuzzy, kde-format
+#| msgid "Add Schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Move schedule %1"
+msgstr "समय सारिनी जोड़व %1"
+
+#: kptview.cpp:1822
+#, fuzzy
+#| msgid "Add Milestone"
+msgctxt "(qtundo-format)"
+msgid "Add milestone"
+msgstr "पड़ाव जोड़व"
+
+#: kptview.cpp:1846
+#, fuzzy
+#| msgid "Add Milestone"
+msgctxt "(qtundo-format)"
+msgid "Add sub-milestone"
+msgstr "पड़ाव जोड़व"
+
+#: kptview.cpp:2228
+#, kde-format
+msgid ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr "एक काम ल मेटाय बर सारिनीबद्ध कर दे गे हे. ए समयसारिनी ल अवैध कर देही."
+
+#: kptview.cpp:2236 kptview.cpp:2240 kptview.cpp:2256 kptview.cpp:2280
+#, fuzzy
+#| msgid "Delete Task"
+msgctxt "(qtundo-format)"
+msgid "Delete task"
+msgid_plural "Delete tasks"
+msgstr[0] "...काम मेटाव"
+msgstr[1] "...काम मेटाव"
+
+#: kptview.cpp:2275
+#, kde-format
+msgid "This task has been scheduled. This will invalidate the schedule."
+msgstr "ये काम सारिनीबद्ध कर दे गे हे. ए समयसारिनी ल अवैध कर देही."
+
+#: kptview.cpp:2299
+#, fuzzy
+#| msgid "Indent Task"
+msgctxt "(qtundo-format)"
+msgid "Indent task"
+msgstr "काम इंडेंट करव"
+
+#: kptview.cpp:2313
+#, fuzzy
+#| msgid "Unindent Task"
+msgctxt "(qtundo-format)"
+msgid "Unindent task"
+msgstr "काम अनइंडेंट करव"
+
+#: kptview.cpp:2335
+#, fuzzy
+#| msgid "Move Task Up"
+msgctxt "(qtundo-format)"
+msgid "Move task up"
+msgstr "काम ऊपर खिसकाव"
+
+#: kptview.cpp:2356
+#, fuzzy
+#| msgid "Move Task Down"
+msgctxt "(qtundo-format)"
+msgid "Move task down"
+msgstr "काम नीचे खिसकाव"
+
+#: kptview.cpp:2392
+#, fuzzy
+#| msgid "Edit task dependencies"
+msgctxt "(qtundo-format)"
+msgid "Add task dependency"
+msgstr "काम डिपेंडेंसीज संपादित करव"
+
+#: kptview.cpp:2453
+#, fuzzy
+#| msgid "Delete Task Dependency"
+msgctxt "(qtundo-format)"
+msgid "Delete task dependency"
+msgstr "काम डिपेंडेंसी मेटाव"
+
+#: kptview.cpp:2490 kptview.cpp:2551
+#, fuzzy
+#| msgid "Delete Resource"
+msgctxt "(qtundo-format)"
+msgid "Delete resource"
+msgid_plural "Delete resources"
+msgstr[0] "संसाधन मेटाव"
+msgstr[1] "संसाधन मेटाव"
+
+#: kptview.cpp:2495 kptview.cpp:2553
+#, fuzzy
+#| msgid "Delete Resourcegroup"
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroup"
+msgid_plural "Delete resourcegroups"
+msgstr[0] "संसाधनसमूह मेटाव"
+msgstr[1] "संसाधनसमूह मेटाव"
+
+#: kptview.cpp:2504 kptview.cpp:2512
+#, kde-format
+msgid ""
+"A resource that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr "संसाधन जऊन ल सारिनीबद्ध करे रिहिस, मेटाय जाही. ए सारिनी ल अवैध कर देही."
+
+#: kptview.cpp:2549
+#, fuzzy
+#| msgid "Delete Resourcegroup"
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroups and resources"
+msgstr "संसाधनसमूह मेटाव"
+
+#: kptview.cpp:2720
+#, fuzzy, kde-kuit-format
+#| msgid "Failed to save to temporary file: %1"
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#: kptview.cpp:2846
+#, fuzzy
+#| msgid "Modify Name"
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "नाम सुधारव"
+
+#: kptview.cpp:2848
+#, fuzzy
+#| msgid "Modify Name"
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "नाम सुधारव"
+
+#: kptview.cpp:2849
+#, fuzzy
+#| msgid "Modify Name"
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "नाम सुधारव"
+
+#: kptview.cpp:2850
+#, fuzzy
+#| msgid "Modify Name"
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "नाम सुधारव"
+
+#: kptview.cpp:2851
+#, fuzzy
+#| msgid "Project name:"
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "परियोजना नाम:"
+
+#: kptview.cpp:2943
+#, fuzzy, kde-kuit-format
+#| msgid "Not scheduled"
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "सारिनीबद्ध नइ"
+
+#: kptview.cpp:2985
+#, kde-format
+msgid "Failed to open temporary file"
+msgstr "अस्थायी फाइल खोले मं अक्छम"
+
+#: kptview.cpp:2991
+#, fuzzy, kde-kuit-format
+#| msgid "Failed to save to temporary file: %1"
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#: kptview.cpp:2999
+#, kde-format
+msgid "Work Package: %1"
+msgstr "काम पैकेज: %1"
+
+#: kptview.cpp:3000
+#, kde-format
+msgctxt "1=project name, 2=task name"
+msgid ""
+"%1\n"
+"%2"
+msgstr ""
+
+#: kptview.cpp:3030
+#, fuzzy, kde-format
+#| msgid "Failed to open temporary file"
+msgid "Failed to open work package file"
+msgstr "अस्थायी फाइल खोले मं अक्छम"
+
+#: kptview.cpp:3037
+#, fuzzy, kde-kuit-format
+#| msgid "Failed to save to temporary file: %1"
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#: kptview.cpp:3046
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgid "Work Package for project: %1"
+msgstr "काम पैकेज: %1"
+
+#: kptview.cpp:3199
+#, fuzzy, kde-format
+#| msgid "Page:"
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "पेजः"
+
+#: kptview.cpp:3200
+#, fuzzy, kde-format
+#| msgid "Project"
+msgid "Project:"
+msgstr "परियोजना"
+
+#: kptview.cpp:3202
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr ""
+
+#: kptview.cpp:3203
+#, fuzzy, kde-format
+#| msgid "Page:"
+msgid "Page"
+msgstr "पेजः"
+
+#: kptview.cpp:3204
+#, fuzzy, kde-format
+#| msgid "Name"
+msgctxt "Task name"
+msgid "Name"
+msgstr "नाम"
+
+#: kptview.cpp:3205
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr ""
+
+#: kptviewlist.cpp:349
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:371
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:604
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr ""
+
+#: kptviewlist.cpp:738
+#, fuzzy, kde-kuit-format
+#| msgid "Rename"
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "नाम बदलव"
+
+#: kptviewlist.cpp:742
+#, fuzzy, kde-kuit-format
+#| msgid "Configure..."
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "कान्फिगर..."
+
+#: kptviewlist.cpp:746
+#, fuzzy, kde-kuit-format
+#| msgid "Remove"
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "हटाव"
+
+#: kptviewlist.cpp:755
+#, fuzzy, kde-kuit-format
+#| msgid "Rename"
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "नाम बदलव"
+
+#: kptviewlist.cpp:759
+#, fuzzy, kde-kuit-format
+#| msgid "Configure..."
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "कान्फिगर..."
+
+#: kptviewlist.cpp:763
+#, fuzzy, kde-kuit-format
+#| msgid "Remove"
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "हटाव"
+
+#: kptviewlist.cpp:772
+#, fuzzy, kde-kuit-format
+#| msgid "Insert"
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "प्रविस्ट"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "The category of the view"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "वर्गः"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "बाद"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "The type of view"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "दृस्य किसिम:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "The name of the view"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "नाम:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "The views description"
+msgstr "काम प्रोग्राम"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, fuzzy, kde-format
+#| msgid "Task Execution"
+msgid "Description:"
+msgstr "काम प्रोग्राम"
+
+#: kptviewlistdialog.cpp:42
+#, fuzzy, kde-kuit-format
+#| msgid "Add View"
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "दृस्य जोड़व"
+
+#: kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Resource Editor"
+msgstr "संसाधन संपादक"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Task Editor"
+msgstr "काम संपादक "
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "काम अउ छुट्टी संपादक"
+
+#: kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Accounts Editor"
+msgstr "खाता संपादक "
+
+#: kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "डिपेंडेंसी संपादक (ग्राफिक)"
+
+#: kptviewlistdialog.cpp:108
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "डिपेंडेंसी संपादक (सूची)"
+
+#: kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Schedule Handler"
+msgstr "समयसारिनी हेन्डलर"
+
+#: kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Task View"
+msgstr "काम दृस्य"
+
+#: kptviewlistdialog.cpp:113
+#, kde-format
+msgid "Gantt View"
+msgstr "गेंट दृस्य"
+
+#: kptviewlistdialog.cpp:114
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "पड़ाव गैंट दृस्य"
+
+#: kptviewlistdialog.cpp:120
+#, kde-format
+msgid "Reports generator"
+msgstr ""
+
+#: kptviewlistdialog.cpp:148
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:200 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:631
+#, kde-format
+msgid "Top"
+msgstr "ऊपर"
+
+#: kptviewlistdialog.cpp:306
+#, fuzzy, kde-kuit-format
+#| msgid "Configure View"
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "कान्फिगर दृस्य"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:431
+#, fuzzy, kde-kuit-format
+#| msgid "Configure KPlato"
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "केप्लेटो कान्फिगर करव"
+
+#: kptviewlistdialog.cpp:522
+#, fuzzy, kde-kuit-format
+#| msgid "Resources"
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "संसाधन "
+
+#: kptviewlistdocker.cpp:68 kptviewlistdocker.cpp:74
+#, fuzzy, kde-kuit-format
+#| msgid "View Selector"
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "दृस्य चुनइया"
+
+#: kptviewlistdocker.cpp:76
+#, fuzzy, kde-kuit-format
+#| msgid "View Selector"
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "दृस्य चुनइया"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "सब्द"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "वाक्य"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "सिलेबल्स"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "पंक्तियाँ"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "खाली जगह सहित अक्छर"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "खाली जगह रहित अक्छर"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "फ्लैस पठन ईजी"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "पाद-टिप्पनियों अउ आखरी-टिप्पनी से पाठ सामिल करव"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "डाटा अपने अपन ताजा करव"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "The name of the category"
+msgstr "एस्टीमेट:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:125
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Create a new project</title><para>Creates a new project with default "
+"values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+"<emphasis>project dialog</emphasis> so you can define project specific "
+"properties like <resource>Project Name</resource>, <resource>Target Start</"
+"resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:139
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared resources</title><para>Create a shared resources file.<nl/"
+">This enables you to only create your resources once, you just refer to your "
+"resources file when you create a new project.<nl/>These resources can then "
+"be shared between projects to avoid overbooking resources across projects."
+"<nl/>Shared resources must be defined in a separate file.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:152
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Recent Projects</title><para>A list of the 10 most recent project "
+"files opened.</para><para><nl/>This enables you to quickly open projects you "
+"have worked on recently.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:161
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:179
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:312
+#, fuzzy, kde-format
+#| msgid "Remove Document"
+msgid "Open Document"
+msgstr "कागद मेटाव"
+
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, fuzzy, kde-format
+#| msgid "Insert"
+msgid "New project"
+msgstr "प्रविस्ट"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Create Shared Resources"
+msgstr "संसाधन मन से काम"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Open Project..."
+msgstr "मुख्य परियोजना संपादित करव..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr ""
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgid "Plan"
+#~ msgstr "के-प्लेटो"
+
+#, fuzzy
+#~| msgid "KPlato - KDE Planning Tool"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "केप्लेटो - केडीई प्लानिंग औजार"
+
+#~ msgid "Calculation"
+#~ msgstr "गनना"
+
+#~ msgid "Manual"
+#~ msgstr "हस्तचालित"
+
+#~ msgid "Immediate on change"
+#~ msgstr "बदलाव मं तुरंत"
+
+#~ msgid "Constraints"
+#~ msgstr "प्रतिबन्ध"
+
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "संसाधन मन के ओवरबुकिंग स्वीकारव"
+
+#, fuzzy
+#~| msgid "Configure KPlato..."
+#~ msgid "Configure Plan..."
+#~ msgstr "केप्लेटो कान्फिगर करव..."
+
+#~ msgid "Project"
+#~ msgstr "परियोजना"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "कागद से टैम्प्लेट तैयार करव... (&C)"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "गेंट"
+
+#, fuzzy
+#~| msgid "Task Defaults"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "काम डिफाल्ट"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "काम"
+
+#, fuzzy
+#~| msgid "Milestone Gantt"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "माइलस्टोन गेंट"
+
+#, fuzzy
+#~| msgid "Calculation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "गनना"
+
+#, fuzzy
+#~| msgid "Manual"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "हस्तचालित"
+
+#, fuzzy
+#~| msgid "Immediate on change"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "बदलाव मं तुरंत"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Allow overbooking of resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "संसाधन मन के ओवरबुकिंग स्वीकारव"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "सामान्य"
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "जवाबदार:"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "अपन पता पुस्तिका से एक मनखे भरव"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "अपन पता पुस्तिका से एक मनखे भरव"
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "चुनव..."
+
+#, fuzzy
+#~| msgid "As Soon as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "जितनी जल्दी संभव हो"
+
+#, fuzzy
+#~| msgid "As Late as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "जितनी देरी से संभव हो"
+
+#, fuzzy
+#~| msgid "Must Start On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "पर चालू होना ही चाही"
+
+#, fuzzy
+#~| msgid "Must Finish On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "पर पूरा होना ही चाही"
+
+#, fuzzy
+#~| msgid "Start Not Earlier Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "से पहिली प्रारंब नइ हो"
+
+#, fuzzy
+#~| msgid "Finish Not Later Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "के बाद पूरा नइ हो"
+
+#, fuzzy
+#~| msgid "Fixed Interval"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "स्थिर अंतराल"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "प्रयास"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "अवधि"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Optimistic:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "आसावादी:"
+
+#, fuzzy
+#~| msgid "%"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#, fuzzy
+#~| msgid "Pessimistic:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "निस्क्रियवादी:"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Insert Document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "कागद भरव"
+
+#, fuzzy
+#~| msgid "Insert Document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "कागद भरव"
+
+#, fuzzy
+#~| msgid "Insert Document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "कागद भरव"
+
+#, fuzzy
+#~| msgid "Category:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "वर्गः"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "बाद"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "View type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "दृस्य किसिम:"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "नाम:"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Words"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "सब्द"
+
+#, fuzzy
+#~| msgid "Sentences"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "वाक्य"
+
+#, fuzzy
+#~| msgid "Syllables"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "सिलेबल्स"
+
+#, fuzzy
+#~| msgid "Lines"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "पंक्तियाँ"
+
+#, fuzzy
+#~| msgid "Characters incl. spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "खाली जगह सहित अक्छर"
+
+#, fuzzy
+#~| msgid "Characters without spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "खाली जगह रहित अक्छर"
+
+#, fuzzy
+#~| msgid "Flesch reading ease"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "फ्लैस पठन ईजी"
+
+#, fuzzy
+#~| msgid "0"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~| msgid "..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~| msgid "Include text from foot- and endnotes"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "पाद-टिप्पनियों अउ आखरी-टिप्पनी से पाठ सामिल करव"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "डाटा अपने अपन ताजा करव"
+
+#, fuzzy
+#~| msgid "Update from Work Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Check for work packages"
+#~ msgstr "काम पैकेज से अपडेट करव"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Optimistic:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "आसावादी:"
+
+#, fuzzy
+#~| msgid "Pessimistic:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "निस्क्रियवादी:"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "गेंट"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "डाटा अपने अपन ताजा करव"
+
+#, fuzzy
+#~| msgid "&File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "फाइल (&F)"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "संपादन (&E)"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "देखव (&V)"
+
+#, fuzzy
+#~| msgid "&Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "परियोजना (&P)"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "औजार (&T)"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "सेटिंग (&S)"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "के-प्लेटो"
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "जारी रखव"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "फाइल फार्मेट मिसमैच"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "फाइल फार्मेट मिसमैच"
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "के-प्लेटो"
+
+#, fuzzy
+#~| msgid "KPlato - KDE Planning Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "केप्लेटो - केडीई प्लानिंग औजार"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "(c) 1998-2008, के-प्लेटो टोली"
+
+#, fuzzy
+#~| msgid "Thomas Zander"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "थामस जेंडर"
+
+#, fuzzy
+#~| msgid "Bo Thorsen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "बो थार्सेन"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "डैग वडरसन"
+
+#, fuzzy
+#~| msgid "Raphael Langerhorst"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "राफेल लेंगरहोर्स्ट"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "रविसंकर सिरीवास्तव, जी. करूनाकर"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "raviratlami@aol.in,"
+
+#, fuzzy
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "सारिनीबद्ध नइ"
+
+#, fuzzy
+#~| msgid "Lines"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "पंक्तियाँ"
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "के-प्लेटो"
+
+#, fuzzy
+#~| msgid "Insert Document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "कागद भरव"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "अवैध कागद. कोनो माइम-किसिम निरधारित नइ."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato, got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato, मिलिस %1"
+
+#, fuzzy
+#~| msgid "Could not create the workpackage file for saving: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the workpackage file for saving: %1"
+#~ msgstr "सहेजे बर वर्कपैकेज फाइल बनाय नइ जा सकिस: %1"
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "'%1' ल लिखे मं अक्छम. पार्टीसन पूरा भरे हो ?"
+
+#, fuzzy
+#~| msgid "Saving..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "सहेजत हे..."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "अवैध कागद. वांछित माइम किसिम application/x-vnd.kde.kplato.work, मिलिस %1"
+
+#, fuzzy
+#~| msgid "Show Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "चुनइया देखाव"
+
+#, fuzzy
+#~| msgid "&Create Template From Document..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "कागद से टैम्प्लेट तैयार करव... (&C)"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "मुख्य परियोजना संपादित करव..."
+
+#, fuzzy
+#~| msgid "Show Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "चुनइया देखाव"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "मुख्य परियोजना संपादित करव..."
+
+#, fuzzy
+#~| msgid "Define WBS Pattern..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "डबल्यूबीएस पैटर्न परिभासित करव..."
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "प्रविस्ट"
+
+#, fuzzy
+#~| msgid "Configure KPlato..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "केप्लेटो कान्फिगर करव..."
+
+#, fuzzy
+#~| msgid "Define WBS Pattern..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "डबल्यूबीएस पैटर्न परिभासित करव..."
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "संपादन..."
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "प्रगति..."
+
+#, fuzzy
+#~| msgid "Delete Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "...काम मेटाव"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Indent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "काम इंडेंट करव"
+
+#, fuzzy
+#~| msgid "Unindent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "काम अनइंडेंट करव"
+
+#, fuzzy
+#~| msgid "Move Task Up"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "काम ऊपर खिसकाव"
+
+#, fuzzy
+#~| msgid "Move Task Down"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "काम नीचे खिसकाव"
+
+#, fuzzy
+#~| msgid "Edit Resource..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "संसाधन संपादित करव..."
+
+#, fuzzy
+#~| msgid "Edit Dependency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "डिपेंडेंसी संपादित करव..."
+
+#, fuzzy
+#~| msgid "Delete Dependency"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "डिपेंडेंसी मेटाव"
+
+#, fuzzy
+#~| msgid "Task Status"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "काम स्थिति"
+
+#, fuzzy
+#~| msgid "Work & Vacation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "काम अउ छुट्टी"
+
+#, fuzzy
+#~| msgid "Edit working- and vacation days for resources"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "संसाधन मन बर काम अउ छुट्टी संपादित करव"
+
+#, fuzzy
+#~| msgid "Cost Breakdown Structure"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "कीमत ब्रेकडाउन स्ट्रक्चर"
+
+#, fuzzy
+#~| msgid "Edit cost breakdown structure."
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "कीमत ब्रेकडाउन स्ट्रक्चर संपादित करव."
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "संसाधन "
+
+#, fuzzy
+#~| msgid "Edit resource breakdown structure."
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "संसाधन ब्रेकडाउन स्ट्रक्चर संपादित करव."
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "काम"
+
+#, fuzzy
+#~| msgid "Edit work breakdown structure"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "काम ब्रेकडाउन स्ट्रक्चर संपादित करव"
+
+#, fuzzy
+#~| msgid "Dependencies (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "डिपेंडेंसीज (ग्राफिक)"
+
+#, fuzzy
+#~| msgid "Edit task dependencies"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "काम डिपेंडेंसीज संपादित करव"
+
+#, fuzzy
+#~| msgid "Dependencies (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "डिपेंडेंसीज (सूची)"
+
+#, fuzzy
+#~| msgid "Schedules"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "समय सारिनी"
+
+#, fuzzy
+#~| msgid "Calculate and analyze project schedules"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "परियोजना समय सारिनी के गनना अउ विस्लेसन करव "
+
+#, fuzzy
+#~| msgid "Project Performance Chart"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "परियोजना परफारमेंस चार्ट"
+
+#, fuzzy
+#~| msgid "View project status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "परियोजना स्थिति जानकारी देखव"
+
+#, fuzzy
+#~| msgid "Task Status"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "काम स्थिति"
+
+#, fuzzy
+#~| msgid "View task progress information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "काम प्रगति जानकारी देखव"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "View task execution information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "काम चले के जानकारी देखव"
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package View"
+#~ msgstr "काम पैकेज"
+
+#, fuzzy
+#~| msgid "View task progress information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "काम प्रगति जानकारी देखव"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "गेंट"
+
+#, fuzzy
+#~| msgid "View gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "गेंट आरेख देखव"
+
+#, fuzzy
+#~| msgid "Milestone Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "माइलस्टोन गेंट"
+
+#, fuzzy
+#~| msgid "View milestone gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "माइलस्टोन गेंट चार्ट देखव"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "संसाधन आबंटन"
+
+#, fuzzy
+#~| msgid "View resource assignments"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "संसाधन आबंटन देखव"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "संसाधन आबंटन"
+
+#, fuzzy
+#~| msgid "View resource assignments"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "संसाधन आबंटन देखव"
+
+#, fuzzy
+#~| msgid "Cost Breakdown"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown"
+#~ msgstr "लागत ब्रेकडाउन"
+
+#, fuzzy
+#~| msgid "View planned and actual cost"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "प्लान करे गे वास्तविक लागत देखव"
+
+#, fuzzy
+#~| msgid "Tasks Performance Chart"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "परफारमेंस चार्ट"
+
+#, fuzzy
+#~| msgid "View tasks performance status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "काम परफारमेस स्थित जानकारी देखव"
+
+#, fuzzy
+#~| msgid "View Selector"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "दृस्य चुनइया"
+
+#, fuzzy
+#~| msgid "Editors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "संपादक"
+
+#, fuzzy
+#~| msgid "Views"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "दृस्य"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "काम प्रोग्राम"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "संसाधन "
+
+#, fuzzy
+#~| msgid "Task Defaults"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "काम डिफाल्ट"
+
+#, fuzzy
+#~| msgid "Task Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "काम संपादक "
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package"
+#~ msgstr "काम पैकेज"
+
+#, fuzzy
+#~| msgid ""
+#~| "A task that has been scheduled will be deleted. This will invalidate the "
+#~| "schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr "एक काम ल मेटाय बर सारिनीबद्ध कर दे गे हे. ए समयसारिनी ल अवैध कर देही."
+
+#, fuzzy
+#~| msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "ये काम सारिनीबद्ध कर दे गे हे. ए समयसारिनी ल अवैध कर देही."
+
+#, fuzzy
+#~| msgid ""
+#~| "A resource that has been scheduled will be deleted. This will invalidate "
+#~| "the schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr "संसाधन जऊन ल सारिनीबद्ध करे रिहिस, मेटाय जाही. ए सारिनी ल अवैध कर देही."
+
+#, fuzzy
+#~| msgid "Failed to save to temporary file: %1"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#, fuzzy
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "सारिनीबद्ध नइ"
+
+#, fuzzy
+#~| msgid "Failed to open temporary file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "अस्थायी फाइल खोले मं अक्छम"
+
+#, fuzzy
+#~| msgid "Failed to save to temporary file: %1"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "काम पैकेज: %1"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package for project: %1"
+#~ msgstr "काम पैकेज: %1"
+
+#, fuzzy
+#~| msgid "Failed to save to temporary file: %1"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#, fuzzy
+#~| msgid "Page:"
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "पेजः"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "Page:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "पेजः"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "नाम"
+
+#, fuzzy
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "नाम बदलव"
+
+#, fuzzy
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "कान्फिगर..."
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "हटाव"
+
+#, fuzzy
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "नाम बदलव"
+
+#, fuzzy
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "कान्फिगर..."
+
+#, fuzzy
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "हटाव"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "प्रविस्ट"
+
+#, fuzzy
+#~| msgid "Add View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "दृस्य जोड़व"
+
+#, fuzzy
+#~| msgid "Resource Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "संसाधन संपादक"
+
+#, fuzzy
+#~| msgid "Task Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "काम संपादक "
+
+#, fuzzy
+#~| msgid "Work & Vacation Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "काम अउ छुट्टी संपादक"
+
+#, fuzzy
+#~| msgid "Accounts Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "खाता संपादक "
+
+#, fuzzy
+#~| msgid "Dependency Editor (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "डिपेंडेंसी संपादक (ग्राफिक)"
+
+#, fuzzy
+#~| msgid "Dependency Editor (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "डिपेंडेंसी संपादक (सूची)"
+
+#, fuzzy
+#~| msgid "Schedule Handler"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "समयसारिनी हेन्डलर"
+
+#, fuzzy
+#~| msgid "Task View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "काम दृस्य"
+
+#, fuzzy
+#~| msgid "Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "गेंट दृस्य"
+
+#, fuzzy
+#~| msgid "Milestone Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "पड़ाव गैंट दृस्य"
+
+#, fuzzy
+#~| msgid "Top"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "ऊपर"
+
+#, fuzzy
+#~| msgid "Configure View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "कान्फिगर दृस्य"
+
+#, fuzzy
+#~| msgid "Configure KPlato"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "केप्लेटो कान्फिगर करव"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "संसाधन "
+
+#, fuzzy
+#~| msgid "View Selector"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "दृस्य चुनइया"
+
+#, fuzzy
+#~| msgid "View Selector"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "दृस्य चुनइया"
+
+#, fuzzy
+#~| msgid "Failed to save to temporary file: %1"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#, fuzzy
+#~| msgid "Failed to save to temporary file: %1"
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "अस्थाई फाइल: %1 मं सहेजे मं फेल"
+
+#~ msgid "Tip:"
+#~ msgstr "नुस्खा:"
+
+#~ msgid "File to open"
+#~ msgstr "फाइल जऊन ल खोलना हे"
+
+#, fuzzy
+#~| msgid "Delete Resource"
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] "संसाधन मेटाव"
+#~ msgstr[1] "संसाधन मेटाव"
+
+#, fuzzy
+#~| msgid "Delete Resourcegroup"
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "संसाधनसमूह मेटाव"
+#~ msgstr[1] "संसाधनसमूह मेटाव"
+
+#~ msgid "Nuno Pinheiro and Danny Allen"
+#~ msgstr "नुनो पिनहेरियो अउ डैनी एलन"
+
+#, fuzzy
+#~| msgid "Application icon for kplato"
+#~ msgid "Application icon for plan"
+#~ msgstr "केप्लेटो बर अनुपरयोग चिनहा"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgid "&Reports"
+#~ msgstr "संसाधन "
+
+#, fuzzy
+#~| msgid "Tasks Performance Chart"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "परफारमेंस चार्ट"
+
+#~ msgid "View resource assignments"
+#~ msgstr "संसाधन आबंटन देखव"
+
+#, fuzzy
+#~| msgid "%1: Calculating..."
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating..."
+#~ msgstr "%1: गनना करत हे ..."
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation stopped"
+#~ msgstr "%1: गनना पूरा"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation canceled"
+#~ msgstr "%1: गनना पूरा"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation error"
+#~ msgstr "%1: गनना पूरा"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating done"
+#~ msgstr "%1: गनना पूरा"
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgid "Send Work Package..."
+#~ msgstr "काम पैकेज"
+
+#, fuzzy
+#~| msgid "Add Subtask"
+#~ msgid "Add sub-task"
+#~ msgstr "उप काम जोड़व"
+
+#, fuzzy
+#~| msgid "Add Task"
+#~ msgid "Add task"
+#~ msgstr "काम जोड़व"
+
+#~ msgid "Delete Tasks"
+#~ msgstr "काम मेटाव"
+
+#~ msgid "Add Relation"
+#~ msgstr "सम्बन्ध जोड़व"
+
+#~ msgid "Delete Relation"
+#~ msgstr "सम्बन्ध मेटाव"
+
+#~ msgid "Delete Resource Objects"
+#~ msgstr "संसाधन चीज मन ल मेटाव"
+
+#~ msgid "View"
+#~ msgstr "दृस्य"
+
+#~ msgid "Edit task dependenies"
+#~ msgstr "काम डिपेंडेंसीज संपादित करव"
+
+#~ msgid "Edit Standard Worktime..."
+#~ msgstr "मानक कामसमय संपादित करव..."
+
+#~ msgid "Note:"
+#~ msgstr "टिप्पनीः"
+
+#~ msgid "Work Package Control..."
+#~ msgstr "काम पैकेज नियंत्रन..."
+
+#~ msgid "Work Package Control"
+#~ msgstr "काम पैकेज नियंत्रन"
+
+#~ msgid "Update from Work Package"
+#~ msgstr "काम पैकेज से अपडेट करव"
+
+#, fuzzy
+#~ msgctxt "@action Add View"
+#~ msgid "View..."
+#~ msgstr "देखव..."
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgid "Notes..."
+#~ msgstr "प्रगति..."
+
+#~ msgid "Show allocations"
+#~ msgstr "एलोकेसन देखाव"
+
+#~ msgid "Modify Default Task"
+#~ msgstr "डिफाल्ट काम सुधारव"
+
+#~ msgid "Timing"
+#~ msgstr "टाइमिंग"
+
+#~ msgid "Schedule:"
+#~ msgstr "समयसारिनी:"
+
+#~ msgid "Edit Calendar..."
+#~ msgstr "कलेन्डर संपादित करव..."
+
+#~ msgid "Edit Accounts..."
+#~ msgstr "खाता संपादित करव..."
+
+#~ msgid "Edit Resources..."
+#~ msgstr "संसाधन संपादित करव..."
+
+#~ msgid "List of Resources"
+#~ msgstr "संसाधन मन के सूची"
+
+#~ msgid "Resource group:"
+#~ msgstr "संसाधन समूह:"
+
+#~ msgid "E-mail address"
+#~ msgstr "ई-मेल पता"
+
+#~ msgid "Availability"
+#~ msgstr "मिलत"
+
+#~ msgid "Rate"
+#~ msgstr "दर"
+
+#~ msgid "Overtime"
+#~ msgstr "ओवरटाइम"
+
+#~ msgid "List of Tasks"
+#~ msgstr "कामों के सूची"
+
+#~ msgid "Cost"
+#~ msgstr "खर्च"
+
+#~ msgid "Start"
+#~ msgstr "सुरू"
+
+#~ msgid "Project leader:"
+#~ msgstr "परियोजना नेता:"
+
+#~ msgid "WBS"
+#~ msgstr "डबल्यूबीएस"
+
+#~ msgid "Responsible"
+#~ msgstr "जवाबदार"
+
+#~ msgid "Ganttview Options"
+#~ msgstr "गेंटदृस्य विकल्प"
+
+#~ msgid "Resourceview Options"
+#~ msgstr "संसाधनदृस्य विकल्प"
+
+#~ msgid "Accountsview Options"
+#~ msgstr "खातादृस्य विकल्प"
+
+#, fuzzy
+#~| msgid "Performance Chart"
+#~ msgid "Performance Status"
+#~ msgstr "परफारमेंस चार्ट"
+
+#~ msgid "View task status per resource"
+#~ msgstr "संसाधन मन के अनुसार काम स्थिति देखव"
+
+#~ msgid "Tasks by Resources"
+#~ msgstr "संसाधन मन से काम"

@@ -1,0 +1,126 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Efremov <yur.arh@gmail.com>, 2011.
+# Мария Шикунова <translation-team@basealt.ru>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2022-03-09 14:19+0300\n"
+"Last-Translator: Мария Шикунова <translation-team@basealt.ru>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.1\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: KPlatoRCPSPlugin.cpp:60
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+"Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+"resources. It still respects task dependencies and also tries to fulfill "
+"time constraints. However, time constraints can make it very difficult to "
+"find a good solution, so it may be preferable to use a different scheduler "
+"in these cases.</para>"
+msgstr ""
+"<title>Планировщик RCPS</title><para>Планировщик проектов с ограничениями по "
+"ресурсам (Resource Constrained Project Scheduler) позволяет планировать без "
+"применения чрезмерного использования ресурсов (сверхурочной работы "
+"исполнителей). Планировщик принимает во внимание зависимости задач и "
+"учитывает временные ограничения. Однако временные ограничения могут "
+"затруднить поиск подходящего решения, поэтому в таких задачах рекомендуется "
+"пользоваться другим планировщиком.</para>"
+
+#: KPlatoRCPSScheduler.cpp:117
+#, kde-format
+msgid "Scheduling halted after %1 generations"
+msgstr "Планирование остановлено после %1 созданий"
+
+#: KPlatoRCPSScheduler.cpp:436
+#, kde-format
+msgid "Init"
+msgstr "Инициализация"
+
+#: KPlatoRCPSScheduler.cpp:441
+#, kde-format
+msgid "Re-calculate project from start time: %1"
+msgstr "Пересчитать проект с временем начала: %1"
+
+#: KPlatoRCPSScheduler.cpp:443
+#, kde-format
+msgid "Schedule project from start time: %1"
+msgstr "Запланировать проект с временем начала: %1"
+
+#: KPlatoRCPSScheduler.cpp:447
+#, kde-format
+msgid "Schedule project from end time: %1"
+msgstr "Запланировать проект с временем окончания: %1"
+
+#: KPlatoRCPSScheduler.cpp:458
+#, kde-format
+msgid "Failed to build a valid RCPS project"
+msgstr "Не удалось создать допустимый проект RCPS"
+
+#: KPlatoRCPSScheduler.cpp:462
+#, kde-format
+msgid "Schedule"
+msgstr "Расписание"
+
+#: KPlatoRCPSScheduler.cpp:471
+#, kde-format
+msgid "Invalid scheduling solution. Result: %1"
+msgstr "Недействительное планирование. Результат: %1"
+
+#: KPlatoRCPSScheduler.cpp:556 KPlatoRCPSScheduler.cpp:697
+#, kde-format
+msgid "No resource request is registered"
+msgstr "Запрос ресурса не был зарегистрирован"
+
+#: KPlatoRCPSScheduler.cpp:586 KPlatoRCPSScheduler.cpp:727
+#, kde-format
+msgid "No resource has been allocated"
+msgstr "Ресурс не был определён"
+
+#: KPlatoRCPSScheduler.cpp:599 KPlatoRCPSScheduler.cpp:740
+#, kde-format
+msgid "Scheduled task to start at %1 and finish at %2"
+msgstr ""
+"Запланированное начало выполнени задачи: %1; запланированное завершение: %2"
+
+#: KPlatoRCPSScheduler.cpp:647 KPlatoRCPSScheduler.cpp:772
+#, kde-format
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr ""
+"Запланированное начало выполнения проекта: %1; запланированное завершение: %2"
+
+#: KPlatoRCPSScheduler.cpp:775
+#, kde-format
+msgid "Must start project early in order to finish in time: %1"
+msgstr "Проект следует начать раньше, чтобы завершить его в срок: %1"
+
+#: KPlatoRCPSScheduler.cpp:810
+#, kde-format
+msgctxt "Project Evaluation and Review Technique"
+msgid "PERT"
+msgstr "PERT"
+
+#: KPlatoRCPSScheduler.cpp:850
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1: Не удалось удовлетворить ограничения. Отрицательный резерв=%2"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule"
+#~ msgstr "Расписание"

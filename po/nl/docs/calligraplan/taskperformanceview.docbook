@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>Op de grafiek taakprestatie kunnen we diep elke subtaak of taak analysen met dezelfde indexen als voor de projectprestatieweergave. </para>
+<para
+>Dit is echt nuttig in een lang en gecompliceerd project. </para>
+<para
+>In het linker venster kunt u elke enkele sub-taak kiezen evenals een gehele taak, daarna zal in het rechter venster de overeenkomstige grafiek verschijnen. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>waar: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS betekent geraamde kosten van gepland werk,</para
+></listitem>
+  <listitem
+><para
+>BCWP betekent Geraamde kosten van uitgevoerd werk,</para
+></listitem>
+  <listitem
+><para
+>ACWP betekent Werkelijke kosten van uitgevoerd werk.</para
+></listitem>
+</itemizedlist>
+<para
+>Dit alles wordt beschouwd als inspanning in uren en kcosten. </para>
+<para
+>PI zijn de prestatie-indexen, waar: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI is de Prestatie-index van kosten,</para
+></listitem>
+  <listitem
+><para
+>SPI is de Planningprestatie-index.</para
+></listitem>
+</itemizedlist>
+</sect2>

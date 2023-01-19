@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Опис</title>
+  <para
+>Панель створення звітів призначено для додавання і створення звітів у форматі Open Document Text (ODT).</para
+><para
+>Звіти може бути засновано на наданих шаблонах звітів. Ви також можете <link linkend="creating-odt-report-templates"
+>створити ваші власні шаблони</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Стовпчик</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Назва</para>
+            </entry>
+            <entry>
+              <para
+>Вибрана вами назва</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Шаблон звіту</para>
+            </entry>
+            <entry>
+              <para
+>Шлях до файла шаблона звіту. Ви можете вибрати один із типових шаблонів або вказати назву файла, який створено вами.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Файл звіту</para>
+            </entry>
+            <entry>
+              <para
+>Назва файла, який буде створено.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Додати</para>
+            </entry>
+            <entry>
+              <para
+>Інформація, яку може бути додано до назви файла звіту, щоб його можна було відрізнити від попередніх створених версій. Можливі варіанти:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Нічого</emphasis
+> — використати назву файла без змін</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Номер</emphasis
+> — додати послідовний номер до назви файла</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Дата</emphasis
+> — додати поточну дату до назви файла</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Панель інструментів</title>
+  <para
+>На панелі інструментів передбачено кнопки для додавання, вилучення та створення звітів. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Скорочення</guilabel
+></entry>
+            <entry
+><guilabel
+>Опис</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Додавання звіту</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Додати новий звіт.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Вилучити звіт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Вилучити вибраний звіт.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Створити звіт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Створити вибраний звіт.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

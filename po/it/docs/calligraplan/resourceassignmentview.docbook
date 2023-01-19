@@ -1,0 +1,138 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Descrizione</title>
+  <para
+>La vista di assegnazione delle risorse visualizza le assegnazioni di attività pianificate-risorse in una tabella. <note
+><para
+>Questa vista può degradare fortemente le prestazioni in progetti grandi.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Dati</title>
+  <para
+>Le seguenti colonne sono visualizzate in modo predefinito: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Colonna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrizione</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Il nome dell'oggetto (gruppo di risorse, risorsa, attività)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Totale</para>
+            </entry>
+            <entry>
+              <para
+>L'assegnazione totale per una risorsa</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Date</para>
+            </entry>
+            <entry>
+              <para
+>Le assegnazioni totali per una risorsa per giorno e le assegnazioni per la risorsa per attività.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Modificare i dati</title>
+  <para
+>La descrizione e l'avanzamento dell'attività possono essere modificate utilizzando il menu contestuale. </para>
+</sect3>
+<sect3 id="configuration36"
+><title
+>Configurazione</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilizzando il menu contestuale, la vista può essere configurata utilizzando la finestra di configurazione.</para
+><para
+>La finestra di configurazione consente di includere o escludere le assegnazioni. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Finestra di configurazione</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Finestra di configurazione</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

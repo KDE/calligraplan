@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>Startvyn visas vid start och när <menuchoice
+><guimenu
+>Arkiv</guimenu
+><guimenuitem
+>Ny</guimenuitem
+></menuchoice
+> väljes. </para>
+<para
+>Den har tre sektioner för att: </para>
+<itemizedlist>
+  <listitem
+><para
+>Skapa nya projekt. Se också <link linkend="creating-a-project"
+>Skapa ett projekt</link
+> och <link linkend="managing-resources"
+>Hantera resurser</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Öppna befintliga projekt. Sektionen ger dig möjlighet att öppna en befintlig projektfil eller en av de tio senaste projekten som du har öppnat.</para
+></listitem>
+  <listitem
+><para
+>Hjälpsektionen ger dig länkar till introduktionssidor, dokumentation och gemenskapsforum.</para
+></listitem>
+</itemizedlist>
+</sect2>

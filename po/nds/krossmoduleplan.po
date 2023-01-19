@@ -1,0 +1,724 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Manfred Wiese <m.j.wiese@web.de>, 2008, 2010, 2011.
+# Sönke Dibbern <s_dibbern@web.de>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmodulekplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2011-10-19 22:26+0200\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add task"
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "Opgaav tofögen"
+
+#: Project.cpp:433 Project.cpp:441
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource group"
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "Ressourcenkoppel tofögen"
+
+#: Project.cpp:519 Project.cpp:537
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource"
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "Ressource tofögen"
+
+#: Project.cpp:640
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "Extern Terminen tofögen"
+
+#: Project.cpp:650 Project.cpp:657
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Clear external appointments"
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "Extern Terminen wegmaken"
+
+#: Project.cpp:664
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Clear all external appointments"
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "All extern Terminen wegmaken"
+
+#: Resource.cpp:102
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Set resource team members"
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr "Ressourcekoppel-Liddmaten fastleggen"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "&Warktüüch"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "Köör ut:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Opgaven"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Ressourcen"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Kontos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "Koppregen insluten"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "Plaan-Naam"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "All extern Terminen wegmaken"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "\"Bunnen\"-Informatschonen exportern"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "Utsöcht Plaan exporteren"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "Plaans"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "Bunnen-Infodatei exporteren"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Sekern"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "All Dateien"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Fehler"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Keen Datei utsöcht"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "Keen Plaan utsöcht"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "\"Bunnen\"-Informatschonen importeren"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "Bunnen-Infodatei importeren"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Opmaken"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "\"Ressource bunnen\"-Informatschonen importeren"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "Daten laadt sik nich ut en Projekt mit de sülve Identiteet laden"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr ""
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+#, fuzzy
+#| msgid "No project to import from"
+msgid "No data to export"
+msgstr "Keen Projekt, ut dat sik wat importeren lett"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr ""
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr "Dokment lett sik nich opmaken: %1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+#, fuzzy
+#| msgid "Busy Information Export"
+msgid "Information"
+msgstr "\"Bunnen\"-Informatschonen exportern"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+#, fuzzy
+#| msgid "No project to import from"
+msgid "No properties to export"
+msgstr "Keen Projekt, ut dat sik wat importeren lett"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+#, fuzzy
+#| msgid "Export Selected Schedule"
+msgid "Select schedule"
+msgstr "Utsöcht Plaan exporteren"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr ""
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+#, fuzzy
+#| msgid "Select from:"
+msgid "Select data"
+msgstr "Köör ut:"
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+#, fuzzy
+#| msgid "Export Busy Info File"
+msgid "Export ods file"
+msgstr "Bunnen-Infodatei exporteren"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr ""
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr ""
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr ""
+
+#: scripts/plan2odsexport.py:42
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid "Could not select cell 'A1'"
+msgstr "Dokment lett sik nich opmaken: %1"
+
+#: scripts/plan2odsexport.py:58
+#, fuzzy
+#| msgid "Could not open document: %1"
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr "Dokment lett sik nich opmaken: %1"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr ""
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr ""
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "Ressourcen importeren"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Plan-Ressourcen"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Ressourcen importeren"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Dokment lett sik nich opmaken: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "Keen Projekt, ut dat sik wat importeren lett"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "Projekt-Identiteten sünd liek"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "Ressourcenkoppel lett sik nich koperen: %1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "Keen Ressource, ut de sik wat koperen lett"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "Ressource lett sik nich koperen: %1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "Dat gifft den Kalenner al: %1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "Kalenner lett sik nich koperen: %1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "\"Ressource bunnen\"-Informatschonen"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "\"Ressource bunnen\"-Informatschonen hanteren"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr " \"Ressource bunnen\"-Informatschonen na en Datei exporteren"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr ""
+"Pythonskript, dat \"Ressource bunnen\"-Informatschonen na en Datei exporteert"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "\"Ressource bunnen\"-Informatschonen ut en Datei importeren"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr ""
+"Pythonskript, dat \"Ressource bunnen\"-Informatschonen ut en Datei importeert"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "\"Ressource bunnen\"-Informatschonen leddig maken"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr ""
+"Pythonskript, dat importeert \"Ressource bunnen\"-Informatschonen leddig "
+"maakt"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Importeren"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Inholt importeren"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "Ressourcen ut Plan-Datei"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr "Pythonskript för't Importeren vun Ressourcen ut en Projektdatei"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Exporteren"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, fuzzy, kde-format
+#| msgid "Import content"
+msgid "Export content"
+msgstr "Inholt importeren"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr ""
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr ""
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr ""
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Warktüüch"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "Anner Skripten"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Online-Hülp"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+"Pythonskript, dat ut den KHTML-Deel de Online-Hülp vun Plan för't Skripten "
+"dorstellt"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Bispillen"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "Bispillen de wiest, wodennig sik mit Plan skripten lett"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "Projekt-Informatschonen drucken..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "Bispill-Pythonskript, dat de Projekt-Informatschonen druckt"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "\"Ressource bunnen\"-Informatschonen drucken..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr ""
+"Bispill-Pythonskript, dat de \"Ressource bunnen\"-Informatschonen druckt"
+
+#, fuzzy
+#~| msgid "Select from:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Select from:"
+#~ msgstr "Köör ut:"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Opgaven"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Ressourcen"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Kontos"
+
+#, fuzzy
+#~| msgid "Include headers"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include headers"
+#~ msgstr "Koppregen insluten"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "&Warktüüch"
+
+#, fuzzy
+#~| msgid "Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Busy Information"
+#~ msgstr "\"Ressource bunnen\"-Informatschonen"
+
+#, fuzzy
+#~| msgid "Handle resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Handle resource busy information"
+#~ msgstr "\"Ressource bunnen\"-Informatschonen hanteren"
+
+#, fuzzy
+#~| msgid "Export Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export Resource Busy Information"
+#~ msgstr " \"Ressource bunnen\"-Informatschonen na en Datei exporteren"
+
+#, fuzzy
+#~| msgid "Python script to export busy information to file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to export busy information to file"
+#~ msgstr ""
+#~ "Pythonskript, dat \"Ressource bunnen\"-Informatschonen na en Datei "
+#~ "exporteert"
+
+#, fuzzy
+#~| msgid "Import Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import Resource Busy Information"
+#~ msgstr "\"Ressource bunnen\"-Informatschonen ut en Datei importeren"
+
+#, fuzzy
+#~| msgid "Python script to import busy information from file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import busy information from file"
+#~ msgstr ""
+#~ "Pythonskript, dat \"Ressource bunnen\"-Informatschonen ut en Datei "
+#~ "importeert"
+
+#, fuzzy
+#~| msgid "Clear Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Clear Resource Busy Information"
+#~ msgstr "\"Ressource bunnen\"-Informatschonen leddig maken"
+
+#, fuzzy
+#~| msgid "Python script to clear the imported resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to clear the imported resource busy information"
+#~ msgstr ""
+#~ "Pythonskript, dat importeert \"Ressource bunnen\"-Informatschonen leddig "
+#~ "maakt"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Importeren"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Inholt importeren"
+
+#, fuzzy
+#~| msgid "Resources from Plan File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources from Plan File"
+#~ msgstr "Ressourcen ut Plan-Datei"
+
+#, fuzzy
+#~| msgid "Python script to import resources from project file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import resources from project file"
+#~ msgstr "Pythonskript för't Importeren vun Ressourcen ut en Projektdatei"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Exporteren"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export content"
+#~ msgstr "Inholt importeren"
+
+#, fuzzy
+#~| msgid "Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Warktüüch"
+
+#, fuzzy
+#~| msgid "Miscellaneous scripts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Miscellaneous scripts"
+#~ msgstr "Anner Skripten"
+
+#, fuzzy
+#~| msgid "Online Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Online-Hülp"
+
+#, fuzzy
+#~| msgid ""
+#~| "Python script that uses the KHTML Part to display the Plan Scripting "
+#~| "online help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Python script that uses the KHTML Part to display the Plan Scripting "
+#~ "online help"
+#~ msgstr ""
+#~ "Pythonskript, dat ut den KHTML-Deel de Online-Hülp vun Plan för't "
+#~ "Skripten dorstellt"
+
+#, fuzzy
+#~| msgid "Samples"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Bispillen"
+
+#, fuzzy
+#~| msgid "Samples to demonstrate scripting with Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples to demonstrate scripting with Plan"
+#~ msgstr "Bispillen de wiest, wodennig sik mit Plan skripten lett"
+
+#, fuzzy
+#~| msgid "Print Project Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Project Information..."
+#~ msgstr "Projekt-Informatschonen drucken..."
+
+#, fuzzy
+#~| msgid "Example python script that print project information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print project information"
+#~ msgstr "Bispill-Pythonskript, dat de Projekt-Informatschonen druckt"
+
+#, fuzzy
+#~| msgid "Print Resource busy Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Resource busy Information..."
+#~ msgstr "\"Ressource bunnen\"-Informatschonen drucken..."
+
+#, fuzzy
+#~| msgid "Example python script that print resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print resource busy information"
+#~ msgstr ""
+#~ "Bispill-Pythonskript, dat de \"Ressource bunnen\"-Informatschonen druckt"
+
+#, fuzzy
+#~| msgid "Schedule Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Name"
+#~ msgstr "Plaan-Naam"
+
+#~ msgctxt "(qtundo_format)"
+#~ msgid "Clear external appointments"
+#~ msgstr "Extern Terminen wegmaken"
+
+#~ msgid "Export busy info"
+#~ msgstr "Bunnen-Informatschonen exporteren"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundoformat)"
+#~ msgid "Import external appointments"
+#~ msgstr "Inholt importeren"
+
+#~ msgid "Nodes"
+#~ msgstr "Knütten"

@@ -1,0 +1,5757 @@
+# translation of kplato.po to
+# Copyright (C) 2003, 2007 Free Software Foundation, Inc.
+# Ibrahim Khaled Al-Ibrahim  <ibrahim@arabeyes.org>, 2002.
+# Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: kplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-09 09:01+0100\n"
+"PO-Revision-Date: 2007-10-14 16:05+0000\n"
+"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
+"Language-Team: <en@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, fuzzy, kde-format
+msgid "&File"
+msgstr "ا&عرض"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, fuzzy, kde-format
+msgid "&Edit"
+msgstr "&حرّر"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, fuzzy, kde-format
+msgid "&View"
+msgstr "ا&عرض"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "&مشروع"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, fuzzy, kde-format
+msgid "&Tools"
+msgstr "أ&دوات"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, fuzzy, kde-format
+msgid "&Settings"
+msgstr "إ&عدادات"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, fuzzy, kde-format
+msgid "Edit"
+msgstr "&حرّر"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, fuzzy, kde-format
+msgid "Hours per year"
+msgstr "ساعات السنة:"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, fuzzy, kde-format
+msgid "Hours per month"
+msgstr "ساعات شهر:"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, fuzzy, kde-format
+msgid "Hours per week"
+msgstr "ساعات أسبوع:"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, fuzzy, kde-format
+msgid "Hours per day"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, fuzzy, kde-format
+msgid "Generate working week"
+msgstr "أنشئ WBS الرّمز"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, fuzzy, kde-format
+msgid "Generate working week options"
+msgstr "أنشئ WBS الرّمز"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, fuzzy, kde-format
+msgid "Generate holidays"
+msgstr "أنشئ WBS الرّمز"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, fuzzy, kde-format
+msgid "Generate holidays options"
+msgstr "أنشئ WBS الرّمز"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, fuzzy, kde-format
+msgid "In base calendar"
+msgstr "أب رزنامة:"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, fuzzy, kde-format
+msgid "As sub-calendar"
+msgstr "إضافة"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, fuzzy, kde-format
+msgid "As separate calendar"
+msgstr "إعادة أب التقويم"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr ""
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, fuzzy, kde-format
+msgid "Tuesday:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, fuzzy, kde-format
+msgid "Thursday:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, fuzzy, kde-format
+msgid "Friday:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, fuzzy, kde-format
+msgid "Saturday:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, fuzzy, kde-format
+msgid "Sunday:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, fuzzy, kde-format
+msgid "Name of project manager"
+msgstr "مشروع مدير:"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, fuzzy, kde-format
+msgid "Use shared resources"
+msgstr "تعيين:"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, fuzzy, kde-format
+msgid "File to contain shared resources"
+msgstr "تعيين:"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, fuzzy, kde-format
+msgid "Project description"
+msgstr "وصف"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, fuzzy, kde-format
+msgid "Scheduling constraint type"
+msgstr ""
+"الـ قيد\n"
+"قسْر نوع"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, fuzzy, kde-format
+msgid "Constraint start date and time"
+msgstr "تقييد تشغيل وقت"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, fuzzy, kde-format
+msgid "Constraint end date and time"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, fuzzy, kde-format
+msgid "Type of estimate"
+msgstr "النوع من"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, fuzzy, kde-format
+msgid "Estimate time unit"
+msgstr "التخمين النوع"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, fuzzy, kde-format
+msgid "Expected estimate"
+msgstr "محسوب"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, fuzzy, kde-format
+msgid "Optimistic estimate"
+msgstr "متفائل"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, fuzzy, kde-format
+msgid "Pessimistic estimate"
+msgstr "متشائم"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, fuzzy, kde-format
+msgid "Task description"
+msgstr "وصف"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, fuzzy, kde-format
+msgid "Gradient"
+msgstr "جانت"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, fuzzy, kde-format
+msgid "Linear"
+msgstr "المشاهد"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, fuzzy, kde-format
+msgid "Flat"
+msgstr "عشري"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, fuzzy, kde-format
+msgid "Enable summary task level colors"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, fuzzy, kde-format
+msgid "Summary task default color"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, fuzzy, kde-format
+msgid "Summary task color, level 1"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, fuzzy, kde-format
+msgid "Summary task color, level 2"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, fuzzy, kde-format
+msgid "Summary task color, level 3"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, fuzzy, kde-format
+msgid "Summary task color, level 4"
+msgstr "الملخّص"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr ""
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr ""
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr ""
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr ""
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, fuzzy, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "احذف مختار عنصر"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, fuzzy, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "احذف مختار عنصر"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr ""
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, fuzzy, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "الـ"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, fuzzy, kde-format
+msgid "The largest duration unit allowed"
+msgstr "الـ"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr ""
+
+#: config/ConfigDialog.cpp:47
+#, fuzzy, kde-format
+#| msgid "Project Settings"
+msgid "Project Defaults"
+msgstr "إعدادت المشروع"
+
+#: config/ConfigDialog.cpp:48 kptview.cpp:660
+#, fuzzy, kde-format
+msgid "Work & Vacation"
+msgstr "العمل عطلة"
+
+#: config/ConfigDialog.cpp:49
+#, fuzzy, kde-format
+msgid "Task Defaults"
+msgstr "مهمَّة الإفتراضيّات"
+
+#: config/ConfigDialog.cpp:50
+#, fuzzy, kde-format
+msgid "Task Colors"
+msgstr "مهمَّة التقدم"
+
+#: config/ConfigDialog.cpp:52
+#, fuzzy, kde-format
+msgid "Task Modules"
+msgstr "مهمَّة"
+
+#: config/ConfigDialog.cpp:56
+#, fuzzy, kde-format
+msgid "Work Package"
+msgstr "مورد ليس متوفّر"
+
+#: config/ConfigDialog.cpp:57
+#, fuzzy, kde-format
+msgid "Documentation"
+msgstr "مستندات"
+
+#: config/ConfigDialog.cpp:60
+#, fuzzy, kde-format
+msgid "Project Templates"
+msgstr "أنشئ تقرير"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, fuzzy, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"الـ لـ المهمة n هو ليس إلى متوفّر بوصة a مورِد المجموعة أنت وصول عنوان كتاب مع "
+"اختر زر."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, fuzzy, kde-format
+msgid "Documentation:"
+msgstr "مستندات"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:53
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "تعيين:"
+
+#: config/ConfigProjectPanel.cpp:56
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "الـ رزنامة مورِد هو"
+
+#: config/ConfigProjectPanel.cpp:59
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The directory where projects sharing the resources are placed"
+msgstr "الـ رزنامة مورِد هو"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, fuzzy, kde-format
+msgid "General"
+msgstr "&عام"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, fuzzy, kde-format
+msgid "&Manager:"
+msgstr "الصفحة:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, fuzzy, kde-format
+msgid "Use shared resources:"
+msgstr "تعيين:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, fuzzy, kde-format
+msgid "Shared resource file:"
+msgstr "إضافة مورِد"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, fuzzy, kde-format
+msgid "Browse..."
+msgstr "اختر..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, fuzzy, kde-format
+msgid "Shared projects:"
+msgstr "تعيين:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, fuzzy, kde-format
+msgid "Description"
+msgstr "وصف"
+
+#: config/ConfigProjectTemplatesPanel.cpp:61
+#, fuzzy, kde-format
+msgid "Project Templates Path"
+msgstr "أنشئ تقرير"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, fuzzy, kde-format
+msgid "Insert"
+msgstr "صريح"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, fuzzy, kde-format
+msgid "Remove"
+msgstr "احذف"
+
+#: config/ConfigTaskModulesPanel.cpp:61
+#, fuzzy, kde-format
+msgid "Task Modules Path"
+msgstr "مهمَّة التقدم"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr ""
+
+#: config/ConfigWorkVacationPanel.cpp:52
+#, fuzzy, kde-format
+msgid "Default"
+msgstr "افتراضي"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, fuzzy, kde-format
+msgid "Working Hours"
+msgstr "قيد الإنجاز"
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, fuzzy, kde-format
+msgid "Calendar generation"
+msgstr "التقويم s إعدادات"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, fuzzy, kde-format
+msgid "Week"
+msgstr "الأسبوع"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, fuzzy, kde-format
+msgid "In week calendar"
+msgstr "احذف التقويم"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, fuzzy, kde-format
+msgid "Working week"
+msgstr "قيد الإنجاز"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, fuzzy, kde-format
+msgid "Hours &per year:"
+msgstr "ساعات السنة:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, fuzzy, kde-format
+msgid "Hours per &month:"
+msgstr "ساعات شهر:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, fuzzy, kde-format
+msgid "Hours per wee&k:"
+msgstr "ساعات أسبوع:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, fuzzy, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr "هذه مُستخدَم إلى كامل a المهمة."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, fuzzy, kde-format
+msgid "Hours per &day:"
+msgstr "ساعات اليوم:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, fuzzy, kde-format
+msgid "Gradient:"
+msgstr "جانت"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, fuzzy, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "الملخّص"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "افتراضي"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, fuzzy, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "إستعمل المستويات"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "إضافة المستوى"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "إضافة المستوى"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "إضافة المستوى"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "إضافة المستوى"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, fuzzy, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "مهمَّة"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "عادي النسبة"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "حرج"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "انتهى:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, fuzzy, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "خطأ"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, fuzzy, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "المعلم"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, fuzzy, kde-format
+msgid "Responsible:"
+msgstr "المسؤول:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, fuzzy, kde-format
+msgid "Insert a person from your address book"
+msgstr "إدراج a من عنوان كتاب"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, fuzzy, kde-format
+msgid "Insert a person from your address book."
+msgstr "إدراج a من عنوان كتاب."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, fuzzy, kde-format
+msgid "Choose..."
+msgstr "اختر..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, fuzzy, kde-format
+msgid "Scheduling constraint:"
+msgstr ""
+"الـ قيد\n"
+"قسْر نوع"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, fuzzy, kde-format
+msgid "As Soon as Possible"
+msgstr "ك قريبا محتمل"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, fuzzy, kde-format
+msgid "As Late as Possible"
+msgstr "ك متأخرا محتمل"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, fuzzy, kde-format
+msgid "Must Start On"
+msgstr "يجب أن ابدأ تشغيل"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, fuzzy, kde-format
+msgid "Must Finish On"
+msgstr "يجب أن إنهاء تشغيل"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, fuzzy, kde-format
+msgid "Start Not Earlier Than"
+msgstr "ابدأ لا في وقت سابق من"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, fuzzy, kde-format
+msgid "Finish Not Later Than"
+msgstr "إنهاء لا لاحقاً من"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, fuzzy, kde-format
+msgid "Fixed Interval"
+msgstr "ثابت الفترة"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, fuzzy, kde-format
+msgid "Constraint Start time usage:"
+msgstr "تقييد تشغيل وقت"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, fuzzy, kde-format
+msgid "Current date and time"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, fuzzy, kde-format
+msgid "Current date, specified time"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, fuzzy, kde-format
+msgid "Specified date and time"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, fuzzy, kde-format
+msgid "Constraint start time:"
+msgstr "تقييد تشغيل وقت"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, fuzzy, kde-format
+msgid "Constraint End time usage:"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, fuzzy, kde-format
+msgid "Constraint end time:"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, fuzzy, kde-format
+msgid "Estimate type:"
+msgstr "التخمين النوع"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, fuzzy, kde-format
+msgid "Effort"
+msgstr "الجهد"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, fuzzy, kde-format
+msgid "Duration"
+msgstr "المدّة"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, fuzzy, kde-format
+msgid "Expected estimate:"
+msgstr "محسوب"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, fuzzy, kde-format
+msgid "Optimistic estimate:"
+msgstr "متفائل"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, fuzzy, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, fuzzy, kde-format
+msgid "Pessimistic estimate:"
+msgstr "متشائم"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, fuzzy, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "احذف مختار عنصر"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, fuzzy, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "احذف مختار عنصر"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr ""
+
+#: KPlatoXmlLoader.cpp:69
+#, fuzzy, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+"نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#: KPlatoXmlLoader.cpp:71 KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125
+#: kptmaindocument.cpp:357 kptmaindocument.cpp:644
+#, fuzzy, kde-format
+msgid "Continue"
+msgstr "استمر"
+
+#: KPlatoXmlLoader.cpp:71
+#, fuzzy, kde-format
+msgid "File-Format Error"
+msgstr "ملف تنسيق عدم مطابقة"
+
+#: KPlatoXmlLoader.cpp:80
+#, fuzzy, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+"نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
+#: kptmaindocument.cpp:644
+#, fuzzy, kde-format
+msgid "File-Format Mismatch"
+msgstr "ملف تنسيق عدم مطابقة"
+
+#: KPlatoXmlLoader.cpp:123
+#, fuzzy, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+"نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#: kptaboutdata.h:37
+#, fuzzy, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "خطّة"
+
+#: kptaboutdata.h:39
+#, fuzzy, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "كي بلاتو - أداة كدي للمشاريع"
+
+#: kptaboutdata.h:41
+#, fuzzy, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "c الـ كي بلاتو فريق"
+
+#: kptaboutdata.h:45
+#, fuzzy, kde-format
+msgid "Dag Andersen"
+msgstr "اندرسن"
+
+#: kptaboutdata.h:46
+#, fuzzy, kde-format
+msgid "Thomas Zander"
+msgstr "توماس سمك الزّندر"
+
+#: kptaboutdata.h:47
+#, fuzzy, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo"
+
+#: kptaboutdata.h:48
+#, fuzzy, kde-format
+msgid "Raphael Langerhorst"
+msgstr "رافائيل"
+
+#. i18n translator strings
+#: kptaboutdata.h:51
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ابراهيم خالد الابراهيم"
+
+#: kptaboutdata.h:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ibrahim@arabeyes.org"
+
+#: kptbuiltinschedulerplugin.cpp:35
+#, fuzzy, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "لا"
+
+#: kptbuiltinschedulerplugin.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr ""
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+
+#: kptinsertfiledlg.cpp:34
+#, fuzzy, kde-format
+msgid "Insert File"
+msgstr "إدراج مستند"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, fuzzy, kde-format
+msgid "Current node:"
+msgstr "تقييد end وقت"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, fuzzy, kde-format
+msgid "Insert on top level"
+msgstr "إدراج مستند"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, fuzzy, kde-format
+msgid "Insert as children to current node"
+msgstr "إدراج مستند"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, fuzzy, kde-format
+msgid "Insert after current node"
+msgstr "إدراج مستند"
+
+#: kptloadsharedprojectsdialog.cpp:40
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Load Resource Assignments"
+msgstr "مورد الواجبات"
+
+#: kptmaindocument.cpp:309 kptmaindocument.cpp:614
+#, fuzzy, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "مستند غير صحيح. لم يتم تحديد نوع mime."
+
+#: kptmaindocument.cpp:348
+#, fuzzy, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr "غير صحيح مستند متوقّع تطبيق x 1"
+
+#: kptmaindocument.cpp:355
+#, fuzzy, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+"نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#: kptmaindocument.cpp:502
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:510
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr ""
+
+#: kptmaindocument.cpp:537
+#, fuzzy, kde-format
+msgid "Saving..."
+msgstr "اختر..."
+
+#: kptmaindocument.cpp:631
+#, fuzzy, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr "غير صحيح مستند متوقّع تطبيق x 1"
+
+#: kptmaindocument.cpp:642
+#, fuzzy, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+"نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#: kptmaindocument.cpp:1038 kptmaindocument.cpp:1074 kptmaindocument.cpp:1207
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr ""
+
+#: kptmaindocument.cpp:1236
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "الـ مشروع الاسم."
+
+#: kptmaindocument.cpp:1309
+#, fuzzy, kde-format
+msgid "Group: %1"
+msgstr "المجموعة"
+
+#: kptmaindocument.cpp:1315
+#, fuzzy, kde-format
+#| msgid "Resources"
+msgid "Resource: %1"
+msgstr "موارد"
+
+#: kptmaindocument.cpp:1320
+#, fuzzy, kde-format
+msgid "Calendar: %1"
+msgstr "التقويم"
+
+#: kptmaindocument.cpp:1325
+#, kde-format
+msgid ""
+"Shared resources has been removed from the shared resources file.\n"
+"Select how they shall be treated in this project."
+msgstr ""
+
+#: kptmaindocument.cpp:1328
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Shared resources"
+msgstr "تعيين:"
+
+#: kptmaindocument.cpp:1330
+#, kde-format
+msgid "Convert"
+msgstr ""
+
+#: kptmaindocument.cpp:1331
+#, kde-format
+msgid "Keep"
+msgstr ""
+
+#: kptmaindocument.cpp:1542
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr ""
+
+#: kptschedulesdocker.cpp:39
+#, fuzzy, kde-format
+msgid "Schedule Selector"
+msgstr "اعرض منتقيالمختار"
+
+#: kptview.cpp:197
+#, fuzzy, kde-format
+msgid "Create Project Template..."
+msgstr "أنشئ تقرير"
+
+#: kptview.cpp:201
+#, fuzzy, kde-format
+msgid "Create New Project..."
+msgstr "أنشئ تقرير"
+
+#: kptview.cpp:213
+#, fuzzy, kde-format
+msgid "Show Selector"
+msgstr "اعرض منتقيالمختار"
+
+#: kptview.cpp:220 kptview.cpp:256
+#, fuzzy, kde-format
+msgid "Edit..."
+msgstr "حرر..."
+
+#: kptview.cpp:224
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr ""
+
+#: kptview.cpp:228
+#, fuzzy, kde-format
+msgid "Define WBS Pattern..."
+msgstr "تعريف WBS نمط."
+
+#: kptview.cpp:232
+#, fuzzy, kde-format
+msgid "Define Currency..."
+msgstr "تعريف WBS نمط."
+
+#: kptview.cpp:236
+#, fuzzy, kde-format
+msgid "Edit Description..."
+msgstr "وصف"
+
+#: kptview.cpp:241
+#, fuzzy, kde-format
+msgid "Insert Project File..."
+msgstr "صريح"
+
+#: kptview.cpp:245
+#, fuzzy, kde-format
+msgid "Load Shared Projects..."
+msgstr "تعيين:"
+
+#: kptview.cpp:250
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr ""
+
+#: kptview.cpp:259
+#, fuzzy, kde-format
+msgid "Progress..."
+msgstr "التقدم."
+
+#: kptview.cpp:262
+#, fuzzy, kde-format
+msgid "Delete Task"
+msgstr "احذف مهمَّة"
+
+#: kptview.cpp:265
+#, fuzzy, kde-format
+msgid "Description..."
+msgstr "وصف"
+
+#: kptview.cpp:268
+#, fuzzy, kde-format
+msgid "Documents..."
+msgstr "مستندات"
+
+#: kptview.cpp:271
+#, fuzzy, kde-format
+msgid "Indent Task"
+msgstr "إزاحة مهمَّة"
+
+#: kptview.cpp:274
+#, fuzzy, kde-format
+msgid "Unindent Task"
+msgstr "عدم ازاحة مهمَّة"
+
+#: kptview.cpp:277
+#, fuzzy, kde-format
+msgid "Move Task Up"
+msgstr "نقل مهمَّة أعلى"
+
+#: kptview.cpp:280
+#, fuzzy, kde-format
+msgid "Move Task Down"
+msgstr "نقل مهمَّة أسفل"
+
+#: kptview.cpp:284
+#, fuzzy, kde-format
+msgid "Edit Resource..."
+msgstr "تحرير مورد."
+
+#: kptview.cpp:288
+#, fuzzy, kde-format
+msgid "Edit Dependency..."
+msgstr "تحرير التبعية."
+
+#: kptview.cpp:291
+#, fuzzy, kde-format
+msgid "Delete Dependency"
+msgstr "احذف التبعية."
+
+#: kptview.cpp:301
+#, kde-format
+msgid "Work Packages..."
+msgstr ""
+
+#: kptview.cpp:302
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "مورد ليس متوفّر"
+
+#: kptview.cpp:393
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+msgid "Edit task scheduling constraints"
+msgstr ""
+"الـ قيد\n"
+"قسْر نوع"
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+msgid "Task Constraints"
+msgstr "تقييدات :: كوابح :: ارتباكات"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+msgid "Edit task cost"
+msgstr "تعديل مهمَّة التكلفة"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+msgid "Task Cost"
+msgstr "مهمَّة التقدم"
+
+#: kptview.cpp:577
+#, fuzzy, kde-format
+msgid "Generate reports"
+msgstr "أنشئ WBS الرّمز"
+
+#: kptview.cpp:583 kptview.cpp:3201
+#, fuzzy, kde-format
+msgid "Task Status Report"
+msgstr "مهمَّة الحالة"
+
+#: kptview.cpp:661
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "تحرير و أيام لـ"
+
+#: kptview.cpp:663
+#, fuzzy, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "العمل الانهيار بناء"
+
+#: kptview.cpp:664
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "تحرير بنية."
+
+#: kptview.cpp:666
+#, kde-format
+msgid "Resources"
+msgstr "موارد"
+
+#: kptview.cpp:667
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "تحرير مورِد بنية."
+
+#: kptview.cpp:669
+#, fuzzy, kde-format
+msgid "Tasks"
+msgstr "المهام"
+
+#: kptview.cpp:670
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "تحرير بنية"
+
+#: kptview.cpp:672
+#, fuzzy, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "التبعيات"
+
+#: kptview.cpp:673 kptview.cpp:676
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "تحرير المهمة التبعيات"
+
+#: kptview.cpp:675
+#, fuzzy, kde-format
+msgid "Dependencies (List)"
+msgstr "التبعيات"
+
+#: kptview.cpp:679 kptview.cpp:681
+#, fuzzy, kde-format
+msgid "Schedules"
+msgstr "الجداول"
+
+#: kptview.cpp:682
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "إحسب و مشروع"
+
+#: kptview.cpp:684 kptviewlistdialog.cpp:118
+#, fuzzy, kde-format
+msgid "Project Performance Chart"
+msgstr "الأداء رسم بياني"
+
+#: kptview.cpp:685
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "عرض المهمة progress معلومات"
+
+#: kptview.cpp:687 kptviewlistdialog.cpp:110
+#, fuzzy, kde-format
+msgid "Task Status"
+msgstr "مهمَّة الحالة"
+
+#: kptview.cpp:688
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "عرض المهمة progress معلومات"
+
+#: kptview.cpp:690
+#, fuzzy, kde-format
+msgid "Task Execution"
+msgstr "مهمَّة"
+
+#: kptview.cpp:691
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "عرض المهمة progress معلومات"
+
+#: kptview.cpp:693 kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Work Package View"
+msgstr ""
+
+#: kptview.cpp:694
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "عرض المهمة progress معلومات"
+
+#: kptview.cpp:696
+#, fuzzy, kde-format
+msgid "Gantt"
+msgstr "جانت"
+
+#: kptview.cpp:697
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "عرض شكل"
+
+#: kptview.cpp:699
+#, fuzzy, kde-format
+msgid "Milestone Gantt"
+msgstr "المعلم جانت"
+
+#: kptview.cpp:700
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "عرض شكل"
+
+#: kptview.cpp:702 kptviewlistdialog.cpp:115
+#, fuzzy, kde-format
+msgid "Resource Assignments"
+msgstr "مورد الواجبات"
+
+#: kptview.cpp:703
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "عرض مورِد"
+
+#: kptview.cpp:705 kptviewlistdialog.cpp:116
+#, fuzzy, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "مورد الواجبات"
+
+#: kptview.cpp:706
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "عرض مورِد"
+
+#: kptview.cpp:708 kptviewlistdialog.cpp:117
+#, fuzzy, kde-format
+msgid "Cost Breakdown"
+msgstr "العمل الانهيار بناء"
+
+#: kptview.cpp:709
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "عرض"
+
+#: kptview.cpp:711 kptviewlistdialog.cpp:119
+#, fuzzy, kde-format
+msgid "Tasks Performance Chart"
+msgstr "الأداء رسم بياني"
+
+#: kptview.cpp:712
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "عرض المهمة progress معلومات"
+
+#: kptview.cpp:714
+#, fuzzy, kde-format
+msgid "Reports Generator"
+msgstr "تقرير قالب"
+
+#: kptview.cpp:715
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr "أنشئ WBS الرّمز"
+
+#: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
+#: kptviewlistdialog.cpp:564
+#, fuzzy, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "صريح"
+
+#: kptview.cpp:718
+#, fuzzy, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "اعرض منتقيالمختار"
+
+#: kptview.cpp:729
+#, fuzzy, kde-format
+msgid "Editors"
+msgstr "محررات النصوص"
+
+#: kptview.cpp:731
+#, fuzzy, kde-format
+msgid "Views"
+msgstr "المشاهد"
+
+#: kptview.cpp:733
+#, fuzzy, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "مهمَّة"
+
+#: kptview.cpp:735
+#, fuzzy, kde-format
+msgid "Reports"
+msgstr "موارد"
+
+#: kptview.cpp:1695
+#, fuzzy, kde-format
+msgctxt "(qtundo-format) @info:status 1=schedule name"
+msgid "Calculate %1"
+msgstr "إحسب 1"
+
+#: kptview.cpp:1714
+#, kde-format
+msgid "Cannot baseline. The project is already baselined."
+msgstr ""
+
+#: kptview.cpp:1719
+#, kde-format
+msgid "This schedule is baselined. Do you want to remove the baseline?"
+msgstr ""
+
+#: kptview.cpp:1723
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Reset baseline %1"
+msgstr "احذف جدول 1"
+
+#: kptview.cpp:1726 kptview.cpp:1730
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Baseline %1"
+msgstr "احذف جدول 1"
+
+#: kptview.cpp:1741
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Add schedule %1"
+msgstr "إضافة جدول 1"
+
+#: kptview.cpp:1750
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Delete schedule %1"
+msgstr "احذف جدول 1"
+
+#: kptview.cpp:1759
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Move schedule %1"
+msgstr "إضافة جدول 1"
+
+#: kptview.cpp:1822
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Add milestone"
+msgstr "إضافة المعلم"
+
+#: kptview.cpp:1846
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Add sub-milestone"
+msgstr "إضافة المعلم"
+
+#: kptview.cpp:2228
+#, fuzzy, kde-format
+msgid ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr "A المهمة محذوف هذا جدول."
+
+#: kptview.cpp:2236 kptview.cpp:2240 kptview.cpp:2256 kptview.cpp:2280
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Delete task"
+msgid_plural "Delete tasks"
+msgstr[0] "احذف مهمَّة"
+msgstr[1] "احذف مهمَّة"
+msgstr[2] "احذف مهمَّة"
+msgstr[3] "احذف مهمَّة"
+msgstr[4] "احذف مهمَّة"
+msgstr[5] "احذف مهمَّة"
+
+#: kptview.cpp:2275
+#, fuzzy, kde-format
+msgid "This task has been scheduled. This will invalidate the schedule."
+msgstr "هذا المهمة هذا جدول."
+
+#: kptview.cpp:2299
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Indent task"
+msgstr "إزاحة مهمَّة"
+
+#: kptview.cpp:2313
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Unindent task"
+msgstr "عدم ازاحة مهمَّة"
+
+#: kptview.cpp:2335
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Move task up"
+msgstr "نقل مهمَّة أعلى"
+
+#: kptview.cpp:2356
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Move task down"
+msgstr "نقل مهمَّة أسفل"
+
+#: kptview.cpp:2392
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Add task dependency"
+msgstr "تحرير المهمة التبعيات"
+
+#: kptview.cpp:2453
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Delete task dependency"
+msgstr "احذف مهمَّة التبعية"
+
+#: kptview.cpp:2490 kptview.cpp:2551
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Delete resource"
+msgid_plural "Delete resources"
+msgstr[0] "احذف مورد"
+msgstr[1] "احذف مورد"
+msgstr[2] "احذف مورد"
+msgstr[3] "احذف مورد"
+msgstr[4] "احذف مورد"
+msgstr[5] "احذف مورد"
+
+#: kptview.cpp:2495 kptview.cpp:2553
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroup"
+msgid_plural "Delete resourcegroups"
+msgstr[0] "احذف"
+msgstr[1] "احذف"
+msgstr[2] "احذف"
+msgstr[3] "احذف"
+msgstr[4] "احذف"
+msgstr[5] "احذف"
+
+#: kptview.cpp:2504 kptview.cpp:2512
+#, fuzzy, kde-format
+msgid ""
+"A resource that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr "A مورِد محذوف هذا جدول."
+
+#: kptview.cpp:2549
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroups and resources"
+msgstr "احذف"
+
+#: kptview.cpp:2720
+#, fuzzy, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#: kptview.cpp:2846
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "تعديل الاسم"
+
+#: kptview.cpp:2848
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "تعديل الاسم"
+
+#: kptview.cpp:2849
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "تعديل"
+
+#: kptview.cpp:2850
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "تعديل الملخّص مهمَّة"
+
+#: kptview.cpp:2851
+#, fuzzy
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "تعديل رئيسي مشروع"
+
+#: kptview.cpp:2943
+#, fuzzy, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "لا"
+
+#: kptview.cpp:2985
+#, fuzzy, kde-format
+msgid "Failed to open temporary file"
+msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#: kptview.cpp:2991
+#, fuzzy, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#: kptview.cpp:2999
+#, kde-format
+msgid "Work Package: %1"
+msgstr ""
+
+#: kptview.cpp:3000
+#, fuzzy, kde-format
+msgctxt "1=project name, 2=task name"
+msgid ""
+"%1\n"
+"%2"
+msgstr "%1-%2"
+
+#: kptview.cpp:3030
+#, fuzzy, kde-format
+msgid "Failed to open work package file"
+msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#: kptview.cpp:3037
+#, fuzzy, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#: kptview.cpp:3046
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr ""
+
+#: kptview.cpp:3199
+#, fuzzy, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "الصفحة:"
+
+#: kptview.cpp:3200
+#, fuzzy, kde-format
+msgid "Project:"
+msgstr "مشروع"
+
+#: kptview.cpp:3202
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr ""
+
+#: kptview.cpp:3203
+#, fuzzy, kde-format
+msgid "Page"
+msgstr "الصفحة:"
+
+#: kptview.cpp:3204
+#, fuzzy, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "الاسم"
+
+#: kptview.cpp:3205
+#, fuzzy, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "التكلمة الآلية"
+
+#: kptviewlist.cpp:349
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:371
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:604
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr ""
+
+#: kptviewlist.cpp:738
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "احذف"
+
+#: kptviewlist.cpp:742
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "اضبط كي بلاتو."
+
+#: kptviewlist.cpp:746
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "احذف"
+
+#: kptviewlist.cpp:755
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "احذف"
+
+#: kptviewlist.cpp:759
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "اضبط كي بلاتو."
+
+#: kptviewlist.cpp:763
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "احذف"
+
+#: kptviewlist.cpp:772
+#, fuzzy, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "صريح"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, fuzzy, kde-format
+msgid "The category of the view"
+msgstr "الـ الاسم من المهمة"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, fuzzy, kde-format
+msgid "The view is placed after this view"
+msgstr "الـ الاسم من المهمة"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, fuzzy, kde-format
+msgid "The type of view"
+msgstr "النوع من"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, fuzzy, kde-format
+msgid "View type:"
+msgstr "التخمين النوع"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, fuzzy, kde-format
+msgid "The name of the view"
+msgstr "الـ الاسم من المهمة"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, fuzzy, kde-format
+msgid "Name:"
+msgstr "الاسم:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, fuzzy, kde-format
+msgid "The views description"
+msgstr "وصف"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, fuzzy, kde-format
+msgid "Description:"
+msgstr "وصف"
+
+#: kptviewlistdialog.cpp:42
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "عرض"
+
+#: kptviewlistdialog.cpp:103
+#, fuzzy, kde-format
+msgid "Resource Editor"
+msgstr "مورد"
+
+#: kptviewlistdialog.cpp:104
+#, fuzzy, kde-format
+msgid "Task Editor"
+msgstr "محررات النصوص"
+
+#: kptviewlistdialog.cpp:105
+#, fuzzy, kde-format
+msgid "Work & Vacation Editor"
+msgstr "العمل عطلة"
+
+#: kptviewlistdialog.cpp:106
+#, fuzzy, kde-format
+msgid "Accounts Editor"
+msgstr "حسابات"
+
+#: kptviewlistdialog.cpp:107
+#, fuzzy, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "التبعيات"
+
+#: kptviewlistdialog.cpp:108
+#, fuzzy, kde-format
+msgid "Dependency Editor (List)"
+msgstr "التبعيات"
+
+#: kptviewlistdialog.cpp:109
+#, fuzzy, kde-format
+msgid "Schedule Handler"
+msgstr "المجدول"
+
+#: kptviewlistdialog.cpp:111
+#, fuzzy, kde-format
+msgid "Task View"
+msgstr "مهمَّة هوية:"
+
+#: kptviewlistdialog.cpp:113
+#, fuzzy, kde-format
+msgid "Gantt View"
+msgstr "جانت"
+
+#: kptviewlistdialog.cpp:114
+#, fuzzy, kde-format
+msgid "Milestone Gantt View"
+msgstr "المعلم جانت"
+
+#: kptviewlistdialog.cpp:120
+#, fuzzy, kde-format
+msgid "Reports generator"
+msgstr "تقرير قالب"
+
+#: kptviewlistdialog.cpp:148
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:200 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:631
+#, fuzzy, kde-format
+msgid "Top"
+msgstr "إلى"
+
+#: kptviewlistdialog.cpp:306
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "تكوين..."
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+
+#: kptviewlistdialog.cpp:431
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "اضبط كي بلاتو"
+
+#: kptviewlistdialog.cpp:522
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "صريح"
+
+#: kptviewlistdocker.cpp:68 kptviewlistdocker.cpp:74
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "اعرض منتقيالمختار"
+
+#: kptviewlistdocker.cpp:76
+#, fuzzy, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "اعرض منتقيالمختار"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, fuzzy, kde-format
+msgid "Words"
+msgstr "العمل"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, fuzzy, kde-format
+msgid "Sentences"
+msgstr "التبعيات"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, fuzzy, kde-format
+msgid "Lines"
+msgstr "المشاهد"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, fuzzy, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, fuzzy, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, fuzzy, kde-format
+msgid "The category is placed after this category"
+msgstr "الـ الاسم من المهمة"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, fuzzy, kde-format
+msgid "The name of the category"
+msgstr "الـ الاسم من المهمة"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, fuzzy, kde-format
+msgid "The description of the category"
+msgstr "الـ الوصف من الحساب"
+
+#: welcome/WelcomeView.cpp:125
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Create a new project</title><para>Creates a new project with default "
+"values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+"<emphasis>project dialog</emphasis> so you can define project specific "
+"properties like <resource>Project Name</resource>, <resource>Target Start</"
+"resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:139
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared resources</title><para>Create a shared resources file.<nl/"
+">This enables you to only create your resources once, you just refer to your "
+"resources file when you create a new project.<nl/>These resources can then "
+"be shared between projects to avoid overbooking resources across projects."
+"<nl/>Shared resources must be defined in a separate file.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:152
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Recent Projects</title><para>A list of the 10 most recent project "
+"files opened.</para><para><nl/>This enables you to quickly open projects you "
+"have worked on recently.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:161
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:179
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:312
+#, fuzzy, kde-format
+msgid "Open Document"
+msgstr "مستندات"
+
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, fuzzy, kde-format
+msgid "New project"
+msgstr "الـ مشروع الاسم."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, fuzzy, kde-format
+msgid "Create Shared Resources"
+msgstr "تعيين:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Open Project..."
+msgstr "تحرير المشروع الرئيسي..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, fuzzy, kde-format
+msgid "Introduction"
+msgstr "قائمة من مورِد"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Plan"
+#~ msgstr "خطّة"
+
+#, fuzzy
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "كي بلاتو - أداة كدي للمشاريع"
+
+#, fuzzy
+#~ msgid "A short introduction."
+#~ msgstr "قائمة من مورِد"
+
+#, fuzzy
+#~ msgid "Close"
+#~ msgstr "إغلاق"
+
+#, fuzzy
+#~ msgid "Next: Resource allocation"
+#~ msgstr "قائمة من مورِد"
+
+#, fuzzy
+#~ msgid "Next: Introduction"
+#~ msgstr "قائمة من مورِد"
+
+#, fuzzy
+#~ msgid "Introduction to Plan"
+#~ msgstr "قائمة من مورِد"
+
+#, fuzzy
+#~ msgid "Calculation"
+#~ msgstr "حِسْبة"
+
+#, fuzzy
+#~ msgid "Manual"
+#~ msgstr "يدوي"
+
+#, fuzzy
+#~ msgid "Immediate on change"
+#~ msgstr "حالي يعمل تغيير"
+
+#, fuzzy
+#~ msgid "Constraints"
+#~ msgstr "تقييدات :: كوابح :: ارتباكات"
+
+#, fuzzy
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "اسمح من"
+
+#, fuzzy
+#~ msgid "Configure Plan..."
+#~ msgstr "اضبط كي بلاتو."
+
+#, fuzzy
+#~| msgid "KPlato"
+#~ msgid "Path:"
+#~ msgstr "المسار"
+
+#~ msgid "Project"
+#~ msgstr "مشروع"
+
+#, fuzzy
+#~ msgid "Shared resources removed"
+#~ msgstr "إضافة مورِد المجموعة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "افتراضي"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "إستعمل المستويات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "إضافة المستوى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "إضافة المستوى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "إضافة المستوى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "إضافة المستوى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "عادي النسبة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "حرج"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "انتهى:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "خطأ"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "المعلم"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "حِسْبة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "يدوي"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "حالي يعمل تغيير"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "تقييدات :: كوابح :: ارتباكات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "اسمح من"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "&عام"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "الـ لـ المهمة n هو ليس إلى متوفّر بوصة a مورِد المجموعة أنت وصول عنوان كتاب "
+#~ "مع اختر زر."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "المسؤول:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "إدراج a من عنوان كتاب"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "إدراج a من عنوان كتاب."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "اختر..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr ""
+#~ "الـ قيد\n"
+#~ "قسْر نوع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "ك قريبا محتمل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "ك متأخرا محتمل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "يجب أن ابدأ تشغيل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "يجب أن إنهاء تشغيل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "ابدأ لا في وقت سابق من"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "إنهاء لا لاحقاً من"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "ثابت الفترة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "تقييد تشغيل وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "تقييد تشغيل وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "التخمين النوع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "الجهد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "المدّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "محسوب"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "متفائل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "متشائم"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "وصف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "إدراج مستند"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "إدراج مستند"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "إدراج مستند"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category of the view"
+#~ msgstr "الـ الاسم من المهمة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "النوع من"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "التخمين النوع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the view"
+#~ msgstr "الـ الاسم من المهمة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "الاسم:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "وصف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "وصف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "العمل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "المشاهد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the category"
+#~ msgstr "الـ الاسم من المهمة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The description of the category"
+#~ msgstr "الـ الوصف من الحساب"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete file after it has been retrieved"
+#~ msgstr "احذف مختار عنصر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save file after it has been retrieved"
+#~ msgstr "احذف مختار عنصر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr ""
+#~ "الـ قيد\n"
+#~ "قسْر نوع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "تقييد تشغيل وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "تقييد end وقت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "النوع من"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "التخمين النوع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "محسوب"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "متفائل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "متشائم"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "وصف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "الملخّص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will delete the file after it has been read"
+#~ msgstr "احذف مختار عنصر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will save the file after it has been read"
+#~ msgstr "احذف مختار عنصر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The smallest duration unit allowed"
+#~ msgstr "الـ"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The largest duration unit allowed"
+#~ msgstr "الـ"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "ا&عرض"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&حرّر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "ا&عرض"
+
+#, fuzzy
+#~| msgid "&Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "&مشروع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "أ&دوات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "إ&عدادات"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "مشروع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "خطّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "قائمة من مورِد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document has no syntax version.\n"
+#~ "Opening it in Plan may lose information."
+#~ msgstr ""
+#~ "هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+#~ "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "استمر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "ملف تنسيق عدم مطابقة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+#~ "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "ملف تنسيق عدم مطابقة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+#~ "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "خطّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "كي بلاتو - أداة كدي للمشاريع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "c الـ كي بلاتو فريق"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "توماس سمك الزّندر"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "اندرسن"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "رافائيل"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ابراهيم خالد الابراهيم"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "ibrahim@arabeyes.org"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "لا"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "المشاهد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "عشري"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "إدراج مستند"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "مستند غير صحيح. لم يتم تحديد نوع mime."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr "غير صحيح مستند متوقّع تطبيق x 1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+#~ "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "اختر..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr "غير صحيح مستند متوقّع تطبيق x 1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "هذا مستند مع a أحدث من النسخة من كي بلاتو بناء الجملة\n"
+#~ "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "اعرض منتقيالمختار"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "أنشئ تقرير"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "أنشئ تقرير"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "اعرض منتقيالمختار"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "تحرير المشروع الرئيسي..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "تعريف WBS نمط."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "صريح"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "اضبط كي بلاتو."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "تعريف WBS نمط."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "حرر..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "التقدم."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "احذف مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "وصف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "إزاحة مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "عدم ازاحة مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "نقل مهمَّة أعلى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "نقل مهمَّة أسفل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "تحرير مورد."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "تحرير التبعية."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "احذف التبعية."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "مهمَّة الحالة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "العمل عطلة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "تحرير و أيام لـ"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "العمل الانهيار بناء"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "تحرير بنية."
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "تحرير مورِد بنية."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "المهام"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "تحرير بنية"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "تحرير المهمة التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "الجداول"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "إحسب و مشروع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "الأداء رسم بياني"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "عرض المهمة progress معلومات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "مهمَّة الحالة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "عرض المهمة progress معلومات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "عرض المهمة progress معلومات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "عرض المهمة progress معلومات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "عرض شكل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "المعلم جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "عرض شكل"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "مورد الواجبات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "عرض مورِد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "مورد الواجبات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "عرض مورِد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "عرض"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "الأداء رسم بياني"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "عرض المهمة progress معلومات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "صريح"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "اعرض منتقيالمختار"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "محررات النصوص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "المشاهد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "مهمَّة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "مهمَّة الإفتراضيّات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "مهمَّة التقدم"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr "A المهمة محذوف هذا جدول."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr "هذا المهمة هذا جدول."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr "A مورِد محذوف هذا جدول."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "لا"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr "%1-%2"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "الصفحة:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "مشروع"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "الصفحة:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "الاسم"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "التكلمة الآلية"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "احذف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "اضبط كي بلاتو."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "احذف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "احذف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "اضبط كي بلاتو."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "احذف"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "صريح"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "عرض"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "مورد"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "محررات النصوص"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "العمل عطلة"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "حسابات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "التبعيات"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "المجدول"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "مهمَّة هوية:"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "المعلم جانت"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "إلى"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "تكوين..."
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "اضبط كي بلاتو"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "صريح"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "اعرض منتقيالمختار"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "اعرض منتقيالمختار"
+
+#, fuzzy
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#, fuzzy
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr "غير قادر على إنزال ملف القالب: %1"
+
+#~ msgid "File to open"
+#~ msgstr "ملف للفتح"
+
+#, fuzzy
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] "احذف مورد"
+#~ msgstr[1] "احذف مورد"
+#~ msgstr[2] "احذف مورد"
+#~ msgstr[3] "احذف مورد"
+#~ msgstr[4] "احذف مورد"
+#~ msgstr[5] "احذف مورد"
+
+#, fuzzy
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "احذف"
+#~ msgstr[1] "احذف"
+#~ msgstr[2] "احذف"
+#~ msgstr[3] "احذف"
+#~ msgstr[4] "احذف"
+#~ msgstr[5] "احذف"
+
+#, fuzzy
+#~ msgid "Nuno Pinheiro and Danny Allen"
+#~ msgstr "و داني ألين"
+
+#, fuzzy
+#~ msgid "Application icon for plan"
+#~ msgstr "تطبيق أيقونة لـ"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgid "&Reports"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Leave file after it has been retrieved"
+#~ msgstr "احذف مختار عنصر"
+
+#~ msgid "KPlato"
+#~ msgstr "كي بلاتو"
+
+#, fuzzy
+#~ msgctxt "@info:tooltip"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "الأداء رسم بياني"
+
+#, fuzzy
+#~ msgid "View resource assignments"
+#~ msgstr "عرض مورِد"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating..."
+#~ msgstr "الحساب."
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation stopped"
+#~ msgstr "الحساب done"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation canceled"
+#~ msgstr "الحساب done"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation error"
+#~ msgstr "الحساب done"
+
+#, fuzzy
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating done"
+#~ msgstr "الحساب done"
+
+#, fuzzy
+#~ msgid "Add sub-task"
+#~ msgstr "إضافة مهمّة ثانوية"
+
+#, fuzzy
+#~ msgid "Add task"
+#~ msgstr "إضافة مهمَّة"
+
+#, fuzzy
+#~ msgid "Delete Tasks"
+#~ msgstr "احذف المهام"
+
+#, fuzzy
+#~ msgid "Add Relation"
+#~ msgstr "إضافة العلاقة"
+
+#, fuzzy
+#~ msgid "Delete Relation"
+#~ msgstr "احذف العلاقة"
+
+#, fuzzy
+#~ msgid "Delete Resource Objects"
+#~ msgstr "احذف مورد كائنات"
+
+#, fuzzy
+#~ msgid "View"
+#~ msgstr "عرض"
+
+#, fuzzy
+#~ msgid "Edit task dependenies"
+#~ msgstr "تحرير المهمة"
+
+#, fuzzy
+#~ msgid "Edit Standard Worktime..."
+#~ msgstr "تحرير قياسي."
+
+#, fuzzy
+#~ msgid "Note:"
+#~ msgstr "ملاحظة:"
+
+#, fuzzy
+#~ msgctxt "@action Add View"
+#~ msgid "View..."
+#~ msgstr "جديد..."
+
+#, fuzzy
+#~ msgid "Notes..."
+#~ msgstr "التقدم."
+
+#, fuzzy
+#~ msgid "Remove Document"
+#~ msgstr "إزالة خانة"
+
+#, fuzzy
+#~ msgid "Show allocations"
+#~ msgstr "اعرض"
+
+#, fuzzy
+#~ msgid "Year"
+#~ msgstr "امسح"
+
+#, fuzzy
+#~ msgid "Month"
+#~ msgstr "الشهر"
+
+#, fuzzy
+#~ msgid "Day"
+#~ msgstr "اليوم"
+
+#, fuzzy
+#~ msgid "Hour"
+#~ msgstr "ساعات"
+
+#, fuzzy
+#~ msgid "Modify Default Task"
+#~ msgstr "تعديل افتراضي مهمَّة"
+
+#, fuzzy
+#~ msgid "Timing"
+#~ msgstr "توقيت"
+
+#, fuzzy
+#~ msgid "Schedule:"
+#~ msgstr "جدول زمني:"
+
+#, fuzzy
+#~ msgid "Estimate:"
+#~ msgstr "التخمين:"
+
+#, fuzzy
+#~ msgid "Optimistic:"
+#~ msgstr "متفائل:"
+
+#, fuzzy
+#~ msgid "Pessimistic:"
+#~ msgstr "متشائم:"
+
+#, fuzzy
+#~ msgid "List of Resources"
+#~ msgstr "قائمة من الموارد"
+
+#, fuzzy
+#~ msgid "Project name:"
+#~ msgstr "اسم المشروع:"
+
+#, fuzzy
+#~ msgid "Resource group:"
+#~ msgstr "مورد المجموعة:"
+
+#, fuzzy
+#~ msgid "E-mail address"
+#~ msgstr "عنوان البريد الإلكتروني"
+
+#, fuzzy
+#~ msgid "Availability"
+#~ msgstr "التوفر"
+
+#, fuzzy
+#~ msgid "Rate"
+#~ msgstr "النسبة"
+
+#, fuzzy
+#~ msgid "Overtime"
+#~ msgstr "الوقت الإضافي"
+
+#, fuzzy
+#~ msgid "List of Tasks"
+#~ msgstr "قائمة من المهام"
+
+#, fuzzy
+#~ msgid "Cost"
+#~ msgstr "التكلفة"
+
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "ابدأ"
+
+#, fuzzy
+#~ msgid "Project leader:"
+#~ msgstr "مشروع:"
+
+#, fuzzy
+#~ msgid "WBS"
+#~ msgstr "WBS"
+
+#~ msgid "Responsible"
+#~ msgstr "المسؤولية"
+
+#, fuzzy
+#~ msgid "Edit Calendar..."
+#~ msgstr "تحرير التقويم."
+
+#, fuzzy
+#~ msgid "Edit Accounts..."
+#~ msgstr "تحرير حسابات."
+
+#, fuzzy
+#~ msgid "Edit Resources..."
+#~ msgstr "تحرير الموارد."
+
+#, fuzzy
+#~ msgid "Ganttview Options"
+#~ msgstr "خيارات"
+
+#, fuzzy
+#~ msgid "Resourceview Options"
+#~ msgstr "خيارات"
+
+#, fuzzy
+#~ msgid "Accountsview Options"
+#~ msgstr "خيارات"
+
+#, fuzzy
+#~ msgid "Performance Status"
+#~ msgstr "الأداء رسم بياني"
+
+#, fuzzy
+#~ msgid "Tasks by resources"
+#~ msgstr "المهام أداء"
+
+#, fuzzy
+#~ msgid "View task status per resource"
+#~ msgstr "عرض المهمة الحالة مورِد"
+
+#, fuzzy
+#~ msgid "Cost and schedule monitoring"
+#~ msgstr "التكلفة و جدول"
+
+#, fuzzy
+#~ msgid "Tasks by Resources"
+#~ msgstr "المهام أداء"
+
+#, fuzzy
+#~ msgctxt "days"
+#~ msgid "d"
+#~ msgstr "d"
+
+#, fuzzy
+#~ msgctxt "hours"
+#~ msgid "h"
+#~ msgstr "h"
+
+#, fuzzy
+#~ msgctxt "minutes"
+#~ msgid "m"
+#~ msgstr "m"
+
+#, fuzzy
+#~ msgid "Entry..."
+#~ msgstr "حرر..."
+
+#, fuzzy
+#~ msgid "Accounts"
+#~ msgstr "حسابات"
+
+#, fuzzy
+#~ msgid "AccountsPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Default account:"
+#~ msgstr "افتراضي الحساب:"
+
+#, fuzzy
+#~ msgid "&New"
+#~ msgstr "&جديد"
+
+#, fuzzy
+#~ msgid "New &Sub-Account"
+#~ msgstr "جديد فرعي الحساب"
+
+#, fuzzy
+#~ msgid "&Remove"
+#~ msgstr "أ&زل"
+
+#, fuzzy
+#~ msgid "AccountsviewConfigurePanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Cut-off date:"
+#~ msgstr "قص موقف التاريخ:"
+
+#, fuzzy
+#~ msgid "Periodicity:"
+#~ msgstr "الدورية:"
+
+#, fuzzy
+#~ msgid "Cumulative"
+#~ msgstr "متراكم"
+
+#, fuzzy
+#~ msgid "CalendarListPanel"
+#~ msgstr "إعدادات المهمة"
+
+#, fuzzy
+#~ msgid "New"
+#~ msgstr "جديد"
+
+#, fuzzy
+#~ msgid "Project Chart Indicators"
+#~ msgstr "مشروع رسم بياني المؤشرات"
+
+#, fuzzy
+#~ msgid "Budgeted Cost of Work Performed"
+#~ msgstr "وضع ميزانيّة التكلفة من العمل مؤدّى"
+
+#, fuzzy
+#~ msgid "Budgeted Cost of Work Scheduled"
+#~ msgstr "وضع ميزانيّة التكلفة من العمل المجدول"
+
+#, fuzzy
+#~ msgid "Actual Cost of Work Performed"
+#~ msgstr "فعليّ التكلفة من العمل مؤدّى"
+
+#, fuzzy
+#~ msgid "Project Schedule:"
+#~ msgstr "مشروع جدول:"
+
+#, fuzzy
+#~ msgid "Probability of finishing before"
+#~ msgstr "الإحتمال من قبل"
+
+#, fuzzy
+#~ msgid "is"
+#~ msgstr "هو"
+
+#, fuzzy
+#~ msgid "Add..."
+#~ msgstr "إضافة مهمَّة."
+
+#, fuzzy
+#~ msgid "CalendarEditBase"
+#~ msgstr "إعدادات المهمة"
+
+#, fuzzy
+#~ msgid "Work Interval"
+#~ msgstr "العمل الفترة"
+
+#, fuzzy
+#~ msgid "From:"
+#~ msgstr "من:"
+
+#, fuzzy
+#~ msgid "To:"
+#~ msgstr "إلى:"
+
+#, fuzzy
+#~ msgid "Add Interval"
+#~ msgstr "إضافة الفترة"
+
+#, fuzzy
+#~ msgid "Stretch last section"
+#~ msgstr "ممدّد الأخير فصل"
+
+#, fuzzy
+#~ msgid "Select columns to be shown:"
+#~ msgstr "انتقِ أعمدة إلى:"
+
+#, fuzzy
+#~ msgid "&Hidden columns:"
+#~ msgstr "مخفي أعمدة:"
+
+#, fuzzy
+#~ msgid "&Visible columns:"
+#~ msgstr "مرئي أعمدة:"
+
+#, fuzzy
+#~ msgid "ProjectPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "The project leader."
+#~ msgstr "الـ مشروع."
+
+#, fuzzy
+#~ msgid "&Leader:"
+#~ msgstr "قائد:"
+
+#, fuzzy
+#~ msgid "N&ame:"
+#~ msgstr "الإ&سم:"
+
+#, fuzzy
+#~ msgid "The unique project identification"
+#~ msgstr "الـ فريد مشروع تعريف"
+
+#, fuzzy
+#~ msgid "<p align=\"right\"></p>ID:"
+#~ msgstr "<p align=\"right\"></p> الهوية:"
+
+#, fuzzy
+#~ msgid "Choose a project leader from your address book."
+#~ msgstr "اختر a مشروع من عنوان كتاب."
+
+#, fuzzy
+#~ msgid "&Choose..."
+#~ msgstr "ا&ختر..."
+
+#, fuzzy
+#~ msgid "WBS:"
+#~ msgstr "WBS:"
+
+#~ msgid "Scheduling"
+#~ msgstr "مجدول"
+
+#, fuzzy
+#~ msgid "Select this to schedule the project forward from start time"
+#~ msgstr "انتقِ إلى جدول مشروع أمام من تشغيل وقت"
+
+#, fuzzy
+#~ msgid "Start date:"
+#~ msgstr "تاريخ البداية:"
+
+#, fuzzy
+#~ msgid "Select this to schedule the project backward from end time"
+#~ msgstr "انتقِ إلى جدول مشروع إلى الخلف من end وقت"
+
+#, fuzzy
+#~ msgid "End date:"
+#~ msgstr "تاريخ النهاية:"
+
+#, fuzzy
+#~ msgid ""
+#~ "Various notes associated with the project or a project summary.\n"
+#~ "\n"
+#~ "Here you can enter any additional text you want to be stored with the "
+#~ "project. This can for example be a short summary of the project or "
+#~ "various notes."
+#~ msgstr ""
+#~ "متنوعة مع مشروع أو a مشروع الملخص n أدخل أي منها نص إلى مع مشروع هذا لـ a "
+#~ "قصير الملخص من مشروع أو."
+
+#, fuzzy
+#~ msgid "&Project notes and summary:"
+#~ msgstr "مشروع و الملخص:"
+
+#, fuzzy
+#~ msgid "MilestoneProgressPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Finished"
+#~ msgstr "انتهى"
+
+#, fuzzy
+#~ msgid "Tasks :"
+#~ msgstr "المهام:"
+
+#, fuzzy
+#~ msgid "Total Float:"
+#~ msgstr "المجموع عشري:"
+
+#, fuzzy
+#~ msgid "Type"
+#~ msgstr "النوع"
+
+#, fuzzy
+#~ msgid "Advance"
+#~ msgstr "انتقال"
+
+#, fuzzy
+#~ msgid "Critical Path (Task Id) :"
+#~ msgstr "حرج المسار مهمَّة هوية:"
+
+#, fuzzy
+#~ msgid "Project Float :"
+#~ msgstr "مشروع عشري:"
+
+#, fuzzy
+#~ msgid "Task details "
+#~ msgstr "مهمَّة تفاصيل "
+
+#, fuzzy
+#~ msgid "Id"
+#~ msgstr "هوية"
+
+#, fuzzy
+#~ msgid "Early start date"
+#~ msgstr "مبكرا تشغيل التاريخ"
+
+#, fuzzy
+#~ msgid "Early finish date"
+#~ msgstr "مبكرا إنهاء التاريخ"
+
+#, fuzzy
+#~ msgid "Late start date"
+#~ msgstr "متأخرا تشغيل التاريخ"
+
+#, fuzzy
+#~ msgid "Late finish date"
+#~ msgstr "متأخرا إنهاء التاريخ"
+
+#, fuzzy
+#~ msgid "Free Margin"
+#~ msgstr "متفرّغ هامش"
+
+#, fuzzy
+#~ msgid "SummaryTaskGeneralPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid ""
+#~ "The Work Breakdown Structure introduces numbering for all tasks in the "
+#~ "project, according to the task structure.\n"
+#~ "\n"
+#~ "The WBS code is auto-generated; simply choose Generate WBS Code from the "
+#~ "Tools menu to generate the WBS code for the project."
+#~ msgstr ""
+#~ "الـ العمل الانهيار بناء ترقيم لـ الكل بوصة مشروع إلى المهمة بنية n WBS "
+#~ "رمز هو آلي اختيار أنشئ WBS الرّمز من أدوات قائمة إلى توليد WBS رمز لـ "
+#~ "مشروع."
+
+#, fuzzy
+#~ msgid "The name of the Task."
+#~ msgstr "الـ الاسم من مهمَّة."
+
+#, fuzzy
+#~ msgid "This is the unique identifier for this task."
+#~ msgstr "هذا هو فريد معرَف لـ المهمة."
+
+#, fuzzy
+#~ msgid "TaskCostPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Running"
+#~ msgstr "يعمل"
+
+#, fuzzy
+#~ msgid "Account:"
+#~ msgstr "حساب :"
+
+#, fuzzy
+#~ msgid "Startup"
+#~ msgstr "بدء التشغيل"
+
+#, fuzzy
+#~ msgid "Cost:"
+#~ msgstr "التكلفة:"
+
+#, fuzzy
+#~ msgid "Shutdown"
+#~ msgstr "إطفاء"
+
+#, fuzzy
+#~ msgid "TaskGeneralPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid ""
+#~ "Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for this task."
+#~ msgstr "الخطر التوزيعة مُستخدَم حساب لـ المهمة."
+
+#, fuzzy
+#~ msgid ""
+#~ "<p>Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for the task.\n"
+#~ "<b>None</b> means the Expected estimate is used as is.\n"
+#~ "<b>Low risk</b> means that a normal distribution is used.\n"
+#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
+#~ "compared to Low risk.</p>"
+#~ msgstr ""
+#~ "<p> الخطر التوزيعة مُستخدَم حساب لـ المهمة\n"
+#~ "<b> لا شيء</b> متوقّع هو مُستخدَم هو\n"
+#~ "<b> منخفض</b> a عادي التوزيعة هو مُستخدَم\n"
+#~ "<b> عالي</b> إلى منخفض</p>"
+
+#, fuzzy
+#~ msgid "Risk:"
+#~ msgstr "الخطر:"
+
+#, fuzzy
+#~ msgid "None"
+#~ msgstr "لا شيء"
+
+#, fuzzy
+#~ msgid "Low"
+#~ msgstr "منخفض"
+
+#, fuzzy
+#~ msgid "High"
+#~ msgstr "عالي"
+
+#, fuzzy
+#~ msgid "TaskProgressPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Started:"
+#~ msgstr "بدأ:"
+
+#, fuzzy
+#~ msgid "Add Entry"
+#~ msgstr "اضف خانة"
+
+#, fuzzy
+#~| msgid "Resource"
+#~ msgid "Per Resource"
+#~ msgstr "لكلّ مورد"
+
+#, fuzzy
+#~ msgid "Prev"
+#~ msgstr "سابقالسابقبريف"
+
+#, fuzzy
+#~ msgid "Next"
+#~ msgstr "التالي"
+
+#, fuzzy
+#~ msgid "Add Resource..."
+#~ msgstr "إضافة مورد."
+
+#, fuzzy
+#~ msgid "Mode"
+#~ msgstr "الوضع"
+
+#, fuzzy
+#~ msgid ""
+#~ "Have used- and remaining effort calculated based on percent completed"
+#~ msgstr "له مُستخدَم و باقٍ يعمل نسبة مئوية مكتمل"
+
+#, fuzzy
+#~ msgid "Enter used effort per task"
+#~ msgstr "إدخال مُستخدَم المهمة"
+
+#, fuzzy
+#~ msgid "Enter used effort per resource"
+#~ msgstr "إدخال مُستخدَم مورِد"
+
+#, fuzzy
+#~ msgid "TaskResourcesPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Max. Units"
+#~ msgstr "الحد الأقصى وحدات"
+
+#, fuzzy
+#~ msgid "WBSDefinitionPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Code:"
+#~ msgstr "الرّمز:"
+
+#, fuzzy
+#~ msgid "Separator:"
+#~ msgstr "الفاصِل:"
+
+#, fuzzy
+#~ msgid "From"
+#~ msgstr "من"
+
+#, fuzzy
+#~ msgid "Task 1"
+#~ msgstr "مهمَّة 1"
+
+#, fuzzy
+#~ msgid "Task 2"
+#~ msgstr "مهمَّة 2"
+
+#, fuzzy
+#~ msgid "Relationship Type"
+#~ msgstr "العلاقة النوع"
+
+#, fuzzy
+#~ msgid "Finish-Start"
+#~ msgstr "إنهاء ابدأ"
+
+#, fuzzy
+#~ msgid "Finish-Finish"
+#~ msgstr "إنهاء إنهاء"
+
+#, fuzzy
+#~ msgid "Start-Start"
+#~ msgstr "ابدأ ابدأ"
+
+#, fuzzy
+#~ msgid "Lag:"
+#~ msgstr "تباطؤ:"
+
+#, fuzzy
+#~ msgid "ResourceDialogBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Choose resource from addressbook"
+#~ msgstr "اختر مورِد من"
+
+#, fuzzy
+#~ msgid "Initials:"
+#~ msgstr "الحروف البادئة:"
+
+#, fuzzy
+#~ msgid "<p align=\"right\">Email:</p>"
+#~ msgstr "<p align=\"right\"> البريد الإلكتروني</p>"
+
+#, fuzzy
+#~ msgid "Resource type:"
+#~ msgstr "مورد نوع:"
+
+#, fuzzy
+#~ msgid "Material"
+#~ msgstr "المادة"
+
+#, fuzzy
+#~ msgid "<p align=\"right\">Calendar:</p>"
+#~ msgstr "<p align=\"right\"> التقويم</p>"
+
+#, fuzzy
+#~ msgid "Available:"
+#~ msgstr "المتوفر:"
+
+#, fuzzy
+#~ msgid "<p align=\"right\">From:</p>"
+#~ msgstr "<p align=\"right\"> من</p>"
+
+#, fuzzy
+#~ msgid "<p align=\"right\">Until:</p>"
+#~ msgstr "<p align=\"right\"> حتى</p>"
+
+#, fuzzy
+#~ msgid "Hourly rate:"
+#~ msgstr "كل ساعة معدل:"
+
+#, fuzzy
+#~ msgid "Overtime rate:"
+#~ msgstr "الوقت الإضافي معدل:"
+
+#, fuzzy
+#~ msgid "ResourcesPanelBase"
+#~ msgstr "موارد"
+
+#, fuzzy
+#~ msgid "Number of working hours in a normal day."
+#~ msgstr "الرقم من ساعات بوصة a عادي اليوم."
+
+#, fuzzy
+#~ msgid "Number of working hours in a normal week."
+#~ msgstr "الرقم من ساعات بوصة a عادي أسبوع."
+
+#, fuzzy
+#~ msgid "Number of working hours in a normal month."
+#~ msgstr "الرقم من ساعات بوصة a عادي شهر."
+
+#, fuzzy
+#~ msgid "Number of working hours in a normal year."
+#~ msgstr "الرقم من ساعات بوصة a عادي السنة."
+
+#, fuzzy
+#~ msgid "Edit Accounts"
+#~ msgstr "تحرير حسابات"
+
+#, fuzzy
+#~ msgid "Add account"
+#~ msgstr "إضافة الحساب"
+
+#, fuzzy
+#~ msgid "Delete Accounts"
+#~ msgstr "احذف حسابات"
+
+#, fuzzy
+#~ msgid "Delete Account"
+#~ msgstr "احذف الحساب"
+
+#, fuzzy
+#~ msgid "Add Subaccount"
+#~ msgstr "إضافة حساب ثانوي"
+
+#, fuzzy
+#~ msgid "Add Account"
+#~ msgstr "إضافة حساب"
+
+#, fuzzy
+#~ msgid "Delete Selected Accounts"
+#~ msgstr "احذف مختار حسابات"
+
+#, fuzzy
+#~ msgid "Modify Accounts"
+#~ msgstr "تعديل حسابات"
+
+#, fuzzy
+#~ msgid "Account"
+#~ msgstr "الحساب"
+
+#, fuzzy
+#~ msgid "Cut-off date:%1"
+#~ msgstr "قص موقف التاريخ 1"
+
+#, fuzzy
+#~ msgid "Periodicity:%1"
+#~ msgstr "الدورية 1"
+
+#~ msgid "Settings"
+#~ msgstr "إعدادات"
+
+#, fuzzy
+#~ msgid "Undefined"
+#~ msgstr "غير معرّف"
+
+#, fuzzy
+#~ msgid "Non-working"
+#~ msgstr "غير"
+
+#, fuzzy
+#~ msgid "Modify Calendar"
+#~ msgstr "تعديل التقويم"
+
+#, fuzzy
+#~ msgid "Apply"
+#~ msgstr "تطبيق"
+
+#, fuzzy
+#~ msgid "Timezone"
+#~ msgstr "المنطقة الزمنية"
+
+#, fuzzy
+#~ msgid "Add Calendar"
+#~ msgstr "أضِف تقويم"
+
+#, fuzzy
+#~ msgid "Weekdays"
+#~ msgstr "أيّام الأسبوع"
+
+#, fuzzy
+#~ msgid "Days"
+#~ msgstr "أيام"
+
+#, fuzzy
+#~ msgid "Add Work Interval"
+#~ msgstr "إضافة العمل الفترة"
+
+#, fuzzy
+#~ msgid "Remove Work Interval"
+#~ msgstr "احذف العمل الفترة"
+
+#, fuzzy
+#~ msgid "Add Calendar Day"
+#~ msgstr "إضافة التقويم اليوم"
+
+#, fuzzy
+#~ msgid "Remove Calendar Day"
+#~ msgstr "احذف التقويم اليوم"
+
+#, fuzzy
+#~ msgid "Delete Selected Calendar"
+#~ msgstr "احذف مختار التقويم"
+
+#, fuzzy
+#~ msgid "Modify Calendars"
+#~ msgstr "تعديل التقويمات"
+
+#, fuzzy
+#~ msgid "Next year"
+#~ msgstr "السنة التالية"
+
+#, fuzzy
+#~ msgid "Previous year"
+#~ msgstr "السنة الماضية"
+
+#, fuzzy
+#~ msgid "Next month"
+#~ msgstr "الشهر التالي"
+
+#, fuzzy
+#~ msgid "Previous month"
+#~ msgstr "الشهر الماضي"
+
+#, fuzzy
+#~ msgid "Select a week"
+#~ msgstr "انتقِ أسبوعاً"
+
+#, fuzzy
+#~ msgid "Select a month"
+#~ msgstr "انتقِ شهراً"
+
+#, fuzzy
+#~ msgid "Select a year"
+#~ msgstr "انتقِ سنة"
+
+#, fuzzy
+#~ msgid "Week XX"
+#~ msgstr "الأسبوع"
+
+#, fuzzy
+#~ msgid "Week %1"
+#~ msgstr "الأسبوع %1"
+
+#, fuzzy
+#~ msgid "Add Task..."
+#~ msgstr "إضافة مهمَّة."
+
+#, fuzzy
+#~ msgid "Add Sub-Task..."
+#~ msgstr "إضافة فرعي مهمَّة."
+
+#, fuzzy
+#~ msgid "Add Milestone..."
+#~ msgstr "إضافة المعلم."
+
+#, fuzzy
+#~ msgid "Add Document..."
+#~ msgstr "إضافة مورد."
+
+#, fuzzy
+#~ msgid "Delete Selected Documents"
+#~ msgstr "احذف مختار حسابات"
+
+#, fuzzy
+#~ msgid "Attach Document"
+#~ msgstr "مستندات"
+
+#, fuzzy
+#~ msgid "Modify Url"
+#~ msgstr "غيير ال مهمة"
+
+#, fuzzy
+#~ msgid "Modify Documents"
+#~ msgstr "تعديل حسابات"
+
+#, fuzzy
+#~ msgid "Modify Document Url"
+#~ msgstr "تعديل حسابات"
+
+#, fuzzy
+#~ msgid "Modify Document Type"
+#~ msgstr "تعديل حسابات"
+
+#, fuzzy
+#~ msgid "Modify Document Status"
+#~ msgstr "تعديل حسابات"
+
+#, fuzzy
+#~ msgid "Total"
+#~ msgstr "المجموع"
+
+#, fuzzy
+#~ msgid "View Settings"
+#~ msgstr "عرض الإعدادات"
+
+#, fuzzy
+#~ msgid "Scheduling (%1)"
+#~ msgstr "الجدولة"
+
+#, fuzzy
+#~ msgid "Project id must be unique"
+#~ msgstr "مشروع هوية فريد"
+
+#, fuzzy
+#~ msgid "Milestone Progress"
+#~ msgstr "المعلم التقدم"
+
+#, fuzzy
+#~ msgid "Required Tasks :"
+#~ msgstr "مطلوب المهام:"
+
+#, fuzzy
+#~ msgid "Available Tasks :"
+#~ msgstr "متوفر المهام:"
+
+#, fuzzy
+#~ msgid "Critical Path"
+#~ msgstr "حرج المسار"
+
+#, fuzzy
+#~ msgid "Non-critical"
+#~ msgstr "غير حرج"
+
+#, fuzzy
+#~ msgid "Add Relationship"
+#~ msgstr "إضافة العلاقة"
+
+#, fuzzy
+#~ msgid "Edit Relationship"
+#~ msgstr "تحرير العلاقة"
+
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "احذف"
+
+#, fuzzy
+#~ msgid "Modify Relation"
+#~ msgstr "تعديل العلاقة"
+
+#, fuzzy
+#~ msgid "Cannot find report template file!"
+#~ msgstr "لا يستطيع ابحث تقرير قالب ملفّ!"
+
+#, fuzzy
+#~ msgid "Cannot open report template file!"
+#~ msgstr "لا يستطيع فتح تقرير قالب ملفّ!"
+
+#, fuzzy
+#~ msgid "Cannot read report template file!"
+#~ msgstr "لا يستطيع قراءة تقرير قالب ملفّ!"
+
+#, fuzzy
+#~ msgid "Cannot find the proper report template file!"
+#~ msgstr "لا يستطيع ابحث تقرير قالب ملفّ!"
+
+#, fuzzy
+#~ msgid "Malformed template filename: %1"
+#~ msgstr "مشوّه قالب اسم الملف 1"
+
+#, fuzzy
+#~ msgid "Add resource from addressbook"
+#~ msgid_plural "Add %1 resources from addressbook"
+#~ msgstr[0] "إضافة مورِد من"
+#~ msgstr[1] "إضافة مورِد من"
+#~ msgstr[2] ""
+#~ msgstr[3] ""
+#~ msgstr[4] ""
+#~ msgstr[5] ""
+
+#, fuzzy
+#~ msgid "No task attributed"
+#~ msgstr "لا المهمة"
+
+#, fuzzy
+#~ msgid "Not Started"
+#~ msgstr "لم يبدأ"
+
+#, fuzzy
+#~ msgid "Started"
+#~ msgstr "بادئ"
+
+#, fuzzy
+#~ msgid "No resource attributed"
+#~ msgstr "لا مورِد"
+
+#, fuzzy
+#~ msgid "Resource Settings"
+#~ msgstr "مورد إعدادات"
+
+#, fuzzy
+#~ msgid "Modify Resource"
+#~ msgstr "تعديل مورد"
+
+#, fuzzy
+#~ msgctxt "Default (calendar name)"
+#~ msgid "Default (%1)"
+#~ msgstr "افتراضي"
+
+#, fuzzy
+#~ msgid "Initials"
+#~ msgstr "الحروف البادئة"
+
+#, fuzzy
+#~ msgid "Email"
+#~ msgstr "البريد الإلكتروني"
+
+#, fuzzy
+#~ msgid "Limit (%)"
+#~ msgstr "الحدّ"
+
+#, fuzzy
+#~ msgid "Available From"
+#~ msgstr "متوفر من"
+
+#, fuzzy
+#~ msgid "Available Until"
+#~ msgstr "متوفر حتى"
+
+#, fuzzy
+#~ msgid "Overtime Rate"
+#~ msgstr "الوقت الإضافي النسبة"
+
+#, fuzzy
+#~ msgid "Add Resource Group..."
+#~ msgstr "إضافة مورد المجموعة."
+
+#, fuzzy
+#~ msgid "Delete Selected Items"
+#~ msgstr "احذف مختار عناصر"
+
+#, fuzzy
+#~ msgid "Modify resources"
+#~ msgstr "تعديل"
+
+#~ msgid ""
+#~ "Resources belong to resource groups, select the group first to add a new "
+#~ "resource to"
+#~ msgstr ""
+#~ "الموارد تعود إلى مجموعات الموارد, اختر المجموعة أولاً لإضافة مورد جديد إلى"
+
+#, fuzzy
+#~ msgid "Allow"
+#~ msgstr "اسمح"
+
+#, fuzzy
+#~ msgid "Avoid"
+#~ msgstr "تجنّب"
+
+#, fuzzy
+#~ msgid "All"
+#~ msgstr "الكل"
+
+#, fuzzy
+#~ msgid "Expected only"
+#~ msgstr "متوقّع"
+
+#, fuzzy
+#~ msgid "State"
+#~ msgstr "الحالة"
+
+#, fuzzy
+#~ msgid "Distribution"
+#~ msgstr "توزيعة"
+
+#, fuzzy
+#~ msgid "Calculate"
+#~ msgstr "إحسب"
+
+#, fuzzy
+#~ msgid "Finish"
+#~ msgstr "إنهاء"
+
+#, fuzzy
+#~ msgid "Calculate Schedule..."
+#~ msgstr "إحسب جدول."
+
+#, fuzzy
+#~ msgid "Add Schedule..."
+#~ msgstr "إضافة جدول."
+
+#, fuzzy
+#~ msgid "Add Sub-schedule..."
+#~ msgstr "إضافة فرعي جدول."
+
+#, fuzzy
+#~ msgid "Delete Selected Schedules"
+#~ msgstr "احذف مختار الجداول"
+
+#, fuzzy
+#~ msgid "Create sub-schedule"
+#~ msgstr "إنشاء جدول"
+
+#, fuzzy
+#~ msgid "Result"
+#~ msgstr "النتيجة"
+
+#, fuzzy
+#~ msgid "Standard Worktime"
+#~ msgstr "قياسي"
+
+#, fuzzy
+#~ msgid "Modify Standard Worktime"
+#~ msgstr "تعديل قياسي"
+
+#, fuzzy
+#~ msgid "Summary Task Settings"
+#~ msgstr "الملخّص مهمَّة إعدادات"
+
+#, fuzzy
+#~ msgid "Modify Task"
+#~ msgstr "غيير ال مهمة"
+
+#, fuzzy
+#~ msgid "Task id must be unique"
+#~ msgstr "مهمَّة هوية فريد"
+
+#~ msgid "Task Settings"
+#~ msgstr "إعدادات المهمة"
+
+#, fuzzy
+#~ msgid "&Resources"
+#~ msgstr "ال&موارد"
+
+#, fuzzy
+#~ msgid "&Cost"
+#~ msgstr "التكلفة"
+
+#, fuzzy
+#~ msgid "Move Up"
+#~ msgstr "تحريك للأعلى"
+
+#, fuzzy
+#~ msgid "Move Down"
+#~ msgstr "تحريك للأسفل"
+
+#, fuzzy
+#~ msgid "Modify Task Progress"
+#~ msgstr "تعديل مهمَّة التقدم"
+
+#, fuzzy
+#~ msgctxt "Week number (year)"
+#~ msgid "Week %1 (%2)"
+#~ msgstr "الأسبوع"
+
+#, fuzzy
+#~ msgctxt "Week number"
+#~ msgid "Week %1"
+#~ msgstr "الأسبوع %1"
+
+#, fuzzy
+#~ msgid "Modify task completion"
+#~ msgstr "تعديل المهمة"
+
+#, fuzzy
+#~ msgid "Next Period"
+#~ msgstr "التالي الفترة"
+
+#, fuzzy
+#~ msgid "This Week"
+#~ msgstr "هذا الأسبوع"
+
+#, fuzzy
+#~ msgid "Total effort this week"
+#~ msgstr "المجموع أسبوع"
+
+#, fuzzy
+#~ msgid "Date"
+#~ msgstr "التاريخ"
+
+#, fuzzy
+#~ msgid "% Completed"
+#~ msgstr "اكتمل"
+
+#, fuzzy
+#~ msgid "Used Effort"
+#~ msgstr "مُستخدَم الجهد"
+
+#, fuzzy
+#~ msgid "Remaining Effort"
+#~ msgstr "متبقّ الجهد"
+
+#, fuzzy
+#~ msgid "Planned Effort"
+#~ msgstr "مخطّط الجهد"
+
+#, fuzzy
+#~ msgid "WBS Definition"
+#~ msgstr "WBS تعريف"
+
+#, fuzzy
+#~ msgid "Modify WBS Definition"
+#~ msgstr "تعديل WBS تعريف"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Budgeted Cost of Work "
+#~ "Performed</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> وضع ميزانيّة التكلفة من "
+#~ "العمل مؤدّى</p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Budgeted Cost of Work "
+#~ "Scheduled</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> وضع ميزانيّة التكلفة من "
+#~ "العمل المجدول</p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Actual Cost of Work "
+#~ "Performed</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> فعليّ التكلفة من العمل "
+#~ "مؤدّى</p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Here you define when "
+#~ "the project shall start or end.</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">If start time is "
+#~ "defined, the project is scheduled forward from this time. When the "
+#~ "project has been calculated, end time shows when the project is planned "
+#~ "to end.</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">If end time is defined, "
+#~ "the project is scheduled backwards from this time. When the project has "
+#~ "been calculated, start time shows when the project must start in order to "
+#~ "finish in time.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> هنا تعريف مشروع تشغيل "
+#~ "أو end</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> إذا تشغيل وقت هو مشروع "
+#~ "هو أمام من وقت متى مشروع end وقت مشروع هو إلى end</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> إذا end وقت هو مشروع "
+#~ "هو من وقت متى مشروع تشغيل وقت مشروع تشغيل بوصة ترتيب إلى إنهاء بوصة وقت</"
+#~ "p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Scheduling "
+#~ "Configuration. These settings affect the actual scheduling of the task.</"
+#~ "p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">The estimation can be "
+#~ "either effort based or duration based. If it is effort based, the final "
+#~ "duration will depend on the resources assigned to the task. For duration "
+#~ "based estimation, the assigned resources don't affect the fixed duration "
+#~ "of the task, but only the costs.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> الجدولة إعدادات هذه "
+#~ "خصائص جدولة من المهمة</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> الـ أو إذا الإيطالية "
+#~ "هو يعمل إلى المهمة لـ t fixed من المهمة</p></body></html>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">These values are used "
+#~ "when you estimate the effort needed to complete a task.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\"> أبيض فراغ\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal; text-decoration:none;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"> هذه مُستخدَم إلى كامل a "
+#~ "المهمة</p></body></html>"
+
+#, fuzzy
+#~ msgid "Form"
+#~ msgstr "من"
+
+#, fuzzy
+#~ msgid "DurationWidget"
+#~ msgstr "المدة:"
+
+#, fuzzy
+#~ msgid "d"
+#~ msgstr "d"
+
+#, fuzzy
+#~ msgid ":"
+#~ msgstr ":"
+
+#, fuzzy
+#~ msgid "h"
+#~ msgstr "h"
+
+#, fuzzy
+#~ msgid "m"
+#~ msgstr "m"
+
+#, fuzzy
+#~ msgid "s"
+#~ msgstr "s"
+
+#, fuzzy
+#~ msgid "."
+#~ msgstr "."
+
+#, fuzzy
+#~ msgid "ms"
+#~ msgstr "ملّي ثانية"
+
+#, fuzzy
+#~ msgid "Node"
+#~ msgstr "نقطة اتّصال"
+
+#, fuzzy
+#~ msgid "Sub-Project"
+#~ msgstr "فرعي مشروع"
+
+#, fuzzy
+#~ msgid "Periodic"
+#~ msgstr "دورية"
+
+#, fuzzy
+#~ msgid "As Soon As Possible"
+#~ msgstr "ك قريبا ك محتمل"
+
+#, fuzzy
+#~ msgid "As Late As Possible"
+#~ msgstr "ك متأخرا ك محتمل"
+
+#, fuzzy
+#~ msgid "Start Not Earlier"
+#~ msgstr "ابدأ لا في وقت سابق"
+
+#, fuzzy
+#~ msgid "Finish Not Later"
+#~ msgstr "إنهاء لا لاحقاً"
+
+#, fuzzy
+#~ msgid "FixedDuration"
+#~ msgstr "تعيين المدة"
+
+#, fuzzy
+#~ msgid "Finished late"
+#~ msgstr "انتهى"
+
+#, fuzzy
+#~ msgid "Finished early"
+#~ msgstr "انتهى"
+
+#, fuzzy
+#~ msgid "Started late"
+#~ msgstr "بادئ"
+
+#, fuzzy
+#~ msgid "Started early"
+#~ msgstr "بادئ"
+
+#, fuzzy
+#~ msgid "Not started"
+#~ msgstr "لم يبدأ"
+
+#, fuzzy
+#~ msgid "Allocation"
+#~ msgstr "الحصّة"
+
+#, fuzzy
+#~ msgid "Estimate"
+#~ msgstr "التخمين"
+
+#, fuzzy
+#~ msgid "Optimistic"
+#~ msgstr "متفائل"
+
+#, fuzzy
+#~ msgid "Pessimistic"
+#~ msgstr "متشائم"
+
+#, fuzzy
+#~ msgid "Risk"
+#~ msgstr "الخطر"
+
+#, fuzzy
+#~ msgid "Constraint"
+#~ msgstr "تقييد"
+
+#, fuzzy
+#~ msgid "Constraint Start"
+#~ msgstr "تقييد ابدأ"
+
+#, fuzzy
+#~ msgid "Constraint End"
+#~ msgstr "تقييد نهاية"
+
+#, fuzzy
+#~ msgid "Running Account"
+#~ msgstr "يعمل الحساب"
+
+#, fuzzy
+#~ msgid "Startup Account"
+#~ msgstr "بدء التشغيل الحساب"
+
+#, fuzzy
+#~ msgid "Startup Cost"
+#~ msgstr "بدء التشغيل التكلفة"
+
+#, fuzzy
+#~ msgid "Shutdown Account"
+#~ msgstr "إطفاء الحساب"
+
+#, fuzzy
+#~ msgid "Shutdown Cost"
+#~ msgstr "إطفاء التكلفة"
+
+#, fuzzy
+#~ msgid "Expected"
+#~ msgstr "متوقّع"
+
+#, fuzzy
+#~ msgid "Variance (Est)"
+#~ msgstr "الخلاف ESTتوقيت شرق أمريكا"
+
+#, fuzzy
+#~ msgid "Start Time"
+#~ msgstr "وقت البداية"
+
+#, fuzzy
+#~ msgid "End Time"
+#~ msgstr "وقت النهاية"
+
+#, fuzzy
+#~ msgid "Early Start"
+#~ msgstr "مبكرا ابدأ"
+
+#, fuzzy
+#~ msgid "Early Finish"
+#~ msgstr "مبكرا إنهاء"
+
+#, fuzzy
+#~ msgid "Late Start"
+#~ msgstr "متأخرا ابدأ"
+
+#, fuzzy
+#~ msgid "Late Finish"
+#~ msgstr "متأخرا إنهاء"
+
+#, fuzzy
+#~ msgid "Positive Float"
+#~ msgstr "موجب عشري"
+
+#, fuzzy
+#~ msgid "Free Float"
+#~ msgstr "متفرّغ عشري"
+
+#, fuzzy
+#~ msgid "Negative Float"
+#~ msgstr "سالب عشري"
+
+#, fuzzy
+#~ msgid "Start Float"
+#~ msgstr "ابدأ عشري"
+
+#, fuzzy
+#~ msgid "Finish Float"
+#~ msgstr "إنهاء عشري"
+
+#, fuzzy
+#~ msgid "Variance (Dur)"
+#~ msgstr "الخلاف"
+
+#, fuzzy
+#~ msgid "Status"
+#~ msgstr "الحالة"
+
+#, fuzzy
+#~ msgid "Actual Effort"
+#~ msgstr "فعليّ الجهد"
+
+#, fuzzy
+#~ msgid "Planned Cost"
+#~ msgstr "مخطّط التكلفة"
+
+#, fuzzy
+#~ msgid "Actual Cost"
+#~ msgstr "فعليّ التكلفة"
+
+#, fuzzy
+#~ msgid "Status Note"
+#~ msgstr "الحالة ملاحظة"
+
+#, fuzzy
+#~ msgid "Add Resource"
+#~ msgstr "أضف المورِد"
+
+#, fuzzy
+#~ msgid "Modify Resource Allocations"
+#~ msgstr "تعديل مورد الحصص"
+
+#, fuzzy
+#~ msgid "Modify estimate"
+#~ msgstr "تعديل"
+
+#, fuzzy
+#~ msgid "Modify Running Account"
+#~ msgstr "تعديل يعمل الحساب"
+
+#, fuzzy
+#~ msgid "Modify Startup Account"
+#~ msgstr "تعديل بدء التشغيل الحساب"
+
+#, fuzzy
+#~ msgid "Modify Startup Cost"
+#~ msgstr "تعديل بدء التشغيل التكلفة"
+
+#, fuzzy
+#~ msgid "Modify Shutdown Account"
+#~ msgstr "تعديل إطفاء الحساب"
+
+#, fuzzy
+#~ msgid "Modify Shutdown Cost"
+#~ msgstr "تعديل إطفاء التكلفة"
+
+#, fuzzy
+#~ msgid "Move tasks"
+#~ msgstr "نقل"
+
+#, fuzzy
+#~ msgid "Deleted"
+#~ msgstr "محذوف"
+
+#, fuzzy
+#~ msgid "Cannot fullfill constraints"
+#~ msgstr "لا يستطيع"
+
+#, fuzzy
+#~ msgid "No resource allocated"
+#~ msgstr "لا مورِد"
+
+#, fuzzy
+#~ msgid "Resource overbooked"
+#~ msgstr "مورد"
+
+#, fuzzy
+#~ msgid "Task Name"
+#~ msgstr "اسم المهمة"
+
+#, fuzzy
+#~ msgid "Task Links"
+#~ msgstr "مهمَّة وصلات"
+
+#, fuzzy
+#~ msgid "Progress"
+#~ msgstr "التقدم"
+
+#, fuzzy
+#~ msgid "Critical Tasks"
+#~ msgstr "حرج المهام"
+
+#, fuzzy
+#~ msgid "Toggle no information"
+#~ msgstr "تبديل لا معلومات"
+
+#, fuzzy
+#~ msgid "Number"
+#~ msgstr "الرقم"
+
+#, fuzzy
+#~ msgid "Roman, upper case"
+#~ msgstr "روماني حالة"
+
+#, fuzzy
+#~ msgid "Roman, lower case"
+#~ msgstr "روماني حالة"
+
+#, fuzzy
+#~ msgid "Letter, upper case"
+#~ msgstr "خطاب حالة"
+
+#, fuzzy
+#~ msgid "Letter, lower case"
+#~ msgstr "خطاب حالة"
+
+#, fuzzy
+#~ msgid "Task type"
+#~ msgstr "مهمَّة نوع"
+
+#, fuzzy
+#~ msgid "The responsible person for this task"
+#~ msgstr "الـ لـ المهمة"
+
+#, fuzzy
+#~ msgid "Work Breakdown Structure Code"
+#~ msgstr "العمل الانهيار بناء الرّمز"
+
+#, fuzzy
+#~ msgid ""
+#~ "Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for this task"
+#~ msgstr "الخطر التوزيعة مُستخدَم حساب لـ المهمة"
+
+#, fuzzy
+#~ msgid "Account for running costs"
+#~ msgstr "الحساب لـ جاري التنفيذ"
+
+#, fuzzy
+#~ msgid "Account for cost incurred at startup of the task"
+#~ msgstr "الحساب لـ عند البدأ من المهمة"
+
+#, fuzzy
+#~ msgid "The cost incurred at startup of the task"
+#~ msgstr "الـ عند البدأ من المهمة"
+
+#, fuzzy
+#~ msgid "Account for cost incurred at shutdown of the task"
+#~ msgstr "الحساب لـ عند أطفيء من المهمة"
+
+#, fuzzy
+#~ msgid "The cost incurred at shutdown of the task"
+#~ msgstr "الـ عند أطفيء من المهمة"
+
+#, fuzzy
+#~ msgid "Planned start time"
+#~ msgstr "مخطّط تشغيل وقت"
+
+#, fuzzy
+#~ msgid "Planned finish time"
+#~ msgstr "مخطّط إنهاء وقت"
+
+#, fuzzy
+#~ msgid "Earliest start time allowed by dependencies"
+#~ msgstr "أسبق تشغيل وقت المسموح لهم أداء التبعيات"
+
+#, fuzzy
+#~ msgid "Earliest finish  time allowed by dependencies"
+#~ msgstr "أسبق إنهاء وقت المسموح لهم أداء التبعيات"
+
+#, fuzzy
+#~ msgid "Latest start time allowed by dependencies"
+#~ msgstr "آخر نسخة تشغيل وقت المسموح لهم أداء التبعيات"
+
+#, fuzzy
+#~ msgid "Latest finish time allowed by dependencies"
+#~ msgstr "آخر نسخة إنهاء وقت المسموح لهم أداء التبعيات"
+
+#, fuzzy
+#~ msgid "The variance of the duration"
+#~ msgstr "الـ من"
+
+#, fuzzy
+#~ msgid "The optimistic duration"
+#~ msgstr "الـ"
+
+#, fuzzy
+#~ msgid "The pessimistic duration"
+#~ msgstr "الـ"
+
+#, fuzzy
+#~ msgid ""
+#~ "The duration by which a tasks start can be delayed  without affecting the "
+#~ "project completion time"
+#~ msgstr "الـ أداء a تشغيل مشروع وقت"
+
+#, fuzzy
+#~ msgid ""
+#~ "The duration by which the duration of a task or path has to be reduced in "
+#~ "order to fullfill a timing constraint"
+#~ msgstr ""
+#~ "الـ أداء من a المهمة أو المسار إلى بوصة ترتيب إلى a قيد\n"
+#~ "قسْر"
+
+#, fuzzy
+#~ msgid ""
+#~ "The duration by which a task can be delayed or extended without affecting "
+#~ "the start of any succeeding task"
+#~ msgstr "الـ أداء a المهمة أو موسّع تشغيل من أي منها المهمة"
+
+#, fuzzy
+#~ msgid "The duration from Early Start to Late Start"
+#~ msgstr "الـ من مبكرا ابدأ إلى متأخرا ابدأ"
+
+#, fuzzy
+#~ msgid "The duration from Early Finish to Late Finish"
+#~ msgstr "الـ من مبكرا إنهاء إلى متأخرا إنهاء"
+
+#, fuzzy
+#~ msgid "Task status"
+#~ msgstr "مهمَّة الحالة"
+
+#, fuzzy
+#~ msgid "Planned effort"
+#~ msgstr "مخطّط"
+
+#, fuzzy
+#~ msgid "Actual effort"
+#~ msgstr "فعليّ"
+
+#, fuzzy
+#~ msgid "Remaining effort"
+#~ msgstr "متبقّ"
+
+#, fuzzy
+#~ msgid "Planned cost"
+#~ msgstr "مخطّط"
+
+#, fuzzy
+#~ msgid "Actual cost"
+#~ msgstr "فعليّ"
+
+#, fuzzy
+#~ msgid "Time when task was actually started"
+#~ msgstr "الوقت المهمة"
+
+#, fuzzy
+#~ msgid "Time when task was actually finished"
+#~ msgstr "الوقت المهمة إنتهيت"
+
+#, fuzzy
+#~ msgid "Calculated estimate variance"
+#~ msgstr "محسوب"
+
+#, fuzzy
+#~ msgid "The most likely estimate"
+#~ msgstr "الـ"
+
+#, fuzzy
+#~ msgid "The name of the resource or resource group"
+#~ msgstr "الـ الاسم من مورِد أو مورِد المجموعة"
+
+#, fuzzy
+#~ msgid "The type of the resource or resource group"
+#~ msgstr "الـ نوع من مورِد أو مورِد المجموعة"
+
+#, fuzzy
+#~ msgid "The initials of the resource"
+#~ msgstr "الـ من مورِد"
+
+#, fuzzy
+#~ msgid "The e-mail address of the resource"
+#~ msgstr "الـ e بريد عنوان من مورِد"
+
+#, fuzzy
+#~ msgid "The maximum load that can be assigned"
+#~ msgstr "الـ الأقصى التحميل"
+
+#, fuzzy
+#~ msgid "Defines when the resource is available to the project"
+#~ msgstr "يعرّف مورِد هو متوفّر إلى مشروع"
+
+#, fuzzy
+#~ msgid "The cost pr hour, normal hours"
+#~ msgstr "الـ ساعة عادي ساعات"
+
+#, fuzzy
+#~ msgid "The cost pr hour, overtime hours"
+#~ msgstr "الـ ساعة ساعات"
+
+#, fuzzy
+#~ msgid "The fixed cost"
+#~ msgstr "الـ fixed"
+
+#, fuzzy
+#~ msgid "The name of the account"
+#~ msgstr "الـ الاسم من الحساب"
+
+#, fuzzy
+#~ msgid "The name of the schedule"
+#~ msgstr "الـ الاسم من جدول"
+
+#, fuzzy
+#~ msgid "The schedules state"
+#~ msgstr "الـ حالة"
+
+#, fuzzy
+#~ msgid "Controles resource overbooking when scheduling"
+#~ msgstr "مورِد جدولة"
+
+#, fuzzy
+#~ msgid "The distribution to be used during scheduling"
+#~ msgstr "الـ التوزيعة إلى مُستخدَم جدولة"
+
+#, fuzzy
+#~ msgid "Defines the schedules to be calculated"
+#~ msgstr "يعرّف إلى"
+
+#, fuzzy
+#~ msgid ""
+#~ "Negative float is the duration by which the duration of a task or path "
+#~ "has to be reduced in order to fullfill a timing constraint."
+#~ msgstr ""
+#~ "سالب عشري هو أداء من a المهمة أو المسار إلى بوصة ترتيب إلى a قيد\n"
+#~ "قسْر."
+
+#, fuzzy
+#~ msgid ""
+#~ "Free float is the duration by which a task can be delayed or extended "
+#~ "without affecting the start of any succeeding task."
+#~ msgstr "متفرّغ عشري هو أداء a المهمة أو موسّع تشغيل من أي منها المهمة."
+
+#, fuzzy
+#~ msgid "Start float is the duration from Early Start to Late Start."
+#~ msgstr "ابدأ عشري هو من مبكرا ابدأ إلى متأخرا ابدأ."
+
+#, fuzzy
+#~ msgid "Finish float is the duration from Early Finish to Late Finish."
+#~ msgstr "إنهاء عشري هو من مبكرا إنهاء إلى متأخرا إنهاء."

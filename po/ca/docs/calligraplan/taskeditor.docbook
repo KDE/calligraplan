@@ -1,0 +1,520 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Descripció</title>
+  <para
+>L'Editor de tasques s'empra per a crear, editar i suprimir les tasques.</para
+><para
+>Les tasques es poden organitzar en una estructura en arbre jeràrquica a qualsevol profunditat. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Barra d'eines</title>
+  <para
+>La barra d'eines proporciona els mitjans per a crear, suprimir i moure les tasques i fites: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botó</guilabel
+></entry>
+            <entry
+><guilabel
+>Drecera</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Afegeix una tasca</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Llista desplegable per a crear una tasca o fita. L'element nou es col·loca després de l'element seleccionat al mateix nivell que l'element seleccionat. Si no se selecciona cap element, l'element nou s'annexarà al nivell superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afegeix una subtasca...</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Llista desplegable per a crear una subtasca o fita. L'element nou s'annexarà com a element fill a l'element seleccionat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Maj;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Suprimeix la tasca</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Suprimeix</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Suprimeix les tasques seleccionades.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sagna la tasca</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Annexa la tasca seleccionada com a filla de la tasca anterior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dessagna la tasca</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mou la tasca seleccionada un nivell cap amunt, inserint-la després de la seva tasca pare actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Mou amunt</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mou la tasca seleccionada un lloc cap amunt.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Mou avall</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Mou la tasca seleccionada un lloc cap avall.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Recordeu que també podreu moure o copiar tasques emprant arrossega i deixa anar o copia/enganxa. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Editar les dades</title>
+  <para
+>Les dades es poden editar a la línia com es descriu <link linkend="using-the-views"
+>aquí</link
+> o emprant el diàleg Configuració de la tasca. </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estat</para>
+            </entry>
+            <entry>
+              <para
+>Estat de la tasca</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsable</para>
+            </entry>
+            <entry>
+              <para
+>La persona responsable d'aquesta tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adjudicació</para>
+            </entry>
+            <entry>
+              <para
+>Llista d'assignacions dels recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipus</para>
+            </entry>
+            <entry>
+              <para
+>El tipus de tasca del tipus estimat de la tasca.</para
+><para
+>El tipus es pot establir a <emphasis
+>Fita</emphasis
+>, <emphasis
+>Esforç</emphasis
+> o <emphasis
+>Durada</emphasis
+>. </para>
+              <para
+><guilabel
+>Nota:</guilabel
+> Si el tipus és <emphasis
+>Resum</emphasis
+> o <emphasis
+>Projecte</emphasis
+>, el tipus no és editable. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendari</para>
+            </entry>
+            <entry>
+              <para
+>El calendari emprat quan el tipus estimat és la <emphasis
+>Durada</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estimat</para>
+            </entry>
+            <entry>
+              <para
+>L'estimació més probable. L'estimació és la quantitat esperada d'esforç o temps necessari per a completar una tasca. Es pot expressar en diferents unitats: h (hores), d (dies), w (setmanes) i M (mesos).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Interval optimista</para>
+            </entry>
+            <entry>
+              <para
+>Estimació optimista expressada com un percentatge negatiu de l'estimació més probable. (P. ex., -20%).</para
+><para
+>Això només es fa servir si s'utilitza una distribució PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Interval pessimista</para>
+            </entry>
+            <entry>
+              <para
+>Estimació pessimista expressada com un percentatge positiu de l'estimació més probable. (P. ex., 50%).</para
+><para
+>Això només es fa servir si s'utilitza una distribució PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Risc</para>
+            </entry>
+            <entry>
+              <para
+>El risc controla la distribució PERT emprada quan es calcula l'estimació real per a aquesta tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Restricció</para>
+            </entry>
+            <entry>
+              <para
+>El tipus de restricció del temps.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Començament de la restricció</para>
+            </entry>
+            <entry>
+              <para
+>Temps de començament de la restricció.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalització de la restricció</para>
+            </entry>
+            <entry>
+              <para
+>Temps de finalització de la restricció.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Compte operatiu</para>
+            </entry>
+            <entry>
+              <para
+>Compte per a costos operatius.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Compte inicial</para>
+            </entry>
+            <entry>
+              <para
+>Compte per a deutes a l'inici de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cost inicial</para>
+            </entry>
+            <entry>
+              <para
+>El deute a l'inici de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Compte de tancament</para>
+            </entry>
+            <entry>
+              <para
+>Compte per al deute al tancament de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cost del tancament</para>
+            </entry>
+            <entry>
+              <para
+>El deute al tancament de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripció</para>
+            </entry>
+            <entry>
+              <para
+>Notes de la tasca.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Acoblador Mòduls de tasques</title>
+  <para
+>Els Mòduls de tasques són grups de tasques que poden reutilitzar-se en tots els projectes. </para>
+  <para
+>Permet recórrer a experiències passades i estandarditzar operacions similars. </para>
+  <para
+>Per inserir un mòdul de tasques en el vostre projecte, arrossegueu-lo des de l'acoblador i deixeu-lo anar en el projecte. </para>
+  <para
+>Un mòdul de tasques és un fitxer pla normal, i està dissenyat utilitzant el <application
+>Plan</application
+> de la mateixa manera que es dissenya un projecte normal. </para>
+  <para
+>No obstant això, un mòdul de tasques generalment només inclou tasques, estimacions i dependències. </para>
+  <para
+>El nom del projecte es mostra a l'acoblador i la descripció s'utilitza com a consell d'eina. </para>
+  <para
+>Es pot obrir un mòdul per a la seva inspecció o edició fent doble clic sobre el mòdul. </para>
+  <para
+>Els mòduls es poden agrupar emmagatzemant-los en carpetes diferents. On la cerca es configura mitjançant el diàleg Configuració del projecte. </para>
+  <para
+>Els valors predeterminats per als projectes nous es poden definir utilitzant el diàleg de configuració del <application
+>Plan</application
+>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Acoblador Recursos</title>
+  <para
+>L'acoblador Recursos ofereix una manera senzilla d'adjudicar els recursos a les tasques seleccionant els recursos que necessiteu i arrossegant-los a la columna <guilabel
+>Adjudicació</guilabel
+>. </para>
+  <para
+>També es pot deixar anar un recurs a la columna <guilabel
+>Responsable</guilabel
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Acoblador Adjudicacions</title>
+  <para
+>L'acoblador Adjudicacions mostra l'adjudicació actual dels recursos per a la tasca seleccionada. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Configurar</title>
+  <para
+>Utilitzant el menú contextual, la vista es podrà configurar per mostrar/ocultar el Projecte, dividir / no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

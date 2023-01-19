@@ -1,0 +1,1541 @@
+# Finnish messages for planwork.
+# Copyright © 2011, 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the calligra package.
+# Mikko Piippo <piippo@cc.helsinki.fi>, 2007, 2008.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2011.
+# Tommi Nieminen <translator@legisign.org>, 2012, 2021.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2014, 2016.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+msgid ""
+msgstr ""
+"Project-Id-Version: kplatowork\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2021-07-24 23:22+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2013-01-13 22:09:49+0000\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#: aboutdata.h:33 aboutdata.h:42
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr "PlanWork – Plan-projektinsuunnittelutyökalun työpakettien käsittelijä"
+
+# pmap: =:gen=Plan-työpakettien käsittelijän:
+# pmap: =:elat=Plan-työpakettien käsittelijästä:
+#: aboutdata.h:40
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr "Plan-työpakettien käsittelijä"
+
+#: aboutdata.h:44
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998–%1 Plan-työryhmä"
+
+#: aboutdata.h:48
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#. i18n translator strings
+#: aboutdata.h:50
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Mikko Piippo, Tommi Nieminen, Jorma Karvonen"
+
+#: aboutdata.h:51
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"mikko.piippo@helsinki.fi, translator@legisign.org, karvonen.jorma@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Muokkaa"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Näytä"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Näytä"
+
+#: commandlineparser.cpp:50
+#, kde-format
+msgid "File to open"
+msgstr "Avattava tiedosto"
+
+#: commandlineparser.cpp:107
+#, kde-format
+msgid "Failed to open document"
+msgstr "Tiedoston avaus epäonnistui"
+
+#: mainwindow.cpp:110
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "Tiedostoa %1 ei ole olemassa."
+
+#: part.cpp:174 part.cpp:205
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr "Tiedosto on jo auki:<br>%1"
+
+#: part.cpp:186 part.cpp:213 workpackage.cpp:609
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr "Tiedostoa ei voitu purkaa varastosta:<br />%1"
+
+#: part.cpp:194 part.cpp:221 workpackage.cpp:613
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "Virheellinen verkko-osoite:<br />%1"
+
+#: part.cpp:233
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr "Tiedosto on jo auki:<br /> %1"
+
+#: part.cpp:237
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "Tiedostoa ei ole olemassa:<br/>%1"
+
+#: part.cpp:263
+#, kde-format
+msgid "Edit with:"
+msgstr "Muokkaa ohjelmalla:"
+
+#: part.cpp:391
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+"<p>Työpaketti on jo olemassa projektin varastossa.</p><p>Projekti: %1<br /> "
+"Tehtävä: %2</p><p>Haluatko päivittää olemassa olevan paketin tiedot uudesta?"
+"</p>"
+
+#: part.cpp:419
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr "Poisto epäonnistui. Työpakettia ei löydy"
+
+#: part.cpp:422 part.cpp:433
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] ""
+"Poista työpaketti\n"
+"työpaketin poisto"
+msgstr[1] ""
+"Poista työpaketit\n"
+"työpakettien poisto"
+
+#: part.cpp:472
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr "Tiedoston lataus epäonnistui:<br />%1"
+
+#: part.cpp:486
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr "Kelvoton työpakettitiedosto:<br />%1"
+
+#: part.cpp:514
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr "Virheellinen tiedosto. Tiedosto ei sisällä tiedostoa ”maindoc.xml”."
+
+#: part.cpp:540
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr "Tiedoston avaus epäonnistui: %1"
+
+#: part.cpp:552
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+"Jäsennysvirhe tiedostossa ”%1” rivillä %2 sarakkeessa %3<br /> "
+"Virheilmoitus: %4"
+
+#: part.cpp:569 part.cpp:612
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Virheellinen tiedosto. MIME-tyyppiä ei määritelty."
+
+#: part.cpp:575
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Virheellinen tiedosto. Odotettiin MIME-tyyppiä application/x-vnd.kde.kplato."
+"work, saatiin %1"
+
+#: part.cpp:582 part.cpp:623
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Tiedosto on luotu uudemmalla PlanWorkin versiolla (syntaksin versio: %1)<br /"
+">Avaus tähän PlanWorkin versioon hukkaa joitakin tietoja."
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "Continue"
+msgstr "Jatka"
+
+#: part.cpp:584 part.cpp:625
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Tiedostoformaatin yhteensopivuusongelma"
+
+#: part.cpp:616
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1"
+msgstr ""
+"Virheellinen tiedosto. Odotettiin MIME-tyyppiä application/x-vnd.kde.kplato."
+"work, saatiin %1"
+
+#: part.cpp:713
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr "Muokkaus epäonnistui. Työpakettia ei löydy."
+
+#: taskcompletiondialog.cpp:45
+#, kde-format
+msgid "Task Progress"
+msgstr "Tehtävän eteneminen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Aloitettu:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Lopetettu:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Lisää merkintä"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Poista merkintä"
+
+#: taskworkpackagemodel.cpp:298
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
+
+#: taskworkpackagemodel.cpp:420
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr "Tyyppi: %1<nl/>Verkko-osoite: %2"
+
+#: taskworkpackagemodel.cpp:442
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr ""
+"Muuta valmistumista\n"
+"valmistumisen muutos"
+
+#: taskworkpackagemodel.cpp:477
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr ""
+"Aseta valmiiksi\n"
+"valmiiksi asettaminen"
+
+#: taskworkpackagemodel.cpp:498
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr ""
+"Muuta jäljelle jäävää työmäärää\n"
+"jäljelle jäävän työmäärän muutos"
+
+#: taskworkpackagemodel.cpp:511
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr ""
+"Muuta todellista työmäärää\n"
+"todellisen työmäärän muutos"
+
+#: taskworkpackagemodel.cpp:609
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "Nimi"
+
+#: taskworkpackagemodel.cpp:610
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "Tyyppi"
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "Vastuuhenkilö"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "Kuvaus"
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr "Suunniteltu aloitus"
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr "Suunniteltu valmistuminen"
+
+#: taskworkpackagemodel.cpp:617
+#, fuzzy, kde-kuit-format
+#| msgid "Resource Assignments"
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr "Kohdistetut resurssit"
+
+#: taskworkpackagemodel.cpp:620
+#, fuzzy, kde-kuit-format
+#| msgid "Completion"
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "Valmistuminen"
+
+#: taskworkpackagemodel.cpp:621
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Effort"
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr "Todellinen työmäärä"
+
+#: taskworkpackagemodel.cpp:622
+#, fuzzy, kde-kuit-format
+#| msgid "Remaining Effort"
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr "Jäljellä oleva työmäärä"
+
+#: taskworkpackagemodel.cpp:623
+#, fuzzy, kde-kuit-format
+#| msgid "Planned Effort"
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr "Suunniteltu työmäärä"
+
+#: taskworkpackagemodel.cpp:624
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Start"
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr "Todellinen aloitus"
+
+#: taskworkpackagemodel.cpp:625
+#, fuzzy, kde-kuit-format
+#| msgid "Started"
+msgctxt "@title:column"
+msgid "Started"
+msgstr "Aloitettu"
+
+#: taskworkpackagemodel.cpp:626
+#, fuzzy, kde-kuit-format
+#| msgid "Actual Finish"
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr "Todellinen lopetus"
+
+#: taskworkpackagemodel.cpp:627
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "Valmistunut"
+
+#: taskworkpackagemodel.cpp:628
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "Tila"
+
+#: taskworkpackagemodel.cpp:629
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Huomautus"
+
+#: taskworkpackagemodel.cpp:631
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr "Projektin nimi"
+
+#: taskworkpackagemodel.cpp:632
+#, fuzzy, kde-kuit-format
+#| msgid "Project Manager"
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr "Projektinhallinta"
+
+#: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
+#, kde-format
+msgid "Configure View..."
+msgstr "Näkymän asetukset…"
+
+#: taskworkpackageview.cpp:642
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+"Tehtävä: %1<nl/>Todellinen lopetus: %2<nl/>Suunniteltu lopetus: %3<nl/>Tila: "
+"%4<nl/>Projekti: %5"
+
+#: taskworkpackageview.cpp:657
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+"Tehtävä: %1<nl/>Valmistuminen: %2 %<nl/>Todellinen aloitus: %3<nl/"
+">Suunniteltu: %4 – %5<nl/>Tila: %6<nl/>Projekti: %7"
+
+#: taskworkpackageview.cpp:678
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr "Tehtävä: %1<nl/>Suunniteltu: %2 – %3<nl/>Tila: %4<nl/>Projekti: %5"
+
+#: view.cpp:96
+#, kde-format
+msgid "Remove Packages"
+msgstr "Poista paketteja"
+
+#: view.cpp:100
+#, kde-format
+msgid "Remove Package"
+msgstr "Poista paketti"
+
+#: view.cpp:104
+#, kde-format
+msgid "List"
+msgstr "Lista"
+
+#: view.cpp:105
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr "Valitse tehtävälista"
+
+#: view.cpp:109
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: view.cpp:110
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr "Valitse aikajanae"
+
+#. i18n("Progress..."), this);
+#. collection->addAction("task_progress", actionTaskProgress);
+#. connect(actionTaskProgress, SIGNAL(triggered(bool)), SLOT(slotTaskProgress()));
+#. ------ Settings
+#: view.cpp:119
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr "PlanWorkin asetukset…"
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit..."
+msgstr "Muokkaa…"
+
+#: view.cpp:128
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "Näytä…"
+
+#: view.cpp:137
+#, kde-format
+msgid "Send Package..."
+msgstr "Lähetä paketti…"
+
+#: view.cpp:141
+#, kde-format
+msgid "Edit Progress..."
+msgstr "Muokkaa etenemistä…"
+
+#: view.cpp:145
+#, kde-format
+msgid "View Description..."
+msgstr "Näytä kuvaus…"
+
+#: view.cpp:332
+#, kde-format
+msgid "This file is not editable"
+msgstr "Tätä tiedostoa ei voida muokata"
+
+#: view.cpp:352
+#, kde-format
+msgid "No work package is selected"
+msgstr "Työpakettia ei ole valittu"
+
+#: view.cpp:358
+#, kde-format
+msgid "Cannot find work package"
+msgstr "Työpakettia ei löydy"
+
+#: view.cpp:375
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr "Tiedostoa ei voi avata. Lähetys keskeytettiin."
+
+#: view.cpp:383
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr "Väliaikaistiedostoa ei voi avata. Lähetys keskeytettiin."
+
+#: view.cpp:394
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Työpaketti: %1"
+
+#: workpackage.cpp:111
+#, kde-format
+msgid "Document is already open"
+msgstr "Tiedosto on jo avattu"
+
+#: workpackage.cpp:184 workpackage.cpp:252
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr "Projektin lataus epäonnistui: %1"
+
+#: workpackage.cpp:311
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr "Tyhjälle tiedostonimelle ei voi tallentaa"
+
+#: workpackage.cpp:317
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "Ei voitu luoda tiedostoa tallennettavaksi"
+
+#: workpackage.cpp:329
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Ei voi kirjoittaa: ”%1”. Osio täynnä?"
+
+#: workpackage.cpp:353
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+"Varaston avaaminen epäonnistui:\n"
+"%1"
+
+#: workpackage.cpp:428
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+"Projektivarastoon ei voi tallentaa:\n"
+"%1"
+
+#: workpackage.cpp:478
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+"Tiedoston luku epäonnistui:\n"
+"%1"
+
+#: workpackage.cpp:482
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+"Tiedoston kirjoittaminen epäonnistui:\n"
+"%1"
+
+#: workpackage.cpp:525
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr ""
+"Yhdistä tiedot\n"
+"tietojen yhdistäminen"
+
+#: workpackage.cpp:634
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+"<p>Työpaketista <b>”%2”</b> on tiedosto auki.</p><p>Tietoja voidaan "
+"menettää, jos jatkat.</p>"
+msgstr[1] ""
+"<p>Työpaketista <b>”%2”</b> on tiedostoja auki.</p><p>Tietoja voidaan "
+"menettää, jos jatkat.</p>"
+
+#: workpackage.cpp:655
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+"<p>Työpakettia <b>”%1”</b> on muutettu.</p><p>Haluatko tallentaa sen?</p>"
+
+#: workpackage.cpp:681
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+"<p>Työpaketti <b>”%1”</b></p><p>Varastoa ei saatu avatuksi:</p><p>%2</p>"
+
+#: workpackage.cpp:697
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
+"<p>Työpaketti <b>”%1”</b></p><p>Tiedostoa ei saatu puretuksi:</p><p>%2</p>"
+
+#~ msgid "Work Package Settings"
+#~ msgstr "Työpaketin asetukset"
+
+#, fuzzy
+#~| msgid ""
+#~| "Package data:\n"
+#~| "These settings indicates to the receiver of the package which "
+#~| "information is relevant."
+#~ msgid ""
+#~ "Package: %1\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Paketin data:\n"
+#~ "Nämä asetukset kertovat paketin vastaanottajalle, mitkä tiedot kuuluvat "
+#~ "asiaan."
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify package settings"
+#~ msgstr ""
+#~ "Muuta paketin asetuksia\n"
+#~ "paketin asetusten muutos"
+
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Työmäärä, jota olet käyttänyt tähän tehtävään."
+
+#~ msgid "Used effort"
+#~ msgstr "Käytetty työmäärä"
+
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Edistyminen sisältää aloitetun /aloitusajan, lopetetun /lopetusajan ja "
+#~ "valmistumisen"
+
+#~ msgid "Progress"
+#~ msgstr "Eteneminen"
+
+#~ msgid "The documents attached to this task"
+#~ msgstr "Tähän tehtävään liitetyt tiedostot"
+
+#~ msgid "Documents"
+#~ msgstr "Tiedostot"
+
+#~ msgid "Package Settings..."
+#~ msgstr "Paketin asetukset…"
+
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Modify task completion"
+#~ msgstr ""
+#~ "Muuta tehtävän etenemistä\n"
+#~ "tehtävän etenemisen muutos"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started:"
+#~ msgstr "Aloitettu:"
+
+#, fuzzy
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished:"
+#~ msgstr "Lopetettu:"
+
+#, fuzzy
+#~| msgid "Add Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Add Entry"
+#~ msgstr "Lisää merkintä"
+
+#, fuzzy
+#~| msgid "Remove Entry"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Entry"
+#~ msgstr "Poista merkintä"
+
+#, fuzzy
+#~| msgid ""
+#~| "Package data:\n"
+#~| "These settings indicates to the receiver of the package which "
+#~| "information is relevant."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Package data:\n"
+#~ "These settings indicates to the receiver of the package which information "
+#~ "is relevant."
+#~ msgstr ""
+#~ "Paketin data:\n"
+#~ "Nämä asetukset kertovat paketin vastaanottajalle, mitkä tiedot kuuluvat "
+#~ "asiaan."
+
+#, fuzzy
+#~| msgid "The effort you have used on this task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The effort you have used on this task."
+#~ msgstr "Työmäärä, jota olet käyttänyt tähän tehtävään."
+
+#, fuzzy
+#~| msgid "Used effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Used effort"
+#~ msgstr "Käytetty työmäärä"
+
+#, fuzzy
+#~| msgid ""
+#~| "Progress includes started / start time, finished / finish time and "
+#~| "completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Progress includes started / start time, finished / finish time and "
+#~ "completion"
+#~ msgstr ""
+#~ "Edistyminen sisältää aloitetun /aloitusajan, lopetetun /lopetusajan ja "
+#~ "valmistumisen"
+
+#, fuzzy
+#~| msgid "Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress"
+#~ msgstr "Eteneminen"
+
+#, fuzzy
+#~| msgid "The documents attached to this task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The documents attached to this task"
+#~ msgstr "Tähän tehtävään liitetyt tiedostot"
+
+#, fuzzy
+#~| msgid "Documents"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Documents"
+#~ msgstr "Tiedostot"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Muokkaa"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "&Näytä"
+
+#, fuzzy
+#~| msgid "View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View"
+#~ msgstr "Näytä"
+
+#, fuzzy
+#~| msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+#~ msgstr ""
+#~ "PlanWork – Plan-projektinsuunnittelutyökalun työpakettien käsittelijä"
+
+# pmap: =:gen=Plan-työpakettien käsittelijän:
+# pmap: =:elat=Plan-työpakettien käsittelijästä:
+#, fuzzy
+#~| msgctxt "application name"
+#~| msgid "Plan WorkPackage Handler"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan WorkPackage Handler"
+#~ msgstr "Plan-työpakettien käsittelijä"
+
+#, fuzzy
+#~| msgid "Copyright 1998-%1, The Plan Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "Copyright 1998–%1 Plan-työryhmä"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Mikko Piippo, Tommi Nieminen, Jorma Karvonen"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "mikko.piippo@helsinki.fi, translator@legisign.org, karvonen.jorma@gmail."
+#~ "com"
+
+#, fuzzy
+#~| msgid "File to open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File to open"
+#~ msgstr "Avattava tiedosto"
+
+#, fuzzy
+#~| msgid "Failed to open document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open document"
+#~ msgstr "Tiedoston avaus epäonnistui"
+
+#, fuzzy
+#~| msgid "The file %1 does not exist."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The file %1 does not exist."
+#~ msgstr "Tiedostoa %1 ei ole olemassa."
+
+#, fuzzy
+#~| msgid "Work Package Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package Settings"
+#~ msgstr "Työpaketin asetukset"
+
+#, fuzzy
+#~| msgid "Document is already open:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br>%1"
+#~ msgstr "Tiedosto on jo auki:<br>%1"
+
+#, fuzzy
+#~| msgid "Could not extract document from storage:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not extract document from storage:<br>%1"
+#~ msgstr "Tiedostoa ei voitu purkaa varastosta:<br />%1"
+
+#, fuzzy
+#~| msgid "Invalid URL:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid URL:<br>%1"
+#~ msgstr "Virheellinen verkko-osoite:<br />%1"
+
+#, fuzzy
+#~| msgid "Document is already open:<br> %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open:<br> %1"
+#~ msgstr "Tiedosto on jo auki:<br /> %1"
+
+#, fuzzy
+#~| msgid "File does not exist:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File does not exist:<br>%1"
+#~ msgstr "Tiedostoa ei ole olemassa:<br/>%1"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit with:"
+#~ msgstr "Muokkaa ohjelmalla:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package already exists in the projects store.</p><p>Project: "
+#~| "%1<br>Task: %2</p><p>Do you want to update the existing package with "
+#~| "data from the new?</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package already exists in the projects store.</p><p>Project: "
+#~ "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+#~ "from the new?</p>"
+#~ msgstr ""
+#~ "<p>Työpaketti on jo olemassa projektin varastossa.</p><p>Projekti: %1<br /"
+#~ "> Tehtävä: %2</p><p>Haluatko päivittää olemassa olevan paketin tiedot "
+#~ "uudesta?</p>"
+
+#, fuzzy
+#~| msgid "Remove failed. Cannot find work package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove failed. Cannot find work package"
+#~ msgstr "Poisto epäonnistui. Työpakettia ei löydy"
+
+#, fuzzy
+#~| msgid "Failed to load file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load file:<br>%1"
+#~ msgstr "Tiedoston lataus epäonnistui:<br />%1"
+
+#, fuzzy
+#~| msgid "Not a valid work package file:<br>%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not a valid work package file:<br>%1"
+#~ msgstr "Kelvoton työpakettitiedosto:<br />%1"
+
+#, fuzzy
+#~| msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. The document does not contain 'maindoc.xml'."
+#~ msgstr "Virheellinen tiedosto. Tiedosto ei sisällä tiedostoa ”maindoc.xml”."
+
+#, fuzzy
+#~| msgid "Failed to open file: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open file: %1"
+#~ msgstr "Tiedoston avaus epäonnistui: %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+#~ msgstr ""
+#~ "Jäsennysvirhe tiedostossa ”%1” rivillä %2 sarakkeessa %3<br /> "
+#~ "Virheilmoitus: %4"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Virheellinen tiedosto. MIME-tyyppiä ei määritelty."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Virheellinen tiedosto. Odotettiin MIME-tyyppiä application/x-vnd.kde."
+#~ "kplato.work, saatiin %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document is a newer version than supported by PlanWork (syntax "
+#~| "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~| "information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document is a newer version than supported by PlanWork (syntax "
+#~ "version: %1)<br>Opening it in this version of PlanWork will lose some "
+#~ "information."
+#~ msgstr ""
+#~ "Tiedosto on luotu uudemmalla PlanWorkin versiolla (syntaksin versio: "
+#~ "%1)<br />Avaus tähän PlanWorkin versioon hukkaa joitakin tietoja."
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Jatka"
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Tiedostoformaatin yhteensopivuusongelma"
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~| "got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
+#~ "got %1"
+#~ msgstr ""
+#~ "Virheellinen tiedosto. Odotettiin MIME-tyyppiä application/x-vnd.kde."
+#~ "kplato.work, saatiin %1"
+
+#, fuzzy
+#~| msgid "Edit failed. Cannot find a work package."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit failed. Cannot find a work package."
+#~ msgstr "Muokkaus epäonnistui. Työpakettia ei löydy."
+
+#, fuzzy
+#~| msgid "Task Progress"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Progress"
+#~ msgstr "Tehtävän eteneminen"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type"
+#~ msgstr "Tyyppi"
+
+#, fuzzy
+#~| msgid "Responsible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible"
+#~ msgstr "Vastaava"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Kuvaus"
+
+#, fuzzy
+#~| msgid "Planned Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Start"
+#~ msgstr "Suunniteltu aloitus"
+
+#, fuzzy
+#~| msgid "Planned Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Finish"
+#~ msgstr "Suunniteltu lopetus"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Kohdistetut resurssit"
+
+#, fuzzy
+#~| msgid "Completion"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Completion"
+#~ msgstr "Valmistuminen"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Effort"
+#~ msgstr "Todellinen työmäärä"
+
+#, fuzzy
+#~| msgid "Remaining Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remaining Effort"
+#~ msgstr "Jäljellä oleva työmäärä"
+
+#, fuzzy
+#~| msgid "Planned Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Planned Effort"
+#~ msgstr "Suunniteltu työmäärä"
+
+#, fuzzy
+#~| msgid "Actual Start"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Start"
+#~ msgstr "Todellinen aloitus"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Started"
+#~ msgstr "Aloitettu"
+
+#, fuzzy
+#~| msgid "Actual Finish"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Actual Finish"
+#~ msgstr "Todellinen lopetus"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finished"
+#~ msgstr "Lopetettu"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Status"
+#~ msgctxt "(qtundo-format) @title:column"
+#~ msgid "Status"
+#~ msgstr "Tila"
+
+#, fuzzy
+#~| msgid "Note"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Note"
+#~ msgstr "Huomautus"
+
+#, fuzzy
+#~| msgid "Project Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Name"
+#~ msgstr "Projektin nimi"
+
+#, fuzzy
+#~| msgid "Project Manager"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Manager"
+#~ msgstr "Projektinhallinta"
+
+#, fuzzy
+#~| msgid "Configure View..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure View..."
+#~ msgstr "Näkymän asetukset…"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+#~| ">Project: %5"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+#~ ">Project: %5"
+#~ msgstr ""
+#~ "Tehtävä: %1<nl/>Todellinen lopetus: %2<nl/>Suunniteltu lopetus: %3<nl/"
+#~ ">Tila: %4<nl/>Projekti: %5"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - "
+#~| "%5<nl/>Status: %6<nl/>Project: %7"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid ""
+#~ "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - "
+#~ "%5<nl/>Status: %6<nl/>Project: %7"
+#~ msgstr ""
+#~ "Tehtävä: %1<nl/>Valmistuminen: %2 %<nl/>Todellinen aloitus: %3<nl/"
+#~ ">Suunniteltu: %4 – %5<nl/>Tila: %6<nl/>Projekti: %7"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+#~ msgstr "Tehtävä: %1<nl/>Suunniteltu: %2 – %3<nl/>Tila: %4<nl/>Projekti: %5"
+
+#, fuzzy
+#~| msgid "Remove Packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Packages"
+#~ msgstr "Poista paketteja"
+
+#, fuzzy
+#~| msgid "Remove Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Remove Package"
+#~ msgstr "Poista paketti"
+
+#, fuzzy
+#~| msgid "List"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "List"
+#~ msgstr "Lista"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Select task list"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select task list"
+#~ msgstr "Valitse tehtävälista"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Select timeline"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Select timeline"
+#~ msgstr "Valitse aikajanae"
+
+#, fuzzy
+#~| msgid "Configure PlanWork..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure PlanWork..."
+#~ msgstr "PlanWorkin asetukset…"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Muokkaa…"
+
+#, fuzzy
+#~| msgctxt "@verb"
+#~| msgid "View..."
+#~ msgctxt "(qtundo-format) @verb"
+#~ msgid "View..."
+#~ msgstr "Näytä…"
+
+#, fuzzy
+#~| msgid "Send Package..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Send Package..."
+#~ msgstr "Lähetä paketti…"
+
+#, fuzzy
+#~| msgid "Package Settings..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Package Settings..."
+#~ msgstr "Paketin asetukset…"
+
+#, fuzzy
+#~| msgid "Edit Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Progress..."
+#~ msgstr "Muokkaa etenemistä…"
+
+#, fuzzy
+#~| msgid "View Description..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View Description..."
+#~ msgstr "Näytä kuvaus…"
+
+#, fuzzy
+#~| msgid "This file is not editable"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This file is not editable"
+#~ msgstr "Tätä tiedostoa ei voida muokata"
+
+#, fuzzy
+#~| msgid "No work package is selected"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No work package is selected"
+#~ msgstr "Työpakettia ei ole valittu"
+
+#, fuzzy
+#~| msgid "Cannot find work package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot find work package"
+#~ msgstr "Työpakettia ei löydy"
+
+#, fuzzy
+#~| msgid "Could not open temporary file. Sending is aborted."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not open temporary file. Sending is aborted."
+#~ msgstr "Väliaikaistiedostoa ei voi avata. Lähetys keskeytettiin."
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Työpaketti: %1"
+
+#, fuzzy
+#~| msgid "Document is already open"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Document is already open"
+#~ msgstr "Tiedosto on jo avattu"
+
+#, fuzzy
+#~| msgid "Failed to load project: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to load project: %1"
+#~ msgstr "Projektin lataus epäonnistui: %1"
+
+#, fuzzy
+#~| msgid "Cannot save to empty filename"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot save to empty filename"
+#~ msgstr "Tyhjälle tiedostonimelle ei voi tallentaa"
+
+#, fuzzy
+#~| msgid "Could not create the file for saving"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the file for saving"
+#~ msgstr "Ei voitu luoda tiedostoa tallennettavaksi"
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Ei voi kirjoittaa: ”%1”. Osio täynnä?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to open store:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed to open store:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Varaston avaaminen epäonnistui:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot save to projects store:\n"
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Cannot save to projects store:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Projektivarastoon ei voi tallentaa:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed read file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed read file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Tiedoston luku epäonnistui:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed write file:\n"
+#~| " %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Failed write file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Tiedoston kirjoittaminen epäonnistui:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~| "lost if you continue.</p>"
+#~| msgid_plural ""
+#~| "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~| "lost if you continue.</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgid_plural ""
+#~ "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be "
+#~ "lost if you continue.</p>"
+#~ msgstr[0] ""
+#~ "<p>Työpaketista <b>”%2”</b> on tiedosto auki.</p><p>Tietoja voidaan "
+#~ "menettää, jos jatkat.</p>"
+#~ msgstr[1] ""
+#~ "<p>Työpaketista <b>”%2”</b> on tiedostoja auki.</p><p>Tietoja voidaan "
+#~ "menettää, jos jatkat.</p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~| "save it?</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to "
+#~ "save it?</p>"
+#~ msgstr ""
+#~ "<p>Työpakettia <b>”%1”</b> on muutettu.</p><p>Haluatko tallentaa sen?</p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Työpaketti <b>”%1”</b></p><p>Varastoa ei saatu avatuksi:</p><p>%2</p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+#~ msgstr ""
+#~ "<p>Työpaketti <b>”%1”</b></p><p>Tiedostoa ei saatu puretuksi:</p><p>%2</p>"
+
+#~ msgid "Copyright (C) 2007-2013, The Plan Team"
+#~ msgstr "Copyright © 2007–2013 Plan-työryhmä"
+
+#~ msgid "&Settings"
+#~ msgstr "&Asetukset"
+
+#, fuzzy
+#~| msgid "Edit with:"
+#~ msgid "Edit Mode:"
+#~ msgstr "Muokkaa ohjelmalla:"
+
+#~ msgid "Manual entry"
+#~ msgstr "Manuaalimerkintä"
+
+#~ msgid "Estimate of the remaining effort"
+#~ msgstr "Jäljelle jäävän pyrkimyksen arvio"
+
+#~ msgid "Remaining effort"
+#~ msgstr "Jäljelle jäävä yritys"
+
+#, fuzzy
+#~| msgid ""
+#~| "This workpackage is not in your project store:\n"
+#~| "%1\n"
+#~| "Do you want to save it?"
+#~ msgid ""
+#~ "This work package has been modified.\n"
+#~ "Do you want to save it before sending?"
+#~ msgstr ""
+#~ "Tätä työpakettia ei ole projektin varastossa:\n"
+#~ "%1\n"
+#~ "Haluatko tallentaa sen?"
+
+#~ msgid ""
+#~ "Document is already open:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Asiakirja on jo avattu:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid "Could not extract file: %1"
+#~ msgid "Could not find %1"
+#~ msgstr "Tiedostoa ei voitu purkaa: %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "Could not open workpackage store:\n"
+#~| " %1"
+#~ msgid "Failed to set workpackage, project: %1"
+#~ msgstr ""
+#~ "Työpaketin varastoa ei voitu luoda:\n"
+#~ "%1"
+
+#, fuzzy
+#~| msgid "KPlato WorkPackage Handler"
+#~ msgid "No WorkPackage handles this document"
+#~ msgstr "KPLato työpakettien käsittely"
+
+#~ msgid "Information"
+#~ msgstr "Tietoja"
+
+#~ msgid "Not scheduled"
+#~ msgstr "Ei aikataulua"
+
+#~ msgid "No template found for: %1 "
+#~ msgstr "Ei löydy mallia: %1"
+
+#~ msgid "Too many templates found for: %1"
+#~ msgstr "Liian monia malleja löytyi: %1"
+
+#~ msgid "Template %1 failed to load."
+#~ msgstr "Mallia %1 ei voitu ladata."
+
+#~ msgid "Close"
+#~ msgstr "Sulje"
+
+#~ msgid "Empty"
+#~ msgstr "Tyhjä"
+
+#~ msgctxt "Main document"
+#~ msgid " [main]"
+#~ msgstr "[pää]"
+
+#~ msgid " [write protected]"
+#~ msgstr "[kirjoitussuojattu]"
+
+#~ msgid "Part Handbook"
+#~ msgstr "Part-käsikirja"
+
+#~ msgid "%1 Handbook"
+#~ msgstr "%1-käsikirja"
+
+#~ msgid "Open Document"
+#~ msgstr "Avaa asiakirja"
+
+#~ msgid "Save"
+#~ msgstr "Tallenna"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ " %1"
+#~ msgstr ""
+#~ "Tiedostoa ei voitu purkaa: \n"
+#~ "%1"
+
+#~ msgid ""
+#~ "Could not extract file:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Tiedostoa ei voitu purkaa:\n"
+#~ " %1"
+
+#~ msgid "none"
+#~ msgstr "ei mitään"
+
+#~ msgid "Add Schedule %1"
+#~ msgstr "Lisää aikataulu %1 "
+
+#~ msgid "Delete Schedule %1"
+#~ msgstr "Poista aikataulu %1"

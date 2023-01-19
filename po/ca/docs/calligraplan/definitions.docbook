@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Introducció</title>
+  <para
+>En la gestió dels projectes, els termes es poden utilitzar de diferents maneres en diferents programes o diferents companyies o tipus de projecte. En observar els glossaris més exhaustius per a la gestió de projectes, es trobaran definicions alternatives per a la majoria dels termes. </para>
+  <para
+>Aquesta llista defineix com s'utilitzaran certs termes en el <application
+>Plan</application
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Termes</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Compte</emphasis
+></term>
+      <listitem>
+      <para
+>Un compte s'utilitza en una <emphasis
+>Estructura de descomposició del cost</emphasis
+> (<link linkend="cbs"
+>CBS</link
+>) per a representar un lloc on es podran annexar els costos de les <link linkend="task"
+>tasques</link
+> o dels <link linkend="resource"
+>recursos</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ACWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Cost real de la feina realitzada</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Cost real de la feina realitzada</emphasis
+></term>
+      <listitem>
+      <para
+>El cost real (o esforç) que s'ha realitzat.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Adjudicació</emphasis
+></term>
+      <listitem>
+      <para
+>Les tasques s'assignen als <link linkend="resource"
+>Recursos</link
+> durant l'etapa de planificació del projecte. L'assignació real es realitza durant la planificació. Recordeu que l'assignació no està garantida, ja que el recurs pot no ser-hi.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Assignació</emphasis
+></term>
+      <listitem>
+      <para
+>Les tasques s'assignen als <link linkend="resource"
+>Recursos</link
+> durant la planificació.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BCWS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Cost pressupostat de la feina planificada</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Cost pressupostat de la feina planificada</emphasis
+></term>
+      <listitem>
+      <para
+>El cost (o esforç) que s'hauria d'haver utilitzat per assolir el progrés establert.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BCWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Cost pressupostat de la feina realitzada</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Cost pressupostat de la feina realitzada</emphasis
+></term>
+      <listitem>
+      <para
+>El cost (o esforç) que s'ha realitzat.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>CBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Estructura de descomposició del cost</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>És l'<emphasis
+>Índex de compliment del cost</emphasis
+> i és igual que <link linkend="bcwp"
+>BCWP</link
+>/<link linkend="acwp"
+>ACWP</link
+>. Quan aquest índex és inferior que 1, vol dir que està per sobre del pressupost. Si l'índex és més gran que 1 vol dir que els costos estan per sota del pressupost.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Estructura de descomposició del cost</emphasis
+></term>
+      <listitem>
+      <para
+>La CBS organitza els <link linkend="account"
+>comptes</link
+> en una estructura per a permetre que el cost s'annexi independentment de la <link linkend="wbs"
+>WBS</link
+> i la <link linkend="rbs"
+>RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Estimat</emphasis
+></term>
+      <listitem>
+      <para
+>L'estimació és la quantitat esperada d'esforç o de temps necessari per a completar una <link linkend="task"
+>tasca</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Fita</emphasis
+></term>
+      <listitem>
+      <para
+>Una fita és una <link linkend="task"
+>tasca</link
+> amb un esforç de 00,00 hores. En general, s'utilitza per a marcar un resultat important, per exemple, la finalització d'un lliurament després de l'acceptació del client.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Tècnica de revisió i avaluació de programes</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Tècnica de revisió i avaluació de programes</emphasis
+></term>
+      <listitem>
+      <para
+>La Tècnica de revisió i avaluació de programes és una millora del mètode del camí crític. Les estimacions d'esforç de la <link linkend="task"
+>tasca</link
+> en CPM són estimacions puntuals, mentre que les estimacions d'esforç de la <link linkend="task"
+>tasca</link
+> en PERT es calculen ponderant les estimacions Optimistes, Més probables i Pessimistes (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Distribució PERT</emphasis
+></term>
+      <listitem>
+      <para
+>Una forma simplificada de calcular l'estimació Esperada a partir de l'estimació Optimista, Més probable i Pessimista.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Estructura de descomposició dels recursos</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Estructura de descomposició dels recursos</emphasis
+></term>
+      <listitem>
+      <para
+>La RBS organitza els recursos en <link linkend="Resource-Group"
+>grups de recursos</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Recurs</emphasis
+></term>
+      <listitem>
+      <para
+>Un recurs pot ser de tipus <emphasis
+>Treball</emphasis
+>, <emphasis
+>Material</emphasis
+> o <emphasis
+>Equip</emphasis
+>. Un recurs sempre haurà de pertànyer a un <link linkend="Resource-Group"
+>Grup de recursos</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Grup de recursos</emphasis
+></term>
+      <listitem>
+      <para
+>Un grup de recursos s'utilitza per agrupar els <link linkend="resource"
+>recursos</link
+> similars.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Equip de recursos</emphasis
+></term>
+      <listitem>
+      <para
+>Un equip de <link linkend="resource"
+>recursos</link
+> és un recurs que consta d'un nombre d'altres recursos.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>És l'Índex de compliment de la planificació i és igual que BCWP/BCWS. Quan aquest índex és inferior que 1, vol dir que està endarrerit. Si l'índex és més gran que 1 vol dir que està avançat a la planificació.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Tasca de resum</emphasis
+></term>
+      <listitem>
+      <para
+>Una tasca de resum té subtasques subordinades i acumula informació basada en les subtasques.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Tasca</emphasis
+></term>
+      <listitem>
+      <para
+>Una tasca és una unitat de treball. Els <link linkend="resource"
+>Recursos</link
+> generalment s'assignen al nivell de la tasca.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard és un format de fitxer estàndard per a targetes de presentació electrònica.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>WBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Estructura de descomposició dels treballs</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Estructura de descomposició dels treballs</emphasis
+></term>
+      <listitem>
+      <para
+>La WBS s'utilitza per a dividir els projectes grans en fragments manejables per a facilitar la planificació i la gestió.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

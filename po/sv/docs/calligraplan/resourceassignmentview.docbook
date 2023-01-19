@@ -1,0 +1,138 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Beskrivning</title>
+  <para
+>Resurstilldelningsvyn visar de schemalagda aktiviteternas resurstilldelningarna i en tabell. <note
+><para
+>Vyn kan avsevärt påverka prestanda för stora projekt.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Data</title>
+  <para
+>Följande kolumner visas normalt: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Objektets namn (resursgrupp, resurs, aktivitet)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Totalt</para>
+            </entry>
+            <entry>
+              <para
+>Den totala resurstilldelningen</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Datum</para>
+            </entry>
+            <entry>
+              <para
+>De totala tilldelningarna för en resurs per dag och tilldelningarna för resursen per aktivitet.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Redigera data</title>
+  <para
+>Aktivitetsbeskrivningen och förloppet kan redigeras genom att använda den sammanhangsberoende menyn. </para>
+</sect3>
+<sect3 id="configuration36"
+><title
+>Inställning</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in med inställningsdialogrutan.</para
+><para
+>Inställningsdialogrutan låter dig inkludera eller exkludera tilldelningar. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Inställningsdialogruta</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Inställningsdialogruta</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

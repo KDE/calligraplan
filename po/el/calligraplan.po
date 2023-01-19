@@ -1,0 +1,5143 @@
+# translation of kplato.po to Greek
+# Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
+#
+# Stergios Dramis <sdramis@egnatia.ee.auth.gr>, 2002-2004.
+# Charalambos Kanios <kaniosh@linuxmail.org>, 2003.
+# Spiros Georgaras <sng@hellug.gr>, 2005, 2006, 2007.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2006, 2007, 2008.
+# Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
+# Stelios <sstavra@gmail.com>, 2011, 2017.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-01-09 09:01+0100\n"
+"PO-Revision-Date: 2017-04-29 11:58+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Αρχείο"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "&Επεξεργασία"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Π&ροβολή"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "Έ&ργο"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "Ερ&γαλεία"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "Ρ&υθμίσεις"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "&Βοήθεια"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr ""
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr ""
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr ""
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr ""
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr ""
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, fuzzy, kde-format
+#| msgid "Project manager:"
+msgid "Name of project manager"
+msgstr "Διαχειριστής έργου:"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Use shared resources"
+msgstr "Εργασίες κατά πόρους"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "File to contain shared resources"
+msgstr "Εργασίες κατά πόρους"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, fuzzy, kde-format
+#| msgid "Task description"
+msgid "Project description"
+msgstr "Περιγραφή εργασίας"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Όνομα υπεύθυνου εργασίας"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Τύπος περιορισμού χρονοπρογραμματισμού"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Καθορίζει πώς χρησιμοποιείται ο περιορισμός ώρας έναρξης"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Περιορισμός ημερομηνίας και ώρας έναρξης"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Καθορίζει πώς χρησιμοποιείται ο περιορισμός ώρας πέρατος"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Περιορισμός ημερομηνίας και ώρας πέρατος"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, kde-format
+msgid "Type of estimate"
+msgstr "Τύπος εκτίμησης"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Μονάδα χρόνου εκτίμησης"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, kde-format
+msgid "Expected estimate"
+msgstr "Αναμενόμενη εκτίμηση"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Αισιόδοξη εκτίμηση"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Απαισιόδοξη εκτίμηση"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "Περιγραφή εργασίας"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "Διαβάθμιση"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, kde-format
+msgid "Linear"
+msgstr "Γραμμικό"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, kde-format
+msgid "Flat"
+msgstr "Επίπεδο"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Ενεργοποίηση χρωμάτων επιπέδων εργασίας περίληψης"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr "Προκαθορισμένο χρώμα εργασίας περίληψης"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Χρώμα εργασίας περίληψης, επίπεδο 1"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Χρώμα εργασίας περίληψης, επίπεδο 2"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Χρώμα εργασίας περίληψης, επίπεδο 3"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Χρώμα εργασίας περίληψης, επίπεδο 4"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Χρώμα εργασίας σε κανονική κατάσταση"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Χρώμα εργασίας σε κρίσιμη κατάσταση"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Χρώμα εργασίας σε ολοκληρωμένη κατάσταση"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "Χρώμα εργασίας σε κατάσταση σφάλματος"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Χρώμα ορόσημου σε κανονική κατάσταση"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Χρώμα ορόσημου σε κρίσιμη κατάσταση"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Χρώμα ορόσημου σε ολοκληρωμένη κατάσταση"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Χρώμα ορόσημου σε κατάσταση σφάλματος"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Αυτόματος έλεγχος για νέα πακέτα εργασίας"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "Κατάλογος όπου το Plan ανακτά πακέτα εργασίας από τα μέλη του έργου"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Αν ενεργοποιηθεί, το Plan θα διαγράψει το αρχείο μετά την ανάγνωση"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Αν ενεργοποιηθεί, το Plan θα αποθηκεύσει το αρχείο μετά την ανάγνωση"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+"Κατάλογος όπου το Plan αποθηκεύει πακέτα εργασίας μετά την ανάγνωση του "
+"πακέτου"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, fuzzy, kde-format
+#| msgid "Directory where Plan retrieves work packages from project members"
+msgid "Directory where Plan publishes work packages"
+msgstr "Κατάλογος όπου το Plan ανακτά πακέτα εργασίας από τα μέλη του έργου"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Η ελάχιστη επιτρεπόμενη μονάδα διάρκειας"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Η μέγιστη επιτρεπόμενη μονάδα διάρκειας"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr ""
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr ""
+
+#: config/ConfigDialog.cpp:47
+#, fuzzy, kde-format
+#| msgid "Project Status"
+msgid "Project Defaults"
+msgstr "Κατάσταση έργου"
+
+#: config/ConfigDialog.cpp:48 kptview.cpp:660
+#, kde-format
+msgid "Work & Vacation"
+msgstr "Εργασία & διακοπές"
+
+#: config/ConfigDialog.cpp:49
+#, kde-format
+msgid "Task Defaults"
+msgstr "Προκαθορισμένα εργασίας"
+
+#: config/ConfigDialog.cpp:50
+#, kde-format
+msgid "Task Colors"
+msgstr "Χρώματα εργασίας"
+
+#: config/ConfigDialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Task Colors"
+msgid "Task Modules"
+msgstr "Χρώματα εργασίας"
+
+#: config/ConfigDialog.cpp:56
+#, kde-format
+msgid "Work Package"
+msgstr "Πακέτο εργασίας"
+
+#: config/ConfigDialog.cpp:57
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Documentation"
+msgstr "Διάρκεια"
+
+#: config/ConfigDialog.cpp:60
+#, fuzzy, kde-format
+#| msgid "&Create New Project..."
+msgid "Project Templates"
+msgstr "Δημιουργία νέου έργου..."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Το υπεύθυνο πρόσωπο γι' αυτή την εργασία.\n"
+"\n"
+"Αυτό δεν περιορίζεται στα πρόσωπα που είναι διαθέσιμα σε μια ομάδα πόρων "
+"αλλά μπορεί να είναι οποιοδήποτε πρόσωπο. Μπορείτε ακόμη να προσπελάσετε "
+"απευθείας το βιβλίο διευθύνσεων με το κουμπί επιλογής."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Documentation:"
+msgstr "Διάρκεια"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:50
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The project manager of this project."
+msgstr ""
+
+#: config/ConfigProjectPanel.cpp:53
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@info:tooltip"
+msgid "Check to enable shared resources"
+msgstr "Εργασίες κατά πόρους"
+
+#: config/ConfigProjectPanel.cpp:56
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@info:tooltip"
+msgid "The file where shared resources are defined"
+msgstr "Εργασίες κατά πόρους"
+
+#: config/ConfigProjectPanel.cpp:59
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "The directory where projects sharing the resources are placed"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Γενικά"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, fuzzy, kde-format
+#| msgctxt "Project manager"
+#| msgid "Manager:"
+msgid "&Manager:"
+msgstr "Διαχειριστής:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Use shared resources:"
+msgstr "Εργασίες κατά πόρους"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, fuzzy, kde-format
+#| msgid "Add resource"
+msgid "Shared resource file:"
+msgstr "Προσθήκη πόρου"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, fuzzy, kde-format
+#| msgid "Choose..."
+msgid "Browse..."
+msgstr "Επιλογή..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Shared projects:"
+msgstr "Εργασίες κατά πόρους"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: config/ConfigProjectTemplatesPanel.cpp:61
+#, fuzzy, kde-format
+#| msgid "&Create New Project..."
+msgid "Project Templates Path"
+msgstr "Δημιουργία νέου έργου..."
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Insert View"
+#| msgid "Insert..."
+msgid "Insert"
+msgstr "Εισαγωγή..."
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu remove view"
+#| msgid "Remove"
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: config/ConfigTaskModulesPanel.cpp:61
+#, fuzzy, kde-format
+#| msgid "Task Colors"
+msgid "Task Modules Path"
+msgstr "Χρώματα εργασίας"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr ""
+
+#: config/ConfigWorkVacationPanel.cpp:52
+#, fuzzy, kde-format
+#| msgctxt "@label:chooser"
+#| msgid "Default:"
+msgid "Default"
+msgstr "Προκαθορισμένο:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
+#, kde-format
+msgid "Working Hours"
+msgstr ""
+
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, fuzzy, kde-format
+#| msgid "Define Estimate Conversions..."
+msgid "Estimate Conversions"
+msgstr "Ορισμός μετατροπών εκτίμησης..."
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Διαβάθμιση:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Εργασία περίληψης"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Προκαθορισμένο:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Χρήση χρωμάτων επιπέδου"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Επίπεδο 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Επίπεδο 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Επίπεδο 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Επίπεδο 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Εργασία"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Κανονικό:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Κρίσιμο:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Ολοκληρωμένο:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Σφάλμα:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Ορόσημο"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Υπεύθυνος:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Εισαγάγετε ένα πρόσωπο από το βιβλίο διευθύνσεών σας"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Εισαγάγετε ένα πρόσωπο από το βιβλίο διευθύνσεών σας."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Επιλογή..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Περιορισμός χρονοπρογραμματισμού:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Το συντομότερο δυνατόν"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Το αργότερο δυνατόν"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Πρέπει να αρχίσει την"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Πρέπει να τελειώσει την"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Έναρξη όχι ενωρίτερα από"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Τέλος όχι αργότερα από"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Σταθερό χρονικό διάστημα"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Χρήση περιορισμού ώρας έναρξης:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Τρέχουσα ημερομηνία και ώρα"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Τρέχουσα ημερομηνία, καθορισμένη ώρα"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Καθορισμένη ημερομηνία και ώρα"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Περιορισμός ώρας έναρξης:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Χρήση περιορισμού ώρας πέρατος:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Περιορισμός ώρας πέρατος:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Τύπος εκτίμησης:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Προσπάθεια"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Διάρκεια"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Αναμενόμενη εκτίμηση:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Αισιόδοξη εκτίμηση:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Απαισιόδοξη εκτίμηση:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, fuzzy, kde-format
+#| msgid "Retrieve URL:"
+msgid "Retrieve"
+msgstr "Ανάκτηση URL:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Έλεγχος για πακέτα εργασίας"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, fuzzy, kde-format
+#| msgid "Retrieve URL:"
+msgid "Retrieve:"
+msgstr "Ανάκτηση URL:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Διαγραφή αρχείου μετά την ανάκτηση"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, fuzzy, kde-format
+#| msgid "Save file after it has been retrieved"
+msgid "Archive file after it has been retrieved"
+msgstr "Αποθήκευση αρχείου μετά την ανάκτηση"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr ""
+
+#: KPlatoXmlLoader.cpp:69
+#, kde-format
+msgid ""
+"This document has no syntax version.\n"
+"Opening it in Plan may lose information."
+msgstr ""
+"Αυτό το έγγραφο δεν έχει έκδοση σύνταξης.\n"
+"Το άνοιγμα με το Plan ίσως προκαλέσει απώλεια πληροφοριών."
+
+#: KPlatoXmlLoader.cpp:71 KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125
+#: kptmaindocument.cpp:357 kptmaindocument.cpp:644
+#, kde-format
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: KPlatoXmlLoader.cpp:71
+#, kde-format
+msgid "File-Format Error"
+msgstr "Σφάλμα τύπου αρχειοθέτησης"
+
+#: KPlatoXmlLoader.cpp:80
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlato than Plan can "
+"load.\n"
+"Syntax version: %1\n"
+"Opening it in this version of Plan may lose some information."
+msgstr ""
+"Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του KPlato από αυτή που "
+"το Plan μπορεί να φορτώσει.\n"
+"Έκδοση σύνταξης: %1\n"
+"Το άνοιγμα με αυτήν την έκδοση του Plan ίσως προκαλέσει απώλεια πληροφοριών."
+
+#: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
+#: kptmaindocument.cpp:644
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "Ασυμφωνία τύπων αρχειοθέτησης"
+
+#: KPlatoXmlLoader.cpp:123
+#, kde-format
+msgid ""
+"This document was created with a newer version of KPlatoWork (syntax "
+"version: %1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του KPlatoWork (έκδοση "
+"σύνταξης: %1)\n"
+"Το άνοιγμα με αυτήν την έκδοση του PlanWork θα προκαλέσει απώλεια "
+"πληροφοριών."
+
+#: kptaboutdata.h:37
+#, kde-format
+msgctxt "application name"
+msgid "Plan"
+msgstr "Plan"
+
+#: kptaboutdata.h:39
+#, kde-format
+msgid "Project Planning and Management Tool"
+msgstr "Εργαλείο σχεδιασμού και διαχείρισης"
+
+#: kptaboutdata.h:41
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr "Copyright 1998-%1, Η ομάδα του Plan"
+
+#: kptaboutdata.h:45
+#, kde-format
+msgid "Dag Andersen"
+msgstr "Dag Andersen"
+
+#: kptaboutdata.h:46
+#, kde-format
+msgid "Thomas Zander"
+msgstr "Thomas Zander"
+
+#: kptaboutdata.h:47
+#, kde-format
+msgid "Bo Thorsen"
+msgstr "Bo Thorsen"
+
+#: kptaboutdata.h:48
+#, kde-format
+msgid "Raphael Langerhorst"
+msgstr "Raphael Langerhorst"
+
+#. i18n translator strings
+#: kptaboutdata.h:51
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης, Stelios"
+
+#: kptaboutdata.h:52
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org, sstavra@gmail.com"
+
+#: kptbuiltinschedulerplugin.cpp:35
+#, kde-format
+msgctxt "Network = task dependency network"
+msgid "Network Scheduler"
+msgstr "Χρονοπρογραμματιστής δικτύου εξαρτήσεων"
+
+#: kptbuiltinschedulerplugin.cpp:36
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Built-in network (PERT) based scheduler"
+msgstr "Ενσωματωμένος χρονοπρογραμματιστής με βάση το δίκτυο (PERT)"
+
+#: kptbuiltinschedulerplugin.cpp:45
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Network (PERT) Scheduler</title><para>The network scheduler generally "
+"schedules tasks according to their dependencies. When a task is scheduled it "
+"is scheduled in full, booking the allocated resources if available. If "
+"overbooking is not allowed, subsequent tasks that requests the same resource "
+"will be scheduled later in time.</para><para>Tasks with time constraints "
+"will be scheduled first to minimize the problem with resource conflicts</"
+"para><para><note>This scheduler does not handle resource conflicts well.<nl/"
+">You can try a different scheduler if available. You may also change "
+"resource allocations or add dummy dependencies to avoid the conflicts.</"
+"note></para>"
+msgstr ""
+"<title>Χρονοπρογραμματισμός δικτύου (PERT) </title><para>Ο "
+"χρονοπρογραμματιστής δικτύου γενικά χρονοπρογραμματίζει εργασίες σύμφωνα με "
+"τις εξαρτήσεις τους. Όταν η εργασία προγραμματίζεται, προγραμματίζεται "
+"πλήρως, δεσμεύοντας τους εκχωρημένους πόρους αν είναι διαθέσιμοι. Αν η "
+"υπερβολική δέσμευση δεν επιτρέπεται, οι επόμενες εργασίες που απαιτούν τον "
+"ίδιο πόρο θα προγραμματιστούν ετεροχρονισμένα.</para><para>Εργασίες με "
+"χρονικούς περιορισμούς θα προγραμματιστούν πρώτες για να ελαχιστοποιήσουν το "
+"πρόβλημα με τις συγκρούσεις πόρων</para><para><note>Ο χρονοπρογραμματιστής "
+"αυτός δεν χειρίζεται καλά τις συγκρούσεις πόρων.<nl/>Μπορείτε να "
+"προσπαθήσετε με διαφορετικό χρονοπρογραμματιστή αν είναι διαθέσιμος. "
+"Μπορείτε επίσης να τροποποιήσετε τις καταχωρήσεις πόρων ή να προσθέσετε "
+"πλασματικές εξαρτήσεις για να αποφύγετε τις συγκρούσεις.</note></para>"
+
+#: kptinsertfiledlg.cpp:34
+#, kde-format
+msgid "Insert File"
+msgstr "Εισαγωγή αρχείου"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Τρέχον κόμβος"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Εισαγωγή στο επίπεδο κορυφής"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Εισαγωγή ως απόγονο στον τρέχοντα κόμβο"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Εισαγωγή μετά τον τρέχοντα κόμβο"
+
+#: kptloadsharedprojectsdialog.cpp:40
+#, fuzzy, kde-kuit-format
+#| msgid "Resource Assignments"
+msgctxt "@title:window"
+msgid "Load Resource Assignments"
+msgstr "Ορισμοί πόρων"
+
+#: kptmaindocument.cpp:309 kptmaindocument.cpp:614
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr "Μη έγκυρο έγγραφο. Δεν καθορίστηκε τύπος mime."
+
+#: kptmaindocument.cpp:348
+#, kde-format
+msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+msgstr ""
+"Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan, ελήφθη "
+"%1"
+
+#: kptmaindocument.cpp:355
+#, kde-format
+msgid ""
+"This document was created with a newer version of Plan (syntax version: %1)\n"
+"Opening it in this version of Plan will lose some information."
+msgstr ""
+"Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του Plan (έκδοση "
+"σύνταξης: %1)\n"
+"Το άνοιγμα με αυτήν την έκδοση του Plan θα προκαλέσει απώλεια πληροφοριών."
+
+#: kptmaindocument.cpp:502
+#, kde-format
+msgid "Could not create the workpackage file for saving: %1"
+msgstr "Αδυναμία δημιουργίας του αρχείου πακέτου εργασίας για αποθήκευση: %1"
+
+#: kptmaindocument.cpp:510
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "Αδυναμία εγγραφής '%1'. Κατάτμηση πλήρης;"
+
+#: kptmaindocument.cpp:537
+#, kde-format
+msgid "Saving..."
+msgstr "Αποθήκευση..."
+
+#: kptmaindocument.cpp:631
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+"Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan.work, "
+"ελήφθη %1"
+
+#: kptmaindocument.cpp:642
+#, kde-format
+msgid ""
+"This document was created with a newer version of PlanWork (syntax version: "
+"%1)\n"
+"Opening it in this version of PlanWork will lose some information."
+msgstr ""
+"Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του PlanWork (έκδοση "
+"σύνταξης: %1)\n"
+"Το άνοιγμα με αυτήν την έκδοση του PlanWork θα προκαλέσει απώλεια "
+"πληροφοριών."
+
+#: kptmaindocument.cpp:1038 kptmaindocument.cpp:1074 kptmaindocument.cpp:1207
+#, kde-format
+msgid "Internal error, failed to insert file."
+msgstr "Εσωτερικό σφάλμα, αποτυχία εισαγωγής αρχείου."
+
+#: kptmaindocument.cpp:1236
+msgctxt "(qtundo-format)"
+msgid "Insert project"
+msgstr "Εισαγωγή έργου"
+
+#: kptmaindocument.cpp:1309
+#, kde-format
+msgid "Group: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:1315
+#, fuzzy, kde-format
+#| msgid "Resources"
+msgid "Resource: %1"
+msgstr "Πόροι"
+
+#: kptmaindocument.cpp:1320
+#, kde-format
+msgid "Calendar: %1"
+msgstr ""
+
+#: kptmaindocument.cpp:1325
+#, kde-format
+msgid ""
+"Shared resources has been removed from the shared resources file.\n"
+"Select how they shall be treated in this project."
+msgstr ""
+
+#: kptmaindocument.cpp:1328
+#, fuzzy, kde-kuit-format
+#| msgid "Tasks by resources"
+msgctxt "@title:window"
+msgid "Shared resources"
+msgstr "Εργασίες κατά πόρους"
+
+#: kptmaindocument.cpp:1330
+#, kde-format
+msgid "Convert"
+msgstr ""
+
+#: kptmaindocument.cpp:1331
+#, kde-format
+msgid "Keep"
+msgstr ""
+
+#: kptmaindocument.cpp:1542
+#, kde-format
+msgctxt "Base calendar name"
+msgid "Base"
+msgstr ""
+
+#: kptschedulesdocker.cpp:39
+#, kde-format
+msgid "Schedule Selector"
+msgstr "Επιλογέας χρονοπρογραμματισμού"
+
+#: kptview.cpp:197
+#, fuzzy, kde-format
+#| msgid "&Create New Project..."
+msgid "Create Project Template..."
+msgstr "Δημιουργία νέου έργου..."
+
+#: kptview.cpp:201
+#, fuzzy, kde-format
+#| msgid "&Create New Project..."
+msgid "Create New Project..."
+msgstr "Δημιουργία νέου έργου..."
+
+#: kptview.cpp:213
+#, kde-format
+msgid "Show Selector"
+msgstr "Εμφάνιση επιλογέα"
+
+#: kptview.cpp:220 kptview.cpp:256
+#, kde-format
+msgid "Edit..."
+msgstr "Επεξεργασία..."
+
+#: kptview.cpp:224
+#, kde-format
+msgid "Define Estimate Conversions..."
+msgstr "Ορισμός μετατροπών εκτίμησης..."
+
+#: kptview.cpp:228
+#, kde-format
+msgid "Define WBS Pattern..."
+msgstr "Ορισμός μοτίβου δομής έργου (WBS)..."
+
+#: kptview.cpp:232
+#, kde-format
+msgid "Define Currency..."
+msgstr "Ορισμός νομίσματος..."
+
+#: kptview.cpp:236
+#, fuzzy, kde-format
+#| msgid "Description..."
+msgid "Edit Description..."
+msgstr "Περιγραφή..."
+
+#: kptview.cpp:241
+#, kde-format
+msgid "Insert Project File..."
+msgstr "Εισαγωγή αρχείου έργου..."
+
+#: kptview.cpp:245
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Load Shared Projects..."
+msgstr "Εργασίες κατά πόρους"
+
+#: kptview.cpp:250
+#, kde-format
+msgid "Open Report Definition File..."
+msgstr "Άνοιγμα αρχείου ορισμού αναφοράς..."
+
+#: kptview.cpp:259
+#, kde-format
+msgid "Progress..."
+msgstr "Πρόοδος..."
+
+#: kptview.cpp:262
+#, kde-format
+msgid "Delete Task"
+msgstr "Διαγραφή εργασίας"
+
+#: kptview.cpp:265
+#, kde-format
+msgid "Description..."
+msgstr "Περιγραφή..."
+
+#: kptview.cpp:268
+#, fuzzy, kde-format
+#| msgid "Documents"
+msgid "Documents..."
+msgstr "Έγγραφα"
+
+#: kptview.cpp:271
+#, kde-format
+msgid "Indent Task"
+msgstr "Εσοχή εργασίας"
+
+#: kptview.cpp:274
+#, kde-format
+msgid "Unindent Task"
+msgstr "Ακύρωση εσοχής εργασίας"
+
+#: kptview.cpp:277
+#, kde-format
+msgid "Move Task Up"
+msgstr "Μετακίνηση εργασίας πάνω"
+
+#: kptview.cpp:280
+#, kde-format
+msgid "Move Task Down"
+msgstr "Μετακίνηση εργασίας κάτω"
+
+#: kptview.cpp:284
+#, kde-format
+msgid "Edit Resource..."
+msgstr "Επεξεργασία πόρου..."
+
+#: kptview.cpp:288
+#, kde-format
+msgid "Edit Dependency..."
+msgstr "Επεξεργασία εξάρτησης..."
+
+#: kptview.cpp:291
+#, kde-format
+msgid "Delete Dependency"
+msgstr "Διαγραφή εξάρτησης"
+
+#: kptview.cpp:301
+#, fuzzy, kde-format
+#| msgid "Work Package"
+msgid "Work Packages..."
+msgstr "Πακέτο εργασίας"
+
+#: kptview.cpp:302
+#, fuzzy, kde-format
+#| msgid "Work Package View"
+msgctxt "@info:tooltip"
+msgid "Work packages available"
+msgstr "Προβολή πακέτου εργασίας"
+
+#: kptview.cpp:393
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+"from the current project with new project- and task identities.<nl/"
+">Resource- and calendar identities are not changed.<nl/>All scheduling "
+"information is removed.<nl/><nl/>Do you want to continue?"
+msgstr ""
+"<note>Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</note><nl/><nl/>Δημιουργήστε "
+"ένα νέο έργο αό το τρέχον με νέες ταυτότητες έργου και εργασιών.<nl/>Οι "
+"ταυτότητες των πόρων και του ημερολογίου παραμένουν χωρίς αλλαγές.<nl/>Όλες "
+"οι προγραμματισμένες πληροφορίες έχουν διαγραφεί.<nl/><nl/>Θέλετε να "
+"συνεχίσετε;"
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+#| msgid "Scheduling constraint:"
+msgid "Edit task scheduling constraints"
+msgstr "Περιορισμός χρονοπρογραμματισμού:"
+
+#: kptview.cpp:520
+#, fuzzy, kde-format
+#| msgid "Constraints"
+msgid "Task Constraints"
+msgstr "Περιορισμοί"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Edit task dependencies"
+msgid "Edit task cost"
+msgstr "Επεξεργασία εξαρτήσεων εργασίας"
+
+#: kptview.cpp:530
+#, fuzzy, kde-format
+#| msgid "Task Colors"
+msgid "Task Cost"
+msgstr "Χρώματα εργασίας"
+
+#: kptview.cpp:577
+#, kde-format
+msgid "Generate reports"
+msgstr ""
+
+#: kptview.cpp:583 kptview.cpp:3201
+#, kde-format
+msgid "Task Status Report"
+msgstr "Αναφορά κατάστασης εργασίας"
+
+#: kptview.cpp:661
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit working- and vacation days for resources"
+msgstr "Επεξεργασία ημερών εργασίας και διακοπών για τους πόρους"
+
+#: kptview.cpp:663
+#, kde-format
+msgid "Cost Breakdown Structure"
+msgstr "Επεξεργασία δομής ανάλυσης κόστους"
+
+#: kptview.cpp:664
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit cost breakdown structure."
+msgstr "Επεξεργασία δομής ανάλυσης κόστους."
+
+#: kptview.cpp:666
+#, kde-format
+msgid "Resources"
+msgstr "Πόροι"
+
+#: kptview.cpp:667
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit resource breakdown structure"
+msgstr "Επεξεργασία δομής ανάλυσης πόρων"
+
+#: kptview.cpp:669
+#, kde-format
+msgid "Tasks"
+msgstr "Εργασίες"
+
+#: kptview.cpp:670
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit work breakdown structure"
+msgstr "Επεξεργασία δομής ανάλυσης εργασίας"
+
+#: kptview.cpp:672
+#, kde-format
+msgid "Dependencies (Graphic)"
+msgstr "Εξαρτήσεις (γράφημα)"
+
+#: kptview.cpp:673 kptview.cpp:676
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Edit task dependencies"
+msgstr "Επεξεργασία εξαρτήσεων εργασίας"
+
+#: kptview.cpp:675
+#, kde-format
+msgid "Dependencies (List)"
+msgstr "Εξαρτήσεις (λίστα)"
+
+#: kptview.cpp:679 kptview.cpp:681
+#, kde-format
+msgid "Schedules"
+msgstr "Χρονικοί προγραμματισμοί"
+
+#: kptview.cpp:682
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Calculate and analyze project schedules"
+msgstr "Υπολογισμός και ανάλυση χρονικών προγραμματισμών του έργου"
+
+#: kptview.cpp:684 kptviewlistdialog.cpp:118
+#, kde-format
+msgid "Project Performance Chart"
+msgstr "Διάγραμμα απόδοσης έργου"
+
+#: kptview.cpp:685
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View project status information"
+msgstr "Προβολή πληροφοριών κατάστασης έργου"
+
+#: kptview.cpp:687 kptviewlistdialog.cpp:110
+#, kde-format
+msgid "Task Status"
+msgstr "Κατάσταση εργασίας"
+
+#: kptview.cpp:688
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task progress information"
+msgstr "Προβολή πληροφοριών προόδου εργασίας"
+
+#: kptview.cpp:690
+#, kde-format
+msgid "Task Execution"
+msgstr "Εκτέλεση εργασίας"
+
+#: kptview.cpp:691
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task execution information"
+msgstr "Προβολή πληροφοριών εκτέλεσης εργασίας"
+
+#: kptview.cpp:693 kptviewlistdialog.cpp:112
+#, kde-format
+msgid "Work Package View"
+msgstr "Προβολή πακέτου εργασίας"
+
+#: kptview.cpp:694
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View task work package information"
+msgstr "Προβολή πληροφοριών πακέτου εργασίας"
+
+#: kptview.cpp:696
+#, kde-format
+msgid "Gantt"
+msgstr "Gantt"
+
+#: kptview.cpp:697
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View Gantt chart"
+msgstr "Προβολή διαγράμματος Gantt"
+
+#: kptview.cpp:699
+#, kde-format
+msgid "Milestone Gantt"
+msgstr "Ορόσημο Gantt"
+
+#: kptview.cpp:700
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View milestone Gantt chart"
+msgstr "Προβολή διαγράμματος ορόσημων Gantt"
+
+#: kptview.cpp:702 kptviewlistdialog.cpp:115
+#, kde-format
+msgid "Resource Assignments"
+msgstr "Ορισμοί πόρων"
+
+#: kptview.cpp:703
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in a table"
+msgstr "Προβολή ορισμών πόρων σε πίνακα"
+
+#: kptview.cpp:705 kptviewlistdialog.cpp:116
+#, kde-format
+msgid "Resource Assignments (Gantt)"
+msgstr "Ορισμοί πόρων (Gantt)"
+
+#: kptview.cpp:706
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View resource assignments in Gantt chart"
+msgstr "Προβολή ορισμών πόρων σε διάγραμμα Gantt"
+
+#: kptview.cpp:708 kptviewlistdialog.cpp:117
+#, kde-format
+msgid "Cost Breakdown"
+msgstr "Ανάλυση κόστους"
+
+#: kptview.cpp:709
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View planned and actual cost"
+msgstr "Προβολή προγραμματισμένου και πραγματικού κόστους"
+
+#: kptview.cpp:711 kptviewlistdialog.cpp:119
+#, kde-format
+msgid "Tasks Performance Chart"
+msgstr "Διάγραμμα απόδοσης εργασιών"
+
+#: kptview.cpp:712
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View tasks performance status information"
+msgstr "Προβολή πληροφοριών κατάστασης απόδοσης εργασιών"
+
+#: kptview.cpp:714
+#, kde-format
+msgid "Reports Generator"
+msgstr ""
+
+#: kptview.cpp:715
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Generate reports"
+msgstr ""
+
+#: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
+#: kptviewlistdialog.cpp:564
+#, kde-format, kde-kuit-format
+msgid "Report"
+msgstr "Αναφορά"
+
+#: kptview.cpp:718
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "View report"
+msgstr "Αναφορά προβολής"
+
+#: kptview.cpp:729
+#, kde-format
+msgid "Editors"
+msgstr "Επεξεργαστές"
+
+#: kptview.cpp:731
+#, kde-format
+msgid "Views"
+msgstr "Προβολές"
+
+#: kptview.cpp:733
+#, kde-format
+msgctxt "Project execution views"
+msgid "Execution"
+msgstr "Εκτέλεση"
+
+#: kptview.cpp:735
+#, kde-format
+msgid "Reports"
+msgstr "Αναφορές"
+
+#: kptview.cpp:1695
+#, kde-format
+msgctxt "(qtundo-format) @info:status 1=schedule name"
+msgid "Calculate %1"
+msgstr "Υπολογισμός %1"
+
+#: kptview.cpp:1714
+#, kde-format
+msgid "Cannot baseline. The project is already baselined."
+msgstr "Αδυναμία δημιουργίας αφετηρίας. Το έργο έχει ήδη αφετηρία."
+
+#: kptview.cpp:1719
+#, kde-format
+msgid "This schedule is baselined. Do you want to remove the baseline?"
+msgstr ""
+"Ο χρονοπρογραμματισμός έχει αφετηρία. Επιθυμείτε την αφαίρεση της αφετηρίας;"
+
+#: kptview.cpp:1723
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Reset baseline %1"
+msgstr "Μηδενισμός αφετηρίας %1"
+
+#: kptview.cpp:1726 kptview.cpp:1730
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Baseline %1"
+msgstr "Αφετηρία %1"
+
+#: kptview.cpp:1741
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Add schedule %1"
+msgstr "Προσθήκη χρονικού προγραμματισμού %1"
+
+#: kptview.cpp:1750
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Delete schedule %1"
+msgstr "Διαγραφή χρονικού προγραμματισμού %1"
+
+#: kptview.cpp:1759
+#, kde-format
+msgctxt "(qtundo-format)"
+msgid "Move schedule %1"
+msgstr "Μετακίνηση χρονικού προγραμματισμού %1"
+
+#: kptview.cpp:1822
+msgctxt "(qtundo-format)"
+msgid "Add milestone"
+msgstr "Προσθήκη ορόσημου"
+
+#: kptview.cpp:1846
+msgctxt "(qtundo-format)"
+msgid "Add sub-milestone"
+msgstr "Προσθήκη υπο-ορόσημου"
+
+#: kptview.cpp:2228
+#, kde-format
+msgid ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Μια προγραμματισμένη εργασία θα διαγραφεί. Αυτό θα ακυρώσει το πρόγραμμα."
+
+#: kptview.cpp:2236 kptview.cpp:2240 kptview.cpp:2256 kptview.cpp:2280
+msgctxt "(qtundo-format)"
+msgid "Delete task"
+msgid_plural "Delete tasks"
+msgstr[0] "Διαγραφή εργασίας"
+msgstr[1] "Διαγραφή εργασιών"
+
+#: kptview.cpp:2275
+#, kde-format
+msgid "This task has been scheduled. This will invalidate the schedule."
+msgstr "Η εργασία αυτή προγραμματίστηκε. Αυτό θα ακυρώσει τον προγραμματισμό."
+
+#: kptview.cpp:2299
+msgctxt "(qtundo-format)"
+msgid "Indent task"
+msgstr "Εσοχή εργασίας"
+
+#: kptview.cpp:2313
+msgctxt "(qtundo-format)"
+msgid "Unindent task"
+msgstr "Ακύρωση εσοχής εργασίας"
+
+#: kptview.cpp:2335
+msgctxt "(qtundo-format)"
+msgid "Move task up"
+msgstr "Μετακίνηση εργασίας πάνω"
+
+#: kptview.cpp:2356
+msgctxt "(qtundo-format)"
+msgid "Move task down"
+msgstr "Μετακίνηση εργασίας κάτω"
+
+#: kptview.cpp:2392
+msgctxt "(qtundo-format)"
+msgid "Add task dependency"
+msgstr "Προσθήκη εξάρτησης εργασίας"
+
+#: kptview.cpp:2453
+msgctxt "(qtundo-format)"
+msgid "Delete task dependency"
+msgstr "Διαγραφή εξάρτησης εργασίας"
+
+#: kptview.cpp:2490 kptview.cpp:2551
+msgctxt "(qtundo-format)"
+msgid "Delete resource"
+msgid_plural "Delete resources"
+msgstr[0] "Διαγραφή πόρου"
+msgstr[1] "Διαγραφή πόρων"
+
+#: kptview.cpp:2495 kptview.cpp:2553
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroup"
+msgid_plural "Delete resourcegroups"
+msgstr[0] "Διαγραφή ομάδας πόρων"
+msgstr[1] "Διαγραφή ομάδων πόρων"
+
+#: kptview.cpp:2504 kptview.cpp:2512
+#, kde-format
+msgid ""
+"A resource that has been scheduled will be deleted. This will invalidate the "
+"schedule."
+msgstr ""
+"Ένας χρονικά προγραμματισμένος πόρος θα διαγραφεί. Αυτό θα ακυρώσει το "
+"χρονικό προγραμματισμό."
+
+#: kptview.cpp:2549
+msgctxt "(qtundo-format)"
+msgid "Delete resourcegroups and resources"
+msgstr "Διαγραφή ομάδων πόρων και πόρων"
+
+#: kptview.cpp:2720
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Cannot open file:<br/><filename>%1</filename>"
+msgstr "Αδυναμία ανοίγματος αρχείου:<br/><filename>%1</filename>"
+
+#: kptview.cpp:2846
+msgctxt "(qtundo-format)"
+msgid "Modify name"
+msgstr "Τροποποίηση ονόματος"
+
+#: kptview.cpp:2848
+msgctxt "(qtundo-format)"
+msgid "Modify task name"
+msgstr "Τροποποίηση ονόματος εργασίας"
+
+#: kptview.cpp:2849
+msgctxt "(qtundo-format)"
+msgid "Modify milestone name"
+msgstr "Τροποποίηση ονόματος ορόσημου"
+
+#: kptview.cpp:2850
+msgctxt "(qtundo-format)"
+msgid "Modify summarytask name"
+msgstr "Τροποποίηση ονόματος εργασίας περίληψης"
+
+#: kptview.cpp:2851
+msgctxt "(qtundo-format)"
+msgid "Modify project name"
+msgstr "Τροποποίηση ονόματος έργου"
+
+#: kptview.cpp:2943
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid "Not scheduled"
+msgstr "Μη προγραμματισμένο"
+
+#: kptview.cpp:2985
+#, kde-format
+msgid "Failed to open temporary file"
+msgstr "Αποτυχία ανοίγματος προσωρινού αρχείου"
+
+#: kptview.cpp:2991
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+msgstr "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br/> <filename>%1</filename>"
+
+#: kptview.cpp:2999
+#, kde-format
+msgid "Work Package: %1"
+msgstr "Πακέτο εργασίας: %1"
+
+#: kptview.cpp:3000
+#, kde-format
+msgctxt "1=project name, 2=task name"
+msgid ""
+"%1\n"
+"%2"
+msgstr ""
+"%1\n"
+"%2"
+
+#: kptview.cpp:3030
+#, fuzzy, kde-format
+#| msgid "Failed to open temporary file"
+msgid "Failed to open work package file"
+msgstr "Αποτυχία ανοίγματος προσωρινού αρχείου"
+
+#: kptview.cpp:3037
+#, kde-kuit-format
+msgctxt "@info"
+msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+msgstr "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br/> <filename>%1</filename>"
+
+#: kptview.cpp:3046
+#, kde-format
+msgid "Work Package for project: %1"
+msgstr "Πακέτο εργασίας για το έργο: %1"
+
+#: kptview.cpp:3199
+#, kde-format
+msgctxt "Project manager"
+msgid "Manager:"
+msgstr "Διαχειριστής:"
+
+#: kptview.cpp:3200
+#, kde-format
+msgid "Project:"
+msgstr "Έργο:"
+
+#: kptview.cpp:3202
+#, kde-format
+msgctxt "As in: Page 1 of 2"
+msgid "of"
+msgstr "από"
+
+#: kptview.cpp:3203
+#, kde-format
+msgid "Page"
+msgstr "Σελίδα"
+
+#: kptview.cpp:3204
+#, kde-format
+msgctxt "Task name"
+msgid "Name"
+msgstr "Όνομα"
+
+#: kptview.cpp:3205
+#, kde-format
+msgctxt "Task completion"
+msgid "Completion (%)"
+msgstr "Ολοκλήρωση (%)"
+
+#: kptviewlist.cpp:349
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "<para>This is the list of available views and editors.</para><para>You "
+#| "can configure the list by using the context menu:<list><item>Rename "
+#| "categories or views</item><item>Configure. Move, remove, rename or edit "
+#| "tool tip for categories or views</item><item>Insert categories and views</"
+#| "item></list></para>"
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>View Selector</title><para>This is the list of views and editors.</"
+"para><para>You can configure the list by using the context menu:"
+"<list><item>Rename categories or views</item><item>Configure. Move, remove, "
+"rename or edit tool tip for categories or views</item><item>Insert "
+"categories and views</item></list><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+"<para>Αυτή είναι η λίστα των διαθέσιμων προβολών και επεξεργαστών.</"
+"para><para>Μπορείτε να διαμορφώσετε τη λίστα με το μενού:"
+"<list><item>Μετονομάστε κατηγορίες ή προβολές</item><item>Διαμορφώστε, "
+"μετακινήστε, αφαιρέστε, μετονομάστε ή επεξεργαστείτε συμβουλή για κατηγορίες "
+"ή προβολές</item><item>Εισαγωγή κατηγοριών και προβολών</item></list></para>"
+
+#: kptviewlist.cpp:371
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Schedule selector</title><para>Selects the schedule to be used when "
+"displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
+"shown in editors.</note><nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: kptviewlist.cpp:604
+#, kde-format
+msgid "Removing this category will also remove all its views."
+msgstr "Η αφαίρεση αυτής της κατηγορίας θα αφαιρέσει και όλες τις προβολές."
+
+#: kptviewlist.cpp:738
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view"
+msgid "Rename"
+msgstr "Μετονομασία"
+
+#: kptviewlist.cpp:742
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view"
+msgid "Configure..."
+msgstr "Διαμόρφωση..."
+
+#: kptviewlist.cpp:746
+#, kde-kuit-format
+msgctxt "@action:inmenu remove view"
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: kptviewlist.cpp:755
+#, kde-kuit-format
+msgctxt "@action:inmenu rename view category"
+msgid "Rename"
+msgstr "Μετονομασία"
+
+#: kptviewlist.cpp:759
+#, kde-kuit-format
+msgctxt "@action:inmenu configure view category"
+msgid "Configure..."
+msgstr "Διαμόρφωση..."
+
+#: kptviewlist.cpp:763
+#, kde-kuit-format
+msgctxt "@action:inmenu Remove view category"
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: kptviewlist.cpp:772
+#, kde-kuit-format
+msgctxt "@action:inmenu Insert View"
+msgid "Insert..."
+msgstr "Εισαγωγή..."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Η κατηγορία της προβολής"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Κατηγορία:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Η προβολή τοποθετήθηκε μετά από αυτήν την προβολή"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Μετά"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "The type of view"
+msgstr "Ο τύπος της προβολής"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "Τύπος προβολής:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Το όνομα της προβολής"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Όνομα:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Περιγραφή των εργασιών"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: kptviewlistdialog.cpp:42
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add View"
+msgstr "Προσθήκη προβολής"
+
+#: kptviewlistdialog.cpp:103
+#, kde-format
+msgid "Resource Editor"
+msgstr "Επεξεργαστής πόρων"
+
+#: kptviewlistdialog.cpp:104
+#, kde-format
+msgid "Task Editor"
+msgstr "Επεξεργαστής εργασιών"
+
+#: kptviewlistdialog.cpp:105
+#, kde-format
+msgid "Work & Vacation Editor"
+msgstr "Επεξεργαστής εργάσιμων & διακοπών"
+
+#: kptviewlistdialog.cpp:106
+#, kde-format
+msgid "Accounts Editor"
+msgstr "Επεξεργαστής λογαριασμών"
+
+#: kptviewlistdialog.cpp:107
+#, kde-format
+msgid "Dependency Editor (Graphic)"
+msgstr "Επεξεργαστής εξαρτήσεων (γράφημα)"
+
+#: kptviewlistdialog.cpp:108
+#, kde-format
+msgid "Dependency Editor (List)"
+msgstr "Επεξεργαστής εξαρτήσεων (λίστα)"
+
+#: kptviewlistdialog.cpp:109
+#, kde-format
+msgid "Schedule Handler"
+msgstr "Χειριστής χρονικού προγραμματισμού"
+
+#: kptviewlistdialog.cpp:111
+#, kde-format
+msgid "Task View"
+msgstr "Προβολή εργασίας"
+
+#: kptviewlistdialog.cpp:113
+#, kde-format
+msgid "Gantt View"
+msgstr "Προβολή Gantt"
+
+#: kptviewlistdialog.cpp:114
+#, kde-format
+msgid "Milestone Gantt View"
+msgstr "Προβολή ορόσημου Gantt"
+
+#: kptviewlistdialog.cpp:120
+#, kde-format
+msgid "Reports generator"
+msgstr ""
+
+#: kptviewlistdialog.cpp:148
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>You can edit the category name to create "
+"a new category."
+msgstr ""
+"<title>Η κατηγορία της προβολής</title><nl/>Η προβολή τοποθετείται κάτω από "
+"αυτήν την κατηγορία στον επιλογέα προβολών.<nl/>Μπορείτε να επεξεργαστείτε "
+"το όνομα της κατηγορίας για να δημιουργήσετε μια νέα κατηγορία."
+
+#: kptviewlistdialog.cpp:200 kptviewlistdialog.cpp:412
+#: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:631
+#, kde-format
+msgid "Top"
+msgstr "Πάνω"
+
+#: kptviewlistdialog.cpp:306
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure View"
+msgstr "Διαμόρφωση προβολής"
+
+#: kptviewlistdialog.cpp:362
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>The category of the view</title><nl/>The view is placed under this "
+"category in the view selector.<nl/>Selecting a different category will move "
+"the view to the new category.<nl/>You can edit the category name to create a "
+"new category."
+msgstr ""
+"<title>Η κατηγορία της προβολής</title><nl/>Η προβολή τοποθετείται κάτω από "
+"αυτήν την κατηγορία στον επιλογέα προβολών.<nl/>Η επιλογή διαφορετικής "
+"κατηγορίας θα μετακινήσει την προβολή στη νέα κατηγορία.<nl/>Μπορείτε να "
+"επεξεργαστείτε το όνομα της κατηγορίας για να δημιουργήσετε μια νέα "
+"κατηγορία."
+
+#: kptviewlistdialog.cpp:431
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Configure Category"
+msgstr "Διαμόρφωση κατηγορίας"
+
+#: kptviewlistdialog.cpp:522
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "Add Report"
+msgstr "Προσθήκη αναφοράς"
+
+#: kptviewlistdocker.cpp:68 kptviewlistdocker.cpp:74
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector [modified]"
+msgstr "Επιλογέας προβολής [τροποποιημένος]"
+
+#: kptviewlistdocker.cpp:76
+#, kde-kuit-format
+msgctxt "@title:window"
+msgid "View Selector"
+msgstr "Επιλογέας προβολής"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Λέξεις"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Προτάσεις"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Συλλαβές"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Γραμμές"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Χαρακτήρες μαζί με κενά"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Χαρακτήρες χωρίς κενά"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Ευκολία ανάγνωσης Flesch"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Συμπερίληψη κειμένου από υποσέλιδα και σημειώσεις τέλους"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Αυτόματη ανανέωση δεδομένων"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Η κατηγορία τοποθετήθηκε μετά από αυτήν την κατηγορία"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Το όνομα της κατηγορίας"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Η περιγραφή της κατηγορίας"
+
+#: welcome/WelcomeView.cpp:125
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Create a new project</title><para>Creates a new project with default "
+"values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
+"<emphasis>project dialog</emphasis> so you can define project specific "
+"properties like <resource>Project Name</resource>, <resource>Target Start</"
+"resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
+"link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:139
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Shared resources</title><para>Create a shared resources file.<nl/"
+">This enables you to only create your resources once, you just refer to your "
+"resources file when you create a new project.<nl/>These resources can then "
+"be shared between projects to avoid overbooking resources across projects."
+"<nl/>Shared resources must be defined in a separate file.<nl/><link "
+"url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:152
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Recent Projects</title><para>A list of the 10 most recent project "
+"files opened.</para><para><nl/>This enables you to quickly open projects you "
+"have worked on recently.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:161
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Context help</title><para>Help is available many places using "
+"<emphasis>What's This</emphasis>.<nl/>It is activated using the menu entry "
+"<interface>Help->What's this?</interface> or the keyboard shortcut "
+"<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
+"the <interface>?</interface> in the dialog title bar.</para><para>If you see "
+"<link url='%1'>More...</link> in the text, pressing it will display more "
+"information from online resources in your browser.</para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:179
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
+msgstr ""
+
+#: welcome/WelcomeView.cpp:312
+#, fuzzy, kde-format
+#| msgid "Remove Document"
+msgid "Open Document"
+msgstr "Αφαίρεση εγγράφου"
+
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Insert project"
+msgid "New project"
+msgstr "Εισαγωγή έργου"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, fuzzy, kde-format
+#| msgid "Tasks by resources"
+msgid "Create Shared Resources"
+msgstr "Εργασίες κατά πόρους"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, fuzzy, kde-format
+#| msgid "Edit Main Project..."
+msgid "Open Project..."
+msgstr "Επεξεργασία κύριου έργου..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, fuzzy, kde-format
+#| msgid "Next: Introduction"
+msgid "Introduction"
+msgstr "Επόμενο: Εισαγωγή"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr ""
+
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#~ msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Ελευθερωθείτε."
+
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Το Plan είναι μια εφαρμογή προγραμματισμού και διαχείρισης έργων"
+
+#~ msgid "Welcome to Plan."
+#~ msgstr "Καλώς ήρθατε στο Plan."
+
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "Αυτές οι εισαγωγικές σελίδες θα σας δώσουν μια ιδέα για το πώς θα "
+#~ "χρησιμοποιήσετε το Plan και για ποιο σκοπό."
+
+#~ msgid "A short introduction."
+#~ msgstr "Μια μικρή εισαγωγή."
+
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Συμβουλές για το χειρισμό και την επιθεώρηση δεδομένων."
+
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Ένα μικρό εκπαιδευτικό εγχειρίδιο για να ξεκινήσετε."
+
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Σημείωση:</em> Για να δείτε αυτές τις σελίδες όταν βρίσκεστε σε άλλα "
+#~ "σημεία του Plan, επιλέξτε την επιλογή του μενού <em>Βοήθεια -> Εισαγωγή "
+#~ "στο Plan</em>."
+
+#, fuzzy
+#~| msgid ""
+#~| "Plan is intended for managing moderately large projects with multiple "
+#~| "resources. To enable you to model your project adequately, Plan offers "
+#~| "different types of task dependencies and timing constraints. Usually you "
+#~| "will define your tasks, estimate the effort needed to perform each task, "
+#~| "allocate resources and then schedule the project according to the "
+#~| "dependency network and resource availability.<p>You can find more "
+#~| "information in the <a href=\"help:plan\">documentation</a> or online at "
+#~| "<a href=\"http://www.calligra.org/plan\">http://www.calligra.org/plan</"
+#~| "a></p>"
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information online at <a href=\"https://userbase.kde.org/Plan\">https://"
+#~ "userbase.kde.org/Plan</a></p>"
+#~ msgstr ""
+#~ "Το Plan στοχεύει στη διαχείριση όχι πολύ μεγάλων έργων με πολλούς πόρους. "
+#~ "Για να σάς επιτρέψει να διαχειριστείτε το έργο σας επαρκώς, το Plan "
+#~ "προσφέρει διαφορετικούς τύπους εξαρτήσεων για εργασίες και χρονικούς "
+#~ "περιορισμούς. Κανονικά θα ορίσετε τις εργασίες σας, θα εκτιμήσετε την "
+#~ "απαιτούμενη προσπάθεια για την πραγματοποίηση κάθε εργασίας, θα "
+#~ "κατανείμετε πόρους και έπειτα θα προγραμματίσετε το έργο σύμφωνα με το "
+#~ "δίκτυο εξαρτήσεων και τη διαθεσιμότητα των πόρων.<p>Μπορείτε να βρείτε "
+#~ "περισσότερες πληροφορίες στην <a href=\"help:plan\">τεκμηρίωση</a> ή στον "
+#~ "ιστό στο <a href=\"http://www.calligra.org/plan\">http://www.calligra.org/"
+#~ "plan</a></p>"
+
+#~ msgid "Next: Tips"
+#~ msgstr "Επόμενο: Συμβουλές"
+
+#~ msgid "Editing tips."
+#~ msgstr "Επεξεργασία συμβουλών."
+
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<brι/><b>Για</b> την επεξεργασία δεδομένων του έργου, διαφορετικές "
+#~ "προβολές και επεξεργαστές μπορούν να επιλεγούν στις επιλογές προσάρτησης "
+#~ "προβολής.<br/><b>Οι</b> προβολές γενικά χρησιμοποιούνται για επιθεώρηση "
+#~ "δεδομένων αφού το έργο προγραμματιστεί. Δεν θα εμφανιστούν δεδομένα στις "
+#~ "προβολές αν δεν έχει γίνει προγραμματισμός του έργου. Ο προγραμματισμός "
+#~ "γίνεται στον επεξεργαστή χρονικού προγραμματισμού.<br/><b>Εσείς</b> "
+#~ "μπορείτε να επεξεργαστείτε ιδιότητες στους διάφορους επεξεργαστές "
+#~ "επιλέγοντας το αντικείμενο που θέλετε να επεξεργαστείτε (με διπλό κλικ ή "
+#~ "πατώντας F2), ή ανοίγοντας ένα παράθυρο διαλόγου από το μενού.</ul>"
+
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Επόμενο: Δημιουργία απλού έργου"
+
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Δημιουργία του απλούστερου δυνατού έργου."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Επιλέξτε επεξεργαστή εργασιών <em>Επεξεργαστές->Εργασίες</em>:"
+#~ "<ul><li>Δημιουργήστε μια εργασία επιλέγοντας <em>Προσθήκη εργασίας</em> "
+#~ "στη γραμμή εργαλείων.</li><li>Καθορίστε <em>Τύπο</em> για τη "
+#~ "<em>Διάρκεια</em>.</li><li>Καθορίστε <em>Εκτίμηση</em> σε <em>8 ώρες</em>."
+#~ "</li><li>Καθορίστε <em>Περιορισμό</em> σε <em>Το συντομότερο</em>.</li></"
+#~ "ul>Επιλέξτε τον επεξεργαστή χρονικών προγραμματισμών <em>Επεξεργαστές-"
+#~ "Προγραμματισμοί</em>:<ul><li>Δημιουργήστε έναν προγραμματισμό επιλέγοντας "
+#~ "<em>Προσθήκη προγραμματισμού</em> στη γραμμή εργασιών.</li><li>Υπολογίστε "
+#~ "το χρονικό προγραμματισμό επιλέγοντας <em>Υπολογισμός</em> στη γραμμή "
+#~ "εργαλείων.</li></ul>Η εργασία πρέπει τώρα να έχει χρονοπρογραμματιστεί να "
+#~ "ξεκινήσει %1 με διάρκεια 8 ωρών. Μπορείτε να το ελέγξετε επιλέγοντας το "
+#~ "διάγραμμα Gantt <em>Προβολές->Gantt</em>."
+
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Επόμενο: Κατανομή πόρων"
+
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Κατανομή ενός πόρου στην εργασία."
+
+#~ msgctxt "1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Επιλέξτε επεξεργαστή εργασιών <em>Επεξεργαστές->Εργασίες</em>:"
+#~ "<ul><li>Δώστε ένα όνομα (π.χ. 'John') στη στήλη <em>Κατανομή</em>. (Το "
+#~ "Plan θα δημιουργήσει αυτόματα έναν πόρο με το όνομα 'John' στην ομάδα "
+#~ "πόρων 'Πόροι'.</li><li>Καθορίστε <em>Τύπο</em> στην <em>Προσπάθεια</em>.</"
+#~ "li></ul>Τώρα χρειάζεται να προγραμματίσετε το έργο ξανά με τη νέα "
+#~ "κατανομή:<br/>Επιλέξτε επεξεργαστή χρονοπρογραμματισμού <em>Επεξεργαστές-"
+#~ ">Προγραμματισμοί</em> και υπολογίστε τη διάρκεια επιλέγοντας "
+#~ "<em>Υπολογισμός</em> στη γραμμή εργαλείων.<p>Η εργασία θα προγραμματιστεί "
+#~ "να ξεκινήσει %1 με διάρκεια 8 ωρών. Μπορείτε να το ελέγξετε με την "
+#~ "επιλογή του διαγράμματος Gantt <em>Προβολές->Gantt</em>.<p>"
+
+#~ msgid "Next: Introduction"
+#~ msgstr "Επόμενο: Εισαγωγή"
+
+#~ msgid "Introduction to Plan"
+#~ msgstr "Εισαγωγή στο Plan"
+
+#~ msgid "Calculation"
+#~ msgstr "Υπολογισμός"
+
+#~ msgid "Manual"
+#~ msgstr "Χειροκίνητος"
+
+#~ msgid "Immediate on change"
+#~ msgstr "Άμεσα κατά την αλλαγή"
+
+#~ msgid "Constraints"
+#~ msgstr "Περιορισμοί"
+
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Να επιτρέπεται η υπερκάλυψη πόρων"
+
+#~ msgid "Configure Plan..."
+#~ msgstr "Διαμόρφωση του Plan..."
+
+#~ msgid "Project"
+#~ msgstr "Έργο"
+
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Εντοπίστηκαν νέα πακέτα εργασίας. Να γίνει συγχώνευση δεδομένων με τις "
+#~ "υπάρχουσες εργασίες;"
+
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Ο κάτοχος '%1' του πακέτου δεν είναι πόρος αυτού του έργου. Πρέπει να "
+#~ "αντιμετωπίσετε αυτήν την περίπτωση χειροκίνητα."
+
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Τίποτα για αποθήκευση από αυτό το πακέτο"
+
+#~ msgid "Save URL:"
+#~ msgstr "Αποθήκευση URL:"
+
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Δημιουργία προτύπου από έγγραφο..."
+
+#, fuzzy
+#~| msgid "Gradient:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient:"
+#~ msgstr "Διαβάθμιση:"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Summary task"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Summary task"
+#~ msgstr "Εργασία περίληψης"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Default:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Default:"
+#~ msgstr "Προκαθορισμένο:"
+
+#, fuzzy
+#~| msgctxt "@title:group"
+#~| msgid "Use level colors"
+#~ msgctxt "(qtundo-format) @title:group"
+#~ msgid "Use level colors"
+#~ msgstr "Χρήση χρωμάτων επιπέδου"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 1"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 1"
+#~ msgstr "Επίπεδο 1"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 2"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 2"
+#~ msgstr "Επίπεδο 2"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 3"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 3"
+#~ msgstr "Επίπεδο 3"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Level 4"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Level 4"
+#~ msgstr "Επίπεδο 4"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Task"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Task"
+#~ msgstr "Εργασία"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Normal:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Normal:"
+#~ msgstr "Κανονικό:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Critical:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Critical:"
+#~ msgstr "Κρίσιμο:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Finished:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Finished:"
+#~ msgstr "Ολοκληρωμένο:"
+
+#, fuzzy
+#~| msgctxt "@label:chooser"
+#~| msgid "Error:"
+#~ msgctxt "(qtundo-format) @label:chooser"
+#~ msgid "Error:"
+#~ msgstr "Σφάλμα:"
+
+#, fuzzy
+#~| msgctxt "@title:tab"
+#~| msgid "Milestone"
+#~ msgctxt "(qtundo-format) @title:tab"
+#~ msgid "Milestone"
+#~ msgstr "Ορόσημο"
+
+#, fuzzy
+#~| msgid "Calculation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Calculation"
+#~ msgstr "Υπολογισμός"
+
+#, fuzzy
+#~| msgid "Manual"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Manual"
+#~ msgstr "Χειροκίνητος"
+
+#, fuzzy
+#~| msgid "Immediate on change"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Immediate on change"
+#~ msgstr "Άμεσα κατά την αλλαγή"
+
+#, fuzzy
+#~| msgid "Constraints"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraints"
+#~ msgstr "Περιορισμοί"
+
+#, fuzzy
+#~| msgid "Allow overbooking of resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allow overbooking of resources"
+#~ msgstr "Να επιτρέπεται η υπερκάλυψη πόρων"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "General"
+#~ msgstr "Γενικά"
+
+#, fuzzy
+#~| msgid ""
+#~| "The person responsible for this task.\n"
+#~| "\n"
+#~| "This is not limited to persons available in a resource group but can be "
+#~| "anyone. You can even directly access your address book with the Choose "
+#~| "button."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "Το υπεύθυνο πρόσωπο γι' αυτή την εργασία.\n"
+#~ "\n"
+#~ "Αυτό δεν περιορίζεται στα πρόσωπα που είναι διαθέσιμα σε μια ομάδα πόρων "
+#~ "αλλά μπορεί να είναι οποιοδήποτε πρόσωπο. Μπορείτε ακόμη να προσπελάσετε "
+#~ "απευθείας το βιβλίο διευθύνσεων με το κουμπί επιλογής."
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Responsible:"
+#~ msgstr "Υπεύθυνος:"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Εισαγάγετε ένα πρόσωπο από το βιβλίο διευθύνσεών σας"
+
+#, fuzzy
+#~| msgid "Insert a person from your address book."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Εισαγάγετε ένα πρόσωπο από το βιβλίο διευθύνσεών σας."
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Choose..."
+#~ msgstr "Επιλογή..."
+
+#, fuzzy
+#~| msgid "Scheduling constraint:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint:"
+#~ msgstr "Περιορισμός χρονοπρογραμματισμού:"
+
+#, fuzzy
+#~| msgid "As Soon as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Soon as Possible"
+#~ msgstr "Το συντομότερο δυνατόν"
+
+#, fuzzy
+#~| msgid "As Late as Possible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "As Late as Possible"
+#~ msgstr "Το αργότερο δυνατόν"
+
+#, fuzzy
+#~| msgid "Must Start On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Start On"
+#~ msgstr "Πρέπει να αρχίσει την"
+
+#, fuzzy
+#~| msgid "Must Finish On"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must Finish On"
+#~ msgstr "Πρέπει να τελειώσει την"
+
+#, fuzzy
+#~| msgid "Start Not Earlier Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Έναρξη όχι ενωρίτερα από"
+
+#, fuzzy
+#~| msgid "Finish Not Later Than"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Τέλος όχι αργότερα από"
+
+#, fuzzy
+#~| msgid "Fixed Interval"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Fixed Interval"
+#~ msgstr "Σταθερό χρονικό διάστημα"
+
+#, fuzzy
+#~| msgid "Constraint Start time usage:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint Start time usage:"
+#~ msgstr "Χρήση περιορισμού ώρας έναρξης:"
+
+#, fuzzy
+#~| msgid "Current date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date and time"
+#~ msgstr "Τρέχουσα ημερομηνία και ώρα"
+
+#, fuzzy
+#~| msgid "Current date, specified time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current date, specified time"
+#~ msgstr "Τρέχουσα ημερομηνία, καθορισμένη ώρα"
+
+#, fuzzy
+#~| msgid "Specified date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Specified date and time"
+#~ msgstr "Καθορισμένη ημερομηνία και ώρα"
+
+#, fuzzy
+#~| msgid "Constraint start time:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start time:"
+#~ msgstr "Περιορισμός ώρας έναρξης:"
+
+#, fuzzy
+#~| msgid "Constraint End time usage:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint End time usage:"
+#~ msgstr "Χρήση περιορισμού ώρας πέρατος:"
+
+#, fuzzy
+#~| msgid "Constraint end time:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end time:"
+#~ msgstr "Περιορισμός ώρας πέρατος:"
+
+#, fuzzy
+#~| msgid "Estimate type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate type:"
+#~ msgstr "Τύπος εκτίμησης:"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Effort"
+#~ msgstr "Προσπάθεια"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Duration"
+#~ msgstr "Διάρκεια"
+
+#, fuzzy
+#~| msgid "Expected estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate:"
+#~ msgstr "Αναμενόμενη εκτίμηση:"
+
+#, fuzzy
+#~| msgid "Optimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate:"
+#~ msgstr "Αισιόδοξη εκτίμηση:"
+
+#, fuzzy
+#~| msgid "%"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "%"
+#~ msgstr "%"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate:"
+#~ msgstr "Απαισιόδοξη εκτίμηση:"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description"
+#~ msgstr "Περιγραφή"
+
+#, fuzzy
+#~| msgid "Current node:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Current node:"
+#~ msgstr "Τρέχον κόμβος"
+
+#, fuzzy
+#~| msgid "Insert on top level"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert on top level"
+#~ msgstr "Εισαγωγή στο επίπεδο κορυφής"
+
+#, fuzzy
+#~| msgid "Insert as children to current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert as children to current node"
+#~ msgstr "Εισαγωγή ως απόγονο στον τρέχοντα κόμβο"
+
+#, fuzzy
+#~| msgid "Insert after current node"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert after current node"
+#~ msgstr "Εισαγωγή μετά τον τρέχοντα κόμβο"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The category of the view"
+#~ msgstr "Τύπος εκτίμησης"
+
+#, fuzzy
+#~| msgid "Category:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Category:"
+#~ msgstr "Κατηγορία:"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "After"
+#~ msgstr "Μετά"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The type of view"
+#~ msgstr "Τύπος εκτίμησης"
+
+#, fuzzy
+#~| msgid "View type:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "View type:"
+#~ msgstr "Τύπος προβολής:"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The name of the view"
+#~ msgstr "Τύπος εκτίμησης"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name:"
+#~ msgstr "Όνομα:"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The views description"
+#~ msgstr "Περιγραφή εργασίας"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description:"
+#~ msgstr "Περιγραφή"
+
+#, fuzzy
+#~| msgid "Words"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Words"
+#~ msgstr "Λέξεις"
+
+#, fuzzy
+#~| msgid "Sentences"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Sentences"
+#~ msgstr "Προτάσεις"
+
+#, fuzzy
+#~| msgid "Syllables"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Syllables"
+#~ msgstr "Συλλαβές"
+
+#, fuzzy
+#~| msgid "Lines"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Lines"
+#~ msgstr "Γραμμές"
+
+#, fuzzy
+#~| msgid "Characters incl. spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters incl. spaces"
+#~ msgstr "Χαρακτήρες μαζί με κενά"
+
+#, fuzzy
+#~| msgid "Characters without spaces"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Characters without spaces"
+#~ msgstr "Χαρακτήρες χωρίς κενά"
+
+#, fuzzy
+#~| msgid "Flesch reading ease"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flesch reading ease"
+#~ msgstr "Ευκολία ανάγνωσης Flesch"
+
+#, fuzzy
+#~| msgid "0"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~| msgid "..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~| msgid "Include text from foot- and endnotes"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include text from foot- and endnotes"
+#~ msgstr "Συμπερίληψη κειμένου από υποσέλιδα και σημειώσεις τέλους"
+
+#, fuzzy
+#~| msgid "Automatically refresh data"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically refresh data"
+#~ msgstr "Αυτόματη ανανέωση δεδομένων"
+
+#, fuzzy
+#~| msgid "Check for work packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Check for work packages"
+#~ msgstr "Έλεγχος για πακέτα εργασίας"
+
+#, fuzzy
+#~| msgid "Retrieve URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Retrieve URL:"
+#~ msgstr "Ανάκτηση URL:"
+
+#, fuzzy
+#~| msgid "Delete file after it has been retrieved"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete file after it has been retrieved"
+#~ msgstr "Διαγραφή αρχείου μετά την ανάκτηση"
+
+#, fuzzy
+#~| msgid "Save file after it has been retrieved"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save file after it has been retrieved"
+#~ msgstr "Αποθήκευση αρχείου μετά την ανάκτηση"
+
+#, fuzzy
+#~| msgid "Save URL:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Save URL:"
+#~ msgstr "Αποθήκευση URL:"
+
+#, fuzzy
+#~| msgid "Name of task responsible"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Name of task responsible"
+#~ msgstr "Όνομα υπεύθυνου εργασίας"
+
+#, fuzzy
+#~| msgid "Scheduling constraint type"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling constraint type"
+#~ msgstr "Τύπος περιορισμού χρονοπρογραμματισμού"
+
+#, fuzzy
+#~| msgid "Defines how start constraint time is used"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how start constraint time is used"
+#~ msgstr "Καθορίζει πώς χρησιμοποιείται ο περιορισμός ώρας έναρξης"
+
+#, fuzzy
+#~| msgid "Constraint start date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint start date and time"
+#~ msgstr "Περιορισμός ημερομηνίας και ώρας έναρξης"
+
+#, fuzzy
+#~| msgid "Defines how end constraint time is used"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Defines how end constraint time is used"
+#~ msgstr "Καθορίζει πώς χρησιμοποιείται ο περιορισμός ώρας πέρατος"
+
+#, fuzzy
+#~| msgid "Constraint end date and time"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Constraint end date and time"
+#~ msgstr "Περιορισμός ημερομηνίας και ώρας πέρατος"
+
+#, fuzzy
+#~| msgid "Type of estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Type of estimate"
+#~ msgstr "Τύπος εκτίμησης"
+
+#, fuzzy
+#~| msgid "Estimate time unit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Estimate time unit"
+#~ msgstr "Μονάδα χρόνου εκτίμησης"
+
+#, fuzzy
+#~| msgid "Expected estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Expected estimate"
+#~ msgstr "Αναμενόμενη εκτίμηση"
+
+#, fuzzy
+#~| msgid "Optimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Optimistic estimate"
+#~ msgstr "Αισιόδοξη εκτίμηση"
+
+#, fuzzy
+#~| msgid "Pessimistic estimate"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Pessimistic estimate"
+#~ msgstr "Απαισιόδοξη εκτίμηση"
+
+#, fuzzy
+#~| msgid "Task description"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task description"
+#~ msgstr "Περιγραφή εργασίας"
+
+#, fuzzy
+#~| msgid "Gradient"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gradient"
+#~ msgstr "Διαβάθμιση"
+
+#, fuzzy
+#~| msgid "Enable summary task level colors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Enable summary task level colors"
+#~ msgstr "Ενεργοποίηση χρωμάτων επιπέδων εργασίας περίληψης"
+
+#, fuzzy
+#~| msgid "Summary task default color"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task default color"
+#~ msgstr "Προκαθορισμένο χρώμα εργασίας περίληψης"
+
+#, fuzzy
+#~| msgid "Summary task color, level 1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 1"
+#~ msgstr "Χρώμα εργασίας περίληψης, επίπεδο 1"
+
+#, fuzzy
+#~| msgid "Summary task color, level 2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 2"
+#~ msgstr "Χρώμα εργασίας περίληψης, επίπεδο 2"
+
+#, fuzzy
+#~| msgid "Summary task color, level 3"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 3"
+#~ msgstr "Χρώμα εργασίας περίληψης, επίπεδο 3"
+
+#, fuzzy
+#~| msgid "Summary task color, level 4"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Summary task color, level 4"
+#~ msgstr "Χρώμα εργασίας περίληψης, επίπεδο 4"
+
+#, fuzzy
+#~| msgid "Task color in normal state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in normal state"
+#~ msgstr "Χρώμα εργασίας σε κανονική κατάσταση"
+
+#, fuzzy
+#~| msgid "Task color in critical state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in critical state"
+#~ msgstr "Χρώμα εργασίας σε κρίσιμη κατάσταση"
+
+#, fuzzy
+#~| msgid "Task color in finished state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in finished state"
+#~ msgstr "Χρώμα εργασίας σε ολοκληρωμένη κατάσταση"
+
+#, fuzzy
+#~| msgid "Task color in error state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task color in error state"
+#~ msgstr "Χρώμα εργασίας σε κατάσταση σφάλματος"
+
+#, fuzzy
+#~| msgid "Milestone color in normal state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in normal state"
+#~ msgstr "Χρώμα ορόσημου σε κανονική κατάσταση"
+
+#, fuzzy
+#~| msgid "Milestone color in critical state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in critical state"
+#~ msgstr "Χρώμα ορόσημου σε κρίσιμη κατάσταση"
+
+#, fuzzy
+#~| msgid "Milestone color in finished state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in finished state"
+#~ msgstr "Χρώμα ορόσημου σε ολοκληρωμένη κατάσταση"
+
+#, fuzzy
+#~| msgid "Milestone color in error state"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone color in error state"
+#~ msgstr "Χρώμα ορόσημου σε κατάσταση σφάλματος"
+
+#, fuzzy
+#~| msgid "Automatically check for new work packages"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Automatically check for new work packages"
+#~ msgstr "Αυτόματος έλεγχος για νέα πακέτα εργασίας"
+
+#, fuzzy
+#~| msgid "Directory where Plan retrieves work packages from project members"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Directory where Plan retrieves work packages from project members"
+#~ msgstr "Κατάλογος όπου το Plan ανακτά πακέτα εργασίας από τα μέλη του έργου"
+
+#, fuzzy
+#~| msgid "If set, Plan will delete the file after it has been read"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will delete the file after it has been read"
+#~ msgstr "Αν ενεργοποιηθεί, το Plan θα διαγράψει το αρχείο μετά την ανάγνωση"
+
+#, fuzzy
+#~| msgid "If set, Plan will save the file after it has been read"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "If set, Plan will save the file after it has been read"
+#~ msgstr ""
+#~ "Αν ενεργοποιηθεί, το Plan θα αποθηκεύσει το αρχείο μετά την ανάγνωση"
+
+#, fuzzy
+#~| msgid ""
+#~| "Directory where Plan saves work packages when the package has been read"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Directory where Plan saves work packages when the package has been read"
+#~ msgstr ""
+#~ "Κατάλογος όπου το Plan αποθηκεύει πακέτα εργασίας μετά την ανάγνωση του "
+#~ "πακέτου"
+
+#, fuzzy
+#~| msgid "The smallest duration unit allowed"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The smallest duration unit allowed"
+#~ msgstr "Η ελάχιστη επιτρεπόμενη μονάδα διάρκειας"
+
+#, fuzzy
+#~| msgid "The largest duration unit allowed"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "The largest duration unit allowed"
+#~ msgstr "Η μέγιστη επιτρεπόμενη μονάδα διάρκειας"
+
+#, fuzzy
+#~| msgid "&File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&File"
+#~ msgstr "&Αρχείο"
+
+#, fuzzy
+#~| msgid "&Edit"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Edit"
+#~ msgstr "&Επεξεργασία"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&View"
+#~ msgstr "Π&ροβολή"
+
+#, fuzzy
+#~| msgid "&Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Project"
+#~ msgstr "Έ&ργο"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "Ερ&γαλεία"
+
+#, fuzzy
+#~| msgid "&Settings"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Settings"
+#~ msgstr "Ρ&υθμίσεις"
+
+#, fuzzy
+#~| msgid "&Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Help"
+#~ msgstr "&Βοήθεια"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project"
+#~ msgstr "Έργο"
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~| msgid "Be free."
+#~ msgctxt "(qtundo-format) KDE 4 tag line, see http://kde.org/img/kde40.png"
+#~ msgid "Be free."
+#~ msgstr "Ελευθερωθείτε."
+
+#, fuzzy
+#~| msgid "Plan is a Project Planning and Management application."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Plan is a Project Planning and Management application."
+#~ msgstr "Το Plan είναι μια εφαρμογή προγραμματισμού και διαχείρισης έργων"
+
+#, fuzzy
+#~| msgid "Welcome to Plan."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Welcome to Plan."
+#~ msgstr "Καλώς ήρθατε στο Plan."
+
+#, fuzzy
+#~| msgid ""
+#~| "These introductory pages should give you an idea of how to use Plan and "
+#~| "what you can use it for."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "These introductory pages should give you an idea of how to use Plan and "
+#~ "what you can use it for."
+#~ msgstr ""
+#~ "Αυτές οι εισαγωγικές σελίδες θα σας δώσουν μια ιδέα για το πώς θα "
+#~ "χρησιμοποιήσετε το Plan και για ποιο σκοπό."
+
+#, fuzzy
+#~| msgid "A short introduction."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A short introduction."
+#~ msgstr "Μια μικρή εισαγωγή."
+
+#, fuzzy
+#~| msgid "Tips on how to manipulate and inspect data."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tips on how to manipulate and inspect data."
+#~ msgstr "Συμβουλές για το χειρισμό και την επιθεώρηση δεδομένων."
+
+#, fuzzy
+#~| msgid "A small tutorial to get you started."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "A small tutorial to get you started."
+#~ msgstr "Ένα μικρό εκπαιδευτικό εγχειρίδιο για να ξεκινήσετε."
+
+#, fuzzy
+#~| msgid ""
+#~| "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~| "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<em>Note:</em> To view these pages when you are in other parts of Plan, "
+#~ "choose the menu option <em>Help ->  Introduction to Plan</em>."
+#~ msgstr ""
+#~ "<em>Σημείωση:</em> Για να δείτε αυτές τις σελίδες όταν βρίσκεστε σε άλλα "
+#~ "σημεία του Plan, επιλέξτε την επιλογή του μενού <em>Βοήθεια -> Εισαγωγή "
+#~ "στο Plan</em>."
+
+#, fuzzy
+#~| msgid ""
+#~| "Plan is intended for managing moderately large projects with multiple "
+#~| "resources. To enable you to model your project adequately, Plan offers "
+#~| "different types of task dependencies and timing constraints. Usually you "
+#~| "will define your tasks, estimate the effort needed to perform each task, "
+#~| "allocate resources and then schedule the project according to the "
+#~| "dependency network and resource availability.<p>You can find more "
+#~| "information in the <a href=\"help:plan\">documentation</a> or online at "
+#~| "<a href=\"http://www.calligra.org/plan\">http://www.calligra.org/plan</"
+#~| "a></p>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Plan is intended for managing moderately large projects with multiple "
+#~ "resources. To enable you to model your project adequately, Plan offers "
+#~ "different types of task dependencies and timing constraints. Usually you "
+#~ "will define your tasks, estimate the effort needed to perform each task, "
+#~ "allocate resources and then schedule the project according to the "
+#~ "dependency network and resource availability.<p>You can find more "
+#~ "information in the <a href=\"help:plan\">documentation</a> or online at "
+#~ "<a href=\"http://www.calligra.org/plan\">http://www.calligra.org/plan</"
+#~ "a></p>"
+#~ msgstr ""
+#~ "Το Plan στοχεύει στη διαχείριση όχι πολύ μεγάλων έργων με πολλούς πόρους. "
+#~ "Για να σάς επιτρέψει να διαχειριστείτε το έργο σας επαρκώς, το Plan "
+#~ "προσφέρει διαφορετικούς τύπους εξαρτήσεων για εργασίες και χρονικούς "
+#~ "περιορισμούς. Κανονικά θα ορίσετε τις εργασίες σας, θα εκτιμήσετε την "
+#~ "απαιτούμενη προσπάθεια για την πραγματοποίηση κάθε εργασίας, θα "
+#~ "κατανείμετε πόρους και έπειτα θα προγραμματίσετε το έργο σύμφωνα με το "
+#~ "δίκτυο εξαρτήσεων και τη διαθεσιμότητα των πόρων.<p>Μπορείτε να βρείτε "
+#~ "περισσότερες πληροφορίες στην <a href=\"help:plan\">τεκμηρίωση</a> ή στον "
+#~ "ιστό στο <a href=\"http://www.calligra.org/plan\">http://www.calligra.org/"
+#~ "plan</a></p>"
+
+#, fuzzy
+#~| msgid "Next: Tips"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Tips"
+#~ msgstr "Επόμενο: Συμβουλές"
+
+#, fuzzy
+#~| msgid "Editing tips."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editing tips."
+#~ msgstr "Επεξεργασία συμβουλών."
+
+#, fuzzy
+#~| msgid ""
+#~| "<br/><b>To</b> edit project data, different views and editors can be "
+#~| "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~| "used to inspect data after the project has been scheduled. No data will "
+#~| "appear in the views if the project has not been scheduled. Scheduling is "
+#~| "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~| "various editors by selecting the item you want to edit (doubleclick or "
+#~| "press F2), or open a dialog using the context menu.</ul>"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "<br/><b>To</b> edit project data, different views and editors can be "
+#~ "selected in the View Selector docker.<br/><b>The</b> views are generally "
+#~ "used to inspect data after the project has been scheduled. No data will "
+#~ "appear in the views if the project has not been scheduled. Scheduling is "
+#~ "done in the Schedules editor.<br/><b>You</b> can edit attributes in the "
+#~ "various editors by selecting the item you want to edit (doubleclick or "
+#~ "press F2), or open a dialog using the context menu.</ul>"
+#~ msgstr ""
+#~ "<brι/><b>Για</b> την επεξεργασία δεδομένων του έργου, διαφορετικές "
+#~ "προβολές και επεξεργαστές μπορούν να επιλεγούν στις επιλογές προσάρτησης "
+#~ "προβολής.<br/><b>Οι</b> προβολές γενικά χρησιμοποιούνται για επιθεώρηση "
+#~ "δεδομένων αφού το έργο προγραμματιστεί. Δεν θα εμφανιστούν δεδομένα στις "
+#~ "προβολές αν δεν έχει γίνει προγραμματισμός του έργου. Ο προγραμματισμός "
+#~ "γίνεται στον επεξεργαστή χρονικού προγραμματισμού.<br/><b>Εσείς</b> "
+#~ "μπορείτε να επεξεργαστείτε ιδιότητες στους διάφορους επεξεργαστές "
+#~ "επιλέγοντας το αντικείμενο που θέλετε να επεξεργαστείτε (με διπλό κλικ ή "
+#~ "πατώντας F2), ή ανοίγοντας ένα παράθυρο διαλόγου από το μενού.</ul>"
+
+#, fuzzy
+#~| msgid "Next: Create a simple project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Create a simple project"
+#~ msgstr "Επόμενο: Δημιουργία απλού έργου"
+
+#, fuzzy
+#~| msgid "Create the simplest project ever."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Create the simplest project ever."
+#~ msgstr "Δημιουργία του απλούστερου δυνατού έργου."
+
+#, fuzzy
+#~| msgctxt "1=datetime"
+#~| msgid ""
+#~| "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~| "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~| "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~| "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~| "ul>Select the schedules editor <em>Editors->Schedules</em>:"
+#~| "<ul><li>Create a schedule by selecting <em>Add Schedule</em> in the "
+#~| "toolbar.</li><li>Calculate the schedule by selecting <em>Calculate</em> "
+#~| "in the toolbar.</li></ul>The task should now have been scheduled to "
+#~| "start %1 with a duration of 8 hours. You can check this by selecting the "
+#~| "Gantt chart <em>Views->Gantt</em>."
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Create a task by "
+#~ "selecting <em>Add Task</em> in the toolbar.</li><li>Set <em>Type</em> to "
+#~ "<em>Duration</em>.</li><li>Set <em>Estimate</em> to <em>8 hours</em>.</"
+#~ "li><li>Set <em>Constraint</em> to <em>As Soon As Possible</em>.</li></"
+#~ "ul>Select the schedules editor <em>Editors->Schedules</em>:<ul><li>Create "
+#~ "a schedule by selecting <em>Add Schedule</em> in the toolbar.</"
+#~ "li><li>Calculate the schedule by selecting <em>Calculate</em> in the "
+#~ "toolbar.</li></ul>The task should now have been scheduled to start %1 "
+#~ "with a duration of 8 hours. You can check this by selecting the Gantt "
+#~ "chart <em>Views->Gantt</em>."
+#~ msgstr ""
+#~ "Επιλέξτε επεξεργαστή εργασιών <em>Επεξεργαστές->Εργασίες</em>:"
+#~ "<ul><li>Δημιουργήστε μια εργασία επιλέγοντας <em>Προσθήκη εργασίας</em> "
+#~ "στη γραμμή εργαλείων.</li><li>Καθορίστε <em>Τύπο</em> για τη "
+#~ "<em>Διάρκεια</em>.</li><li>Καθορίστε <em>Εκτίμηση</em> σε <em>8 ώρες</em>."
+#~ "</li><li>Καθορίστε <em>Περιορισμό</em> σε <em>Το συντομότερο</em>.</li></"
+#~ "ul>Επιλέξτε τον επεξεργαστή χρονικών προγραμματισμών <em>Επεξεργαστές-"
+#~ "Προγραμματισμοί</em>:<ul><li>Δημιουργήστε έναν προγραμματισμό επιλέγοντας "
+#~ "<em>Προσθήκη προγραμματισμού</em> στη γραμμή εργασιών.</li><li>Υπολογίστε "
+#~ "το χρονικό προγραμματισμό επιλέγοντας <em>Υπολογισμός</em> στη γραμμή "
+#~ "εργαλείων.</li></ul>Η εργασία πρέπει τώρα να έχει χρονοπρογραμματιστεί να "
+#~ "ξεκινήσει %1 με διάρκεια 8 ωρών. Μπορείτε να το ελέγξετε επιλέγοντας το "
+#~ "διάγραμμα Gantt <em>Προβολές->Gantt</em>."
+
+#, fuzzy
+#~| msgid "Next: Resource allocation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Resource allocation"
+#~ msgstr "Επόμενο: Κατανομή πόρων"
+
+#, fuzzy
+#~| msgid "Allocate a resource to the task."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Allocate a resource to the task."
+#~ msgstr "Κατανομή ενός πόρου στην εργασία."
+
+#, fuzzy
+#~| msgctxt "1=datetime"
+#~| msgid ""
+#~| "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e."
+#~| "g. 'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~| "create a resource with name 'John' under resource group 'Resources'.</"
+#~| "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~| "schedule the project again with the new allocation:<br/>Select the "
+#~| "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~| "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~| "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~| "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgctxt "(qtundo-format) 1=datetime"
+#~ msgid ""
+#~ "Select the task editor <em>Editors->Tasks</em>:<ul><li>Enter a name (e.g. "
+#~ "'John') in the <em>Allocation</em> column. (Plan will automatically "
+#~ "create a resource with name 'John' under resource group 'Resources'.</"
+#~ "li><li>Set <em>Type</em> to <em>Effort</em>.</li></ul>Now you need to "
+#~ "schedule the project again with the new allocation:<br/>Select the "
+#~ "schedules editor <em>Editors->Schedules</em> and calculate the schedule "
+#~ "by selecting <em>Calculate</em> in the toolbar.<p>The task should be "
+#~ "scheduled to start %1 with a duration of 8 hours. You can check this by "
+#~ "selecting the Gantt chart <em>Views->Gantt</em>.<p>"
+#~ msgstr ""
+#~ "Επιλέξτε επεξεργαστή εργασιών <em>Επεξεργαστές->Εργασίες</em>:"
+#~ "<ul><li>Δώστε ένα όνομα (π.χ. 'John') στη στήλη <em>Κατανομή</em>. (Το "
+#~ "Plan θα δημιουργήσει αυτόματα έναν πόρο με το όνομα 'John' στην ομάδα "
+#~ "πόρων 'Πόροι'.</li><li>Καθορίστε <em>Τύπο</em> στην <em>Προσπάθεια</em>.</"
+#~ "li></ul>Τώρα χρειάζεται να προγραμματίσετε το έργο ξανά με τη νέα "
+#~ "κατανομή:<br/>Επιλέξτε επεξεργαστή χρονοπρογραμματισμού <em>Επεξεργαστές-"
+#~ ">Προγραμματισμοί</em> και υπολογίστε τη διάρκεια επιλέγοντας "
+#~ "<em>Υπολογισμός</em> στη γραμμή εργαλείων.<p>Η εργασία θα προγραμματιστεί "
+#~ "να ξεκινήσει %1 με διάρκεια 8 ωρών. Μπορείτε να το ελέγξετε με την "
+#~ "επιλογή του διαγράμματος Gantt <em>Προβολές->Gantt</em>.<p>"
+
+#, fuzzy
+#~| msgid "Next: Introduction"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Next: Introduction"
+#~ msgstr "Επόμενο: Εισαγωγή"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document has no syntax version.\n"
+#~| "Opening it in Plan may lose information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document has no syntax version.\n"
+#~ "Opening it in Plan may lose information."
+#~ msgstr ""
+#~ "Αυτό το έγγραφο δεν έχει έκδοση σύνταξης.\n"
+#~ "Το άνοιγμα με το Plan ίσως προκαλέσει απώλεια πληροφοριών."
+
+#, fuzzy
+#~| msgid "Continue"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Continue"
+#~ msgstr "Συνέχεια"
+
+#, fuzzy
+#~| msgid "File-Format Error"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Error"
+#~ msgstr "Σφάλμα τύπου αρχειοθέτησης"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlato than Plan can "
+#~| "load.\n"
+#~| "Syntax version: %1\n"
+#~| "Opening it in this version of Plan may lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlato than Plan can "
+#~ "load.\n"
+#~ "Syntax version: %1\n"
+#~ "Opening it in this version of Plan may lose some information."
+#~ msgstr ""
+#~ "Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του KPlato από αυτή "
+#~ "που το Plan μπορεί να φορτώσει.\n"
+#~ "Έκδοση σύνταξης: %1\n"
+#~ "Το άνοιγμα με αυτήν την έκδοση του Plan ίσως προκαλέσει απώλεια "
+#~ "πληροφοριών."
+
+#, fuzzy
+#~| msgid "File-Format Mismatch"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "File-Format Mismatch"
+#~ msgstr "Ασυμφωνία τύπων αρχειοθέτησης"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of KPlatoWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of KPlatoWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του KPlatoWork "
+#~ "(έκδοση σύνταξης: %1)\n"
+#~ "Το άνοιγμα με αυτήν την έκδοση του PlanWork θα προκαλέσει απώλεια "
+#~ "πληροφοριών."
+
+#, fuzzy
+#~| msgid "Plan"
+#~ msgctxt "(qtundo-format) application name"
+#~ msgid "Plan"
+#~ msgstr "Plan"
+
+#, fuzzy
+#~| msgid "Project Planning and Management Tool"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Planning and Management Tool"
+#~ msgstr "Εργαλείο σχεδιασμού και διαχείρισης"
+
+#, fuzzy
+#~| msgid "Copyright (C) 1998-2013, The Plan Team"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Copyright 1998-%1, The Plan Team"
+#~ msgstr "Copyright (c) 1998-2012, Η ομάδα του Plan"
+
+#, fuzzy
+#~| msgid "Thomas Zander"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Thomas Zander"
+#~ msgstr "Thomas Zander"
+
+#, fuzzy
+#~| msgid "Bo Thorsen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Bo Thorsen"
+#~ msgstr "Bo Thorsen"
+
+#, fuzzy
+#~| msgid "Dag Andersen"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dag Andersen"
+#~ msgstr "Dag Andersen"
+
+#, fuzzy
+#~| msgid "Raphael Langerhorst"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Raphael Langerhorst"
+#~ msgstr "Raphael Langerhorst"
+
+#, fuzzy
+#~| msgctxt "NAME OF TRANSLATORS"
+#~| msgid "Your names"
+#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης, Stelios"
+
+#, fuzzy
+#~| msgctxt "EMAIL OF TRANSLATORS"
+#~| msgid "Your emails"
+#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org, sstavra@gmail.com"
+
+#, fuzzy
+#~| msgctxt "Network = task dependency network"
+#~| msgid "Network Scheduler"
+#~ msgctxt "(qtundo-format) Network = task dependency network"
+#~ msgid "Network Scheduler"
+#~ msgstr "Χρονοπρογραμματιστής δικτύου εξαρτήσεων"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Built-in network (PERT) based scheduler"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Built-in network (PERT) based scheduler"
+#~ msgstr "Ενσωματωμένος χρονοπρογραμματιστής με βάση το δίκτυο (PERT)"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>Network (PERT) Scheduler</title><para>The network scheduler "
+#~| "generally schedules tasks according to their dependencies. When a task "
+#~| "is scheduled it is scheduled in full, booking the allocated resources if "
+#~| "available. If overbooking is not allowed, subsequent tasks that requests "
+#~| "the same resource will be scheduled later in time.</para><para>Tasks "
+#~| "with time constraints will be scheduled first to minimize the problem "
+#~| "with resource conflicts</para><para><note>This scheduler does not handle "
+#~| "resource conflicts well.<nl/>You can try a different scheduler if "
+#~| "available. You may also change resource allocations or add dummy "
+#~| "dependencies to avoid the conflicts.</note></para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>Network (PERT) Scheduler</title><para>The network scheduler "
+#~ "generally schedules tasks according to their dependencies. When a task is "
+#~ "scheduled it is scheduled in full, booking the allocated resources if "
+#~ "available. If overbooking is not allowed, subsequent tasks that requests "
+#~ "the same resource will be scheduled later in time.</para><para>Tasks with "
+#~ "time constraints will be scheduled first to minimize the problem with "
+#~ "resource conflicts</para><para><note>This scheduler does not handle "
+#~ "resource conflicts well.<nl/>You can try a different scheduler if "
+#~ "available. You may also change resource allocations or add dummy "
+#~ "dependencies to avoid the conflicts.</note></para>"
+#~ msgstr ""
+#~ "<title>Χρονοπρογραμματισμός δικτύου (PERT) </title><para>Ο "
+#~ "χρονοπρογραμματιστής δικτύου γενικά χρονοπρογραμματίζει εργασίες σύμφωνα "
+#~ "με τις εξαρτήσεις τους. Όταν η εργασία προγραμματίζεται, προγραμματίζεται "
+#~ "πλήρως, δεσμεύοντας τους εκχωρημένους πόρους αν είναι διαθέσιμοι. Αν η "
+#~ "υπερβολική δέσμευση δεν επιτρέπεται, οι επόμενες εργασίες που απαιτούν "
+#~ "τον ίδιο πόρο θα προγραμματιστούν ετεροχρονισμένα.</para><para>Εργασίες "
+#~ "με χρονικούς περιορισμούς θα προγραμματιστούν πρώτες για να "
+#~ "ελαχιστοποιήσουν το πρόβλημα με τις συγκρούσεις πόρων</para><para><note>Ο "
+#~ "χρονοπρογραμματιστής αυτός δεν χειρίζεται καλά τις συγκρούσεις πόρων.<nl/"
+#~ ">Μπορείτε να προσπαθήσετε με διαφορετικό χρονοπρογραμματιστή αν είναι "
+#~ "διαθέσιμος. Μπορείτε επίσης να τροποποιήσετε τις καταχωρήσεις πόρων ή να "
+#~ "προσθέσετε πλασματικές εξαρτήσεις για να αποφύγετε τις συγκρούσεις.</"
+#~ "note></para>"
+
+#, fuzzy
+#~| msgid "Linear"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Linear"
+#~ msgstr "Γραμμικό"
+
+#, fuzzy
+#~| msgid "Flat"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Flat"
+#~ msgstr "Επίπεδο"
+
+#, fuzzy
+#~| msgid "Insert File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert File"
+#~ msgstr "Εισαγωγή αρχείου"
+
+#, fuzzy
+#~| msgid "Invalid document. No mimetype specified."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid document. No mimetype specified."
+#~ msgstr "Μη έγκυρο έγγραφο. Δεν καθορίστηκε τύπος mime."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#~ msgstr ""
+#~ "Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan, "
+#~ "ελήφθη %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of Plan (syntax version: "
+#~| "%1)\n"
+#~| "Opening it in this version of Plan will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of Plan (syntax version: "
+#~ "%1)\n"
+#~ "Opening it in this version of Plan will lose some information."
+#~ msgstr ""
+#~ "Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του Plan (έκδοση "
+#~ "σύνταξης: %1)\n"
+#~ "Το άνοιγμα με αυτήν την έκδοση του Plan θα προκαλέσει απώλεια πληροφοριών."
+
+#, fuzzy
+#~| msgid "Could not create the workpackage file for saving: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Could not create the workpackage file for saving: %1"
+#~ msgstr ""
+#~ "Αδυναμία δημιουργίας του αρχείου πακέτου εργασίας για αποθήκευση: %1"
+
+#, fuzzy
+#~| msgid "Not able to write '%1'. Partition full?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Not able to write '%1'. Partition full?"
+#~ msgstr "Αδυναμία εγγραφής '%1'. Κατάτμηση πλήρης;"
+
+#, fuzzy
+#~| msgid "Saving..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Saving..."
+#~ msgstr "Αποθήκευση..."
+
+#, fuzzy
+#~| msgid ""
+#~| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~| "%1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
+#~ "%1"
+#~ msgstr ""
+#~ "Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan.work, "
+#~ "ελήφθη %1"
+
+#, fuzzy
+#~| msgid ""
+#~| "This document was created with a newer version of PlanWork (syntax "
+#~| "version: %1)\n"
+#~| "Opening it in this version of PlanWork will lose some information."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "This document was created with a newer version of PlanWork (syntax "
+#~ "version: %1)\n"
+#~ "Opening it in this version of PlanWork will lose some information."
+#~ msgstr ""
+#~ "Αυτό το έγγραφο δημιουργήθηκε με μια νεότερη έκδοση του PlanWork (έκδοση "
+#~ "σύνταξης: %1)\n"
+#~ "Το άνοιγμα με αυτήν την έκδοση του PlanWork θα προκαλέσει απώλεια "
+#~ "πληροφοριών."
+
+#, fuzzy
+#~| msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "New work packages detected. Merge data with existing tasks?"
+#~ msgstr ""
+#~ "Εντοπίστηκαν νέα πακέτα εργασίας. Να γίνει συγχώνευση δεδομένων με τις "
+#~ "υπάρχουσες εργασίες;"
+
+#, fuzzy
+#~| msgid ""
+#~| "The package owner '%1' is not a resource in this project. You must "
+#~| "handle this manually."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "The package owner '%1' is not a resource in this project. You must handle "
+#~ "this manually."
+#~ msgstr ""
+#~ "Ο κάτοχος '%1' του πακέτου δεν είναι πόρος αυτού του έργου. Πρέπει να "
+#~ "αντιμετωπίσετε αυτήν την περίπτωση χειροκίνητα."
+
+#, fuzzy
+#~| msgid "Nothing to save from this package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Nothing to save from this package"
+#~ msgstr "Τίποτα για αποθήκευση από αυτό το πακέτο"
+
+#, fuzzy
+#~| msgid "Internal error, failed to insert file."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Internal error, failed to insert file."
+#~ msgstr "Εσωτερικό σφάλμα, αποτυχία εισαγωγής αρχείου."
+
+#, fuzzy
+#~| msgid "Schedule Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Selector"
+#~ msgstr "Επιλογέας χρονοπρογραμματισμού"
+
+#, fuzzy
+#~| msgid "&Create Template From Document..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create Template From Document..."
+#~ msgstr "&Δημιουργία προτύπου από έγγραφο..."
+
+#, fuzzy
+#~| msgid "&Create New Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Create New Project..."
+#~ msgstr "Δημιουργία νέου έργου..."
+
+#, fuzzy
+#~| msgid "Show Selector"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Show Selector"
+#~ msgstr "Εμφάνιση επιλογέα"
+
+#, fuzzy
+#~| msgid "Edit Main Project..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Main Project..."
+#~ msgstr "Επεξεργασία κύριου έργου..."
+
+#, fuzzy
+#~| msgid "Define Estimate Conversions..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Estimate Conversions..."
+#~ msgstr "Ορισμός μετατροπών εκτίμησης..."
+
+#, fuzzy
+#~| msgid "Define WBS Pattern..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define WBS Pattern..."
+#~ msgstr "Ορισμός μοτίβου δομής έργου (WBS)..."
+
+#, fuzzy
+#~| msgid "Insert Project File..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Insert Project File..."
+#~ msgstr "Εισαγωγή αρχείου έργου..."
+
+#, fuzzy
+#~| msgid "Configure Plan..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Configure Plan..."
+#~ msgstr "Διαμόρφωση του Plan..."
+
+#, fuzzy
+#~| msgid "Define Currency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Define Currency..."
+#~ msgstr "Ορισμός νομίσματος..."
+
+#, fuzzy
+#~| msgid "Open Report Definition File..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Open Report Definition File..."
+#~ msgstr "Άνοιγμα αρχείου ορισμού αναφοράς..."
+
+#, fuzzy
+#~| msgid "Introduction to Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Introduction to Plan"
+#~ msgstr "Εισαγωγή στο Plan"
+
+#, fuzzy
+#~| msgid "Edit..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit..."
+#~ msgstr "Επεξεργασία..."
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Progress..."
+#~ msgstr "Πρόοδος..."
+
+#, fuzzy
+#~| msgid "Delete Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Task"
+#~ msgstr "Διαγραφή εργασίας"
+
+#, fuzzy
+#~| msgid "Description..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Description..."
+#~ msgstr "Περιγραφή..."
+
+#, fuzzy
+#~| msgid "Indent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Indent Task"
+#~ msgstr "Εσοχή εργασίας"
+
+#, fuzzy
+#~| msgid "Unindent Task"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Unindent Task"
+#~ msgstr "Ακύρωση εσοχής εργασίας"
+
+#, fuzzy
+#~| msgid "Move Task Up"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Up"
+#~ msgstr "Μετακίνηση εργασίας πάνω"
+
+#, fuzzy
+#~| msgid "Move Task Down"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Move Task Down"
+#~ msgstr "Μετακίνηση εργασίας κάτω"
+
+#, fuzzy
+#~| msgid "Edit Resource..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Resource..."
+#~ msgstr "Επεξεργασία πόρου..."
+
+#, fuzzy
+#~| msgid "Edit Dependency..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Edit Dependency..."
+#~ msgstr "Επεξεργασία εξάρτησης..."
+
+#, fuzzy
+#~| msgid "Delete Dependency"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Delete Dependency"
+#~ msgstr "Διαγραφή εξάρτησης"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid ""
+#~| "<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+#~| "from the current project with new project- and task identities.<nl/"
+#~| ">Resource- and calendar identities are not changed.<nl/>All scheduling "
+#~| "information is removed.<nl/><nl/>Do you want to continue?"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid ""
+#~ "<note>This action cannot be undone.</note><nl/><nl/>Create a new Project "
+#~ "from the current project with new project- and task identities.<nl/"
+#~ ">Resource- and calendar identities are not changed.<nl/>All scheduling "
+#~ "information is removed.<nl/><nl/>Do you want to continue?"
+#~ msgstr ""
+#~ "<note>Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</note><nl/><nl/"
+#~ ">Δημιουργήστε ένα νέο έργο αό το τρέχον με νέες ταυτότητες έργου και "
+#~ "εργασιών.<nl/>Οι ταυτότητες των πόρων και του ημερολογίου παραμένουν "
+#~ "χωρίς αλλαγές.<nl/>Όλες οι προγραμματισμένες πληροφορίες έχουν διαγραφεί."
+#~ "<nl/><nl/>Θέλετε να συνεχίσετε;"
+
+#, fuzzy
+#~| msgid "Task Status Report"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status Report"
+#~ msgstr "Αναφορά κατάστασης εργασίας"
+
+#, fuzzy
+#~| msgid "Work & Vacation"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation"
+#~ msgstr "Εργασία & διακοπές"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit working- and vacation days for resources"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit working- and vacation days for resources"
+#~ msgstr "Επεξεργασία ημερών εργασίας και διακοπών για τους πόρους"
+
+#, fuzzy
+#~| msgid "Cost Breakdown Structure"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown Structure"
+#~ msgstr "Επεξεργασία δομής ανάλυσης κόστους"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit cost breakdown structure."
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit cost breakdown structure."
+#~ msgstr "Επεξεργασία δομής ανάλυσης κόστους."
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Πόροι"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit resource breakdown structure"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit resource breakdown structure"
+#~ msgstr "Επεξεργασία δομής ανάλυσης πόρων"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Εργασίες"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit work breakdown structure"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit work breakdown structure"
+#~ msgstr "Επεξεργασία δομής ανάλυσης εργασίας"
+
+#, fuzzy
+#~| msgid "Dependencies (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (Graphic)"
+#~ msgstr "Εξαρτήσεις (γράφημα)"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Edit task dependencies"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Edit task dependencies"
+#~ msgstr "Επεξεργασία εξαρτήσεων εργασίας"
+
+#, fuzzy
+#~| msgid "Dependencies (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependencies (List)"
+#~ msgstr "Εξαρτήσεις (λίστα)"
+
+#, fuzzy
+#~| msgid "Schedules"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedules"
+#~ msgstr "Χρονικοί προγραμματισμοί"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "Calculate and analyze project schedules"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "Calculate and analyze project schedules"
+#~ msgstr "Υπολογισμός και ανάλυση χρονικών προγραμματισμών του έργου"
+
+#, fuzzy
+#~| msgid "Project Performance Chart"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project Performance Chart"
+#~ msgstr "Διάγραμμα απόδοσης έργου"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View project status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View project status information"
+#~ msgstr "Προβολή πληροφοριών κατάστασης έργου"
+
+#, fuzzy
+#~| msgid "Task Status"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Status"
+#~ msgstr "Κατάσταση εργασίας"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View task progress information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task progress information"
+#~ msgstr "Προβολή πληροφοριών προόδου εργασίας"
+
+#, fuzzy
+#~| msgid "Task Execution"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Execution"
+#~ msgstr "Εκτέλεση εργασίας"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View task execution information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task execution information"
+#~ msgstr "Προβολή πληροφοριών εκτέλεσης εργασίας"
+
+#, fuzzy
+#~| msgid "Work Package View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package View"
+#~ msgstr "Προβολή πακέτου εργασίας"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View task work package information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View task work package information"
+#~ msgstr "Προβολή πληροφοριών πακέτου εργασίας"
+
+#, fuzzy
+#~| msgid "Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt"
+#~ msgstr "Gantt"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View Gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View Gantt chart"
+#~ msgstr "Προβολή διαγράμματος Gantt"
+
+#, fuzzy
+#~| msgid "Milestone Gantt"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt"
+#~ msgstr "Ορόσημο Gantt"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View milestone Gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View milestone Gantt chart"
+#~ msgstr "Προβολή διαγράμματος ορόσημων Gantt"
+
+#, fuzzy
+#~| msgid "Resource Assignments"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments"
+#~ msgstr "Ορισμοί πόρων"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View resource assignments in a table"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in a table"
+#~ msgstr "Προβολή ορισμών πόρων σε πίνακα"
+
+#, fuzzy
+#~| msgid "Resource Assignments (Gantt)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Assignments (Gantt)"
+#~ msgstr "Ορισμοί πόρων (Gantt)"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View resource assignments in Gantt chart"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View resource assignments in Gantt chart"
+#~ msgstr "Προβολή ορισμών πόρων σε διάγραμμα Gantt"
+
+#, fuzzy
+#~| msgid "Cost Breakdown"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cost Breakdown"
+#~ msgstr "Ανάλυση κόστους"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View planned and actual cost"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View planned and actual cost"
+#~ msgstr "Προβολή προγραμματισμένου και πραγματικού κόστους"
+
+#, fuzzy
+#~| msgid "Tasks Performance Chart"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Διάγραμμα απόδοσης εργασιών"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View tasks performance status information"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View tasks performance status information"
+#~ msgstr "Προβολή πληροφοριών κατάστασης απόδοσης εργασιών"
+
+#, fuzzy
+#~| msgid "Report"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Report"
+#~ msgstr "Αναφορά"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "View report"
+#~ msgctxt "(qtundo-format) @info:tooltip"
+#~ msgid "View report"
+#~ msgstr "Αναφορά προβολής"
+
+#, fuzzy
+#~| msgid "Editors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Editors"
+#~ msgstr "Επεξεργαστές"
+
+#, fuzzy
+#~| msgid "Views"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Views"
+#~ msgstr "Προβολές"
+
+#, fuzzy
+#~| msgctxt "Project execution views"
+#~| msgid "Execution"
+#~ msgctxt "(qtundo-format) Project execution views"
+#~ msgid "Execution"
+#~ msgstr "Εκτέλεση"
+
+#, fuzzy
+#~| msgid "Reports"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Reports"
+#~ msgstr "Αναφορές"
+
+#, fuzzy
+#~| msgid "Cannot baseline. The project is already baselined."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Cannot baseline. The project is already baselined."
+#~ msgstr "Αδυναμία δημιουργίας αφετηρίας. Το έργο έχει ήδη αφετηρία."
+
+#, fuzzy
+#~| msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This schedule is baselined. Do you want to remove the baseline?"
+#~ msgstr ""
+#~ "Ο χρονοπρογραμματισμός έχει αφετηρία. Επιθυμείτε την αφαίρεση της "
+#~ "αφετηρίας;"
+
+#, fuzzy
+#~| msgid "Task Defaults"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Defaults"
+#~ msgstr "Προκαθορισμένα εργασίας"
+
+#, fuzzy
+#~| msgid "Task Colors"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Colors"
+#~ msgstr "Χρώματα εργασίας"
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package"
+#~ msgstr "Πακέτο εργασίας"
+
+#, fuzzy
+#~| msgid ""
+#~| "A task that has been scheduled will be deleted. This will invalidate the "
+#~| "schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A task that has been scheduled will be deleted. This will invalidate the "
+#~ "schedule."
+#~ msgstr ""
+#~ "Μια προγραμματισμένη εργασία θα διαγραφεί. Αυτό θα ακυρώσει το πρόγραμμα."
+
+#, fuzzy
+#~| msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "This task has been scheduled. This will invalidate the schedule."
+#~ msgstr ""
+#~ "Η εργασία αυτή προγραμματίστηκε. Αυτό θα ακυρώσει τον προγραμματισμό."
+
+#, fuzzy
+#~| msgid ""
+#~| "A resource that has been scheduled will be deleted. This will invalidate "
+#~| "the schedule."
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "A resource that has been scheduled will be deleted. This will invalidate "
+#~ "the schedule."
+#~ msgstr ""
+#~ "Ένας χρονικά προγραμματισμένος πόρος θα διαγραφεί. Αυτό θα ακυρώσει το "
+#~ "χρονικό προγραμματισμό."
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Cannot open file:<br/><filename>%1</filename>"
+#~ msgstr "Αδυναμία ανοίγματος αρχείου:<br/><filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "@info:status"
+#~| msgid "Not scheduled"
+#~ msgctxt "(qtundo-format) @info:status"
+#~ msgid "Not scheduled"
+#~ msgstr "Μη προγραμματισμένο"
+
+#, fuzzy
+#~| msgid "Failed to open temporary file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to open temporary file"
+#~ msgstr "Αποτυχία ανοίγματος προσωρινού αρχείου"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgstr ""
+#~ "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgid "Work Package: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package: %1"
+#~ msgstr "Πακέτο εργασίας: %1"
+
+#, fuzzy
+#~| msgctxt "1=project name, 2=task name"
+#~| msgid ""
+#~| "%1\n"
+#~| "%2"
+#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
+#~ msgid ""
+#~ "%1\n"
+#~ "%2"
+#~ msgstr ""
+#~ "%1\n"
+#~ "%2"
+
+#, fuzzy
+#~| msgid "Work Package for project: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work Package for project: %1"
+#~ msgstr "Πακέτο εργασίας για το έργο: %1"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
+#~ msgstr ""
+#~ "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br/> <filename>%1</filename>"
+
+#, fuzzy
+#~| msgctxt "Project manager"
+#~| msgid "Manager:"
+#~ msgctxt "(qtundo-format) Project manager"
+#~ msgid "Manager:"
+#~ msgstr "Διαχειριστής:"
+
+#, fuzzy
+#~| msgid "Project:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project:"
+#~ msgstr "Έργο:"
+
+#, fuzzy
+#~| msgctxt "As in: Page 1 of 2"
+#~| msgid "of"
+#~ msgctxt "(qtundo-format) As in: Page 1 of 2"
+#~ msgid "of"
+#~ msgstr "από"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Page"
+#~ msgstr "Σελίδα"
+
+#, fuzzy
+#~| msgctxt "Task name"
+#~| msgid "Name"
+#~ msgctxt "(qtundo-format) Task name"
+#~ msgid "Name"
+#~ msgstr "Όνομα"
+
+#, fuzzy
+#~| msgctxt "Task completion"
+#~| msgid "Completion (%)"
+#~ msgctxt "(qtundo-format) Task completion"
+#~ msgid "Completion (%)"
+#~ msgstr "Ολοκλήρωση (%)"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<para>This is the list of available views and editors.</para><para>You "
+#~| "can configure the list by using the context menu:<list><item>Rename "
+#~| "categories or views</item><item>Configure. Move, remove, rename or edit "
+#~| "tool tip for categories or views</item><item>Insert categories and "
+#~| "views</item></list></para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<para>This is the list of available views and editors.</para><para>You "
+#~ "can configure the list by using the context menu:<list><item>Rename "
+#~ "categories or views</item><item>Configure. Move, remove, rename or edit "
+#~ "tool tip for categories or views</item><item>Insert categories and views</"
+#~ "item></list></para>"
+#~ msgstr ""
+#~ "<para>Αυτή είναι η λίστα των διαθέσιμων προβολών και επεξεργαστών.</"
+#~ "para><para>Μπορείτε να διαμορφώσετε τη λίστα με το μενού:"
+#~ "<list><item>Μετονομάστε κατηγορίες ή προβολές</item><item>Διαμορφώστε, "
+#~ "μετακινήστε, αφαιρέστε, μετονομάστε ή επεξεργαστείτε συμβουλή για "
+#~ "κατηγορίες ή προβολές</item><item>Εισαγωγή κατηγοριών και προβολών</"
+#~ "item></list></para>"
+
+#, fuzzy
+#~| msgid "Removing this category will also remove all its views."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Removing this category will also remove all its views."
+#~ msgstr "Η αφαίρεση αυτής της κατηγορίας θα αφαιρέσει και όλες τις προβολές."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view"
+#~ msgid "Rename"
+#~ msgstr "Μετονομασία"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view"
+#~ msgid "Configure..."
+#~ msgstr "Διαμόρφωση..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu remove view"
+#~ msgid "Remove"
+#~ msgstr "Αφαίρεση"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu rename view"
+#~| msgid "Rename"
+#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
+#~ msgid "Rename"
+#~ msgstr "Μετονομασία"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu configure view"
+#~| msgid "Configure..."
+#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
+#~ msgid "Configure..."
+#~ msgstr "Διαμόρφωση..."
+
+#, fuzzy
+#~| msgctxt "@action:inmenu remove view"
+#~| msgid "Remove"
+#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
+#~ msgid "Remove"
+#~ msgstr "Αφαίρεση"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu Insert View"
+#~| msgid "Insert..."
+#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
+#~ msgid "Insert..."
+#~ msgstr "Εισαγωγή..."
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add View"
+#~ msgstr "Προσθήκη προβολής"
+
+#, fuzzy
+#~| msgid "Resource Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Editor"
+#~ msgstr "Επεξεργαστής πόρων"
+
+#, fuzzy
+#~| msgid "Task Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task Editor"
+#~ msgstr "Επεξεργαστής εργασιών"
+
+#, fuzzy
+#~| msgid "Work & Vacation Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Work & Vacation Editor"
+#~ msgstr "Επεξεργαστής εργάσιμων & διακοπών"
+
+#, fuzzy
+#~| msgid "Accounts Editor"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts Editor"
+#~ msgstr "Επεξεργαστής λογαριασμών"
+
+#, fuzzy
+#~| msgid "Dependency Editor (Graphic)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (Graphic)"
+#~ msgstr "Επεξεργαστής εξαρτήσεων (γράφημα)"
+
+#, fuzzy
+#~| msgid "Dependency Editor (List)"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Dependency Editor (List)"
+#~ msgstr "Επεξεργαστής εξαρτήσεων (λίστα)"
+
+#, fuzzy
+#~| msgid "Schedule Handler"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Handler"
+#~ msgstr "Χειριστής χρονικού προγραμματισμού"
+
+#, fuzzy
+#~| msgid "Task View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Task View"
+#~ msgstr "Προβολή εργασίας"
+
+#, fuzzy
+#~| msgid "Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Gantt View"
+#~ msgstr "Προβολή Gantt"
+
+#, fuzzy
+#~| msgid "Milestone Gantt View"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Milestone Gantt View"
+#~ msgstr "Προβολή ορόσημου Gantt"
+
+#, fuzzy
+#~| msgid "Top"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Top"
+#~ msgstr "Πάνω"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure View"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure View"
+#~ msgstr "Διαμόρφωση προβολής"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Configure Category"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Configure Category"
+#~ msgstr "Διαμόρφωση κατηγορίας"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add Report"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "Add Report"
+#~ msgstr "Προσθήκη αναφοράς"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "View Selector [modified]"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector [modified]"
+#~ msgstr "Επιλογέας προβολής [τροποποιημένος]"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "View Selector"
+#~ msgctxt "(qtundo-format) @title:window"
+#~ msgid "View Selector"
+#~ msgstr "Επιλογέας προβολής"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgctxt "(qtundo-format) @info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr ""
+#~ "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br><filename>%1</filename>"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to save to temporary file:<br><filename>%1</filename>"
+#~ msgstr ""
+#~ "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br><filename>%1</filename>"
+
+#~ msgid "Tip:"
+#~ msgstr "Συμβουλή:"
+
+#~ msgid "File to open"
+#~ msgstr "Αρχείο για άνοιγμα"
+
+#~ msgid "Delete resource"
+#~ msgid_plural "Delete resources"
+#~ msgstr[0] "Διαγραφή πόρου"
+#~ msgstr[1] "Διαγραφή πόρων"
+
+#~ msgid "Delete resourcegroup"
+#~ msgid_plural "Delete resourcegroups"
+#~ msgstr[0] "Διαγραφή ομάδας πόρων"
+#~ msgstr[1] "Διαγραφή ομάδων πόρων"
+
+#~ msgid "Nuno Pinheiro and Danny Allen"
+#~ msgstr "Nuno Pinheiro και Danny Allen"
+
+#~ msgid "Application icon for plan"
+#~ msgstr "Εικονίδιο εφαρμογής για το plan"
+
+#~ msgid "Open File..."
+#~ msgstr "Άνοιγμα αρχείου..."
+
+#~ msgid "&Reports"
+#~ msgstr "Αναφο&ρές"
+
+#~ msgid "Leave file after it has been retrieved"
+#~ msgstr "Αφήστε το αρχείο μετά την ανάκτηση"
+
+#~ msgid ""
+#~ "If set, kplato will leave where it is the file after it has been read"
+#~ msgstr ""
+#~ "Αν ενεργοποιηθεί, το kplato θα αφήσει το αρχείο στη θέση που βρίσκεται "
+#~ "μετά την ανάγνωση"
+
+#, fuzzy
+#~| msgid "Tasks Performance Chart"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Tasks Performance Chart"
+#~ msgstr "Γράφημα επιδόσεων εργασιών"
+
+#~ msgid "View resource assignments"
+#~ msgstr "Προβολή ορισμών πόρων"
+
+#, fuzzy
+#~| msgid "%1: Calculating..."
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating..."
+#~ msgstr "%1: υπολογισμός..."
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation stopped"
+#~ msgstr "%1: υπολογισμός ολοκληρώθηκε"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation canceled"
+#~ msgstr "%1: υπολογισμός ολοκληρώθηκε"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculation error"
+#~ msgstr "%1: υπολογισμός ολοκληρώθηκε"
+
+#, fuzzy
+#~| msgid "%1: Calculating done"
+#~ msgctxt "@info:status 1=schedule name"
+#~ msgid "%1: Calculating done"
+#~ msgstr "%1: υπολογισμός ολοκληρώθηκε"
+
+#, fuzzy
+#~| msgid "Work Package"
+#~ msgid "Send Work Package..."
+#~ msgstr "Πακέτο εργασίας"
+
+#, fuzzy
+#~| msgid "Add Subtask"
+#~ msgid "Add sub-task"
+#~ msgstr "Προσθήκη υποεργασίας"
+
+#, fuzzy
+#~| msgid "Add Task"
+#~ msgid "Add task"
+#~ msgstr "Προσθήκη εργασίας"
+
+#~ msgid "Delete Tasks"
+#~ msgstr "Διαγραφή εργασιών"
+
+#~ msgid "Add Relation"
+#~ msgstr "Προσθήκη συσχέτισης"
+
+#~ msgid "Delete Relation"
+#~ msgstr "Διαγραφή συσχέτισης"
+
+#~ msgid "Delete Resource Objects"
+#~ msgstr "Διαγραφή αντικειμένων πόρων"
+
+#~ msgid "View"
+#~ msgstr "Προβολή"
+
+#~ msgid "Edit task dependenies"
+#~ msgstr "Επεξεργασία εξαρτήσεων εργασίας"
+
+#~ msgid "Edit Standard Worktime..."
+#~ msgstr "Επεξεργασία τυπικών ωρών εργασίας..."
+
+#~ msgid "Length"
+#~ msgstr "Μήκος"
+
+#~ msgid "Note:"
+#~ msgstr "Σημείωση:"
+
+#~ msgid "Work Package Control..."
+#~ msgstr "Έλεγχος πακέτου εργασίας..."
+
+#~ msgid "Work Package Control"
+#~ msgstr "Έλεγχος πακέτου εργασίας"
+
+#~ msgid "Update from Work Package"
+#~ msgstr "Ενημέρωση από πακέτο εργασίας"
+
+#, fuzzy
+#~| msgid "View..."
+#~ msgctxt "@action Add View"
+#~ msgid "View..."
+#~ msgstr "Προβολή..."
+
+#, fuzzy
+#~| msgid "Progress..."
+#~ msgid "Notes..."
+#~ msgstr "Πρόοδος..."
+
+#~ msgid "Show allocations"
+#~ msgstr "Εμφάνιση κατανομών"
+
+#~ msgid "Modify Default Task"
+#~ msgstr "Τροποποίηση προκαθορισμένης εργασίας"
+
+#~ msgid "Timing"
+#~ msgstr "Επιλογή χρόνου"
+
+#~ msgid "Schedule:"
+#~ msgstr "Προγραμματισμός:"
+
+#~ msgid "List of Resources"
+#~ msgstr "Λίστα πόρων"
+
+#~ msgid "Resource group:"
+#~ msgstr "Ομάδα πόρων:"
+
+#~ msgid "E-mail address"
+#~ msgstr "Διεύθυνση e-mail"
+
+#~ msgid "Availability"
+#~ msgstr "Διαθεσιμότητα"
+
+#~ msgid "Rate"
+#~ msgstr "Τιμή"
+
+#~ msgid "Overtime"
+#~ msgstr "Υπερωρίες"
+
+#~ msgid "List of Tasks"
+#~ msgstr "Λίστα εργασιών"
+
+#~ msgid "Cost"
+#~ msgstr "Κόστος"
+
+#~ msgid "Start"
+#~ msgstr "Εκκίνηση"
+
+#~ msgid "Project leader:"
+#~ msgstr "Αρχηγός έργου:"
+
+#~ msgid "WBS"
+#~ msgstr "Ανάλυση δομής έργου (WBS)"
+
+#~ msgid "Responsible"
+#~ msgstr "Υπεύθυνος"
+
+#~ msgid "Edit Calendar..."
+#~ msgstr "Επεξεργασία ημερολογίου..."
+
+#~ msgid "Edit Accounts..."
+#~ msgstr "Επεξεργασία λογαριασμών..."
+
+#~ msgid "Edit Resources..."
+#~ msgstr "Επεξεργασία πόρων..."
+
+#~ msgid "Ganttview Options"
+#~ msgstr "Επιλογές προβολής Gantt"
+
+#~ msgid "Resourceview Options"
+#~ msgstr "Επιλογές προβολής πόρων"
+
+#~ msgid "Accountsview Options"
+#~ msgstr "Επιλογές προβολής λογαριασμών"
+
+#~ msgid "Performance Status"
+#~ msgstr "Κατάσταση επίδοσης"
+
+#~ msgid "View task status per resource"
+#~ msgstr "Προβολή κατάστασης εργασιών ανά πόρο"
+
+#~ msgid "Cost and schedule monitoring"
+#~ msgstr "Εποπτεία κόστους και προγράμματος"
+
+#~ msgid "Tasks by Resources"
+#~ msgstr "Εργασίες κατά πόρους"

@@ -1,0 +1,726 @@
+# translation of krossmodulekplato.po to Karakh
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan@computer.org>, 2008, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: krossmodulekplato\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2013-09-15 06:27+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+"\n"
+"\n"
+
+#: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add task"
+msgctxt "(qtundo-format)"
+msgid "Add task"
+msgstr "Тапсырманы қосу..."
+
+#: Project.cpp:433 Project.cpp:441
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource group"
+msgctxt "(qtundo-format)"
+msgid "Add resource group"
+msgstr "Атқарушы тобын қосу..."
+
+#: Project.cpp:519 Project.cpp:537
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Add resource"
+msgctxt "(qtundo-format)"
+msgid "Add resource"
+msgstr "Атқарушыны қосу"
+
+#: Project.cpp:640
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Add external appointment"
+msgctxt "(qtundo-format)"
+msgid "Add external appointment"
+msgstr "Сыртқы тағайындауын қосу"
+
+#: Project.cpp:650 Project.cpp:657
+#, fuzzy
+#| msgctxt "(qtundofrmat)"
+#| msgid "Clear external appointments"
+msgctxt "(qtundo-format)"
+msgid "Clear external appointments"
+msgstr "Сыртқы тағайындауларын өшіру"
+
+#: Project.cpp:664
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Clear all external appointments"
+msgctxt "(qtundo-format)"
+msgid "Clear all external appointments"
+msgstr "Бүкіл сыртқы тағайындауларын өшіру"
+
+#: Resource.cpp:102
+#, fuzzy
+#| msgctxt "(qtundo_format)"
+#| msgid "Set resource team members"
+msgctxt "(qtundo-format)"
+msgid "Set resource team members"
+msgstr "Атқарушы топ мүшелерін атау"
+
+#. i18n: ectx: Menu (tools)
+#: scripting.rc:4
+#, kde-format
+msgid "&Tools"
+msgstr "Құ&ралдар"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ScriptingDataQueryView.ui:22
+#, kde-format
+msgid "Select from:"
+msgstr "Келесіден таңдау:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:30
+#, kde-format
+msgid "Tasks"
+msgstr "Тапсырмалар"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:35
+#, kde-format
+msgid "Resources"
+msgstr "Ресурстары"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
+#: ScriptingDataQueryView.ui:40
+#, kde-format
+msgid "Accounts"
+msgstr "Тіркелгілер"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
+#: ScriptingDataQueryView.ui:63
+#, kde-format
+msgid "Include headers"
+msgstr "Айдарларын қоса"
+
+#: ScriptingWidgets.cpp:62
+#, kde-format
+msgid "Schedule Name"
+msgstr "Кестенің атауы"
+
+#: scripts/busyinfoclear.py:10
+msgctxt "(qtundoformat)"
+msgid "Clear all external appointments"
+msgstr "Бүкіл сыртқы тағайындауларын өшіру"
+
+#: scripts/busyinfoexport.py:26
+msgid "Busy Information Export"
+msgstr "Бос емес туралы мәліметі экспорттау"
+
+#: scripts/busyinfoexport.py:30
+msgid "Export Selected Schedule"
+msgstr "Таңдалған кестені экспорттау"
+
+#: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
+#: scripts/plan2odsexport.py:106
+msgid "Schedules"
+msgstr "Кестелер"
+
+#: scripts/busyinfoexport.py:33
+msgid "Export Busy Info File"
+msgstr "Бос емес туралы мәліметті файлға экспорттау"
+
+#: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
+#: scripts/plan2odsexport.py:112
+msgid "Save"
+msgstr "Сақтау"
+
+#: scripts/busyinfoexport.py:36 scripts/busyinfoimport.py:25
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+#: scripts/resourcesimport.py:26
+msgid "All Files"
+msgstr "Барлық файлдар"
+
+#: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
+#: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
+#: scripts/busyinfoimport.py:39 scripts/busyinfoimport.py:49
+#: scripts/plan2csvexport.py:29 scripts/plan2csvexport.py:31
+#: scripts/plan2odsexport.py:28 scripts/plan2odsexport.py:30
+#: scripts/resourcesimport.py:35 scripts/resourcesimport.py:44
+#: scripts/resourcesimport.py:48 scripts/resourcesimport.py:51
+#: scripts/resourcesimport.py:69 scripts/resourcesimport.py:74
+#: scripts/resourcesimport.py:83 scripts/resourcesimport.py:93
+#: scripts/resourcesimport.py:97
+msgid "Error"
+msgstr "Қате"
+
+#: scripts/busyinfoexport.py:47 scripts/busyinfoimport.py:39
+#: scripts/resourcesimport.py:40
+msgid "No file selected"
+msgstr "Файл таңдалмаған"
+
+#: scripts/busyinfoexport.py:51
+msgid "No schedule selected"
+msgstr "Кесте таңдалмаған"
+
+#: scripts/busyinfoimport.py:18
+msgid "Busy Information Import"
+msgstr "Ресурс бос емес туралы мәліметті импорттау"
+
+#: scripts/busyinfoimport.py:22
+msgid "Import Busy Info File"
+msgstr "Бос емес туралы мәліметті файлдан мпорттау"
+
+#: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
+msgid "Open"
+msgstr "Ашу"
+
+#: scripts/busyinfoimport.py:29
+msgctxt "(qtundo_format)"
+msgid "Import resource busy information"
+msgstr "Ресурстың бос емес туралы мәліметті импорттау"
+
+#: scripts/busyinfoimport.py:49
+msgid "Cannot load data from project with the same identity"
+msgstr "Бірдей іс әлпетінің жобасынан деректерді жүктеу болмайды"
+
+#: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
+msgid "Failed to start Sheets. Is Sheets installed?"
+msgstr "Sheets жегу жаңылысы. Sheets орнатылған ба өзі?"
+
+#: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
+msgid "No data to export"
+msgstr "Экспорттайтын дерек жоқ"
+
+#: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
+msgid "You must select a file to write to"
+msgstr "Жазатын файлды таңдау керек"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid ""
+"Data saved to file:\n"
+"%1"
+msgstr ""
+"Дерек мына файлға сақталды:\n"
+"%1"
+
+#: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
+msgid "Information"
+msgstr "Мәлімет"
+
+#: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
+msgid "No properties to export"
+msgstr "Экспорттайтын қасиеттер жоқ"
+
+#: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
+msgid "Select schedule"
+msgstr "Жоспарды таңдау"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Data"
+msgstr "Дерек"
+
+#: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
+msgid "Select data"
+msgstr "Деректі таңдау"
+
+#: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
+msgid "Export ods file"
+msgstr "ods файлын экспорттау"
+
+#: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
+msgid "Spreadsheet"
+msgstr "Электрондық кесте"
+
+#: scripts/plan2odsexport.py:37
+msgid "No current sheet."
+msgstr "Назарда кесте беті жоқ"
+
+#: scripts/plan2odsexport.py:39
+msgid "Invalid sheet '%1' defined."
+msgstr "Жарамсыз '%1' кесте беттің анықтамасы."
+
+#: scripts/plan2odsexport.py:42
+msgid "Could not select cell 'A1'"
+msgstr "'A1' ұяшық таңдалмады"
+
+#: scripts/plan2odsexport.py:58
+msgid ""
+"Could not write to file:\n"
+"%1"
+msgstr ""
+"%1\n"
+"файлына жазуы болмады"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Failed to set all properties of '%1' to cell '%2'"
+msgstr "Кейбір '%1' қасиеттері '%2' ұяшығына орнатылмады"
+
+#: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
+msgid "Warning"
+msgstr "Ескерту"
+
+#: scripts/resourcesimport.py:17
+msgid "Resources Import"
+msgstr "Ресурстарды импорттау"
+
+#: scripts/resourcesimport.py:23
+msgid "Plan Resources"
+msgstr "Plan ресурстары"
+
+#: scripts/resourcesimport.py:26
+msgid "Plan"
+msgstr "Plan"
+
+#: scripts/resourcesimport.py:30
+msgctxt "(qtundo_format )"
+msgid "Import resources"
+msgstr "Ресурстарды импорттау"
+
+#: scripts/resourcesimport.py:44
+msgid "Could not open document: %1"
+msgstr "Мына құжат ашылмады: %1"
+
+#: scripts/resourcesimport.py:48
+msgid "No project to import from"
+msgstr "Импорттайтын жоба жоқ"
+
+#: scripts/resourcesimport.py:51
+msgid "Project identities are identical"
+msgstr "Жоба индентификаторлары бірдей"
+
+#: scripts/resourcesimport.py:69
+msgid "Unable to create copy of resource group: %1"
+msgstr "Келесі ресурс тобының көшірмесі құрылмайды: %1"
+
+#: scripts/resourcesimport.py:74
+msgid "No resource to copy from"
+msgstr "Көшіріп алатын ресурс жоқ"
+
+#: scripts/resourcesimport.py:83
+msgid "Unable to create copy of resource: %1"
+msgstr "Келесі ресурстың көшірмесі құрылмайды: %1"
+
+#: scripts/resourcesimport.py:93
+msgid "Calendar already exists: %1"
+msgstr "Бұндай күнтізбе бар екен: %1"
+
+#: scripts/resourcesimport.py:97
+msgid "Unable to create copy of calendar: %1"
+msgstr "Келесі күнтізбенің көшірмесі құрылмайды: %1"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Resource Busy Information"
+msgstr "Ресурс бос емес туралы мәлімет"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:7
+#, kde-format
+msgid "Handle resource busy information"
+msgstr "Ресурс бос емес туралы мәліметті өңдеу"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Export Resource Busy Information"
+msgstr "Ресурст бос емес туралы мәліметті экспорттау"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:8
+#, kde-format
+msgid "Python script to export busy information to file"
+msgstr "Ресурст бос емес туралы мәліметті файлға экспорттау Python скрипті"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Import Resource Busy Information"
+msgstr "Ресурст бос емес туралы мәліметті импорттау"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:12
+#, kde-format
+msgid "Python script to import busy information from file"
+msgstr "Ресурст бос емес туралы мәліметті файлдан импорттау Python скрипті"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Clear Resource Busy Information"
+msgstr "Ресурст бос емес туралы мәліметті тазалау"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:16
+#, kde-format
+msgid "Python script to clear the imported resource busy information"
+msgstr "Ресурст бос емес туралы импортталған мәліметті тазалау Python скрипті"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import"
+msgstr "Импорт"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:21
+#, kde-format
+msgid "Import content"
+msgstr "Мазмұның импорттау"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Resources from Plan File"
+msgstr "Plan файлдағы ресурстар"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:22
+#, kde-format
+msgid "Python script to import resources from project file"
+msgstr "Жоба файлынан ресурстарды импорттау Python скрипті"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export"
+msgstr "Экспорт"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:31
+#, kde-format
+msgid "Export content"
+msgstr "Мазмұның импорттау"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "To csv"
+msgstr "CSV файлына"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:32
+#, kde-format
+msgid "Export data as comma separated values"
+msgstr "Деректі үтірмен бөлінген мәндер (CSV) файлға экспорттау"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "To ods"
+msgstr "ods файлына"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:36
+#, kde-format
+msgid "Export data to Open Spreadsheet document"
+msgstr "Деректі Ашық электрондық кесте құжатына экспорттау"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Tools"
+msgstr "Құралдар"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:46
+#, kde-format
+msgid "Miscellaneous scripts"
+msgstr "Түрлі скрипттер"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:47
+#, kde-format
+msgid "Online Help"
+msgstr "Онлайн Көмек"
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:47
+#, kde-format
+msgid ""
+"Python script that uses the KHTML Part to display the Plan Scripting online "
+"help"
+msgstr ""
+"KHTML бөлшегінің көмегімен Plan скрипттер туралы онлайн көмегін  көрсетеін "
+"Python скрипті"
+
+#. i18n: tag collection attribute text
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples"
+msgstr "Мысалдар"
+
+#. i18n: tag collection attribute comment
+#: scripts/scripts.rc:58
+#, kde-format
+msgid "Samples to demonstrate scripting with Plan"
+msgstr "Platn скриптті қолдану мысалдары"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Print Project Information..."
+msgstr "Жоба мәліметін басып шығару..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:59
+#, kde-format
+msgid "Example python script that print project information"
+msgstr "Жоба мәліметін басып шығару Python скрипттін мысалы"
+
+#. i18n: tag script attribute text
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Print Resource busy Information..."
+msgstr "Ресурс бос емес туралы мәліметін басып шығару..."
+
+#. i18n: tag script attribute comment
+#: scripts/scripts.rc:63
+#, kde-format
+msgid "Example python script that print resource busy information"
+msgstr "Ресурс бос емес туралы мәліметін басып шығару Python скрипттін мысалы"
+
+#, fuzzy
+#~| msgid "Select from:"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Select from:"
+#~ msgstr "Келесіден таңдау:"
+
+#, fuzzy
+#~| msgid "Tasks"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tasks"
+#~ msgstr "Тапсырмалар"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources"
+#~ msgstr "Ресурстары"
+
+#, fuzzy
+#~| msgid "Accounts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Accounts"
+#~ msgstr "Тіркелгілер"
+
+#, fuzzy
+#~| msgid "Include headers"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Include headers"
+#~ msgstr "Айдарларын қоса"
+
+#, fuzzy
+#~| msgid "&Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "&Tools"
+#~ msgstr "Құ&ралдар"
+
+#, fuzzy
+#~| msgid "Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resource Busy Information"
+#~ msgstr "Ресурс бос емес туралы мәлімет"
+
+#, fuzzy
+#~| msgid "Handle resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Handle resource busy information"
+#~ msgstr "Ресурс бос емес туралы мәліметті өңдеу"
+
+#, fuzzy
+#~| msgid "Export Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export Resource Busy Information"
+#~ msgstr "Ресурст бос емес туралы мәліметті экспорттау"
+
+#, fuzzy
+#~| msgid "Python script to export busy information to file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to export busy information to file"
+#~ msgstr "Ресурст бос емес туралы мәліметті файлға экспорттау Python скрипті"
+
+#, fuzzy
+#~| msgid "Import Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import Resource Busy Information"
+#~ msgstr "Ресурст бос емес туралы мәліметті импорттау"
+
+#, fuzzy
+#~| msgid "Python script to import busy information from file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import busy information from file"
+#~ msgstr "Ресурст бос емес туралы мәліметті файлдан импорттау Python скрипті"
+
+#, fuzzy
+#~| msgid "Clear Resource Busy Information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Clear Resource Busy Information"
+#~ msgstr "Ресурст бос емес туралы мәліметті тазалау"
+
+#, fuzzy
+#~| msgid "Python script to clear the imported resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to clear the imported resource busy information"
+#~ msgstr ""
+#~ "Ресурст бос емес туралы импортталған мәліметті тазалау Python скрипті"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import"
+#~ msgstr "Импорт"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Import content"
+#~ msgstr "Мазмұның импорттау"
+
+#, fuzzy
+#~| msgid "Resources from Plan File"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Resources from Plan File"
+#~ msgstr "Plan файлдағы ресурстар"
+
+#, fuzzy
+#~| msgid "Python script to import resources from project file"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Python script to import resources from project file"
+#~ msgstr "Жоба файлынан ресурстарды импорттау Python скрипті"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export"
+#~ msgstr "Экспорт"
+
+#, fuzzy
+#~| msgid "Export content"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export content"
+#~ msgstr "Мазмұның импорттау"
+
+#, fuzzy
+#~| msgid "To csv"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To csv"
+#~ msgstr "CSV файлына"
+
+#, fuzzy
+#~| msgid "Export data as comma separated values"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data as comma separated values"
+#~ msgstr "Деректі үтірмен бөлінген мәндер (CSV) файлға экспорттау"
+
+#, fuzzy
+#~| msgid "To ods"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "To ods"
+#~ msgstr "ods файлына"
+
+#, fuzzy
+#~| msgid "Export data to Open Spreadsheet document"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Export data to Open Spreadsheet document"
+#~ msgstr "Деректі Ашық электрондық кесте құжатына экспорттау"
+
+#, fuzzy
+#~| msgid "Tools"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Tools"
+#~ msgstr "Құралдар"
+
+#, fuzzy
+#~| msgid "Miscellaneous scripts"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Miscellaneous scripts"
+#~ msgstr "Түрлі скрипттер"
+
+#, fuzzy
+#~| msgid "Online Help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Online Help"
+#~ msgstr "Онлайн Көмек"
+
+#, fuzzy
+#~| msgid ""
+#~| "Python script that uses the KHTML Part to display the Plan Scripting "
+#~| "online help"
+#~ msgctxt "(qtundo-format)"
+#~ msgid ""
+#~ "Python script that uses the KHTML Part to display the Plan Scripting "
+#~ "online help"
+#~ msgstr ""
+#~ "KHTML бөлшегінің көмегімен Plan скрипттер туралы онлайн көмегін  "
+#~ "көрсетеін Python скрипті"
+
+#, fuzzy
+#~| msgid "Samples"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples"
+#~ msgstr "Мысалдар"
+
+#, fuzzy
+#~| msgid "Samples to demonstrate scripting with Plan"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Samples to demonstrate scripting with Plan"
+#~ msgstr "Platn скриптті қолдану мысалдары"
+
+#, fuzzy
+#~| msgid "Print Project Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Project Information..."
+#~ msgstr "Жоба мәліметін басып шығару..."
+
+#, fuzzy
+#~| msgid "Example python script that print project information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print project information"
+#~ msgstr "Жоба мәліметін басып шығару Python скрипттін мысалы"
+
+#, fuzzy
+#~| msgid "Print Resource busy Information..."
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Print Resource busy Information..."
+#~ msgstr "Ресурс бос емес туралы мәліметін басып шығару..."
+
+#, fuzzy
+#~| msgid "Example python script that print resource busy information"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Example python script that print resource busy information"
+#~ msgstr ""
+#~ "Ресурс бос емес туралы мәліметін басып шығару Python скрипттін мысалы"
+
+#, fuzzy
+#~| msgid "Schedule Name"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule Name"
+#~ msgstr "Кестенің атауы"
+
+#~ msgctxt "(qtundo_format)"
+#~ msgid "Clear external appointments"
+#~ msgstr "Сыртқы тағайындауларын өшіру"
+
+#~ msgid "Export busy info"
+#~ msgstr "Бос емес туралы мәліметті экспорттау"
+
+#, fuzzy
+#~| msgid "Import content"
+#~ msgctxt "(qtundoformat)"
+#~ msgid "Import external appointments"
+#~ msgstr "Мазмұның импорттау"
+
+#~ msgid "Nodes"
+#~ msgstr "Түйіндер"

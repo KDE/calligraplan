@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Beskrivning</title>
+  <para
+>Kostnadsfördelningsstruktureditorn används för att skapa, redigera och ta bort konton. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Konton kan kopplas till av aktiviteter och resurser för att sammanställa kostnader från dessa aktiviteter och resurser. </para>
+  <para
+>Standardkontot sammanställer kostnader som uppstår från aktiviteter som inte är kopplade till ett konto. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Verktygsrad</title>
+  <para
+>Verktygsraden tillhandahåller möjlighet att skapa och ta bort konton: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knapp</guilabel
+></entry>
+            <entry
+><guilabel
+>Genväg</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Lägg till konto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa ett konto. Det nya kontot infogas efter det markerade kontot. Om inget konto är markerat, läggs det nya kontot till sist på toppnivån.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Lägg till delkonto</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Knapp för att skapa ett delkonto. Det nya kontot läggs till som ett underliggande objekt till det markerade kontot.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ta bort</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Ta bort</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Tar bort det markerade kontot.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Redigera data</title>
+  <para
+>Data kan redigeras på plats som beskrivs <link linkend="using-the-views"
+>här</link
+>. </para>
+  <para
+>Följande kolumner är tillgängliga: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolumn</guilabel
+></entry>
+            <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Namn</para>
+            </entry>
+            <entry>
+              <para
+>Kontots namn.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beskrivning</para>
+            </entry>
+            <entry>
+              <para
+>Beskrivning av kontot.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

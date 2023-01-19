@@ -1,0 +1,348 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2011, 2014, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2019-12-15 23:04+0200\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <kde-et@lists.linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.08.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: PlanTJPlugin.cpp:57
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+"version of the scheduler used in TaskJuggler. It has been enhanced to handle "
+"resource units.</para><para>Scheduling backwards is simulated by scheduling "
+"all tasks as late as possible.</para><para><note>Plan does not utilize all "
+"of its functionality.</note></para>"
+msgstr ""
+"<title>TaskJuggleri ajaplaneerija</title><para>See on väikeste muudatustega "
+"sama ajaplaneerija, mida kasutab TaskJuggler. Seda on täiendatud võimalusega "
+"käsitleda ressursiüksusi.</para><para>Tagasiajastamist simuleeritakse kõigi "
+"ülesannete ajastamisega nii hiliseks kui võimalik.</para><para><note>Plan ei "
+"kasuta kõiki selle võimalusi.</note></para>"
+
+#: PlanTJScheduler.cpp:142
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Init"
+msgstr "Käivitamine"
+
+#: PlanTJScheduler.cpp:148
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Re-calculate project from start time: %1"
+msgstr "Projekti ümberarvutamine alates algusajast: %1"
+
+#: PlanTJScheduler.cpp:150
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from start time: %1"
+msgstr "Projekti ajastamine alates algusajast: %1"
+
+#: PlanTJScheduler.cpp:152
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project target finish time: %1"
+msgstr "Projekti ettenähtud lõpuaeg: %1"
+
+#: PlanTJScheduler.cpp:155
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule project from end time: %1"
+msgstr "Projekti ajastamine alates lõpuajast: %1"
+
+#: PlanTJScheduler.cpp:170
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Schedule"
+msgstr "Ajastamine"
+
+#: PlanTJScheduler.cpp:176
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to schedule project"
+msgstr "Projekti ajastamine nurjus"
+
+#: PlanTJScheduler.cpp:186
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Update"
+msgstr "Uuendamine"
+
+#: PlanTJScheduler.cpp:192
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Finish"
+msgstr "Lõpetamine"
+
+#: PlanTJScheduler.cpp:207
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to find scenario to schedule"
+msgstr "Ajastamise stsenaariumit ei leitud"
+
+#: PlanTJScheduler.cpp:397
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Ajastati projekt algusega %1 ja lõpuga %2"
+
+#: PlanTJScheduler.cpp:437
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid start time"
+msgstr "Vigane algusaeg"
+
+#: PlanTJScheduler.cpp:441
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Invalid end time"
+msgstr "Viga lõppaeg"
+
+#: PlanTJScheduler.cpp:464
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled milestone: %1"
+msgstr "Ajastatud tähtaeg: %1"
+
+#: PlanTJScheduler.cpp:466
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Scheduled task: %1 - %2"
+msgstr "Ajastatud ülesanne: %1 - %2"
+
+#: PlanTJScheduler.cpp:549
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1: piirangu täitmine nurjus. Negatiivne lõtk=%2"
+
+#: PlanTJScheduler.cpp:564
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Failed to meet dependency. Negative float=%1"
+msgstr "Sõltuvuse täitmine nurjus. Negatiivne lõtk=%1"
+
+#: PlanTJScheduler.cpp:721
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Dependency type '%1' not handled. Using FinishStart."
+msgstr "Sõltuvuse tüüpi \"%1\" ei tunnistata. Kasutatakse FinishStarti."
+
+#: PlanTJScheduler.cpp:782
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid start constraint"
+msgstr "%1: vigane algusepiirang"
+
+#: PlanTJScheduler.cpp:795
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "%1: Invalid end constraint"
+msgstr "%1: vigane lõpupiirang"
+
+#: PlanTJScheduler.cpp:818
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Unhandled time constraint type"
+msgstr "Käsitlemata ajapiirangu tüüp"
+
+#: PlanTJScheduler.cpp:829 PlanTJScheduler.cpp:847
+#, kde-kuit-format
+msgctxt "@info/plain"
+msgid "Could not use the correct calendar for calculation of task duration"
+msgstr "Korrektse kalendri kasutamine ülesande kestuse arvutamiseks nurjus"
+
+#: PlanTJScheduler.cpp:900
+#, kde-format
+msgid "No working hours defined for resource: %1"
+msgstr "Ressursile pole töötunde määratud: %1"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~| "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~| "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~| "scheduling all tasks as late as possible.</para><para><note>Plan does "
+#~| "not utilize all of its functionality.</note></para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
+#~ "version of the scheduler used in TaskJuggler. It has been enhanced to "
+#~ "handle resource units.</para><para>Scheduling backwards is simulated by "
+#~ "scheduling all tasks as late as possible.</para><para><note>Plan does not "
+#~ "utilize all of its functionality.</note></para>"
+#~ msgstr ""
+#~ "<title>TaskJuggleri ajaplaneerija</title><para>See on väikeste "
+#~ "muudatustega sama ajaplaneerija, mida kasutab TaskJuggler. Seda on "
+#~ "täiendatud võimalusega käsitleda ressursiüksusi.</"
+#~ "para><para>Tagasiajastamist simuleeritakse kõigi ülesannete ajastamisega "
+#~ "nii hiliseks kui võimalik.</para><para><note>Plan ei kasuta kõiki selle "
+#~ "võimalusi.</note></para>"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Init"
+#~ msgstr "Käivitamine"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Projekti ümberarvutamine alates algusajast: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Projekti ajastamine alates algusajast: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project target finish time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project target finish time: %1"
+#~ msgstr "Projekti ettenähtud lõpuaeg: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Projekti ajastamine alates lõpuajast: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Schedule"
+#~ msgstr "Ajastamine"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to schedule project"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to schedule project"
+#~ msgstr "Projekti ajastamine nurjus"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Update"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Update"
+#~ msgstr "Uuendamine"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Finish"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Finish"
+#~ msgstr "Lõpetamine"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to find scenario to schedule"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to find scenario to schedule"
+#~ msgstr "Ajastamise stsenaariumit ei leitud"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Ajastati projekt algusega %1 ja lõpuga %2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid start time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid start time"
+#~ msgstr "Vigane algusaeg"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Invalid end time"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Invalid end time"
+#~ msgstr "Viga lõppaeg"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled milestone: %1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled milestone: %1"
+#~ msgstr "Ajastatud tähtaeg: %1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Scheduled task: %1 - %2"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Scheduled task: %1 - %2"
+#~ msgstr "Ajastatud ülesanne: %1 - %2"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "%1: piirangu täitmine nurjus. Negatiivne lõtk=%2"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Failed to meet dependency. Negative float=%1"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Failed to meet dependency. Negative float=%1"
+#~ msgstr "Sõltuvuse täitmine nurjus. Negatiivne lõtk=%1"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Dependency type '%1' not handled. Using FinishStart."
+#~ msgstr "Sõltuvuse tüüpi \"%1\" ei tunnistata. Kasutatakse FinishStarti."
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid start constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid start constraint"
+#~ msgstr "%1: vigane algusepiirang"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "%1: Invalid end constraint"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "%1: Invalid end constraint"
+#~ msgstr "%1: vigane lõpupiirang"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Unhandled time constraint type"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Unhandled time constraint type"
+#~ msgstr "Käsitlemata ajapiirangu tüüp"
+
+#, fuzzy
+#~| msgctxt "@info/plain"
+#~| msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgctxt "(qtundo-format) @info/plain"
+#~ msgid "Could not use the correct calendar for calculation of task duration"
+#~ msgstr "Korrektse kalendri kasutamine ülesande kestuse arvutamiseks nurjus"

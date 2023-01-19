@@ -1,0 +1,46 @@
+<sect2
+><title/>
+<para
+>È possibile creare un nuovo progetto premendo il pulsante <emphasis
+>Nuovo progetto</emphasis
+> o selezionando un <emphasis
+>modello di progetto</emphasis
+> in <link linkend="startup-view"
+>Vista di avvio</link
+>. </para>
+<para
+>Ciò creerà un nuovo progetto con i valori predefiniti definiti in <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
+>Impostazioni</ulink
+> o dai valori definiti nella modello. La finestra Impostazioni progetto si aprirà per consentire all'utente di definire proprietà specifiche del progetto come <emphasis
+>nome del progetto</emphasis
+>, <emphasis
+>responsabile</emphasis
+> e <emphasis
+> tempi obiettivo </emphasis
+>. </para>
+<para
+>Quando si crea il proprio primo progetto, considerare la possibilità di creare risorse in un file separato. Quando si fa riferimento a questo file nei progetti, non è necessario definire nuovamente le risorse ed è possibile coordinare l'utilizzo delle risorse tra i progetti. </para>
+<para
+>Vedere <link linkend="managing-resources"
+>Gestire le risorse</link
+>. </para>
+<para
+>Se si desidera coordinare l'utilizzo delle risorse tra progetti, i file del progetto devono essere archiviati nella stessa cartella. </para>
+<para
+>Una struttura utile potrebbe essere qualcosa del genere: </para>
+<para
+><screen
+>Plan
+      &nbsp;!-- Risorse
+      &nbsp;!      !-- RisorseCondivise.plan
+      &nbsp;!-- Moduli di attività
+      &nbsp;!      !-- Moduli delle attività (se presenti)
+      &nbsp;!-- Modelli
+      &nbsp;!      !-- Modelli di progetto (se presenti)
+      &nbsp;!-- Progetti
+      &nbsp;!      !-- &lt;progetto 1&gt;.plan
+      &nbsp;!      !-- &lt;progetto 2&gt;.plan
+      &nbsp;!      !-- ecc
+  </screen>
+</para>
+</sect2>

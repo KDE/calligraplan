@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Beschrijving</title>
+  <para
+>Het Beeld van Rapportengenerator wordt gebruikt om rapporten toe te voegen en te genereren in Open Document Text (odt) formaat.</para
+><para
+>De rapporten kunnen gebaseerd zijn op de geleverde rapportsjablonen of u kunt <link linkend="creating-odt-report-templates"
+>uw eigen sjablonen schrijven</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>Een door u gekozen naam</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapportsjabloon</para>
+            </entry>
+            <entry>
+              <para
+>Pad naar het rapportsjabloonbestand. U kunt een van de geleverde standaard sjablonen selecteren of u kunt de bestandsnaam van een sjabloon die u zelf hebt gemaakt invoeren.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapportbestand</para>
+            </entry>
+            <entry>
+              <para
+>De naam van het bestand dat zal worden gegenereerd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Toevoegen</para>
+            </entry>
+            <entry>
+              <para
+>Informatie die toegevoegd kan worden aan de rapportbestandsnaam om het te onderscheiden van eerder gegenereerde versies. Dit kan zijn:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Niets</emphasis
+>; gebruik de bestandsnaam zoals deze is</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Nummer</emphasis
+>; voeg een volgnummer toe aan de bestandsnaam</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Datum</emphasis
+>; voeg de huidige datum toe aan de bestandsnaam</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om rapporten toe te voegen, te verwijderen en te genereren. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Rapport toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Een nieuw rapport toevoegen</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapport verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Het geselecteerde rapport verwijderen</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Rapport genereren</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Het geselecteerde rapport genereren</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

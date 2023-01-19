@@ -1,0 +1,292 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"PO-Revision-Date: 2011-09-24 20:25+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: KPlatoRCPSPlugin.cpp:60
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#| "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#| "resources. It still respects task dependencies and also tries to fullfill "
+#| "time constraints. However, time constraints can make it very difficult to "
+#| "find a good solution, so it may be preferable to use a different "
+#| "scheduler in these cases.</para>"
+msgctxt "@info:whatsthis"
+msgid ""
+"<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+"Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+"resources. It still respects task dependencies and also tries to fulfill "
+"time constraints. However, time constraints can make it very difficult to "
+"find a good solution, so it may be preferable to use a different scheduler "
+"in these cases.</para>"
+msgstr ""
+"<title>RCPS-skemalægning</title><para>Skemalægning for projekt med "
+"begrænsede ressourcer (RCPS) fokuserer på at skemalægge projektet for at "
+"undgå overbookning af ressourcer. Den respekterer stadig opgaveafhængigheder "
+"og prøver også at opfylde tidsbegrænsninger. Dog kan tidsbegrænsninger gøre "
+"det meget svært at finde en god løsning, så det kan være at foretrække at "
+"bruge en anden skemalægning i sådanne tilfælde.</para>"
+
+#: KPlatoRCPSScheduler.cpp:117
+#, kde-format
+msgid "Scheduling halted after %1 generations"
+msgstr "Skemalægning stopper efter %1 genereringer"
+
+#: KPlatoRCPSScheduler.cpp:436
+#, kde-format
+msgid "Init"
+msgstr "Init"
+
+#: KPlatoRCPSScheduler.cpp:441
+#, kde-format
+msgid "Re-calculate project from start time: %1"
+msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#: KPlatoRCPSScheduler.cpp:443
+#, kde-format
+msgid "Schedule project from start time: %1"
+msgstr "Skemalæg projekt fra starttidspunkt: %1"
+
+#: KPlatoRCPSScheduler.cpp:447
+#, kde-format
+msgid "Schedule project from end time: %1"
+msgstr "Skemalæg projekt fra sluttidspunkt: %1"
+
+#: KPlatoRCPSScheduler.cpp:458
+#, kde-format
+msgid "Failed to build a valid RCPS project"
+msgstr "Kunne ikke bygge et gyldigt RCPS-projekt"
+
+#: KPlatoRCPSScheduler.cpp:462
+#, kde-format
+msgid "Schedule"
+msgstr "Skema"
+
+#: KPlatoRCPSScheduler.cpp:471
+#, kde-format
+msgid "Invalid scheduling solution. Result: %1"
+msgstr "Ugyldig skemalægningsløsning. Resultat: %1"
+
+#: KPlatoRCPSScheduler.cpp:556 KPlatoRCPSScheduler.cpp:697
+#, kde-format
+msgid "No resource request is registered"
+msgstr "Ingen ressourceanmodning er registreret"
+
+#: KPlatoRCPSScheduler.cpp:586 KPlatoRCPSScheduler.cpp:727
+#, kde-format
+msgid "No resource has been allocated"
+msgstr "Ingen ressource er blevet allokeret"
+
+#: KPlatoRCPSScheduler.cpp:599 KPlatoRCPSScheduler.cpp:740
+#, kde-format
+msgid "Scheduled task to start at %1 and finish at %2"
+msgstr "Skemalagde opgaven til at starte %1 og slutte %2"
+
+#: KPlatoRCPSScheduler.cpp:647 KPlatoRCPSScheduler.cpp:772
+#, kde-format
+msgid "Project scheduled to start at %1 and finish at %2"
+msgstr "Projekt skemalagt til at starte %1 og slutte %2"
+
+#: KPlatoRCPSScheduler.cpp:775
+#, kde-format
+msgid "Must start project early in order to finish in time: %1"
+msgstr "Projektet skal startes tidligt for at kunne afslutte til tiden: %1"
+
+#: KPlatoRCPSScheduler.cpp:810
+#, kde-format
+msgctxt "Project Evaluation and Review Technique"
+msgid "PERT"
+msgstr "PERT"
+
+#: KPlatoRCPSScheduler.cpp:850
+#, kde-format
+msgctxt "1=type of constraint"
+msgid "%1: Failed to meet constraint. Negative float=%2"
+msgstr "%1: Overholdeles af begrænsning mislykkedes. Negativ float=%2"
+
+#, fuzzy
+#~| msgctxt "@info:whatsthis"
+#~| msgid ""
+#~| "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~| "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~| "resources. It still respects task dependencies and also tries to "
+#~| "fullfill time constraints. However, time constraints can make it very "
+#~| "difficult to find a good solution, so it may be preferable to use a "
+#~| "different scheduler in these cases.</para>"
+#~ msgctxt "(qtundo-format) @info:whatsthis"
+#~ msgid ""
+#~ "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
+#~ "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
+#~ "resources. It still respects task dependencies and also tries to fullfill "
+#~ "time constraints. However, time constraints can make it very difficult to "
+#~ "find a good solution, so it may be preferable to use a different "
+#~ "scheduler in these cases.</para>"
+#~ msgstr ""
+#~ "<title>RCPS-skemalægning</title><para>Skemalægning for projekt med "
+#~ "begrænsede ressourcer (RCPS) fokuserer på at skemalægge projektet for at "
+#~ "undgå overbookning af ressourcer. Den respekterer stadig "
+#~ "opgaveafhængigheder og prøver også at opfylde tidsbegrænsninger. Dog kan "
+#~ "tidsbegrænsninger gøre det meget svært at finde en god løsning, så det "
+#~ "kan være at foretrække at bruge en anden skemalægning i sådanne tilfælde."
+#~ "</para>"
+
+#, fuzzy
+#~| msgid "Scheduling halted after %1 generations"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduling halted after %1 generations"
+#~ msgstr "Skemalægning stopper efter %1 genereringer"
+
+#, fuzzy
+#~| msgid "Init"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Init"
+#~ msgstr "Init"
+
+#, fuzzy
+#~| msgid "Re-calculate project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Re-calculate project from start time: %1"
+#~ msgstr "Genberegn projekt fra starttidspunkt: %1"
+
+#, fuzzy
+#~| msgid "Schedule project from start time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from start time: %1"
+#~ msgstr "Skemalæg projekt fra starttidspunkt: %1"
+
+#, fuzzy
+#~| msgid "Schedule project from end time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule project from end time: %1"
+#~ msgstr "Skemalæg projekt fra sluttidspunkt: %1"
+
+#, fuzzy
+#~| msgid "Failed to build a valid RCPS project"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Failed to build a valid RCPS project"
+#~ msgstr "Kunne ikke bygge et gyldigt RCPS-projekt"
+
+#, fuzzy
+#~| msgid "Schedule"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Schedule"
+#~ msgstr "Skema"
+
+#, fuzzy
+#~| msgid "Invalid scheduling solution. Result: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Invalid scheduling solution. Result: %1"
+#~ msgstr "Ugyldig skemalægningsløsning. Resultat: %1"
+
+#, fuzzy
+#~| msgid "No resource request is registered"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource request is registered"
+#~ msgstr "Ingen ressourceanmodning er registreret"
+
+#, fuzzy
+#~| msgid "No resource has been allocated"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "No resource has been allocated"
+#~ msgstr "Ingen ressource er blevet allokeret"
+
+#, fuzzy
+#~| msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Scheduled task to start at %1 and finish at %2"
+#~ msgstr "Skemalagde opgaven til at starte %1 og slutte %2"
+
+#, fuzzy
+#~| msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Project scheduled to start at %1 and finish at %2"
+#~ msgstr "Projekt skemalagt til at starte %1 og slutte %2"
+
+#, fuzzy
+#~| msgid "Must start project early in order to finish in time: %1"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Must start project early in order to finish in time: %1"
+#~ msgstr "Projektet skal startes tidligt for at kunne afslutte til tiden: %1"
+
+#, fuzzy
+#~| msgctxt "Project Evaluation and Review Technique"
+#~| msgid "PERT"
+#~ msgctxt "(qtundo-format) Project Evaluation and Review Technique"
+#~ msgid "PERT"
+#~ msgstr "PERT"
+
+#, fuzzy
+#~| msgctxt "1=type of constraint"
+#~| msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgctxt "(qtundo-format) 1=type of constraint"
+#~ msgid "%1: Failed to meet constraint. Negative float=%2"
+#~ msgstr "%1: Overholdeles af begrænsning mislykkedes. Negativ float=%2"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling backwards from target end time is not supported."
+#~ msgstr ""
+#~ "Skemalægning bagud fra det målsatte sluttidspunkt er ikke understøttet."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "The project will be scheduled forward from target start time."
+#~ msgstr ""
+#~ "Projektet vil blive skemalagt fremad fra det målsatte starttidspunkt."
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<b>This scheduler does not support all the requested scheduling "
+#~ "functionality.</b>"
+#~ msgstr ""
+#~ "<b>Denne skemalægning understøtter ikke al den ønskede "
+#~ "skemalægningsfunktionalitet.</b>"
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling tasks with time constraints is not supported."
+#~ msgstr "Skemalægning af opgaver med tidsbegrænsninger er ikke understøttet."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Tasks will be scheduled As Soon As Possible (ASAP)."
+#~ msgstr "Opgaver vil blive skemalagt som Snarest muligt (ASAP)."
+
+#~ msgctxt "@item:inlistbox"
+#~ msgid "Scheduling tasks As Late As Possible (ALAP) is not supported."
+#~ msgstr ""
+#~ "Skemalægning af opgaver Så sent som muligt (ALAP) er ikke understøttet."
+
+#~ msgid "Task '%1' estimate: %2"
+#~ msgstr "Estimat for opgaven \"%1\": %2"
+
+#~ msgid "Task '%1' duration called %2 times, cached values: %3"
+#~ msgstr ""
+#~ "Varigheden af opgaven \"%1\" er blevet kaldt %2 gange. Cachede værdier: %3"
+
+#~ msgid "Task '%1' start: %2, duration: %3 (%4, %5 hours)"
+#~ msgstr "Start af opgaven \"%1\": %2, varighed: %3 (%4, %5 timer)"
+
+#~ msgid "Task '%1' start=%2, duration=%3: %4 - %5"
+#~ msgstr "Start af opgaven \"%1\"=%2, varighed=%3: %4 - %5"
+
+#~ msgid "Job %1: resource %2 is %3 available"
+#~ msgstr "Job %1: Ressourcen %2 er %3 tilgængelig"
+
+#~ msgid "Project scheduling finished at %1"
+#~ msgstr "Skemalægning af projekt afsluttet %1"
+
+#~ msgid "Schedule project using RCPS Scheduler, starting at %1"
+#~ msgstr "Skemalæg projekt med RCPS-skemalægning, startende %1"

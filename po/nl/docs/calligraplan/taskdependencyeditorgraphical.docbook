@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Beschrijving</title>
+  <para
+>De taakafhankelijkheidsbewerker wordt gebruikt om taakafhankelijkheden aan te maken, te bewerken en te verwijderen.</para
+><para
+>De taken zijn geordend volgens de indelingsstuctuur van het werk (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>De symbolen voor samenvatting van taken, taken en mijlpalen worden onderstaand getoond: </para>
+  <para
+>Omdat de items <emphasis
+>Taak</emphasis
+> en <emphasis
+>Mijlpaal</emphasis
+> sub-items zijn van het item <emphasis
+>Samenvatting taak</emphasis
+>, springen ze in. Merk ook op dat de WBS-code getoond wordt samen met de naam. </para>
+  <para
+>In de volgende figuur is een afhankelijkheid <emphasis
+>Einde-Begin</emphasis
+> ingevoegd om <emphasis
+>Mijlpaal</emphasis
+> af te laten hangen van <emphasis
+>Taak</emphasis
+>. </para>
+  <para
+>Zoals onderstaand getoond bestaat een item uit drie verschillende selectiegebieden: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Itemgebied</para>
+            </entry>
+            <entry>
+              <para
+>Het item voor bewerken kiezen</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Startgebied</para>
+            </entry>
+            <entry>
+              <para
+>Gebruikt voor aanmaken van afhankelijkheden <emphasis
+>Einde-Begin</emphasis
+> en <emphasis
+>Begin-Begin</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Voltooigebied</para>
+            </entry>
+            <entry>
+              <para
+>Gebruikt voor aanmaken van afhankelijkheden <emphasis
+>Einde-Begin</emphasis
+> en <emphasis
+>Einde-Einde</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Afhankelijkheden bewerken</title>
+  <para
+>Afhankelijkheden worden gemaakt door eerst een begin- of eindgebied van de voorgaande taak te selecteren, daarna het begin- of eindgebied van de opvolgende taak. </para>
+  <para
+>Dit kan gedaan worden met de muis of het toetsenbord. </para>
+  <para
+>Als alternatief kunt u het verbindingsgebied van de voorganger op het verbindingsgebied van de opvolger loslaten. </para>
+  <para
+>Om een bestaande afhankelijkheid te bewerken of te verwijderen, kunt u een afhankelijkheid openen door het te selecteren of zijn contextmenu te openen. </para>
+  <para
+>U kunt ook het contextmenu op een verbindingsgebied openen wat u in staat stelt alle afhankelijkheden verbonden met dat gebied te bewerken. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om taken aan te maken en te verwijderen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Taak toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Afrolvak om een taak of mijlpaal aan te maken. Het nieuwe item is gepositioneerd na het nu geselecteerde item op hetzelfde niveau als het geselecteerde item. Als geen item is geselecteerd, wordt het nieuwe item achtergevoegd op het topniveau.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Subtaak toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Afrolvak om een subtaak of -mijlpaal aan te maken. Het nieuwe items wordt achtergevoegd op een niveau lager aan het nu geselecteerde item.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Taak verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>De geselecteerde taken worden verwijderd.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

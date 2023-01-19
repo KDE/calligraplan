@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Descripció</title>
+  <para
+>La vista de Gantt s'utilitza per a mostrar les tasques en una línia de temps. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Vista de Gantt</phrase>
+        </textobject>
+        <caption>
+          <para
+>Vista de Gantt</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Editar les dades</title>
+  <para
+>La descripció i el progrés de la tasca es poden editar utilitzant el menú contextual. </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Temps de començament</para>
+            </entry>
+            <entry>
+              <para
+>El temps de començament planificat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Temps de finalització</para>
+            </entry>
+            <entry>
+              <para
+>El temps de finalització planificat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% completada</para>
+            </entry>
+            <entry>
+              <para
+>Compleció</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Configurar</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Utilitzant el menú contextual, la vista es podrà configurar utilitzant el diàleg de configuració.</para>
+              <para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Diàleg de configuració</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Diàleg de configuració</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

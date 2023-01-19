@@ -1,0 +1,23 @@
+<sect2
+><title/>
+<para
+>Många funktioner och vyer har hjälp och tips som kan visas med funktionen <emphasis
+>Vad är det här</emphasis
+>. </para>
+<para
+>Du kan aktivera den med menyalternativet <menuchoice
+><guimenu
+>Hjälp</guimenu
+><guimenuitem
+>Vad är det här</guimenuitem
+></menuchoice
+> eller snabbtangenten <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>I dialogrutor aktiveras den genom att klicka på <varname
+>?</varname
+> i dialogrutans namnlist. </para>
+</sect2>

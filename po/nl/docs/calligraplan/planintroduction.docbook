@@ -1,0 +1,25 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Introductie in Plan</title>
+  <sect1 id="introduction-section"
+><title
+>Inleiding</title
+>&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Definities</title
+>&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Contexthelp</title
+>&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>Hoofdwerkruimte</title
+>&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>De weergaven/beelden gebruiken</title
+>&using-the-views-section; </sect1>
+</chapter>

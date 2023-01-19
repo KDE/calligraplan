@@ -1,0 +1,518 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Beschrijving</title>
+  <para
+>De takenbewerker wordt gebruikt om taken aan te maken, te bewerken en te verwijderen.</para
+><para
+>Taken kunnen georganiseerd worden in een hiërarchische boomstructuur tot elke diepte. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Werkbalk</title>
+  <para
+>De werkbalk biedt de middelen om taken en mijlpalen aan te maken, te verwijderen en te verplaatsen: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Knop</guilabel
+></entry>
+            <entry
+><guilabel
+>Sneltoets</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Taak toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Afrolvak om een taak of mijlpaal aan te maken. Het nieuwe item is gepositioneerd na het nu geselecteerde item op hetzelfde niveau als het geselecteerde item. Als geen item is geselecteerd, wordt het nieuwe item achtergevoegd op het topniveau.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Subtaak toevoegen</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Afrolvak om een subtaak of -mijlpaal aan te maken. Het nieuwe items wordt achtergevoegd op een niveau lager aan het nu geselecteerde item.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Taak verwijderen</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Verwijderen</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>De geselecteerde taken worden verwijderd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Taak laten inspringen</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Voegt de geselecteerde taak achter als een afgeleide van de taak erboven.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inspringen van taak ongedaan maken</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Verplaatst de geselecteerde taak een niveau omhoog en wordt ingevoegd na zijn huidige bovenliggende taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Omhoog verplaatsen</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Verplaatst de geselecteerde taak één plaats omhoog.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Omlaag verplaatsen</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Verplaatst de geselecteerde taak één plaats omlaag.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Meerk op dat u ook taken kunt verplaatsen of kopiëren met slepen en loslaten of kopiëren/plakken. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Gegevens bewerken </title>
+  <para
+>Gegevens kunnen inline bewerkt worden zoals <link linkend="using-the-views"
+>hier</link
+> beschreven of door de dialoog Taakinstellingen. </para>
+  <para
+>De volgende kolommen worden standaard getoond: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Kolom</guilabel
+></entry>
+            <entry
+><guilabel
+>Beschrijving</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Naam</para>
+            </entry>
+            <entry>
+              <para
+>De naam van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>Taakstatus</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verantwoordelijk</para>
+            </entry>
+            <entry>
+              <para
+>De verantwoordelijke persoon voor deze taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Toewijzing</para>
+            </entry>
+            <entry>
+              <para
+>Lijst van hulpbrontoewijzingen</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Type</para>
+            </entry>
+            <entry>
+              <para
+>Het type taak of het geschatte type van de taak.</para
+><para
+>Het type kan ingesteld worden tot <emphasis
+>Mijlpaal</emphasis
+>, <emphasis
+>Inspanning</emphasis
+> of <emphasis
+>Tijdsduur</emphasis
+>. </para>
+              <para
+><guilabel
+>Opmerking:</guilabel
+> Als het type <emphasis
+>Samenvatting</emphasis
+> of <emphasis
+>Project</emphasis
+> is, is het type niet te bewerken. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Agenda</para>
+            </entry>
+            <entry>
+              <para
+>De gebruikte agenda wanneer het schattingstype <emphasis
+>tijdsduur</emphasis
+> is.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Schatting</para>
+            </entry>
+            <entry>
+              <para
+>De meest waarschijnlijke schatting. De schatting is de verwachte hoeveelheid inspanning of tijd nodig om een taak te voltooien. Het kan uitgedrukt worden in verschillende eenheden: h (uren), d (dagen), w (weken) en M (maanden).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Optimistische verhouding</para>
+            </entry>
+            <entry>
+              <para
+>Optimistische schatting uitgedrukt als een negatief percentage van de meest waarschijnlijke schatting. (Bijv. -20%).</para
+><para
+>Dit wordt alleen gebruikt als een PERT-distributie wordt gebruikt. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Pessimistische verhouding</para>
+            </entry>
+            <entry>
+              <para
+>Pessimistische schatting uitgedrukt als een positief percentage van de meest waarschijnlijke schatting. (Bijv. 50%).</para
+><para
+>Dit wordt alleen gebruikt als een PERT-distributie wordt gebruikt. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Risico</para>
+            </entry>
+            <entry>
+              <para
+>Risico bestuurt de PERT-distributie die gebruikt wordt bij het berekenen van de actuele schatting  voor deze taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Voorwaarde</para>
+            </entry>
+            <entry>
+              <para
+>Het type tijdvoorwaarde.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Voorwaardelijk begin</para>
+            </entry>
+            <entry>
+              <para
+>Voorwaardelijke starttijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Voorwaardelijk eind</para>
+            </entry>
+            <entry>
+              <para
+>Voorwaardelijke eindtijd.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Actief account</para>
+            </entry>
+            <entry>
+              <para
+>Account voor lopende kosten.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Opstartaccount</para>
+            </entry>
+            <entry>
+              <para
+>Account voor gemaakte kosten tijdens het opstarten van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Opstartkosten</para>
+            </entry>
+            <entry>
+              <para
+>De gemaakte kosten tijdens het opstarten van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Afsluitaccount</para>
+            </entry>
+            <entry>
+              <para
+>Account voor gemaakte kosten tijdens het afsluiten van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Kosten van afsluiten</para>
+            </entry>
+            <entry>
+              <para
+>De gemaakte kosten tijdens het afsluiten van de taak.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Beschrijving</para>
+            </entry>
+            <entry>
+              <para
+>Taaknotities.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Vastzetter van taakmodulen</title>
+  <para
+>Taakmodulen zijn groepen van taken die opnieuw gebruikt kunnen worden in projecten. </para>
+  <para
+>Dit maakt het mogelijk om te leunen op eerdere ervaring en om gelijke operaties te standaardiseren. </para>
+  <para
+>Een taakmodule wordt ingevoegd in uw project door het te slepen uit de vastzetter en het los te laten in uw project. </para>
+  <para
+>Een taakmodule is een regulier plan-bestand en is ontworpen met <guilabel
+>Plan</guilabel
+> op dezelfde manier als bij het ontwerpen van een regulier project. </para>
+  <para
+>Een taakmodule bevat echter typisch alleen taken, schattingen en afhankelijkheden. </para>
+  <para
+>De projectnaam wordt getoont in de vastzetter en de beschrijving wordt gebruikt als de tekstballon. </para>
+  <para
+>Een module kan geopend worden voor inspectie of bewerken door dubbel te klikken op de module. </para>
+  <para
+>De modules kunnen gegroepeerd worden door ze op te slaan in verschillende mappen. Waar ernaar te zoeken wordt geconfigureerd met de dialoog Projectinstellingen. </para>
+  <para
+>Standaard waarden voor nieuwe projecten kunnen gedefinieerd worden met de Configuratiedialoog van Plan. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Hulpbronnenvastzetter</title>
+  <para
+>De Hulpbronnenvastzetter biedt een eenvoudige manier om hulpbronnen toe te kennen aan taken door de hulpbronnen die u nodig hebt te selecteren en ze te slepen op de  kolom <emphasis
+>Toewijzing</emphasis
+>. </para>
+  <para
+>Een hulpbron kan ook los gelaten worden op de kolom <emphasis
+>Verantwoordelijk</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Toewijzingsvastzetter</title>
+  <para
+>De Toewijzingsvastzetter toont de huidige toewijzing van hulpbronnen voor de geselecteerde taak. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Configuratie</title>
+  <para
+>Met het contextmenu kan de weergave geconfigureerd worden om het project te tonen / verbergen, de boomstructuur in of uit te vouwen of het kan geconfigureerd worden met de configuratiedialoog. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>De configuratiedialoog biedt u het aanpassen van de hoeveelheid informatie die de weergave toont om in uw behoefte te voorzien.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>
