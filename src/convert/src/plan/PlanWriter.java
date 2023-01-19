@@ -149,7 +149,8 @@ public final class PlanWriter extends AbstractProjectWriter
         m_planProject.setScheduling(getScheduleFromString(projectProperties.getScheduleFrom()));
         m_planProject.setStartTime(getDateTimeString(projectProperties.getStartDate()));
         m_planProject.setEndTime(getDateTimeString(projectProperties.getFinishDate()));
-      // m_planProject.setCompany(projectProperties.getCompany());
+//        m_planProject.setCompany(projectProperties.getCompany());
+        m_planProject.setDescription(projectProperties.getComments());
    }
 
     /**

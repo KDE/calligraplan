@@ -49,6 +49,11 @@
                 <task id="6" name="S1.1-T1" color="#8cb6ce" meeting="false" start="2023-01-16" duration="1" complete="0" thirdDate="2023-01-16" thirdDate-constraint="0" priority="4" expand="true"/>
             </task>
         </task>
+        <task id="7" name="M1" color="#8cb6ce" meeting="true" start="2023-01-13" duration="0" complete="0" thirdDate="2023-01-13" thirdDate-constraint="0" expand="true">
+            <notes>
+                <![CDATA[This is a description.]]>
+            </notes>
+        </task>
     </tasks>
     <resources>
         <resource id="0" name="R1" function="Default:0" contacts="" phone="">
