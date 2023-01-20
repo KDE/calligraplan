@@ -126,6 +126,7 @@ public final class PlanWriter extends AbstractProjectWriter
         writeProjectSettings();
         writeCalendars();
         writeResources();
+        writeResourceGroups();
         writeResourceGroupRelations();
         writeTasks();
         writeRelations();
@@ -335,14 +336,15 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeResources()
     {
-        // prepare for possible resource groups
-        m_resourcegroups = m_factory.createResourceGroups();
-        m_planProject.setResourceGroups(m_resourcegroups);
+        ResourceContainer mpxjResources = m_projectFile.getResources();
+        if (mpxjResources.isEmpty())
+        {
+            return;
+        }
 
         Resources planResources = m_factory.createResources();
         m_planProject.setResources(planResources);
 
-        ResourceContainer mpxjResources = m_projectFile.getResources();
         for (int i = 0; i < mpxjResources.size(); ++i)
         {
             writeResource(mpxjResources.get(i), planResources);
@@ -356,6 +358,7 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeResource(Resource mpxjResource, Resources planResources)
     {
+        System.out.println("writeResource: " + mpxjResource);
         plan.schema.Resource planResource = m_factory.createResource();
         planResources.getResource().add(planResource);
 
@@ -365,8 +368,8 @@ public final class PlanWriter extends AbstractProjectWriter
 //             planResource.setCalendarId(getIntegerString(resourceCalendar.getUniqueID()));
 //         }
 
-        planResource.setEmail(mpxjResource.getEmailAddress());
         planResource.setId(getResourceId(mpxjResource));
+        planResource.setEmail(mpxjResource.getEmailAddress());
         planResource.setName(getString(mpxjResource.getName()));
         planResource.setInitials(mpxjResource.getInitials());
         planResource.setType(mpxjResource.getType() == ResourceType.MATERIAL ? "Material" : "Work");
@@ -381,15 +384,41 @@ public final class PlanWriter extends AbstractProjectWriter
         if (rate != null) {
             planResource.setOvertimeRate(Double.toString(rate.getAmount()));
         }
-        if (mpxjResource.getGroup() != null) {
-            if (!m_groups.containsKey(mpxjResource.getGroup())) {
-                m_groups.put(mpxjResource.getGroup(), planResource.getId());
+        String groupId = mpxjResource.getGroup();
+        if (groupId != null && !groupId.isEmpty()) {
+            // Collect resource group
+            System.out.println("writeResource: " + mpxjResource + " group: " + groupId);
+            if (!m_groups.containsKey(groupId)) {
+                m_groups.put(groupId, new ArrayList<plan.schema.Resource>());
+                m_groups.get(groupId).add(planResource);
+
                 ResourceGroup resourcegroup = m_factory.createResourceGroup();
-                m_resourcegroups.getResourceGroup().add(resourcegroup);
-                resourcegroup.setId(mpxjResource.getGroup());
-                resourcegroup.setName(mpxjResource.getGroup());
+                m_resourceGroups.add(resourcegroup);
+                resourcegroup.setId(groupId);
+                resourcegroup.setName(groupId);
             }
             System.out.println("writeResource: " + mpxjResource + " group: " + mpxjResource.getGroup());
+        }
+    }
+
+    /**
+    * This method writes data for a single resource to a Plan file.
+    *
+    * @param mpxjResource MPXJ Resource instance
+    */
+    private void writeResourceGroups()
+    {
+        System.out.println("writeResourceGroups: " + m_resourceGroups.size());
+        if (m_resourceGroups.isEmpty())
+        {
+            return;
+        }
+        plan.schema.ResourceGroups planResourceGroups = m_factory.createResourceGroups();
+        m_planProject.setResourceGroups(planResourceGroups);
+        for (int i = 0; i < m_resourceGroups.size(); ++i)
+        {
+            System.out.println("writeResourceGroup: " + m_resourceGroups.get(i).getName());
+            planResourceGroups.getResourceGroup().add(m_resourceGroups.get(i));
         }
     }
 
@@ -399,15 +428,21 @@ public final class PlanWriter extends AbstractProjectWriter
     */
     private void writeResourceGroupRelations()
     {
+        System.out.println("writeResourceGroupsRelations " + m_groups.size());
         ResourceGroupRelations planRelations = m_factory.createResourceGroupRelations();
         m_planProject.setResourceGroupRelations(planRelations);
 
-        for (Map.Entry<String,String> entry : m_groups.entrySet()) {
-            ResourceGroupRelation planRelation = m_factory.createResourceGroupRelation();
-            planRelations.getResourceGroupRelation().add(planRelation);
-            planRelation.setGroupId(entry.getKey());
-            planRelation.setResourceId(entry.getValue());
-            System.out.println("writeResourceGroupRelations: " + entry);
+        for (Map.Entry<String,List> entry : m_groups.entrySet())
+        {
+            List<plan.schema.Resource> resources = entry.getValue();
+            for (int i = 0; i < resources.size(); ++i)
+            {
+                ResourceGroupRelation planRelation = m_factory.createResourceGroupRelation();
+                planRelations.getResourceGroupRelation().add(planRelation);
+                planRelation.setGroupId(entry.getKey());
+                planRelation.setResourceId(resources.get(i).getId());
+                System.out.println("writeResourceGroupRelation: " + planRelation.getGroupId() + ", " + planRelation.getResourceId());
+            }
         }
     }
 
@@ -1711,8 +1746,8 @@ public final class PlanWriter extends AbstractProjectWriter
     private ObjectFactory m_factory;
     private Plan m_plan;
     private Project m_planProject;
-    private ResourceGroups m_resourcegroups;
-    private Map<String, String> m_groups = new HashMap<String, String>(); // <group id, resource id>
+    private List<plan.schema.ResourceGroup> m_resourceGroups = new ArrayList<plan.schema.ResourceGroup>();
+    private Map<String, List> m_groups = new HashMap<String, List>(); // <group id, resource list>
 
     private NumberFormat m_twoDigitFormat = new DecimalFormat("00");
     private NumberFormat m_fourDigitFormat = new DecimalFormat("0000");

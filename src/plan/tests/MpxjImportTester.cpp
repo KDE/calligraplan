@@ -86,6 +86,8 @@ void MpxjImportTester::testGanttProject()
 
     QEXPECT_FAIL("", "GanttProject importer does not set task description", Continue);
     QVERIFY(tasks.value(5)->description().contains(QStringLiteral("This is a description")));
+
+    QVERIFY(tasks.value(0)->findParentRelation(tasks.value(1)) != nullptr);
 }
 
 void MpxjImportTester::testProjectLibre()
@@ -103,8 +105,15 @@ void MpxjImportTester::testProjectLibre()
     QVERIFY(project->description().contains(QStringLiteral("This is the project description.")));
 
     QCOMPARE(project->allCalendars().count(), 3); // ProjectLibre generates 3 calendars by default
-    QCOMPARE(project->allResourceGroups().count(), 1); // ProjectLibre seems to generate an extra group
+    QCOMPARE(project->allResourceGroups().count(), 2); // ProjectLibre seems to generate an extra group
     QCOMPARE(project->resourceList().count(), 3); // ProjectLibre seems to generate an extra resource
+
+    // Note: Groups come in arbitrary order
+    auto r1 = project->resourceList().value(1);
+    QCOMPARE(r1->name(), QStringLiteral("R1"));
+    QCOMPARE(r1->parentGroups().count(), 1);
+    QVERIFY(r1->parentGroups().value(0) == project->group(r1->parentGroups().value(0)->id()));
+
     const auto nodes = project->allNodes(true);
     QCOMPARE(nodes.count(), 7);
 
@@ -146,6 +155,8 @@ void MpxjImportTester::testProjectLibre()
     QCOMPARE(tasks.value(4)->type(), Node::Type_Milestone);
     QCOMPARE(tasks.value(4)->priority(), 500);
     QVERIFY(tasks.value(4)->description().contains(QStringLiteral("This is a description")));
+
+    QVERIFY(tasks.value(2)->findChildRelation(tasks.value(3)) != nullptr);
 }
 
 QTEST_MAIN(MpxjImportTester)
