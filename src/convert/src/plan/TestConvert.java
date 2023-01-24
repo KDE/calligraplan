@@ -21,6 +21,7 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 import java.io.PrintStream;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
@@ -155,6 +156,13 @@ public class TestConvert {
         System.out.println("Project statistics:");
         System.out.println("    Title:          " + file.getProjectProperties().getProjectTitle());
         System.out.println("    Language:       " + file.getProjectProperties().getLanguage());
+        int baselines = 0;
+        for (ProjectFile b : file.getBaselines()) {
+            if (b != null) {
+                ++baselines;
+            }
+        }
+        System.out.println("    Baselines:      " + baselines);
         System.out.println("    Calendars:      " + file.getCalendars().size());
         System.out.println("    Tasks:          " + file.getTasks().size());
         boolean taskcalendar = false;
@@ -174,7 +182,17 @@ public class TestConvert {
             System.out.println("        Has Task relations");
         }
 
-        System.out.println("    Groups:         " + file.getGroups().size());
+        List<String> groups = new ArrayList<String>();
+        for (Resource r : file.getResources()) {
+            if (r.getGroup() != null && !groups.contains(r.getGroup())) {
+                groups.add(r.getGroup());
+            }
+        }
+        System.out.println("    Groups:         " + groups.size());
+        for (int i = 0; i < groups.size(); ++i)
+        {
+            System.out.println("        Group " + i + ": " + groups.get(i));
+        }
         System.out.println("    Resources:      " + file.getResources().size());
         System.out.println("    Assignments:    " + file.getResourceAssignments().size());
 
