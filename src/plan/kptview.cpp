@@ -390,8 +390,7 @@ void View::slotCreateTemplate()
             }
         }
         doc->setSavingTemplate(true);
-        ok &= doc->saveNativeFormat(file);
-
+        doc->saveNativeFormat(file);
         part->deleteLater();
     }
 }
@@ -471,9 +470,9 @@ void View::createViews()
 
         createAccountsEditor(cat, QStringLiteral("AccountsEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createResourceGroupEditor(cat, QStringLiteral("ResourceGroupEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
+        createResourceGroupEditor(cat, QStringLiteral("ResourceGroupEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createResourceEditor(cat, QStringLiteral("ResourceEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
+        createResourceEditor(cat, QStringLiteral("ResourceEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
         v = createTaskEditor(cat, QStringLiteral("TaskEditor"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
         m_defaultView = m_tab->count() - 1;
@@ -539,11 +538,11 @@ void View::createViews()
 
         createPerformanceStatusView(cat, QStringLiteral("PerformanceStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskStatusView(cat, QStringLiteral("TaskStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
+        createTaskStatusView(cat, QStringLiteral("TaskStatusView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskView(cat, QStringLiteral("TaskView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
+        createTaskView(cat, QStringLiteral("TaskView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
-        v = createTaskWorkPackageView(cat, QStringLiteral("TaskWorkPackageView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
+        createTaskWorkPackageView(cat, QStringLiteral("TaskWorkPackageView"), QString(), QLatin1String(TIP_USE_DEFAULT_TEXT));
 
         ct = QStringLiteral("Reports");
         cat = m_viewlist->addCategory(ct, defaultCategoryInfo(ct).name);
