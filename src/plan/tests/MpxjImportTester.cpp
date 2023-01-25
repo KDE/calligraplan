@@ -105,7 +105,7 @@ void MpxjImportTester::testProjectLibre()
     QVERIFY(project->description().contains(QStringLiteral("This is the project description.")));
 
     QCOMPARE(project->allCalendars().count(), 3); // ProjectLibre generates 3 calendars by default
-    QCOMPARE(project->allResourceGroups().count(), 2); // ProjectLibre seems to generate an extra group
+    QCOMPARE(project->allResourceGroups().count(), 1);
     QCOMPARE(project->resourceList().count(), 3); // ProjectLibre seems to generate an extra resource
 
     // Note: Groups come in arbitrary order

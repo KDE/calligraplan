@@ -202,6 +202,8 @@ void print(Project *p, const QString &str, bool all = false) {
     qDebug()<<"  Accounts:"<<p->accounts().accountCount()<<"all:"<<p->accounts().allAccounts().count();
     qDebug()<<"  Calendars:"<<p->calendarCount()<<"all:"<<p->allCalendars().count();
     qDebug()<<"  Default calendar:"<<(p->defaultCalendar()?p->defaultCalendar()->name():QStringLiteral("None"));
+    qDebug()<<"  Groups:"<<p->resourceGroups().count()<<"all:"<<p->allResourceGroups().count();
+    qDebug()<<"  Resources:"<<p->resourceList().count();
     if (! all) {
         return;
     }

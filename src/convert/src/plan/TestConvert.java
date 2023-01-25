@@ -184,7 +184,7 @@ public class TestConvert {
 
         List<String> groups = new ArrayList<String>();
         for (Resource r : file.getResources()) {
-            if (r.getGroup() != null && !groups.contains(r.getGroup())) {
+            if (r.getGroup() != null && !r.getGroup().isEmpty() && !groups.contains(r.getGroup())) {
                 groups.add(r.getGroup());
             }
         }
