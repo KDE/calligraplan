@@ -39,7 +39,7 @@ void ViewListDocker::setView(View *view)
     QWidget *wdg = widget();
     if (wdg)
         delete wdg;
-    m_viewlist = new ViewListWidget(view->getPart(), this);
+    m_viewlist = new ViewListWidget(view->mainDocument(), this);
     setWhatsThis(m_viewlist->whatsThis());
     setWidget(m_viewlist);
     m_viewlist->setProject(&(view->getProject()));

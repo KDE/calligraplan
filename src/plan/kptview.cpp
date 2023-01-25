@@ -276,7 +276,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
     connect(m_scheduleActionGroup, &QActionGroup::triggered, this, &View::slotViewSchedule);
 
 
-    connect(getPart(), &MainDocument::workPackageLoaded, this, &View::slotWorkPackageLoaded);
+    connect(mainDocument(), &MainDocument::workPackageLoaded, this, &View::slotWorkPackageLoaded);
 
     // views take time for large projects
     QTimer::singleShot(0, this, &View::initiateViews);
@@ -331,8 +331,8 @@ void View::initiateViews()
     if (docker) {
         // after createViews() !!
         connect(m_viewlist, &ViewListWidget::modified, docker, &ViewListDocker::slotModified);
-        connect(m_viewlist, &ViewListWidget::modified, getPart(), &MainDocument::slotViewlistModified);
-        connect(getPart(), &MainDocument::viewlistModified, docker, &ViewListDocker::updateWindowTitle);
+        connect(m_viewlist, &ViewListWidget::modified, mainDocument(), &MainDocument::slotViewlistModified);
+        connect(mainDocument(), &MainDocument::viewlistModified, docker, &ViewListDocker::updateWindowTitle);
     }
     connect(m_tab, &QStackedWidget::currentChanged, this, &View::slotCurrentChanged);
 
@@ -356,7 +356,7 @@ void View::slotCreateNewProject()
                              "<nl/>Do you want to continue?")))
     {
         Q_EMIT currentScheduleManagerChanged(nullptr);
-        getPart()->createNewProject();
+        mainDocument()->createNewProject();
         slotOpenNode(&getProject());
     }
 }
@@ -397,7 +397,7 @@ void View::slotCreateTemplate()
 
 void View::createViews()
 {
-    Context *ctx = getPart()->context();
+    Context *ctx = mainDocument()->context();
     if (ctx && ctx->isLoaded()) {
         debugPlan<<"isLoaded";
         KoXmlNode n = ctx->context().namedItem("categories");
@@ -722,10 +722,10 @@ ViewInfo View::defaultCategoryInfo(const QString &type) const
 
 ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ResourceAppointmentsGanttView *v = new ResourceAppointmentsGanttView(getKoPart(), getPart(), m_tab);
+    ResourceAppointmentsGanttView *v = new ResourceAppointmentsGanttView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceAppointmentsGanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -747,10 +747,10 @@ ViewBase *View::createResourceAppointmentsGanttView(ViewListItem *cat, const QSt
 
 ViewBase *View::createResourceCoverageView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ResourceCoverageView *v = new ResourceCoverageView(getKoPart(), getPart(), m_tab);
+    ResourceCoverageView *v = new ResourceCoverageView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceCoverageView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -772,10 +772,10 @@ ViewBase *View::createResourceCoverageView(ViewListItem *cat, const QString &tag
 
 ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ResourceAppointmentsView *v = new ResourceAppointmentsView(getKoPart(), getPart(), m_tab);
+    ResourceAppointmentsView *v = new ResourceAppointmentsView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceAppointmentsView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -797,12 +797,12 @@ ViewBase *View::createResourceAppointmentsView(ViewListItem *cat, const QString 
 
 ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ResourceGroupEditor *e = new ResourceGroupEditor(getKoPart(), getPart(), m_tab);
+    ResourceGroupEditor *e = new ResourceGroupEditor(getKoPart(), mainDocument(), m_tab);
     e->setViewSplitMode(false);
     m_tab->addWidget(e);
     e->setProject(&(getProject()));
     
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, e, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, e, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceGroupEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -821,12 +821,12 @@ ViewBase *View::createResourceGroupEditor(ViewListItem *cat, const QString &tag,
 
 ViewBase *View::createResourceEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ResourceEditor *resourceeditor = new ResourceEditor(getKoPart(), getPart(), m_tab);
+    ResourceEditor *resourceeditor = new ResourceEditor(getKoPart(), mainDocument(), m_tab);
     resourceeditor->setViewSplitMode(false);
     m_tab->addWidget(resourceeditor);
     resourceeditor->setProject(&(getProject()));
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, resourceeditor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, resourceeditor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ResourceEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -845,11 +845,11 @@ ViewBase *View::createResourceEditor(ViewListItem *cat, const QString &tag, cons
 
 ViewBase *View::createTaskEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    TaskEditor *taskeditor = new TaskEditor(getKoPart(), getPart(), m_tab);
+    TaskEditor *taskeditor = new TaskEditor(getKoPart(), mainDocument(), m_tab);
     taskeditor->setViewSplitMode(false);
     m_tab->addWidget(taskeditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskeditor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskeditor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("TaskEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -879,10 +879,10 @@ ViewBase *View::createTaskEditor(ViewListItem *cat, const QString &tag, const QS
 
 ViewBase *View::createAccountsEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    AccountsEditor *ae = new AccountsEditor(getKoPart(), getPart(), m_tab);
+    AccountsEditor *ae = new AccountsEditor(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(ae);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ae, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ae, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("AccountsEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -904,10 +904,10 @@ ViewBase *View::createAccountsEditor(ViewListItem *cat, const QString &tag, cons
 
 ViewBase *View::createCalendarEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    CalendarEditor *calendareditor = new CalendarEditor(getKoPart(), getPart(), m_tab);
+    CalendarEditor *calendareditor = new CalendarEditor(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(calendareditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, calendareditor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, calendareditor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("CalendarEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -929,10 +929,10 @@ ViewBase *View::createCalendarEditor(ViewListItem *cat, const QString &tag, cons
 
 ViewBase *View::createScheduleHandler(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ScheduleHandlerView *handler = new ScheduleHandlerView(getKoPart(), getPart(), m_tab);
+    ScheduleHandlerView *handler = new ScheduleHandlerView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(handler);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, handler, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, handler, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ScheduleHandlerView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -955,7 +955,7 @@ ViewBase *View::createScheduleHandler(ViewListItem *cat, const QString &tag, con
 
 ScheduleEditor *View::createScheduleEditor(QWidget *parent)
 {
-    ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), getPart(), parent);
+    ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), mainDocument(), parent);
 
     scheduleeditor->updateReadWrite(true); // always allow editing
     return scheduleeditor;
@@ -963,10 +963,10 @@ ScheduleEditor *View::createScheduleEditor(QWidget *parent)
 
 ViewBase *View::createScheduleEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), getPart(), m_tab);
+    ScheduleEditor *scheduleeditor = new ScheduleEditor(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(scheduleeditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, scheduleeditor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, scheduleeditor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ScheduleEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -989,10 +989,10 @@ ViewBase *View::createScheduleEditor(ViewListItem *cat, const QString &tag, cons
 
 ViewBase *View::createDependencyEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    DependencyEditor *editor = new DependencyEditor(getKoPart(), getPart(), m_tab);
+    DependencyEditor *editor = new DependencyEditor(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(editor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, editor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, editor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("DependencyEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1017,10 +1017,10 @@ ViewBase *View::createDependencyEditor(ViewListItem *cat, const QString &tag, co
 
 ViewBase *View::createPertEditor(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    PertEditor *perteditor = new PertEditor(getKoPart(), getPart(), m_tab);
+    PertEditor *perteditor = new PertEditor(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(perteditor);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, perteditor, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, perteditor, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("PertEditor"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1043,10 +1043,10 @@ ViewBase *View::createPertEditor(ViewListItem *cat, const QString &tag, const QS
 
 ViewBase *View::createProjectStatusView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ProjectStatusView *v = new ProjectStatusView(getKoPart(), getPart(), m_tab);
+    ProjectStatusView *v = new ProjectStatusView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ProjectStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1069,10 +1069,10 @@ ViewBase *View::createProjectStatusView(ViewListItem *cat, const QString &tag, c
 
 ViewBase *View::createPerformanceStatusView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    PerformanceStatusView *v = new PerformanceStatusView(getKoPart(), getPart(), m_tab);
+    PerformanceStatusView *v = new PerformanceStatusView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("PerformanceStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1096,11 +1096,11 @@ ViewBase *View::createPerformanceStatusView(ViewListItem *cat, const QString &ta
 
 ViewBase *View::createTaskStatusView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    TaskStatusView *taskstatusview = new TaskStatusView(getKoPart(), getPart(), m_tab);
+    TaskStatusView *taskstatusview = new TaskStatusView(getKoPart(), mainDocument(), m_tab);
     taskstatusview->setViewSplitMode(false);
     m_tab->addWidget(taskstatusview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskstatusview, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, taskstatusview, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("TaskStatusView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1123,11 +1123,11 @@ ViewBase *View::createTaskStatusView(ViewListItem *cat, const QString &tag, cons
 
 ViewBase *View::createTaskView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    TaskView *v = new TaskView(getKoPart(), getPart(), m_tab);
+    TaskView *v = new TaskView(getKoPart(), mainDocument(), m_tab);
     v->setViewSplitMode(false);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("TaskView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1152,11 +1152,11 @@ ViewBase *View::createTaskView(ViewListItem *cat, const QString &tag, const QStr
 
 ViewBase *View::createTaskWorkPackageView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    TaskWorkPackageView *v = new TaskWorkPackageView(getKoPart(), getPart(), m_tab);
+    TaskWorkPackageView *v = new TaskWorkPackageView(getKoPart(), mainDocument(), m_tab);
     v->setViewSplitMode(false);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("TaskWorkPackageView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1178,7 +1178,7 @@ ViewBase *View::createTaskWorkPackageView(ViewListItem *cat, const QString &tag,
     connect(v, &TaskWorkPackageView::publishWorkpackages, this, &View::slotPublishWorkpackages);
     connect(v, &TaskWorkPackageView::openWorkpackages, this, &View::openWorkPackageMergeDialog);
     connect(this, &View::workPackagesAvailable, v, &TaskWorkPackageView::slotWorkpackagesAvailable);
-    connect(v, &TaskWorkPackageView::checkForWorkPackages, getPart(), &MainDocument::checkForWorkPackages);
+    connect(v, &TaskWorkPackageView::checkForWorkPackages, mainDocument(), &MainDocument::checkForWorkPackages);
     connect(v, &TaskWorkPackageView::loadWorkPackageUrl, this, &View::loadWorkPackage);
     v->updateReadWrite(true); // always allow editing
 
@@ -1187,10 +1187,10 @@ ViewBase *View::createTaskWorkPackageView(ViewListItem *cat, const QString &tag,
 
 ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    GanttView *ganttview = new GanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
+    GanttView *ganttview = new GanttView(getKoPart(), mainDocument(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("GanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1216,10 +1216,10 @@ ViewBase *View::createGanttView(ViewListItem *cat, const QString &tag, const QSt
 
 ViewBase *View::createMilestoneGanttView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    MilestoneGanttView *ganttview = new MilestoneGanttView(getKoPart(), getPart(), m_tab, true); // always allow editing
+    MilestoneGanttView *ganttview = new MilestoneGanttView(getKoPart(), mainDocument(), m_tab, true); // always allow editing
     m_tab->addWidget(ganttview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, ganttview, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("MilestoneGanttView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1246,10 +1246,10 @@ ViewBase *View::createMilestoneGanttView(ViewListItem *cat, const QString &tag, 
 
 ViewBase *View::createAccountsView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    AccountsView *accountsview = new AccountsView(getKoPart(), &getProject(), getPart(), m_tab);
+    AccountsView *accountsview = new AccountsView(getKoPart(), &getProject(), mainDocument(), m_tab);
     m_tab->addWidget(accountsview);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, accountsview, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, accountsview, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("AccountsView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1273,10 +1273,10 @@ ViewBase *View::createAccountsView(ViewListItem *cat, const QString &tag, const 
 
 ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
-    ReportsGeneratorView *v = new ReportsGeneratorView(getKoPart(), getPart(), m_tab);
+    ReportsGeneratorView *v = new ReportsGeneratorView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ReportsGeneratorView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1303,10 +1303,10 @@ ViewBase *View::createReportsGeneratorView(ViewListItem *cat, const QString &tag
 ViewBase *View::createReportView(ViewListItem *cat, const QString &tag, const QString &name, const QString &tip, int index)
 {
 #ifdef PLAN_USE_KREPORT
-    ReportView *v = new ReportView(getKoPart(), getPart(), m_tab);
+    ReportView *v = new ReportView(getKoPart(), mainDocument(), m_tab);
     m_tab->addWidget(v);
 
-    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, getPart(), QLatin1String(), index);
+    ViewListItem *i = m_viewlist->addView(cat, tag, name, v, mainDocument(), QLatin1String(), index);
     ViewInfo vi = defaultViewInfo(QStringLiteral("ReportView"));
     if (name.isEmpty()) {
         i->setText(0, vi.name);
@@ -1338,7 +1338,7 @@ ViewBase *View::createReportView(ViewListItem *cat, const QString &tag, const QS
 
 Project& View::getProject() const
 {
-    return getPart() ->getProject();
+    return mainDocument() ->getProject();
 }
 
 KoPrintJob * View::createPrintJob()
@@ -1396,7 +1396,7 @@ void View::slotViewSelector(bool show)
 
 void View::slotInsertResourcesFile(const QString &file)
 {
-    getPart()->insertResourcesFile(QUrl(file));
+    mainDocument()->insertResourcesFile(QUrl(file));
 }
 
 void View::slotInsertFile()
@@ -1414,7 +1414,7 @@ void View::slotInsertFileFinished(int result)
     }
     if (result == QDialog::Accepted) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
-        getPart()->insertFile(dlg->url(), dlg->parentNode(), dlg->afterNode());
+        mainDocument()->insertFile(dlg->url(), dlg->parentNode(), dlg->afterNode());
         QApplication::restoreOverrideCursor();
     }
     dlg->deleteLater();
@@ -1422,7 +1422,7 @@ void View::slotInsertFileFinished(int result)
 
 void View::slotUpdateSharedResources()
 {
-    auto doc = getPart();
+    auto doc = mainDocument();
     auto project = doc->project();
     if (project->useSharedResources() && !project->sharedResourcesFile().isEmpty()) {
         doc->insertResourcesFile(QUrl::fromUserInput(project->sharedResourcesFile()));
@@ -1534,7 +1534,7 @@ void View::slotProjectWorktimeFinished(int result)
         KUndo2Command * cmd = dia->buildCommand();
         if (cmd) {
             //debugPlan<<"Modifying calendar(s)";
-            getPart() ->addCommand(cmd); //also executes
+            mainDocument() ->addCommand(cmd); //also executes
         }
     }
     dia->deleteLater();
@@ -1719,7 +1719,7 @@ void View::slotDefineWBSFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command *cmd = dia->buildCommand();
         if (cmd) {
-            getPart()->addCommand(cmd);
+            mainDocument()->addCommand(cmd);
         }
     }
     dia->deleteLater();
@@ -1814,7 +1814,7 @@ void View::slotProjectEditFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * cmd = dia->buildCommand();
         if (cmd) {
-            getPart()->addCommand(cmd);
+            mainDocument()->addCommand(cmd);
             if (dia->updateSharedResources()) {
                 int answer = QMessageBox::question(this, i18nc("ªtitle:window", "Shared Resources"), xi18nc("@info", "Use shared resources has been activated.<nl/>Shall resources be updated?"));
                 if (answer == QMessageBox::Yes) {
@@ -1869,7 +1869,7 @@ void View::slotProjectDescriptionFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command * m = dia->buildCommand();
         if (m) {
-            getPart() ->addCommand(m);
+            mainDocument() ->addCommand(m);
         }
     }
     dia->deleteLater();
@@ -1881,7 +1881,7 @@ void View::updateReadWrite(bool readwrite)
     m_viewlist->setReadWrite(readwrite);
 }
 
-MainDocument *View::getPart() const
+MainDocument *View::mainDocument() const
 {
     return (MainDocument *) koDocument();
 }
@@ -1951,7 +1951,7 @@ void View::guiActivateEvent(bool activated)
 
 void View::slotViewListItemRemoved(ViewListItem *item)
 {
-    getPart()->removeViewListItem(this, item);
+    mainDocument()->removeViewListItem(this, item);
 }
 
 void View::removeViewListItem(const ViewListItem *item)
@@ -1969,7 +1969,7 @@ void View::removeViewListItem(const ViewListItem *item)
 
 void View::slotViewListItemInserted(ViewListItem *item, ViewListItem *parent, int index)
 {
-    getPart()->insertViewListItem(this, item, parent, index);
+    mainDocument()->insertViewListItem(this, item, parent, index);
 }
 
 void View::addViewListItem(const ViewListItem *item, const ViewListItem *parent, int index)
@@ -2152,7 +2152,7 @@ void View::slotRenameNode(Node *node, const QString& name)
             case Node::Type_Project: s = kundo2_i18n("Modify project name"); break;
         }
         NodeModifyNameCmd * cmd = new NodeModifyNameCmd(*node, name, s);
-        getPart() ->addCommand(cmd);
+        mainDocument() ->addCommand(cmd);
     }
 }
 
@@ -2190,7 +2190,7 @@ void View::slotPopupMenu(const QString& menuname, const QPoint &pos, ViewListIte
 
 bool View::loadContext()
 {
-    Context *ctx = getPart()->context();
+    Context *ctx = mainDocument()->context();
     if (ctx == nullptr || ! ctx->isLoaded()) {
         return false;
     }
@@ -2226,7 +2226,7 @@ void View::loadWorkPackage(Project *project, const QList<QUrl> &urls)
 {
     bool loaded = false;
     for (const QUrl &url : urls) {
-        loaded |= getPart()->loadWorkPackage(*project, url);
+        loaded |= mainDocument()->loadWorkPackage(*project, url);
     }
     if (loaded) {
         slotWorkPackageLoaded();
@@ -2246,16 +2246,16 @@ void View::setLabel(ScheduleManager *sm)
 
 void View::slotWorkPackageLoaded()
 {
-    debugPlan<<getPart()->workPackages();
+    debugPlan<<mainDocument()->workPackages();
     addStatusBarItem(m_workPackageButton, 0, true);
     Q_EMIT workPackagesAvailable(true);
 }
 
 void View::openWorkPackageMergeDialog()
 {
-    WorkPackageMergeDialog *dlg = new WorkPackageMergeDialog(&getProject(), getPart()->workPackages(), this);
+    WorkPackageMergeDialog *dlg = new WorkPackageMergeDialog(&getProject(), mainDocument()->workPackages(), this);
     connect(dlg, &QDialog::finished, this, &View::workPackageMergeDialogFinished);
-    connect(dlg, SIGNAL(terminateWorkPackage(const KPlato::Package*)), getPart(), SLOT(terminateWorkPackage(const KPlato::Package*)));
+    connect(dlg, SIGNAL(terminateWorkPackage(const KPlato::Package*)), mainDocument(), SLOT(terminateWorkPackage(const KPlato::Package*)));
     connect(dlg, &WorkPackageMergeDialog::executeCommand, koDocument(), &KoDocument::addCommand);
     dlg->open();
     removeStatusBarItem(m_workPackageButton);
@@ -2267,7 +2267,7 @@ void View::workPackageMergeDialogFinished(int result)
     debugPlanWp<<"result:"<<result<<"sender:"<<sender();
     WorkPackageMergeDialog *dlg = qobject_cast<WorkPackageMergeDialog*>(sender());
     Q_ASSERT(dlg);
-    if (!getPart()->workPackages().isEmpty()) {
+    if (!mainDocument()->workPackages().isEmpty()) {
         slotWorkPackageLoaded();
     }
     if (dlg) {
@@ -2282,9 +2282,9 @@ void View::slotPublishWorkpackages(const QList<Node*> &nodes, Resource *resource
         warnPlan<<"No resource, we don't handle node->leader() yet";
         return;
     }
-    QList<QUrl> attachURLs = getPart()->publishWorkpackages(nodes, resource, activeScheduleId());
-    if (!getPart()->errorMessage().isEmpty()) {
-         KMessageBox::error(nullptr, getPart()->errorMessage());
+    QList<QUrl> attachURLs = mainDocument()->publishWorkpackages(nodes, resource, activeScheduleId());
+    if (!mainDocument()->errorMessage().isEmpty()) {
+         KMessageBox::error(nullptr, mainDocument()->errorMessage());
          return;
     }
     if (mailTo) {
@@ -2323,7 +2323,7 @@ void View::slotCurrencyConfigFinished(int result)
     if (result == QDialog::Accepted) {
         KUndo2Command *c = dlg->buildCommand(getProject());
         if (c) {
-            getPart()->addCommand(c);
+            mainDocument()->addCommand(c);
         }
     }
     dlg->deleteLater();

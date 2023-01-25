@@ -86,7 +86,7 @@ public:
     explicit View(KoPart *part, MainDocument *doc, QWidget *parent = nullptr);
     ~View() override;
 
-    MainDocument *getPart() const;
+    MainDocument *mainDocument() const;
 
     KoPart *getKoPart() const;
 
