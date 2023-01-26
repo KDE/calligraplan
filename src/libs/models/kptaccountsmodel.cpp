@@ -758,7 +758,7 @@ QString CostBreakdownItemModel::formatMoney(double cost1, double cost2) const
     if (m_showmode == ShowMode_Deviation) {
         return m_project->locale()->formatMoney(cost1 - cost2, QString(), 0);
     }
-    return QStringLiteral("");
+    return QLatin1String("");
 }
 
 QVariant CostBreakdownItemModel::data(const QModelIndex &index, int role) const

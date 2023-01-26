@@ -137,10 +137,10 @@ QString WBSDefinition::code(const CodeDef &def, uint index) const {
 // Nicked from koparagcounter.cc
 QString WBSDefinition::toRoman(int n, bool upper) const
 {
-    static const QString RNUnits[] = {QStringLiteral(""), QStringLiteral("i"), QStringLiteral("ii"), QStringLiteral("iii"), QStringLiteral("iv"), QStringLiteral("v"), QStringLiteral("vi"), QStringLiteral("vii"), QStringLiteral("viii"), QStringLiteral("ix")};
-    static const QString RNTens[] = {QStringLiteral(""), QStringLiteral("x"), QStringLiteral("xx"), QStringLiteral("xxx"), QStringLiteral("xl"), QStringLiteral("l"), QStringLiteral("lx"), QStringLiteral("lxx"), QStringLiteral("lxxx"), QStringLiteral("xc")};
-    static const QString RNHundreds[] = {QStringLiteral(""), QStringLiteral("c"), QStringLiteral("cc"), QStringLiteral("ccc"), QStringLiteral("cd"), QStringLiteral("d"), QStringLiteral("dc"), QStringLiteral("dcc"), QStringLiteral("dccc"), QStringLiteral("cm")};
-    static const QString RNThousands[] = {QStringLiteral(""), QStringLiteral("m"), QStringLiteral("mm"), QStringLiteral("mmm")};
+    static const QString RNUnits[] = {QString(), QStringLiteral("i"), QStringLiteral("ii"), QStringLiteral("iii"), QStringLiteral("iv"), QStringLiteral("v"), QStringLiteral("vi"), QStringLiteral("vii"), QStringLiteral("viii"), QStringLiteral("ix")};
+    static const QString RNTens[] = {QString(), QStringLiteral("x"), QStringLiteral("xx"), QStringLiteral("xxx"), QStringLiteral("xl"), QStringLiteral("l"), QStringLiteral("lx"), QStringLiteral("lxx"), QStringLiteral("lxxx"), QStringLiteral("xc")};
+    static const QString RNHundreds[] = {QString(), QStringLiteral("c"), QStringLiteral("cc"), QStringLiteral("ccc"), QStringLiteral("cd"), QStringLiteral("d"), QStringLiteral("dc"), QStringLiteral("dcc"), QStringLiteral("dccc"), QStringLiteral("cm")};
+    static const QString RNThousands[] = {QString(), QStringLiteral("m"), QStringLiteral("mm"), QStringLiteral("mmm")};
 
     if (n < 0) { // should never happen, but better not crash if it does
         warnPlan << "intToRoman called with negative number: n=" << n;

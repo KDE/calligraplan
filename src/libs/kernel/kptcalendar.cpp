@@ -178,7 +178,7 @@ void CalendarDay::addInterval(TimeInterval *interval) {
 
     // TODO: check for overlapping intervals and handle them for what makes sense
     QList <TimeInterval*>::Iterator it;
-    const QList <TimeInterval*>::Iterator end = m_timeIntervals.end();
+    QList <TimeInterval*>::Iterator end = m_timeIntervals.end();
     QList <TimeInterval*>::Iterator position = end;
     for (it = m_timeIntervals.begin(); it != end; ++it) {
         // first found that is later?

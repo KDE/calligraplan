@@ -1108,7 +1108,7 @@ QVariant DateTableDataModel::data(const Calendar &cal, const QDate &date, int ro
                 if (cal.parentCal()) {
                     return data(*(cal.parentCal()), date, role);
                 }
-                return QStringLiteral("");
+                return QLatin1String("");
             }
             if (day->state() == CalendarDay::NonWorking) {
                 return i18nc("NonWorking", "NW");
@@ -1194,7 +1194,7 @@ QVariant DateTableDataModel::data(const QDate &date, int role, int dataType) con
         }
         case 0: {
             if (m_calendar == nullptr) {
-                return QStringLiteral("");
+                return QLatin1String("");
             }
             if (m_calendar) {
                 return data(*m_calendar, date, role);
@@ -1399,6 +1399,7 @@ bool CalendarExtendedItemModel::setData(const QModelIndex &index, const QVariant
             CalendarDay *day = new CalendarDay();
             QVariantList lst = value.toList();
             if (lst.count() < 2) {
+                delete day;
                 return false;
             }
             day->setDate(lst.at(0).toDate());

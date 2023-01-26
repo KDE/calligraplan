@@ -356,7 +356,7 @@ QDateTime MainProjectPanel::endDateTime()
 
 void MainProjectPanel::openResourcesFile()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Resources"), QStringLiteral(""), tr("Resources file (*.plan)"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open Resources"), QString(), tr("Resources file (*.plan)"));
     resourcesFile->setText(fileName);
 }
 

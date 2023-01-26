@@ -1534,7 +1534,8 @@ const QList<ResourceGroup*> &Project::resourceGroups() const
 void collectGroups(ResourceGroup *parent, QList<ResourceGroup*> &groups)
 {
     groups << parent;
-    for (auto child : parent->childGroups()) {
+    const auto children = parent->childGroups();
+    for (auto child : children) {
         collectGroups(child, groups);
     }
 }

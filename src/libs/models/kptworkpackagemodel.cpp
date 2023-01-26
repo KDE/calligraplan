@@ -31,9 +31,9 @@ QVariant WorkPackageModel::nodeName(const WorkPackage *wp, int role) const
     switch (role) {
         case Qt::DisplayRole:
         case Qt::ToolTipRole:
-            return wp->parentTask() ? wp->parentTask()->name() : QStringLiteral("");
+            return wp->parentTask() ? wp->parentTask()->name() : QLatin1String("");
         case Qt::EditRole:
-            return wp->parentTask() ? wp->parentTask()->name() : QStringLiteral("");
+            return wp->parentTask() ? wp->parentTask()->name() : QLatin1String("");
         case Qt::StatusTipRole:
         case Qt::WhatsThisRole:
             return QVariant();

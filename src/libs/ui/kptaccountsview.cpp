@@ -303,9 +303,9 @@ bool AccountsView::loadContext(const KoXmlElement &context)
     m_view->setShowMode(context.attribute("show-mode").toInt());
     m_view->setCumulative((bool)(context.attribute("cumulative").toInt()));
     m_view->setPeriodType(context.attribute("period-type", QString::number(0)).toInt());
-    m_view->setStartDate(QDate::fromString(context.attribute("start-date", QStringLiteral("")), Qt::ISODate));
+    m_view->setStartDate(QDate::fromString(context.attribute("start-date", QString()), Qt::ISODate));
     m_view->setStartMode(context.attribute("start-mode", QString::number(0)).toInt());
-    m_view->setEndDate(QDate::fromString(context.attribute("end-date", QStringLiteral("")), Qt::ISODate));
+    m_view->setEndDate(QDate::fromString(context.attribute("end-date", QString()), Qt::ISODate));
     m_view->setEndMode(context.attribute("end-mode", QString::number(0)).toInt());
     
     //debugPlan<<m_view->startMode()<<m_view->startDate()<<m_view->endMode()<<m_view->endDate();

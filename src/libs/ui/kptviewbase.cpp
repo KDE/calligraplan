@@ -1687,7 +1687,7 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
             // try numbers
             debugPlan<<"invalid map";
             for (int i = model()->columnCount() - 1; i >= 0; --i) {
-                QString s = e.attribute(QStringLiteral("column-%1").arg(i), QStringLiteral(""));
+                QString s = e.attribute(QStringLiteral("column-%1").arg(i), QString());
                 if (s == QStringLiteral("hidden")) {
                     hideColumn(i);
                 } else if (s == QStringLiteral("shown")) {
@@ -1699,7 +1699,7 @@ bool TreeViewBase::loadContext(const QMetaEnum &map, const KoXmlElement &element
                 QString n = QLatin1String(map.key(i));
                 //debugPlan<<i<<"="<<n;
                 if (! n.isEmpty()) {
-                    QString s = e.attribute(n, QStringLiteral(""));
+                    QString s = e.attribute(n, QString());
                     if (s == QStringLiteral("hidden")) {
                         hideColumn(i);
                     } else if (s == QStringLiteral("shown")) {

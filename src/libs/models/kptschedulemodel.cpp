@@ -472,7 +472,7 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
             }
             QStringList l = sm->state();
             if (l.isEmpty()) {
-                return QStringLiteral("");
+                return QLatin1String("");
             }
             return l.first();
         }
@@ -480,7 +480,7 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
         {
             QStringList l = sm->state();
             if (l.isEmpty()) {
-                return QStringLiteral("");
+                return QLatin1String("");
             }
             return l.first();
         }

@@ -184,7 +184,7 @@ void DocumentsPanel::slotViewUrl()
         return;
     }
     KRun *run = new KRun(doc->url(), nullptr);
-    Q_UNUSED(run); // XXX: shouldn't run be deleted?
+    Q_UNUSED(run); // KRun auto-deletes by default so need to delete it
     return;
 }
 

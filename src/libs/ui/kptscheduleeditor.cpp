@@ -674,18 +674,17 @@ void ScheduleLogView::slotContextMenuRequested(const QModelIndex &index, const Q
     if (! isReadWrite() || ! index.isValid()) {
         return;
     }
-    QMenu *m = new QMenu(this);
+    QScopedPointer<QMenu> m(new QMenu(this));
     QString id = index.data(ScheduleLogItemModel::IdentityRole).toString();
     if (id.isEmpty()) {
         return;
     }
-    QAction *a = new QAction(koIcon("document-edit"), i18n("Edit..."), m);
+    QAction *a = new QAction(koIcon("document-edit"), i18n("Edit..."), m.get());
     a->setProperty("p_identity", id);
     m->addAction(a);
     connect(a, &QAction::triggered, this, &ScheduleLogView::slotEdit);
     m->addSeparator();
     m->exec(pos);
-    delete m;
 }
 
 void ScheduleLogView::slotScheduleSelectionChanged(ScheduleManager *sm)

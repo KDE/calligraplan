@@ -87,7 +87,7 @@ void TaskDescriptionPanel::initDescription(bool readOnly)
     toolbar->addAction(collection->action(QStringLiteral("manage_link")));
     toolbar->addAction(collection->action(QStringLiteral("open_link")));
 
-    descriptionfield->append(QStringLiteral(""));
+    descriptionfield->append(QLatin1String(""));
     descriptionfield->setReadOnly(readOnly);
     descriptionfield->setOverwriteMode(false);
     descriptionfield->setLineWrapMode(KTextEdit::WidgetWidth);
