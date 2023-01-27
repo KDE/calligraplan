@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2023-01-09 11:56+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -550,7 +550,7 @@ msgstr "Initia planification de retro"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Terminava planification de retro: %1 ms"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Plan"
@@ -2383,18 +2383,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Modifica die de septimana de calendario"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Modifica data de calendario"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Die de septimana"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4492,7 +4492,7 @@ msgstr "Adde sub-carga "
 msgid "Path"
 msgstr "Percurso"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Percurso Critic"
@@ -7618,22 +7618,22 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Resultato"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Registro de Planification"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Modifica tempore de startar de objecto de projecto"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Modifica tempore de fin de objecto de projecto"

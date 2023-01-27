@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2015-02-04 14:43+0000\n"
 "Last-Translator: Samir Ribic <Unknown>\n"
 "Language-Team: Bosnian <kde-i18n-doc@kde.org>\n"
@@ -559,7 +559,7 @@ msgstr "Počni raspoređivanje unazad"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Završeno raspoređivanje unazad: %1 ms"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Plan"
@@ -2460,18 +2460,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Izmjeni dane u sedmici kalendara"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Izmjeni dan kalendara"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Radni dan"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4663,7 +4663,7 @@ msgstr "Dodaj podzadatak"
 msgid "Path"
 msgstr "Putanja"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Kritična putanja"
@@ -8040,17 +8040,17 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Prikaži debug informacije"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Rezultat"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Dnevnik raspoređivanja"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target start time"
@@ -8058,7 +8058,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Rasporedi projekt od ciljanog početnog vremena"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target end time"

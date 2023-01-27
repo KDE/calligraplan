@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2022-12-21 13:43+0100\n"
 "Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -555,7 +555,7 @@ msgstr "Inici de planificació arrere"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "La planificació arrere ha finalitzat: %1 ms"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Pla"
@@ -2462,18 +2462,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Modifica el dia de setmana del calendari"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Modifica la data del calendari"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Dia de la setmana"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4616,7 +4616,7 @@ msgstr "Afig una subtasca"
 msgid "Path"
 msgstr "Camí"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Camí crítica"
@@ -7858,22 +7858,22 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Mostra la informació de depuració"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Resultat"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Bitàcola de planificació"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Modifica l'hora d'inici objectiu del projecte"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Modifica l'hora final objectiu del projecte"

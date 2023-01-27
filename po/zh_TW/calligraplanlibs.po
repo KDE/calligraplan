@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2011-12-26 08:35+0800\n"
 "Last-Translator: Franklin Weng <franklin@mail.everfocus.com.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -571,7 +571,7 @@ msgstr "將工作往後安排"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "延遲完成已計算：%1"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "計畫"
@@ -2459,18 +2459,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "變更行事曆工作日"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "變更行事曆日期"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "工作日"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4669,7 +4669,7 @@ msgstr "新增子工作"
 msgid "Path"
 msgstr "路徑"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "要徑"
@@ -8030,17 +8030,17 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "顯示除錯資訊"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "結果"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "排程紀錄"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target start time"
@@ -8048,7 +8048,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "從目標開始時間排程專案"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target end time"

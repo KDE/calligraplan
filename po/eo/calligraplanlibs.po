@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2009-11-15 12:06+0100\n"
 "Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -596,7 +596,7 @@ msgstr "Ŝanĝu taskon"
 msgid "Finished scheduling backward: %1 ms"
 msgstr ""
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr ""
@@ -2506,21 +2506,21 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Ŝanĝu taskon"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgid "Calendar"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Kalendaro"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Semajno"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4854,7 +4854,7 @@ msgstr "Tasko"
 msgid "Path"
 msgstr "Vojo"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, fuzzy, kde-format
 #| msgid "Critical"
 msgid "Critical Path"
@@ -8272,25 +8272,25 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Rezulto"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, fuzzy, kde-format
 #| msgid "Not started"
 msgid "Scheduling Log"
 msgstr "Ne lanĉiĝis"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgid "Modify Task"
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Ŝanĝu taskon"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgid "Modify Task"
 msgctxt "(qtundo-format)"

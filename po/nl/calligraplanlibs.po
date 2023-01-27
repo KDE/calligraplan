@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2022-12-17 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -555,7 +555,7 @@ msgstr "Begin met achterwaarts te plannen"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Einde van achterwaarts plannen: %1 ms"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Plan"
@@ -2461,18 +2461,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Agendaweekdag wijzigen"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Agendadatum wijzigen"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Weekdag"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4617,7 +4617,7 @@ msgstr "Subtaak toevoegen"
 msgid "Path"
 msgstr "Pad"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Kritieke pad"
@@ -7858,22 +7858,22 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Debug-informatie tonen"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Resultaat"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Planninglog"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Beoogde begintijd van het project wijzigen"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Beoogde eindtijd van het project wijzigen"

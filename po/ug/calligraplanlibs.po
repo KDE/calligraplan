@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -580,7 +580,7 @@ msgstr ""
 msgid "Finished scheduling backward: %1 ms"
 msgstr ""
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Plan"
@@ -2487,7 +2487,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "ئەمەلىي خىزمەتنى ئۆزگەرت"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify actual effort"
@@ -2495,13 +2495,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "ئەمەلىي خىزمەتنى ئۆزگەرت"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "بىنەپتە كۈن"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4838,7 +4838,7 @@ msgstr "ۋەزىپە قوش"
 msgid "Path"
 msgstr "يول"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "ھەل قىلغۇچ يول"
@@ -8263,18 +8263,18 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "نەتىجە"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, fuzzy, kde-format
 #| msgid "Scheduling"
 msgid "Scheduling Log"
 msgstr "پىلان"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify project name"
@@ -8282,7 +8282,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "قۇرۇلۇش ئاتىنى ئۆزگەرت"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify project name"

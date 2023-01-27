@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2009-04-22 00:17+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -618,7 +618,7 @@ msgstr "नियत:"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "समाप्त"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "योजना"
@@ -2574,21 +2574,21 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "विवरण"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgid "Description"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "विवरण"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "सप्ताह"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
 msgctxt "@title:column"
@@ -4992,7 +4992,7 @@ msgstr "काज"
 msgid "Path"
 msgstr "पथ"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, fuzzy, kde-format
 #| msgid "Critical"
 msgid "Critical Path"
@@ -8430,25 +8430,25 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "परिणाम"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, fuzzy, kde-format
 #| msgid "Schedule:"
 msgid "Scheduling Log"
 msgstr "नियत:"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgid "Schedule:"
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "नियत:"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgid "Schedule:"
 msgctxt "(qtundo-format)"

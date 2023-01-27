@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2021-07-24 23:12+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -563,7 +563,7 @@ msgstr "Aloita ajastus taaksepäin"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Ajastus taaksepäin valmis: %1 ms"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Suunnitelma"
@@ -2482,20 +2482,20 @@ msgstr ""
 "Muuta kalenterin viikonpäivää\n"
 "kalenterin viikonpäivän muutos"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr ""
 "Muuta kalenterin päivämäärää\n"
 "kalenterin päivämäärän muutos"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Viikonpäivä"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4735,7 +4735,7 @@ msgstr ""
 msgid "Path"
 msgstr "Polku"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Kriittinen polku"
@@ -8103,24 +8103,24 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Näytä virheenpaikannustiedot"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Tulos"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Aikataulutusloki"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgid "The scheduled finish time"
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Aikataulun mukainen päättymisaika"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgid "The scheduled finish time"
 msgctxt "(qtundo-format)"

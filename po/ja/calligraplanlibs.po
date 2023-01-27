@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2012-06-09 22:24-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -580,7 +580,7 @@ msgstr "復路分析によってタスクをスケジュール"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "最遅完了を計算しました: %1"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "計画"
@@ -2469,7 +2469,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "カレンダーの平日を変更"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgctxt "(qtundo_format)"
 #| msgid "Modify calendar date"
@@ -2477,13 +2477,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "カレンダーの日付を変更"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "平日"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4687,7 +4687,7 @@ msgstr "サブタスクを追加"
 msgid "Path"
 msgstr "パス"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "クリティカルパス"
@@ -8034,17 +8034,17 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "デバッグ情報を表示"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "結果"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "スケジュール作成ログ"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target start time"
@@ -8052,7 +8052,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "目標開始日からプロジェクトのスケジュールを作成します"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target end time"

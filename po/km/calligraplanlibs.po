@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2010-03-09 09:17+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -570,7 +570,7 @@ msgstr "កំណត់​ពេល​ភារកិច្ច​ថយ​ក្
 msgid "Finished scheduling backward: %1 ms"
 msgstr "បាន​គណនា​ពេល​​​បញ្ចប់​ចុង​ក្រោយ ៖ %1"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "គម្រោង​"
@@ -2491,21 +2491,21 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "កែប្រែ​ឈ្មោះ​ប្រតិទិន​"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgid "Modify calendar state"
 msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "កែប្រែ​សភាព​ប្រតិទិន​"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, fuzzy, kde-kuit-format
 #| msgid "Week"
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "សប្តាហ៍​"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
 msgctxt "@title:column"
@@ -4856,7 +4856,7 @@ msgstr "បន្ថែម​ភារកិច្ច​រង​"
 msgid "Path"
 msgstr "ផ្លូវ​"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "ផ្លូវ​សំខាន់​បំផុត​"
@@ -8316,24 +8316,24 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "បង្ហាញ​ព័ត៌មាន​អំពី​ការបំបាត់​កំហុស​"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "លទ្ធផល​"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "កំណត់​ហេតុ​កំណត់​ពេល​​"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgid "Schedule project from: %1"
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "កំណត់​ពេល​​គម្រោង​ពី ៖ %1​"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgid "Schedule project from: %1"
 msgctxt "(qtundo-format)"

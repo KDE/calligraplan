@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2012-09-30 05:47+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -575,7 +575,7 @@ msgstr "Προγραμματισμός εργασιών προς τα πίσω"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Επιλεγμένο βάθος λεπτομέρειας προγραμματισμού: %1"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr "Plan"
@@ -2483,7 +2483,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "Τροποποίηση καθημερινής ημέρας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgctxt "(qtundo_format)"
 #| msgid "Modify calendar date"
@@ -2491,13 +2491,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "Τροποποίηση ημερομηνίας ημερολογίου"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "Ημέρα εβδομάδας"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4704,7 +4704,7 @@ msgstr "Προσθήκη υπο-εργασίας"
 msgid "Path"
 msgstr "Διαδρομή"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, kde-format
 msgid "Critical Path"
 msgstr "Κρίσιμη διαδρομή"
@@ -8099,17 +8099,17 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Εμφάνιση πληροφοριών για σφάλματα στον κώδικα"
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "Αποτέλεσμα"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Καταγραφή προγραμματισμού"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target start time"
@@ -8117,7 +8117,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Προγραμματισμός έργου από πραγματικό χρόνο έναρξης"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "@info:tooltip"
 #| msgid "Schedule project from target end time"

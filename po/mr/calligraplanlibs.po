@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2013-04-16 11:01+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Finished scheduling backward: %1 ms"
 msgstr ""
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2786
 #, kde-format
 msgid "Plan"
 msgstr ""
@@ -2488,7 +2488,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar weekday"
 msgstr "दिनदर्शिका वाढवा"
 
-#: models/kptcalendarmodel.cpp:1419 models/kptcalendarmodel.cpp:1443
+#: models/kptcalendarmodel.cpp:1420 models/kptcalendarmodel.cpp:1444
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Add calendar"
@@ -2496,13 +2496,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify calendar date"
 msgstr "दिनदर्शिका वाढवा"
 
-#: models/kptcalendarmodel.cpp:1460
+#: models/kptcalendarmodel.cpp:1461
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Weekday"
 msgstr "आठवड्यातील दिवस"
 
-#: models/kptcalendarmodel.cpp:1461
+#: models/kptcalendarmodel.cpp:1462
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Date"
@@ -4809,7 +4809,7 @@ msgstr "कार्य जोडा"
 msgid "Path"
 msgstr "मार्ग"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:772
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
 #, fuzzy, kde-format
 #| msgid "Critical"
 msgid "Critical Path"
@@ -8245,18 +8245,18 @@ msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:766
+#: ui/kptscheduleeditor.cpp:765
 #, kde-format
 msgid "Result"
 msgstr "परिणाम"
 
-#: ui/kptscheduleeditor.cpp:777
+#: ui/kptscheduleeditor.cpp:776
 #, fuzzy, kde-format
 #| msgid "Scheduling"
 msgid "Scheduling Log"
 msgstr "नियोजीत करत आहे"
 
-#: ui/kptscheduleeditor.cpp:961
+#: ui/kptscheduleeditor.cpp:960
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Add calendar"
@@ -8264,7 +8264,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "दिनदर्शिका वाढवा"
 
-#: ui/kptscheduleeditor.cpp:973
+#: ui/kptscheduleeditor.cpp:972
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Add calendar"
