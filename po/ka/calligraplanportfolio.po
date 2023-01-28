@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2022-12-23 07:40+0100\n"
+"PO-Revision-Date: 2023-01-27 08:43+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -94,7 +94,7 @@ msgstr "ბილიკი კონტექსტის დახმარე�
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "კონტექსტის დახმარების დოკუმენტაციის ენაზე გადათარგმნა აუცილებელია"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: config/portfoliosettings.kcfg:24

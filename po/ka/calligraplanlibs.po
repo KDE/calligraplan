@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:58+0000\n"
-"PO-Revision-Date: 2023-01-07 09:57+0100\n"
+"PO-Revision-Date: 2023-01-27 08:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3493,10 +3493,10 @@ msgid "Scheduled start: %1"
 msgstr ""
 
 #: models/kptnodeitemmodel.cpp:836
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled finish: %1"
-msgstr ""
+msgstr "დაგეგმილი დასასრული: %1"
 
 #: models/kptnodeitemmodel.cpp:864 models/kptnodeitemmodel.cpp:868
 #, kde-kuit-format
@@ -5720,7 +5720,7 @@ msgstr ""
 #: store/KoEncryptedStore.cpp:575
 #, kde-format
 msgid "Empty decrypted file"
-msgstr ""
+msgstr "ცარიელი დაშიფრული ფაილი"
 
 #: store/KoEncryptedStore.cpp:737
 #, kde-format
@@ -5854,7 +5854,7 @@ msgstr "პერიოდი:"
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "მითითებული პერიოდი:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -6994,13 +6994,13 @@ msgstr ""
 #: ui/kptitemviewsettings.ui:56
 #, kde-format
 msgid "&Hidden columns:"
-msgstr ""
+msgstr "&ფარული სვეტები:"
 
 #. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
 #: ui/kptitemviewsettings.ui:59
 #, kde-format
 msgid "&Visible columns:"
-msgstr ""
+msgstr "&ხილული სვეტები:"
 
 #: ui/kptitemviewsettup.cpp:137
 #, kde-format
@@ -7025,7 +7025,7 @@ msgstr ""
 #: ui/kptitemviewsettup.cpp:218
 #, kde-format
 msgid "Auxiliary View"
-msgstr ""
+msgstr "დამატებითი ხედი"
 
 #: ui/kptitemviewsettup.cpp:219
 #, kde-format
@@ -7035,12 +7035,12 @@ msgstr ""
 #: ui/kptlocaleconfigmoneydialog.cpp:21
 #, kde-format
 msgid "Currency Settings"
-msgstr ""
+msgstr "ვალუტის მორგება"
 
 #: ui/kptlocaleconfigmoneydialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
-msgstr ""
+msgstr "ვალუტის პარამეტრების მორგება"
 
 #: ui/kptmainprojectdialog.cpp:24
 #, kde-format
@@ -7050,7 +7050,7 @@ msgstr "პროექტის პარამეტრები"
 #: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
-msgstr ""
+msgstr "მთავარი პროეტქის მორგება"
 
 #: ui/kptmainprojectpanel.cpp:53
 #, kde-kuit-format
@@ -7789,7 +7789,7 @@ msgstr "&დოკუმენტები"
 #: ui/kpttaskdialog.cpp:51
 #, kde-format
 msgid "&Cost"
-msgstr ""
+msgstr "&ღირებულება"
 
 #: ui/kpttaskdialog.cpp:55
 #, kde-format

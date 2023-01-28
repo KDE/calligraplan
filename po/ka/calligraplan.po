@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-26 00:57+0000\n"
-"PO-Revision-Date: 2023-01-07 09:59+0100\n"
+"PO-Revision-Date: 2023-01-27 08:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2332,7 +2332,7 @@ msgstr "დატოვება"
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "მონიშნეთ პროექტიდან წასაშლელი ჩანაწერები"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
@@ -2346,7 +2346,7 @@ msgstr "მონიშვნა როგორც: წაშლა"
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "მონიშნეთ ჩანაწერები, რომლებიც გნებავთ, ლოკალურ რესურსად გარდაიქმნას"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
@@ -2360,11 +2360,11 @@ msgstr "მონიშვნა როგორც: გადაყვანა
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "მონიშნეთ ჩანაწერები, რომლებიც გნებავთ, გაზიარებულ რესურსად დარჩეს"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "მონიშვნა როგორც: შენარჩუნება"
