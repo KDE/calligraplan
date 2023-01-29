@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-27 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 08:42+0100\n"
+"PO-Revision-Date: 2023-01-28 10:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -464,7 +464,7 @@ msgstr ""
 #: kernel/kptproject.cpp:402 kernel/kptproject.cpp:426
 #, kde-format
 msgid "Calculate early start"
-msgstr ""
+msgstr "ადრეული დასაწყისის გამოთვლა"
 
 #: kernel/kptproject.cpp:422
 #, kde-format
@@ -474,7 +474,7 @@ msgstr ""
 #: kernel/kptproject.cpp:429
 #, kde-format
 msgid "Early start calculated: %1"
-msgstr ""
+msgstr "ადრეული დაწყება გამოთვლილია: %1"
 
 #: kernel/kptproject.cpp:436
 #, kde-format
@@ -560,19 +560,19 @@ msgstr "Გეგმა"
 #: kernel/kptrelation.cpp:80 ui/relationpanel.ui:93
 #, kde-format
 msgid "Finish-Start"
-msgstr ""
+msgstr "დასასრული-დასაწყისი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
 #: kernel/kptrelation.cpp:81 ui/relationpanel.ui:100
 #, kde-format
 msgid "Finish-Finish"
-msgstr ""
+msgstr "დასასრული-დასასრული"
 
 #. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
 #: kernel/kptrelation.cpp:82 ui/relationpanel.ui:107
 #, kde-format
 msgid "Start-Start"
-msgstr ""
+msgstr "დასაწყისი-დასაწყისი"
 
 #: kernel/kptresourcerequest.cpp:722
 #, kde-format
@@ -636,7 +636,7 @@ msgstr "დაგეგმილი"
 #: kernel/kpttask.cpp:1109
 #, kde-format
 msgid "Calculate early finish "
-msgstr ""
+msgstr "ადრეული დასრულების გამოთვლა "
 
 #: kernel/kpttask.cpp:1147 kernel/kpttask.cpp:1165 kernel/kpttask.cpp:1182
 #: kernel/kpttask.cpp:1205 kernel/kpttask.cpp:1231 kernel/kpttask.cpp:1238
@@ -662,12 +662,12 @@ msgstr ""
 #: kernel/kpttask.cpp:1383
 #, kde-format
 msgid "Calculate late start"
-msgstr ""
+msgstr "გამოთვლის გვიან დაწყება"
 
 #: kernel/kpttask.cpp:1536
 #, kde-format
 msgid "Late start calculated: %1"
-msgstr ""
+msgstr "გვიანი დაწყება გამოთვლილია: %1"
 
 #: kernel/kpttask.cpp:1633
 #, kde-format
@@ -772,22 +772,22 @@ msgstr "რიცხვი"
 #: kernel/kptwbsdefinition.cpp:29
 #, kde-format
 msgid "Roman, upper case"
-msgstr ""
+msgstr "რომაული, მაღალი რეგისტრი"
 
 #: kernel/kptwbsdefinition.cpp:30
 #, kde-format
 msgid "Roman, lower case"
-msgstr ""
+msgstr "რომაული, დაბალი რეგისტრი"
 
 #: kernel/kptwbsdefinition.cpp:31
 #, kde-format
 msgid "Letter, upper case"
-msgstr ""
+msgstr "ასოები, ზედა რეგისტრი"
 
 #: kernel/kptwbsdefinition.cpp:32
 #, kde-format
 msgid "Letter, lower case"
-msgstr ""
+msgstr "ასოები, ქვედა რეგისტრი"
 
 #: kernel/Resource.cpp:194
 #, kde-kuit-format
@@ -3204,7 +3204,7 @@ msgstr ""
 msgctxt ""
 "Date format used as chart axis labels. Must follow QDate specification."
 msgid "MM.dd"
-msgstr ""
+msgstr "თთ.დდ"
 
 #: models/kptnodechartmodel.cpp:250
 #, kde-kuit-format
@@ -3346,7 +3346,7 @@ msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resources has been allocated"
-msgstr ""
+msgstr "რესურსები არ გამოყოფილა"
 
 #: models/kptnodeitemmodel.cpp:181
 #, kde-format
@@ -3381,13 +3381,13 @@ msgstr "გამოყოფილი რესურსები:<nl/>%1"
 #: models/kptnodeitemmodel.cpp:254
 #, kde-format
 msgid "Target times"
-msgstr ""
+msgstr "სამიზნე დრო"
 
 #: models/kptnodeitemmodel.cpp:256
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest start and latest finish"
-msgstr ""
+msgstr "უახლოესი დასაწყისი და უკანასკნელი დასრულება"
 
 #: models/kptnodeitemmodel.cpp:429
 #, kde-kuit-format
@@ -3490,10 +3490,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled start: %1"
-msgstr ""
+msgstr "დაგეგმილი დასაწყისი: %1"
 
 #: models/kptnodeitemmodel.cpp:836
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled finish: %1"
 msgstr "დაგეგმილი დასასრული: %1"
@@ -3502,7 +3502,7 @@ msgstr "დაგეგმილი დასასრული: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled duration: %1"
-msgstr ""
+msgstr "დაგეგმილი ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:901
 #, kde-kuit-format
@@ -3544,31 +3544,31 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic estimate: %1"
-msgstr ""
+msgstr "პესიმისტური შეფასება: %1"
 
 #: models/kptnodeitemmodel.cpp:1317
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=list of resources"
 msgid "Assigned resources:<nl/>%1"
-msgstr ""
+msgstr "მინიჭებული რესურსები:<nl/>%1"
 
 #: models/kptnodeitemmodel.cpp:1343
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task finished at %1"
-msgstr ""
+msgstr "ამოცანის დასრულების დრო %1"
 
 #: models/kptnodeitemmodel.cpp:1345
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
-msgstr ""
+msgstr "ამოცანა %1-ით დასრულდა"
 
 #: models/kptnodeitemmodel.cpp:1348
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
-msgstr ""
+msgstr "ეტაპის დასრულების დრო %1"
 
 #: models/kptnodeitemmodel.cpp:1372
 #, kde-format
@@ -3591,7 +3591,7 @@ msgstr "დასრულდა"
 #: models/kptnodeitemmodel.cpp:1381 models/kptnodeitemmodel.cpp:1393
 #, kde-format
 msgid "Running late"
-msgstr ""
+msgstr "გვიან გაშვება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1383 models/kpttaskstatusmodel.cpp:44
@@ -3603,12 +3603,12 @@ msgstr "გაშვებულია"
 #: models/kptnodeitemmodel.cpp:1387
 #, kde-format
 msgid "Started late"
-msgstr ""
+msgstr "გვიან დაწყება"
 
 #: models/kptnodeitemmodel.cpp:1390
 #, kde-format
 msgid "Started early"
-msgstr ""
+msgstr "ადრე დაწყება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1395 ui/kptworkpackagemergepanel.ui:133
@@ -3624,7 +3624,7 @@ msgstr "არ არის გაშვებული"
 #: models/kptnodeitemmodel.cpp:1401
 #, kde-format
 msgid "Can start"
-msgstr ""
+msgstr "შეუძლია დაწყება"
 
 #: models/kptnodeitemmodel.cpp:1405
 #, kde-format
@@ -3634,7 +3634,7 @@ msgstr "დაყოვნებული"
 #: models/kptnodeitemmodel.cpp:1407
 #, kde-format
 msgid "Cannot start"
-msgstr ""
+msgstr "დაწყება შეუძლებელია"
 
 #: models/kptnodeitemmodel.cpp:1420
 #, kde-kuit-format
@@ -3682,13 +3682,13 @@ msgstr "გაშვებულია"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Can start"
-msgstr ""
+msgstr "შეუძლია დაწყება"
 
 #: models/kptnodeitemmodel.cpp:1446
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cannot start"
-msgstr ""
+msgstr "დაწყება შეუძლებელია"
 
 #: models/kptnodeitemmodel.cpp:1448
 #, kde-kuit-format
@@ -3816,7 +3816,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task level: %1"
-msgstr ""
+msgstr "ამოცანის დონე: %1"
 
 #: models/kptnodeitemmodel.cpp:1971
 #, kde-kuit-format
@@ -3895,7 +3895,7 @@ msgstr "პასუხისმგებელი"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Estimate Type"
-msgstr ""
+msgstr "შეფასების ტიპი"
 
 #: models/kptnodeitemmodel.cpp:2326
 #, kde-kuit-format
@@ -3913,13 +3913,13 @@ msgstr "დაახლოებითი"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr ""
+msgstr "ოპტიმისტური (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr ""
+msgstr "პესიმისტური (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
@@ -3943,13 +3943,13 @@ msgstr "შეზღუდვა"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint Start"
-msgstr ""
+msgstr "შეზღუდვის დაწყება"
 
 #: models/kptnodeitemmodel.cpp:2334
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint End"
-msgstr ""
+msgstr "შეზღუდვის დასასრული"
 
 #: models/kptnodeitemmodel.cpp:2335
 #, kde-kuit-format
@@ -8639,7 +8639,7 @@ msgstr ""
 #: ui/kptworkpackagemergedialog.cpp:226
 #, kde-format
 msgid "No documents"
-msgstr ""
+msgstr "დოკუმენტების გარეშე"
 
 #: ui/kptworkpackagemergedialog.cpp:341
 #, kde-format
@@ -8652,13 +8652,13 @@ msgstr ""
 #: ui/kptworkpackagemergepanel.ui:70
 #, kde-format
 msgid "Generated:"
-msgstr ""
+msgstr "გენერირებული:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/kptworkpackagemergepanel.ui:77
 #, kde-format
 msgid "From:"
-msgstr ""
+msgstr "ვისგან:"
 
 #. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
 #: ui/kptworkpackagemergepanel.ui:96
@@ -8922,7 +8922,7 @@ msgstr "გამომგზავნი"
 #: ui/relationpanel.ui:63
 #, kde-format
 msgid "To"
-msgstr ""
+msgstr "ვის"
 
 #. i18n: ectx: property (title), widget (QGroupBox, relationType)
 #: ui/relationpanel.ui:87
@@ -8988,7 +8988,7 @@ msgstr "გვერდის ჩვენება"
 #: ui/reports/reportnavigator.ui:99
 #, kde-format
 msgid "of"
-msgstr ""
+msgstr "დან"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
 #: ui/reports/reportnavigator.ui:149
@@ -9443,7 +9443,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "File exists:<nl/>%1"
-msgstr ""
+msgstr "ფალი არსებობს:<nl/>%1"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:508
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:534
