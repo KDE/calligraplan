@@ -46,8 +46,6 @@ public:
 
     bool editProject() override;
 
-    QString recentFilesGroupName() const override;
-
     bool openTemplate(const QUrl& url) override;
 
     QWidget *createWelcomeView(KoMainWindow *parent) const override;

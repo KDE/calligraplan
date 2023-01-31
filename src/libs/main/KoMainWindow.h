@@ -89,6 +89,9 @@ public:
      */
     void addRecentURL(const QString &projectName, const QUrl &url);
 
+    void setRecentFilesGroupName(const QString &name);
+    QString recentFilesGroupName() const;
+
     /**
      * Load the desired document and show it.
      * @param url the URL to open

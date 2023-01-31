@@ -239,6 +239,8 @@ public:
     QAction *configureAction;
 
     bool tbIsVisible;
+
+    QString recentFilesGroupName = QStringLiteral("RecentFiles");
 };
 
 KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentData &componentData)
@@ -573,6 +575,16 @@ void KoMainWindow::setReadWrite(bool readwrite)
     updateCaption();
 }
 
+void KoMainWindow::setRecentFilesGroupName(const QString &name)
+{
+    d->recentFilesGroupName = name;
+}
+
+QString KoMainWindow::recentFilesGroupName() const
+{
+    return d->recentFilesGroupName;
+}
+
 void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
 {
     debugMain << "url=" << url.toDisplayString();
@@ -612,8 +624,7 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
 
 void KoMainWindow::saveRecentFiles()
 {
-    Q_ASSERT(d->rootPart);
-    const QString group = d->rootPart->recentFilesGroupName();
+    const QString group = recentFilesGroupName();
     // Save list of recent files
     KSharedConfigPtr config = componentData().config();
     debugMain << this << " Saving recent files list into config. componentData()=" << componentData().componentName();
@@ -629,8 +640,7 @@ void KoMainWindow::saveRecentFiles()
 
 void KoMainWindow::reloadRecentFileList()
 {
-    Q_ASSERT(d->rootPart);
-    const QString group = d->rootPart->recentFilesGroupName();
+    const QString group = recentFilesGroupName();
     KSharedConfigPtr config = componentData().config();
     d->recent->loadEntries(config->group(group));
 }

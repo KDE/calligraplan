@@ -80,6 +80,7 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 KoMainWindow *Part::createMainWindow()
 {
     KoMainWindow *w = new KoMainWindow(PLAN_MIME_TYPE.latin1(), componentData());
+    w->setRecentFilesGroupName(QStringLiteral("Recent Projects"));
 
     KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLAN_MIME_TYPE);
     QJsonObject json = entry.metaData();
@@ -199,11 +200,6 @@ void Part::slotLoadSharedResources(const QString &file, const QUrl &projects, bo
     if (url.isValid()) {
         doc->insertResourcesFile(url);
     }
-}
-
-QString Part::recentFilesGroupName() const
-{
-    return QStringLiteral("Recent Projects");
 }
 
 QWidget *Part::createWelcomeView(KoMainWindow *parent) const

@@ -36,8 +36,6 @@ public:
 
     KoMainWindow *createMainWindow() override;
 
-    QString recentFilesGroupName() const override;
-
 public Q_SLOTS:
     void configure(KoMainWindow *mw) override;
     void slotSettingsUpdated();

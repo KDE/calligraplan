@@ -45,6 +45,7 @@ KoView *Part::createViewInstance(KoDocument *document, QWidget *parent)
 KoMainWindow *Part::createMainWindow()
 {
     MainWindow *w = new MainWindow(PLANPORTFOLIO_MIME_TYPE.latin1(), componentData());
+    w->setRecentFilesGroupName(QStringLiteral("Recent Portfolios"));
 
     KoDocumentEntry entry = KoDocumentEntry::queryByMimeType(PLANPORTFOLIO_MIME_TYPE);
     QJsonObject json = entry.metaData();
@@ -60,11 +61,6 @@ KoMainWindow *Part::createMainWindow()
         a->setText(i18n("Configure Portfolio..."));
     }
     return w;
-}
-
-QString Part::recentFilesGroupName() const
-{
-    return QStringLiteral("Recent Portfolios");
 }
 
 void Part::configure(KoMainWindow *mw)

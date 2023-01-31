@@ -123,8 +123,6 @@ public:
 
     virtual bool editProject() { return false; }
 
-    virtual QString recentFilesGroupName() const { return QString(); }
-
     /**
      * Loads a template and deletes the start up widget.
      * @param url the template to load
