@@ -75,7 +75,7 @@ void SchedulingLogModel::addLogEntry(const KPlato::Schedule::Log &log)
     } else if (log.node) {
         lst.append(new QStandardItem(log.node->name()));
     } else {
-        lst.append( new QStandardItem(QStringLiteral("")));
+        lst.append( new QStandardItem(QLatin1String("")));
     }
 //     lst.append(new QStandardItem(m_schedule->logPhase(log.phase)));
     lst.append(new QStandardItem(QStringLiteral("??")));

@@ -1837,7 +1837,7 @@ void TreeViewBase::slotExpand()
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QModelIndex idx = m_contextMenuIndex;
     if (idx.column() > 0) {
-        idx = idx.model()->index(idx.row(), idx.column(), idx.parent());
+        idx = idx.model()->index(idx.row(), idx.column(), idx.parent()); //NOLINT(clang-analyzer-core.CallAndMessage)
     }
     expandRecursive(idx, true);
     QApplication::restoreOverrideCursor();
@@ -1853,7 +1853,7 @@ void TreeViewBase::slotCollapse()
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QModelIndex idx = m_contextMenuIndex;
     if (idx.column() > 0) {
-        idx = idx.model()->index(idx.row(), 0, idx.parent());
+        idx = idx.model()->index(idx.row(), 0, idx.parent()); //NOLINT(clang-analyzer-core.CallAndMessage)
     }
     expandRecursive(idx, false);
     QApplication::restoreOverrideCursor();

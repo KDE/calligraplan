@@ -86,7 +86,7 @@ void ConfigProjectPanelImpl::initDescription()
 
 //    toolbar->addAction(collection->action(QStringLiteral("format_painter")));
 
-    kcfg_ProjectDescription->append(QStringLiteral(""));
+    kcfg_ProjectDescription->append(QLatin1String(""));
     kcfg_ProjectDescription->setReadOnly(false);
     kcfg_ProjectDescription->setOverwriteMode(false);
     kcfg_ProjectDescription->setLineWrapMode(KTextEdit::WidgetWidth);

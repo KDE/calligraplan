@@ -56,7 +56,7 @@ void CommandsTester::testCalendarAddCmd()
 
     CalendarAddCmd *cmd1 = new CalendarAddCmd(m_project, calendar1, 0, nullptr);
     cmd1->execute();
-    QVERIFY(m_project->calendarAt(0) == calendar1);
+    QVERIFY(m_project->calendarAt(0) == calendar1); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
     CalendarAddCmd *cmd2 = new CalendarAddCmd(m_project, calendar2, 0, calendar1);
     cmd2->execute();
     QVERIFY(calendar1->childAt(0) == calendar2);
@@ -103,7 +103,7 @@ void CommandsTester::testCalendarRemoveCmd()
     CalendarRemoveCmd *cmd4 = new CalendarRemoveCmd(m_project, calendar4); //calendar used by a resource
 
     cmd3->execute();
-    QVERIFY(!m_project->calendars().contains(calendar3));
+    QVERIFY(!m_project->calendars().contains(calendar3)); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
     QVERIFY(m_project->defaultCalendar() != calendar3);
 
     cmd4->execute();
@@ -240,7 +240,7 @@ void CommandsTester::testCalendarAddDayCmd()
     Calendar *calendar1 = new Calendar();
     CalendarDay *day1 = new CalendarDay();
     m_project->addCalendar(calendar1);
-    QVERIFY(m_project->calendarCount() == 1);
+    QVERIFY(m_project->calendarCount() == 1); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
     QVERIFY(calendar1->days().isEmpty());
 
     CalendarAddDayCmd *cmd1 = new CalendarAddDayCmd(calendar1, day1);
@@ -290,7 +290,7 @@ void CommandsTester::testCalendarModifyDayCmd()
     CalendarDay *day2 = new CalendarDay(QDate(2011,03,11));
     calendar1->addDay(day1);
     m_project->addCalendar(calendar1);
-    QVERIFY(m_project->calendarCount() == 1);
+    QVERIFY(m_project->calendarCount() == 1); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
     QVERIFY(calendar1->days().contains(day1));
 
     CalendarModifyDayCmd *cmd1 = new CalendarModifyDayCmd(calendar1, day2);

@@ -130,7 +130,7 @@ KUndo2Command::KUndo2Command(const KUndo2MagicString &text, KUndo2Command *paren
         parent->d->child_list.append(this);
     }
     setText(text);
-    setTime();
+    m_timeOfCreation = QTime::currentTime();
 }
 
 /*!

@@ -778,8 +778,8 @@ bool Part::viewDocument(const QUrl &filename)
         return false;
     }
     KRun *run = new KRun(filename, nullptr);
-    Q_UNUSED(run); // XXX: shouldn't run be deleted?
-    return true;
+    Q_UNUSED(run); // KRun auto-deletes by default so no need to delete it
+    return true; //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 
 void Part::setDocumentClean(bool clean)

@@ -159,7 +159,7 @@ void PlanTJScheduler::run()
                 auto t = new TJ::Task(m_tjProject, "TJ::RECALCULATE_FROM", "TJ::RECALCULATE_FROM", nullptr, QString(), 0);
                 t->setMilestone(true);
                 t->setSpecifiedStart(0, toTJTime_t(m_recalculateFrom, tjGranularity()));
-                logDebug(m_project, nullptr, QString("Re-calculate milestone created at: %1").arg(TJ::formatTime(t->getSpecifiedStart(0))));
+                logDebug(m_project, nullptr, QString("Re-calculate milestone created at: %1").arg(TJ::formatTime(t->getSpecifiedStart(0)))); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
             } else {
                 logInfo(m_project, nullptr, xi18nc("@info/plain" , "Schedule project from start time: %1", locale.toString(m_project->constraintStartTime(), QLocale::ShortFormat)), 0);
             }
@@ -337,7 +337,7 @@ void PlanTJScheduler::addStartEndJob()
             }
         }
     }
-}
+} //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 
 // static
 int PlanTJScheduler::toTJDayOfWeek(int day)

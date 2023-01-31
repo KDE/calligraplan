@@ -171,11 +171,11 @@ void ViewListItem::save(QDomElement &element) const
 
     if (type() == ItemType_SubView) {
         element.setAttribute(QStringLiteral("viewtype"), viewType());
-        element.setAttribute(QStringLiteral("name"), m_viewinfo.name == text(0) ? QStringLiteral("") : text(0));
+        element.setAttribute(QStringLiteral("name"), m_viewinfo.name == text(0) ? QLatin1String("") : text(0));
         element.setAttribute(QStringLiteral("tooltip"), m_viewinfo.tip == toolTip(0) ? QStringLiteral(TIP_USE_DEFAULT_TEXT) : toolTip(0));
     } else if (type() == ItemType_Category) {
         debugPlan<<text(0)<<m_viewinfo.name;
-        element.setAttribute(QStringLiteral("name"), text(0) == m_viewinfo.name ? QStringLiteral("") : text(0));
+        element.setAttribute(QStringLiteral("name"), text(0) == m_viewinfo.name ? QLatin1String("") : text(0));
         element.setAttribute(QStringLiteral("tooltip"), toolTip(0).isEmpty() ? QStringLiteral(TIP_USE_DEFAULT_TEXT) : toolTip(0));
     }
 }

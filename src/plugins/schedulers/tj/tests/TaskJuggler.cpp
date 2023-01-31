@@ -192,7 +192,7 @@ void TaskJuggler::dependency()
     m->setSpecifiedStart(sc-1, project->getStart());
 
     TJ::Task *t = project->getTask("T1");
-    QVERIFY(t != nullptr);
+    QVERIFY(t != nullptr); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 
     TJ::TaskDependency *d = t->addDepends(m->getId());
     QVERIFY(d != nullptr);
@@ -237,7 +237,7 @@ void TaskJuggler::scheduleDependencies()
         m->setScheduling(TJ::Task::ALAP);
         m->setSpecifiedEnd(0, proj->getEnd() - 1);
 
-        QVERIFY(proj->pass2(true));
+        QVERIFY(proj->pass2(true)); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
         QVERIFY(proj->scheduleAllScenarios());
 
         QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
@@ -265,7 +265,7 @@ void TaskJuggler::scheduleDependencies()
         t->setDuration(0, (double)(TJ::ONEHOUR) / TJ::ONEDAY);
         t->setSpecifiedStart(0, proj->getStart());
 
-        QVERIFY(proj->pass2(true));
+        QVERIFY(proj->pass2(true)); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
         QVERIFY(proj->scheduleAllScenarios());
 
         QDateTime tstart = QDateTime::fromTime_t(t->getStart(0));
@@ -824,33 +824,33 @@ void TaskJuggler::resourceConflict()
     {
         s = "Test 2 tasks, allocate same resource --------------------";
         qDebug()<<s;
-        TJ::Project *proj = new TJ::Project();
+        QScopedPointer<TJ::Project> proj(new TJ::Project());
         proj->setScheduleGranularity(TJ::ONEHOUR); // seconds
 
         proj->setStart(pstart.toTime_t());
         proj->setEnd(pend.toTime_t());
 
-        QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
+        QCOMPARE(QDateTime::fromTime_t(proj.get()->getStart()), pstart);
 
-        TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
+        TJ::Resource *r = new TJ::Resource(proj.get(), "R1", "R1", nullptr);
         r->setEfficiency(1.0);
         for (int day = 0; day < 7; ++day) {
-            r->setWorkingHours(day, *(proj->getWorkingHours(day)));
+            r->setWorkingHours(day, *(proj.get()->getWorkingHours(day)));
         }
 
-        TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
+        TJ::Task *m = new TJ::Task(proj.get(), "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
         m->setScheduling(TJ::Task::ASAP);
         m->setSpecifiedStart(0, proj->getStart());
 
-        TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
+        TJ::Task *t1 = new TJ::Task(proj.get(), "T1", "T1", nullptr, QString(), 0);
         t1->setPriority(100); // this should be scheduled before t2
         t1->setEffort(0, 1.0/24.0);
         TJ::Allocation *a = new TJ::Allocation();
         a->addCandidate(r);
         t1->addAllocation(a);
 
-        TJ::Task *t2 = new TJ::Task(proj, "T2", "T2", nullptr, QString(), 0);
+        TJ::Task *t2 = new TJ::Task(proj.get(), "T2", "T2", nullptr, QString(), 0);
         t2->setPriority(10);
         t2->setEffort(0, 1.0/24.0);
         a = new TJ::Allocation();
@@ -874,8 +874,6 @@ void TaskJuggler::resourceConflict()
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart);
         QCOMPARE(t2start, t1end.addSecs(1));
-
-        delete proj;
     }
 }
 

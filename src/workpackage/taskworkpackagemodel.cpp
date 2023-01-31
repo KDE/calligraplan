@@ -391,7 +391,7 @@ QVariant TaskWorkPackageModel::nodeData(KPlato::Node *n, int column, int role) c
             //debugPlanWork<<"Invalid column number: "<<index.column()<<'\n';
             break;
     }
-    return QStringLiteral("");
+    return QLatin1String("");
 }
 
 QVariant TaskWorkPackageModel::documentData(KPlato::Document *doc, int column, int role) const
@@ -403,7 +403,7 @@ QVariant TaskWorkPackageModel::documentData(KPlato::Document *doc, int column, i
             case NodeType: return doc->typeToString(doc->type(), true);
             case NodeStatusNote: return doc->status();
             default:
-                return QStringLiteral("");
+                return QLatin1String("");
         }
     } else if (role == Qt::ToolTipRole) {
         switch (column) {

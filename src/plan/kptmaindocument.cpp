@@ -1785,7 +1785,7 @@ void MainDocument::createNewProject()
     resetURL();
     KoDocumentInfo *info = documentInfo();
     info->resetMetaData();
-    info->setProperty("title", QStringLiteral(""));
+    info->setProperty("title", QLatin1String(""));
     setTitleModified();
 
     m_project->generateUniqueNodeIds();

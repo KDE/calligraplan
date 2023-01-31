@@ -184,8 +184,8 @@ void DocumentsPanel::slotViewUrl()
         return;
     }
     KRun *run = new KRun(doc->url(), nullptr);
-    Q_UNUSED(run); // KRun auto-deletes by default so need to delete it
-    return;
+    Q_UNUSED(run); // KRun auto-deletes by default so no need to delete it
+    return; //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 
 MacroCommand *DocumentsPanel::buildCommand()
