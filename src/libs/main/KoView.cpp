@@ -368,7 +368,7 @@ void KoView::setupGlobalActions()
     actionCollection()->setDefaultShortcut(undo, QKeySequence::Undo);
     actionCollection()->setDefaultShortcut(redo, QKeySequence::Redo);
     d->actionAuthor  = new KSelectAction(koIcon("user-identity"), i18n("Active Author Profile"), this);
-    connect(d->actionAuthor, static_cast<void (KSelectAction::*)(const QString&)> (&KSelectAction::triggered), this, &KoView::changeAuthorProfile);
+    connect(d->actionAuthor, static_cast<void (KSelectAction::*)(const QString&)> (&KSelectAction::textTriggered), this, &KoView::changeAuthorProfile);
     actionCollection()->addAction(QStringLiteral("settings_active_author"), d->actionAuthor);
 
     slotUpdateAuthorProfileActions();
