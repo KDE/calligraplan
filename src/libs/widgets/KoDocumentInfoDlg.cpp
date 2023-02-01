@@ -375,7 +375,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         QStringLiteral("DecryptSaveMessage"));
             return;
         }
-        if (modified && KMessageBox::questionYesNo(
+        if (modified && KMessageBox::questionTwoActions(
                     this,
                     i18n("<qt>The document has been changed since it was opened. To complete the decryption the document needs to be saved."
                          "<p>Do you want to save the document now?</qt>"),
@@ -383,7 +383,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
                     QStringLiteral("DecryptSaveConfirmation")
-                    ) != KMessageBox::Yes) {
+                    ) != KMessageBox::PrimaryAction) {
             return;
         }
     } else if (doc->mimeType().startsWith("application/vnd.oasis.opendocument.")) {
@@ -417,7 +417,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         QStringLiteral("EncryptSaveMessage"));
             return;
         }
-        if (modified && KMessageBox::questionYesNo(
+        if (modified && KMessageBox::questionTwoActions(
                     this,
                     i18n("<qt>The document has been changed since it was opened. To complete the encryption the document needs to be saved."
                          "<p>Do you want to save the document now?</qt>"),
@@ -425,7 +425,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
                     QStringLiteral("EncryptSaveConfirmation")
-                    ) != KMessageBox::Yes) {
+                    ) != KMessageBox::PrimaryAction) {
             return;
         }
     } else {
@@ -482,7 +482,7 @@ void KoDocumentInfoDlg::saveEncryption()
                         QStringLiteral("EncryptSaveMessage"));
             return;
         }
-        if (modified && KMessageBox::questionYesNo(
+        if (modified && KMessageBox::questionTwoActions(
                     this,
                     i18n("<qt>The document has been changed since it was opened. To complete the encryption the document needs to be saved."
                         "<p>Do you want to save the document now?</qt>"),
@@ -490,7 +490,7 @@ void KoDocumentInfoDlg::saveEncryption()
                     KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),
                     QStringLiteral("EncryptSaveConfirmation")
-                    ) != KMessageBox::Yes) {
+                    ) != KMessageBox::PrimaryAction) {
             return;
         }
     }

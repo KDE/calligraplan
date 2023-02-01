@@ -30,7 +30,6 @@ QAbstractPrintDialog::PrintDialogOptions KoPrintJob::printDialogOptions() const
     return QAbstractPrintDialog::PrintToFile |
            QAbstractPrintDialog::PrintPageRange |
            QAbstractPrintDialog::PrintCollateCopies |
-           QAbstractPrintDialog::DontUseSheet |
            QAbstractPrintDialog::PrintShowPageSize;
 }
 

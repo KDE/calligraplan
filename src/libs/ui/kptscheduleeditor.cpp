@@ -356,10 +356,13 @@ void ScheduleEditor::slotCalculateSchedule()
         return;
     }
     if (!parentManager && sm->isScheduled() && project()->isStarted()) {
-        KMessageBox::ButtonCode reply = KMessageBox::questionYesNo (this,
+        KMessageBox::ButtonCode reply = KMessageBox::questionTwoActions (this,
                                         i18n("The project has been started.\nDo you really want to calculate this schedule?"),
-                                        i18n("Project Scheduling"));
-        if (reply == KMessageBox::No) {
+                                        i18n("Project Scheduling"),
+                                        KStandardGuiItem::cont(),
+                                        KStandardGuiItem::cancel());
+
+        if (reply == KMessageBox::SecondaryAction) {
             return;
         }
     }

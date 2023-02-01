@@ -22,6 +22,7 @@
 #include <KFile>
 #include <KIO/OpenUrlJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <KMessageBox>
 #include <KConfigGroup>
 
@@ -399,7 +400,7 @@ void ReportsGeneratorView::setupGui()
             const auto fname = idx.data().toString();
             if (!fname.isEmpty()) {
                 auto job = new KIO::OpenUrlJob(QUrl(fname), QStringLiteral("application/vnd.oasis.opendocument.text"));
-                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+                job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
                 job->start();
             }
         }
@@ -536,7 +537,7 @@ bool ReportsGeneratorView::generateReport(const QString &templateFile, const QSt
         url.setScheme(QStringLiteral("file"));
         debugPlanReport<<"open:"<<url;
         auto job = new KIO::OpenUrlJob(url, QStringLiteral("application/vnd.oasis.opendocument.text"));
-        job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
         job->start();
     }
     return true;

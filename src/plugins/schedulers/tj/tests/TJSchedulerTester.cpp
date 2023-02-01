@@ -280,7 +280,7 @@ void TJSchedulerTester::testRecalculate()
     context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Recalculate Project", projects);
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
-    context.calculateFrom = QDateTime(QDate(2021, 4, 26));
+    context.calculateFrom = QDate(2021, 4, 26).startOfDay();
     m_scheduler->schedule(context);
     //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
     // T1 Recalculate 1: Two first days has been completed, 3 last days moved

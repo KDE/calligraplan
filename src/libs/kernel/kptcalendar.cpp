@@ -1527,7 +1527,7 @@ void Calendar::setShared(bool on)
 bool Calendar::isHoliday(QDate date) const
 {
     if (m_region->isValid()) {
-        KHolidays::Holiday::List lst = m_region->holidays(date);
+        KHolidays::Holiday::List lst = m_region->rawHolidaysWithAstroSeasons(date);
         if (!lst.isEmpty() && lst.first().dayType() != KHolidays::Holiday::Workday) {
             return true;
         }

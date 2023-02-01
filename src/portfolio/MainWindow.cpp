@@ -144,9 +144,13 @@ bool MainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOutpu
                 KIO::UDSEntry entry;
                 if (KIO::NetAccess::stat(child->url(), entry, this)) {
                     if (entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) != child->property(ORIGINALMODIFICATIONTIME).toLongLong()) {
-                        int res = KMessageBox::warningYesNo(this,
-                                                  xi18nc("@info", "<p>The external project file <filename>%1</filename> has been modified.</p><p>Do you want to save it?</p>", child->url().toDisplayString()));
-                        if (res == KMessageBox::No) {
+                        int res = KMessageBox::warningTwoActions(this,
+                                                                 xi18nc("@info",
+                                                                        "<p>The external project file <filename>%1</filename> has been modified.</p><p>Do you want to save it?</p>", child->url().toDisplayString()),
+                                                                 i18nc("@title:window", "Save Document"),
+                                                                 KStandardGuiItem::save(),
+                                                                 KStandardGuiItem::dontSave());
+                        if (res == KMessageBox::SecondaryAction) {
                             continue;
                         }
                     }

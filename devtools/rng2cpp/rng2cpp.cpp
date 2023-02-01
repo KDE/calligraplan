@@ -13,7 +13,7 @@
 #include <QSet>
 #include <QVector>
 
-#define assert(cond, what) Q_ASSERT_X(cond, "", qPrintable(what))
+#define x_assert(cond, what) Q_ASSERT_X(cond, "", qPrintable(what))
 
 static QString ns() {
     return QStringLiteral("writeodf");
@@ -295,7 +295,7 @@ void merge(RNGItemPtr& a, const RNGItemPtr& b)
     if (b->mixedContent) {
         a->mixedContent = true;
     }
-    assert(a->allowedItems.contains(b), "");
+    x_assert(a->allowedItems.contains(b), "");
     if (a->requiredItems.contains(b)) {
         for(RNGItemPtr i : qAsConst(b->requiredItems)) {
             a->requiredItems.insert(i);
@@ -561,7 +561,7 @@ RNGItemPtr getDefines(QDomElement e, RNGItems& items)
         if (e.localName() == "define") {
             parseDefine(e, items, false);
         } else if (e.localName() == "start") {
-            assert(!start, "Multiple start elements.");
+            x_assert(!start, "Multiple start elements.");
             start = parseDefine(e, items, true);
         } else {
             fatal() << "Unknown element " << e.localName();
@@ -707,7 +707,7 @@ int reduce(RNGItems& items)
             RNGItemPtr user = RNGItemPtr(nullptr);
             for (const RNGItemPtr& i : qAsConst(items)) {
                 if (i->allowedItems.contains(item)) {
-                    assert(!user, "");
+                    x_assert(!user, "");
                     user = i;
                 }
             }
@@ -754,11 +754,11 @@ RNGItemPtr getDefine(const QString& name, const RNGItems& items)
     RNGItemPtr item = RNGItemPtr(nullptr);
     for (RNGItemPtr i : items) {
         if (i->name() == name) {
-            assert(!item, "Doubly defined element " + name + ".");
+            x_assert(!item, "Doubly defined element " + name + ".");
             item = i;
         }
     }
-    assert(item, "Define not found " + name);
+    x_assert(item, "Define not found " + name);
     return item;
 }
 
@@ -899,7 +899,7 @@ RNGItemList getBasesList(RNGItemPtr item)
     }
     list.subtract(antilist);
     RNGItemList l = toVector(list);
-    qStableSort(l.begin(), l.end(), rngItemPtrLessThan);
+    std::stable_sort(l.begin(), l.end(), rngItemPtrLessThan);
     return l;
 }
 
@@ -910,7 +910,7 @@ RNGItemList getBasesList(RNGItemPtr item)
 RNGItemList list(const RNGItems& items)
 {
     RNGItemList list = toVector(items);
-    qStableSort(list.begin(), list.end(), rngItemPtrLessThan);
+    std::stable_sort(list.begin(), list.end(), rngItemPtrLessThan);
     return list;
 }
 
@@ -1039,7 +1039,7 @@ RequiredArgsList makeFullRequiredArgsList(const RNGItemPtr& item)
     r.length = 0;
     RNGItemList list;
     getAllRequiredAttributes(item, list);
-    qStableSort(list.begin(), list.end(), rngItemPtrLessThan);
+    std::stable_sort(list.begin(), list.end(), rngItemPtrLessThan);
     for (RNGItemPtr i : qAsConst(list)) {
         QString name = makeCppName(i);
         QString type = i->singleType();
@@ -1408,7 +1408,7 @@ void convert(const QString& rngfile, const QString& outdir)
     //qDebug() << "reduce " << resolved.size();
     RNGItemList list = toVector(resolved);
     //qDebug() << "filteredItems " << list.size();
-    qStableSort(list.begin(), list.end(), rngItemPtrLessThan);
+    std::stable_sort(list.begin(), list.end(), rngItemPtrLessThan);
     makeCppNames(list);
     write(list, outdir);
     //qDebug() << list.size();

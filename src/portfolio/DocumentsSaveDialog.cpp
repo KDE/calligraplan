@@ -132,7 +132,11 @@ void DocumentsSaveDialog::dialogAccepted()
 {
     if (saveMain()) {
         if (KIO::NetAccess::exists(mainUrl(), KIO::NetAccess::SourceSide, nullptr)) {
-            if (KMessageBox::warningYesNo(this, i18n("The file already exists. Do you want to overwrite?"), i18nc("@title:window", "Overwrite file?")) == KMessageBox::No) {
+            if (KMessageBox::warningTwoActions(this,
+                                               i18n("The file already exists. Do you want to overwrite?"),
+                                               i18nc("@title:window", "Overwrite file?"),
+                                               KStandardGuiItem::overwrite(),
+                                               KStandardGuiItem::cancel()) == KMessageBox::SecondaryAction) {
                 done(QDialog::Rejected);
             }
         }

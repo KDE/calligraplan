@@ -753,7 +753,11 @@ bool KoEncryptedStore::closeWrite()
     // Ask the user to save the password
     if (passWasAsked) {
         QApplication::setOverrideCursor(Qt::ArrowCursor);
-        if (KMessageBox::questionYesNo(d->window, i18n("Do you want to save the password?")) == KMessageBox::Yes) {
+        if (KMessageBox::questionTwoActions(d->window,
+                                            i18n("Do you want to save the password?"),
+                                            i18nc("@title:window", "Save Password"),
+                                            KStandardGuiItem::save(),
+                                            KStandardGuiItem::dontSave()) == KMessageBox::PrimaryAction) {
             savePasswordInKWallet();
         }
         QApplication::restoreOverrideCursor();

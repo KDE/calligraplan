@@ -376,10 +376,14 @@ bool Part::setWorkPackage(WorkPackage *wp, KoStore *store)
     debugPlanWork<<wp->name()<<"exists"<<m_packageMap.contains(id);
     if (m_packageMap.contains(id)) {
         if (!m_nogui) {
-            if (KMessageBox::warningYesNo(nullptr, i18n("<p>The work package already exists in the projects store.</p>"
-                                                        "<p>Project: %1<br>Task: %2</p>"
-                                                        "<p>Do you want to update the existing package with data from the new?</p>",
-                                                        wp->project()->name(), wp->node()->name())) == KMessageBox::No) {
+            if (KMessageBox::warningTwoActions(nullptr,
+                                               i18n("<p>The work package already exists in the projects store.</p>"
+                                                    "<p>Project: %1<br>Task: %2</p>"
+                                                    "<p>Do you want to update the existing package with data from the new?</p>",
+                                                    wp->project()->name(), wp->node()->name()),
+                                               i18nc("@title:window", "Update Work Package"),
+                                               KStandardGuiItem::apply(),
+                                               KStandardGuiItem::discard()) == KMessageBox::SecondaryAction) {
                 delete wp;
                 return false;
             }
@@ -846,7 +850,7 @@ bool Part::queryClose()
     QList<WorkPackage*> modifiedList;
     for (WorkPackage *wp : qAsConst(m_packageMap)) {
         switch (wp->queryClose(this)) {
-            case KMessageBox::No:
+            case KMessageBox::SecondaryAction:
                 modifiedList << wp;
                 break;
             case KMessageBox::Cancel:

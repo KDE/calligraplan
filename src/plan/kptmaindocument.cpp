@@ -1465,7 +1465,7 @@ bool MainDocument::mergeResources(Project &project)
     cmd->setBusyCursorEnabled(true);
     KUndo2Command *command = nullptr;
     if (!removed.isEmpty()) {
-        //KMessageBox::ButtonCode result = KMessageBox::Yes;
+        //KMessageBox::ButtonCode result = KMessageBox::PrimaryAction;
         if (property(NOUI).toBool()) {
             int action = property(SHAREDRESOURCESACTION).isValid() ? property(SHAREDRESOURCESACTION).toInt() : SHAREDRESOURCESKEEP;
             SharedResourcesDialog dlg(removedGroups, removedResources, removedCalendars);

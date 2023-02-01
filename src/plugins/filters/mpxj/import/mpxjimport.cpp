@@ -166,7 +166,11 @@ KoFilter::ConversionStatus MpxjImport::doImport(const QString &inFile, const QSt
         const QString fileName = normalizedInFile.right(normalizedInFile.length() - normalizedInFile.lastIndexOf(QLatin1Char('/')) - 1);
         QApplication::setOverrideCursor(Qt::ArrowCursor);
         if (m_passwordTries > 0) {
-            if (KMessageBox::questionYesNo(nullptr, xi18nc("@info", "Invalid password. Try again?")) == KMessageBox::No) {
+            if (KMessageBox::questionTwoActions(nullptr,
+                                                xi18nc("@info", "Invalid password. Try again?"),
+                                                i18nc("@title:window", "Enter Password"),
+                                                KStandardGuiItem::cont(),
+                                                KStandardGuiItem::cancel()) == KMessageBox::SecondaryAction) {
                 m_status = KoFilter::UserCancelled;
                 QApplication::restoreOverrideCursor();
                 break;

@@ -49,6 +49,7 @@
 #include <KDialogJobUiDelegate>
 #include <KIO/OpenUrlJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 
 #include <KoPart.h>
 #include <KoComponentData.h>
@@ -1476,7 +1477,11 @@ void View::slotCreateReportTemplate()
                 return url;
             }
             if (QFile::exists(url.toLocalFile())) {
-                if (KMessageBox::warningYesNo(nullptr, i18n("The file '%1' already exists, do you want to overwrite it?", url.fileName()), i18nc("@window:title","Report Template"), KGuiItem(i18n("Overwrite"))) == KMessageBox::No) {
+                if (KMessageBox::warningTwoActions(nullptr,
+                                                   i18n("The file '%1' already exists, do you want to overwrite it?", url.fileName()),
+                                                   i18nc("@window:title","Report Template"),
+                                                   KStandardGuiItem::overwrite(),
+                                                   KStandardGuiItem::cancel()) == KMessageBox::SecondaryAction) {
                     return QUrl();
                 }
             }
@@ -1495,7 +1500,7 @@ void View::slotCreateReportTemplate()
                     return;
                 }
                 auto job = new KIO::OpenUrlJob(url);
-                job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
+                job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
                 job->start();
             }
         }
@@ -1505,7 +1510,7 @@ void View::slotCreateReportTemplate()
         QUrl url = dlg.url();
         if (!url.isEmpty()) {
             auto job = new KIO::OpenUrlJob(url);
-            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
+            job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, window()));
             job->start();
         }
         dlg.openAssistant(window());

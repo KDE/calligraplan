@@ -115,15 +115,9 @@ void KoDialogPrivate::appendButton(KoDialog::ButtonCode key, const KGuiItem &ite
         role = QDialogButtonBox::ApplyRole;
         break;
     case KoDialog::Try:
-    case KoDialog::Yes:
-        role = QDialogButtonBox::YesRole;
-        break;
     case KoDialog::Close:
     case KoDialog::Cancel:
         role = QDialogButtonBox::RejectRole;
-        break;
-    case KoDialog::No:
-        role = QDialogButtonBox::NoRole;
         break;
     case KoDialog::User1:
     case KoDialog::User2:
@@ -255,12 +249,6 @@ void KoDialog::setButtons(ButtonCodes buttonMask)
     }
     if (buttonMask & Close) {
         d->appendButton(Close, KStandardGuiItem::close());
-    }
-    if (buttonMask & Yes) {
-        d->appendButton(Yes, KStandardGuiItem::yes());
-    }
-    if (buttonMask & No) {
-        d->appendButton(No, KStandardGuiItem::no());
     }
     if (buttonMask & Details) {
         d->appendButton(Details, KGuiItem(QString(), QStringLiteral("help-about")));
@@ -810,14 +798,6 @@ void KoDialog::slotButtonClicked(int button)
         break;
     case User1:
         Q_EMIT user1Clicked();
-        break;
-    case Yes:
-        Q_EMIT yesClicked();
-        done(Yes);
-        break;
-    case No:
-        Q_EMIT noClicked();
-        done(No);
         break;
     case Cancel:
         Q_EMIT cancelClicked();

@@ -653,23 +653,23 @@ int WorkPackage::queryClose(Part *part)
         }
     }
     if (! isModified()) {
-        return KMessageBox::Yes;
+        return KMessageBox::PrimaryAction;
     }
-    KMessageBox::ButtonCode res = KMessageBox::Yes;
+    KMessageBox::ButtonCode res = KMessageBox::PrimaryAction;
     if (!m_nogui) {
-        res = KMessageBox::warningYesNoCancel(nullptr,
+        res = KMessageBox::warningTwoActionsCancel(nullptr,
                 i18n("<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save it?</p>", name),
                 QString(),
                 KStandardGuiItem::save(),
                 KStandardGuiItem::discard());
     }
     switch (res) {
-        case KMessageBox::Yes: {
+        case KMessageBox::PrimaryAction: {
             debugPlanWork<<"Yes";
             saveToProjects(part);
             break;
         }
-        case KMessageBox::No:
+        case KMessageBox::SecondaryAction:
             debugPlanWork<<"No";
             break;
         default: // case KMessageBox::Cancel :

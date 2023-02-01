@@ -76,10 +76,11 @@
 #include <QStatusBar>
 #include <QMenuBar>
 #include <QDesktopServices>
+#include <QScreen>
 
 #include "MainDebug.h"
 
-class KoMainWindowPrivate
+class KoMainWindowPrivate //NOLINT
 {
 public:
     KoMainWindowPrivate(const QByteArray &_nativeMimeType, const KoComponentData &componentData_, KoMainWindow *w)
@@ -365,13 +366,9 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     KConfigGroup cfg(KSharedConfig::openConfig(), "MainWindow");
     QByteArray geom = QByteArray::fromBase64(cfg.readEntry("ko_geometry", QByteArray()));
     if (!restoreGeometry(geom)) {
-        const int scnum = QApplication::desktop()->screenNumber(parentWidget());
-        QRect desk = QApplication::desktop()->availableGeometry(scnum);
-        // if the desktop is virtual then use virtual screen size
-        if (QApplication::desktop()->isVirtualDesktop()) {
-            desk = QApplication::desktop()->availableGeometry(QApplication::desktop()->screen());
-            desk = QApplication::desktop()->availableGeometry(QApplication::desktop()->screen(scnum));
-        }
+        // TODO: Handle multiple monitors
+        const auto screen = qApp->primaryScreen();
+        QRect desk = screen->geometry();
 
         quint32 x = desk.x();
         quint32 y = desk.y();
@@ -1254,20 +1251,21 @@ bool KoMainWindow::queryClose()
         if (name.isEmpty())
             name = i18n("Untitled");
 
-        int res = KMessageBox::warningYesNoCancel(this,
+        int res = KMessageBox::warningTwoActionsCancel(this,
                                                   i18n("<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?</p>", name),
                                                   QString(),
                                                   KStandardGuiItem::save(),
-                                                  KStandardGuiItem::discard());
+                                                  KStandardGuiItem::discard(),
+                                                  KStandardGuiItem::cancel());
 
         switch (res) {
-        case KMessageBox::Yes : {
+        case KMessageBox::PrimaryAction : {
             bool isNative = (d->rootDocument->outputMimeType() == d->rootDocument->nativeFormatMimeType());
             if (!saveDocument(!isNative))
                 return false;
             break;
         }
-        case KMessageBox::No :
+        case KMessageBox::SecondaryAction :
             rootDocument()->removeAutoSaveFiles();
             rootDocument()->setModified(false);   // Now when queryClose() is called by closeEvent it won't do anything.
             break;
@@ -1838,10 +1836,12 @@ void KoMainWindow::slotReloadFile()
     if (!pDoc || pDoc->url().isEmpty() || !pDoc->isModified())
         return;
 
-    bool bOk = KMessageBox::questionYesNo(this,
+    bool bOk = KMessageBox::questionTwoActions(this,
                                           i18n("You will lose all changes made since your last save\n"
                                                "Do you want to continue?"),
-                                          i18n("Warning")) == KMessageBox::Yes;
+                                          i18n("Warning"),
+                                          KStandardGuiItem::save(),
+                                          KStandardGuiItem::dontSave()) == KMessageBox::PrimaryAction;
     if (!bOk)
         return;
 

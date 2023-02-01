@@ -342,10 +342,10 @@ void View::slotSendPackage()
         return;
     }
 /*    if (wp->isModified()) {
-        int r = KMessageBox::questionYesNoCancel(0, i18n("This work package has been modified.\nDo you want to save it before sending?"), node->name());
+        int r = KMessageBox::questionTwoActionsCancel(0, i18n("This work package has been modified.\nDo you want to save it before sending?"), node->name());
         switch (r) {
             case KMessageBox::Cancel: return;
-            case KMessageBox::Yes: wp->saveToProjects(part()); break;
+            case KMessageBox::PrimaryAction: wp->saveToProjects(part()); break;
             default: break;
         }
     }*/
