@@ -93,7 +93,7 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 ##########################
 
 set(REQUIRED_QT_VERSION "5.15.2")
-set(REQUIRED_KF5_VERSION "5.91.0")
+set(REQUIRED_KF5_VERSION "5.100.0")
 
 find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
