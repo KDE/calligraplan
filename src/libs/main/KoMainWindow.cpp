@@ -843,16 +843,23 @@ void KoMainWindow::slotLoadCompleted()
 void KoMainWindow::slotLoadCanceled(const QString & errMsg)
 {
     debugMain;
-    if (!errMsg.isEmpty())   // empty when canceled by user
-        KMessageBox::error(this, errMsg);
-    // ... can't delete the document, it's the one who emitted the signal...
-
     KoDocument* doc = qobject_cast<KoDocument*>(sender());
     Q_ASSERT(doc);
     disconnect(doc, &KoDocument::sigProgress, this, &KoMainWindow::slotProgress);
     disconnect(doc, &KoDocument::completed, this, &KoMainWindow::slotLoadCompleted);
     disconnect(doc, &KoDocument::canceled, this, &KoMainWindow::slotLoadCanceled);
     d->openingDocument = false;
+    if (!errMsg.isEmpty()) {  // empty when canceled by user
+        KMessageBox::error(this, errMsg);
+    }
+    // open welcome view
+    auto part = doc->documentPart();
+    Q_ASSERT(part);
+    auto w = part->createWelcomeView(this);
+    if (w) {
+        setPartToOpen(part);
+        setCentralWidget(w);
+    }
     Q_EMIT loadCanceled();
 }
 
