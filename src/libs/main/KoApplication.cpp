@@ -356,8 +356,8 @@ bool KoApplication::start(const KoComponentData &componentData)
                     }
                 } else {
                     // .... if failed
-                    // delete doc; done by openDocument
-                    // delete mainWindow; done by ~KoDocument
+                    mainWindow->setPartToOpen(nullptr);
+                    delete part; // deletes document and mainwindow
                 }
 
                 if (profileoutput.device()) {
