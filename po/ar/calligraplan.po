@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:57+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2007-10-14 16:05+0000\n"
 "Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
 "Language-Team: <en@li.org>\n"
@@ -555,7 +555,7 @@ msgstr "إنشاء جدول"
 msgid "Project Defaults"
 msgstr "إعدادت المشروع"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:637
+#: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, fuzzy, kde-format
 msgid "Work & Vacation"
 msgstr "العمل عطلة"
@@ -1504,7 +1504,7 @@ msgctxt "Base calendar name"
 msgid "Base"
 msgstr ""
 
-#: kptpart.cpp:95
+#: kptpart.cpp:96
 #, fuzzy, kde-format
 msgid "Configure Plan..."
 msgstr "اضبط كي بلاتو."
@@ -1514,78 +1514,78 @@ msgstr "اضبط كي بلاتو."
 msgid "Schedule Selector"
 msgstr "اعرض منتقيالمختار"
 
-#: kptview.cpp:185
+#: kptview.cpp:186
 #, fuzzy, kde-format
 msgid "Create Project Template..."
 msgstr "أنشئ تقرير"
 
-#: kptview.cpp:189
+#: kptview.cpp:190
 #, fuzzy, kde-format
 msgid "Create New Project..."
 msgstr "أنشئ تقرير"
 
-#: kptview.cpp:201
+#: kptview.cpp:202
 #, fuzzy, kde-format
 msgid "Show Selector"
 msgstr "اعرض منتقيالمختار"
 
-#: kptview.cpp:208 kptview.cpp:249
+#: kptview.cpp:209 kptview.cpp:250
 #, fuzzy, kde-format
 msgid "Edit..."
 msgstr "حرر..."
 
-#: kptview.cpp:212
+#: kptview.cpp:213
 #, kde-format
 msgid "Define Estimate Conversions..."
 msgstr ""
 
-#: kptview.cpp:216
+#: kptview.cpp:217
 #, fuzzy, kde-format
 msgid "Define WBS Pattern..."
 msgstr "تعريف WBS نمط."
 
-#: kptview.cpp:220
+#: kptview.cpp:221
 #, fuzzy, kde-format
 msgid "Define Currency..."
 msgstr "تعريف WBS نمط."
 
-#: kptview.cpp:224
+#: kptview.cpp:225
 #, fuzzy, kde-format
 msgid "Edit Description..."
 msgstr "وصف"
 
-#: kptview.cpp:229
+#: kptview.cpp:230
 #, fuzzy, kde-format
 msgid "Insert Project File..."
 msgstr "صريح"
 
-#: kptview.cpp:233
+#: kptview.cpp:234
 #, fuzzy, kde-format
 msgid "Update Shared Resources"
 msgstr "تعيين:"
 
-#: kptview.cpp:238
+#: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
 msgstr ""
 
-#: kptview.cpp:243
+#: kptview.cpp:244
 #, fuzzy, kde-format
 msgid "Create Report Template..."
 msgstr "أنشئ تقرير"
 
-#: kptview.cpp:259
+#: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
 msgstr ""
 
-#: kptview.cpp:260
+#: kptview.cpp:261
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
 msgstr "مورد ليس متوفّر"
 
-#: kptview.cpp:351
+#: kptview.cpp:352
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1595,385 +1595,380 @@ msgid ""
 "information is removed.<nl/><nl/>Do you want to continue?"
 msgstr ""
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, fuzzy, kde-format
 msgid "Edit task scheduling constraints"
 msgstr ""
 "الـ قيد\n"
 "قسْر نوع"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, fuzzy, kde-format
 msgid "Task Constraints"
 msgstr "تقييدات :: كوابح :: ارتباكات"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, fuzzy, kde-format
 msgid "Edit task cost"
 msgstr "تعديل مهمَّة التكلفة"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, fuzzy, kde-format
 msgid "Task Cost"
 msgstr "مهمَّة التقدم"
 
-#: kptview.cpp:550
+#: kptview.cpp:551
 #, fuzzy, kde-format
 msgid "Generate reports"
 msgstr "أنشئ WBS الرّمز"
 
-#: kptview.cpp:556 kptview.cpp:2456
+#: kptview.cpp:557 kptview.cpp:2461
 #, fuzzy, kde-format
 msgid "Task Status Report"
 msgstr "مهمَّة الحالة"
 
-#: kptview.cpp:638
+#: kptview.cpp:639
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "تحرير و أيام لـ"
 
-#: kptview.cpp:640
+#: kptview.cpp:641
 #, fuzzy, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "العمل الانهيار بناء"
 
-#: kptview.cpp:641
+#: kptview.cpp:642
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "تحرير بنية."
 
-#: kptview.cpp:643
+#: kptview.cpp:644
 #, fuzzy, kde-format
 msgid "Resource Breakdown Structure"
 msgstr "تحرير مورِد بنية."
 
-#: kptview.cpp:644
+#: kptview.cpp:645
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "تحرير مورِد بنية."
 
-#: kptview.cpp:646 SharedResourcesDialog.cpp:58
+#: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "موارد"
 
-#: kptview.cpp:647
+#: kptview.cpp:648
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "تحرير الموارد."
 
-#: kptview.cpp:649
+#: kptview.cpp:650
 #, fuzzy, kde-format
 msgid "Tasks"
 msgstr "المهام"
 
-#: kptview.cpp:650
+#: kptview.cpp:651
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "تحرير بنية"
 
-#: kptview.cpp:652
+#: kptview.cpp:653
 #, fuzzy, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "التبعيات"
 
-#: kptview.cpp:653 kptview.cpp:656
+#: kptview.cpp:654 kptview.cpp:657
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "تحرير المهمة التبعيات"
 
-#: kptview.cpp:655
+#: kptview.cpp:656
 #, fuzzy, kde-format
 msgid "Dependencies (List)"
 msgstr "التبعيات"
 
-#: kptview.cpp:659 kptview.cpp:661
+#: kptview.cpp:660 kptview.cpp:662
 #, fuzzy, kde-format
 msgid "Schedules"
 msgstr "الجداول"
 
-#: kptview.cpp:662
+#: kptview.cpp:663
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "إحسب و مشروع"
 
-#: kptview.cpp:664 kptviewlistdialog.cpp:110
+#: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, fuzzy, kde-format
 msgid "Project Performance Chart"
 msgstr "الأداء رسم بياني"
 
-#: kptview.cpp:665
+#: kptview.cpp:666
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "عرض المهمة progress معلومات"
 
-#: kptview.cpp:667 kptviewlistdialog.cpp:101
+#: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, fuzzy, kde-format
 msgid "Task Status"
 msgstr "مهمَّة الحالة"
 
-#: kptview.cpp:668
+#: kptview.cpp:669
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "عرض المهمة progress معلومات"
 
-#: kptview.cpp:670
+#: kptview.cpp:671
 #, fuzzy, kde-format
 msgid "Task Execution"
 msgstr "مهمَّة"
 
-#: kptview.cpp:671
+#: kptview.cpp:672
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "عرض المهمة progress معلومات"
 
-#: kptview.cpp:673 kptviewlistdialog.cpp:103
+#: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr ""
 
-#: kptview.cpp:674
+#: kptview.cpp:675
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "عرض المهمة progress معلومات"
 
-#: kptview.cpp:676
+#: kptview.cpp:677
 #, fuzzy, kde-format
 msgid "Gantt"
 msgstr "جانت"
 
-#: kptview.cpp:677
+#: kptview.cpp:678
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "عرض شكل"
 
-#: kptview.cpp:679
+#: kptview.cpp:680
 #, fuzzy, kde-format
 msgid "Milestone Gantt"
 msgstr "المعلم جانت"
 
-#: kptview.cpp:680
+#: kptview.cpp:681
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "عرض شكل"
 
-#: kptview.cpp:682 kptviewlistdialog.cpp:106
+#: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, fuzzy, kde-format
 msgid "Resource Assignments"
 msgstr "مورد الواجبات"
 
-#: kptview.cpp:683
+#: kptview.cpp:684
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "عرض مورِد"
 
-#: kptview.cpp:685 kptviewlistdialog.cpp:107
+#: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, fuzzy, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "مورد الواجبات"
 
-#: kptview.cpp:686
+#: kptview.cpp:687
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "عرض مورِد"
 
-#: kptview.cpp:688 kptviewlistdialog.cpp:108
+#: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, fuzzy, kde-format
 msgid "Resource Coverage"
 msgstr "مورد"
 
-#: kptview.cpp:689
+#: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr ""
 
-#: kptview.cpp:691 kptviewlistdialog.cpp:109
+#: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, fuzzy, kde-format
 msgid "Cost Breakdown"
 msgstr "العمل الانهيار بناء"
 
-#: kptview.cpp:692
+#: kptview.cpp:693
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "عرض"
 
-#: kptview.cpp:694 kptviewlistdialog.cpp:111
+#: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, fuzzy, kde-format
 msgid "Tasks Performance Chart"
 msgstr "الأداء رسم بياني"
 
-#: kptview.cpp:695
+#: kptview.cpp:696
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "عرض المهمة progress معلومات"
 
-#: kptview.cpp:697
+#: kptview.cpp:698
 #, fuzzy, kde-format
 msgid "Reports Generator"
 msgstr "تقرير قالب"
 
-#: kptview.cpp:698
+#: kptview.cpp:699
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "أنشئ WBS الرّمز"
 
-#: kptview.cpp:700 kptview.cpp:2453 kptviewlistdialog.cpp:114
+#: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, fuzzy, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "صريح"
 
-#: kptview.cpp:701
+#: kptview.cpp:702
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "اعرض منتقيالمختار"
 
-#: kptview.cpp:712
+#: kptview.cpp:713
 #, fuzzy, kde-format
 msgid "Editors"
 msgstr "محررات النصوص"
 
-#: kptview.cpp:714
+#: kptview.cpp:715
 #, fuzzy, kde-format
 msgid "Views"
 msgstr "المشاهد"
 
-#: kptview.cpp:716
+#: kptview.cpp:717
 #, fuzzy, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "مهمَّة"
 
-#: kptview.cpp:718
+#: kptview.cpp:719
 #, fuzzy, kde-format
 msgid "Reports"
 msgstr "موارد"
 
-#: kptview.cpp:1479
-#, fuzzy, kde-format
-msgid "Overwrite"
-msgstr "الوقت الإضافي"
+#: kptview.cpp:1481
+#, kde-format
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr ""
 
-#: kptview.cpp:1479
+#: kptview.cpp:1482
 #, fuzzy, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "أنشئ تقرير"
 
-#: kptview.cpp:1479
-#, kde-format
-msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
-
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, fuzzy, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "تعيين:"
 
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
 
-#: kptview.cpp:2032
+#: kptview.cpp:2037
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "غير قادر على إنزال ملف القالب: %1"
 
-#: kptview.cpp:2147
+#: kptview.cpp:2152
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "تعديل الاسم"
 
-#: kptview.cpp:2149
+#: kptview.cpp:2154
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "تعديل الاسم"
 
-#: kptview.cpp:2150
+#: kptview.cpp:2155
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "تعديل"
 
-#: kptview.cpp:2151
+#: kptview.cpp:2156
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "تعديل الملخّص مهمَّة"
 
-#: kptview.cpp:2152
+#: kptview.cpp:2157
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "تعديل رئيسي مشروع"
 
-#: kptview.cpp:2244
+#: kptview.cpp:2249
 #, fuzzy, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "لا"
 
-#: kptview.cpp:2298
+#: kptview.cpp:2303
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr ""
 
-#: kptview.cpp:2454
+#: kptview.cpp:2459
 #, fuzzy, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "الصفحة:"
 
-#: kptview.cpp:2455
+#: kptview.cpp:2460
 #, fuzzy, kde-format
 msgid "Project:"
 msgstr "مشروع"
 
-#: kptview.cpp:2457
+#: kptview.cpp:2462
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr ""
 
-#: kptview.cpp:2458
+#: kptview.cpp:2463
 #, fuzzy, kde-format
 msgid "Page"
 msgstr "الصفحة:"
 
-#: kptview.cpp:2459
+#: kptview.cpp:2464
 #, fuzzy, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "الاسم"
 
-#: kptview.cpp:2460
+#: kptview.cpp:2465
 #, fuzzy, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
@@ -2397,6 +2392,10 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Overwrite"
+#~ msgstr "الوقت الإضافي"
 
 #, fuzzy
 #~ msgid "Expected estimate"

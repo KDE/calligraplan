@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-12-04 18:16+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -152,12 +152,12 @@ msgctxt "@title:window"
 msgid "Save Documents"
 msgstr "Enregistrer les documents"
 
-#: DocumentsSaveDialog.cpp:135
+#: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
 msgstr "Le fichier existe déjà. Voulez-vous vraiment l'écraser ?"
 
-#: DocumentsSaveDialog.cpp:135
+#: DocumentsSaveDialog.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
@@ -233,7 +233,7 @@ msgctxt "@title:window"
 msgid "Could not add project"
 msgstr "Impossible d'ajouter un projet"
 
-#: MainWindow.cpp:148
+#: MainWindow.cpp:149
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -243,18 +243,26 @@ msgstr ""
 "<p>Le fichier de projet externe <filename>%1</filename> a été modifié.</"
 "p><p>Veuillez-vous l'enregistrer ?</p>"
 
-#: Part.cpp:60
+#: MainWindow.cpp:150
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Save Documents"
+msgctxt "@title:window"
+msgid "Save Document"
+msgstr "Enregistrer les documents"
+
+#: Part.cpp:61
 #, kde-format
 msgid "Configure Portfolio..."
 msgstr "Configurer une collection..."
 
-#: Part.cpp:73
+#: Part.cpp:69
 #, kde-kuit-format
 msgctxt "title:window"
 msgid "Portfolio Settings"
 msgstr "Configuration d'une collection"
 
-#: Part.cpp:76
+#: Part.cpp:72
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Portfolio Settings"

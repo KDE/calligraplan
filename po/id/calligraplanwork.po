@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2019-08-09 21:33+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -114,7 +114,7 @@ msgstr "File tidak ada:<br>%1"
 msgid "Edit with:"
 msgstr "Edit dengan:"
 
-#: part.cpp:379
+#: part.cpp:380
 #, kde-format
 msgid ""
 "<p>The work package already exists in the projects store.</p><p>Project: "
@@ -125,12 +125,19 @@ msgstr ""
 "%1<br>Tugas: %2</p><p>Apakah Anda ingin memperbarui paket yang ada dengan "
 "data dari yang baru?</p>"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr "Paket Work: %1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr "Gagal menghapus. Tidak bisa menemukan paket work"
 
-#: part.cpp:414
+#: part.cpp:418
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Remove work package"
@@ -139,44 +146,44 @@ msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "Hapus paket work"
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] "Hapus paket work"
 msgstr[1] "Hapus paket-paket work"
 
-#: part.cpp:466
+#: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
 msgstr "Gagal memuat file:<br>%1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
 msgstr "Bukan file paket work yang absah:<br>%1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "Dokumen tidak absah. Dokumen tidak mengandung 'maindoc.xml'."
 
-#: part.cpp:546
+#: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
 msgstr "Gagal membuka file: %1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr "Mengurai error dalam file '%1' di garis %2, kolom %3<br>Pesan eror: %4"
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Dokumen tidak absah. Tidak ada mimetype yang ditentukan."
 
-#: part.cpp:587
+#: part.cpp:591
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
@@ -184,7 +191,7 @@ msgstr ""
 "Dokumen tidak absah. Aplikasi mimetype yang diharapkan/x-vnd.kde.plan.work, "
 "menjadi %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
@@ -194,17 +201,17 @@ msgstr ""
 "(versi sintaks: %1)<br>Membukanya dalam versi PlanWork ini akan kehilangan "
 "beberapa informasi."
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "Teruskan"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Ketidaksesuaian Format-File"
 
-#: part.cpp:636
+#: part.cpp:640
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
@@ -214,7 +221,7 @@ msgstr ""
 "Dokumen tidak absah. Aplikasi mimetype yang diharapkan/x-vnd.kde.plan.work, "
 "menjadi %1"
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr "Gagal mengedit. Tidak bisa menemukan paket work."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-06-27 19:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -121,7 +121,7 @@ msgstr "Plik nie istnieje:<br>%1"
 msgid "Edit with:"
 msgstr "Edytuj w:"
 
-#: part.cpp:379
+#: part.cpp:380
 #, kde-format
 msgid ""
 "<p>The work package already exists in the projects store.</p><p>Project: "
@@ -132,17 +132,24 @@ msgstr ""
 "%1<br>Zadanie: %2</p><p>Czy chcesz uaktualnić istniejący pakiet danymi z "
 "nowego pakietu?</p>"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr "Pakiet pracy: %1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr "Nieudane usuniecie. Nie można znaleźć pakietu pracy"
 
-#: part.cpp:414
+#: part.cpp:418
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "Usuń pakiet pracy"
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
@@ -150,39 +157,39 @@ msgstr[0] "Usuń pakiet pracy"
 msgstr[1] "Usuń pakiety pracy"
 msgstr[2] "Usuń pakiety pracy"
 
-#: part.cpp:466
+#: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
 msgstr "Nie udało się wczytać pliku:<br>%1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
 msgstr "Niepoprawny plik pakietu pracy:<br>%1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "Nieprawidłowy dokument. Dokument nie zawiera 'maindoc.xml'."
 
-#: part.cpp:546
+#: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
 msgstr "Nie udało się otworzyć pliku: %1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr ""
 "Błąd przetwarzania w pliku '%1' w wierszu %2, kolumna %3<br>Komunikat błędu: "
 "%4"
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Niepoprawny dokument. Nie określono typu mime."
 
-#: part.cpp:587
+#: part.cpp:591
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
@@ -190,7 +197,7 @@ msgstr ""
 "Nieprawidłowy dokument. Oczekiwany typ mime program/x-vnd.kde.plan.work, "
 "otrzymano %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
@@ -200,22 +207,22 @@ msgstr ""
 "%1)\n"
 "Otwarcie go w tej wersji PlanWork spowoduje utratę niektórych informacji."
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Niezgodność formatów pliku"
 
-#: part.cpp:636
+#: part.cpp:640
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Nieprawidłowy dokument. Oczekiwany rodzaj mime to %2, a dostano %1"
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr "Nieudana edycja. Nie można znaleźć pakietu pracy."

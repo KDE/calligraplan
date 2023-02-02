@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-12-17 08:26+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -611,7 +611,7 @@ msgstr "Діагностика"
 msgid "Info"
 msgstr "Інформація"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1834
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "Попередження"
@@ -770,7 +770,7 @@ msgid "Could not match work duration. Want: %1 got: %2"
 msgstr "Не вдалося узгодити тривалість роботи. Потрібно: %1 маємо: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Number"
 msgstr "Номер"
@@ -883,13 +883,13 @@ msgstr "Повторити %1"
 msgid "<empty>"
 msgstr "<порожньо>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1650
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Повторити"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1649
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1213,7 +1213,7 @@ msgstr "Неможливо створити файл для збереження
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Не вдається записати «%1». Розділ на диску повний?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1948
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Помилка при записі «%1». Розділ на диску повний?"
@@ -1236,125 +1236,131 @@ msgstr ""
 "Вже існує автоматично збережена копія цього документа.\n"
 "Відкрити натомість її?"
 
-#: main/KoDocument.cpp:1310 main/KoDocument.cpp:1631 main/KoMainWindow.cpp:715
+#: main/KoDocument.cpp:1198
+#, fuzzy, kde-format
+#| msgid "No autosave"
+msgid "Autosave"
+msgstr "Без автозбереження"
+
+#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Файла «%1» не існує."
 
-#: main/KoDocument.cpp:1388
+#: main/KoDocument.cpp:1392
 #, kde-format
 msgid "Opening Document"
 msgstr "Відкриття документа"
 
-#: main/KoDocument.cpp:1404
+#: main/KoDocument.cpp:1408
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "Неможливо створити додаток фільтрування"
 
-#: main/KoDocument.cpp:1407
+#: main/KoDocument.cpp:1411
 #, kde-format
 msgid "Could not create the output document"
 msgstr "Не вдалося створити документ з результатами роботи"
 
-#: main/KoDocument.cpp:1410
+#: main/KoDocument.cpp:1414
 #, kde-format
 msgid "File not found"
 msgstr "Файл не знайдено"
 
-#: main/KoDocument.cpp:1413
+#: main/KoDocument.cpp:1417
 #, kde-format
 msgid "Cannot create storage"
 msgstr "Не вдається зберегти дані"
 
-#: main/KoDocument.cpp:1416
+#: main/KoDocument.cpp:1420
 #, kde-format
 msgid "Bad MIME type"
 msgstr "неправильний тип MIME"
 
-#: main/KoDocument.cpp:1419
+#: main/KoDocument.cpp:1423
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Помилка у вбудованому документі"
 
-#: main/KoDocument.cpp:1422
+#: main/KoDocument.cpp:1426
 #, kde-format
 msgid "Format not recognized"
 msgstr "Не розпізнано формат"
 
-#: main/KoDocument.cpp:1425
+#: main/KoDocument.cpp:1429
 #, kde-format
 msgid "Not implemented"
 msgstr "Не реалізовано"
 
-#: main/KoDocument.cpp:1428
+#: main/KoDocument.cpp:1432
 #, kde-format
 msgid "Parsing error"
 msgstr "Помилка синтаксичного аналізу"
 
-#: main/KoDocument.cpp:1431
+#: main/KoDocument.cpp:1435
 #, kde-format
 msgid "Document is password protected"
 msgstr "Документ захищений паролем"
 
-#: main/KoDocument.cpp:1434
+#: main/KoDocument.cpp:1438
 #, kde-format
 msgid "Invalid file format"
 msgstr "Некоректний формат файла"
 
-#: main/KoDocument.cpp:1441
+#: main/KoDocument.cpp:1445
 #, kde-format
 msgid "Internal error"
 msgstr "Внутрішня помилка"
 
-#: main/KoDocument.cpp:1444
+#: main/KoDocument.cpp:1448
 #, kde-format
 msgid "Out of memory"
 msgstr "Не вистачає пам'яті"
 
-#: main/KoDocument.cpp:1447
+#: main/KoDocument.cpp:1451
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "Порожній додаток фільтрування"
 
-#: main/KoDocument.cpp:1450
+#: main/KoDocument.cpp:1454
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "Спроба завантаження до документа помилкового типу"
 
-#: main/KoDocument.cpp:1453
+#: main/KoDocument.cpp:1457
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Не вдалося отримати віддалений файл"
 
-#: main/KoDocument.cpp:1461
+#: main/KoDocument.cpp:1465
 #, kde-format
 msgid "Reading file timed out"
 msgstr "Перевищено час очікування на читання файла"
 
-#: main/KoDocument.cpp:1464 main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
 #, kde-format
 msgid "Unknown error"
 msgstr "Невідома помилка"
 
-#: main/KoDocument.cpp:1467
+#: main/KoDocument.cpp:1471
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 "Не знайдено фільтра planconvert.jar. Перевірте, чи правильно встановлено "
 "програму"
 
-#: main/KoDocument.cpp:1470
+#: main/KoDocument.cpp:1474
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr ""
 "Не вдалося виконати програму. Перевірте, чи правильно встановлено програму"
 
-#: main/KoDocument.cpp:1473
+#: main/KoDocument.cpp:1477
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "Не вдалося виконати програму. Не знайдено драйвера ODBC."
 
-#: main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1483
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1365,17 +1371,17 @@ msgstr ""
 "Причина: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1536
+#: main/KoDocument.cpp:1540
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "Документ <i>%1</i> завантажено"
 
-#: main/KoDocument.cpp:1605 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "Не вдалося знайти %1"
 
-#: main/KoDocument.cpp:1617
+#: main/KoDocument.cpp:1621
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1384,22 +1390,22 @@ msgstr ""
 "Помилка розбору синтаксису в %1, рядок — %2, позиція — %3\n"
 "Повідомлення: %4"
 
-#: main/KoDocument.cpp:1638
+#: main/KoDocument.cpp:1642
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 не є файлом."
 
-#: main/KoDocument.cpp:1653
+#: main/KoDocument.cpp:1657
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr "Не вдалось відкрити файл для читання (перевірте права доступу)."
 
-#: main/KoDocument.cpp:1664
+#: main/KoDocument.cpp:1668
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "Не вдається прочитати початок файла."
 
-#: main/KoDocument.cpp:1694
+#: main/KoDocument.cpp:1698
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1408,22 +1414,22 @@ msgstr ""
 "Помилка розбору синтаксису головного документа в рядку %1, стовпчик %2\n"
 "Повідомлення помилки: %3"
 
-#: main/KoDocument.cpp:1715
+#: main/KoDocument.cpp:1719
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "Це не файл Calligra Plan: %1"
 
-#: main/KoDocument.cpp:1732 main/KoDocument.cpp:1763
+#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
 #, kde-format
 msgid "Invalid password"
 msgstr "Некоректний пароль"
 
-#: main/KoDocument.cpp:1803
+#: main/KoDocument.cpp:1807
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Неправильний документ: немає «maindoc.xml»."
 
-#: main/KoDocument.cpp:1829
+#: main/KoDocument.cpp:1833
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1432,24 +1438,32 @@ msgstr ""
 "Документ <i>%1</i> містить декілька версій. Скористайтеся меню «Файл» -> "
 "«Версії», щоб відкрити стару версію."
 
-#: main/KoDocument.cpp:2038 main/KoDocument.cpp:2531 main/KoMainWindow.cpp:1245
+#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "Без назви"
 
-#: main/KoDocument.cpp:2041 main/KoMainWindow.cpp:1248
+#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr "<p>Документ <b>«%1»</b> було змінено.</p><p>Зберегти зміни?</p>"
 
-#: main/KoDocument.cpp:2123
+#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
+#: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
+#: widgets/KoDocumentInfoDlg.cpp:489
+#, kde-format
+msgid "Save Document"
+msgstr "Зберегти документ"
+
+#: main/KoDocument.cpp:2130
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Внутрішня помилка: saveXML не впроваджено"
 
-#: main/KoDocument.cpp:2161
+#: main/KoDocument.cpp:2168
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1458,7 +1472,7 @@ msgstr ""
 "Неможливо відкрити\n"
 "%1"
 
-#: main/KoDocument.cpp:2164
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1467,32 +1481,32 @@ msgstr ""
 "Не вдається відкрити %1\n"
 "Причина: %2"
 
-#: main/KoDocument.cpp:2238
+#: main/KoDocument.cpp:2245
 #, kde-format
 msgid "a word processing"
 msgstr "документ"
 
-#: main/KoDocument.cpp:2239
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a spreadsheet"
 msgstr "електронна таблиця"
 
-#: main/KoDocument.cpp:2240
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a presentation"
 msgstr "презентація"
 
-#: main/KoDocument.cpp:2241
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a chart"
 msgstr "діаграма"
 
-#: main/KoDocument.cpp:2242
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a drawing"
 msgstr "малюнок"
 
-#: main/KoDocument.cpp:2535
+#: main/KoDocument.cpp:2542
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1501,7 +1515,7 @@ msgstr ""
 "До документа «%1» було внесено зміни.\n"
 "Зберегти ці зміни чи відкинути їх?"
 
-#: main/KoDocument.cpp:2537
+#: main/KoDocument.cpp:2544
 #, kde-format
 msgid "Close Document"
 msgstr "Закриття документа"
@@ -1535,88 +1549,88 @@ msgstr "Немає фільтра для імпортування"
 msgid "Choose Filter"
 msgstr "Виберіть фільтр"
 
-#: main/KoMainWindow.cpp:159
+#: main/KoMainWindow.cpp:160
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 незбережений документ (%2)"
 
-#: main/KoMainWindow.cpp:272 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "Надрукувати до PDF…"
 
-#: main/KoMainWindow.cpp:282
+#: main/KoMainWindow.cpp:285
 #, kde-format
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: main/KoMainWindow.cpp:286
+#: main/KoMainWindow.cpp:289
 #, kde-format
 msgid "Import..."
 msgstr "Імпортувати…"
 
-#: main/KoMainWindow.cpp:290
+#: main/KoMainWindow.cpp:293
 #, kde-format
 msgid "E&xport..."
 msgstr "Е&кспортувати…"
 
-#: main/KoMainWindow.cpp:294
+#: main/KoMainWindow.cpp:297
 #, kde-format
 msgid "En&crypt Document"
 msgstr "За&шифрувати документ"
 
-#: main/KoMainWindow.cpp:299
+#: main/KoMainWindow.cpp:302
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "&Розпакувати до каталогу"
 
-#: main/KoMainWindow.cpp:304
+#: main/KoMainWindow.cpp:307
 #, kde-format
 msgid "&New View"
 msgstr "С&творити нову панель перегляду"
 
-#: main/KoMainWindow.cpp:311 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "Відомості щодо документа"
 
-#: main/KoMainWindow.cpp:337
+#: main/KoMainWindow.cpp:340
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "Повноекранний режим"
 
-#: main/KoMainWindow.cpp:342
+#: main/KoMainWindow.cpp:345
 #, kde-format
 msgid "Show Dockers"
 msgstr "Показати панелі"
 
-#: main/KoMainWindow.cpp:347
+#: main/KoMainWindow.cpp:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "Показати смужки заголовків панелей"
 
-#: main/KoMainWindow.cpp:354
+#: main/KoMainWindow.cpp:357
 #, kde-format
 msgid "Dockers"
 msgstr "Бічні панелі"
 
-#: main/KoMainWindow.cpp:664
+#: main/KoMainWindow.cpp:671
 #, kde-format
 msgid "(write protected)"
 msgstr "(захист від запису)"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:676
 #, kde-format
 msgid "Save as %1"
 msgstr "Зберегти як %1"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:678
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: main/KoMainWindow.cpp:709 main/KoMainWindow.cpp:737
+#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1628,13 +1642,13 @@ msgstr ""
 "шаблона, створіть проєкт з використанням цього шаблона і збережіть його за "
 "допомогою пункту меню <interface>Файл → Створити шаблон проєкту…</interface>."
 
-#: main/KoMainWindow.cpp:883 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (невідомий тип файла)"
 
-#: main/KoMainWindow.cpp:891
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1643,12 +1657,12 @@ msgstr ""
 "<qt>Збереження як %1 може призвести до часткової втрати форматування."
 "<p>Хочете зберегти в цьому форматі, попри все?</qt>"
 
-#: main/KoMainWindow.cpp:894
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "Підтвердження збереження"
 
-#: main/KoMainWindow.cpp:903
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1657,63 +1671,63 @@ msgstr ""
 "<qt>Експортування як %1 може призвести до часткової втрати форматування."
 "<p>Хочете експортувати в цьому форматі, попри все?</qt>"
 
-#: main/KoMainWindow.cpp:906
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "Підтвердження експорту"
 
-#: main/KoMainWindow.cpp:907 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Експорт"
 
-#: main/KoMainWindow.cpp:1025
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "без назви"
 
-#: main/KoMainWindow.cpp:1317 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Відкрити документ"
 
-#: main/KoMainWindow.cpp:1326
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "Імпортувати документ"
 
-#: main/KoMainWindow.cpp:1534
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "Не вдалося відкрити попередній перегляд документа"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "Не вдалося відкрити програму для перегляду PDF"
 
-#: main/KoMainWindow.cpp:1590
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "Експортувати до PDF"
 
-#: main/KoMainWindow.cpp:1627
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "Не вдалося експортувати дані до вказаного файла"
 
-#: main/KoMainWindow.cpp:1803
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "Документ"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "Документ — %1"
 
-#: main/KoMainWindow.cpp:1832
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1722,12 +1736,12 @@ msgstr ""
 "Всі зміни з часу останнього збереження буде втрачено.\n"
 "Хочете продовжити?"
 
-#: main/KoMainWindow.cpp:2192
+#: main/KoMainWindow.cpp:2202
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Показати пенал %1"
 
-#: main/KoMainWindow.cpp:2194
+#: main/KoMainWindow.cpp:2204
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Сховати пенал %1"
@@ -2392,7 +2406,7 @@ msgstr ""
 
 #: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5466
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
@@ -4739,7 +4753,7 @@ msgstr ""
 msgid "Path"
 msgstr "Ланцюжок"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
 #, kde-format
 msgid "Critical Path"
 msgstr "Критичний ланцюжок"
@@ -6104,10 +6118,17 @@ msgstr "Порожній зашифрований файл"
 msgid "Please enter the password to encrypt the document with."
 msgstr "Будь ласка, введіть пароль для шифрування документа."
 
-#: store/KoEncryptedStore.cpp:756
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr "Хочете зберегти пароль?"
+
+#: store/KoEncryptedStore.cpp:758
+#, fuzzy, kde-format
+#| msgid "Invalid password"
+msgctxt "@title:window"
+msgid "Save Password"
+msgstr "Некоректний пароль"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
@@ -6758,7 +6779,7 @@ msgstr "Початок проєкту"
 #: ui/kptaccountsviewconfigurepanelbase.ui:114
 #: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
 #: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:395
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Date"
 msgstr "Дата"
@@ -6980,7 +7001,7 @@ msgstr "Додати підетап..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -8074,7 +8095,7 @@ msgstr ""
 "Виконання проєкту вже розпочато.\n"
 "Ви справді хочете виконати обчислення за цим планом?"
 
-#: ui/kptscheduleeditor.cpp:374
+#: ui/kptscheduleeditor.cpp:377
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
@@ -8082,14 +8103,14 @@ msgstr ""
 "Обчислити %1\n"
 "обчислення %1"
 
-#: ui/kptscheduleeditor.cpp:392 ui/kptscheduleeditor.cpp:425
+#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr ""
 "Створити підрозклад\n"
 "створення підрозкладу"
 
-#: ui/kptscheduleeditor.cpp:403
+#: ui/kptscheduleeditor.cpp:406
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
@@ -8097,19 +8118,19 @@ msgstr ""
 "Додати розклад %1\n"
 "додавання розкладу %1"
 
-#: ui/kptscheduleeditor.cpp:445
+#: ui/kptscheduleeditor.cpp:448
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
 "Не вдалося додати до базового плану. Проєкт уже знаходиться у базовому плані."
 
-#: ui/kptscheduleeditor.cpp:450
+#: ui/kptscheduleeditor.cpp:453
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr ""
 "Цей розклад належить до базового плану. Ви бажаєте вилучити базовий план?"
 
-#: ui/kptscheduleeditor.cpp:454
+#: ui/kptscheduleeditor.cpp:457
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
@@ -8117,7 +8138,7 @@ msgstr ""
 "Повернути початковий стан базового плану %1\n"
 "повернення початкового стану базового плану %1"
 
-#: ui/kptscheduleeditor.cpp:457 ui/kptscheduleeditor.cpp:461
+#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
@@ -8125,7 +8146,7 @@ msgstr ""
 "Компонування плану %1\n"
 "компонування плану %1"
 
-#: ui/kptscheduleeditor.cpp:471
+#: ui/kptscheduleeditor.cpp:474
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
@@ -8133,7 +8154,7 @@ msgstr ""
 "Вилучити розклад %1\n"
 "вилучення розкладу %1"
 
-#: ui/kptscheduleeditor.cpp:487
+#: ui/kptscheduleeditor.cpp:490
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
@@ -8141,30 +8162,30 @@ msgstr ""
 "Пересунути розклад %1\n"
 "пересування розкладу %1"
 
-#: ui/kptscheduleeditor.cpp:530
+#: ui/kptscheduleeditor.cpp:533
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Показувати діагностичну інформацію"
 
-#: ui/kptscheduleeditor.cpp:765
+#: ui/kptscheduleeditor.cpp:768
 #, kde-format
 msgid "Result"
 msgstr "Результат"
 
-#: ui/kptscheduleeditor.cpp:776
+#: ui/kptscheduleeditor.cpp:779
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Журнал планування"
 
-#: ui/kptscheduleeditor.cpp:960
+#: ui/kptscheduleeditor.cpp:963
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr ""
 "Змінити час початку для цілі проєкту\n"
 "зміну часу початку для цілі проєкту"
 
-#: ui/kptscheduleeditor.cpp:972
+#: ui/kptscheduleeditor.cpp:975
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr ""
@@ -10034,54 +10055,54 @@ msgstr "Після підвалу"
 msgid "Before header"
 msgstr "Перед шапкою"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Nothing"
 msgstr "Нічого"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Шаблон звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Додати"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:257
 #, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Файл звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
 msgstr "Назва звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
 msgstr "Назва файла шаблона звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
 msgstr "До файла додано дані"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:263
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
 msgstr "Назва створеного файла звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:288
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:289
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -10095,78 +10116,78 @@ msgstr ""
 "можете створити шаблон звіту за допомогою текстових редакторів для формату "
 "Open Document.<nl/><link url='%1'>Докладніше…</link></para>"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:379
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
 msgid "Add Report"
 msgstr "Додавання звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:384
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:385
 #, kde-format
 msgid "Remove Report"
 msgstr "Вилучити звіт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:389
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:390
 #, kde-format
 msgid "Generate Report"
 msgstr "Створити звіт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:394
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:395
 #, kde-format
 msgid "Open..."
 msgstr "Відкрити…"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:430
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
 msgid "New report"
 msgstr "Новий звіт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Generate Report"
 msgstr "Створити звіт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:473
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr "Не вдалося створити %1.<nl/>Назва файла шаблона порожня."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr "Не вдалося створити %1.<nl/>Файла шаблона не існує:<nl/>%2"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
 msgstr "Не вдалося створити %1.<nl/>Назва файла звіту порожня."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
 msgctxt "@info"
 msgid "File exists:<nl/>%1"
 msgstr "Файл вже існує:<nl/>%1"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
 msgstr "Створення звіту"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:527
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
 msgstr "Не вдалося відкрити засіб створення звітів"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:531
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
 msgstr "Не вдалося створити звіт"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
@@ -10511,28 +10532,28 @@ msgstr "Перенести прив'язку ресурсів"
 msgid "Create dependencies"
 msgstr "Створити залежності"
 
-#: widgets/KoDialog.cpp:251
+#: widgets/KoDialog.cpp:245
 #, kde-format
 msgid "&Try"
 msgstr "С&пробувати"
 
-#: widgets/KoDialog.cpp:449
+#: widgets/KoDialog.cpp:437
 #, kde-format
 msgid "modified"
 msgstr "змінено"
 
-#: widgets/KoDialog.cpp:460
+#: widgets/KoDialog.cpp:448
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: widgets/KoDialog.cpp:742
+#: widgets/KoDialog.cpp:730
 #, kde-format
 msgid "&Details"
 msgstr "&Подробиці"
 
-#: widgets/KoDialog.cpp:900
+#: widgets/KoDialog.cpp:880
 #, kde-format
 msgid "Get help..."
 msgstr "Відкрити довідку…"
@@ -10795,13 +10816,6 @@ msgid ""
 msgstr ""
 "<qt>Ваш документ не можна зберегти автоматично.<p>Щоб завершити "
 "розшифрування, будь ласка, збережіть цей документ.</qt>"
-
-#: widgets/KoDocumentInfoDlg.cpp:374 widgets/KoDocumentInfoDlg.cpp:382
-#: widgets/KoDocumentInfoDlg.cpp:416 widgets/KoDocumentInfoDlg.cpp:424
-#: widgets/KoDocumentInfoDlg.cpp:481 widgets/KoDocumentInfoDlg.cpp:489
-#, kde-format
-msgid "Save Document"
-msgstr "Зберегти документ"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format

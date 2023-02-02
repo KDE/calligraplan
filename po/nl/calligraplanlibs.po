@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-12-17 11:33+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -615,7 +615,7 @@ msgstr "Debuggen"
 msgid "Info"
 msgstr "Informatie"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1834
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "Waarschuwing"
@@ -773,7 +773,7 @@ msgstr ""
 "Kan geen overeenstemming vinden in de werkduur. Gewenst: %1 verkregen: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Number"
 msgstr "Getal"
@@ -886,13 +886,13 @@ msgstr "%1 opnieuw doen"
 msgid "<empty>"
 msgstr "<leeg>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1650
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Opnieuw doen"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1649
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1214,7 +1214,7 @@ msgstr "Kon het bestand voor opslaan niet aanmaken"
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Kon '%1' niet schrijven. Is de partitie vol?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1948
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Fout tijdens het opslaan van '%1'. Is de schijf vol?"
@@ -1237,122 +1237,128 @@ msgstr ""
 "Er is nog een automatisch opgeslagen bestand voor dit document aanwezig.\n"
 "Wilt u dit misschien openen?"
 
-#: main/KoDocument.cpp:1310 main/KoDocument.cpp:1631 main/KoMainWindow.cpp:715
+#: main/KoDocument.cpp:1198
+#, fuzzy, kde-format
+#| msgid "No autosave"
+msgid "Autosave"
+msgstr "Niet automatisch opslaan"
+
+#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Het bestand %1 bestaat niet."
 
-#: main/KoDocument.cpp:1388
+#: main/KoDocument.cpp:1392
 #, kde-format
 msgid "Opening Document"
 msgstr "Document openen"
 
-#: main/KoDocument.cpp:1404
+#: main/KoDocument.cpp:1408
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "Kon de filter-plug-in niet aanmaken"
 
-#: main/KoDocument.cpp:1407
+#: main/KoDocument.cpp:1411
 #, kde-format
 msgid "Could not create the output document"
 msgstr "Kon het uitvoerdocument niet aanmaken"
 
-#: main/KoDocument.cpp:1410
+#: main/KoDocument.cpp:1414
 #, kde-format
 msgid "File not found"
 msgstr "Bestand niet gevonden"
 
-#: main/KoDocument.cpp:1413
+#: main/KoDocument.cpp:1417
 #, kde-format
 msgid "Cannot create storage"
 msgstr "Kan opslag niet aanmaken"
 
-#: main/KoDocument.cpp:1416
+#: main/KoDocument.cpp:1420
 #, kde-format
 msgid "Bad MIME type"
 msgstr "Verkeerd MIME-type"
 
-#: main/KoDocument.cpp:1419
+#: main/KoDocument.cpp:1423
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Fout in ingebed document"
 
-#: main/KoDocument.cpp:1422
+#: main/KoDocument.cpp:1426
 #, kde-format
 msgid "Format not recognized"
 msgstr "Formaat niet herkend"
 
-#: main/KoDocument.cpp:1425
+#: main/KoDocument.cpp:1429
 #, kde-format
 msgid "Not implemented"
 msgstr "Niet geïmplementeerd"
 
-#: main/KoDocument.cpp:1428
+#: main/KoDocument.cpp:1432
 #, kde-format
 msgid "Parsing error"
 msgstr "Fout in ontleding"
 
-#: main/KoDocument.cpp:1431
+#: main/KoDocument.cpp:1435
 #, kde-format
 msgid "Document is password protected"
 msgstr "Document is beveiligd met een wachtwoord"
 
-#: main/KoDocument.cpp:1434
+#: main/KoDocument.cpp:1438
 #, kde-format
 msgid "Invalid file format"
 msgstr "Ongeldig bestandsformaat"
 
-#: main/KoDocument.cpp:1441
+#: main/KoDocument.cpp:1445
 #, kde-format
 msgid "Internal error"
 msgstr "Interne fout"
 
-#: main/KoDocument.cpp:1444
+#: main/KoDocument.cpp:1448
 #, kde-format
 msgid "Out of memory"
 msgstr "Onvoldoende geheugen"
 
-#: main/KoDocument.cpp:1447
+#: main/KoDocument.cpp:1451
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "Leeg filter-plug-in"
 
-#: main/KoDocument.cpp:1450
+#: main/KoDocument.cpp:1454
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "Probeert te laden in het verkeerde soort document"
 
-#: main/KoDocument.cpp:1453
+#: main/KoDocument.cpp:1457
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Downloaden van bestand op afstand is mislukt"
 
-#: main/KoDocument.cpp:1461
+#: main/KoDocument.cpp:1465
 #, kde-format
 msgid "Reading file timed out"
 msgstr "Tijdslimiet liep af bij lezen van bestand"
 
-#: main/KoDocument.cpp:1464 main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
 #, kde-format
 msgid "Unknown error"
 msgstr "Onbekende fout"
 
-#: main/KoDocument.cpp:1467
+#: main/KoDocument.cpp:1471
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr "Filter planconvert.jar is niet gevonden, controleer uw installatie"
 
-#: main/KoDocument.cpp:1470
+#: main/KoDocument.cpp:1474
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr "Uitvoeren is mislukt. Controleer uw installatie"
 
-#: main/KoDocument.cpp:1473
+#: main/KoDocument.cpp:1477
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "Uitvoeren is mislukt. ODBC-stuurprogramma niet gevonden"
 
-#: main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1483
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1363,17 +1369,17 @@ msgstr ""
 "Reden: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1536
+#: main/KoDocument.cpp:1540
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "Document <i>%1</i> geladen"
 
-#: main/KoDocument.cpp:1605 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "Kon %1 niet vinden"
 
-#: main/KoDocument.cpp:1617
+#: main/KoDocument.cpp:1621
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1382,22 +1388,22 @@ msgstr ""
 "Ontleedfout in %1, op regel %2, kolom %3\n"
 "Foutmelding: %4"
 
-#: main/KoDocument.cpp:1638
+#: main/KoDocument.cpp:1642
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 is niet een bestand."
 
-#: main/KoDocument.cpp:1653
+#: main/KoDocument.cpp:1657
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr "Het bestand kon niet worden geopend (controleer de toegangsrechten)."
 
-#: main/KoDocument.cpp:1664
+#: main/KoDocument.cpp:1668
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "Begin van het bestand kon niet worden gelezen."
 
-#: main/KoDocument.cpp:1694
+#: main/KoDocument.cpp:1698
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1406,22 +1412,22 @@ msgstr ""
 "Ontleedfout in het hoofddocument op regel %1, kolom %2\n"
 "Foutmelding: %3"
 
-#: main/KoDocument.cpp:1715
+#: main/KoDocument.cpp:1719
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "Geen geldig Calligra-Planbestand: %1"
 
-#: main/KoDocument.cpp:1732 main/KoDocument.cpp:1763
+#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
 #, kde-format
 msgid "Invalid password"
 msgstr "Ongeldig wachtwoord"
 
-#: main/KoDocument.cpp:1803
+#: main/KoDocument.cpp:1807
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Ongeldig document: geen bestand 'maindoc.xml' aanwezig."
 
-#: main/KoDocument.cpp:1829
+#: main/KoDocument.cpp:1833
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1430,12 +1436,12 @@ msgstr ""
 "Document <i>%1</i> bevat verschillende versies. Ga naar Bestand->Versies om "
 "een oude versie te openen."
 
-#: main/KoDocument.cpp:2038 main/KoDocument.cpp:2531 main/KoMainWindow.cpp:1245
+#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "Zonder titel"
 
-#: main/KoDocument.cpp:2041 main/KoMainWindow.cpp:1248
+#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
@@ -1443,12 +1449,20 @@ msgid ""
 msgstr ""
 "<p>Het document <b>'%1'</b> is gewijzigd.</p><p>Wilt u het opslaan?</p>"
 
-#: main/KoDocument.cpp:2123
+#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
+#: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
+#: widgets/KoDocumentInfoDlg.cpp:489
+#, kde-format
+msgid "Save Document"
+msgstr "Document opslaan"
+
+#: main/KoDocument.cpp:2130
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Interne fout: saveXML is niet ingeprogrammeerd"
 
-#: main/KoDocument.cpp:2161
+#: main/KoDocument.cpp:2168
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1457,7 +1471,7 @@ msgstr ""
 "Fout bij het openen van\n"
 "%1"
 
-#: main/KoDocument.cpp:2164
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1466,32 +1480,32 @@ msgstr ""
 "Kon %1 niet openen.\n"
 "Reden: %2"
 
-#: main/KoDocument.cpp:2238
+#: main/KoDocument.cpp:2245
 #, kde-format
 msgid "a word processing"
 msgstr "een tekstverwerkings-"
 
-#: main/KoDocument.cpp:2239
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a spreadsheet"
 msgstr "een rekenblad"
 
-#: main/KoDocument.cpp:2240
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a presentation"
 msgstr "een presentatie"
 
-#: main/KoDocument.cpp:2241
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a chart"
 msgstr "een grafiek"
 
-#: main/KoDocument.cpp:2242
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a drawing"
 msgstr "een tekening"
 
-#: main/KoDocument.cpp:2535
+#: main/KoDocument.cpp:2542
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1500,7 +1514,7 @@ msgstr ""
 "Het document \"%1\" is gewijzigd.\n"
 "Wilt u de wijzigingen opslaan of verwerpen?"
 
-#: main/KoDocument.cpp:2537
+#: main/KoDocument.cpp:2544
 #, kde-format
 msgid "Close Document"
 msgstr "Document sluiten"
@@ -1534,88 +1548,88 @@ msgstr "Importfilter ontbreekt"
 msgid "Choose Filter"
 msgstr "Filter kiezen"
 
-#: main/KoMainWindow.cpp:159
+#: main/KoMainWindow.cpp:160
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 niet-opgeslagen document (%2)"
 
-#: main/KoMainWindow.cpp:272 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "Afdrukken naar PDF..."
 
-#: main/KoMainWindow.cpp:282
+#: main/KoMainWindow.cpp:285
 #, kde-format
 msgid "Reload"
 msgstr "Opnieuw laden"
 
-#: main/KoMainWindow.cpp:286
+#: main/KoMainWindow.cpp:289
 #, kde-format
 msgid "Import..."
 msgstr "Importeren..."
 
-#: main/KoMainWindow.cpp:290
+#: main/KoMainWindow.cpp:293
 #, kde-format
 msgid "E&xport..."
 msgstr "E&xporteren..."
 
-#: main/KoMainWindow.cpp:294
+#: main/KoMainWindow.cpp:297
 #, kde-format
 msgid "En&crypt Document"
 msgstr "Document ver&sleutelen"
 
-#: main/KoMainWindow.cpp:299
+#: main/KoMainWindow.cpp:302
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "&Uitpakken naar map"
 
-#: main/KoMainWindow.cpp:304
+#: main/KoMainWindow.cpp:307
 #, kde-format
 msgid "&New View"
 msgstr "&Nieuwe weergave"
 
-#: main/KoMainWindow.cpp:311 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "Documentinformatie"
 
-#: main/KoMainWindow.cpp:337
+#: main/KoMainWindow.cpp:340
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "Modus Volledig scherm"
 
-#: main/KoMainWindow.cpp:342
+#: main/KoMainWindow.cpp:345
 #, kde-format
 msgid "Show Dockers"
 msgstr "Vastzetters tonen"
 
-#: main/KoMainWindow.cpp:347
+#: main/KoMainWindow.cpp:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "Titelbalken van vastzetters tonen"
 
-#: main/KoMainWindow.cpp:354
+#: main/KoMainWindow.cpp:357
 #, kde-format
 msgid "Dockers"
 msgstr "Vastzetters"
 
-#: main/KoMainWindow.cpp:664
+#: main/KoMainWindow.cpp:671
 #, kde-format
 msgid "(write protected)"
 msgstr "(schrijfbeveiligd)"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:676
 #, kde-format
 msgid "Save as %1"
 msgstr "Opslaan als %1"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:678
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: main/KoMainWindow.cpp:709 main/KoMainWindow.cpp:737
+#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1627,13 +1641,13 @@ msgstr ""
 "een nieuw project aan met dit sjabloon en sla het op met <interface>Bestand-"
 ">Projectsjabloon aanmaken...</interface>."
 
-#: main/KoMainWindow.cpp:883 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (onbekend bestandstype)"
 
-#: main/KoMainWindow.cpp:891
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1642,12 +1656,12 @@ msgstr ""
 "<qt>Opslaan als een %1 kan resulteren in het verlies van de opmaak. <p>Wilt "
 "u werkelijk in dit formaat opslaan?</qt>"
 
-#: main/KoMainWindow.cpp:894
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "Opslaan bevestigen"
 
-#: main/KoMainWindow.cpp:903
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1656,63 +1670,63 @@ msgstr ""
 "<qt>Exporteren naar een %1 kan resulteren in enig verlies van de opmaak. "
 "<p>Wilt u werkelijk naar dit formaat exporteren?</qt>"
 
-#: main/KoMainWindow.cpp:906
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "Exporteren bevestigen"
 
-#: main/KoMainWindow.cpp:907 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Exporteren"
 
-#: main/KoMainWindow.cpp:1025
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "zonder titel"
 
-#: main/KoMainWindow.cpp:1317 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Document openen"
 
-#: main/KoMainWindow.cpp:1326
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "Document importeren"
 
-#: main/KoMainWindow.cpp:1534
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "Kan document niet bekijken"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "Kan PDF-viewer niet openen"
 
-#: main/KoMainWindow.cpp:1590
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "Als PDF exporteren"
 
-#: main/KoMainWindow.cpp:1627
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "Kan het gespecificeerde bestand niet exporteren"
 
-#: main/KoMainWindow.cpp:1803
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "Document"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "Document - %1"
 
-#: main/KoMainWindow.cpp:1832
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1721,12 +1735,12 @@ msgstr ""
 "Al uw wijzigingen sinds de laatste opslag zullen verloren gaan!\n"
 "Wilt u doorgaan?"
 
-#: main/KoMainWindow.cpp:2192
+#: main/KoMainWindow.cpp:2202
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Werkbalk %1 tonen"
 
-#: main/KoMainWindow.cpp:2194
+#: main/KoMainWindow.cpp:2204
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Werkbalk %1 verbergen"
@@ -2351,7 +2365,7 @@ msgstr "Vakantieregio in agenda wijzigen"
 
 #: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5466
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
@@ -4617,7 +4631,7 @@ msgstr "Subtaak toevoegen"
 msgid "Path"
 msgstr "Pad"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
 #, kde-format
 msgid "Critical Path"
 msgstr "Kritieke pad"
@@ -5899,10 +5913,17 @@ msgstr "Leeg ontsleuteld bestand"
 msgid "Please enter the password to encrypt the document with."
 msgstr "Geef een wachtwoord op om het document te versleutelen met."
 
-#: store/KoEncryptedStore.cpp:756
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr "Wilt u het wachtwoord opslaan?"
+
+#: store/KoEncryptedStore.cpp:758
+#, fuzzy, kde-format
+#| msgid "Invalid password"
+msgctxt "@title:window"
+msgid "Save Password"
+msgstr "Ongeldig wachtwoord"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
@@ -6548,7 +6569,7 @@ msgstr "Start van het project"
 #: ui/kptaccountsviewconfigurepanelbase.ui:114
 #: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
 #: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:395
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Date"
 msgstr "Datum"
@@ -6759,7 +6780,7 @@ msgstr "Submijlpaal toevoegen..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -7801,79 +7822,79 @@ msgstr ""
 "Het project is gestart.\n"
 "Wilt u deze planning opnieuw berekenen?"
 
-#: ui/kptscheduleeditor.cpp:374
+#: ui/kptscheduleeditor.cpp:377
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr "Bereken %1"
 
-#: ui/kptscheduleeditor.cpp:392 ui/kptscheduleeditor.cpp:425
+#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr "Subplan aanmaken"
 
-#: ui/kptscheduleeditor.cpp:403
+#: ui/kptscheduleeditor.cpp:406
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
 msgstr "Planning %1 toevoegen"
 
-#: ui/kptscheduleeditor.cpp:445
+#: ui/kptscheduleeditor.cpp:448
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr "Kan geen basislijn maken. Het project heeft al een basislijn."
 
-#: ui/kptscheduleeditor.cpp:450
+#: ui/kptscheduleeditor.cpp:453
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr "Dit schema heeft een basis lijn. Wilt u de basis lijn verwijderen?"
 
-#: ui/kptscheduleeditor.cpp:454
+#: ui/kptscheduleeditor.cpp:457
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
 msgstr "Basislijn %1 opnieuw instellen"
 
-#: ui/kptscheduleeditor.cpp:457 ui/kptscheduleeditor.cpp:461
+#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
 msgstr "Basislijn %1"
 
-#: ui/kptscheduleeditor.cpp:471
+#: ui/kptscheduleeditor.cpp:474
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
 msgstr "Planning %1 verwijderen"
 
-#: ui/kptscheduleeditor.cpp:487
+#: ui/kptscheduleeditor.cpp:490
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
 msgstr "Planning %1 verplaatsen"
 
-#: ui/kptscheduleeditor.cpp:530
+#: ui/kptscheduleeditor.cpp:533
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Debug-informatie tonen"
 
-#: ui/kptscheduleeditor.cpp:765
+#: ui/kptscheduleeditor.cpp:768
 #, kde-format
 msgid "Result"
 msgstr "Resultaat"
 
-#: ui/kptscheduleeditor.cpp:776
+#: ui/kptscheduleeditor.cpp:779
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Planninglog"
 
-#: ui/kptscheduleeditor.cpp:960
+#: ui/kptscheduleeditor.cpp:963
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Beoogde begintijd van het project wijzigen"
 
-#: ui/kptscheduleeditor.cpp:972
+#: ui/kptscheduleeditor.cpp:975
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Beoogde eindtijd van het project wijzigen"
@@ -9690,54 +9711,54 @@ msgstr "Na voettekst"
 msgid "Before header"
 msgstr "Vóór koptekst"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Nothing"
 msgstr "Niets"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Rapportsjabloon"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:257
 #, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Rapportbestand"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
 msgstr "Rapportnaam"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
 msgstr "Sjabloonbestandsnaam"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
 msgstr "Informatie toegevoegd aan bestandsnaam"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:263
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
 msgstr "Naam van het gegenereerde rapportbestand"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:288
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:289
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9751,78 +9772,78 @@ msgstr ""
 "bestanden.</para><para>U kunt een rapportsjabloon aanmaken met elke Open "
 "Document tekstbewerker.<nl/><link url='%1'>Meer...</link></para>"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:379
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
 msgid "Add Report"
 msgstr "Rapport toevoegen"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:384
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:385
 #, kde-format
 msgid "Remove Report"
 msgstr "Rapport verwijderen"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:389
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:390
 #, kde-format
 msgid "Generate Report"
 msgstr "Rapport genereren"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:394
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:395
 #, kde-format
 msgid "Open..."
 msgstr "Openen..."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:430
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
 msgid "New report"
 msgstr "Nieuw rapport"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Generate Report"
 msgstr "Rapport genereren"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:473
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr "%1 genereren is mislukt.<nl/>Naam sjabloonbestand is leeg."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr "%1 genereren is mislukt.<nl/>Sjabloonbestand bestaat niet:>nl/>%2"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
 msgstr "%1 genereren is mislukt.<nl/>Naam rapportbestand is leeg."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
 msgctxt "@info"
 msgid "File exists:<nl/>%1"
 msgstr "Bestand bestaat:<nl/>%1"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
 msgstr "Rapportgeneratie"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:527
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
 msgstr "Rapportgenerator openen is mislukt"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:531
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
 msgstr "Rapport maken is mislukt"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
@@ -10148,28 +10169,28 @@ msgstr "Hulpbrontoewijzingen migreren"
 msgid "Create dependencies"
 msgstr "Afhankelijkheden aanmaken"
 
-#: widgets/KoDialog.cpp:251
+#: widgets/KoDialog.cpp:245
 #, kde-format
 msgid "&Try"
 msgstr "&Proberen"
 
-#: widgets/KoDialog.cpp:449
+#: widgets/KoDialog.cpp:437
 #, kde-format
 msgid "modified"
 msgstr "gewijzigd"
 
-#: widgets/KoDialog.cpp:460
+#: widgets/KoDialog.cpp:448
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: widgets/KoDialog.cpp:742
+#: widgets/KoDialog.cpp:730
 #, kde-format
 msgid "&Details"
 msgstr "&Details"
 
-#: widgets/KoDialog.cpp:900
+#: widgets/KoDialog.cpp:880
 #, kde-format
 msgid "Get help..."
 msgstr "Hulp zoeken..."
@@ -10432,13 +10453,6 @@ msgid ""
 msgstr ""
 "<qt>Uw document kon niet automatisch worden opgeslagen.<p>Om het ontcijferen "
 "te voltooien, sla het bestand handmatig op.</qt>"
-
-#: widgets/KoDocumentInfoDlg.cpp:374 widgets/KoDocumentInfoDlg.cpp:382
-#: widgets/KoDocumentInfoDlg.cpp:416 widgets/KoDocumentInfoDlg.cpp:424
-#: widgets/KoDocumentInfoDlg.cpp:481 widgets/KoDocumentInfoDlg.cpp:489
-#, kde-format
-msgid "Save Document"
-msgstr "Document opslaan"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format

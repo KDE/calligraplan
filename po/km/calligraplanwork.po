@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2012-06-21 14:09+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -119,7 +119,7 @@ msgstr "មិន​មាន​ឯកសារ ៖<br>%1"
 msgid "Edit with:"
 msgstr "កែសម្រួល​ជា​មួយ ៖"
 
-#: part.cpp:379
+#: part.cpp:380
 #, kde-format
 msgid ""
 "<p>The work package already exists in the projects store.</p><p>Project: "
@@ -129,12 +129,19 @@ msgstr ""
 "<p>មាន​កញ្ចប់​ការងារនៅ​ក្នុង​ឧបករណ៍​ផ្ទុក​គម្រោង​រួច​ហើយ ។</p><p>គម្រោង​ ៖ %1<br>ភារកិច្ច​ ៖ %2</"
 "p><p>​តើ​អ្នក​ចង់​ធ្វើ​បច្ចុប្បន្នភាព​យ​កញ្ចប់​ដែល​មាន​ស្រា​័យ​ជា​មួយ​នឹង​ទិន្នន័យ​មក​ពី​កញ្ចប់​ថ្មី​ដែរ​ឬ​ទេ ?</p>"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr "កញ្ចប់​ការងារ ៖ %1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការយក​ចេញ ។ មិន​អាច​រក​កញ្ច​ប់​ការងារ​ឃើញ​ទេ"
 
-#: part.cpp:414
+#: part.cpp:418
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Remove work package"
@@ -143,50 +150,50 @@ msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "យក​កញ្ចប់​ការងារ​ចេញ"
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] "យក​កញ្ចប់​ការងារ​ចេញ"
 
-#: part.cpp:466
+#: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ឯកសារ ៖<br>%1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
 msgstr "មិន​មែន​ជាឯកសារ​កញ្ចប់ការងារ​ត្រឹម​ត្រូវ​ទេ ៖<br>%1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ ឯកសារ​មិន​មាន​ 'maindoc.xml' ទេ ។"
 
-#: part.cpp:546
+#: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បើក​ឯកសារ ៖ %1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr "ញែក​កំហុស​នៅ​ក្នុង​ឯកសារ '%1' នៅ​បន្ទាត់ %2 ជួរ​ឈរ​ %3<br>សារកំហុស ៖ %4"
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "ឯកសារ​មិន​ត្រឹម​ត្រូវ ។ គ្មាន​ប្រភេទ​ mimetype ដែល​បាន​បញ្ជាក់​ទេ ។"
 
-#: part.cpp:587
+#: part.cpp:591
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
 "ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
@@ -195,17 +202,17 @@ msgstr ""
 "ឯកសារ​នេះ​ គឺ​ជា​កំណែ​ថ្មី​ជាង​ដែលបាន​គាំទ្រ​ដោយ PlanWork (កំណែ​វាក្យសម្ព័ន្ធ ៖ %1)<br>បើក​វា​នៅ​ក្នុង​"
 "កំណែ​ PlanWork នេះ​នឹង​បាត់បង់​ព័ត៌មាន​មួយ​ចំនួន ។"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "បន្ត"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "មិន​ផ្គូផ្គង​ទ្រង់ទ្រាយ​ឯកសារ"
 
-#: part.cpp:636
+#: part.cpp:640
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
@@ -214,7 +221,7 @@ msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr ""
 "ឯកសារ​មិន​ត្រឹមត្រូវ ។ កម្មវិធី​ mimetype ដែល​រំពឹង​ទុក​គឺ /x-vnd.kde.plan.work ទទួល​បាន %1"
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr "បាន​បរាជ័យ​ក្នុង​ការកែ​សម្រួល ។ មិន​អាច​រក​កញ្ចប់​ការងារ​ឃើញ​ទេ ។"

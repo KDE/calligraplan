@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:57+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2023-01-09 11:52+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Project Defaults"
 msgstr "Valore predefinite de projecto"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:637
+#: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
 msgstr ""
@@ -1482,7 +1482,7 @@ msgctxt "Base calendar name"
 msgid "Base"
 msgstr "Base"
 
-#: kptpart.cpp:95
+#: kptpart.cpp:96
 #, kde-format
 msgid "Configure Plan..."
 msgstr "Configura Plan..."
@@ -1492,78 +1492,78 @@ msgstr "Configura Plan..."
 msgid "Schedule Selector"
 msgstr "Planifica selector"
 
-#: kptview.cpp:185
+#: kptview.cpp:186
 #, kde-format
 msgid "Create Project Template..."
 msgstr "Crea patrono de projecto..."
 
-#: kptview.cpp:189
+#: kptview.cpp:190
 #, kde-format
 msgid "Create New Project..."
 msgstr "Crea nove projecto..."
 
-#: kptview.cpp:201
+#: kptview.cpp:202
 #, kde-format
 msgid "Show Selector"
 msgstr ""
 
-#: kptview.cpp:208 kptview.cpp:249
+#: kptview.cpp:209 kptview.cpp:250
 #, kde-format
 msgid "Edit..."
 msgstr "Modifica..."
 
-#: kptview.cpp:212
+#: kptview.cpp:213
 #, kde-format
 msgid "Define Estimate Conversions..."
 msgstr ""
 
-#: kptview.cpp:216
+#: kptview.cpp:217
 #, kde-format
 msgid "Define WBS Pattern..."
 msgstr ""
 
-#: kptview.cpp:220
+#: kptview.cpp:221
 #, kde-format
 msgid "Define Currency..."
 msgstr ""
 
-#: kptview.cpp:224
+#: kptview.cpp:225
 #, kde-format
 msgid "Edit Description..."
 msgstr "Modifica description..."
 
-#: kptview.cpp:229
+#: kptview.cpp:230
 #, kde-format
 msgid "Insert Project File..."
 msgstr "Inserta file e projecto..."
 
-#: kptview.cpp:233
+#: kptview.cpp:234
 #, kde-format
 msgid "Update Shared Resources"
 msgstr "Actualisa ressources compartite"
 
-#: kptview.cpp:238
+#: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
 msgstr ""
 
-#: kptview.cpp:243
+#: kptview.cpp:244
 #, kde-format
 msgid "Create Report Template..."
 msgstr "Crea patrono de reporto..."
 
-#: kptview.cpp:259
+#: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
 msgstr "Pacchettos de labor..."
 
-#: kptview.cpp:260
+#: kptview.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
 msgstr ""
 
-#: kptview.cpp:351
+#: kptview.cpp:352
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1573,378 +1573,373 @@ msgid ""
 "information is removed.<nl/><nl/>Do you want to continue?"
 msgstr ""
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
 msgstr "Modifica coercitiones de planification de carga"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Task Constraints"
 msgstr "Coercitiones de carga"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
 msgstr "Edita costo de carga"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Task Cost"
 msgstr "Costo de Carga"
 
-#: kptview.cpp:550
+#: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
 msgstr "Genera reportos"
 
-#: kptview.cpp:556 kptview.cpp:2456
+#: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
 msgid "Task Status Report"
 msgstr "Reporto de stato de carga"
 
-#: kptview.cpp:638
+#: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr ""
 
-#: kptview.cpp:640
+#: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr ""
 
-#: kptview.cpp:641
+#: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr ""
 
-#: kptview.cpp:643
+#: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
 msgstr ""
 
-#: kptview.cpp:644
+#: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr ""
 
-#: kptview.cpp:646 SharedResourcesDialog.cpp:58
+#: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "Ressources"
 
-#: kptview.cpp:647
+#: kptview.cpp:648
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "Edita ressources"
 
-#: kptview.cpp:649
+#: kptview.cpp:650
 #, kde-format
 msgid "Tasks"
 msgstr "Cargas"
 
-#: kptview.cpp:650
+#: kptview.cpp:651
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr ""
 
-#: kptview.cpp:652
+#: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr ""
 
-#: kptview.cpp:653 kptview.cpp:656
+#: kptview.cpp:654 kptview.cpp:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "Edita  dependentias de carga"
 
-#: kptview.cpp:655
+#: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
 msgstr ""
 
-#: kptview.cpp:659 kptview.cpp:661
+#: kptview.cpp:660 kptview.cpp:662
 #, kde-format
 msgid "Schedules"
 msgstr "Planificationes"
 
-#: kptview.cpp:662
+#: kptview.cpp:663
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr ""
 
-#: kptview.cpp:664 kptviewlistdialog.cpp:110
+#: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr ""
 
-#: kptview.cpp:665
+#: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr ""
 
-#: kptview.cpp:667 kptviewlistdialog.cpp:101
+#: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "Stato de carga"
 
-#: kptview.cpp:668
+#: kptview.cpp:669
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr ""
 
-#: kptview.cpp:670
+#: kptview.cpp:671
 #, kde-format
 msgid "Task Execution"
 msgstr "Execution de carga"
 
-#: kptview.cpp:671
+#: kptview.cpp:672
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr ""
 
-#: kptview.cpp:673 kptviewlistdialog.cpp:103
+#: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr ""
 
-#: kptview.cpp:674
+#: kptview.cpp:675
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr ""
 
-#: kptview.cpp:676
+#: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
 msgstr "Gantt"
 
-#: kptview.cpp:677
+#: kptview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr ""
 
-#: kptview.cpp:679
+#: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
 msgstr ""
 
-#: kptview.cpp:680
+#: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr ""
 
-#: kptview.cpp:682 kptviewlistdialog.cpp:106
+#: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "Assignationes de Ressource"
 
-#: kptview.cpp:683
+#: kptview.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "Vide assignamentos de ressource in un tabella"
 
-#: kptview.cpp:685 kptviewlistdialog.cpp:107
+#: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "Assignationes de Ressource (Gantt)"
 
-#: kptview.cpp:686
+#: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr ""
 
-#: kptview.cpp:688 kptviewlistdialog.cpp:108
+#: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
 msgstr "Copertuta (Coverage) de Ressource"
 
-#: kptview.cpp:689
+#: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr ""
 
-#: kptview.cpp:691 kptviewlistdialog.cpp:109
+#: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr ""
 
-#: kptview.cpp:692
+#: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr ""
 
-#: kptview.cpp:694 kptviewlistdialog.cpp:111
+#: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr ""
 
-#: kptview.cpp:695
+#: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr ""
 
-#: kptview.cpp:697
+#: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
 msgstr "Generator de reportos"
 
-#: kptview.cpp:698
+#: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "Genera reportos"
 
-#: kptview.cpp:700 kptview.cpp:2453 kptviewlistdialog.cpp:114
+#: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "Reporta"
 
-#: kptview.cpp:701
+#: kptview.cpp:702
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "Vide reporto"
 
-#: kptview.cpp:712
+#: kptview.cpp:713
 #, kde-format
 msgid "Editors"
 msgstr "Editores"
 
-#: kptview.cpp:714
+#: kptview.cpp:715
 #, kde-format
 msgid "Views"
 msgstr "Vistas"
 
-#: kptview.cpp:716
+#: kptview.cpp:717
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "Execution"
 
-#: kptview.cpp:718
+#: kptview.cpp:719
 #, kde-format
 msgid "Reports"
 msgstr "Reportos"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1481
 #, kde-format
-msgid "Overwrite"
-msgstr "Super scribe"
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr "Le file '%1' ja existe.Tu vole super scriber lo?"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1482
 #, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "Patrono de reporto"
 
-#: kptview.cpp:1479
-#, kde-format
-msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr "Le file '%1' ja existe.Tu vole super scriber lo?"
-
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Ressources compartite"
 
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
 
-#: kptview.cpp:2032
+#: kptview.cpp:2037
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "Il non pote aperir file <br/><filename>%1</filename>"
 
-#: kptview.cpp:2147
+#: kptview.cpp:2152
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "Modifica nomine"
 
-#: kptview.cpp:2149
+#: kptview.cpp:2154
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "Modifica nomine de carga"
 
-#: kptview.cpp:2150
+#: kptview.cpp:2155
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "Modifica nomine de petra milliari"
 
-#: kptview.cpp:2151
+#: kptview.cpp:2156
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "Modifica nomine de summario de carga"
 
-#: kptview.cpp:2152
+#: kptview.cpp:2157
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "Modifica nomine de projecto"
 
-#: kptview.cpp:2244
+#: kptview.cpp:2249
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "Non planificate"
 
-#: kptview.cpp:2298
+#: kptview.cpp:2303
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr ""
 
-#: kptview.cpp:2454
+#: kptview.cpp:2459
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "Gerente:"
 
-#: kptview.cpp:2455
+#: kptview.cpp:2460
 #, kde-format
 msgid "Project:"
 msgstr "Projecto:"
 
-#: kptview.cpp:2457
+#: kptview.cpp:2462
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "de"
 
-#: kptview.cpp:2458
+#: kptview.cpp:2463
 #, kde-format
 msgid "Page"
 msgstr "Pagina"
 
-#: kptview.cpp:2459
+#: kptview.cpp:2464
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "Nomine"
 
-#: kptview.cpp:2460
+#: kptview.cpp:2465
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
@@ -2368,6 +2363,9 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr ""
+
+#~ msgid "Overwrite"
+#~ msgstr "Super scribe"
 
 #~ msgid "Expected estimate"
 #~ msgstr "Estima attendite"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2023-01-12 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -114,7 +114,7 @@ msgstr "文件不存在：<br>%1"
 msgid "Edit with:"
 msgstr "编辑方式："
 
-#: part.cpp:379
+#: part.cpp:380
 #, kde-format
 msgid ""
 "<p>The work package already exists in the projects store.</p><p>Project: "
@@ -124,60 +124,67 @@ msgstr ""
 "<p>该工作包所指任务已在项目存储中。</p><p>项目： %1<br>任务： %2</p><p>您想要"
 "更新现有工作包的数据吗？</p>"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr "工作包：%1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr "删除失败。找不到工作包"
 
-#: part.cpp:414
+#: part.cpp:418
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr ""
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] "删除工作包"
 
-#: part.cpp:466
+#: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
 msgstr "加载文件失败：<br>%1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
 msgstr "无效的工作包：<br>%1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "无效的文档。文档不包含“maindoc.xml”。"
 
-#: part.cpp:546
+#: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
 msgstr "打开文件失败：%1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr "在文件%1 的第 %2 行，第 %3 列，发生解析错误<br>错误消息：%4"
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "无效的文档。未指定 MIME 类型。"
 
-#: part.cpp:587
+#: part.cpp:591
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
 "无效的文档。希望 MIME 类型为 application/x-vnd.kde.plan.work，但却得到 %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
@@ -186,22 +193,22 @@ msgstr ""
 "此文档由更新版本的 PlanWork (语法版本：%1)所创建。<br>在此版本的 PlanWork 中"
 "打开可能会丢失某些信息。"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "继续"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "文件格式不匹配"
 
-#: part.cpp:636
+#: part.cpp:640
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr ""
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr "编辑失败。找不到工作包。"

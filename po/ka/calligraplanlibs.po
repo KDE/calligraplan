@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2023-01-28 10:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -609,7 +609,7 @@ msgstr "გამართვა"
 msgid "Info"
 msgstr "ინფორმაცია"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1834
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "გაფრთხილება"
@@ -764,7 +764,7 @@ msgid "Could not match work duration. Want: %1 got: %2"
 msgstr ""
 
 #: kernel/kptwbsdefinition.cpp:28
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Number"
 msgstr "რიცხვი"
@@ -877,13 +877,13 @@ msgstr "%1-ის გამეორება"
 msgid "<empty>"
 msgstr "<empty>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1650
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "თავიდან"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1649
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1195,7 +1195,7 @@ msgstr "შესანახი ფაილის შენახვის შ
 msgid "Not able to write '%1'. Partition full?"
 msgstr "%1-ის ჩაწერის შეცდომა. დანაყოფი გადავსებულია?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1948
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr ""
@@ -1216,122 +1216,128 @@ msgid ""
 "Do you want to open it instead?"
 msgstr ""
 
-#: main/KoDocument.cpp:1310 main/KoDocument.cpp:1631 main/KoMainWindow.cpp:715
+#: main/KoDocument.cpp:1198
+#, fuzzy, kde-format
+#| msgid "No autosave"
+msgid "Autosave"
+msgstr "ავტომატური შენახვის გარეშე"
+
+#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "ფაილი არ არსებობს: %1."
 
-#: main/KoDocument.cpp:1388
+#: main/KoDocument.cpp:1392
 #, kde-format
 msgid "Opening Document"
 msgstr "დოკუმენტის გახსნა"
 
-#: main/KoDocument.cpp:1404
+#: main/KoDocument.cpp:1408
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "ფილტრის დამატების შექმნის შეცდომა"
 
-#: main/KoDocument.cpp:1407
+#: main/KoDocument.cpp:1411
 #, kde-format
 msgid "Could not create the output document"
 msgstr "გამოსატანი დოკუმენტის შექმნის შეცდომა"
 
-#: main/KoDocument.cpp:1410
+#: main/KoDocument.cpp:1414
 #, kde-format
 msgid "File not found"
 msgstr "ფაილი ვერ მოიძებნა"
 
-#: main/KoDocument.cpp:1413
+#: main/KoDocument.cpp:1417
 #, kde-format
 msgid "Cannot create storage"
 msgstr "საცავის შექნის შეცდომა"
 
-#: main/KoDocument.cpp:1416
+#: main/KoDocument.cpp:1420
 #, kde-format
 msgid "Bad MIME type"
 msgstr "არასწორი MIME ტიპი"
 
-#: main/KoDocument.cpp:1419
+#: main/KoDocument.cpp:1423
 #, kde-format
 msgid "Error in embedded document"
 msgstr "შეცდომა ჩაშენებულ დოკუმენტში"
 
-#: main/KoDocument.cpp:1422
+#: main/KoDocument.cpp:1426
 #, kde-format
 msgid "Format not recognized"
 msgstr "ფორმატი უცნობია"
 
-#: main/KoDocument.cpp:1425
+#: main/KoDocument.cpp:1429
 #, kde-format
 msgid "Not implemented"
 msgstr "განხორციელებული არაა"
 
-#: main/KoDocument.cpp:1428
+#: main/KoDocument.cpp:1432
 #, kde-format
 msgid "Parsing error"
 msgstr "დამუშავების შეცდომა"
 
-#: main/KoDocument.cpp:1431
+#: main/KoDocument.cpp:1435
 #, kde-format
 msgid "Document is password protected"
 msgstr "დოკუმენტი აცულია პაროლით"
 
-#: main/KoDocument.cpp:1434
+#: main/KoDocument.cpp:1438
 #, kde-format
 msgid "Invalid file format"
 msgstr "არასწორი ფაილის ფორმატი"
 
-#: main/KoDocument.cpp:1441
+#: main/KoDocument.cpp:1445
 #, kde-format
 msgid "Internal error"
 msgstr "შიდა შეცდომა"
 
-#: main/KoDocument.cpp:1444
+#: main/KoDocument.cpp:1448
 #, kde-format
 msgid "Out of memory"
 msgstr "არასაკმარისი მეხსიერება"
 
-#: main/KoDocument.cpp:1447
+#: main/KoDocument.cpp:1451
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "არასწორი ფილტრის დამატება"
 
-#: main/KoDocument.cpp:1450
+#: main/KoDocument.cpp:1454
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr ""
 
-#: main/KoDocument.cpp:1453
+#: main/KoDocument.cpp:1457
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "დაშორებული ფაილის გადმოწერის შეცდომა"
 
-#: main/KoDocument.cpp:1461
+#: main/KoDocument.cpp:1465
 #, kde-format
 msgid "Reading file timed out"
 msgstr "ფაილის წაკითხვის დრო ამოიწურა"
 
-#: main/KoDocument.cpp:1464 main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
 #, kde-format
 msgid "Unknown error"
 msgstr "უცნობი შეცდომა"
 
-#: main/KoDocument.cpp:1467
+#: main/KoDocument.cpp:1471
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1470
+#: main/KoDocument.cpp:1474
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr "გაშვების შეცდომა. გადაამოწმეთ პროგრამის ფაილები"
 
-#: main/KoDocument.cpp:1473
+#: main/KoDocument.cpp:1477
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "გაშვების შეცდომა. ODBC დრაივერ ვერ ვიპოვე"
 
-#: main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1483
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1342,85 +1348,93 @@ msgstr ""
 "მიზეზი: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1536
+#: main/KoDocument.cpp:1540
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "დოკუმენტი <i>%1</i> ჩაიტვირთა"
 
-#: main/KoDocument.cpp:1605 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "%1-ის პოვნა შეუძლებელია"
 
-#: main/KoDocument.cpp:1617
+#: main/KoDocument.cpp:1621
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
 "Error message: %4"
 msgstr ""
 
-#: main/KoDocument.cpp:1638
+#: main/KoDocument.cpp:1642
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 ფაილი არაა."
 
-#: main/KoDocument.cpp:1653
+#: main/KoDocument.cpp:1657
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
 
-#: main/KoDocument.cpp:1664
+#: main/KoDocument.cpp:1668
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr ""
 
-#: main/KoDocument.cpp:1694
+#: main/KoDocument.cpp:1698
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
 "Error message: %3"
 msgstr ""
 
-#: main/KoDocument.cpp:1715
+#: main/KoDocument.cpp:1719
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr ""
 
-#: main/KoDocument.cpp:1732 main/KoDocument.cpp:1763
+#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
 #, kde-format
 msgid "Invalid password"
 msgstr "არასწორი პაროლი"
 
-#: main/KoDocument.cpp:1803
+#: main/KoDocument.cpp:1807
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "არასწორი დოკუმენტი: ფაილი 'maindoc.xml' არ არსებობს."
 
-#: main/KoDocument.cpp:1829
+#: main/KoDocument.cpp:1833
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr ""
 
-#: main/KoDocument.cpp:2038 main/KoDocument.cpp:2531 main/KoMainWindow.cpp:1245
+#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "უსახელო"
 
-#: main/KoDocument.cpp:2041 main/KoMainWindow.cpp:1248
+#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr ""
 
-#: main/KoDocument.cpp:2123
+#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
+#: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
+#: widgets/KoDocumentInfoDlg.cpp:489
+#, kde-format
+msgid "Save Document"
+msgstr "დოკუმენტის შენახვა"
+
+#: main/KoDocument.cpp:2130
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "შიდა შეცდომა: saveXML განხორციელებული არაა"
 
-#: main/KoDocument.cpp:2161
+#: main/KoDocument.cpp:2168
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1429,7 +1443,7 @@ msgstr ""
 "გახსნის შეცდომა\n"
 "%1"
 
-#: main/KoDocument.cpp:2164
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1438,32 +1452,32 @@ msgstr ""
 "%1-ის გახსნის შეცდომა\n"
 "მიზეზი: %2"
 
-#: main/KoDocument.cpp:2238
+#: main/KoDocument.cpp:2245
 #, kde-format
 msgid "a word processing"
 msgstr "სიტყვების დამუშავება"
 
-#: main/KoDocument.cpp:2239
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a spreadsheet"
 msgstr "ელცხრილი"
 
-#: main/KoDocument.cpp:2240
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a presentation"
 msgstr "პრეზენტაცია"
 
-#: main/KoDocument.cpp:2241
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a chart"
 msgstr "გრაფიკი"
 
-#: main/KoDocument.cpp:2242
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a drawing"
 msgstr "ნახატი"
 
-#: main/KoDocument.cpp:2535
+#: main/KoDocument.cpp:2542
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1472,7 +1486,7 @@ msgstr ""
 "დოკუმენტი %1 შეიცვალა\n"
 "გნებავთ ცვლილებების შენახვა თუ უბრალოდ გამოვიდე?"
 
-#: main/KoDocument.cpp:2537
+#: main/KoDocument.cpp:2544
 #, kde-format
 msgid "Close Document"
 msgstr "დოკუმენტის დახურვა"
@@ -1506,88 +1520,88 @@ msgstr "აკლია შემოტანის ფილტრი"
 msgid "Choose Filter"
 msgstr "აირჩიეთ ფილტრი"
 
-#: main/KoMainWindow.cpp:159
+#: main/KoMainWindow.cpp:160
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 შეუნახავი დოკუმენტი (%2)"
 
-#: main/KoMainWindow.cpp:272 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "PDF-ში დაბეჭდვა..."
 
-#: main/KoMainWindow.cpp:282
+#: main/KoMainWindow.cpp:285
 #, kde-format
 msgid "Reload"
 msgstr "თავიდან ჩატვირთვა"
 
-#: main/KoMainWindow.cpp:286
+#: main/KoMainWindow.cpp:289
 #, kde-format
 msgid "Import..."
 msgstr "&შემოტანა..."
 
-#: main/KoMainWindow.cpp:290
+#: main/KoMainWindow.cpp:293
 #, kde-format
 msgid "E&xport..."
 msgstr "გატანა..."
 
-#: main/KoMainWindow.cpp:294
+#: main/KoMainWindow.cpp:297
 #, kde-format
 msgid "En&crypt Document"
 msgstr "&დოკუმენტის დაშიფვრა"
 
-#: main/KoMainWindow.cpp:299
+#: main/KoMainWindow.cpp:302
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "საქაღალდეში &გაშლა"
 
-#: main/KoMainWindow.cpp:304
+#: main/KoMainWindow.cpp:307
 #, kde-format
 msgid "&New View"
 msgstr "&ახალი ხედი"
 
-#: main/KoMainWindow.cpp:311 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "ინფორმაცია დოკუმეტზე"
 
-#: main/KoMainWindow.cpp:337
+#: main/KoMainWindow.cpp:340
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "მთელი ეკრანის რეჟიმი"
 
-#: main/KoMainWindow.cpp:342
+#: main/KoMainWindow.cpp:345
 #, kde-format
 msgid "Show Dockers"
 msgstr "პანელების ჩვენება"
 
-#: main/KoMainWindow.cpp:347
+#: main/KoMainWindow.cpp:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "პანელების სათაურის ჩვენება"
 
-#: main/KoMainWindow.cpp:354
+#: main/KoMainWindow.cpp:357
 #, kde-format
 msgid "Dockers"
 msgstr "პანელები"
 
-#: main/KoMainWindow.cpp:664
+#: main/KoMainWindow.cpp:671
 #, kde-format
 msgid "(write protected)"
 msgstr "(ჩაწერისგან დაცული)"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:676
 #, kde-format
 msgid "Save as %1"
 msgstr "შენახვა, როგორც %1"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:678
 #, kde-format
 msgid "Save"
 msgstr "შენახვა"
 
-#: main/KoMainWindow.cpp:709 main/KoMainWindow.cpp:737
+#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1596,100 +1610,100 @@ msgid ""
 "Project Template...</interface>."
 msgstr ""
 
-#: main/KoMainWindow.cpp:883 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (უცნობი ფაილის ტიპი)"
 
-#: main/KoMainWindow.cpp:891
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr ""
 
-#: main/KoMainWindow.cpp:894
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "შენახვის დადასტურება"
 
-#: main/KoMainWindow.cpp:903
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr ""
 
-#: main/KoMainWindow.cpp:906
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "გატანის დადასტურება"
 
-#: main/KoMainWindow.cpp:907 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "გატანა"
 
-#: main/KoMainWindow.cpp:1025
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "უსახელო"
 
-#: main/KoMainWindow.cpp:1317 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "დოკუმენტის გახსნა"
 
-#: main/KoMainWindow.cpp:1326
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "დოკუმენტის შემოტანა"
 
-#: main/KoMainWindow.cpp:1534
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "დოკუმენტის მინიატურის შექმნის შეცდომა"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr ""
 
-#: main/KoMainWindow.cpp:1590
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "PDF-ად გატანა"
 
-#: main/KoMainWindow.cpp:1627
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "მითითებულ ფაილში გატანის შეცდომა"
 
-#: main/KoMainWindow.cpp:1803
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "დოკუმენტი"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "დოკუმენტი - %1"
 
-#: main/KoMainWindow.cpp:1832
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
 "Do you want to continue?"
 msgstr ""
 
-#: main/KoMainWindow.cpp:2192
+#: main/KoMainWindow.cpp:2202
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "%1 პანელის ჩვენება"
 
-#: main/KoMainWindow.cpp:2194
+#: main/KoMainWindow.cpp:2204
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "%1 პანელის დამალვა"
@@ -2264,7 +2278,7 @@ msgstr ""
 
 #: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5466
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:253
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
 #, kde-format, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
@@ -4482,7 +4496,7 @@ msgstr "ქვეამოცანის დამატება"
 msgid "Path"
 msgstr "მისამართი"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:771
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
 #, kde-format
 msgid "Critical Path"
 msgstr "კრიტიკული ბილიკი"
@@ -5727,10 +5741,17 @@ msgstr "ცარიელი დაშიფრული ფაილი"
 msgid "Please enter the password to encrypt the document with."
 msgstr "შეიყვანეთ დოკუმენტის დასაშიფრი პაროლი."
 
-#: store/KoEncryptedStore.cpp:756
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr "გნებავთ, შევინახოთ პაროლი?"
+
+#: store/KoEncryptedStore.cpp:758
+#, fuzzy, kde-format
+#| msgid "Invalid password"
+msgctxt "@title:window"
+msgid "Save Password"
+msgstr "არასწორი პაროლი"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
@@ -6359,7 +6380,7 @@ msgstr "პროექტის დასაწყისი"
 #: ui/kptaccountsviewconfigurepanelbase.ui:114
 #: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
 #: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:395
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Date"
 msgstr "თარიღი"
@@ -6551,7 +6572,7 @@ msgstr "ქვენიშანსვეტის დამატება..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:682 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -7545,79 +7566,79 @@ msgid ""
 "Do you really want to calculate this schedule?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:374
+#: ui/kptscheduleeditor.cpp:377
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:392 ui/kptscheduleeditor.cpp:425
+#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr "ქვეგეგმის დამატება"
 
-#: ui/kptscheduleeditor.cpp:403
+#: ui/kptscheduleeditor.cpp:406
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:445
+#: ui/kptscheduleeditor.cpp:448
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:450
+#: ui/kptscheduleeditor.cpp:453
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:454
+#: ui/kptscheduleeditor.cpp:457
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:457 ui/kptscheduleeditor.cpp:461
+#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:471
+#: ui/kptscheduleeditor.cpp:474
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:487
+#: ui/kptscheduleeditor.cpp:490
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:530
+#: ui/kptscheduleeditor.cpp:533
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:765
+#: ui/kptscheduleeditor.cpp:768
 #, kde-format
 msgid "Result"
 msgstr "შედეგი"
 
-#: ui/kptscheduleeditor.cpp:776
+#: ui/kptscheduleeditor.cpp:779
 #, kde-format
 msgid "Scheduling Log"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:960
+#: ui/kptscheduleeditor.cpp:963
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:972
+#: ui/kptscheduleeditor.cpp:975
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr ""
@@ -9334,54 +9355,54 @@ msgstr "ქვესართის შემდეგ"
 msgid "Before header"
 msgstr "თავსართამდე"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:228
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Nothing"
 msgstr "არაფერი"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:254
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "ანგარიშის ნიმუში"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:255
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "დამატება"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:256
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:257
 #, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "ანგარიშის ფაილი"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:259
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
 msgstr "ანგარიშის სახელი"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:260
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:261
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:262
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:263
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:288
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:289
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9391,78 +9412,78 @@ msgid ""
 "url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:379
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
 msgid "Add Report"
 msgstr "ანგარიშის დამატება"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:384
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:385
 #, kde-format
 msgid "Remove Report"
 msgstr "ანგარიშის წაშლა"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:389
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:390
 #, kde-format
 msgid "Generate Report"
 msgstr "ანგარიშის გენერაცია"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:394
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:395
 #, kde-format
 msgid "Open..."
 msgstr "გახსნა..."
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:430
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
 msgid "New report"
 msgstr "ახალი ანგარიში"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:471
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:477
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:484
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Generate Report"
 msgstr "ანგარიშის გენერაცია"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:472
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:473
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:478
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:485
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
 msgctxt "@info"
 msgid "File exists:<nl/>%1"
 msgstr "ფალი არსებობს:<nl/>%1"
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:508
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:509
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:527
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:531
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
 msgstr ""
 
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:534
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
@@ -9769,28 +9790,28 @@ msgstr "რესურსის გამოყოფების მიგრ�
 msgid "Create dependencies"
 msgstr "დამოკიდებულებების შექმნა"
 
-#: widgets/KoDialog.cpp:251
+#: widgets/KoDialog.cpp:245
 #, kde-format
 msgid "&Try"
 msgstr "&ცდა"
 
-#: widgets/KoDialog.cpp:449
+#: widgets/KoDialog.cpp:437
 #, kde-format
 msgid "modified"
 msgstr "შეიცვალა"
 
-#: widgets/KoDialog.cpp:460
+#: widgets/KoDialog.cpp:448
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: widgets/KoDialog.cpp:742
+#: widgets/KoDialog.cpp:730
 #, kde-format
 msgid "&Details"
 msgstr "&დეტალები"
 
-#: widgets/KoDialog.cpp:900
+#: widgets/KoDialog.cpp:880
 #, kde-format
 msgid "Get help..."
 msgstr "დახმარების მიღება..."
@@ -10049,13 +10070,6 @@ msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "decryption, please save the document.</qt>"
 msgstr ""
-
-#: widgets/KoDocumentInfoDlg.cpp:374 widgets/KoDocumentInfoDlg.cpp:382
-#: widgets/KoDocumentInfoDlg.cpp:416 widgets/KoDocumentInfoDlg.cpp:424
-#: widgets/KoDocumentInfoDlg.cpp:481 widgets/KoDocumentInfoDlg.cpp:489
-#, kde-format
-msgid "Save Document"
-msgstr "დოკუმენტის შენახვა"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format

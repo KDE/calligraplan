@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:57+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-12-23 07:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -558,7 +558,7 @@ msgstr "Ustvari varovalno kopijo"
 msgid "Project Defaults"
 msgstr "Privzete vrednosti projekta"
 
-#: config/ConfigDialog.cpp:37 kptview.cpp:637
+#: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
 msgstr "Delo in dopust"
@@ -1544,7 +1544,7 @@ msgctxt "Base calendar name"
 msgid "Base"
 msgstr "Baza"
 
-#: kptpart.cpp:95
+#: kptpart.cpp:96
 #, kde-format
 msgid "Configure Plan..."
 msgstr "Nastavi Plan..."
@@ -1554,78 +1554,78 @@ msgstr "Nastavi Plan..."
 msgid "Schedule Selector"
 msgstr "Selektor razporejanja"
 
-#: kptview.cpp:185
+#: kptview.cpp:186
 #, kde-format
 msgid "Create Project Template..."
 msgstr "Ustvari predlogo projekta..."
 
-#: kptview.cpp:189
+#: kptview.cpp:190
 #, kde-format
 msgid "Create New Project..."
 msgstr "Ustvari nov projekt..."
 
-#: kptview.cpp:201
+#: kptview.cpp:202
 #, kde-format
 msgid "Show Selector"
 msgstr "Pokaži izbirnik"
 
-#: kptview.cpp:208 kptview.cpp:249
+#: kptview.cpp:209 kptview.cpp:250
 #, kde-format
 msgid "Edit..."
 msgstr "Uredi..."
 
-#: kptview.cpp:212
+#: kptview.cpp:213
 #, kde-format
 msgid "Define Estimate Conversions..."
 msgstr "Določi konvencije ocen..."
 
-#: kptview.cpp:216
+#: kptview.cpp:217
 #, kde-format
 msgid "Define WBS Pattern..."
 msgstr "Določi vzorec WBS..."
 
-#: kptview.cpp:220
+#: kptview.cpp:221
 #, kde-format
 msgid "Define Currency..."
 msgstr "Določi valuto..."
 
-#: kptview.cpp:224
+#: kptview.cpp:225
 #, kde-format
 msgid "Edit Description..."
 msgstr "Uredi opis..."
 
-#: kptview.cpp:229
+#: kptview.cpp:230
 #, kde-format
 msgid "Insert Project File..."
 msgstr "Vstavi projektno datoteko..."
 
-#: kptview.cpp:233
+#: kptview.cpp:234
 #, kde-format
 msgid "Update Shared Resources"
 msgstr "Posodobi skupne vire"
 
-#: kptview.cpp:238
+#: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
 msgstr "Odpri definicijsko datoteko poročila..."
 
-#: kptview.cpp:243
+#: kptview.cpp:244
 #, kde-format
 msgid "Create Report Template..."
 msgstr "Ustvari predlogo poročila..."
 
-#: kptview.cpp:259
+#: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
 msgstr "Delovni paketi..."
 
-#: kptview.cpp:260
+#: kptview.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
 msgstr "Delovni paketi na voljo"
 
-#: kptview.cpp:351
+#: kptview.cpp:352
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1639,378 +1639,373 @@ msgstr ""
 "<nl/>Identitete virov in koledarja se ne spremenijo.<nl/>Vse načrtovanje "
 "informacije so odstranjene.<nl/><nl/>Ali želite nadaljevati?"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
 msgstr "Uredi omejitve pri razporejanju"
 
-#: kptview.cpp:491
+#: kptview.cpp:492
 #, kde-format
 msgid "Task Constraints"
 msgstr "Omejitve opravila"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
 msgstr "Uredi stroške opravila"
 
-#: kptview.cpp:501
+#: kptview.cpp:502
 #, kde-format
 msgid "Task Cost"
 msgstr "Stroški opravila"
 
-#: kptview.cpp:550
+#: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
 msgstr "Ustvari poročila"
 
-#: kptview.cpp:556 kptview.cpp:2456
+#: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
 msgid "Task Status Report"
 msgstr "Poročilo stanja opravil"
 
-#: kptview.cpp:638
+#: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
 msgstr "Uredi delovne in proste dneve za vire"
 
-#: kptview.cpp:640
+#: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
 msgstr "Struktura razčlenitve stroškov"
 
-#: kptview.cpp:641
+#: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
 msgstr "Uredi strukturo razčlenitve stroškov."
 
-#: kptview.cpp:643
+#: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
 msgstr "Struktura razčlenitve virov"
 
-#: kptview.cpp:644
+#: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
 msgstr "Uredi strukturo razčlenitve virov"
 
-#: kptview.cpp:646 SharedResourcesDialog.cpp:58
+#: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
 msgid "Resources"
 msgstr "Viri"
 
-#: kptview.cpp:647
+#: kptview.cpp:648
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "Uredi vire"
 
-#: kptview.cpp:649
+#: kptview.cpp:650
 #, kde-format
 msgid "Tasks"
 msgstr "Opravila"
 
-#: kptview.cpp:650
+#: kptview.cpp:651
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
 msgstr "Uredi strukturo razčlenitve dela"
 
-#: kptview.cpp:652
+#: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
 msgstr "Odvisnosti (grafično)"
 
-#: kptview.cpp:653 kptview.cpp:656
+#: kptview.cpp:654 kptview.cpp:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
 msgstr "Uredi odvisnosti opravila"
 
-#: kptview.cpp:655
+#: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
 msgstr "Odvisnosti (seznam)"
 
-#: kptview.cpp:659 kptview.cpp:661
+#: kptview.cpp:660 kptview.cpp:662
 #, kde-format
 msgid "Schedules"
 msgstr "Razporedi"
 
-#: kptview.cpp:662
+#: kptview.cpp:663
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
 msgstr "Izračunaj in analiziraj razporeditve projekta"
 
-#: kptview.cpp:664 kptviewlistdialog.cpp:110
+#: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
 msgstr "Graf uspešnosti projekta"
 
-#: kptview.cpp:665
+#: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
 msgstr "Poglej podatke o stanju projekta"
 
-#: kptview.cpp:667 kptviewlistdialog.cpp:101
+#: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
 msgid "Task Status"
 msgstr "Stanje opravila"
 
-#: kptview.cpp:668
+#: kptview.cpp:669
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
 msgstr "Poglej podatke o poteku opravila"
 
-#: kptview.cpp:670
+#: kptview.cpp:671
 #, kde-format
 msgid "Task Execution"
 msgstr "Izvedba opravila"
 
-#: kptview.cpp:671
+#: kptview.cpp:672
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
 msgstr "Pogled informacij o izvajanju projekta"
 
-#: kptview.cpp:673 kptviewlistdialog.cpp:103
+#: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
 msgstr "Pogled delovnega paketa"
 
-#: kptview.cpp:674
+#: kptview.cpp:675
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
 msgstr "Pregled informacij delovnega paketa opravil"
 
-#: kptview.cpp:676
+#: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
 msgstr "Gantt"
 
-#: kptview.cpp:677
+#: kptview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "Poglej Ganttov grafikon"
 
-#: kptview.cpp:679
+#: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
 msgstr "Ganttov mejnik"
 
-#: kptview.cpp:680
+#: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "Pogled mejnikov v Ganttovem diagramu"
 
-#: kptview.cpp:682 kptviewlistdialog.cpp:106
+#: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
 msgstr "Dodelitve virov"
 
-#: kptview.cpp:683
+#: kptview.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
 msgstr "Pogled dodelitev virov v tabeli"
 
-#: kptview.cpp:685 kptviewlistdialog.cpp:107
+#: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
 msgstr "Dodelitve virov (Gantt)"
 
-#: kptview.cpp:686
+#: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
 msgstr "Pogled dodelitve virov v Ganttovem diagramu"
 
-#: kptview.cpp:688 kptviewlistdialog.cpp:108
+#: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
 msgstr "Pokrivanje virov"
 
-#: kptview.cpp:689
+#: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
 msgstr "Preglej pokritost virov"
 
-#: kptview.cpp:691 kptviewlistdialog.cpp:109
+#: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Struktura stroškov"
 
-#: kptview.cpp:692
+#: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
 msgstr "Pogled načrtovanih in dejanskih stroškov"
 
-#: kptview.cpp:694 kptviewlistdialog.cpp:111
+#: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
 msgstr "Diagram uspešnosti opravil"
 
-#: kptview.cpp:695
+#: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
 msgstr "Ogled informacij o stanju uspešnosti nalog"
 
-#: kptview.cpp:697
+#: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
 msgstr "Generator poročil"
 
-#: kptview.cpp:698
+#: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
 msgstr "Ustvari poročila"
 
-#: kptview.cpp:700 kptview.cpp:2453 kptviewlistdialog.cpp:114
+#: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
 msgstr "Poročilo"
 
-#: kptview.cpp:701
+#: kptview.cpp:702
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
 msgstr "Poglej poročilo"
 
-#: kptview.cpp:712
+#: kptview.cpp:713
 #, kde-format
 msgid "Editors"
 msgstr "Urejevalniki"
 
-#: kptview.cpp:714
+#: kptview.cpp:715
 #, kde-format
 msgid "Views"
 msgstr "Pogledi"
 
-#: kptview.cpp:716
+#: kptview.cpp:717
 #, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
 msgstr "Izvedba"
 
-#: kptview.cpp:718
+#: kptview.cpp:719
 #, kde-format
 msgid "Reports"
 msgstr "Poročila"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1481
 #, kde-format
-msgid "Overwrite"
-msgstr "Prepiši"
+msgid "The file '%1' already exists, do you want to overwrite it?"
+msgstr "Datoteka '%1' že obstaja, ali jo želite prepisati?"
 
-#: kptview.cpp:1479
+#: kptview.cpp:1482
 #, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "Predloga poročila"
 
-#: kptview.cpp:1479
-#, kde-format
-msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr "Datoteka '%1' že obstaja, ali jo želite prepisati?"
-
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Skupni viri"
 
-#: kptview.cpp:1819
+#: kptview.cpp:1824
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr "Uporaba skupnih virov je bila aktivirana.<nl/>Naj bodo viri osveženi?"
 
-#: kptview.cpp:2032
+#: kptview.cpp:2037
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr "Ni moč odpreti datoteke<br/><filename>%1</filename>"
 
-#: kptview.cpp:2147
+#: kptview.cpp:2152
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "Spremeni ime"
 
-#: kptview.cpp:2149
+#: kptview.cpp:2154
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "Spremeni ime opravila"
 
-#: kptview.cpp:2150
+#: kptview.cpp:2155
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
 msgstr "Spremeni ime mejnika"
 
-#: kptview.cpp:2151
+#: kptview.cpp:2156
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
 msgstr "Spremeni ime povzemajočega opravila"
 
-#: kptview.cpp:2152
+#: kptview.cpp:2157
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "Spremeni ime projekta"
 
-#: kptview.cpp:2244
+#: kptview.cpp:2249
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
 msgstr "Ni razporejeno"
 
-#: kptview.cpp:2298
+#: kptview.cpp:2303
 #, kde-format
 msgid "Work Package for project: %1"
 msgstr "Delovni paket za projekt: %1"
 
-#: kptview.cpp:2454
+#: kptview.cpp:2459
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
 msgstr "Vodja:"
 
-#: kptview.cpp:2455
+#: kptview.cpp:2460
 #, kde-format
 msgid "Project:"
 msgstr "Projekt:"
 
-#: kptview.cpp:2457
+#: kptview.cpp:2462
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
 msgstr "izmed"
 
-#: kptview.cpp:2458
+#: kptview.cpp:2463
 #, kde-format
 msgid "Page"
 msgstr "Stran"
 
-#: kptview.cpp:2459
+#: kptview.cpp:2464
 #, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "Ime"
 
-#: kptview.cpp:2460
+#: kptview.cpp:2465
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
@@ -2458,6 +2453,9 @@ msgstr "Označi vse izbrane vire za ohranitev kot skupne vire"
 #, kde-format
 msgid "Mark as: Keep"
 msgstr "Označi za: Ohrani"
+
+#~ msgid "Overwrite"
+#~ msgstr "Prepiši"
 
 #~ msgid "Expected estimate"
 #~ msgstr "Pričakovana ocena"

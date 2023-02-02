@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2022-03-13 17:22+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -117,7 +117,7 @@ msgstr "Filen finns inte:<br>%1"
 msgid "Edit with:"
 msgstr "Redigera med:"
 
-#: part.cpp:379
+#: part.cpp:380
 #, kde-format
 msgid ""
 "<p>The work package already exists in the projects store.</p><p>Project: "
@@ -128,54 +128,61 @@ msgstr ""
 "%1<br>Aktivitet: %2</p><p>Vill du uppdatera det befintliga paketet med data "
 "från det nya?</p>"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid "Work Package: %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr "Arbetspaket: %1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr "Borttagning misslyckades. Kan inte hitta arbetspaket"
 
-#: part.cpp:414
+#: part.cpp:418
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "Ta bort arbetspaket"
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] "Ta bort arbetspaket"
 msgstr[1] "Ta bort arbetspaket"
 
-#: part.cpp:466
+#: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
 msgstr "Misslyckades ladda fil:<br>%1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
 msgstr "Inte en giltig arbetspaketfil:<br>%1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "Ogiltigt dokument. Dokumentet innehåller inte 'maindoc.xml'."
 
-#: part.cpp:546
+#: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
 msgstr "Misslyckades öppna fil: %1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr "Tolkningsfel i filen '%1' på rad %2, kolumn %3<br>Felmeddelande: %4"
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "Ogiltigt dokument. Ingen Mime-typ specificerad."
 
-#: part.cpp:587
+#: part.cpp:591
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
@@ -183,7 +190,7 @@ msgstr ""
 "Ogiltigt dokument. Förväntade Mime-typ application/x-vnd.kde.plan.work, "
 "hittade %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
@@ -193,22 +200,22 @@ msgstr ""
 "(syntaxversion: %1)<br>Öppnas det i den här versionen av Planwork går en del "
 "information förlorad."
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "Felaktigt filformat"
 
-#: part.cpp:636
+#: part.cpp:640
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "Ogiltigt dokument. Förväntade Mime-typ %2, hittade %1"
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr "Redigering misslyckades. Kan inte hitta ett arbetspaket."

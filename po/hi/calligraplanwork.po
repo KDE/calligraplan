@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2008-03-12 19:43+0530\n"
 "Last-Translator: Ravishankar Shrivastava <aviratlami@aol.in>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -128,7 +128,7 @@ msgstr "फ़ाइलः %1 अस्तित्व में नहीं �
 msgid "Edit with:"
 msgstr "के साथ का संपादन करें..."
 
-#: part.cpp:379
+#: part.cpp:380
 #, fuzzy, kde-format
 #| msgid ""
 #| "This workpackage already exists in your project store:\n"
@@ -143,12 +143,23 @@ msgstr ""
 "%1\n"
 "क्या आप इसे मिटाकर लिखना चाहेंगे?"
 
-#: part.cpp:410
+#: part.cpp:384
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed write file:\n"
+#| " %1"
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr ""
+"फ़ाइल लिखने में असफल:\n"
+" %1"
+
+#: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
 msgstr ""
 
-#: part.cpp:414
+#: part.cpp:418
 #, fuzzy
 #| msgid ""
 #| "Failed write file:\n"
@@ -159,14 +170,14 @@ msgstr ""
 "फ़ाइल लिखने में असफल:\n"
 " %1"
 
-#: part.cpp:425
+#: part.cpp:429
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: part.cpp:466
+#: part.cpp:470
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed write file:\n"
@@ -176,7 +187,7 @@ msgstr ""
 "फ़ाइल लिखने में असफल:\n"
 " %1"
 
-#: part.cpp:488
+#: part.cpp:492
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed write file:\n"
@@ -186,13 +197,13 @@ msgstr ""
 "फ़ाइल लिखने में असफल:\n"
 " %1"
 
-#: part.cpp:518
+#: part.cpp:522
 #, fuzzy, kde-format
 #| msgid "Invalid document. No mimetype specified."
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
 msgstr "अवैध दस्तावेज़. कोई माइम-क़िस्म निर्दिष्ट नहीं."
 
-#: part.cpp:546
+#: part.cpp:550
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed to open store:\n"
@@ -202,17 +213,17 @@ msgstr ""
 "भंडार खोलने में असफल:\n"
 " %1"
 
-#: part.cpp:560
+#: part.cpp:564
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr ""
 
-#: part.cpp:579 part.cpp:630
+#: part.cpp:583 part.cpp:634
 #, kde-format
 msgid "Invalid document. No mimetype specified."
 msgstr "अवैध दस्तावेज़. कोई माइम-क़िस्म निर्दिष्ट नहीं."
 
-#: part.cpp:587
+#: part.cpp:591
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
@@ -221,24 +232,24 @@ msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr "अवैध दस्तावेज़. वांछित माइम क़िस्म application/x-vnd.kde.kplato.work, मिला %1"
 
-#: part.cpp:598 part.cpp:646
+#: part.cpp:602 part.cpp:650
 #, kde-format
 msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "Continue"
 msgstr "जारी रखें"
 
-#: part.cpp:600 part.cpp:648
+#: part.cpp:604 part.cpp:652
 #, kde-format
 msgid "File-Format Mismatch"
 msgstr "फ़ाइल फार्मेट मिसमैच"
 
-#: part.cpp:636
+#: part.cpp:640
 #, fuzzy, kde-format
 #| msgid ""
 #| "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
@@ -246,7 +257,7 @@ msgstr "फ़ाइल फार्मेट मिसमैच"
 msgid "Invalid document. Expected mimetype %2, got %1"
 msgstr "अवैध दस्तावेज़. वांछित माइम क़िस्म application/x-vnd.kde.kplato.work, मिला %1"
 
-#: part.cpp:738
+#: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
 msgstr ""
