@@ -291,11 +291,11 @@ QString KoFileDialog::filename()
         switch (d->type) {
         case OpenFile:
         {
-            url = QFileDialog::getOpenFileName(d->parent,
+            url = QFileDialog::getOpenFileUrl(d->parent,
                                                d->caption,
-                                               d->defaultDirectory,
+                                               QUrl::fromUserInput(d->defaultDirectory),
                                                d->filterList.join(QStringLiteral(";;")),
-                                               &d->defaultFilter);
+                                               &d->defaultFilter).toString();
             break;
         }
         case OpenDirectory:
@@ -308,11 +308,11 @@ QString KoFileDialog::filename()
         }
         case ImportFile:
         {
-            url = QFileDialog::getOpenFileName(d->parent,
+            url = QFileDialog::getOpenFileUrl(d->parent,
                                                d->caption,
-                                               d->defaultDirectory,
+                                               QUrl::fromUserInput(d->defaultDirectory),
                                                d->filterList.join(QStringLiteral(";;")),
-                                               &d->defaultFilter);
+                                               &d->defaultFilter).toString();
             break;
         }
         case ImportDirectory:
@@ -325,11 +325,11 @@ QString KoFileDialog::filename()
         }
         case SaveFile:
         {
-            url = QFileDialog::getSaveFileName(d->parent,
+            url = QFileDialog::getSaveFileUrl(d->parent,
                                                d->caption,
-                                               d->defaultDirectory,
+                                               QUrl::fromUserInput(d->defaultDirectory),
                                                d->filterList.join(QStringLiteral(";;")),
-                                               &d->defaultFilter);
+                                               &d->defaultFilter).toString();
             break;
         }
         default:
@@ -339,7 +339,7 @@ QString KoFileDialog::filename()
 
     if (!url.isEmpty()) {
         QMimeDatabase db;
-        d->mimeType = db.mimeTypeForFile(url);
+        d->mimeType = db.mimeTypeForUrl(QUrl::fromUserInput(url));
         saveUsedDir(url, d->dialogName);
     }
     return url;
