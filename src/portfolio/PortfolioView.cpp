@@ -209,9 +209,9 @@ void PortfolioView::slotAddProject()
 {
      KoFileDialog dlg(nullptr, KoFileDialog::OpenFiles, i18n("Add Project"));
      dlg.setMimeTypeFilters(QStringList()<<PLAN_MIME_TYPE);
-     const auto files = dlg.filenames();
-     for (const auto &file : files) {
-         loadProject(QUrl::fromUserInput(file));
+     const auto urls = dlg.filenames();
+     for (const auto &url : urls) {
+         loadProject(url);
      }
 }
 

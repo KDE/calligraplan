@@ -97,7 +97,7 @@ public:
 
     QStringList nameFilters() const;
 
-    QStringList filenames();
+    QList<QUrl> filenames();
     QString filename();
 
     /**
@@ -133,7 +133,8 @@ private:
 
     void createFileDialog();
 
-    QString getUsedDir(const QString &dialogName);
+    QUrl directory();
+    QUrl getUsedDir(const QString &dialogName);
     void saveUsedDir(const QString &fileName, const QString &dialogName);
 
     const QStringList getFilterStringListFromMime(const QStringList &mimeList,

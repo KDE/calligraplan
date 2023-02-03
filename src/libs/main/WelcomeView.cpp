@@ -205,10 +205,8 @@ WelcomeView::WelcomeView(KoMainWindow *parent)
 
     connect(mainWindow(), &KoMainWindow::loadCompleted, this, &WelcomeView::finished);
 
-    KSharedConfigPtr configPtr = parent->componentData().config();
-    KRecentFilesAction recent(QStringLiteral("x"), nullptr);
-    recent.loadEntries(configPtr->group("Recent Projects"));
-    m_recentProjects->setRecentFiles(recent);
+    parent->reloadRecentFileList();
+    m_recentProjects->setRecentFiles(*parent->recentAction());
 }
 
 WelcomeView::~WelcomeView()

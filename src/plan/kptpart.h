@@ -50,6 +50,8 @@ public:
 
     QWidget *createWelcomeView(KoMainWindow *parent) const override;
 
+    void addRecentURLToAllMainWindows() override;
+
 public Q_SLOTS:
     void openTaskModule(const QUrl& url);
     void finish();

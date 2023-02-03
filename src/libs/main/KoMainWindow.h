@@ -111,6 +111,7 @@ public:
      * Reloads the recent documents list.
      */
     void reloadRecentFileList();
+    KRecentFilesAction *recentAction() const;
 
 
     virtual bool isDocumentModified();
@@ -386,8 +387,6 @@ private:
      * openDocumentInternal().
      */
     bool isImporting() const;
-
-    KRecentFilesAction *recentAction() const;
 
 // ---------------------  PartManager
 private:

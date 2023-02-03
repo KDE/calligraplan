@@ -266,13 +266,20 @@ bool KoPart::openProjectTemplate(const QUrl &url)
     return false;
 }
 
+void KoPart::addRecentURLToAllMainWindows()
+{
+    // Add to recent actions list in our mainWindows
+    for (KoMainWindow *mainWindow : qAsConst(d->mainWindows)) {
+        mainWindow->addRecentURL(QString(), d->document->url());
+    }
+}
+
 void KoPart::addRecentURLToAllMainWindows(const QString &projectName, const QUrl &url)
 {
     // Add to recent actions list in our mainWindows
     for (KoMainWindow *mainWindow : qAsConst(d->mainWindows)) {
         mainWindow->addRecentURL(projectName, url);
     }
-
 }
 
 void KoPart::setTemplatesResourcePath(const QString &templatesResourcePath)

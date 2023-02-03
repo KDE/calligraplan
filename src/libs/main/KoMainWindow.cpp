@@ -586,7 +586,6 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
 {
     debugMain << "url=" << url.toDisplayString();
     // Add entry to recent documents list
-    // (call coming from KoDocument because it must work with cmd line, template dlg, file/open, etc.)
     if (!url.isEmpty()) {
         bool ok = true;
         if (url.isLocalFile()) {
@@ -631,8 +630,9 @@ void KoMainWindow::saveRecentFiles()
     // Tell all windows to reload their list, after saving
     // Doesn't work multi-process, but it's a start
     const auto windows = KMainWindow::memberList();
-    for (KMainWindow* window : windows)
+    for (KMainWindow* window : windows) {
         static_cast<KoMainWindow *>(window)->reloadRecentFileList();
+    }
 }
 
 void KoMainWindow::reloadRecentFileList()
@@ -816,6 +816,8 @@ void KoMainWindow::slotLoadCompleted()
     debugMain;
     KoDocument *newdoc = qobject_cast<KoDocument*>(sender());
     KoPart *newpart = newdoc->documentPart();
+
+    newpart->addRecentURLToAllMainWindows();
 
     if (d->rootDocument && d->rootDocument->isEmpty()) {
         // Replace current empty document
