@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2021-04-03 23:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -617,7 +617,7 @@ msgstr ""
 msgid "Info"
 msgstr "Informazioa"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1849
 #, kde-format
 msgid "Warning"
 msgstr "Abisua"
@@ -889,13 +889,13 @@ msgstr "Berregin %1"
 msgid "<empty>"
 msgstr "<hutsik>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1665
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Berregin"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1664
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1224,7 +1224,7 @@ msgstr "Ezin izan da gordetzeko fitxategia sortu"
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Ezin izan da «%1» idatzi. Partizioa bete da?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1953
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Errorea «%1» idazten saiatzean. Partizioa bete da?"
@@ -1253,122 +1253,122 @@ msgstr ""
 msgid "Autosave"
 msgstr "Automatikoki gordetzen..."
 
-#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1315 main/KoDocument.cpp:1636 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "%1 fitxategia ez da existitzen."
 
-#: main/KoDocument.cpp:1392
+#: main/KoDocument.cpp:1393
 #, kde-format
 msgid "Opening Document"
 msgstr "Dokumentua irekitzea"
 
-#: main/KoDocument.cpp:1408
+#: main/KoDocument.cpp:1409
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "Ezin izan da iragazki plugina sortu"
 
-#: main/KoDocument.cpp:1411
+#: main/KoDocument.cpp:1412
 #, kde-format
 msgid "Could not create the output document"
 msgstr "Ezin izan da irteerako dokumentua sortu"
 
-#: main/KoDocument.cpp:1414
+#: main/KoDocument.cpp:1415
 #, kde-format
 msgid "File not found"
 msgstr "Fitxategia ez da aurkitu"
 
-#: main/KoDocument.cpp:1417
+#: main/KoDocument.cpp:1418
 #, kde-format
 msgid "Cannot create storage"
 msgstr "Ezin da biltegiratzea sortu"
 
-#: main/KoDocument.cpp:1420
+#: main/KoDocument.cpp:1421
 #, kde-format
 msgid "Bad MIME type"
 msgstr "MIME-mota okerra"
 
-#: main/KoDocument.cpp:1423
+#: main/KoDocument.cpp:1424
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Errorea dokumentu kapsulatuan"
 
-#: main/KoDocument.cpp:1426
+#: main/KoDocument.cpp:1427
 #, kde-format
 msgid "Format not recognized"
 msgstr "Formatua ez da ezagutzen"
 
-#: main/KoDocument.cpp:1429
+#: main/KoDocument.cpp:1430
 #, kde-format
 msgid "Not implemented"
 msgstr "Inplementatu gabe"
 
-#: main/KoDocument.cpp:1432
+#: main/KoDocument.cpp:1433
 #, kde-format
 msgid "Parsing error"
 msgstr "Analisi-errorea"
 
-#: main/KoDocument.cpp:1435
+#: main/KoDocument.cpp:1436
 #, kde-format
 msgid "Document is password protected"
 msgstr "Dokumentua pasahitzez babestuta dago"
 
-#: main/KoDocument.cpp:1438
+#: main/KoDocument.cpp:1439
 #, kde-format
 msgid "Invalid file format"
 msgstr "Fitxategi-formatu baliogabea"
 
-#: main/KoDocument.cpp:1445
+#: main/KoDocument.cpp:1446
 #, kde-format
 msgid "Internal error"
 msgstr "Barneko errorea"
 
-#: main/KoDocument.cpp:1448
+#: main/KoDocument.cpp:1449
 #, kde-format
 msgid "Out of memory"
 msgstr "Memoria beteta"
 
-#: main/KoDocument.cpp:1451
+#: main/KoDocument.cpp:1452
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr ""
 
-#: main/KoDocument.cpp:1454
+#: main/KoDocument.cpp:1455
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "Okerreko dokumentu motan zamatzeko saiakera"
 
-#: main/KoDocument.cpp:1457
+#: main/KoDocument.cpp:1458
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Urruneko fitxategia zama-jaisteak huts egin du"
 
-#: main/KoDocument.cpp:1465
+#: main/KoDocument.cpp:1466
 #, kde-format
 msgid "Reading file timed out"
 msgstr ""
 
-#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1469 main/KoDocument.cpp:1480
 #, kde-format
 msgid "Unknown error"
 msgstr "Errore ezezaguna"
 
-#: main/KoDocument.cpp:1471
+#: main/KoDocument.cpp:1472
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1474
+#: main/KoDocument.cpp:1475
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1478
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr ""
 
-#: main/KoDocument.cpp:1483
+#: main/KoDocument.cpp:1484
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1379,17 +1379,17 @@ msgstr ""
 "Arrazoia: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1540
+#: main/KoDocument.cpp:1541
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "<i>%1</i> dokumentua zamatu da"
 
-#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1610 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "Ezin izan da %1 aurkitu"
 
-#: main/KoDocument.cpp:1621
+#: main/KoDocument.cpp:1622
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1398,23 +1398,23 @@ msgstr ""
 "Analisi-errorea gertatu da %1(e)(a)n, %2. lerroan, %3. zutabean\n"
 "Errore-mezua: %4"
 
-#: main/KoDocument.cpp:1642
+#: main/KoDocument.cpp:1643
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 ez da fitxategi bat."
 
-#: main/KoDocument.cpp:1657
+#: main/KoDocument.cpp:1658
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
 "Ezin izan da fitxategia irakurtzeko ireki (egiaztatu irakurtzeko baimenak)."
 
-#: main/KoDocument.cpp:1668
+#: main/KoDocument.cpp:1669
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "Ezin izan da fitxategiaren hasiera irakurri."
 
-#: main/KoDocument.cpp:1698
+#: main/KoDocument.cpp:1699
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1423,22 +1423,22 @@ msgstr ""
 "analisi-errorea dokumentu nagusian, %1. lerroan, %2. zutabean\n"
 "Errore-mezua: %3"
 
-#: main/KoDocument.cpp:1719
+#: main/KoDocument.cpp:1720
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "Ez da baliozko Calligra Plan fitxategi bat: %1"
 
-#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
+#: main/KoDocument.cpp:1737 main/KoDocument.cpp:1768
 #, kde-format
 msgid "Invalid password"
 msgstr ""
 
-#: main/KoDocument.cpp:1807
+#: main/KoDocument.cpp:1808
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Dokumentu baliogabea: ez dago «maindoc.xml» fitxategirik."
 
-#: main/KoDocument.cpp:1833
+#: main/KoDocument.cpp:1834
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1447,19 +1447,19 @@ msgstr ""
 "<i>%1</i> dokumentuak hainbat bertsio ditu. Joan Fitxategia->Bertsioak "
 "aukerara bertsio zaharrago bat irekitzeko."
 
-#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
+#: main/KoDocument.cpp:2043 main/KoDocument.cpp:2539 main/KoMainWindow.cpp:1259
 #, kde-format
 msgid "Untitled"
 msgstr "Izengabea"
 
-#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
+#: main/KoDocument.cpp:2046 main/KoMainWindow.cpp:1262
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr "<p><b>'%1'</b> dokumentua aldatu egin da.</p><p>Gorde nahi duzu?</p>"
 
-#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2047 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1467,12 +1467,12 @@ msgstr "<p><b>'%1'</b> dokumentua aldatu egin da.</p><p>Gorde nahi duzu?</p>"
 msgid "Save Document"
 msgstr "Gorde dokumentua"
 
-#: main/KoDocument.cpp:2130
+#: main/KoDocument.cpp:2131
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Barneko errorea: saveXML ez dago inplementatuta"
 
-#: main/KoDocument.cpp:2168
+#: main/KoDocument.cpp:2169
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1481,7 +1481,7 @@ msgstr ""
 "Ezin izan da ireki\n"
 "%1"
 
-#: main/KoDocument.cpp:2171
+#: main/KoDocument.cpp:2172
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1490,32 +1490,32 @@ msgstr ""
 "Ezin izan da %1 ireki.\n"
 "Arrazoia: %2"
 
-#: main/KoDocument.cpp:2245
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a word processing"
 msgstr "testu-prozesatzaile bat"
 
-#: main/KoDocument.cpp:2246
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a spreadsheet"
 msgstr "kalkulu-orri bat"
 
-#: main/KoDocument.cpp:2247
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a presentation"
 msgstr "aurkezpen bat"
 
-#: main/KoDocument.cpp:2248
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a chart"
 msgstr "diagrama bat"
 
-#: main/KoDocument.cpp:2249
+#: main/KoDocument.cpp:2250
 #, kde-format
 msgid "a drawing"
 msgstr "marrazki bat"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2543
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1524,7 +1524,7 @@ msgstr ""
 "«%1» dokumentua aldatu egin da.\n"
 "Aldaketak gorde edo baztertu nahi dituzu?"
 
-#: main/KoDocument.cpp:2544
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid "Close Document"
 msgstr "Itxi dokumentua"
@@ -1648,13 +1648,13 @@ msgid ""
 "Project Template...</interface>."
 msgstr ""
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:897 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (fitxategi mota ezezaguna)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:905
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1663,12 +1663,12 @@ msgstr ""
 "<qt>%1 gisa gordetzeak formatu-galeraren bat eragin lezake.<p>Hala ere, "
 "formatu horrekin gorde nahi duzu?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:908
 #, kde-format
 msgid "Confirm Save"
 msgstr "Berretsi gordetzea"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:917
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1677,65 +1677,65 @@ msgstr ""
 "<qt>%1 gisa esportatzeak formatu-galeraren bat eragin lezake.<p>Hala ere, "
 "formatu horretara esportatu nahi duzu?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:920
 #, kde-format
 msgid "Confirm Export"
 msgstr "Berretsi esportatzea"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:921 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Esportatu"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1039
 #, kde-format
 msgid "untitled"
 msgstr "izengabea"
 
-#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1332 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Ireki dokumentua"
 
-#: main/KoMainWindow.cpp:1334
+#: main/KoMainWindow.cpp:1341
 #, kde-format
 msgid "Import Document"
 msgstr "Inportatu dokumentua"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1549
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Cannot Attach Document"
 msgid "Cannot preview the document"
 msgstr "Ezin da dokumenturik erantsi"
 
-#: main/KoMainWindow.cpp:1550
+#: main/KoMainWindow.cpp:1557
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr ""
 
-#: main/KoMainWindow.cpp:1598
+#: main/KoMainWindow.cpp:1605
 #, kde-format
 msgid "Export as PDF"
 msgstr "Esportatu PDF gisa"
 
-#: main/KoMainWindow.cpp:1635
+#: main/KoMainWindow.cpp:1642
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "Ezin da esportatu adierazitako fitxategira"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1818
 #, kde-format
 msgid "Document"
 msgstr "Dokumentua"
 
-#: main/KoMainWindow.cpp:1819
+#: main/KoMainWindow.cpp:1826
 #, kde-format
 msgid "Document - %1"
 msgstr "Dokumentua - %1"
 
-#: main/KoMainWindow.cpp:1840
+#: main/KoMainWindow.cpp:1847
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1744,12 +1744,12 @@ msgstr ""
 "Azkenekoz gorde zenuenetik egindako aldaketa guztiak galduko dituzu.\n"
 "Jarraitu nahi duzu?"
 
-#: main/KoMainWindow.cpp:2202
+#: main/KoMainWindow.cpp:2209
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Erakutsi %1 tresna-barra"
 
-#: main/KoMainWindow.cpp:2204
+#: main/KoMainWindow.cpp:2211
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Ezkutatu %1 tresna-barra"

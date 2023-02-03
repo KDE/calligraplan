@@ -1,23 +1,23 @@
 # Translation of calligraplanlibs.po to Catalan
-# Copyright (C) 2008-2022 This_file_is_part_of_KDE
+# Copyright (C) 2008-2023 This_file_is_part_of_KDE
 # This file is distributed under the same license as the calligraplanlibs package.
 #
 # Rafael Carreras <rcarreras@caliu.cat>, 2008, 2010.
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2016, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2022-12-21 13:43+0100\n"
-"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-02-02 10:00+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Kate 22.08.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Poedit-Language: Catalan\n"
@@ -613,7 +613,7 @@ msgstr "Depuració"
 msgid "Info"
 msgstr "Informació"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1849
 #, kde-format
 msgid "Warning"
 msgstr "Avís"
@@ -883,13 +883,13 @@ msgstr "Refés %1"
 msgid "<empty>"
 msgstr "<buit>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1665
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Refés"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1664
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1213,7 +1213,7 @@ msgstr "No s'ha pogut crear el fitxer per a desar-lo"
 msgid "Not able to write '%1'. Partition full?"
 msgstr "No s'ha pogut escriure «%1». La partició és plena?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1953
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Error mentre s'escrivia «%1». Potser la partició és plena?"
@@ -1237,128 +1237,127 @@ msgstr ""
 "Voleu obrir-lo en comptes d'aquest?"
 
 #: main/KoDocument.cpp:1198
-#, fuzzy, kde-format
-#| msgid "No autosave"
+#, kde-format
 msgid "Autosave"
-msgstr "No desis automàticament"
+msgstr "Desa automàticament"
 
-#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1315 main/KoDocument.cpp:1636 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "El fitxer %1 no existeix."
 
-#: main/KoDocument.cpp:1392
+#: main/KoDocument.cpp:1393
 #, kde-format
 msgid "Opening Document"
 msgstr "Obertura de document"
 
-#: main/KoDocument.cpp:1408
+#: main/KoDocument.cpp:1409
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "No s'ha pogut crear el connector de filtre"
 
-#: main/KoDocument.cpp:1411
+#: main/KoDocument.cpp:1412
 #, kde-format
 msgid "Could not create the output document"
 msgstr "No s'ha pogut carregar el document de sortida"
 
-#: main/KoDocument.cpp:1414
+#: main/KoDocument.cpp:1415
 #, kde-format
 msgid "File not found"
 msgstr "No s'ha trobat el fitxer"
 
-#: main/KoDocument.cpp:1417
+#: main/KoDocument.cpp:1418
 #, kde-format
 msgid "Cannot create storage"
 msgstr "No s'ha pogut crear l'emmagatzematge"
 
-#: main/KoDocument.cpp:1420
+#: main/KoDocument.cpp:1421
 #, kde-format
 msgid "Bad MIME type"
 msgstr "Tipus MIME erroni"
 
-#: main/KoDocument.cpp:1423
+#: main/KoDocument.cpp:1424
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Error al document incrustat"
 
-#: main/KoDocument.cpp:1426
+#: main/KoDocument.cpp:1427
 #, kde-format
 msgid "Format not recognized"
 msgstr "Format no reconegut"
 
-#: main/KoDocument.cpp:1429
+#: main/KoDocument.cpp:1430
 #, kde-format
 msgid "Not implemented"
 msgstr "Sense implementar"
 
-#: main/KoDocument.cpp:1432
+#: main/KoDocument.cpp:1433
 #, kde-format
 msgid "Parsing error"
 msgstr "Error d'anàlisi"
 
-#: main/KoDocument.cpp:1435
+#: main/KoDocument.cpp:1436
 #, kde-format
 msgid "Document is password protected"
 msgstr "El document està protegit per contrasenya"
 
-#: main/KoDocument.cpp:1438
+#: main/KoDocument.cpp:1439
 #, kde-format
 msgid "Invalid file format"
 msgstr "Format de fitxer no vàlid"
 
-#: main/KoDocument.cpp:1445
+#: main/KoDocument.cpp:1446
 #, kde-format
 msgid "Internal error"
 msgstr "Error intern"
 
-#: main/KoDocument.cpp:1448
+#: main/KoDocument.cpp:1449
 #, kde-format
 msgid "Out of memory"
 msgstr "Memòria exhaurida"
 
-#: main/KoDocument.cpp:1451
+#: main/KoDocument.cpp:1452
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "Connector de filtre buit"
 
-#: main/KoDocument.cpp:1454
+#: main/KoDocument.cpp:1455
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "S'ha intentat carregar dins la classe de document incorrecta"
 
-#: main/KoDocument.cpp:1457
+#: main/KoDocument.cpp:1458
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Ha fallat en baixar el fitxer remot"
 
-#: main/KoDocument.cpp:1465
+#: main/KoDocument.cpp:1466
 #, kde-format
 msgid "Reading file timed out"
 msgstr "S'ha esgotat el temps d'espera de lectura del fitxer"
 
-#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1469 main/KoDocument.cpp:1480
 #, kde-format
 msgid "Unknown error"
 msgstr "Error desconegut"
 
-#: main/KoDocument.cpp:1471
+#: main/KoDocument.cpp:1472
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 "No s'ha trobat el filtre planconvert.jar, comproveu la vostra instal·lació"
 
-#: main/KoDocument.cpp:1474
+#: main/KoDocument.cpp:1475
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr "L'execució ha fallat. Comproveu la vostra instal·lació"
 
-#: main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1478
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "L'execució ha fallat. No s'ha trobat el controlador ODBC"
 
-#: main/KoDocument.cpp:1483
+#: main/KoDocument.cpp:1484
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1369,17 +1368,17 @@ msgstr ""
 "Motiu: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1540
+#: main/KoDocument.cpp:1541
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "S'ha carregat el document <i>%1</i>"
 
-#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1610 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "No s'ha pogut trobar %1"
 
-#: main/KoDocument.cpp:1621
+#: main/KoDocument.cpp:1622
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1388,24 +1387,24 @@ msgstr ""
 "Error d'anàlisi a %1, a la línia %2, columna %3\n"
 "Missatge d'error: %4"
 
-#: main/KoDocument.cpp:1642
+#: main/KoDocument.cpp:1643
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 no és cap fitxer."
 
-#: main/KoDocument.cpp:1657
+#: main/KoDocument.cpp:1658
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
 "No s'ha pogut obrir el fitxer per a llegir-lo (comproveu els permisos de "
 "lectura)."
 
-#: main/KoDocument.cpp:1668
+#: main/KoDocument.cpp:1669
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "No s'ha pogut llegir l'inici del fitxer."
 
-#: main/KoDocument.cpp:1698
+#: main/KoDocument.cpp:1699
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1414,22 +1413,22 @@ msgstr ""
 "Error d'anàlisi al document principal a la línia %1, columna %2\n"
 "Missatge d'error: %3"
 
-#: main/KoDocument.cpp:1719
+#: main/KoDocument.cpp:1720
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "No és un fitxer vàlid del Calligra Plan: %1"
 
-#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
+#: main/KoDocument.cpp:1737 main/KoDocument.cpp:1768
 #, kde-format
 msgid "Invalid password"
 msgstr "Contrasenya no vàlida"
 
-#: main/KoDocument.cpp:1807
+#: main/KoDocument.cpp:1808
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Document no vàlid, no existeix el fitxer «maindoc.xml»."
 
-#: main/KoDocument.cpp:1833
+#: main/KoDocument.cpp:1834
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1438,12 +1437,12 @@ msgstr ""
 "El document <i>%1</i> conté moltes versions. Aneu a «Fitxer -> Versions» per "
 "a obrir una versió anterior."
 
-#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
+#: main/KoDocument.cpp:2043 main/KoDocument.cpp:2539 main/KoMainWindow.cpp:1259
 #, kde-format
 msgid "Untitled"
 msgstr "Sense títol"
 
-#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
+#: main/KoDocument.cpp:2046 main/KoMainWindow.cpp:1262
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
@@ -1451,7 +1450,7 @@ msgid ""
 msgstr ""
 "<p>El document <b>«%1»</b> ha estat modificat.</p><p>Voleu desar-lo?</p>"
 
-#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2047 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1459,12 +1458,12 @@ msgstr ""
 msgid "Save Document"
 msgstr "Desa el document"
 
-#: main/KoDocument.cpp:2130
+#: main/KoDocument.cpp:2131
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Error intern: saveXML no està implementat"
 
-#: main/KoDocument.cpp:2168
+#: main/KoDocument.cpp:2169
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1473,7 +1472,7 @@ msgstr ""
 "No s'ha pogut obrir\n"
 "%1"
 
-#: main/KoDocument.cpp:2171
+#: main/KoDocument.cpp:2172
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1482,32 +1481,32 @@ msgstr ""
 "No s'ha pogut obrir %1\n"
 "Motiu: %2"
 
-#: main/KoDocument.cpp:2245
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a word processing"
 msgstr "un processador de textos"
 
-#: main/KoDocument.cpp:2246
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a spreadsheet"
 msgstr "un full de càlcul"
 
-#: main/KoDocument.cpp:2247
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a presentation"
 msgstr "una presentació"
 
-#: main/KoDocument.cpp:2248
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a chart"
 msgstr "un diagrama"
 
-#: main/KoDocument.cpp:2249
+#: main/KoDocument.cpp:2250
 #, kde-format
 msgid "a drawing"
 msgstr "un dibuix"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2543
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1516,7 +1515,7 @@ msgstr ""
 "El document «%1» ha estat modificat.\n"
 "Voleu desar els canvis o descartar-los?"
 
-#: main/KoDocument.cpp:2544
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid "Close Document"
 msgstr "Tanca el document"
@@ -1643,13 +1642,13 @@ msgstr ""
 "plantilla, creeu un projecte nou usant aquesta plantilla i deseu-la usant "
 "<interface>Fitxer->Crea una plantilla de projectes...</interface>."
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:897 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (tipus de fitxer desconegut)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:905
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1658,12 +1657,12 @@ msgstr ""
 "<qt>Desar com a %1 pot resultar en pèrdua de format.<p> Esteu segur de voler "
 "desar en aquest format?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:908
 #, kde-format
 msgid "Confirm Save"
 msgstr "Confirmació del desament"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:917
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1672,63 +1671,63 @@ msgstr ""
 "<qt>Exportar com a %1 pot resultar en pèrdua de format.<p> Esteu segur de "
 "voler exportar a aquest format?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:920
 #, kde-format
 msgid "Confirm Export"
 msgstr "Confirmació d'exportació"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:921 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Exporta"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1039
 #, kde-format
 msgid "untitled"
 msgstr "sense títol"
 
-#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1332 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Obre document"
 
-#: main/KoMainWindow.cpp:1334
+#: main/KoMainWindow.cpp:1341
 #, kde-format
 msgid "Import Document"
 msgstr "Importa document"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1549
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "No s'ha pogut fer la vista prèvia del document"
 
-#: main/KoMainWindow.cpp:1550
+#: main/KoMainWindow.cpp:1557
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "No s'ha pogut obrir el visualitzador de PDF"
 
-#: main/KoMainWindow.cpp:1598
+#: main/KoMainWindow.cpp:1605
 #, kde-format
 msgid "Export as PDF"
 msgstr "Exporta com a PDF"
 
-#: main/KoMainWindow.cpp:1635
+#: main/KoMainWindow.cpp:1642
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "No s'ha pogut exportar al fitxer especificat"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1818
 #, kde-format
 msgid "Document"
 msgstr "Document"
 
-#: main/KoMainWindow.cpp:1819
+#: main/KoMainWindow.cpp:1826
 #, kde-format
 msgid "Document - %1"
 msgstr "Document - %1"
 
-#: main/KoMainWindow.cpp:1840
+#: main/KoMainWindow.cpp:1847
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1737,12 +1736,12 @@ msgstr ""
 "Es perdran tots els canvis fets des de l'últim cop que vau desar.\n"
 "Esteu segur de voler continuar?"
 
-#: main/KoMainWindow.cpp:2202
+#: main/KoMainWindow.cpp:2209
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Mostra la barra d'eines %1"
 
-#: main/KoMainWindow.cpp:2204
+#: main/KoMainWindow.cpp:2211
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Oculta la barra d'eines %1"
@@ -5916,11 +5915,10 @@ msgid "Do you want to save the password?"
 msgstr "Voleu desar la contrasenya?"
 
 #: store/KoEncryptedStore.cpp:758
-#, fuzzy, kde-format
-#| msgid "Invalid password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
-msgstr "Contrasenya no vàlida"
+msgstr "Desa la contrasenya"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format

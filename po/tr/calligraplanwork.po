@@ -6,13 +6,13 @@
 # obsoleteman <tulliana@gmail.com>, 2008-2009,2012.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
 # Yusuf Faruk DOĞAN <yfdogan@gmail.com>, 2014.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2022-12-11 19:57+0300\n"
+"PO-Revision-Date: 2023-02-02 19:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -92,7 +92,7 @@ msgstr "%1 dosyası yok."
 #: part.cpp:139 part.cpp:170
 #, kde-format
 msgid "Document is already open:<br>%1"
-msgstr "Belge zaten açık:<br>%1"
+msgstr "Belge halihazırda açık:<br>%1"
 
 #: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
@@ -131,11 +131,10 @@ msgstr ""
 "istiyor musunuz?</p>"
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "Çalışma Paketi: %1"
+msgstr "Çalışma Paketini Güncelle"
 
 #: part.cpp:414
 #, kde-format
@@ -531,7 +530,7 @@ msgstr "Çalışma Paketi: %1"
 #: workpackage.cpp:103
 #, kde-format
 msgid "Document is already open"
-msgstr "Belge zaten açık"
+msgstr "Belge halihazırda açık"
 
 #: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format

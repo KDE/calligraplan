@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2023-01-12 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -609,7 +609,7 @@ msgstr ""
 msgid "Info"
 msgstr "信息"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1849
 #, kde-format
 msgid "Warning"
 msgstr "警告"
@@ -877,13 +877,13 @@ msgstr "重做 %1"
 msgid "<empty>"
 msgstr "<空>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1665
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "重下"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1664
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -1192,7 +1192,7 @@ msgstr "无法创建要保存的文件"
 msgid "Not able to write '%1'. Partition full?"
 msgstr "无法写入“%1”。分区已满？"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1952
+#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1953
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "试图写入“%1”时出错。分区已满？"
@@ -1221,122 +1221,122 @@ msgstr ""
 msgid "Autosave"
 msgstr "正在自动保存..."
 
-#: main/KoDocument.cpp:1314 main/KoDocument.cpp:1635 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1315 main/KoDocument.cpp:1636 main/KoMainWindow.cpp:722
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "文件 %1 不存在。"
 
-#: main/KoDocument.cpp:1392
+#: main/KoDocument.cpp:1393
 #, kde-format
 msgid "Opening Document"
 msgstr "正在打开文档"
 
-#: main/KoDocument.cpp:1408
+#: main/KoDocument.cpp:1409
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "无法创建滤镜插件"
 
-#: main/KoDocument.cpp:1411
+#: main/KoDocument.cpp:1412
 #, kde-format
 msgid "Could not create the output document"
 msgstr "无法创建输出文档"
 
-#: main/KoDocument.cpp:1414
+#: main/KoDocument.cpp:1415
 #, kde-format
 msgid "File not found"
 msgstr "未找到文件"
 
-#: main/KoDocument.cpp:1417
+#: main/KoDocument.cpp:1418
 #, kde-format
 msgid "Cannot create storage"
 msgstr "无法创建存储"
 
-#: main/KoDocument.cpp:1420
+#: main/KoDocument.cpp:1421
 #, kde-format
 msgid "Bad MIME type"
 msgstr "无效的 MIME 类型"
 
-#: main/KoDocument.cpp:1423
+#: main/KoDocument.cpp:1424
 #, kde-format
 msgid "Error in embedded document"
 msgstr "嵌入的文档出错"
 
-#: main/KoDocument.cpp:1426
+#: main/KoDocument.cpp:1427
 #, kde-format
 msgid "Format not recognized"
 msgstr "格式未识别"
 
-#: main/KoDocument.cpp:1429
+#: main/KoDocument.cpp:1430
 #, kde-format
 msgid "Not implemented"
 msgstr "未实现"
 
-#: main/KoDocument.cpp:1432
+#: main/KoDocument.cpp:1433
 #, kde-format
 msgid "Parsing error"
 msgstr "分析错误"
 
-#: main/KoDocument.cpp:1435
+#: main/KoDocument.cpp:1436
 #, kde-format
 msgid "Document is password protected"
 msgstr "文档被密码保护"
 
-#: main/KoDocument.cpp:1438
+#: main/KoDocument.cpp:1439
 #, kde-format
 msgid "Invalid file format"
 msgstr "无效的文件格式"
 
-#: main/KoDocument.cpp:1445
+#: main/KoDocument.cpp:1446
 #, kde-format
 msgid "Internal error"
 msgstr "内部错误"
 
-#: main/KoDocument.cpp:1448
+#: main/KoDocument.cpp:1449
 #, kde-format
 msgid "Out of memory"
 msgstr "内存不足"
 
-#: main/KoDocument.cpp:1451
+#: main/KoDocument.cpp:1452
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "空的滤镜插件"
 
-#: main/KoDocument.cpp:1454
+#: main/KoDocument.cpp:1455
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "试图加载类型错误的文档"
 
-#: main/KoDocument.cpp:1457
+#: main/KoDocument.cpp:1458
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "下载远程文件失败"
 
-#: main/KoDocument.cpp:1465
+#: main/KoDocument.cpp:1466
 #, kde-format
 msgid "Reading file timed out"
 msgstr ""
 
-#: main/KoDocument.cpp:1468 main/KoDocument.cpp:1479
+#: main/KoDocument.cpp:1469 main/KoDocument.cpp:1480
 #, kde-format
 msgid "Unknown error"
 msgstr "未知的错误"
 
-#: main/KoDocument.cpp:1471
+#: main/KoDocument.cpp:1472
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1474
+#: main/KoDocument.cpp:1475
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1478
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr ""
 
-#: main/KoDocument.cpp:1483
+#: main/KoDocument.cpp:1484
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1347,17 +1347,17 @@ msgstr ""
 "原因：%1。\n"
 "%3"
 
-#: main/KoDocument.cpp:1540
+#: main/KoDocument.cpp:1541
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "已加载文档 <i>%1</i>"
 
-#: main/KoDocument.cpp:1609 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1610 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "无法找到 %1"
 
-#: main/KoDocument.cpp:1621
+#: main/KoDocument.cpp:1622
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1366,22 +1366,22 @@ msgstr ""
 "在 %1 的第 %2 行第 %3 列发生分析错误\n"
 "错误消息：%4"
 
-#: main/KoDocument.cpp:1642
+#: main/KoDocument.cpp:1643
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 不是文件。"
 
-#: main/KoDocument.cpp:1657
+#: main/KoDocument.cpp:1658
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr "无法打开文件进行读取(请检查读权限)。"
 
-#: main/KoDocument.cpp:1668
+#: main/KoDocument.cpp:1669
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "无法读取文件的开始部分。"
 
-#: main/KoDocument.cpp:1698
+#: main/KoDocument.cpp:1699
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1390,41 +1390,41 @@ msgstr ""
 "在主文档的第 %1 行第 %2 列发生分析错误\n"
 "错误消息：%3"
 
-#: main/KoDocument.cpp:1719
+#: main/KoDocument.cpp:1720
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr ""
 
-#: main/KoDocument.cpp:1736 main/KoDocument.cpp:1767
+#: main/KoDocument.cpp:1737 main/KoDocument.cpp:1768
 #, kde-format
 msgid "Invalid password"
 msgstr ""
 
-#: main/KoDocument.cpp:1807
+#: main/KoDocument.cpp:1808
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "无效文档：没有“maindoc.xml”文件。"
 
-#: main/KoDocument.cpp:1833
+#: main/KoDocument.cpp:1834
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr "文档<i>%1</i>包含多个版本。请转到文件->版本以打开旧版本。"
 
-#: main/KoDocument.cpp:2042 main/KoDocument.cpp:2538 main/KoMainWindow.cpp:1252
+#: main/KoDocument.cpp:2043 main/KoDocument.cpp:2539 main/KoMainWindow.cpp:1259
 #, kde-format
 msgid "Untitled"
 msgstr "无标题"
 
-#: main/KoDocument.cpp:2045 main/KoMainWindow.cpp:1255
+#: main/KoDocument.cpp:2046 main/KoMainWindow.cpp:1262
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr "<p>文档 <b>'%1'</b> 已被修订。</p><p>您想要保存它吗？</p>"
 
-#: main/KoDocument.cpp:2046 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2047 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1432,12 +1432,12 @@ msgstr "<p>文档 <b>'%1'</b> 已被修订。</p><p>您想要保存它吗？</p>
 msgid "Save Document"
 msgstr "保存文档"
 
-#: main/KoDocument.cpp:2130
+#: main/KoDocument.cpp:2131
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "内部错误：saveXML 没有实现"
 
-#: main/KoDocument.cpp:2168
+#: main/KoDocument.cpp:2169
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1446,7 +1446,7 @@ msgstr ""
 "无法打开\n"
 "%1"
 
-#: main/KoDocument.cpp:2171
+#: main/KoDocument.cpp:2172
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1455,32 +1455,32 @@ msgstr ""
 "无法打开 %1\n"
 "原因：%2"
 
-#: main/KoDocument.cpp:2245
+#: main/KoDocument.cpp:2246
 #, kde-format
 msgid "a word processing"
 msgstr "字处理"
 
-#: main/KoDocument.cpp:2246
+#: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a spreadsheet"
 msgstr "电子表格"
 
-#: main/KoDocument.cpp:2247
+#: main/KoDocument.cpp:2248
 #, kde-format
 msgid "a presentation"
 msgstr "演示文稿"
 
-#: main/KoDocument.cpp:2248
+#: main/KoDocument.cpp:2249
 #, kde-format
 msgid "a chart"
 msgstr "图表"
 
-#: main/KoDocument.cpp:2249
+#: main/KoDocument.cpp:2250
 #, kde-format
 msgid "a drawing"
 msgstr "绘图"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2543
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1489,7 +1489,7 @@ msgstr ""
 "文档“%1”已经被修改。\n"
 "您要保存更改还是丢弃？"
 
-#: main/KoDocument.cpp:2544
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid "Close Document"
 msgstr "关闭文档"
@@ -1613,88 +1613,88 @@ msgid ""
 "Project Template...</interface>."
 msgstr ""
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:897 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (未知文件类型)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:905
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr "<qt>另存为 %1 可能造成某些格式丢失。<p>您仍然想要保存为此格式吗？</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:908
 #, kde-format
 msgid "Confirm Save"
 msgstr "确认保存"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:917
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr "<qt>导出为 %1 可能造成某些格式丢失。<p>您仍然想要导出为此格式吗？</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:920
 #, kde-format
 msgid "Confirm Export"
 msgstr "确认导出"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:921 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "导出"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1039
 #, kde-format
 msgid "untitled"
 msgstr "无字幕 / 标题"
 
-#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
+#: main/KoMainWindow.cpp:1332 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "打开文件"
 
-#: main/KoMainWindow.cpp:1334
+#: main/KoMainWindow.cpp:1341
 #, kde-format
 msgid "Import Document"
 msgstr "导入文档"
 
-#: main/KoMainWindow.cpp:1542
+#: main/KoMainWindow.cpp:1549
 #, kde-format
 msgid "Cannot preview the document"
 msgstr ""
 
-#: main/KoMainWindow.cpp:1550
+#: main/KoMainWindow.cpp:1557
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr ""
 
-#: main/KoMainWindow.cpp:1598
+#: main/KoMainWindow.cpp:1605
 #, kde-format
 msgid "Export as PDF"
 msgstr "导出为 PDF"
 
-#: main/KoMainWindow.cpp:1635
+#: main/KoMainWindow.cpp:1642
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "无法导出到指定文件"
 
-#: main/KoMainWindow.cpp:1811
+#: main/KoMainWindow.cpp:1818
 #, kde-format
 msgid "Document"
 msgstr "文档"
 
-#: main/KoMainWindow.cpp:1819
+#: main/KoMainWindow.cpp:1826
 #, kde-format
 msgid "Document - %1"
 msgstr "文档 - %1"
 
-#: main/KoMainWindow.cpp:1840
+#: main/KoMainWindow.cpp:1847
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1703,12 +1703,12 @@ msgstr ""
 "您将丢失自您上次保存之后的所有改变\n"
 "您要继续吗？"
 
-#: main/KoMainWindow.cpp:2202
+#: main/KoMainWindow.cpp:2209
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "显示%1工具栏"
 
-#: main/KoMainWindow.cpp:2204
+#: main/KoMainWindow.cpp:2211
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "隐藏%1工具栏"

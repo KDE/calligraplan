@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2022-12-24 06:13+0100\n"
+"PO-Revision-Date: 2023-02-02 08:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -124,16 +124,15 @@ msgid ""
 msgstr ""
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "სამუშაო პაკეტი: %1"
+msgstr "სამუშაო პაკეტის განახლება"
 
 #: part.cpp:414
 #, kde-format
 msgid "Remove failed. Cannot find work package"
-msgstr ""
+msgstr "წაშლის შეცდომა. სამუშაოს პაკეტი ვერ ვიპოვე"
 
 #: part.cpp:418
 msgctxt "(qtundo-format) @action"
@@ -155,12 +154,12 @@ msgstr "ფაილის ჩატვირთვის შეცდომა:
 #: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
-msgstr ""
+msgstr "არასწორი სამუშაო პაკეტის ფაილი:<br>%1"
 
 #: part.cpp:522
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
-msgstr ""
+msgstr "არასწორი დოკუმენტი. ის \"maindoc.xml\"-ს არ შეიცავს."
 
 #: part.cpp:550
 #, kde-format
@@ -451,7 +450,7 @@ msgstr "აირჩეთ დროის ხაზი"
 #: view.cpp:103
 #, kde-format
 msgid "Configure PlanWork..."
-msgstr ""
+msgstr "PlanWork-ის მორგება..."
 
 #: view.cpp:108
 #, kde-format

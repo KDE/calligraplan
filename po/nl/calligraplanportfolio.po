@@ -2,13 +2,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2021, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2022-12-02 13:54+0100\n"
+"PO-Revision-Date: 2023-02-02 10:20+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -245,9 +245,7 @@ msgstr ""
 "p><p>Wilt u het opslaan?</p>"
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
 msgstr "Document opslaan"
