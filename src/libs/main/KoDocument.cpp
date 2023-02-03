@@ -1227,7 +1227,6 @@ bool KoDocument::openUrl(const QUrl &_url)
         // Detect readonly local-files; remote files are assumed to be writable, unless we add a KIO::stat here (async).
         KFileItem file(url, QString::fromLatin1(mimeType()), KFileItem::Unknown);
         setReadWrite(file.isWritable());
-        setModified(false);
     }
     return ret;
 }
