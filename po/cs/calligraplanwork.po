@@ -124,11 +124,10 @@ msgid ""
 msgstr ""
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "Pracovní balíček: %1"
+msgstr ""
 
 #: part.cpp:414
 #, kde-format

@@ -236,12 +236,10 @@ msgid ""
 msgstr ""
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr "Uložit dokumenty"
+msgstr ""
 
 #: Part.cpp:61
 #, kde-format

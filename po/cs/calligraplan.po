@@ -2371,6 +2371,3 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr ""
-
-#~ msgid "Overwrite"
-#~ msgstr "Přepsat"
