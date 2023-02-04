@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2016, 2017, 2018, 2019, 2020.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2022-01-11 17:39+0100\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2023-02-03 17:04+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1877,13 +1877,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Constraint start time"
-msgstr ""
+msgstr "Čas startu meze"
 
 #: models/kptcommonstrings.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Constraint end time"
-msgstr ""
+msgstr "Čas konce meze"
 
 #: models/kptcommonstrings.cpp:37
 #, kde-kuit-format
@@ -5502,7 +5502,7 @@ msgstr "Přidat podúlohu..."
 #: ui/kptdependencyeditor.cpp:2368
 #, kde-format
 msgid "Add Sub-Milestone..."
-msgstr ""
+msgstr "Přidat podmilník..."
 
 #: ui/kptdependencyeditor.cpp:2378 ui/kpttaskeditor.cpp:899
 #, kde-kuit-format
@@ -6752,7 +6752,7 @@ msgstr "Rozsah plánování:"
 #: ui/kptstandardworktimedialog.cpp:86
 #, kde-format
 msgid "Estimate Conversions"
-msgstr ""
+msgstr "Převody odhadu"
 
 #: ui/kptstandardworktimedialog.cpp:104
 msgctxt "(qtundo-format)"
@@ -7037,7 +7037,7 @@ msgstr "Přidat milník"
 #: ui/kpttaskeditor.cpp:889
 #, kde-format
 msgid "Add Sub-Milestone"
-msgstr ""
+msgstr "Přidat podmilník"
 
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
@@ -8243,7 +8243,7 @@ msgstr "Povolit zápatí na všech stranách"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Report"
-msgstr ""
+msgstr "Exportovat hlášení"
 
 #: ui/reports/reportview.cpp:381
 #, kde-format
@@ -8302,7 +8302,7 @@ msgstr ""
 #: ui/reports/reportview.cpp:681
 #, kde-format
 msgid "View report"
-msgstr ""
+msgstr "Zobrazit hlášení"
 
 #: ui/reports/reportview.cpp:686
 #, kde-format
@@ -8622,7 +8622,7 @@ msgstr "Do"
 #: ui/resourcedialogbase.ui:389
 #, kde-format
 msgid "Required resources:"
-msgstr ""
+msgstr "Potřebné zdroje:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: ui/resourcedialogbase.ui:420
