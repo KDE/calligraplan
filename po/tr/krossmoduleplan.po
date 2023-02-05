@@ -5,13 +5,13 @@
 # Anıl Özbek <ozbekanil@gmail.com>, 2012.
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2015.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-07-06 00:17+0000\n"
-"PO-Revision-Date: 2022-08-24 11:51+0300\n"
+"PO-Revision-Date: 2023-02-04 11:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
 msgctxt "(qtundo-format)"
@@ -175,7 +175,7 @@ msgstr "Aynı kimlikli projeden veri yüklenemedi"
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
-msgstr "Sheets başlatılamadı. Sheets kurulu mu?"
+msgstr "Tablolar başlatılamadı. Tablolar kurulu mu?"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
 msgid "No data to export"
