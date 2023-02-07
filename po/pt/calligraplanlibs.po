@@ -1262,10 +1262,9 @@ msgstr ""
 "Deseja abri-lo em alternativa?"
 
 #: main/KoDocument.cpp:1198
-#, fuzzy, kde-format
-#| msgid "No autosave"
+#, kde-format
 msgid "Autosave"
-msgstr "Sem auto-gravação"
+msgstr "Gravação Automática"
 
 #: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
 #, kde-format
