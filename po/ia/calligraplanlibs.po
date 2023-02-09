@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:59+0000\n"
-"PO-Revision-Date: 2023-01-09 11:56+0100\n"
+"PO-Revision-Date: 2023-02-08 12:14+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1220,10 +1220,9 @@ msgid ""
 msgstr ""
 
 #: main/KoDocument.cpp:1198
-#, fuzzy, kde-format
-#| msgid "No autosave"
+#, kde-format
 msgid "Autosave"
-msgstr "Necun salvamento de modo automatic"
+msgstr "Salvamento de modo automatic"
 
 #: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
 #, kde-format
@@ -5764,11 +5763,10 @@ msgid "Do you want to save the password?"
 msgstr "Tu vole salveguardr le contrasigno?"
 
 #: store/KoEncryptedStore.cpp:758
-#, fuzzy, kde-format
-#| msgid "Invalid password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
-msgstr "Contrasigno invalide"
+msgstr "Salveguarda contrasigno"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
@@ -6044,7 +6042,7 @@ msgstr "Monstra Separatores de rango"
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Dies libere:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
