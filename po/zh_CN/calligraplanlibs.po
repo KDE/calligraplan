@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-02-07 11:05\n"
+"PO-Revision-Date: 2023-02-15 11:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -875,7 +875,7 @@ msgstr ""
 #: main/KoApplication.cpp:266
 #, kde-format
 msgid "%1: Critical Error"
-msgstr "%1︰ 严重错误"
+msgstr "%1：严重错误"
 
 #: main/KoApplication.cpp:266
 #, kde-format
@@ -903,7 +903,7 @@ msgstr "模板 %1 加载失败。"
 #: main/KoApplication.cpp:518
 #, kde-format
 msgid "No template found at: %1"
-msgstr "没有在此处发现模板︰%1"
+msgstr "没有在此处发现模板：%1"
 
 #: main/KoAutoSaveRecoveryDialog.cpp:180
 #, kde-format
@@ -1138,7 +1138,7 @@ msgstr "%1 不是文件。"
 #: main/KoDocument.cpp:1708
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
-msgstr "无法打开文件进行读取(请检查读权限)。"
+msgstr "无法打开文件进行读取 (请检查读取权限)。"
 
 #: main/KoDocument.cpp:1719
 #, kde-format
