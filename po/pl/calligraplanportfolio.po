@@ -2,13 +2,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>, 2021, 2022.
+# Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2022-06-27 20:01+0200\n"
+"PO-Revision-Date: 2023-02-18 09:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.03.70\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -174,13 +174,7 @@ msgid "Save"
 msgstr "Zapisz"
 
 #: GanttView.cpp:81
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "<title>Projects Summary View</title><para>This view summarizes "
-#| "performance data for the projects in your portfolio.</"
-#| "para><para>Performance indexes are shown for both cost based and effort "
-#| "based calculations.</para><para><nl/><link url='%1'>More...</link></para>"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "<title>Gantt Summary</title><para>Shows a gantt chart of all projects in "
@@ -188,10 +182,10 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
-"<title>Widok podsumowania projektów</title><para>Widok ten podsumowuj dane "
-"wydajności projektów w twoim portfolio.</para><para>Indeksy wydajności są "
-"pokazywane zarówno dla obliczeń opartych na koszcie jak i wysiłku.</"
-"para><para><nl/><link url='%1'>Więcej...</link></para>"
+"<title>Podsumowanie Gantta</title><para>Pokazuje wykres gantta dla "
+"wszystkich projektów w twoim portfolio.</para><para>Widok gantta dla "
+"projektu można pokazać po wybraniu <interface>Menu podręczne->Otwórz "
+"projekt</interface>.<nl/><link url='%1'>Więcej...</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -252,12 +246,10 @@ msgstr ""
 "p><p>Czy chcesz go zapisać?</p>"
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr "Zapisywanie dokumentów"
+msgstr "Zapisz dokument"
 
 #: Part.cpp:61
 #, kde-format
@@ -435,19 +427,7 @@ msgid "Recent Portfolios"
 msgstr "Ostanie portfolia"
 
 #: PortfolioView.cpp:133
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "<title>The Portfolio Content Editor</title><para>This editor enables you "
-#| "to configure the content of your portfolio.</para><para>Select "
-#| "<interface>Edit|Add</interface> or press <interface>Add...</interface> to "
-#| "add projects to your portfolio.<nl/>Select <interface>Edit|Remove</"
-#| "interface> or press <interface>Remove</interface> to remove selected "
-#| "projects.</para><para>Add the projects you are managing and set Portfolio "
-#| "= Yes. If you have resources that is shared between multiple projects and "
-#| "you want to re-schedule, you need to add all relevant projects and then "
-#| "set Portfolio = No for these projects.<nl/><link url='%1'>More...</link></"
-#| "para>"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "<title>The Portfolio Content Editor</title><para>This editor enables you to "
@@ -468,9 +448,11 @@ msgstr ""
 "interface> aby dodać projekty do twojego portfolio.<nl/>Wybierz "
 "<interface>Edycja|Usuń</interface> lub naciśnij <interface>Usuń</interface> "
 "aby usunąć zaznaczone projekty. </para><para>Dodaj projekty, którymi "
-"zarządzasz i ustaw Portfolio = Yes. Jeśli masz zasoby, które są dzielone na "
-"wielu projektach i chcesz je ponownie przypisać, to musisz dodać wszystkie "
-"dotyczące go projekty i ustawić Portfolio = No dla tych projektów.<nl/><link "
+"zarządzasz i ustaw  <emphasis>Portfolio</emphasis> = <emphasis>Tak</"
+"emphasis>.</para><para><note>Jeśli masz zasoby, które są dzielone na wielu "
+"projektach i chcesz je ponownie przypisać, to musisz dodać wszystkie "
+"dotyczące go projekty i ustawić <emphasis>Portfolio</emphasis> = "
+"<emphasis>Nie</emphasis> dla tych projektów.</note></para><para><link "
 "url='%1'>Więcej...</link></para>"
 
 #: PortfolioView.cpp:152
@@ -640,6 +622,18 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Postęp</title><para>Tego widoku można użyć do podglądania i "
+"zmieniania danych o postępie dla wybranego projektu.<nl/>Zadania są "
+"podzielone na grupy zależne od stanu zadania:"
+"<list><item><emphasis>Niezaczęte:</emphasis> Zadania, które już powinny były "
+"się zacząć.</item><item><emphasis>W trakcie:</emphasis> Zadania, które "
+"zostały rozpoczęte, lecz jeszcze nie zostały ukończone.</"
+"item><item><emphasis>Ukończone:</emphasis> Zadania, które zostały ukończone "
+"w tym okresie.</item><item><emphasis>Następny okres:</emphasis> Zadania, "
+"których rozpoczęcie jest zaplanowane na następny okres.</item></list>Okres "
+"czasu jest do ustawienia.</para><para>Widok jest do ustawienia, a także "
+"obsługuje drukowanie z menu podręcznego.<nl/><link url='%1'>Więcej...</"
+"link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -782,23 +776,16 @@ msgid "Tasks"
 msgstr "Zadania"
 
 #: ResourceUsageView.cpp:89
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "<title>Projects Summary View</title><para>This view summarizes "
-#| "performance data for the projects in your portfolio.</"
-#| "para><para>Performance indexes are shown for both cost based and effort "
-#| "based calculations.</para><para><nl/><link url='%1'>More...</link></para>"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "<title>Resource Usage</title><para>This view shows the resources task "
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
-"<title>Widok podsumowania projektów</title><para>Widok ten podsumowuj dane "
-"wydajności projektów w twoim portfolio.</para><para>Indeksy wydajności są "
-"pokazywane zarówno dla obliczeń opartych na koszcie jak i wysiłku.</"
-"para><para><nl/><link url='%1'>Więcej...</link></para>"
+"<title>Wykorzystanie zasobu</title><para>Widok ten pokazuje przydziały zadań "
+"dla zasobu na każdy dzień.</para><para><nl/><link url='%1'>Więcej...</link></"
+"para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
@@ -821,50 +808,43 @@ msgid "Range"
 msgstr "Zakres"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Projekty"
+msgstr "Projekt"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Harmonogram"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Ustawienia"
+msgstr "Działanie"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Stan"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "Brak harmonogramu"
+msgstr "Nowy harmonogram"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Brak harmonogramu"
+msgstr "Nowy podharmonogram"
 
 #: ScheduleManagerInfoDialog.cpp:71
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Zostanie utworzony nowy harmonogram '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:77
 #, kde-format
@@ -872,6 +852,8 @@ msgid ""
 "Existing schedule '%1' is not scheduled.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Istniejący harmonogram '%1' nie jest zaplanowany.\n"
+"Zostanie zaplanowany '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -879,6 +861,8 @@ msgid ""
 "Project is baselined.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projekt odniesiono do linii odniesienia.\n"
+"'%1' zostanie utworzony jako podharmonogram względem '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
 #, kde-format
@@ -886,6 +870,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projekt został rozpoczęty.\n"
+"'%1' zostanie utworzony jako podharmonogram względem '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:95
 #, kde-format
@@ -893,6 +879,8 @@ msgid ""
 "Project is started.\n"
 "Schedule '%1' will be re-scheduled."
 msgstr ""
+"Projekt został rozpoczęty.\n"
+"Harmonogram '%1' zostanie zaplanowany na nowo."
 
 #: ScheduleManagerInfoDialog.cpp:107
 #, kde-format
@@ -900,6 +888,8 @@ msgid ""
 "Project is started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Projekt został rozpoczęty.\n"
+"Istniejący harmonogram '%1' zostanie ponownie przypisany."
 
 #: ScheduleManagerInfoDialog.cpp:116
 #, kde-format
@@ -908,6 +898,9 @@ msgid ""
 "New sub-schedule '%1'.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projekt nie został rozpoczęty.\n"
+"Nowy podharmonogram '%1'.\n"
+"'%1' zostanie utworzony jako podharmonogram względem '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:118
 #, kde-format
@@ -915,6 +908,8 @@ msgid ""
 "Project is not started.\n"
 "New schedule '%1' will be created."
 msgstr ""
+"Projekt nie został rozpoczęty.\n"
+"Zostanie utworzony nowy harmonogram '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:122
 #, kde-format
@@ -922,6 +917,8 @@ msgid ""
 "Project is not started.\n"
 "Existing schedule '%1' will be re-scheduled."
 msgstr ""
+"Projekt nie został rozpoczęty.\n"
+"Istniejący harmonogram '%1' zostanie ponownie przypisany."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -982,6 +979,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Planowanie jest niemożliwe. Docelowy czas zakończenia projektu musi być "
+"późniejszy niż czas obliczony"
 
 #: SchedulingModel.cpp:190
 #, kde-format
@@ -1020,6 +1019,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Planowanie jest niemożliwe. Docelowy czas zakończenia projektu musi być "
+"późniejszy niż czas obliczony"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
@@ -1061,15 +1062,26 @@ msgid ""
 "needs to be included for resource leveling to work properly.</note></"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Planowanie</title><para>W widoku planowania można planować projekty z "
+"twojego portfolio. Projekty są planowane wg ich priorytetów. </"
+"para><para>Ustaw <emphasis>Sterowanie</emphasis> na <emphasis>Planowanie</"
+"emphasis> dla projektów, które chcesz zaplanować. <nl/>Ustaw "
+"<emphasis>Sterowanie</emphasis> na <emphasis>Uwzględnij</emphasis> aby mieć "
+"przydziały zasobów uwzględnione w wyrównywaniu obłożenia zasobów.<nl/>Ustaw "
+"<emphasis>Sterowanie</emphasis> na <emphasis>Wyklucz</emphasis>  jeśli "
+"chcesz wykluczyć projekt.</para><para><note>Jeśli twój projekt współdzieli "
+"zasoby z projektami, które nie są częścią twojego portfolio, to projekty te "
+"muszą zostać uwzględnione w wyrównywaniu obłożenia zasobów, aby zadziałały "
+"prawidłowo.</note></para><para><link url='%1'>Więcej...</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 minuta"
+msgstr[1] "%1 minuty"
+msgstr[2] "%1 minut"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
@@ -1079,13 +1091,12 @@ msgstr "Opis"
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "Błąd wewnętrzny. Nie znaleziono żadnej wtyczki planującej."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Nothing to schedule"
-msgstr "Nie zaplanowano"
+msgstr "Nie ma niczego do zaplanowania"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -1093,13 +1104,13 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"Planowanie jest niemożliwe. Docelowy czas zakończenia projektu musi być "
+"późniejszy niż czas obliczony."
 
 #: SchedulingView.cpp:458
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Schedule this project"
+#, kde-format
 msgid "Scheduling projects"
-msgstr "Zaplanuj ten projekt"
+msgstr "Planowanie projektów"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
