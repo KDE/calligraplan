@@ -6,21 +6,21 @@
 # Piotr Szymanski <djurban@pld-linux.org>, 2003, 2004.
 # Igor Klimer <kigro@vp.pl>, 2006.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2006.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-01-09 09:01+0100\n"
-"PO-Revision-Date: 2022-06-27 19:55+0200\n"
+"PO-Revision-Date: 2023-02-18 08:39+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.03.70\n"
+"X-Generator: Lokalize 22.12.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -526,7 +526,7 @@ msgstr "Lista ścieżek do modułów zadań"
 #: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to project templates"
-msgstr "Lista ścieżek do szablonów projektów"
+msgstr "Lista ścieżek do wzorców projektów"
 
 #: config/ConfigDialog.cpp:47
 #, kde-format
@@ -566,7 +566,7 @@ msgstr "Dokumentacja"
 #: config/ConfigDialog.cpp:60
 #, kde-format
 msgid "Project Templates"
-msgstr "Szablony projektów"
+msgstr "Wzorce projektów"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
@@ -674,7 +674,7 @@ msgstr "Opis"
 #: config/ConfigProjectTemplatesPanel.cpp:61
 #, kde-format
 msgid "Project Templates Path"
-msgstr "Ścieżka szablonów projektów"
+msgstr "Ścieżka wzorców projektów"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
@@ -1465,7 +1465,7 @@ msgstr "Wybierak harmonogramu"
 #: kptview.cpp:197
 #, kde-format
 msgid "Create Project Template..."
-msgstr "Utwórz nowy szablon..."
+msgstr "Utwórz wzorzec projektu..."
 
 #: kptview.cpp:201
 #, kde-format
