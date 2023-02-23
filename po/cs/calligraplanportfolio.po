@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-02-08 12:39+0100\n"
+"PO-Revision-Date: 2023-02-22 14:30+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -32,7 +32,7 @@ msgstr "Správa projektů portfolia"
 #: AboutData.h:25
 #, kde-format
 msgid "Copyright 2020-%1, The Plan Team"
-msgstr "Copyright 2020-%1, Tým Planu"
+msgstr "Autorská práva 2020-%1, Tým Planu"
 
 #: AboutData.h:29
 #, kde-format
