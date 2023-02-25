@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2019-10-16 11:37+0200\n"
+"PO-Revision-Date: 2023-02-24 11:07+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: aboutdata.h:44
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr "Copyright 1998-%1, Tým Planu"
+msgstr "Autorská práva 1998-%1, Tým Planu"
 
 #: aboutdata.h:48
 #, kde-format
