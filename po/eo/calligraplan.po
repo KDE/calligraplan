@@ -1,19 +1,22 @@
-# Translation of kplato into esperanto.
+# Translation of calligraplan.pot into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the calligraplan package.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kplato\n"
+"Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-01 20:28+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: pology\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: Menu (file)
@@ -26,13 +29,13 @@ msgstr "&Dosiero"
 #: calligraplan.rc:28
 #, kde-format
 msgid "&Edit"
-msgstr "&Redakti"
+msgstr "R&edakti"
 
 #. i18n: ectx: Menu (view)
 #: calligraplan.rc:37 calligraplan_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Rigardi"
+msgstr "&Vido"
 
 #. i18n: ectx: Menu (project)
 #: calligraplan.rc:44
@@ -60,112 +63,110 @@ msgstr "&Helpo"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "&Dosiero"
+msgstr "Dosiero"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
-#, fuzzy, kde-format
-#| msgid "&Edit"
+#, kde-format
 msgid "Edit"
-msgstr "&Redakti"
+msgstr "Redakti"
 
 #. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
 #: calligraplansettings.kcfg:9
 #, kde-format
 msgid "Hours per year"
-msgstr ""
+msgstr "Horoj jare"
 
 #. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
 #: calligraplansettings.kcfg:13
 #, kde-format
 msgid "Hours per month"
-msgstr ""
+msgstr "Horoj monate"
 
 #. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
 #: calligraplansettings.kcfg:17
 #, kde-format
 msgid "Hours per week"
-msgstr ""
+msgstr "Horoj semajne"
 
 #. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
 #: calligraplansettings.kcfg:21
 #, kde-format
 msgid "Hours per day"
-msgstr ""
+msgstr "Horoj tage"
 
 #. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
 #: calligraplansettings.kcfg:27
 #, kde-format
 msgid "Generate working week"
-msgstr ""
+msgstr "Generi laborsemajnon"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
 #, kde-format
 msgid "Generate working week options"
-msgstr ""
+msgstr "Generi laborsemajnajn opciojn"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
 #, kde-format
 msgid "If none exists"
-msgstr ""
+msgstr "Se neniu ekzistas"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Ĉiam"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
 #, kde-format
 msgid "Generate holidays"
-msgstr ""
+msgstr "Generi feriojn"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
 #, kde-format
 msgid "Generate holidays options"
-msgstr ""
+msgstr "Generi feriajn opciojn"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
 #, kde-format
 msgid "In base calendar"
-msgstr ""
+msgstr "En baza kalendaro"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
 #, kde-format
 msgid "As sub-calendar"
-msgstr ""
+msgstr "Kiel subkalendaro"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
 #, kde-format
 msgid "As separate calendar"
-msgstr ""
+msgstr "Kiel aparta kalendaro"
 
 #. i18n: ectx: label, entry (Region), group (CalendarGeneration)
 #: calligraplansettings.kcfg:62
 #, kde-format
 msgid "Holiday region"
-msgstr ""
+msgstr "Feria regiono"
 
 #. i18n: ectx: label, entry (Monday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
 #: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
 #, kde-format
 msgid "Monday:"
-msgstr ""
+msgstr "Lundo:"
 
 #. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
@@ -180,7 +181,7 @@ msgstr ""
 #: calligraplansettings.kcfg:150
 #, kde-format
 msgid "Start of working day"
-msgstr ""
+msgstr "Komenco de labortago"
 
 #. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
@@ -195,162 +196,157 @@ msgstr ""
 #: calligraplansettings.kcfg:154
 #, kde-format
 msgid "End of working day"
-msgstr ""
+msgstr "Fino de labortago"
 
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
 #: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
 #, kde-format
 msgid "Tuesday:"
-msgstr ""
+msgstr "Mardo:"
 
 #. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
 #: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
 #, kde-format
 msgid "Wednesday:"
-msgstr ""
+msgstr "Merkredo:"
 
 #. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
 #: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
 #, kde-format
 msgid "Thursday:"
-msgstr ""
+msgstr "Ĵaŭdo:"
 
 #. i18n: ectx: label, entry (Friday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
 #: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
 #, kde-format
 msgid "Friday:"
-msgstr ""
+msgstr "Vendredo:"
 
 #. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
 #: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
 #, kde-format
 msgid "Saturday:"
-msgstr ""
+msgstr "Sabato:"
 
 #. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
 #: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
 #, kde-format
 msgid "Sunday:"
-msgstr ""
+msgstr "Dimanĉo:"
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
 #, kde-format
 msgid "Name of project manager"
-msgstr ""
+msgstr "Nomo de projektestro"
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Use shared resources"
-msgstr "Redakti..."
+msgstr "Uzi komunajn rimedojn"
 
 #. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
 #: calligraplansettings.kcfg:168
 #, kde-format
 msgid "File to contain shared resources"
-msgstr ""
+msgstr "Dosiero por enhavi komunajn rimedojn"
 
 #. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
 #: calligraplansettings.kcfg:171
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Project description"
-msgstr "Daŭro"
+msgstr "Projekta priskribo"
 
 #. i18n: ectx: label, entry (Leader), group (Task defaults)
 #: calligraplansettings.kcfg:176
 #, kde-format
 msgid "Name of task responsible"
-msgstr ""
+msgstr "Nomo de respondeca tasko"
 
 #. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
 #: calligraplansettings.kcfg:179
 #, kde-format
 msgid "Scheduling constraint type"
-msgstr ""
+msgstr "Planada limtipo"
 
 #. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
 #: calligraplansettings.kcfg:192
 #, kde-format
 msgid "Defines how start constraint time is used"
-msgstr ""
+msgstr "Difinas kiel la komenca limtempo estas uzata"
 
 #. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
 #: calligraplansettings.kcfg:201
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint start date and time"
-msgstr "Limigoj"
+msgstr "Limigo de komenca dato kaj horo"
 
 #. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
 #: calligraplansettings.kcfg:204
 #, kde-format
 msgid "Defines how end constraint time is used"
-msgstr ""
+msgstr "Difinas kiel finlimlimtempo estas uzata"
 
 #. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
 #: calligraplansettings.kcfg:213
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint end date and time"
-msgstr "Limigoj"
+msgstr "Limigi findaton kaj horon"
 
 #. i18n: ectx: label, entry (EstimateType), group (Task defaults)
 #: calligraplansettings.kcfg:217
 #, kde-format
 msgid "Type of estimate"
-msgstr ""
+msgstr "Tipo de takso"
 
 #. i18n: ectx: label, entry (Unit), group (Task defaults)
 #: calligraplansettings.kcfg:225
 #, kde-format
 msgid "Estimate time unit"
-msgstr ""
+msgstr "Takso tempounuo"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
 #, kde-format
 msgid "Estimate"
-msgstr ""
+msgstr "Takso"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risko"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
 #, kde-format
 msgid "Optimistic estimate"
-msgstr ""
+msgstr "Optimisma takso"
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:256
 #, kde-format
 msgid "Pessimistic estimate"
-msgstr ""
+msgstr "Pesimisma takso"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
 #: calligraplansettings.kcfg:261
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Task description"
-msgstr "Daŭro"
+msgstr "Taskopriskribo"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:267
 #, kde-format
 msgid "Gradient"
-msgstr ""
+msgstr "Gradiento"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:269 config/kptcolorsconfigpanel.cpp:20
@@ -368,262 +364,252 @@ msgstr "Plata"
 #: calligraplansettings.kcfg:275
 #, kde-format
 msgid "Enable summary task level colors"
-msgstr ""
+msgstr "Ebligi resumajn taskonivelajn kolorojn"
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
 #: calligraplansettings.kcfg:279
 #, kde-format
 msgid "Summary task default color"
-msgstr ""
+msgstr "Resuma tasko defaŭlta koloro"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
 #: calligraplansettings.kcfg:283
 #, kde-format
 msgid "Summary task color, level 1"
-msgstr ""
+msgstr "Resuma taskokoloro, nivelo 1"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
 #: calligraplansettings.kcfg:287
 #, kde-format
 msgid "Summary task color, level 2"
-msgstr ""
+msgstr "Resuma taskokoloro, nivelo 2"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
 #: calligraplansettings.kcfg:291
 #, kde-format
 msgid "Summary task color, level 3"
-msgstr ""
+msgstr "Resuma taskokoloro, nivelo 3"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
 #: calligraplansettings.kcfg:295
 #, kde-format
 msgid "Summary task color, level 4"
-msgstr ""
+msgstr "Resuma taskokoloro, nivelo 4"
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:299
 #, kde-format
 msgid "Task color in normal state"
-msgstr ""
+msgstr "Taskokoloro en normala stato"
 
 #. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:303
 #, kde-format
 msgid "Task color in critical state"
-msgstr ""
+msgstr "Taskokoloro en kritika stato"
 
 #. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:307
 #, kde-format
 msgid "Task color in finished state"
-msgstr ""
+msgstr "Taskokoloro en finita stato"
 
 #. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:311
 #, kde-format
 msgid "Task color in error state"
-msgstr ""
+msgstr "Taskokoloro en erara stato"
 
 #. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:315
 #, kde-format
 msgid "Milestone color in normal state"
-msgstr ""
+msgstr "Mejloŝtonokoloro en normala stato"
 
 #. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:319
 #, kde-format
 msgid "Milestone color in critical state"
-msgstr ""
+msgstr "Mejloŝtonkoloro en kritika stato"
 
 #. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:323
 #, kde-format
 msgid "Milestone color in finished state"
-msgstr ""
+msgstr "Mejloŝtona koloro en preta stato"
 
 #. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:327
 #, kde-format
 msgid "Milestone color in error state"
-msgstr ""
+msgstr "Mejloŝtonkoloro en erara stato"
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
 #: calligraplansettings.kcfg:334
 #, kde-format
 msgid "Automatically check for new work packages"
-msgstr ""
+msgstr "Aŭtomate kontroli novajn laborpakaĵojn"
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
 #: calligraplansettings.kcfg:337
 #, kde-format
 msgid "Directory where Plan retrieves work packages from project members"
-msgstr ""
+msgstr "Dosierujo kie Plan prenas laborpakaĵojn de projektanoj"
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
 #: calligraplansettings.kcfg:340
 #, kde-format
 msgid "If set, Plan will delete the file after it has been read"
-msgstr ""
+msgstr "Se fiksite, Plano forigos la dosieron post kiam ĝi estas legita"
 
 #. i18n: ectx: label, entry (SaveFile), group (Work Package)
 #: calligraplansettings.kcfg:343
 #, kde-format
 msgid "If set, Plan will save the file after it has been read"
-msgstr ""
+msgstr "Se agordita, Plan konservos la dosieron post kiam ĝi estas legita"
 
 #. i18n: ectx: label, entry (SaveUrl), group (Work Package)
 #: calligraplansettings.kcfg:346
 #, kde-format
 msgid "Directory where Plan saves work packages when the package has been read"
-msgstr ""
+msgstr "Dosierujo kie Plan konservas laborpakaĵojn kiam la pakaĵo estis legita"
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
 #: calligraplansettings.kcfg:349
 #, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr ""
+msgstr "Dosierujo kie Plan publikigas laborpakaĵojn"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
 #, kde-format
 msgid "The smallest duration unit allowed"
-msgstr ""
+msgstr "La plej malgranda daŭrounuo permesita"
 
 #. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:359
 #, kde-format
 msgid "The largest duration unit allowed"
-msgstr ""
+msgstr "La plej granda daŭrounuo permesita"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Path to the documentation"
-msgstr "Daŭro"
+msgstr "Vojo al la dokumentado"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: calligraplansettings.kcfg:370
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "Vojo al la kunteksta helpdokumentado"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: calligraplansettings.kcfg:374
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "La kunteksta helpdokumentado devas esti tradukita al la lingvo"
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
 #: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
-msgstr ""
+msgstr "Uzi la taskomodulojn de via privata konservejo"
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
 #: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to task modules"
-msgstr ""
+msgstr "Listo de vojoj al taskomoduloj"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
 #, kde-format
 msgid "List of paths to report templates"
-msgstr ""
+msgstr "Listo de vojoj por raporti ŝablonojn"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
 #, kde-format
 msgid "List of paths to project templates"
-msgstr ""
+msgstr "Listo de vojoj al projektŝablonoj"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "Aŭtoŝpara intervalo"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "Krei rezervan dosieron"
 
 #: config/ConfigDialog.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Project Defaults"
-msgstr "Defaŭlto:"
+msgstr "Defaŭltoj de projekto"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
-msgstr ""
+msgstr "Laboro kaj Ferio"
 
 #: config/ConfigDialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Task Defaults"
-msgstr "Defaŭlto:"
+msgstr "Taskaj Defaŭltoj"
 
 #: config/ConfigDialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Colors"
-msgstr "Taskoj"
+msgstr "Taskaj Koloroj"
 
 #: config/ConfigDialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Modules"
-msgstr "Taskoj"
+msgstr "Taskaj Moduloj"
 
 #: config/ConfigDialog.cpp:45
 #, kde-format
 msgid "Work Package"
-msgstr ""
+msgstr "Laborpako"
 
 #: config/ConfigDialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Project Templates"
-msgstr "Enmeti dosieron"
+msgstr "Projektaj Ŝablonoj"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Report Templates"
-msgstr "Enmeti dosieron"
+msgstr "Raportaj Ŝablonoj"
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "Daŭro"
+msgstr "Dokumento"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "La projektestro de ĉi tiu projekto."
 
 #: config/ConfigProjectPanel.cpp:39
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr ""
+msgstr "Marku por ebligi komunajn rimedojn"
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr ""
+msgstr "La dosiero kie komunaj rimedoj estas difinitaj"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -633,29 +619,27 @@ msgstr "Ĝeneralo"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #: config/ConfigProjectPanel.ui:44
-#, fuzzy, kde-format
-#| msgid "Choose..."
+#, kde-format
 msgid "Browse..."
-msgstr "Elekti..."
+msgstr "Foliumi..."
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
 #, kde-format
 msgid "Shared resource file:"
-msgstr ""
+msgstr "Komuna rimeda dosiero:"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:67
 #, kde-format
 msgid "&Manager:"
-msgstr ""
+msgstr "Ad&ministranto:"
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Use shared resources:"
-msgstr "Redakti..."
+msgstr "Uzi komunajn rimedojn:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
@@ -665,56 +649,49 @@ msgid "Description"
 msgstr "Priskribo"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Project Templates Path"
-msgstr "Enmeti dosieron"
+msgstr "Projekto Ŝablonoj Vojo"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:17
 #: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert"
-msgstr "Enmeti dosieron"
+msgstr "Enmeti"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:41
 #: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
 #: SharedResourcesDialog.cpp:248
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu remove view"
-#| msgid "Remove"
+#, kde-format
 msgid "Remove"
 msgstr "Forpreni"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Modules Path"
-msgstr "Taskoj"
+msgstr "Vojo de Taskaj Moduloj"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr ""
+msgstr "Uzi lokajn taskomodulojn"
 
 #: config/ConfigWorkVacationPanel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Default"
-msgstr "Defaŭlto:"
+msgstr "Defaŭlto"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
 msgid "Working Hours"
-msgstr ""
+msgstr "Laborhoroj"
 
 #. i18n: info@whatsthis
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
@@ -735,50 +712,64 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Valoroj uzataj por generi defaŭltajn kalendarojn por "
+"laborsemajnoj kaj ferioj.</p><p>La <span style=\" font-style:italic;"
+"\">Semajno< /span> kalendaro uzas la valorojn difinitajn en <span style=\" "
+"font-style:italic;\">Laborsemajno</span>.</p><p>La <span style=\" font-style:"
+"italic; ;\">Semajna</span> kalendaro povas esti <span style=\" font-style:"
+"italic;\">Ĉiam</span> generita aŭ nur generita <span style=\" font-style:"
+"italic;\" >Se neniu ekzistas</span>. Ĉi-lasta elekto estas la plej ofta ĉar "
+"vi ofte havas kalendarojn difinitajn kiel parto de ŝablonoj aŭ komunaj "
+"rimedoj.</p><p><span style=\" font-style:italic;\">Ferioj</span> povas esti "
+"generitaj por via regiono (defaŭlte) aŭ iu ajn regiono, kiun vi elektas. La "
+"ferioj povas esti aldonitaj al la semajna kalendaro, kiel subkalendaro al la "
+"semajna kalendaro aŭ kiel aparta kalendaro.</p><p>Se semajna kalendaro ne "
+"estas generita, la ferioj estas metitaj en apartan kalendaron.</p><p></"
+"body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: config/ConfigWorkVacationPanel.ui:31
 #, kde-format
 msgid "Calendar generation"
-msgstr ""
+msgstr "Genero de kalendaro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr ""
+msgstr "Semajno"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "Ferioj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
 #, kde-format
 msgid "In week calendar"
-msgstr ""
+msgstr "En semajna kalendaro"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/ConfigWorkVacationPanel.ui:99
 #, kde-format
 msgid "Holida&y region:"
-msgstr ""
+msgstr "Feri&a regiono:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/ConfigWorkVacationPanel.ui:131
 #, kde-format
 msgid "Working week"
-msgstr ""
+msgstr "Laborsemajno"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
 #: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
 #, kde-format
 msgid "Tick  if working day"
-msgstr ""
+msgstr "Marku  se labortago"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
@@ -790,13 +781,13 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:242
 #, kde-format
 msgid "Tick if working day"
-msgstr ""
+msgstr "Marku se labortago"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigWorkVacationPanel.ui:266
 #, kde-format
 msgid "Estimate Conversions"
-msgstr ""
+msgstr "Taksaj Konvertiĝoj"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
 #: config/ConfigWorkVacationPanel.ui:273
@@ -808,24 +799,29 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"Ĉi tiuj valoroj estas uzataj se via takso ne estas en horoj.\n"
+"Ni diru Horoj tage estas 8. Se vi taksas, ke tasko bezonas 3-tagan penon por "
+"plenumi, tio estas konvertita al 24 horoj kiam la tasko estas planita. La "
+"reala tempo, kiun ĝi bezonos por kompletigi, kompreneble dependas de la "
+"havebleco de la persono (aŭ personoj) kiu estas asignita al la tasko."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: config/ConfigWorkVacationPanel.ui:282
 #, kde-format
 msgid "Hours &per year:"
-msgstr ""
+msgstr "Horoj &jare:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: config/ConfigWorkVacationPanel.ui:311
 #, kde-format
 msgid "Hours per &month:"
-msgstr ""
+msgstr "Horoj monate:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabe3)
 #: config/ConfigWorkVacationPanel.ui:356
 #, kde-format
 msgid "Hours per wee&k:"
-msgstr ""
+msgstr "Horoj semajne:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:385
@@ -833,25 +829,27 @@ msgstr ""
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
+"Ĉi tiuj valoroj estas uzataj kiam vi taksas la penon necesan por plenumi "
+"taskon."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:388
 #, kde-format
 msgid "Hours per &day:"
-msgstr ""
+msgstr "Horoj tage:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: config/kptcolorsconfigpanel.ui:28
 #, kde-format
 msgid "Gradient:"
-msgstr ""
+msgstr "Gradiento:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/kptcolorsconfigpanel.ui:57
 #, kde-format
 msgctxt "@title:tab"
 msgid "Summary task"
-msgstr ""
+msgstr "Resuma tasko"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptcolorsconfigpanel.ui:69
@@ -865,7 +863,7 @@ msgstr "Defaŭlto:"
 #, kde-format
 msgctxt "@title:group"
 msgid "Use level colors"
-msgstr ""
+msgstr "Uzi nivelajn kolorojn"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: config/kptcolorsconfigpanel.ui:110
@@ -908,7 +906,7 @@ msgstr "Tasko"
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Normal:"
-msgstr ""
+msgstr "Normala:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #. i18n: ectx: property (text), widget (QLabel, label_14)
@@ -916,7 +914,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Critical:"
-msgstr ""
+msgstr "Kritikaj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_13)
@@ -924,7 +922,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Finished:"
-msgstr ""
+msgstr "Finita:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -932,14 +930,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Error:"
-msgstr ""
+msgstr "Eraro:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: config/kptcolorsconfigpanel.ui:373
 #, kde-format
 msgctxt "@title:tab"
 msgid "Milestone"
-msgstr ""
+msgstr "Mejloŝtono"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
@@ -952,18 +950,22 @@ msgid ""
 "anyone. You can even directly access your address book with the Choose "
 "button."
 msgstr ""
+"La respondeca por ĉi tiu tasko.\n"
+"\n"
+"Tio ĉi ne estas limigita al personoj disponeblaj en rimeda grupo sed povas "
+"esti iu ajn. Vi eĉ povas rekte aliri vian adreslibron per la butono Elekti."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/kptconfigtaskpanelbase.ui:45
 #, kde-format
 msgid "Responsible:"
-msgstr ""
+msgstr "Respondeca:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:78
 #, kde-format
 msgid "Effort"
-msgstr ""
+msgstr "Penado"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:83
@@ -975,50 +977,46 @@ msgstr "Daŭro"
 #: config/kptconfigtaskpanelbase.ui:110
 #, kde-format
 msgid "Pessimistic estimate:"
-msgstr ""
+msgstr "Pesimisma takso:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: config/kptconfigtaskpanelbase.ui:132
 #, kde-format
 msgid "Optimistic estimate:"
-msgstr ""
+msgstr "Optimisma takso:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:155 config/kptconfigtaskpanelbase.ui:331
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current date and time"
-msgstr "Limigoj"
+msgstr "Nuna dato kaj horo"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current date, specified time"
-msgstr "Limigoj"
+msgstr "Nuna dato, specifita horo"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Specified date and time"
-msgstr "Limigoj"
+msgstr "Specifita dato kaj horo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
 #: config/kptconfigtaskpanelbase.ui:186
 #, kde-format
 msgid "Estimate type:"
-msgstr ""
+msgstr "Taksa tipo:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
 #: config/kptconfigtaskpanelbase.ui:208
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint Start time usage:"
-msgstr "Limigoj"
+msgstr "Limigo Komenca tempuzado:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
@@ -1029,84 +1027,81 @@ msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
 #: config/kptconfigtaskpanelbase.ui:257
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint End time usage:"
-msgstr "Limigoj"
+msgstr "Limigo Fina tempuzado:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
 #: config/kptconfigtaskpanelbase.ui:279
 #, kde-format
 msgid "Expected estimate:"
-msgstr ""
+msgstr "Atendita takso:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #: config/kptconfigtaskpanelbase.ui:301
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint start time:"
-msgstr "Limigoj"
+msgstr "Limigo komenca tempo:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:356
 #, kde-format
 msgid "As Soon as Possible"
-msgstr ""
+msgstr "Kiel Eble Frue"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:361
 #, kde-format
 msgid "As Late as Possible"
-msgstr ""
+msgstr "Kiel Eble Malfrue"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:366
 #, kde-format
 msgid "Must Start On"
-msgstr ""
+msgstr "Devas Komenci Je"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:371
 #, kde-format
 msgid "Must Finish On"
-msgstr ""
+msgstr "Devas Finiĝi Je"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:376
 #, kde-format
 msgid "Start Not Earlier Than"
-msgstr ""
+msgstr "Komenci Ne Pli Frue Ol"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:381
 #, kde-format
 msgid "Finish Not Later Than"
-msgstr ""
+msgstr "Fini Ne Pli Poste Ol"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:386
 #, kde-format
 msgid "Fixed Interval"
-msgstr ""
+msgstr "Fiksa Intervalo"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
 #: config/kptconfigtaskpanelbase.ui:400
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint end time:"
-msgstr "Limigoj"
+msgstr "Limigo fintempo:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:458
 #, kde-format
 msgid "Insert a person from your address book"
-msgstr ""
+msgstr "Enigi personon el via adreslibro"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:461
 #, kde-format
 msgid "Insert a person from your address book."
-msgstr ""
+msgstr "Enigu personon el via adreslibro."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:464
@@ -1118,111 +1113,109 @@ msgstr "Elekti..."
 #: config/kptconfigtaskpanelbase.ui:482
 #, kde-format
 msgid "Scheduling constraint:"
-msgstr ""
+msgstr "Planada limigo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risko:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Neniu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Malalta"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
 #, kde-format
 msgid "Retrieve"
-msgstr ""
+msgstr "Repreni"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
 #: config/kptworkpackageconfigpanel.ui:23
 #, kde-format
 msgid "Check for work packages"
-msgstr ""
+msgstr "Kontroli pri laborpakaĵoj"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptworkpackageconfigpanel.ui:32
 #, kde-format
 msgid "Retrieve:"
-msgstr ""
+msgstr "Ekpreni:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: config/kptworkpackageconfigpanel.ui:47
 #, kde-format
 msgid "Archive"
-msgstr ""
+msgstr "Arkivo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
 #: config/kptworkpackageconfigpanel.ui:53
 #, kde-format
 msgid "Delete file after it has been retrieved"
-msgstr ""
+msgstr "Forigi dosieron post kiam ĝi estis prenita"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
 #: config/kptworkpackageconfigpanel.ui:60
 #, kde-format
 msgid "Archive file after it has been retrieved"
-msgstr ""
+msgstr "Arkivo-dosiero post kiam ĝi estis prenita"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "Arkivo:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "Publikigi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "Publikigi:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Baza ŝablono:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Renomi"
+msgstr "Dosiernomo:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Malfermi asistanton"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1230,6 +1223,8 @@ msgid ""
 "This document has no syntax version.\n"
 "Opening it in Plan may lose information."
 msgstr ""
+"Ĉi tiu dokumento ne havas sintaksan version.\n"
+"Malfermi ĝin en Plan eble perdos informojn."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
 #: kptmaindocument.cpp:375 kptmaindocument.cpp:699
@@ -1240,7 +1235,7 @@ msgstr "Daŭrigi"
 #: KPlatoXmlLoader.cpp:58
 #, kde-format
 msgid "File-Format Error"
-msgstr ""
+msgstr "Dosiero-formata eraro"
 
 #: KPlatoXmlLoader.cpp:67
 #, kde-format
@@ -1250,12 +1245,16 @@ msgid ""
 "Syntax version: %1\n"
 "Opening it in this version of Plan may lose some information."
 msgstr ""
+"Ĉi tiu dokumento estis kreita kun pli nova versio de KPlato ol Plan povas "
+"ŝargi.\n"
+"Sintakso-versio: %1\n"
+"Malfermi ĝin en ĉi tiu versio de Plan povas perdi iujn informojn."
 
 #: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:375
 #: kptmaindocument.cpp:699
 #, kde-format
 msgid "File-Format Mismatch"
-msgstr ""
+msgstr "Dosier-Formata Miskongruo"
 
 #: KPlatoXmlLoader.cpp:110
 #, kde-format
@@ -1264,22 +1263,25 @@ msgid ""
 "version: %1)\n"
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Ĉi tiu dokumento estis kreita kun pli nova versio de KPlatoWork (sintakso "
+"versio: %1)\n"
+"Malfermi ĝin en ĉi tiu versio de PlanWork perdos iujn informojn."
 
 #: kptaboutdata.h:24
 #, kde-format
 msgctxt "application name"
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: kptaboutdata.h:26
 #, kde-format
 msgid "Project Planning and Management Tool"
-msgstr ""
+msgstr "Projektoplanada kaj Administra ilo"
 
 #: kptaboutdata.h:28
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr ""
+msgstr "Kopirajto 1998-%1, La Plan-Teamo"
 
 #: kptaboutdata.h:32
 #, kde-format
@@ -1306,25 +1308,25 @@ msgstr "Raphael Langerhorst"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #: kptaboutdata.h:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
-msgstr ""
+msgstr "Reta Planilo"
 
 #: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
-msgstr ""
+msgstr "Enkonstruita reto (PERT) bazita planilo"
 
 #: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
@@ -1341,31 +1343,40 @@ msgid ""
 "resource allocations or add dummy dependencies to avoid the conflicts.</"
 "note></para>"
 msgstr ""
+"<title>Reto (PERT) Planilo</title><para>La retoplanilo ĝenerale planas "
+"taskojn laŭ iliaj dependecoj. Kiam tasko estas planita, ĝi estas planita "
+"plene, mendante la asignitajn rimedojn se disponeblaj. Se tromendo ne estas "
+"permesita, postaj taskoj, kiuj petas la saman rimedon, estos planitaj poste."
+"</para><para>Taskoj kun tempolimoj estos planitaj unue por minimumigi la "
+"problemon kun rimedkonfliktoj</para><para><note>Ĉi tiu planilo ne bone "
+"traktas rimedkonfliktojn.<nl/>Vi povas provi alian planilon se disponebla. "
+"Vi ankaŭ povas ŝanĝi rimedojn asignojn aŭ aldoni falsajn dependecojn por "
+"eviti la konfliktojn.</note></para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "Programado komenciĝis: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Rekalkulante el: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
 msgid "Scheduling canceled"
-msgstr ""
+msgstr "Programado nuligita"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "Planado finiĝis je %1, pasita tempo: %2 sekundoj"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Enmetante rimedojn rezervojn de projekto: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1374,40 +1385,38 @@ msgstr "Enmeti dosieron"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current node:"
-msgstr "Limigoj"
+msgstr "Nuna nodo:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
 #: kptinsertfilepanel.ui:68
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert on top level"
-msgstr "Enmeti dosieron"
+msgstr "Enigi sur la supra nivelo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
 #: kptinsertfilepanel.ui:75
 #, kde-format
 msgid "Insert as children to current node"
-msgstr ""
+msgstr "Enmeti kiel infanojn al nuna nodo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
 #: kptinsertfilepanel.ui:82
 #, kde-format
 msgid "Insert after current node"
-msgstr ""
+msgstr "Enmeti post nuna nodo"
 
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
+msgstr "Malvalida dokumento. Neniu 'mime'-tipo difinita."
 
 #: kptmaindocument.cpp:364
-#, fuzzy, kde-format
-#| msgid "Invalid document. No mimetype specified."
+#, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
-msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
+msgstr ""
+"Nevalida dokumento. Atendita mimetype application/x-vnd.kde.plan, akiris %1"
 
 #: kptmaindocument.cpp:373
 #, kde-format
@@ -1415,28 +1424,31 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"Ĉi tiu dokumento estis kreita kun pli nova versio de Plano (sintaksoversio: "
+"%1)\n"
+"Malfermi ĝin en ĉi tiu versio de Plan perdos iujn informojn."
 
 #: kptmaindocument.cpp:459
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
+"Malsukcesis konservi en provizora dosiero. Neniu rimedo estis specifita"
 
 #: kptmaindocument.cpp:474
-#, fuzzy, kde-format
-#| msgid "Folder to store torrent information:"
+#, kde-format
 msgid "Failed to open work package file"
-msgstr "Dosierujo por konservi torentajn informojn:"
+msgstr "Malsukcesis malfermi laborpakaĵdosieron"
 
 #: kptmaindocument.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
-msgstr ""
+msgstr "Malsukcesis konservi al provizora dosiero:<br/><filename>%1</filename>"
 
 #: kptmaindocument.cpp:557
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
-msgstr ""
+msgstr "Ne eblis krei la laborpakaĵdosieron por konservi: %1"
 
 #: kptmaindocument.cpp:565
 #, kde-format
@@ -1449,10 +1461,9 @@ msgid "Saving..."
 msgstr "Konservanta..."
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid "Invalid document. No mimetype specified."
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
+msgstr "Nevalida dokumento. Atendita mimetipo %2, akirita %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1461,11 +1472,14 @@ msgid ""
 "%1)\n"
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Ĉi tiu dokumento estis kreita kun pli nova versio de PlanWork (sintakso "
+"versio: %1)\n"
+"Malfermi ĝin en ĉi tiu versio de PlanWork perdos iujn informojn."
 
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr ""
+msgstr "Interna eraro, malsukcesis enmeti dosieron."
 
 #: kptmaindocument.cpp:1185
 #, kde-kuit-format
@@ -1474,82 +1488,76 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Malsukcesis ŝargi komunajn rimedojn en projekton %1:<nl/>Interna eraro, "
+"malsukcesis enmeti dosieron."
 
 #: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr ""
+msgstr "Malsukcesis ŝargi komunajn rimedojn en projekton %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
-#, fuzzy
-#| msgid "Insert File"
 msgctxt "(qtundo-format)"
 msgid "Insert project"
-msgstr "Enmeti dosieron"
+msgstr "Enmeti projekton"
 
 #: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
-msgstr ""
+msgstr "Grupo: %1"
 
 #: kptmaindocument.cpp:1457
 #, kde-format
 msgid "Resource: %1"
-msgstr ""
+msgstr "Rimedo: %1"
 
 #: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
-msgstr ""
+msgstr "Kalendaro: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Edit..."
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "Redakti..."
+msgstr "Ĝisdatigi Komunajn Rimedojn"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "Projekto"
+msgstr "Projekto: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "Bazo"
 
 #: kptpart.cpp:96
-#, fuzzy, kde-format
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure Plan..."
-msgstr "Agordu..."
+msgstr "Agordi Plan..."
 
 #: kptschedulesdocker.cpp:26
 #, kde-format
 msgid "Schedule Selector"
-msgstr ""
+msgstr "Horaro-Selektilo"
 
 #: kptview.cpp:186
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Create Project Template..."
-msgstr "Enmeti dosieron"
+msgstr "Krei Projektan Ŝablonon..."
 
 #: kptview.cpp:190
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Create New Project..."
-msgstr "Enmeti dosieron"
+msgstr "Krei Novan Projekton..."
 
 #: kptview.cpp:202
 #, kde-format
 msgid "Show Selector"
-msgstr ""
+msgstr "Montri Elektilon"
 
 #: kptview.cpp:209 kptview.cpp:250
 #, kde-format
@@ -1559,57 +1567,53 @@ msgstr "Redakti..."
 #: kptview.cpp:213
 #, kde-format
 msgid "Define Estimate Conversions..."
-msgstr ""
+msgstr "Difini Taksajn Konvertiĝojn..."
 
 #: kptview.cpp:217
 #, kde-format
 msgid "Define WBS Pattern..."
-msgstr ""
+msgstr "Difini WBS-Ŝablonon..."
 
 #: kptview.cpp:221
 #, kde-format
 msgid "Define Currency..."
-msgstr ""
+msgstr "Difini Valuton..."
 
 #: kptview.cpp:225
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Edit Description..."
-msgstr "Priskribo"
+msgstr "Redakti Priskribon..."
 
 #: kptview.cpp:230
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert Project File..."
-msgstr "Enmeti dosieron"
+msgstr "Enmeti Projektdosieron..."
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "Redakti..."
+msgstr "Ĝisdatigi Komunajn Rimedojn"
 
 #: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr ""
+msgstr "Malfermi Raportan Difindosieron..."
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Enmeti dosieron"
+msgstr "Krei Raport-Ŝablonon..."
 
 #: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
-msgstr ""
+msgstr "Laborpakaĵoj..."
 
 #: kptview.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr ""
+msgstr "Laborpakaĵoj haveblaj"
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1620,80 +1624,79 @@ msgid ""
 ">Resource- and calendar identities are not changed.<nl/>All scheduling "
 "information is removed.<nl/><nl/>Do you want to continue?"
 msgstr ""
+"<note>Tiu ago ne povas esti malfarita.</note><nl/><nl/>Krei novan Projekton "
+"el la nuna projekto kun novaj projekt- kaj taskoidentoj.<nl/>Rimedo- kaj "
+"kalendaridentoj ne estas ŝanĝitaj. <nl/>Ĉiuj planaj informoj estas forigitaj."
+"<nl/><nl/>Ĉu vi volas daŭrigi?"
 
 #: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
-msgstr ""
+msgstr "Redakti taskoplanajn limigojn"
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Task Constraints"
-msgstr "Limigoj"
+msgstr "Taskaj Limigoj"
 
 #: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
-msgstr ""
+msgstr "Redakti taskokoston"
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Cost"
-msgstr "Taskoj"
+msgstr "Tasko Kosto"
 
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr ""
+msgstr "Generi raportojn"
 
 #: kptview.cpp:557 kptview.cpp:2461
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Status Report"
-msgstr "Taskoj"
+msgstr "Raporto pri Tasko-Stato"
 
 #: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
-msgstr ""
+msgstr "Redakti labor- kaj feriajn tagojn por rimedoj"
 
 #: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
-msgstr ""
+msgstr "Strukturo de Kostodispartigo"
 
 #: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
-msgstr ""
+msgstr "Redakti kosto-dispartigan strukturon."
 
 #: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
-msgstr ""
+msgstr "Strukturo de Rimedodispartigo"
 
 #: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr ""
+msgstr "Redakti rimedo-dispartigan strukturon"
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgid "Resources"
-msgstr "Redakti..."
+msgstr "Rimedoj"
 
 #: kptview.cpp:648
-#, fuzzy, kde-kuit-format
-#| msgid "Edit..."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr "Redakti..."
+msgstr "Redakti rimedojn"
 
 #: kptview.cpp:650
 #, kde-format
@@ -1704,187 +1707,183 @@ msgstr "Taskoj"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
-msgstr ""
+msgstr "Redakti labor-dispartigan strukturon"
 
 #: kptview.cpp:653
 #, kde-format
 msgid "Dependencies (Graphic)"
-msgstr ""
+msgstr "Dependecoj (Grafiko)"
 
 #: kptview.cpp:654 kptview.cpp:657
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
-msgstr ""
+msgstr "Redakti taskodependecojn"
 
 #: kptview.cpp:656
 #, kde-format
 msgid "Dependencies (List)"
-msgstr ""
+msgstr "Dependecoj (Listo)"
 
 #: kptview.cpp:660 kptview.cpp:662
 #, kde-format
 msgid "Schedules"
-msgstr ""
+msgstr "Horaroj"
 
 #: kptview.cpp:663
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
-msgstr ""
+msgstr "Kalkuli kaj analizi projektajn horarojn"
 
 #: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
-msgstr ""
+msgstr "Projekta Efikeco-diagramo"
 
 #: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
-msgstr ""
+msgstr "Rigardi informojn pri stato de la projekto"
 
 #: kptview.cpp:668 kptviewlistdialog.cpp:101
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Status"
-msgstr "Taskoj"
+msgstr "Tasko-Stato"
 
 #: kptview.cpp:669
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
-msgstr ""
+msgstr "Rigardi informojn pri progreso de tasko"
 
 #: kptview.cpp:671
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Task Execution"
-msgstr "Daŭro"
+msgstr "Tasko-Plenumado"
 
 #: kptview.cpp:672
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
-msgstr ""
+msgstr "Rigardi informojn pri plenumado de taskoj"
 
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
-msgstr ""
+msgstr "Vido de Laborpako"
 
 #: kptview.cpp:675
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
-msgstr ""
+msgstr "Rigardi informojn pri taskaj laborpakaĵoj"
 
 #: kptview.cpp:677
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "Gantt"
 
 #: kptview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
-msgstr ""
+msgstr "Rigardi Gantt-diagramon"
 
 #: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
-msgstr ""
+msgstr "Mejloŝtono Gantt"
 
 #: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
-msgstr ""
+msgstr "Rigardi mejloŝtonan Gantt-diagramon"
 
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Resource Assignments"
-msgstr ""
+msgstr "Rimedaj Atribuoj"
 
 #: kptview.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
-msgstr ""
+msgstr "Rigardi rimedajn taskojn en tabelo"
 
 #: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
-msgstr ""
+msgstr "Rimeda Tasko (Gantt)"
 
 #: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr ""
+msgstr "Rigardi rimedajn taskojn en Gantt-diagramo"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Resource Coverage"
-msgstr "Daŭro"
+msgstr "Rimeda Kovrado"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "Inspekti rimedan kovradon"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
-msgstr ""
+msgstr "Kosto-Dispartiĝo"
 
 #: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
-msgstr ""
+msgstr "Vidi planitan kaj realan koston"
 
 #: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
-msgstr ""
+msgstr "Rendimenta Diagramo pri Taskoj"
 
 #: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
-msgstr ""
+msgstr "Rigardi informojn pri rendimento de taskoj"
 
 #: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
-msgstr ""
+msgstr "Generatoro de Raportoj"
 
 #: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr ""
+msgstr "Generi raportojn"
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
-msgstr ""
+msgstr "Raporto"
 
 #: kptview.cpp:702
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
-msgstr ""
+msgstr "Rigardi raporton"
 
 #: kptview.cpp:713
-#, fuzzy, kde-format
-#| msgid "&Edit"
+#, kde-format
 msgid "Editors"
-msgstr "&Redakti"
+msgstr "Redaktoroj"
 
 #: kptview.cpp:715
 #, kde-format
@@ -1892,35 +1891,32 @@ msgid "Views"
 msgstr "Perspektivoj"
 
 #: kptview.cpp:717
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
-msgstr "Daŭro"
+msgstr "Plenumado"
 
 #: kptview.cpp:719
 #, kde-format
 msgid "Reports"
-msgstr ""
+msgstr "Raportoj"
 
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "La dosiero '%1' jam ekzistas, ĉu vi volas anstataŭigi ĝin?"
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Enmeti dosieron"
+msgstr "Raporta Ŝablono"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgid "Edit..."
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Redakti..."
+msgstr "Komunaj Rimedoj"
 
 #: kptview.cpp:1824
 #, kde-kuit-format
@@ -1928,84 +1924,83 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Uzo de komunaj rimedoj estas aktivigita.<nl/>Ĉu rimedoj estu ĝisdatigitaj?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
-msgstr ""
+msgstr "Ne povas malfermi dosieron:<br/><filename>%1</filename>"
 
 #: kptview.cpp:2152
 msgctxt "(qtundo-format)"
 msgid "Modify name"
-msgstr ""
+msgstr "Modifi nomon"
 
 #: kptview.cpp:2154
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
-msgstr ""
+msgstr "Modifi taskonomon"
 
 #: kptview.cpp:2155
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
-msgstr ""
+msgstr "Modifi la nomon de mejloŝtono"
 
 #: kptview.cpp:2156
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
-msgstr ""
+msgstr "Modifi la nomon de resuma tasko"
 
 #: kptview.cpp:2157
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
-msgstr ""
+msgstr "Modifi la nomon de la projekto"
 
 #: kptview.cpp:2249
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
-msgstr ""
+msgstr "Ne planita"
 
 #: kptview.cpp:2303
 #, kde-format
 msgid "Work Package for project: %1"
-msgstr ""
+msgstr "Laborpako por projekto: %1"
 
 #: kptview.cpp:2459
 #, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
-msgstr ""
+msgstr "Administranto:"
 
 #: kptview.cpp:2460
-#, fuzzy, kde-format
-#| msgid "Project"
+#, kde-format
 msgid "Project:"
-msgstr "Projekto"
+msgstr "Projekto:"
 
 #: kptview.cpp:2462
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #: kptview.cpp:2463
 #, kde-format
 msgid "Page"
-msgstr ""
+msgstr "Paĝo"
 
 #: kptview.cpp:2464
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "Task name"
 msgid "Name"
-msgstr "Nomo:"
+msgstr "Nomo"
 
 #: kptview.cpp:2465
 #, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
-msgstr ""
+msgstr "Kompletigo (%)"
 
 #: kptviewlist.cpp:335
 #, kde-kuit-format
@@ -2017,6 +2012,11 @@ msgid ""
 "rename or edit tool tip for categories or views</item><item>Insert "
 "categories and views</item></list><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Vidi-Elektilo</title><para>Ĉi tiu estas la listo de vidoj kaj "
+"redaktiloj.</para><para>Vi povas agordi la liston per la kunteksta menuo:"
+"<list><item>Alinomi kategoriojn aŭ vidojn</item><item>Agordi. Movi, forigi, "
+"renomi aŭ redakti ilokonsileton por kategorioj aŭ vidoj</item><item>Enmeti "
+"kategoriojn kaj vidojn</item></list><nl/><link url='%1'>Pli...</link></para>"
 
 #: kptviewlist.cpp:357
 #, kde-kuit-format
@@ -2026,17 +2026,21 @@ msgid ""
 "displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Elektilo de horaro</title><para>Elektas la horaron uzendan dum "
+"montrado de la dependaj datumoj de la horaro.<nl/><note>Neplanitaj taskoj "
+"estas nur montrataj en redaktiloj.</note><nl/><link url='%1'>Pli...</link></"
+"para>"
 
 #: kptviewlist.cpp:606
 #, kde-format
 msgid "Removing this category will also remove all its views."
-msgstr ""
+msgstr "Forigante ĉi tiun kategorion ankaŭ forigos ĉiujn ĝiajn vidojn."
 
 #: kptviewlist.cpp:739
 #, kde-kuit-format
 msgctxt "@action:inmenu rename view"
 msgid "Rename"
-msgstr "Renomi"
+msgstr "Alinomi"
 
 #: kptviewlist.cpp:743
 #, kde-kuit-format
@@ -2069,17 +2073,16 @@ msgid "Remove"
 msgstr "Forpreni"
 
 #: kptviewlist.cpp:773
-#, fuzzy, kde-kuit-format
-#| msgid "Insert File"
+#, kde-kuit-format
 msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
-msgstr "Enmeti dosieron"
+msgstr "Enigi..."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
 #, kde-format
 msgid "The category of the view"
-msgstr ""
+msgstr "La kategorio de la vido"
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
@@ -2091,7 +2094,7 @@ msgstr "Kategorio:"
 #: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
 #, kde-format
 msgid "The view is placed after this view"
-msgstr ""
+msgstr "La vido estas metita post ĉi tiu vido"
 
 #. i18n: ectx: property (text), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
@@ -2104,19 +2107,19 @@ msgstr "Post"
 #: kptviewlistaddview.ui:72
 #, kde-format
 msgid "The type of view"
-msgstr ""
+msgstr "La tipo de vido"
 
 #. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:75
 #, kde-format
 msgid "View type:"
-msgstr ""
+msgstr "Vidspeco:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
 #: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
 #, kde-format
 msgid "The name of the view"
-msgstr ""
+msgstr "La nomo de la vido"
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
@@ -2128,90 +2131,82 @@ msgstr "Nomo:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "The views description"
-msgstr "Daŭro"
+msgstr "La priskribo de vidoj"
 
 #. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
 #: kptviewlisteditview.ui:97
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Description:"
-msgstr "Priskribo"
+msgstr "Priskribo:"
 
 #: kptviewlistdialog.cpp:29
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add View"
-msgstr "Aldonu rigardon"
+msgstr "Aldoni rigardon"
 
 #: kptviewlistdialog.cpp:93
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Resource Group Editor"
-msgstr "Daŭro"
+msgstr "Redaktoro de Rimeda Grupo"
 
 #: kptviewlistdialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Resource Editor"
-msgstr "Daŭro"
+msgstr "Rimeda Redaktoro"
 
 #: kptviewlistdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Task Editor"
-msgstr "Daŭro"
+msgstr "Taskredaktilo"
 
 #: kptviewlistdialog.cpp:96
 #, kde-format
 msgid "Work & Vacation Editor"
-msgstr ""
+msgstr "Redaktoro pri Laboro kaj Ferio"
 
 #: kptviewlistdialog.cpp:97
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Accounts Editor"
-msgstr "Daŭro"
+msgstr "Konta Redaktoro"
 
 #: kptviewlistdialog.cpp:98
 #, kde-format
 msgid "Dependency Editor (Graphic)"
-msgstr ""
+msgstr "Dependeca Redaktoro (Grafika)"
 
 #: kptviewlistdialog.cpp:99
 #, kde-format
 msgid "Dependency Editor (List)"
-msgstr ""
+msgstr "Dependeca Redaktoro (Listo)"
 
 #: kptviewlistdialog.cpp:100
 #, kde-format
 msgid "Schedule Handler"
-msgstr ""
+msgstr "Horaro Pritraktilo"
 
 #: kptviewlistdialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Task View"
-msgstr "Vido"
+msgstr "Taska Vido"
 
 #: kptviewlistdialog.cpp:104
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgid "Gantt View"
-msgstr "Vido"
+msgstr "Gantt Vido"
 
 #: kptviewlistdialog.cpp:105
 #, kde-format
 msgid "Milestone Gantt View"
-msgstr ""
+msgstr "Milestone Gantt View"
 
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr ""
+msgstr "Generatoro de raportoj"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
@@ -2221,6 +2216,9 @@ msgid ""
 "category in the view selector.<nl/>You can edit the category name to create "
 "a new category."
 msgstr ""
+"<title>La kategorio de la vido</title><nl/>La vido estas metita sub ĉi tiun "
+"kategorion en la vido-elektilo.<nl/>Vi povas redakti la kategorion nomon por "
+"krei novan kategorion."
 
 #: kptviewlistdialog.cpp:193 kptviewlistdialog.cpp:412
 #: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:632
@@ -2229,11 +2227,10 @@ msgid "Top"
 msgstr "Supro"
 
 #: kptviewlistdialog.cpp:305
-#, fuzzy, kde-kuit-format
-#| msgid "Configure..."
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Configure View"
-msgstr "Agordu..."
+msgstr "Agordi Vidon"
 
 #: kptviewlistdialog.cpp:362
 #, kde-kuit-format
@@ -2244,31 +2241,34 @@ msgid ""
 "the view to the new category.<nl/>You can edit the category name to create a "
 "new category."
 msgstr ""
+"<title>La kategorio de la vido</title><nl/>La vido estas metita sub ĉi tiun "
+"kategorion en la vido-elektilo.<nl/>Selekti alian kategorion movos la vido "
+"al la nova kategorio.<nl/>Vi povas redakti la kategorion nomon por krei "
+"novan kategorion."
 
 #: kptviewlistdialog.cpp:431
-#, fuzzy, kde-kuit-format
-#| msgid "Configure..."
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Configure Category"
-msgstr "Agordu..."
+msgstr "Agordi Kategorion"
 
 #: kptviewlistdialog.cpp:522
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add Report"
-msgstr ""
+msgstr "Aldoni Raporton"
 
 #: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector [modified]"
-msgstr ""
+msgstr "Vidi Elektilon [modifita]"
 
 #: kptviewlistdocker.cpp:62
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector"
-msgstr ""
+msgstr "Vidi Elektilon"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:22
@@ -2284,10 +2284,9 @@ msgstr "Frazoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:32
-#, fuzzy, kde-format
-#| msgid "Syllables:"
+#, kde-format
 msgid "Syllables"
-msgstr "Silaboj:"
+msgstr "Silaboj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:37
@@ -2297,24 +2296,21 @@ msgstr "Linioj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:42
-#, fuzzy, kde-format
-#| msgid "Characters including spaces:"
+#, kde-format
 msgid "Characters incl. spaces"
-msgstr "Signoj inklude de spacoj:"
+msgstr "Signoj inkl. spacoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:47
-#, fuzzy, kde-format
-#| msgid "Characters without spaces:"
+#, kde-format
 msgid "Characters without spaces"
-msgstr "Signoj krom spacoj:"
+msgstr "Signoj krom spacoj"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:52
-#, fuzzy, kde-format
-#| msgid "Flesch reading ease:"
+#, kde-format
 msgid "Flesch reading ease"
-msgstr "Legfacileco laŭ Flesch:"
+msgstr "Legfacileco laŭ Flesch"
 
 #. i18n: ectx: property (text), widget (QLineEdit, count)
 #: kptviewlistdocker.ui:63
@@ -2332,50 +2328,48 @@ msgstr "..."
 #: kptviewlistdocker.ui:84
 #, kde-format
 msgid "Include text from foot- and endnotes"
-msgstr ""
+msgstr "Enmeti tekston el piednotoj kaj finnotoj"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
 #: kptviewlistdocker.ui:91
 #, kde-format
 msgid "Automatically refresh data"
-msgstr ""
+msgstr "Aŭtomate refreŝigi datumojn"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlisteditcategory.ui:20
 #, kde-format
 msgid "The category is placed after this category"
-msgstr ""
+msgstr "La kategorio estas metita post ĉi tiu kategorio"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlisteditcategory.ui:43
 #, kde-format
 msgid "The name of the category"
-msgstr ""
+msgstr "La nomo de la kategorio"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlisteditcategory.ui:59
 #, kde-format
 msgid "The description of the category"
-msgstr ""
+msgstr "La priskribo de la kategorio"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Daŭro"
+msgstr "Ago"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr "Nomo:"
+msgstr "Nomo"
 
 #: SharedResourcesDialog.cpp:33
 #, kde-format
 msgid "Calendars"
-msgstr ""
+msgstr "Kalendaroj"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2390,646 +2384,63 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Dialogo pri Komuna Rimedo</title><para>Ebligas al vi decidi kiel "
+"trakti komunajn rimedojn, komunajn rimedajn grupojn kaj komunajn kalendarojn "
+"kiam ili estas forigitaj el la komunaj rimedoj-dosiero.</para><para>Vi povas "
+"elekti se ero estos:<list><item><emphasis>Forigita:</emphasis> Forigas la "
+"eron ankaŭ el via projekto.</item><item><emphasis>Konvertita:</emphasis> "
+"Konvertas la eron al loka ero.</item><item><emphasis>Konservita:</emphasis> "
+"Konservas la objekton kiel komuna objekto.</item></list><nl/><link "
+"url='%1'>Pli...</link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Convert"
-msgstr ""
+msgstr "Konverti"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Keep"
-msgstr ""
+msgstr "Konservi"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Marku ĉiujn elektitajn erojn por esti forigitaj de via projekto"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Marki kiel: Forigi"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "Marki ĉiujn elektitajn erojn por esti konvertitaj al lokaj rimedoj"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
 #, kde-format
 msgid "Mark as: Convert"
-msgstr ""
+msgstr "Marki kiel: Konverti"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "Marku ĉiujn elektitajn erojn por esti konservitaj kiel komunaj rimedoj"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "@info:tooltip"
-#~ msgid "Convert shared resources to local"
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "@info:tooltip"
-#~ msgid "Keep as shared resources"
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Folder to store torrent information:"
-#~ msgid "Failed to open temporary file"
-#~ msgstr "Dosierujo por konservi torentajn informojn:"
-
-#~ msgctxt "1=project name, 2=task name"
-#~ msgid ""
-#~ "%1\n"
-#~ "%2"
-#~ msgstr ""
-#~ "%1\n"
-#~ "%2"
-
-#, fuzzy
-#~| msgid "Invalid document. No mimetype specified."
-#~ msgid ""
-#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
-#~ "%1"
-#~ msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Documentation"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Documentation:"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Open Document"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Insert File"
-#~ msgid "New Project"
-#~ msgstr "Enmeti dosieron"
-
-#, fuzzy
-#~| msgid "Insert File"
-#~ msgid "Open Project..."
-#~ msgstr "Enmeti dosieron"
-
-#, fuzzy
-#~| msgid "Description"
-#~ msgid "Description..."
-#~ msgstr "Priskribo"
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgid "Edit Resource..."
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format) @info:status 1=schedule name"
-#~ msgid "Calculate %1"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "(qtundo-format) @action"
-#~ msgid "Delete resource"
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "(qtundo-format) @action"
-#~ msgid "Delete resourcegroup"
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgid "Resource groups"
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Calculation"
-#~ msgstr "Daŭro"
-
-#~ msgid "Manual"
-#~ msgstr "Manuma"
-
-#~ msgid "Constraints"
-#~ msgstr "Limigoj"
-
-#~ msgid "Project"
-#~ msgstr "Projekto"
-
-#, fuzzy
-#~| msgctxt "@label:chooser"
-#~| msgid "Default:"
-#~ msgctxt "(qtundo-format) @label:chooser"
-#~ msgid "Default:"
-#~ msgstr "Defaŭlto:"
-
-#, fuzzy
-#~| msgctxt "@label:chooser"
-#~| msgid "Level 1"
-#~ msgctxt "(qtundo-format) @label:chooser"
-#~ msgid "Level 1"
-#~ msgstr "Nivelo 1"
-
-#, fuzzy
-#~| msgctxt "@label:chooser"
-#~| msgid "Level 2"
-#~ msgctxt "(qtundo-format) @label:chooser"
-#~ msgid "Level 2"
-#~ msgstr "Nivelo 2"
-
-#, fuzzy
-#~| msgctxt "@label:chooser"
-#~| msgid "Level 3"
-#~ msgctxt "(qtundo-format) @label:chooser"
-#~ msgid "Level 3"
-#~ msgstr "Nivelo 3"
-
-#, fuzzy
-#~| msgctxt "@label:chooser"
-#~| msgid "Level 4"
-#~ msgctxt "(qtundo-format) @label:chooser"
-#~ msgid "Level 4"
-#~ msgstr "Nivelo 4"
-
-#, fuzzy
-#~| msgctxt "@title:tab"
-#~| msgid "Task"
-#~ msgctxt "(qtundo-format) @title:tab"
-#~ msgid "Task"
-#~ msgstr "Tasko"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Calculation"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Manual"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Manual"
-#~ msgstr "Manuma"
-
-#, fuzzy
-#~| msgid "Constraints"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Constraints"
-#~ msgstr "Limigoj"
-
-#, fuzzy
-#~| msgid "General"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "General"
-#~ msgstr "Ĝeneralo"
-
-#, fuzzy
-#~| msgid "Choose..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Choose..."
-#~ msgstr "Elekti..."
-
-#, fuzzy
-#~| msgid "Constraints"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Constraint start time:"
-#~ msgstr "Limigoj"
-
-#, fuzzy
-#~| msgid "Constraints"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Constraint end time:"
-#~ msgstr "Limigoj"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Duration"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "%"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "%"
-#~ msgstr "%"
-
-#, fuzzy
-#~| msgid "Description"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Description"
-#~ msgstr "Priskribo"
-
-#, fuzzy
-#~| msgid "Insert File"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Insert on top level"
-#~ msgstr "Enmeti dosieron"
-
-#, fuzzy
-#~| msgid "Category:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Category:"
-#~ msgstr "Kategorio:"
-
-#, fuzzy
-#~| msgid "After"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "After"
-#~ msgstr "Post"
-
-#, fuzzy
-#~| msgid "Name:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Name:"
-#~ msgstr "Nomo:"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "The views description"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Description"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Description:"
-#~ msgstr "Priskribo"
-
-#, fuzzy
-#~| msgid "Words"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Words"
-#~ msgstr "Vortoj"
-
-#, fuzzy
-#~| msgid "Sentences"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Sentences"
-#~ msgstr "Frazoj"
-
-#, fuzzy
-#~| msgid "Syllables:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Syllables"
-#~ msgstr "Silaboj:"
-
-#, fuzzy
-#~| msgid "Lines"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Lines"
-#~ msgstr "Linioj"
-
-#, fuzzy
-#~| msgid "Characters including spaces:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Characters incl. spaces"
-#~ msgstr "Signoj inklude de spacoj:"
-
-#, fuzzy
-#~| msgid "Characters without spaces:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Characters without spaces"
-#~ msgstr "Signoj krom spacoj:"
-
-#, fuzzy
-#~| msgid "Flesch reading ease:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Flesch reading ease"
-#~ msgstr "Legfacileco laŭ Flesch:"
-
-#, fuzzy
-#~| msgid "0"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "0"
-#~ msgstr "0"
-
-#, fuzzy
-#~| msgid "..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "..."
-#~ msgstr "..."
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Task description"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "&File"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&File"
-#~ msgstr "&Dosiero"
-
-#, fuzzy
-#~| msgid "&Edit"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Edit"
-#~ msgstr "&Redakti"
-
-#, fuzzy
-#~| msgid "&View"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&View"
-#~ msgstr "&Rigardi"
-
-#, fuzzy
-#~| msgid "&Project"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Project"
-#~ msgstr "&Projekto"
-
-#, fuzzy
-#~| msgid "&Tools"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Tools"
-#~ msgstr "&Iloj"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Settings"
-#~ msgstr "A&gordo"
-
-#, fuzzy
-#~| msgid "&Help"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Help"
-#~ msgstr "&Helpo"
-
-#, fuzzy
-#~| msgid "Project"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Project"
-#~ msgstr "Projekto"
-
-#, fuzzy
-#~| msgid "Continue"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Continue"
-#~ msgstr "Daŭrigi"
-
-#, fuzzy
-#~| msgid "Thomas Zander"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Thomas Zander"
-#~ msgstr "Thomas Zander"
-
-#, fuzzy
-#~| msgid "Bo Thorsen"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Bo Thorsen"
-#~ msgstr "Bo Thorsen"
-
-#, fuzzy
-#~| msgid "Dag Andersen"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Dag Andersen"
-#~ msgstr "Dag Andersen"
-
-#, fuzzy
-#~| msgid "Raphael Langerhorst"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Raphael Langerhorst"
-#~ msgstr "Raphael Langerhorst"
-
-#, fuzzy
-#~| msgctxt "NAME OF TRANSLATORS"
-#~| msgid "Your names"
-#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Axel Rousseau"
-
-#, fuzzy
-#~| msgctxt "EMAIL OF TRANSLATORS"
-#~| msgid "Your emails"
-#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "axel@esperanto-jeunes.org"
-
-#, fuzzy
-#~| msgid "Linear"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Linear"
-#~ msgstr "Lineara"
-
-#, fuzzy
-#~| msgid "Flat"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Flat"
-#~ msgstr "Plata"
-
-#, fuzzy
-#~| msgid "Insert File"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Insert File"
-#~ msgstr "Enmeti dosieron"
-
-#, fuzzy
-#~| msgid "Invalid document. No mimetype specified."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Invalid document. No mimetype specified."
-#~ msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
-
-#, fuzzy
-#~| msgid "Invalid document. No mimetype specified."
-#~ msgctxt "(qtundo-format)"
-#~ msgid ""
-#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
-#~ msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
-
-#, fuzzy
-#~| msgid "Not able to write '%1'. Partition full?"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Not able to write '%1'. Partition full?"
-#~ msgstr "Ne eblas skribi '%1'. Diskospaco elĉerpita?"
-
-#, fuzzy
-#~| msgid "Saving..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Saving..."
-#~ msgstr "Konservanta..."
-
-#, fuzzy
-#~| msgid "Invalid document. No mimetype specified."
-#~ msgctxt "(qtundo-format)"
-#~ msgid ""
-#~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
-#~ "%1"
-#~ msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
-
-#, fuzzy
-#~| msgid "Configure..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Configure Plan..."
-#~ msgstr "Agordu..."
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Edit..."
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Tasks"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Tasks"
-#~ msgstr "Taskoj"
-
-#, fuzzy
-#~| msgid "Views"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Views"
-#~ msgstr "Perspektivoj"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgctxt "(qtundo-format) Project execution views"
-#~ msgid "Execution"
-#~ msgstr "Daŭro"
-
-#, fuzzy
-#~| msgid "Tasks"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Task Colors"
-#~ msgstr "Taskoj"
-
-#, fuzzy
-#~| msgid "Folder to store torrent information:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Failed to open temporary file"
-#~ msgstr "Dosierujo por konservi torentajn informojn:"
-
-#, fuzzy
-#~| msgctxt "1=project name, 2=task name"
-#~| msgid ""
-#~| "%1\n"
-#~| "%2"
-#~ msgctxt "(qtundo-format) 1=project name, 2=task name"
-#~ msgid ""
-#~ "%1\n"
-#~ "%2"
-#~ msgstr ""
-#~ "%1\n"
-#~ "%2"
-
-#, fuzzy
-#~| msgid "Project"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Project:"
-#~ msgstr "Projekto"
-
-#, fuzzy
-#~| msgid "Name:"
-#~ msgctxt "(qtundo-format) Task name"
-#~ msgid "Name"
-#~ msgstr "Nomo:"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu rename view"
-#~| msgid "Rename"
-#~ msgctxt "(qtundo-format) @action:inmenu rename view"
-#~ msgid "Rename"
-#~ msgstr "Renomi"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu configure view"
-#~| msgid "Configure..."
-#~ msgctxt "(qtundo-format) @action:inmenu configure view"
-#~ msgid "Configure..."
-#~ msgstr "Agordi..."
-
-#, fuzzy
-#~| msgctxt "@action:inmenu remove view"
-#~| msgid "Remove"
-#~ msgctxt "(qtundo-format) @action:inmenu remove view"
-#~ msgid "Remove"
-#~ msgstr "Forpreni"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu rename view"
-#~| msgid "Rename"
-#~ msgctxt "(qtundo-format) @action:inmenu rename view category"
-#~ msgid "Rename"
-#~ msgstr "Renomi"
-
-#, fuzzy
-#~| msgctxt "@action:inmenu configure view"
-#~| msgid "Configure..."
-#~ msgctxt "(qtundo-format) @action:inmenu configure view category"
-#~ msgid "Configure..."
-#~ msgstr "Agordi..."
-
-#, fuzzy
-#~| msgctxt "@action:inmenu remove view"
-#~| msgid "Remove"
-#~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
-#~ msgid "Remove"
-#~ msgstr "Forpreni"
-
-#, fuzzy
-#~| msgid "Insert File"
-#~ msgctxt "(qtundo-format) @action:inmenu Insert View"
-#~ msgid "Insert..."
-#~ msgstr "Enmeti dosieron"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Add View"
-#~ msgctxt "(qtundo-format) @title:window"
-#~ msgid "Add View"
-#~ msgstr "Aldonu rigardon"
-
-#, fuzzy
-#~| msgid "Top"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Top"
-#~ msgstr "Supro"
-
-#, fuzzy
-#~| msgid "Configure..."
-#~ msgctxt "(qtundo-format) @title:window"
-#~ msgid "Configure View"
-#~ msgstr "Agordu..."
-
-#, fuzzy
-#~| msgid "Configure..."
-#~ msgctxt "(qtundo-format) @title:window"
-#~ msgid "Configure Category"
-#~ msgstr "Agordu..."
-
-#~ msgid "File to open"
-#~ msgstr "Malfermenda dosiero"
-
-#~ msgid "TextLabel"
-#~ msgstr "TextLabel"
+msgstr "Marki kiel: Konservi"
