@@ -9,6 +9,7 @@
   <name xml:lang="ca-valencia">Plan Work</name>
   <name xml:lang="cs">Plánovat práci</name>
   <name xml:lang="en-GB">Plan Work</name>
+  <name xml:lang="eo">Plan Work</name>
   <name xml:lang="es">Plan Work</name>
   <name xml:lang="fr">Plan Work</name>
   <name xml:lang="ia">Plan Work</name>
@@ -28,6 +29,7 @@
   <summary xml:lang="ca">Gestor de paquets de feina</summary>
   <summary xml:lang="ca-valencia">Gestor de paquets de faena</summary>
   <summary xml:lang="en-GB">Work Package Handler</summary>
+  <summary xml:lang="eo">Laborpakaĵa Pritraktilo</summary>
   <summary xml:lang="es">Gestor de paquetes de Work</summary>
   <summary xml:lang="fr">Gestionnaire de lots de travaux</summary>
   <summary xml:lang="ia">Maneator de pacchetto Work (de labor)</summary>
@@ -50,6 +52,7 @@
     <p xml:lang="ca">El Plan Work permet que els membres del projecte gestionin totes les tasques que han de dur a terme a través dels projectes.</p>
     <p xml:lang="ca-valencia">Plan Work permet que els membres del projecte gestionen totes les tasques que han de dur a terme a través dels projectes.</p>
     <p xml:lang="en-GB">Plan Work enables project members to handle all tasks they shall work on across projects.</p>
+    <p xml:lang="eo">Plan Work ebligas al projektanoj pritrakti ĉiujn taskojn, pri kiuj ili laboru trans projektoj.</p>
     <p xml:lang="es">Plan Work permite que los miembros de un proyecto gestionen todas las tareas en las que deben trabajar en proyectos cruzados.</p>
     <p xml:lang="fr">Plan Work permet aux membres de projets de gérer toutes les tâches sur lesquelles ils doivent travailler au sein des projets.</p>
     <p xml:lang="ia">Plan Work habilita membros a manear omne cargos ubi illos travaliera sur projetos transversal.</p>
