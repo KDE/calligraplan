@@ -1205,7 +1205,7 @@ msgstr "خطّة"
 #: kptaboutdata.h:39
 #, fuzzy, kde-format
 msgid "Project Planning and Management Tool"
-msgstr "كي بلاتو - أداة كدي للمشاريع"
+msgstr "كي بلاتو - أداة كِيدِي للمشاريع"
 
 #: kptaboutdata.h:41
 #, fuzzy, kde-format
@@ -2578,7 +2578,7 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Plan is a Project Planning and Management application."
-#~ msgstr "كي بلاتو - أداة كدي للمشاريع"
+#~ msgstr "كي بلاتو - أداة كِيدِي للمشاريع"
 
 #, fuzzy
 #~ msgid "A short introduction."
@@ -3182,7 +3182,7 @@ msgstr ""
 #, fuzzy
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Project Planning and Management Tool"
-#~ msgstr "كي بلاتو - أداة كدي للمشاريع"
+#~ msgstr "كي بلاتو - أداة كِيدِي للمشاريع"
 
 #, fuzzy
 #~ msgctxt "(qtundo-format)"
