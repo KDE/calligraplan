@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-02-24 11:07+0100\n"
+"PO-Revision-Date: 2023-03-04 23:32+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -674,13 +674,13 @@ msgstr "Odstranit"
 #: config/ConfigTaskModulesPanel.cpp:48
 #, kde-format
 msgid "Task Modules Path"
-msgstr ""
+msgstr "Cesta k modulům úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr ""
+msgstr "Použít místní moduly úloh"
 
 #: config/ConfigWorkVacationPanel.cpp:38
 #, kde-format
@@ -1129,7 +1129,7 @@ msgstr "Získat"
 #: config/kptworkpackageconfigpanel.ui:23
 #, kde-format
 msgid "Check for work packages"
-msgstr ""
+msgstr "Hledat pracovní balíčky"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptworkpackageconfigpanel.ui:32
@@ -1147,7 +1147,7 @@ msgstr "Archiv"
 #: config/kptworkpackageconfigpanel.ui:53
 #, kde-format
 msgid "Delete file after it has been retrieved"
-msgstr ""
+msgstr "Smazat soubor po jejím získání"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
 #: config/kptworkpackageconfigpanel.ui:60

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:59+0000\n"
-"PO-Revision-Date: 2023-02-03 17:04+0100\n"
+"PO-Revision-Date: 2023-03-04 23:32+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -425,7 +425,7 @@ msgstr ""
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
 #, kde-format
 msgid "Scheduling canceled"
-msgstr ""
+msgstr "Plánování bylo zrušeno"
 
 #: kernel/kptproject.cpp:299 kernel/kptproject.cpp:409
 #, kde-format
