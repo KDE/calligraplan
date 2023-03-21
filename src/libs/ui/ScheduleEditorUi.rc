@@ -31,4 +31,8 @@
         <Action name="schedule_baseline"/>
         <Action name="schedule_move_left"/>
     </ToolBar>
+
+    <Menu name="scheduleeditor_status_popup">
+        <Action name="claim_schedule"/>
+    </Menu>
 </gui>

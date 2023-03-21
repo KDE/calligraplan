@@ -396,9 +396,9 @@ public:
     /// Create new schedule with unique name and id of type Expected.
     MainSchedule *createSchedule();
     /// Create new schedule with unique id.
-    MainSchedule *createSchedule(const QString& name, Schedule::Type type);
+    MainSchedule *createSchedule(const QString& name, Schedule::Type type, int minId = 1);
     /// Add the schedule to the project. A fresh id will be generated for the schedule.
-    void addMainSchedule(MainSchedule *schedule);
+    void addMainSchedule(MainSchedule *schedule, int minId = 1);
     /// Set parent schedule for my children
     void setParentSchedule(Schedule *sch) override;
 
@@ -415,7 +415,7 @@ public:
     /// Create a unique schedule manager identity
     QString uniqueScheduleManagerId() const;
     ScheduleManager *createScheduleManager(const ScheduleManager *parent = nullptr);
-    ScheduleManager *createScheduleManager(const QString &name);
+    ScheduleManager *createScheduleManager(const QString &name, const ScheduleManager::Owner &creator = ScheduleManager::OwnerPlan);
     /// Returns a list of all top level schedule managers
     QList<ScheduleManager*> scheduleManagers() const { return m_managers; }
     int numScheduleManagers() const { return m_managers.count(); }

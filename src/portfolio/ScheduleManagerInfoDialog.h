@@ -23,8 +23,8 @@ struct ScheduleManagerInfo
 {
     QString projectName;
     QString name;
-    bool newManager = false;
-    bool subschedule = false;
+    bool newTopLevelManager = false;
+    bool newSubSchedule = false;
     bool schedule = false;
     bool unscheduled = false;
     QString state;

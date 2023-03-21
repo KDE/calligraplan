@@ -2887,7 +2887,7 @@ bool Project::isScheduleManager(void *ptr) const
     return false;
 }
 
-ScheduleManager *Project::createScheduleManager(const QString &name)
+ScheduleManager *Project::createScheduleManager(const QString &name, const ScheduleManager::Owner &creator)
 {
     //debugPlan<<name;
     ScheduleManager *sm = new ScheduleManager(*this, name);
@@ -2924,23 +2924,23 @@ bool Project::isBaselined(long id) const
     return s == nullptr ? false : s->isBaselined();
 }
 
-MainSchedule *Project::createSchedule(const QString& name, Schedule::Type type)
+MainSchedule *Project::createSchedule(const QString& name, Schedule::Type type, int minId)
 {
     //debugPlan<<"No of schedules:"<<m_schedules.count();
     MainSchedule *sch = new MainSchedule();
     sch->setName(name);
     sch->setType(type);
-    addMainSchedule(sch);
+    addMainSchedule(sch, minId);
     return sch;
 }
 
-void Project::addMainSchedule(MainSchedule *sch)
+void Project::addMainSchedule(MainSchedule *sch, int minId)
 {
     if (sch == nullptr) {
         return;
     }
     //debugPlan<<"No of schedules:"<<m_schedules.count();
-    long i = 1; // keep this positive (negative values are special...)
+    long i = std::max(minId, 1); // keep this positive (negative values are special...)
     while (m_schedules.contains(i)) {
         ++i;
     }

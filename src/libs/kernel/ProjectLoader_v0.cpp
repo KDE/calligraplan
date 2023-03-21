@@ -1269,6 +1269,7 @@ bool ProjectLoader_v0::load(ScheduleManager *manager, const KoXmlElement &elemen
     if (element.hasAttribute(QStringLiteral("scheduling-mode"))) {
         manager->setSchedulingMode(element.attribute(QStringLiteral("scheduling-mode")).toInt());
     }
+    manager->setOwner(static_cast<ScheduleManager::Owner>(element.attribute(QStringLiteral("origin")).toInt()));
 
     KoXmlNode n = element.firstChild();
     for (; ! n.isNull(); n = n.nextSibling()) {

@@ -116,6 +116,7 @@ private Q_SLOTS:
     void slotAddSubSchedule();
     void slotDeleteSelection();
     void slotMoveLeft();
+    void slotClaimSchedule();
 
 private:
     ScheduleTreeView *m_view;

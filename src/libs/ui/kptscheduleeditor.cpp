@@ -9,6 +9,7 @@
 #include "kptscheduleeditor.h"
 
 #include "kptcommand.h"
+#include "commands/ModifyScheduleManagerOwnerCmd.h"
 #include "kptcalendar.h"
 #include "kptduration.h"
 #include "kptnode.h"
@@ -205,6 +206,12 @@ void ScheduleEditor::slotContextMenuRequested(const QModelIndex &index, const QP
     debugPlan<<index.row()<<","<<index.column()<<":"<<pos;
     QString name;
     m_view->setContextMenuIndex(index);
+    if (index.column() == ScheduleModel::ScheduleState) {
+        auto sm = m_view->selectedManager();
+        if (sm && sm->owner() != ScheduleManager::OwnerPlan) {
+            name = QStringLiteral("scheduleeditor_status_popup");
+        }
+    }
     if (name.isEmpty()) {
         slotHeaderContextMenuRequested(pos);
     } else {
@@ -319,6 +326,10 @@ void ScheduleEditor::setupGui()
     actionMoveLeft  = new QAction(koIcon("go-first"), xi18nc("@action", "Detach"), this);
     actionCollection()->addAction(QStringLiteral("schedule_move_left"), actionMoveLeft);
     connect(actionMoveLeft, &QAction::triggered, this, &ScheduleEditor::slotMoveLeft);
+
+    auto a = new QAction(i18nc("@action", "Claim Schedule"));
+    actionCollection()->addAction(QStringLiteral("claim_schedule"), a);
+    connect(a, &QAction::triggered, this, &ScheduleEditor::slotClaimSchedule);
 
     // Add the context menu actions for the view options
     createOptionActions(ViewBase::OptionExpand | ViewBase::OptionCollapse | ViewBase::OptionViewConfig);
@@ -488,6 +499,15 @@ void ScheduleEditor::slotMoveLeft()
         }
         debugPlan<<sm->name()<<index;
         MoveScheduleManagerCmd *cmd =  new MoveScheduleManagerCmd(sm, nullptr, index, kundo2_i18n("Move schedule %1", sm->name()));
+        koDocument()->addCommand(cmd);
+    }
+}
+
+void ScheduleEditor::slotClaimSchedule()
+{
+    ScheduleManager *sm = m_view->selectedManager();
+    if (sm) {
+        auto cmd = new ModifyScheduleManagerOwnerCmd(sm, ScheduleManager::OwnerPlan, kundo2_i18n("Claim schedule %1", sm->name()));
         koDocument()->addCommand(cmd);
     }
 }

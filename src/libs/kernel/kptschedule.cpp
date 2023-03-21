@@ -1476,7 +1476,7 @@ QStringList MainSchedule::logMessages() const
 }
 
 //-----------------------------------------
-ScheduleManager::ScheduleManager(Project &project, const QString name)
+ScheduleManager::ScheduleManager(Project &project, const QString name, const Owner &creator)
     : m_project(project),
     m_parent(nullptr),
     m_name(name),
@@ -1491,7 +1491,8 @@ ScheduleManager::ScheduleManager(Project &project, const QString name)
     m_maxprogress(0),
     m_expected(nullptr),
     m_calculationresult(0),
-    m_schedulingMode(false)
+    m_schedulingMode(false),
+    m_owner(creator)
 {
     //debugPlan<<name;
 }
@@ -1534,7 +1535,7 @@ void ScheduleManager::insertChild(ScheduleManager *sm, int index)
 
 void ScheduleManager::createSchedules()
 {
-    setExpected(m_project.createSchedule(m_name, Schedule::Expected));
+    setExpected(m_project.createSchedule(m_name, Schedule::Expected, m_owner == OwnerPlan ? 1 : 100));
 }
 
 int ScheduleManager::indexOf(const ScheduleManager *child) const
@@ -1784,20 +1785,25 @@ void ScheduleManager::setExpected(MainSchedule *sch)
 QStringList ScheduleManager::state() const
 {
     QStringList lst;
-    if (isBaselined()) {
-        return lst << i18n("Baselined");
-    }
     if (m_scheduling) {
         return lst << i18n("Scheduling");
     }
+    if (m_owner == OwnerPortfolio) {
+        lst << i18n("Portfolio");
+    }
     if (m_expected == nullptr) {
         return lst << i18n("Not scheduled");
+    }
+    if (isBaselined()) {
+        lst << i18n("Baselined");
     }
     if (Schedule *s = m_expected) {
         if (s->resourceError || s->resourceOverbooked || s->resourceNotAvailable || s->constraintError || s->schedulingError) {
             return lst << i18n("Error");
         }
-        return s->state();
+        if (!isBaselined()) {
+            lst << s->state();
+        }
     }
     return lst;
 }
@@ -1908,6 +1914,7 @@ void ScheduleManager::saveXML(QDomElement &element) const
     el.setAttribute(QStringLiteral("recalculate"), QString::number(m_recalculate));
     el.setAttribute(QStringLiteral("recalculate-from"), m_recalculateFrom.toString(Qt::ISODate));
     el.setAttribute(QStringLiteral("scheduling-mode"), m_schedulingMode);
+    el.setAttribute(QStringLiteral("origin"), m_owner);
     if (m_expected && ! m_expected->isDeleted()) {
         QDomElement schs = el.ownerDocument().createElement(QStringLiteral("project-schedule"));
         el.appendChild(schs);
@@ -1931,6 +1938,7 @@ void ScheduleManager::saveWorkPackageXML(QDomElement &element, const Node &node)
     el.setAttribute(QStringLiteral("check-external-appointments"), QString::number(m_checkExternalAppointments));
     el.setAttribute(QStringLiteral("scheduling-direction"), QString::number(m_schedulingDirection));
     el.setAttribute(QStringLiteral("baselined"), QString::number(m_baselined));
+    el.setAttribute(QStringLiteral("origin"), m_owner);
     if (m_expected && ! m_expected->isDeleted()) { // TODO: should we check isScheduled() ?
         QDomElement schs = el.ownerDocument().createElement(QStringLiteral("schedule"));
         el.appendChild(schs);
@@ -1942,6 +1950,16 @@ void ScheduleManager::saveWorkPackageXML(QDomElement &element, const Node &node)
     }
 }
 
+ScheduleManager::Owner ScheduleManager::owner() const
+{
+    return m_owner;
+}
+
+void ScheduleManager::setOwner(const ScheduleManager::Owner origin)
+{
+    m_owner = origin;
+    m_project.changed(this);
+}
 
 } //namespace KPlato
 

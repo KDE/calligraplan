@@ -53,6 +53,7 @@ set(calligraplankernel_LIB_SRCS
     commands/ModifyResourceOriginCmd.cpp
     commands/ModifyResourceGroupOriginCmd.cpp
     commands/ModifyCalendarOriginCmd.cpp
+    commands/ModifyScheduleManagerOwnerCmd.cpp
 
     kptschedulerplugin.cpp
 

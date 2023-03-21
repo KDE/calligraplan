@@ -28,9 +28,9 @@ ScheduleManagerInfoDialog::ScheduleManagerInfoDialog(const QList<KoDocument*> &d
         items << new QStandardItem(i.projectName);
         items << new QStandardItem(i.name);
         QString action;
-        if (i.newManager) {
+        if (i.newTopLevelManager) {
             action = i18n("New schedule");
-        } else if (i.subschedule) {
+        } else if (i.newSubSchedule) {
             action = i18n("New sub-schedule");
         } else if (i.schedule) {
             action = i18n("Schedule");
@@ -64,64 +64,54 @@ void ScheduleManagerInfoDialog::createScheduleManagerInfoList(const QList<KoDocu
         if (!sm) {
             sm = project->currentScheduleManager();
         }
+        // sm should now be the schedule user has selected (if there is a schedule at all).
+        // The general idea is to not touch the schedule if we do not own it.
+        // Plan should claim the schedule if it wants to block us out.
         if (!sm) {
-            info.newManager = true;
-            info.manager = project->createScheduleManager();
+            // No schedule, just create a new one
+            info.newTopLevelManager = true;
+            info.manager = project->createScheduleManager(info.parentManager);
+            info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
             info.name = info.manager->name();
             info.state = i18n("New schedule '%1' will be created.", info.name);
-
-        } else if (!sm->isScheduled()) {
+        } else if (sm->owner() == KPlato::ScheduleManager::OwnerPortfolio) {
+            // We own this schedule so we can schedule it
             info.schedule = true;
-            info.unscheduled = true;
-            info.name = sm->name();
-            info.state = i18n("Existing schedule '%1' is not scheduled.\n'%1' will be scheduled.", info.name);
-        } else if (sm->isBaselined()) {
-            // create a subschedule
-            info.subschedule = true;
-            info.manager = project->createScheduleManager(sm);
-            info.parentManager = sm;
+            info.unscheduled = !sm->isScheduled();
+            info.manager = project->createScheduleManager(info.parentManager);
+            info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
             info.name = info.manager->name();
-            info.state = i18n("Project is baselined.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->name());
+            info.state = i18n("Existing schedule '%1' is owned by Portfolio.\n'%1' will be scheduled.", info.name);
+        } else if (!project->isStarted()) {
+            // create a new schedule on the same level as sm
+            info.parentManager = sm->parentManager();
+            info.newSubSchedule = info.parentManager != nullptr;;
+            info.newTopLevelManager = !info.newSubSchedule;
+            info.manager = project->createScheduleManager(info.parentManager);
+            info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
+            info.name = info.manager->name();
+            info.state = i18n("Existing schedule '%1' is owned by Plan.\nNew shcedule '%2' will be created.", sm->name(), info.name);
         } else if (project->isStarted() && !sm->parentManager()) {
-            if (sm->property(ORIGINALSCHEDULEMANAGER).toBool()) {
-                info.subschedule = true;
-                info.manager = project->createScheduleManager(sm);
-                info.parentManager = sm;
-                info.name = info.manager->name();
-                info.state = i18n("Project is started.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->name());
-            } else {
-                info.schedule = true;
-                info.name = sm->name();
-                info.state = i18n("Project is started.\nSchedule '%1' will be re-scheduled.", info.name);
-            }
-        } else if (project->isStarted() && sm->parentManager()) {
-            if (sm->property(ORIGINALSCHEDULEMANAGER).toBool()) {
-                info.subschedule = true;
-                info.manager = project->createScheduleManager(sm);
-                info.parentManager = sm;
-                info.name = info.manager->name();
-                info.state = i18n("Project is started.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->name());
-            } else {
-                info.schedule = true;
-                info.name = sm->name();
-                info.state = i18n("Project is started.\nExisting schedule '%1' will be re-scheduled.", info.name);
-            }
+            // project is started and sm is a top-level schedule so create new sub-schedule to sm
+            info.newSubSchedule = true;
+            info.parentManager = sm;
+            info.manager = project->createScheduleManager(info.parentManager);
+            info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
+            info.name = info.manager->name();
+            info.state = i18n("Project is started.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->name());
+        } else if (sm->parentManager()) {
+            Q_ASSERT(sm->parentManager()->isScheduled());
+            // project is started and sm is not a top-level schedule so create new sub-schedule to sm->parentManager()
+            info.newSubSchedule = true;
+            info.parentManager = sm->parentManager();
+            info.manager = project->createScheduleManager(info.parentManager);
+            info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
+            info.name = info.manager->name();
+            info.state = i18n("Project is started.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->name());
         } else {
-            // scheduled, not started, not baselined
-            if (sm->property(ORIGINALSCHEDULEMANAGER).toBool()) {
-                info.manager = project->createScheduleManager(sm->parentManager());
-                info.parentManager = sm->parentManager();
-                info.name = info.manager->name();
-                if (sm->parentManager()) {
-                    info.state = i18n("Project is not started.\nNew sub-schedule '%1'.\n'%1' will be created as sub-schedule to '%2'.", info.name, sm->parentManager()->name());
-                } else {
-                    info.state = i18n("Project is not started.\nNew schedule '%1' will be created.", info.name);
-                }
-            } else {
-                info.schedule = true;
-                info.state = i18n("Project is not started.\nExisting schedule '%1' will be re-scheduled.", info.name);
-            }
+            Q_ASSERT(false); // should not get here
         }
+
         m_scheduleManagerInfoList << info;
     }
 }

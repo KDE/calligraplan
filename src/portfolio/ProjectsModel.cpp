@@ -333,6 +333,9 @@ QVariant ProjectsModel::data(const QModelIndex &idx, int role) const
                     return name;
                 case Qt::ToolTipRole:
                     if (sm) {
+                        if (sm->owner() == KPlato::ScheduleManager::OwnerPortfolio) {
+                            return i18nc("@info:tooltip", "Schedule is owned by Portfolio");
+                        }
                         if (sm->isBaselined()) {
                             return i18nc("@info:tooltip", "Schedule is baselined");
                         }

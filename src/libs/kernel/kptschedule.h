@@ -571,7 +571,9 @@ public:
     };
     Q_ENUM(Properties);
 
-    explicit ScheduleManager(Project &project, const QString name = QString());
+    enum Owner { OwnerPlan = 0, OwnerPortfolio = 1 };
+
+    explicit ScheduleManager(Project &project, const QString name = QString(), const ScheduleManager::Owner &creator = ScheduleManager::OwnerPlan);
     ~ScheduleManager() override;
     
     void setName(const QString& name);
@@ -695,6 +697,9 @@ public:
     DateTime scheduledStartTime() const;
     DateTime scheduledEndTime() const;
 
+    Owner owner() const;
+    void setOwner(const ScheduleManager::Owner origin);
+
 public Q_SLOTS:
     /// Set maximum progress. Emits signal maxProgressChanged
     void setMaxProgress(int value);
@@ -739,6 +744,7 @@ protected:
     
     int m_calculationresult;
     int m_schedulingMode;
+    Owner m_owner = OwnerPlan;
 };
 
 

@@ -484,8 +484,16 @@ QVariant ScheduleItemModel::state(const QModelIndex &index, int role) const
             }
             return l.first();
         }
-        case Qt::ToolTipRole:
-            return sm->state().join(QStringLiteral(", "));
+        case Qt::ToolTipRole: {
+            if (sm->owner() == ScheduleManager::OwnerPortfolio) {
+                return i18nc("@info:tooltip", "This schedule is created by the Portfolio Manager");
+            }
+            const auto states = sm->state();
+            if (states.count() > 1) {
+                return states.join(QStringLiteral(", "));
+            }
+            break;
+        }
         case Qt::TextAlignmentRole:
             return Qt::AlignCenter;
         case Qt::StatusTipRole:
