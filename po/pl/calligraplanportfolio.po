@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-02-18 09:12+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -723,7 +723,7 @@ msgstr ""
 "zakończenie:\t%3</item><item>Docelowe rozpoczęcie:\t%4</item><item>Docelowe "
 "zakończenie:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
@@ -750,10 +750,16 @@ msgstr "Harmonogram %1: Zaplanowane zakończenie: %1"
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
+msgid "Schedule is owned by Portfolio"
+msgstr ""
+
+#: ProjectsModel.cpp:340
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Harmonogram jest odniesiony do linii podstawowej"
 
-#: ProjectsModel.cpp:340
+#: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
@@ -841,30 +847,36 @@ msgstr "Nowy harmonogram"
 msgid "New sub-schedule"
 msgstr "Nowy podharmonogram"
 
-#: ScheduleManagerInfoDialog.cpp:71
+#: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr "Zostanie utworzony nowy harmonogram '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:77
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:84
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Existing schedule '%1' is not scheduled.\n"
+"Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
 "Istniejący harmonogram '%1' nie jest zaplanowany.\n"
 "Zostanie zaplanowany '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:84
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:93
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is owned by Plan.\n"
+"New shcedule '%2' will be created."
 msgstr ""
-"Projekt odniesiono do linii odniesienia.\n"
-"'%1' zostanie utworzony jako podharmonogram względem '%2'."
+"Istniejący harmonogram '%1' nie jest zaplanowany.\n"
+"Zostanie zaplanowany '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
+#: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
 msgid ""
 "Project is started.\n"
@@ -872,53 +884,6 @@ msgid ""
 msgstr ""
 "Projekt został rozpoczęty.\n"
 "'%1' zostanie utworzony jako podharmonogram względem '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:95
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-msgstr ""
-"Projekt został rozpoczęty.\n"
-"Harmonogram '%1' zostanie zaplanowany na nowo."
-
-#: ScheduleManagerInfoDialog.cpp:107
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Projekt został rozpoczęty.\n"
-"Istniejący harmonogram '%1' zostanie ponownie przypisany."
-
-#: ScheduleManagerInfoDialog.cpp:116
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-msgstr ""
-"Projekt nie został rozpoczęty.\n"
-"Nowy podharmonogram '%1'.\n"
-"'%1' zostanie utworzony jako podharmonogram względem '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:118
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-msgstr ""
-"Projekt nie został rozpoczęty.\n"
-"Zostanie utworzony nowy harmonogram '%1'."
-
-#: ScheduleManagerInfoDialog.cpp:122
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Projekt nie został rozpoczęty.\n"
-"Istniejący harmonogram '%1' zostanie ponownie przypisany."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -1240,6 +1205,50 @@ msgstr "Wykorzystanie zasobu"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Podsumowanie Gantta"
+
+#~ msgid ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Projekt odniesiono do linii odniesienia.\n"
+#~ "'%1' zostanie utworzony jako podharmonogram względem '%2'."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Projekt został rozpoczęty.\n"
+#~ "Harmonogram '%1' zostanie zaplanowany na nowo."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Projekt został rozpoczęty.\n"
+#~ "Istniejący harmonogram '%1' zostanie ponownie przypisany."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Projekt nie został rozpoczęty.\n"
+#~ "Nowy podharmonogram '%1'.\n"
+#~ "'%1' zostanie utworzony jako podharmonogram względem '%2'."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+#~ msgstr ""
+#~ "Projekt nie został rozpoczęty.\n"
+#~ "Zostanie utworzony nowy harmonogram '%1'."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Projekt nie został rozpoczęty.\n"
+#~ "Istniejący harmonogram '%1' zostanie ponownie przypisany."
 
 #, fuzzy
 #~| msgid "Scheduling..."

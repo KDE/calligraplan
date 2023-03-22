@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-02-02 10:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -727,7 +727,7 @@ msgstr ""
 "початок:\t%2</item><item>Плановане завершення:\t%3</item><item>Цільовий "
 "початок:\t%4</item><item>Цільове завершення:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
@@ -754,10 +754,16 @@ msgstr "План %1: заплановано завершити: %1"
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
+msgid "Schedule is owned by Portfolio"
+msgstr ""
+
+#: ProjectsModel.cpp:340
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Розклад належить до базового плану"
 
-#: ProjectsModel.cpp:340
+#: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
@@ -845,30 +851,36 @@ msgstr "Новий розклад"
 msgid "New sub-schedule"
 msgstr "Новий підрозклад"
 
-#: ScheduleManagerInfoDialog.cpp:71
+#: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr "Буде створено новий розклад «%1»."
 
-#: ScheduleManagerInfoDialog.cpp:77
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:84
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Existing schedule '%1' is not scheduled.\n"
+"Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
 "Наявний розклад «%1» не заплановано.\n"
 "«%1» буде заплановано."
 
-#: ScheduleManagerInfoDialog.cpp:84
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:93
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is owned by Plan.\n"
+"New shcedule '%2' will be created."
 msgstr ""
-"Проєкт скомпоновано.\n"
-"«%1» буде створено як підрозклад «%2»."
+"Наявний розклад «%1» не заплановано.\n"
+"«%1» буде заплановано."
 
-#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
+#: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
 msgid ""
 "Project is started.\n"
@@ -876,53 +888,6 @@ msgid ""
 msgstr ""
 "Проєкт розпочато.\n"
 "«%1» буде створено як підрозклад «%2»."
-
-#: ScheduleManagerInfoDialog.cpp:95
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-msgstr ""
-"Проєкт розпочато.\n"
-"Розклад «%1» буде переплановано."
-
-#: ScheduleManagerInfoDialog.cpp:107
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Проєкт розпочато.\n"
-"Наявний розклад «%1» буде переплановано."
-
-#: ScheduleManagerInfoDialog.cpp:116
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-msgstr ""
-"Проєкт не розпочато.\n"
-"Новий підрозклад «%1».\n"
-"«%1» буде створено як підрозклад «%2»."
-
-#: ScheduleManagerInfoDialog.cpp:118
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-msgstr ""
-"Проєкт не розпочато.\n"
-"Буде створено новий розклад «%1»."
-
-#: ScheduleManagerInfoDialog.cpp:122
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Проєкт не розпочато.\n"
-"Наявний розклад «%1» буде переплановано."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -1247,6 +1212,50 @@ msgstr "Використання ресурсів"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Резюме Ґанта"
+
+#~ msgid ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Проєкт скомпоновано.\n"
+#~ "«%1» буде створено як підрозклад «%2»."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Проєкт розпочато.\n"
+#~ "Розклад «%1» буде переплановано."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Проєкт розпочато.\n"
+#~ "Наявний розклад «%1» буде переплановано."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Проєкт не розпочато.\n"
+#~ "Новий підрозклад «%1».\n"
+#~ "«%1» буде створено як підрозклад «%2»."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+#~ msgstr ""
+#~ "Проєкт не розпочато.\n"
+#~ "Буде створено новий розклад «%1»."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Проєкт не розпочато.\n"
+#~ "Наявний розклад «%1» буде переплановано."
 
 #~ msgid "Scheduling running..."
 #~ msgstr "Виконуємо планування…"

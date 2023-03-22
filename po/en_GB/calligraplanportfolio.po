@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-02-26 23:14+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -718,7 +718,7 @@ msgstr ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
@@ -745,10 +745,16 @@ msgstr "Schedule %1: Scheduled to finish: %1"
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
+msgid "Schedule is owned by Portfolio"
+msgstr ""
+
+#: ProjectsModel.cpp:340
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Schedule is baselined"
 
-#: ProjectsModel.cpp:340
+#: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
@@ -836,30 +842,36 @@ msgstr "New schedule"
 msgid "New sub-schedule"
 msgstr "New sub-schedule"
 
-#: ScheduleManagerInfoDialog.cpp:71
+#: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr "New schedule '%1' will be created."
 
-#: ScheduleManagerInfoDialog.cpp:77
-#, kde-format
-msgid ""
-"Existing schedule '%1' is not scheduled.\n"
-"'%1' will be scheduled."
-msgstr ""
-"Existing schedule '%1' is not scheduled.\n"
-"'%1' will be scheduled."
-
 #: ScheduleManagerInfoDialog.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is owned by Portfolio.\n"
+"'%1' will be scheduled."
 msgstr ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is not scheduled.\n"
+"'%1' will be scheduled."
 
-#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
+#: ScheduleManagerInfoDialog.cpp:93
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
+msgid ""
+"Existing schedule '%1' is owned by Plan.\n"
+"New shcedule '%2' will be created."
+msgstr ""
+"Existing schedule '%1' is not scheduled.\n"
+"'%1' will be scheduled."
+
+#: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
 msgid ""
 "Project is started.\n"
@@ -867,53 +879,6 @@ msgid ""
 msgstr ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:95
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-msgstr ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-
-#: ScheduleManagerInfoDialog.cpp:107
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-
-#: ScheduleManagerInfoDialog.cpp:116
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-msgstr ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:118
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-msgstr ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-
-#: ScheduleManagerInfoDialog.cpp:122
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -1234,6 +1199,50 @@ msgstr "Resource Usage"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Gantt Summary"
+
+#~ msgid ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+#~ msgstr ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
 
 #~ msgid "Scheduling running..."
 #~ msgstr "Scheduling running..."

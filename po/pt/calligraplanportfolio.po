@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-02-15 16:12+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -724,7 +724,7 @@ msgstr ""
 "para><para><list><item>Início planeado:\t%2</item><item>Fim planeado:\t%3</"
 "item><item>Início-alvo:\t%4</item><item>Fim-alvo:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
@@ -751,10 +751,16 @@ msgstr "Escalonamento %1: Agendado para o fim: %1"
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
+msgid "Schedule is owned by Portfolio"
+msgstr ""
+
+#: ProjectsModel.cpp:340
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "O escalonamento tem uma linha de base"
 
-#: ProjectsModel.cpp:340
+#: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
@@ -842,30 +848,36 @@ msgstr "Novo agendamento"
 msgid "New sub-schedule"
 msgstr "Novo sub-agendamento"
 
-#: ScheduleManagerInfoDialog.cpp:71
+#: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr "Será criado o novo agendamento '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:77
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:84
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Existing schedule '%1' is not scheduled.\n"
+"Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
 "O agendamento existente '%1' não está calendarizado.\n"
 "Será calendarizado o '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:84
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:93
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is owned by Plan.\n"
+"New shcedule '%2' will be created."
 msgstr ""
-"O projecto tem uma linha de base.\n"
-"O '%1' será criado como um sub-agendamento de '%2'."
+"O agendamento existente '%1' não está calendarizado.\n"
+"Será calendarizado o '%1'."
 
-#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
+#: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
 msgid ""
 "Project is started.\n"
@@ -873,53 +885,6 @@ msgid ""
 msgstr ""
 "O projecto foi iniciado.\n"
 "O '%1' será criado como um sub-agendamento de '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:95
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-msgstr ""
-"O projecto foi iniciado.\n"
-"O agendamento '%1' será calendarizado de novo."
-
-#: ScheduleManagerInfoDialog.cpp:107
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"O projecto foi iniciado.\n"
-"O agendamento existente '%1' será calendarizado de novo."
-
-#: ScheduleManagerInfoDialog.cpp:116
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-msgstr ""
-"O projecto não foi iniciado.\n"
-"Existe o novo sub-agendamento '%1'.\n"
-"O '%1' será criado como um sub-agendamento de '%2'."
-
-#: ScheduleManagerInfoDialog.cpp:118
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-msgstr ""
-"O projecto não foi iniciado.\n"
-"Será criado o novo agendamento '%1'."
-
-#: ScheduleManagerInfoDialog.cpp:122
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"O projecto não foi iniciado.\n"
-"O agendamento existente '%1' será calendarizado de novo."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -1241,3 +1206,47 @@ msgstr "Utilização dos Recursos"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Resumo do Gantt"
+
+#~ msgid ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "O projecto tem uma linha de base.\n"
+#~ "O '%1' será criado como um sub-agendamento de '%2'."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "O projecto foi iniciado.\n"
+#~ "O agendamento '%1' será calendarizado de novo."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "O projecto foi iniciado.\n"
+#~ "O agendamento existente '%1' será calendarizado de novo."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "O projecto não foi iniciado.\n"
+#~ "Existe o novo sub-agendamento '%1'.\n"
+#~ "O '%1' será criado como um sub-agendamento de '%2'."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+#~ msgstr ""
+#~ "O projecto não foi iniciado.\n"
+#~ "Será criado o novo agendamento '%1'."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "O projecto não foi iniciado.\n"
+#~ "O agendamento existente '%1' será calendarizado de novo."

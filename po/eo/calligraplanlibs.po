@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:59+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-03-01 20:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -30,7 +30,7 @@ msgid "Your emails"
 msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
-#: kernel/ProjectLoader_v0.cpp:1510
+#: kernel/ProjectLoader_v0.cpp:1511
 #, kde-format
 msgid "Document loaded, URL=%1"
 msgstr "Dokumento ŝargita, URL=%1"
@@ -194,14 +194,14 @@ msgstr "ms"
 msgid "Deleted"
 msgstr "Forigita"
 
-#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1794
-#: models/kptschedulemodel.cpp:840
+#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1795
+#: models/kptschedulemodel.cpp:848
 #, kde-format
 msgid "Not scheduled"
 msgstr "Ne planita"
 
-#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:840
-#: models/kptschedulemodel.cpp:989
+#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:848
+#: models/kptschedulemodel.cpp:997
 #, kde-format
 msgid "Scheduled"
 msgstr "Planita"
@@ -251,7 +251,7 @@ msgstr "Nuligite"
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
 #: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
 #: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
-#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
+#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:613
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
 #: models/ResourceModel.cpp:365 models/ResourceModel.cpp:374
@@ -615,7 +615,7 @@ msgstr "Informo"
 msgid "Warning"
 msgstr "Averto"
 
-#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1798
+#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1802
 #: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
 #: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
 #: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
@@ -624,15 +624,20 @@ msgstr "Averto"
 msgid "Error"
 msgstr "Eraro"
 
-#: kernel/kptschedule.cpp:1788
-#, kde-format
-msgid "Baselined"
-msgstr "Bazliniita"
-
-#: kernel/kptschedule.cpp:1791
+#: kernel/kptschedule.cpp:1789
 #, kde-format
 msgid "Scheduling"
 msgstr "Planado"
+
+#: kernel/kptschedule.cpp:1792
+#, kde-format
+msgid "Portfolio"
+msgstr ""
+
+#: kernel/kptschedule.cpp:1798
+#, kde-format
+msgid "Baselined"
+msgstr "Bazliniita"
 
 #: kernel/kpttask.cpp:1109
 #, kde-format
@@ -2056,8 +2061,8 @@ msgstr[1] ""
 #: models/kptresourceallocationmodel.cpp:526
 #: models/kptresourceappointmentsmodel.cpp:752
 #: models/kptresourceappointmentsmodel.cpp:767
-#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:978
-#: models/kptschedulemodel.cpp:1303
+#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:1311
 #: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
@@ -4612,7 +4617,7 @@ msgstr "Aldoni subtaskon"
 msgid "Path"
 msgstr "Vojo"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:794
 #, kde-format
 msgid "Critical Path"
 msgstr "Kritika Vojo"
@@ -4838,283 +4843,289 @@ msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
 msgstr "Modifi planan reĝimon"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:489
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This schedule is created by the Portfolio Manager"
+msgstr ""
+
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "Allow"
 msgstr "Permesi"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "Avoid"
 msgstr "Eviti"
 
-#: models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "(Avoid)"
 msgstr "(Eviti)"
 
-#: models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "(Allow)"
 msgstr "(Permesi)"
 
-#: models/kptschedulemodel.cpp:553
+#: models/kptschedulemodel.cpp:561
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
 msgstr "Permesi superrezervadon de rimedoj"
 
-#: models/kptschedulemodel.cpp:554 models/kptschedulemodel.cpp:564
+#: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
 msgstr "Eviti trorezervadon de rimedoj"
 
-#: models/kptschedulemodel.cpp:558
+#: models/kptschedulemodel.cpp:566
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
 msgstr "Permesi trorezervadon de rimedoj"
 
-#: models/kptschedulemodel.cpp:559
+#: models/kptschedulemodel.cpp:567
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
 msgstr "%1 ĉiam permesas tromendon de rimedoj"
 
-#: models/kptschedulemodel.cpp:563
+#: models/kptschedulemodel.cpp:571
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
 msgstr "%1 ĉiam evitas tromendon de rimedoj"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Allow"
 msgstr "Permesi"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Avoid"
 msgstr "Eviti"
 
-#: models/kptschedulemodel.cpp:588
+#: models/kptschedulemodel.cpp:596
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
 msgstr "Modifi permesi supermendon"
 
-#: models/kptschedulemodel.cpp:605
+#: models/kptschedulemodel.cpp:613
 #, kde-format
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:608
+#: models/kptschedulemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
 msgstr "Uzi PERT-distribuon por kalkuli atendatan takson por la taskoj"
 
-#: models/kptschedulemodel.cpp:609
+#: models/kptschedulemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
 msgstr "Uzi rekte la atenditan takson de taskoj"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "Neniu"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:631
+#: models/kptschedulemodel.cpp:639
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
 msgstr "Modifi planan distribuon"
 
-#: models/kptschedulemodel.cpp:660
+#: models/kptschedulemodel.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
 msgstr "Planita komenco: %1<nl/>Cela komenco: %2"
 
-#: models/kptschedulemodel.cpp:662
+#: models/kptschedulemodel.cpp:670
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
 msgstr "Cela komenco: %1"
 
-#: models/kptschedulemodel.cpp:696
+#: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
 msgstr "Planita fino: %1<nl/>Cela finiĝo: %2"
 
-#: models/kptschedulemodel.cpp:698
+#: models/kptschedulemodel.cpp:706
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
 msgstr "Cela finiĝo: %1"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "Backwards"
 msgstr "Malantaŭen"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "Forward"
 msgstr "Antaŭen"
 
-#: models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "(Backwards)"
 msgstr "(Malantaŭen)"
 
-#: models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "(Forward)"
 msgstr "(Antaŭen)"
 
-#: models/kptschedulemodel.cpp:742 models/kptschedulemodel.cpp:752
+#: models/kptschedulemodel.cpp:750 models/kptschedulemodel.cpp:760
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
 msgstr "Vicigi projekton de la celfina tempo"
 
-#: models/kptschedulemodel.cpp:743 models/kptschedulemodel.cpp:748
+#: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
 msgstr "Vicigi projekton de la cela komenca tempo"
 
-#: models/kptschedulemodel.cpp:747
+#: models/kptschedulemodel.cpp:755
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
 msgstr "%1 ĉiam planas de la cela komenca tempo"
 
-#: models/kptschedulemodel.cpp:753
+#: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
 msgstr "%1 ĉiam planas de la cela fintempo"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Backwards"
 msgstr "Malantaŭen"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Forward"
 msgstr "Antaŭen"
 
-#: models/kptschedulemodel.cpp:777
+#: models/kptschedulemodel.cpp:785
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
 msgstr "Modifi planan direkton"
 
-#: models/kptschedulemodel.cpp:796 odf/KoDocumentInfo.cpp:40
+#: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, kde-format
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: models/kptschedulemodel.cpp:822
+#: models/kptschedulemodel.cpp:830
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
 msgstr "Modifi planilon"
 
-#: models/kptschedulemodel.cpp:865
+#: models/kptschedulemodel.cpp:873
 #, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
 msgstr "Neniu"
 
-#: models/kptschedulemodel.cpp:874
+#: models/kptschedulemodel.cpp:882
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
 msgstr "Viciga granularityIndex ne estas subtenata"
 
-#: models/kptschedulemodel.cpp:878
+#: models/kptschedulemodel.cpp:886
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
 msgstr "Elektita programa granulareco: %1"
 
-#: models/kptschedulemodel.cpp:904
+#: models/kptschedulemodel.cpp:912
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
 msgstr "Modifi vicigan granularecon"
 
-#: models/kptschedulemodel.cpp:979
+#: models/kptschedulemodel.cpp:987
 #, kde-format
 msgid "State"
 msgstr "Stato"
 
-#: models/kptschedulemodel.cpp:980
+#: models/kptschedulemodel.cpp:988
 #, kde-format
 msgid "Mode"
 msgstr "Reĝimo"
 
-#: models/kptschedulemodel.cpp:981
+#: models/kptschedulemodel.cpp:989
 #, kde-format
 msgid "Direction"
 msgstr "Direkto"
 
-#: models/kptschedulemodel.cpp:982
+#: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
 msgstr "Tromendo"
 
-#: models/kptschedulemodel.cpp:983
+#: models/kptschedulemodel.cpp:991
 #, kde-format
 msgid "Distribution"
 msgstr "Distribuo"
 
 #. i18n("Calculate");
-#: models/kptschedulemodel.cpp:985
+#: models/kptschedulemodel.cpp:993
 #, kde-format
 msgid "Planned Start"
 msgstr "Planita Komenco"
 
-#: models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:994
 #, kde-format
 msgid "Planned Finish"
 msgstr "Planita Fino"
 
-#: models/kptschedulemodel.cpp:987
+#: models/kptschedulemodel.cpp:995
 #, kde-format
 msgid "Scheduler"
 msgstr "Planilo"
 
-#: models/kptschedulemodel.cpp:988
+#: models/kptschedulemodel.cpp:996
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
 msgstr "Granulareco"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Message"
 msgstr "Mesaĝo"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Phase"
 msgstr "Fazo"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Severity"
 msgstr "Severeco"
@@ -6616,7 +6627,7 @@ msgid "Add Subcalendar"
 msgstr "Aldoni Subkalendaron"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
-#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
+#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
@@ -6750,7 +6761,7 @@ msgstr "Aldoni Submejloŝtonon..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -7711,7 +7722,7 @@ msgctxt "@title"
 msgid "Resource Groups"
 msgstr "Rimedaj Grupoj"
 
-#: ui/kptscheduleeditor.cpp:169
+#: ui/kptscheduleeditor.cpp:170
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7736,33 +7747,40 @@ msgstr ""
 "estas finitaj. Replanado tiam uzos ekz. efektiva komenco kaj restanta peno "
 "por la taskoj.<nl/><link url='%1'>Pli...</link></para>"
 
-#: ui/kptscheduleeditor.cpp:294
+#: ui/kptscheduleeditor.cpp:301
 #, kde-format
 msgid "Add Schedule"
 msgstr "Aldoni Horaron"
 
-#: ui/kptscheduleeditor.cpp:299
+#: ui/kptscheduleeditor.cpp:306
 #, kde-format
 msgid "Add Sub-schedule"
 msgstr "Aldoni Sub-horaron"
 
-#: ui/kptscheduleeditor.cpp:309
+#: ui/kptscheduleeditor.cpp:316
 #, kde-format
 msgid "Calculate"
 msgstr "Kalkuli"
 
-#: ui/kptscheduleeditor.cpp:314
+#: ui/kptscheduleeditor.cpp:321
 #, kde-format
 msgid "Baseline"
 msgstr "Bazlinio"
 
-#: ui/kptscheduleeditor.cpp:319
+#: ui/kptscheduleeditor.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Detach"
 msgstr "Malkroĉi"
 
-#: ui/kptscheduleeditor.cpp:354
+#: ui/kptscheduleeditor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Schedule"
+msgctxt "@action"
+msgid "Claim Schedule"
+msgstr "Horaro"
+
+#: ui/kptscheduleeditor.cpp:365
 #, kde-format
 msgid ""
 "This schedule cannot be calculated.\n"
@@ -7771,12 +7789,12 @@ msgstr ""
 "Ĉi tiu horaro ne povas esti kalkulita.\n"
 "La gepatra horaro devas esti kalkulita unue"
 
-#: ui/kptscheduleeditor.cpp:355 ui/kptscheduleeditor.cpp:361
+#: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, kde-format
 msgid "Project Scheduling"
 msgstr "Projekta Planado"
 
-#: ui/kptscheduleeditor.cpp:360
+#: ui/kptscheduleeditor.cpp:371
 #, kde-format
 msgid ""
 "The project has been started.\n"
@@ -7785,79 +7803,87 @@ msgstr ""
 "La projekto estas komencita.\n"
 "Ĉu vi vere volas kalkuli ĉi tiun horaron?"
 
-#: ui/kptscheduleeditor.cpp:377
+#: ui/kptscheduleeditor.cpp:388
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr "Kalkuli %1"
 
-#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
+#: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr "Krei sub-horaron"
 
-#: ui/kptscheduleeditor.cpp:406
+#: ui/kptscheduleeditor.cpp:417
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
 msgstr "Aldoni horaron %1"
 
-#: ui/kptscheduleeditor.cpp:448
+#: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr "Ne povas bazlinio. La projekto jam estas bazita."
 
-#: ui/kptscheduleeditor.cpp:453
+#: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr "Ĉi tiu horaro estas bazita. Ĉu vi volas forigi la bazlinion?"
 
-#: ui/kptscheduleeditor.cpp:457
+#: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
 msgstr "Restarigi bazan linion %1"
 
-#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
+#: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
 msgstr "Bazlinio %1"
 
-#: ui/kptscheduleeditor.cpp:474
+#: ui/kptscheduleeditor.cpp:485
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
 msgstr "Forigi horaron %1"
 
-#: ui/kptscheduleeditor.cpp:490
+#: ui/kptscheduleeditor.cpp:501
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
 msgstr "Movi horaron %1"
 
-#: ui/kptscheduleeditor.cpp:533
+#: ui/kptscheduleeditor.cpp:510
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Add schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Claim schedule %1"
+msgstr "Aldoni horaron %1"
+
+#: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Montri Sencimigan Informon"
 
-#: ui/kptscheduleeditor.cpp:768
+#: ui/kptscheduleeditor.cpp:788
 #, kde-format
 msgid "Result"
 msgstr "Rezulto"
 
-#: ui/kptscheduleeditor.cpp:779
+#: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Planado Registro"
 
-#: ui/kptscheduleeditor.cpp:963
+#: ui/kptscheduleeditor.cpp:983
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Modifi projektan celon komenci tempon"
 
-#: ui/kptscheduleeditor.cpp:975
+#: ui/kptscheduleeditor.cpp:995
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Modifi projektan celfinan tempon"

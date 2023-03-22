@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatoui.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:59+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2007-10-24 08:22-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -28,7 +28,7 @@ msgid "Your emails"
 msgstr "Taispeáin ainmneacha na n-acmhainní"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
-#: kernel/ProjectLoader_v0.cpp:1510
+#: kernel/ProjectLoader_v0.cpp:1511
 #, fuzzy, kde-format
 #| msgid "&Documents"
 msgid "Document loaded, URL=%1"
@@ -201,14 +201,14 @@ msgstr "ms"
 msgid "Deleted"
 msgstr "Scriosta"
 
-#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1794
-#: models/kptschedulemodel.cpp:840
+#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1795
+#: models/kptschedulemodel.cpp:848
 #, kde-format
 msgid "Not scheduled"
 msgstr "Gan sceidealadh"
 
-#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:840
-#: models/kptschedulemodel.cpp:989
+#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:848
+#: models/kptschedulemodel.cpp:997
 #, kde-format
 msgid "Scheduled"
 msgstr "Sceidealta"
@@ -259,7 +259,7 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
 #: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
 #: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
-#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
+#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:613
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
 #: models/ResourceModel.cpp:365 models/ResourceModel.cpp:374
@@ -635,7 +635,7 @@ msgstr "Eolas"
 msgid "Warning"
 msgstr "Rabhadh"
 
-#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1798
+#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1802
 #: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
 #: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
 #: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
@@ -644,16 +644,21 @@ msgstr "Rabhadh"
 msgid "Error"
 msgstr "Earráid"
 
-#: kernel/kptschedule.cpp:1788
+#: kernel/kptschedule.cpp:1789
+#, kde-format
+msgid "Scheduling"
+msgstr "Sceidealadh"
+
+#: kernel/kptschedule.cpp:1792
+#, fuzzy, kde-format
+msgid "Portfolio"
+msgstr "Cuir Tuairisc in Eagar"
+
+#: kernel/kptschedule.cpp:1798
 #, fuzzy, kde-format
 #| msgid "Baseline"
 msgid "Baselined"
 msgstr "Bonnlíne"
-
-#: kernel/kptschedule.cpp:1791
-#, kde-format
-msgid "Scheduling"
-msgstr "Sceidealadh"
 
 #: kernel/kpttask.cpp:1109
 #, fuzzy, kde-format
@@ -2053,8 +2058,8 @@ msgstr[4] "Mionathraigh Acmhainn"
 #: models/kptresourceallocationmodel.cpp:526
 #: models/kptresourceappointmentsmodel.cpp:752
 #: models/kptresourceappointmentsmodel.cpp:767
-#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:978
-#: models/kptschedulemodel.cpp:1303
+#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:1311
 #: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
@@ -4714,7 +4719,7 @@ msgstr "Cuir fo-thasc leis"
 msgid "Path"
 msgstr "Conair"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:794
 #, kde-format
 msgid "Critical Path"
 msgstr "Rébhealach"
@@ -4949,288 +4954,294 @@ msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:489
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This schedule is created by the Portfolio Manager"
+msgstr ""
+
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "Allow"
 msgstr "Ceadaigh"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "Avoid"
 msgstr "Seachain"
 
-#: models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:550
 #, fuzzy, kde-format
 msgid "(Avoid)"
 msgstr "Seachain"
 
-#: models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:553
 #, fuzzy, kde-format
 msgid "(Allow)"
 msgstr "Ceadaigh"
 
-#: models/kptschedulemodel.cpp:553
+#: models/kptschedulemodel.cpp:561
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:554 models/kptschedulemodel.cpp:564
+#: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:558
+#: models/kptschedulemodel.cpp:566
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:559
+#: models/kptschedulemodel.cpp:567
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:563
+#: models/kptschedulemodel.cpp:571
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Allow"
 msgstr "Ceadaigh"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Avoid"
 msgstr "Seachain"
 
-#: models/kptschedulemodel.cpp:588
+#: models/kptschedulemodel.cpp:596
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
 msgstr "Bog acmhainn"
 
-#: models/kptschedulemodel.cpp:605
+#: models/kptschedulemodel.cpp:613
 #, kde-format
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:608
+#: models/kptschedulemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:609
+#: models/kptschedulemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "Neamhní"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:631
+#: models/kptschedulemodel.cpp:639
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:660
+#: models/kptschedulemodel.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:662
+#: models/kptschedulemodel.cpp:670
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
 msgstr "Dáta Tosaigh: %1"
 
-#: models/kptschedulemodel.cpp:696
+#: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:698
+#: models/kptschedulemodel.cpp:706
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
 msgstr "Críochnú: %1"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "Backwards"
 msgstr "Siar"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "Forward"
 msgstr "Ar Aghaidh"
 
-#: models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:739
 #, fuzzy, kde-format
 msgid "(Backwards)"
 msgstr "Siar"
 
-#: models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:742
 #, fuzzy, kde-format
 msgid "(Forward)"
 msgstr "Ar Aghaidh"
 
-#: models/kptschedulemodel.cpp:742 models/kptschedulemodel.cpp:752
+#: models/kptschedulemodel.cpp:750 models/kptschedulemodel.cpp:760
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
 msgstr "Mionathraigh ainm an tasc"
 
-#: models/kptschedulemodel.cpp:743 models/kptschedulemodel.cpp:748
+#: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
 msgstr "Athraigh crios ama an fhéilire"
 
-#: models/kptschedulemodel.cpp:747
+#: models/kptschedulemodel.cpp:755
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:753
+#: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Backwards"
 msgstr "Siar"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, fuzzy, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Forward"
 msgstr "Ar Aghaidh"
 
-#: models/kptschedulemodel.cpp:777
+#: models/kptschedulemodel.cpp:785
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:796 odf/KoDocumentInfo.cpp:40
+#: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, kde-format
 msgid "Unknown"
 msgstr "Anaithnid"
 
-#: models/kptschedulemodel.cpp:822
+#: models/kptschedulemodel.cpp:830
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:865
+#: models/kptschedulemodel.cpp:873
 #, fuzzy, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
 msgstr "Neamhní"
 
-#: models/kptschedulemodel.cpp:874
+#: models/kptschedulemodel.cpp:882
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:878
+#: models/kptschedulemodel.cpp:886
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:904
+#: models/kptschedulemodel.cpp:912
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
 msgstr "Athraigh ainm an sceidil"
 
-#: models/kptschedulemodel.cpp:979
+#: models/kptschedulemodel.cpp:987
 #, kde-format
 msgid "State"
 msgstr "Staid"
 
-#: models/kptschedulemodel.cpp:980
+#: models/kptschedulemodel.cpp:988
 #, kde-format
 msgid "Mode"
 msgstr "Mód"
 
-#: models/kptschedulemodel.cpp:981
+#: models/kptschedulemodel.cpp:989
 #, kde-format
 msgid "Direction"
 msgstr "Treo"
 
-#: models/kptschedulemodel.cpp:982
+#: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:983
+#: models/kptschedulemodel.cpp:991
 #, kde-format
 msgid "Distribution"
 msgstr "Dáileadh"
 
 #. i18n("Calculate");
-#: models/kptschedulemodel.cpp:985
+#: models/kptschedulemodel.cpp:993
 #, kde-format
 msgid "Planned Start"
 msgstr "Tosú Pleanáilte"
 
-#: models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:994
 #, kde-format
 msgid "Planned Finish"
 msgstr "Críoch Pleanáilte"
 
-#: models/kptschedulemodel.cpp:987
+#: models/kptschedulemodel.cpp:995
 #, kde-format
 msgid "Scheduler"
 msgstr "Sceidealóir"
 
-#: models/kptschedulemodel.cpp:988
+#: models/kptschedulemodel.cpp:996
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Message"
 msgstr "Teachtaireacht"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Phase"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Severity"
 msgstr "Géire"
@@ -6765,7 +6776,7 @@ msgid "Add Subcalendar"
 msgstr "Cuir Fo-Fhéilire Leis"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
-#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
+#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
@@ -6897,7 +6908,7 @@ msgstr "Cuir Fochloch Mhíle Leis..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -7897,7 +7908,7 @@ msgctxt "@title"
 msgid "Resource Groups"
 msgstr "Cuir Grúpa Acmhainní Leis"
 
-#: ui/kptscheduleeditor.cpp:169
+#: ui/kptscheduleeditor.cpp:170
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7913,129 +7924,142 @@ msgid ""
 "para>"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:294
+#: ui/kptscheduleeditor.cpp:301
 #, kde-format
 msgid "Add Schedule"
 msgstr "Cuir Sceideal Leis"
 
-#: ui/kptscheduleeditor.cpp:299
+#: ui/kptscheduleeditor.cpp:306
 #, kde-format
 msgid "Add Sub-schedule"
 msgstr "Cuir Fo-sceideal Leis"
 
-#: ui/kptscheduleeditor.cpp:309
+#: ui/kptscheduleeditor.cpp:316
 #, kde-format
 msgid "Calculate"
 msgstr "Ríomh"
 
-#: ui/kptscheduleeditor.cpp:314
+#: ui/kptscheduleeditor.cpp:321
 #, kde-format
 msgid "Baseline"
 msgstr "Bonnlíne"
 
-#: ui/kptscheduleeditor.cpp:319
+#: ui/kptscheduleeditor.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Detach"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:354
+#: ui/kptscheduleeditor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Schedule"
+msgctxt "@action"
+msgid "Claim Schedule"
+msgstr "Sceideal"
+
+#: ui/kptscheduleeditor.cpp:365
 #, kde-format
 msgid ""
 "This schedule cannot be calculated.\n"
 "The parent schedule must be calculated first"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:355 ui/kptscheduleeditor.cpp:361
+#: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, fuzzy, kde-format
 #| msgid "Project Schedule:"
 msgid "Project Scheduling"
 msgstr "Sceideal an Tionscadail:"
 
-#: ui/kptscheduleeditor.cpp:360
+#: ui/kptscheduleeditor.cpp:371
 #, kde-format
 msgid ""
 "The project has been started.\n"
 "Do you really want to calculate this schedule?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:377
+#: ui/kptscheduleeditor.cpp:388
 #, fuzzy, kde-format
 #| msgid "Calculate"
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr "Ríomh"
 
-#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
+#: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr "Cruthaigh fo-sceideal"
 
-#: ui/kptscheduleeditor.cpp:406
+#: ui/kptscheduleeditor.cpp:417
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
 msgstr "Cuir sceideal %1 leis"
 
-#: ui/kptscheduleeditor.cpp:448
+#: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:453
+#: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:457
+#: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
+#: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, fuzzy, kde-format
 #| msgid "Baseline"
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
 msgstr "Bonnlíne"
 
-#: ui/kptscheduleeditor.cpp:474
+#: ui/kptscheduleeditor.cpp:485
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
 msgstr "Cuir sceideal %1 leis"
 
-#: ui/kptscheduleeditor.cpp:490
+#: ui/kptscheduleeditor.cpp:501
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
 msgstr "Cuir sceideal %1 leis"
 
-#: ui/kptscheduleeditor.cpp:533
+#: ui/kptscheduleeditor.cpp:510
+#, fuzzy, kde-format
+msgctxt "(qtundo-format)"
+msgid "Claim schedule %1"
+msgstr "Cuir sceideal %1 leis"
+
+#: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:768
+#: ui/kptscheduleeditor.cpp:788
 #, kde-format
 msgid "Result"
 msgstr "Toradh"
 
-#: ui/kptscheduleeditor.cpp:779
+#: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Logchomhad Sceidealta"
 
-#: ui/kptscheduleeditor.cpp:963
+#: ui/kptscheduleeditor.cpp:983
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "Athraigh crios ama an fhéilire"
 
-#: ui/kptscheduleeditor.cpp:975
+#: ui/kptscheduleeditor.cpp:995
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
@@ -10947,10 +10971,6 @@ msgstr ""
 #~ msgctxt "application name"
 #~ msgid "Plan"
 #~ msgstr "Plean"
-
-#, fuzzy
-#~ msgid "New Portfolio"
-#~ msgstr "Cuir Tuairisc in Eagar"
 
 #, fuzzy
 #~| msgctxt "@info:tooltip 1=resource name, 2=list of requiered resources"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:59+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2022-03-09 17:39+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -37,7 +37,7 @@ msgid "Your emails"
 msgstr "translation-team@basealt.ru,translation-team@basealt.ru"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
-#: kernel/ProjectLoader_v0.cpp:1510
+#: kernel/ProjectLoader_v0.cpp:1511
 #, kde-format
 msgid "Document loaded, URL=%1"
 msgstr "Документ загружен, адрес=%1"
@@ -205,14 +205,14 @@ msgstr "мс"
 msgid "Deleted"
 msgstr "Удалено"
 
-#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1794
-#: models/kptschedulemodel.cpp:840
+#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1795
+#: models/kptschedulemodel.cpp:848
 #, kde-format
 msgid "Not scheduled"
 msgstr "Не запланировано"
 
-#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:840
-#: models/kptschedulemodel.cpp:989
+#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:848
+#: models/kptschedulemodel.cpp:997
 #, kde-format
 msgid "Scheduled"
 msgstr "Запланировано"
@@ -262,7 +262,7 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
 #: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
 #: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
-#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
+#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:613
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
 #: models/ResourceModel.cpp:365 models/ResourceModel.cpp:374
@@ -628,7 +628,7 @@ msgstr "Информация"
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1798
+#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1802
 #: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
 #: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
 #: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
@@ -637,15 +637,20 @@ msgstr "Предупреждение"
 msgid "Error"
 msgstr "Ошибка"
 
-#: kernel/kptschedule.cpp:1788
-#, kde-format
-msgid "Baselined"
-msgstr "Скомпоновать план"
-
-#: kernel/kptschedule.cpp:1791
+#: kernel/kptschedule.cpp:1789
 #, kde-format
 msgid "Scheduling"
 msgstr "Планирование"
+
+#: kernel/kptschedule.cpp:1792
+#, fuzzy, kde-format
+msgid "Portfolio"
+msgstr "Изменить отчёт"
+
+#: kernel/kptschedule.cpp:1798
+#, kde-format
+msgid "Baselined"
+msgstr "Скомпоновать план"
 
 #: kernel/kpttask.cpp:1109
 #, kde-format
@@ -2080,8 +2085,8 @@ msgstr[3] "В этой группе доступен %1 ресурс"
 #: models/kptresourceallocationmodel.cpp:526
 #: models/kptresourceappointmentsmodel.cpp:752
 #: models/kptresourceappointmentsmodel.cpp:767
-#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:978
-#: models/kptschedulemodel.cpp:1303
+#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:1311
 #: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
@@ -4772,7 +4777,7 @@ msgstr ""
 msgid "Path"
 msgstr "Путь"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:794
 #, kde-format
 msgid "Critical Path"
 msgstr "Критический путь"
@@ -5008,216 +5013,222 @@ msgstr ""
 "Изменение режима расписания\n"
 "изменение режима расписания"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:489
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This schedule is created by the Portfolio Manager"
+msgstr ""
+
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "Allow"
 msgstr "Разрешить"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "Avoid"
 msgstr "Избегать"
 
-#: models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "(Avoid)"
 msgstr "(Избегать)"
 
-#: models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "(Allow)"
 msgstr "(Разрешить)"
 
-#: models/kptschedulemodel.cpp:553
+#: models/kptschedulemodel.cpp:561
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
 msgstr "Разрешить избыточную загрузку ресурсов"
 
-#: models/kptschedulemodel.cpp:554 models/kptschedulemodel.cpp:564
+#: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
 msgstr "Избегать избыточную загрузку ресурсов"
 
-#: models/kptschedulemodel.cpp:558
+#: models/kptschedulemodel.cpp:566
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
 msgstr "Разрешить избыточную загрузку ресурсов"
 
-#: models/kptschedulemodel.cpp:559
+#: models/kptschedulemodel.cpp:567
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
 msgstr "%1 всегда разрешает избыточную звгрузку ресурсов"
 
-#: models/kptschedulemodel.cpp:563
+#: models/kptschedulemodel.cpp:571
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
 msgstr "%1 всегда избегает избыточную загрузку ресурсов"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Allow"
 msgstr "Разрешить"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Avoid"
 msgstr "Избегать"
 
-#: models/kptschedulemodel.cpp:588
+#: models/kptschedulemodel.cpp:596
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
 msgstr "Изменить разрешение избыточной загрузки"
 
-#: models/kptschedulemodel.cpp:605
+#: models/kptschedulemodel.cpp:613
 #, kde-format
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:608
+#: models/kptschedulemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
 msgstr "Использовать распределение PERT для расчёта ожидаемой оценки задач"
 
-#: models/kptschedulemodel.cpp:609
+#: models/kptschedulemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
 msgstr "Использовать ожидаемую оценку задач напрямую"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "Нет"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "PERT"
 msgstr "PERT"
 
-#: models/kptschedulemodel.cpp:631
+#: models/kptschedulemodel.cpp:639
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
 msgstr ""
 "Изменение распределения расписания\n"
 "изменение распределения расписания"
 
-#: models/kptschedulemodel.cpp:660
+#: models/kptschedulemodel.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
 msgstr "Запланированное начало: %1<nl/>Целевое начало: %2"
 
-#: models/kptschedulemodel.cpp:662
+#: models/kptschedulemodel.cpp:670
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
 msgstr "Целевое начало: %1"
 
-#: models/kptschedulemodel.cpp:696
+#: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
 msgstr "Запланированное завершение: %1<nl/>Целевое завершение: %2"
 
-#: models/kptschedulemodel.cpp:698
+#: models/kptschedulemodel.cpp:706
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
 msgstr "Целевое завершение: %1"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "Backwards"
 msgstr "Назад"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "Forward"
 msgstr "Вперёд"
 
-#: models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "(Backwards)"
 msgstr "(Назад)"
 
-#: models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "(Forward)"
 msgstr "(Вперёд)"
 
-#: models/kptschedulemodel.cpp:742 models/kptschedulemodel.cpp:752
+#: models/kptschedulemodel.cpp:750 models/kptschedulemodel.cpp:760
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
 msgstr "Запланировать проект на основе указанного времени завершения"
 
-#: models/kptschedulemodel.cpp:743 models/kptschedulemodel.cpp:748
+#: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
 msgstr "Запланировать проект на основе указанного времени начала"
 
-#: models/kptschedulemodel.cpp:747
+#: models/kptschedulemodel.cpp:755
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
 msgstr "%1 всегда выполняет планирование на основе указанного времени начала"
 
-#: models/kptschedulemodel.cpp:753
+#: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
 msgstr ""
 "%1 всегда выполняет планирование на основе указанного времени завершения"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Backwards"
 msgstr "Назад"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Forward"
 msgstr "Вперёд"
 
-#: models/kptschedulemodel.cpp:777
+#: models/kptschedulemodel.cpp:785
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
 msgstr ""
 "Изменение направления планирования\n"
 "изменение направления планирования"
 
-#: models/kptschedulemodel.cpp:796 odf/KoDocumentInfo.cpp:40
+#: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: models/kptschedulemodel.cpp:822
+#: models/kptschedulemodel.cpp:830
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
 msgstr ""
 "Изменение планировщика\n"
 "изменение планировщика"
 
-#: models/kptschedulemodel.cpp:865
+#: models/kptschedulemodel.cpp:873
 #, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
 msgstr "Нет"
 
-#: models/kptschedulemodel.cpp:874
+#: models/kptschedulemodel.cpp:882
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Scheduling granularity not supported"
@@ -5225,77 +5236,77 @@ msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
 msgstr "Детализация планирования не поддерживается"
 
-#: models/kptschedulemodel.cpp:878
+#: models/kptschedulemodel.cpp:886
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
 msgstr "Выбранная детализация планирования: %1"
 
-#: models/kptschedulemodel.cpp:904
+#: models/kptschedulemodel.cpp:912
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
 msgstr ""
 "Изменение детализации планирования\n"
 "изменение детализации планирования"
 
-#: models/kptschedulemodel.cpp:979
+#: models/kptschedulemodel.cpp:987
 #, kde-format
 msgid "State"
 msgstr "Состояние"
 
-#: models/kptschedulemodel.cpp:980
+#: models/kptschedulemodel.cpp:988
 #, kde-format
 msgid "Mode"
 msgstr "Режим"
 
-#: models/kptschedulemodel.cpp:981
+#: models/kptschedulemodel.cpp:989
 #, kde-format
 msgid "Direction"
 msgstr "Направление"
 
-#: models/kptschedulemodel.cpp:982
+#: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
 msgstr "Избыточная загрузка"
 
-#: models/kptschedulemodel.cpp:983
+#: models/kptschedulemodel.cpp:991
 #, kde-format
 msgid "Distribution"
 msgstr "Распределение"
 
 #. i18n("Calculate");
-#: models/kptschedulemodel.cpp:985
+#: models/kptschedulemodel.cpp:993
 #, kde-format
 msgid "Planned Start"
 msgstr "Запланированное начало"
 
-#: models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:994
 #, kde-format
 msgid "Planned Finish"
 msgstr "Запланированное завершение"
 
-#: models/kptschedulemodel.cpp:987
+#: models/kptschedulemodel.cpp:995
 #, kde-format
 msgid "Scheduler"
 msgstr "Планировщик"
 
-#: models/kptschedulemodel.cpp:988
+#: models/kptschedulemodel.cpp:996
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
 msgstr "Детализация"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Message"
 msgstr "Сообщение"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Phase"
 msgstr "Стадия"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Severity"
 msgstr "Важность"
@@ -6885,7 +6896,7 @@ msgid "Add Subcalendar"
 msgstr "Добавить субкалендарь"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
-#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
+#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
 msgctxt "@action"
@@ -7027,7 +7038,7 @@ msgstr "Добавить подэтап..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -8058,7 +8069,7 @@ msgctxt "@title"
 msgid "Resource Groups"
 msgstr "Группы ресурсов"
 
-#: ui/kptscheduleeditor.cpp:169
+#: ui/kptscheduleeditor.cpp:170
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8086,33 +8097,40 @@ msgstr ""
 "начало и оставшиеся работы для выполнения задач.<nl/><link "
 "url='%1'>Подробнее...</link></para>"
 
-#: ui/kptscheduleeditor.cpp:294
+#: ui/kptscheduleeditor.cpp:301
 #, kde-format
 msgid "Add Schedule"
 msgstr "Добавить расписание"
 
-#: ui/kptscheduleeditor.cpp:299
+#: ui/kptscheduleeditor.cpp:306
 #, kde-format
 msgid "Add Sub-schedule"
 msgstr "Добавить субрасписание"
 
-#: ui/kptscheduleeditor.cpp:309
+#: ui/kptscheduleeditor.cpp:316
 #, kde-format
 msgid "Calculate"
 msgstr "Вычислить"
 
-#: ui/kptscheduleeditor.cpp:314
+#: ui/kptscheduleeditor.cpp:321
 #, kde-format
 msgid "Baseline"
 msgstr "Компоновка плана"
 
-#: ui/kptscheduleeditor.cpp:319
+#: ui/kptscheduleeditor.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Detach"
 msgstr "Открепить"
 
-#: ui/kptscheduleeditor.cpp:354
+#: ui/kptscheduleeditor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Schedule"
+msgctxt "@action"
+msgid "Claim Schedule"
+msgstr "Расписание"
+
+#: ui/kptscheduleeditor.cpp:365
 #, kde-format
 msgid ""
 "This schedule cannot be calculated.\n"
@@ -8121,12 +8139,12 @@ msgstr ""
 "Это расписание нельзя рассчитать.\n"
 "Сначала необходимо выполнить расчёт родительского расписания"
 
-#: ui/kptscheduleeditor.cpp:355 ui/kptscheduleeditor.cpp:361
+#: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, kde-format
 msgid "Project Scheduling"
 msgstr "Расписание проекта"
 
-#: ui/kptscheduleeditor.cpp:360
+#: ui/kptscheduleeditor.cpp:371
 #, kde-format
 msgid ""
 "The project has been started.\n"
@@ -8135,20 +8153,20 @@ msgstr ""
 "Проект был запущен.\n"
 "Выполнить расчёт этого расписания?"
 
-#: ui/kptscheduleeditor.cpp:377
+#: ui/kptscheduleeditor.cpp:388
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr "Вычислить %1"
 
-#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
+#: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr ""
 "Создание субрасписания\n"
 "создание субрасписания"
 
-#: ui/kptscheduleeditor.cpp:406
+#: ui/kptscheduleeditor.cpp:417
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
@@ -8156,17 +8174,17 @@ msgstr ""
 "Добавление расписания %1\n"
 "добавление расписания %1"
 
-#: ui/kptscheduleeditor.cpp:448
+#: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr "Не удалось скомпоновать план. Проект уже скомпонован."
 
-#: ui/kptscheduleeditor.cpp:453
+#: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr "Это расписание относится к компоновке плана. Удалить компоновку плана?"
 
-#: ui/kptscheduleeditor.cpp:457
+#: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
@@ -8174,7 +8192,7 @@ msgstr ""
 "Сброс компоновки плана %1\n"
 "сброс компоновки плана %1"
 
-#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
+#: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
@@ -8182,7 +8200,7 @@ msgstr ""
 "Компоновка плана %1\n"
 "компоновку плана %1"
 
-#: ui/kptscheduleeditor.cpp:474
+#: ui/kptscheduleeditor.cpp:485
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
@@ -8190,7 +8208,7 @@ msgstr ""
 "Удаление расписания %1\n"
 "удаление расписания %1"
 
-#: ui/kptscheduleeditor.cpp:490
+#: ui/kptscheduleeditor.cpp:501
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
@@ -8198,30 +8216,40 @@ msgstr ""
 "Перемещение расписания %1\n"
 "перемещение расписания %1"
 
-#: ui/kptscheduleeditor.cpp:533
+#: ui/kptscheduleeditor.cpp:510
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Add schedule %1"
+msgctxt "(qtundo-format)"
+msgid "Claim schedule %1"
+msgstr ""
+"Добавление расписания %1\n"
+"добавление расписания %1"
+
+#: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "Показывать отладочную информацию."
 
-#: ui/kptscheduleeditor.cpp:768
+#: ui/kptscheduleeditor.cpp:788
 #, kde-format
 msgid "Result"
 msgstr "Результат"
 
-#: ui/kptscheduleeditor.cpp:779
+#: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
 msgstr "Журнал планирования"
 
-#: ui/kptscheduleeditor.cpp:963
+#: ui/kptscheduleeditor.cpp:983
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr ""
 "Изменение запланированного времени начала проекта\n"
 "изменение запланированного времени начала проекта"
 
-#: ui/kptscheduleeditor.cpp:975
+#: ui/kptscheduleeditor.cpp:995
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr ""
@@ -11221,10 +11249,6 @@ msgstr "Все поддерживаемые форматы"
 #~ msgctxt "application name"
 #~ msgid "Plan"
 #~ msgstr "План"
-
-#, fuzzy
-#~ msgid "New Portfolio"
-#~ msgstr "Изменить отчёт"
 
 #~ msgctxt "@info:tooltip 1=resource name, 2=list of required resources"
 #~ msgid "%1 (%2)"

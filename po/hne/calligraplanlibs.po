@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:59+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2009-03-03 10:19+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -32,7 +32,7 @@ msgid "Your emails"
 msgstr "संसाधन नांव देखाव"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
-#: kernel/ProjectLoader_v0.cpp:1510
+#: kernel/ProjectLoader_v0.cpp:1511
 #, fuzzy, kde-format
 #| msgid "Document url already attached: %1"
 msgid "Document loaded, URL=%1"
@@ -214,14 +214,14 @@ msgstr "मि.से."
 msgid "Deleted"
 msgstr "मेटाव"
 
-#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1794
-#: models/kptschedulemodel.cpp:840
+#: kernel/kptglobal.cpp:20 kernel/kptnode.cpp:668 kernel/kptschedule.cpp:1795
+#: models/kptschedulemodel.cpp:848
 #, kde-format
 msgid "Not scheduled"
 msgstr "सारिनीबद्ध नइ"
 
-#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:840
-#: models/kptschedulemodel.cpp:989
+#: kernel/kptglobal.cpp:22 models/kptschedulemodel.cpp:848
+#: models/kptschedulemodel.cpp:997
 #, fuzzy, kde-format
 #| msgid "Schedule:"
 msgid "Scheduled"
@@ -278,7 +278,7 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:695 models/kptnodeitemmodel.cpp:713
 #: models/kptnodeitemmodel.cpp:731 models/kptnodeitemmodel.cpp:766
 #: models/kptnodeitemmodel.cpp:783 models/kptresourceallocationmodel.cpp:878
-#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:605
+#: models/kptresourceallocationmodel.cpp:954 models/kptschedulemodel.cpp:613
 #: models/kpttreecombobox.cpp:110 models/ResourceModel.cpp:208
 #: models/ResourceModel.cpp:240 models/ResourceModel.cpp:361
 #: models/ResourceModel.cpp:365 models/ResourceModel.cpp:374
@@ -670,7 +670,7 @@ msgstr "जानकारी "
 msgid "Warning"
 msgstr "चेतावनी"
 
-#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1798
+#: kernel/kptschedule.cpp:1463 kernel/kptschedule.cpp:1802
 #: models/kptnodeitemmodel.cpp:1705 models/kptnodeitemmodel.cpp:1738
 #: models/kptnodeitemmodel.cpp:1771 models/kptnodeitemmodel.cpp:1804
 #: models/kptnodeitemmodel.cpp:1837 models/kptnodeitemmodel.cpp:1870
@@ -679,16 +679,22 @@ msgstr "चेतावनी"
 msgid "Error"
 msgstr "गलती"
 
-#: kernel/kptschedule.cpp:1788
-#, kde-format
-msgid "Baselined"
-msgstr "बेसलाइन्ड"
-
-#: kernel/kptschedule.cpp:1791
+#: kernel/kptschedule.cpp:1789
 #, fuzzy, kde-format
 #| msgid "Scheduling Log"
 msgid "Scheduling"
 msgstr "सेड्यूलिंग लाग"
+
+#: kernel/kptschedule.cpp:1792
+#, fuzzy, kde-format
+#| msgid "Generate Report"
+msgid "Portfolio"
+msgstr "रिपोट बनाव"
+
+#: kernel/kptschedule.cpp:1798
+#, kde-format
+msgid "Baselined"
+msgstr "बेसलाइन्ड"
 
 #: kernel/kpttask.cpp:1109
 #, fuzzy, kde-format
@@ -2106,8 +2112,8 @@ msgstr[1] "संसाधन सुधारव"
 #: models/kptresourceallocationmodel.cpp:526
 #: models/kptresourceappointmentsmodel.cpp:752
 #: models/kptresourceappointmentsmodel.cpp:767
-#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:978
-#: models/kptschedulemodel.cpp:1303
+#: models/kptresourceappointmentsmodel.cpp:1166 models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:1311
 #: models/reportgenerator/ReportGenerator.cpp:50
 #: models/ResourceGroupModel.cpp:190 models/ResourceModel.cpp:418
 #: ui/projectview/ProjectView.cpp:40
@@ -5020,7 +5026,7 @@ msgstr "उप-काम जोड़व..."
 msgid "Path"
 msgstr "पथ"
 
-#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:774
+#: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:794
 #, kde-format
 msgid "Critical Path"
 msgstr "क्रिटिकल पथ"
@@ -5266,320 +5272,326 @@ msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:489
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "This schedule is created by the Portfolio Manager"
+msgstr ""
+
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "Allow"
 msgstr "स्वीकारव"
 
-#: models/kptschedulemodel.cpp:539 models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "Avoid"
 msgstr "टालें"
 
-#: models/kptschedulemodel.cpp:542
+#: models/kptschedulemodel.cpp:550
 #, fuzzy, kde-format
 #| msgid "Avoid"
 msgid "(Avoid)"
 msgstr "टालें"
 
-#: models/kptschedulemodel.cpp:545
+#: models/kptschedulemodel.cpp:553
 #, fuzzy, kde-format
 #| msgid "Allow"
 msgid "(Allow)"
 msgstr "स्वीकारव"
 
-#: models/kptschedulemodel.cpp:553
+#: models/kptschedulemodel.cpp:561
 #, fuzzy, kde-kuit-format
 #| msgid "Per Resource"
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:554 models/kptschedulemodel.cpp:564
+#: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, fuzzy, kde-kuit-format
 #| msgid "Per Resource"
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:558
+#: models/kptschedulemodel.cpp:566
 #, fuzzy, kde-kuit-format
 #| msgid "Per Resource"
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:559
+#: models/kptschedulemodel.cpp:567
 #, fuzzy, kde-kuit-format
 #| msgid "Per Resource"
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:563
+#: models/kptschedulemodel.cpp:571
 #, fuzzy, kde-kuit-format
 #| msgid "Per Resource"
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, fuzzy, kde-kuit-format
 #| msgid "Allow"
 msgctxt "@label:listbox"
 msgid "Allow"
 msgstr "स्वीकारव"
 
-#: models/kptschedulemodel.cpp:568
+#: models/kptschedulemodel.cpp:576
 #, fuzzy, kde-kuit-format
 #| msgid "Avoid"
 msgctxt "@label:listbox"
 msgid "Avoid"
 msgstr "टालें"
 
-#: models/kptschedulemodel.cpp:588
+#: models/kptschedulemodel.cpp:596
 #, fuzzy
 #| msgid "Per Resource"
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
 msgstr "संसाधन मन के अनुसार"
 
-#: models/kptschedulemodel.cpp:605
+#: models/kptschedulemodel.cpp:613
 #, kde-format
 msgid "PERT"
 msgstr "पीईआरटी"
 
-#: models/kptschedulemodel.cpp:608
+#: models/kptschedulemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:609
+#: models/kptschedulemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, fuzzy, kde-kuit-format
 #| msgid "None"
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "कुछ नइ"
 
-#: models/kptschedulemodel.cpp:611
+#: models/kptschedulemodel.cpp:619
 #, fuzzy, kde-kuit-format
 #| msgid "PERT"
 msgctxt "@label:listbox"
 msgid "PERT"
 msgstr "पीईआरटी"
 
-#: models/kptschedulemodel.cpp:631
+#: models/kptschedulemodel.cpp:639
 #, fuzzy
 #| msgid "The scheduling direction"
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:660
+#: models/kptschedulemodel.cpp:668
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
 msgstr "सारिनी मं चालू समय"
 
-#: models/kptschedulemodel.cpp:662
+#: models/kptschedulemodel.cpp:670
 #, fuzzy, kde-kuit-format
 #| msgid "Earliest start:"
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
 msgstr "अर्लीएस्ट सुरू:"
 
-#: models/kptschedulemodel.cpp:696
+#: models/kptschedulemodel.cpp:704
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
 msgstr "सारिनी मं चालू समय"
 
-#: models/kptschedulemodel.cpp:698
+#: models/kptschedulemodel.cpp:706
 #, fuzzy, kde-kuit-format
 #| msgid "Latest finish:"
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
 msgstr "लेटेस्ट खतम:"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "Backwards"
 msgstr "पीछू से"
 
-#: models/kptschedulemodel.cpp:728 models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "Forward"
 msgstr "आगू"
 
-#: models/kptschedulemodel.cpp:731
+#: models/kptschedulemodel.cpp:739
 #, fuzzy, kde-format
 #| msgid "Backwards"
 msgid "(Backwards)"
 msgstr "पीछू से"
 
-#: models/kptschedulemodel.cpp:734
+#: models/kptschedulemodel.cpp:742
 #, fuzzy, kde-format
 #| msgid "Forward"
 msgid "(Forward)"
 msgstr "आगू"
 
-#: models/kptschedulemodel.cpp:742 models/kptschedulemodel.cpp:752
+#: models/kptschedulemodel.cpp:750 models/kptschedulemodel.cpp:760
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
 msgstr "सारिनी मं चालू समय"
 
-#: models/kptschedulemodel.cpp:743 models/kptschedulemodel.cpp:748
+#: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
 msgstr "सारिनी मं चालू समय"
 
-#: models/kptschedulemodel.cpp:747
+#: models/kptschedulemodel.cpp:755
 #, fuzzy, kde-kuit-format
 #| msgid "Calculate"
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
 msgstr "गनना"
 
-#: models/kptschedulemodel.cpp:753
+#: models/kptschedulemodel.cpp:761
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
 msgstr "सारिनी मं चालू समय"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, fuzzy, kde-kuit-format
 #| msgid "Backwards"
 msgctxt "@label:listbox"
 msgid "Backwards"
 msgstr "पीछू से"
 
-#: models/kptschedulemodel.cpp:757
+#: models/kptschedulemodel.cpp:765
 #, fuzzy, kde-kuit-format
 #| msgid "Forward"
 msgctxt "@label:listbox"
 msgid "Forward"
 msgstr "आगू"
 
-#: models/kptschedulemodel.cpp:777
+#: models/kptschedulemodel.cpp:785
 #, fuzzy
 #| msgid "The scheduling direction"
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:796 odf/KoDocumentInfo.cpp:40
+#: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, fuzzy, kde-format
 #| msgid "Unknown"
 msgid "Unknown"
 msgstr "अग्यात"
 
-#: models/kptschedulemodel.cpp:822
+#: models/kptschedulemodel.cpp:830
 #, fuzzy
 #| msgid "Not scheduled"
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
 msgstr "सारिनीबद्ध नइ"
 
-#: models/kptschedulemodel.cpp:865
+#: models/kptschedulemodel.cpp:873
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "Scheduling granularity not supported"
 msgid "None"
 msgstr "कुछ नइ"
 
-#: models/kptschedulemodel.cpp:874
+#: models/kptschedulemodel.cpp:882
 #, fuzzy, kde-kuit-format
 #| msgid "The scheduling direction"
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:878
+#: models/kptschedulemodel.cpp:886
 #, fuzzy, kde-kuit-format
 #| msgid "The scheduling direction"
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:904
+#: models/kptschedulemodel.cpp:912
 #, fuzzy
 #| msgid "The scheduling direction"
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
 msgstr "सारिनी दिसा"
 
-#: models/kptschedulemodel.cpp:979
+#: models/kptschedulemodel.cpp:987
 #, kde-format
 msgid "State"
 msgstr "स्थिति"
 
-#: models/kptschedulemodel.cpp:980
+#: models/kptschedulemodel.cpp:988
 #, kde-format
 msgid "Mode"
 msgstr "मोड"
 
-#: models/kptschedulemodel.cpp:981
+#: models/kptschedulemodel.cpp:989
 #, fuzzy, kde-format
 #| msgid "Duration"
 msgid "Direction"
 msgstr "अवधि"
 
-#: models/kptschedulemodel.cpp:982
+#: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
 msgstr "ओवरबुकिंग"
 
-#: models/kptschedulemodel.cpp:983
+#: models/kptschedulemodel.cpp:991
 #, fuzzy, kde-format
 #| msgid "Description"
 msgid "Distribution"
 msgstr "वर्नन"
 
 #. i18n("Calculate");
-#: models/kptschedulemodel.cpp:985
+#: models/kptschedulemodel.cpp:993
 #, fuzzy, kde-format
 #| msgid "Planned Effort"
 msgid "Planned Start"
 msgstr "प्लान करे गे प्रयास"
 
-#: models/kptschedulemodel.cpp:986
+#: models/kptschedulemodel.cpp:994
 #, fuzzy, kde-format
 #| msgid "Planned cost"
 msgid "Planned Finish"
 msgstr "प्लान करे गे लागत"
 
-#: models/kptschedulemodel.cpp:987
+#: models/kptschedulemodel.cpp:995
 #, fuzzy, kde-format
 #| msgid "Schedule:"
 msgid "Scheduler"
 msgstr "समयसारिनी:"
 
-#: models/kptschedulemodel.cpp:988
+#: models/kptschedulemodel.cpp:996
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Message"
 msgstr "संदेस"
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Phase"
 msgstr ""
 
-#: models/kptschedulemodel.cpp:1303
+#: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Severity"
 msgstr ""
@@ -7163,7 +7175,7 @@ msgid "Add Subcalendar"
 msgstr "उप कलेन्डर जोड़व"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
-#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:304
+#: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, fuzzy, kde-kuit-format
 #| msgid "Delete"
@@ -7304,7 +7316,7 @@ msgstr "पड़ाव जोड़व..."
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
-#: ui/kptscheduleeditor.cpp:685 ui/kpttaskeditor.cpp:690
+#: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
 #: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
 #: ui/ResourceAppointmentsGanttView.cpp:363
@@ -8329,7 +8341,7 @@ msgctxt "@title"
 msgid "Resource Groups"
 msgstr "संसाधन समूह जोड़व..."
 
-#: ui/kptscheduleeditor.cpp:169
+#: ui/kptscheduleeditor.cpp:170
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -8345,135 +8357,149 @@ msgid ""
 "para>"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:294
+#: ui/kptscheduleeditor.cpp:301
 #, kde-format
 msgid "Add Schedule"
 msgstr "समय सारिनी जोड़व"
 
-#: ui/kptscheduleeditor.cpp:299
+#: ui/kptscheduleeditor.cpp:306
 #, kde-format
 msgid "Add Sub-schedule"
 msgstr "उप समय-सारिनी जोड़व"
 
-#: ui/kptscheduleeditor.cpp:309
+#: ui/kptscheduleeditor.cpp:316
 #, kde-format
 msgid "Calculate"
 msgstr "गनना"
 
-#: ui/kptscheduleeditor.cpp:314
+#: ui/kptscheduleeditor.cpp:321
 #, fuzzy, kde-format
 #| msgid "Baselined"
 msgid "Baseline"
 msgstr "बेसलाइन्ड"
 
-#: ui/kptscheduleeditor.cpp:319
+#: ui/kptscheduleeditor.cpp:326
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Detach"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:354
+#: ui/kptscheduleeditor.cpp:330
+#, fuzzy, kde-format
+#| msgid "Schedule:"
+msgctxt "@action"
+msgid "Claim Schedule"
+msgstr "समयसारिनी:"
+
+#: ui/kptscheduleeditor.cpp:365
 #, kde-format
 msgid ""
 "This schedule cannot be calculated.\n"
 "The parent schedule must be calculated first"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:355 ui/kptscheduleeditor.cpp:361
+#: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, fuzzy, kde-format
 #| msgid "Project Schedule:"
 msgid "Project Scheduling"
 msgstr "परियोजना समय-सारिनी:"
 
-#: ui/kptscheduleeditor.cpp:360
+#: ui/kptscheduleeditor.cpp:371
 #, kde-format
 msgid ""
 "The project has been started.\n"
 "Do you really want to calculate this schedule?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:377
+#: ui/kptscheduleeditor.cpp:388
 #, fuzzy, kde-format
 #| msgid "Calculate"
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
 msgstr "गनना"
 
-#: ui/kptscheduleeditor.cpp:395 ui/kptscheduleeditor.cpp:428
+#: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 #, fuzzy
 #| msgid "Create sub-schedule"
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
 msgstr "उप-समयसारिनी बनाव"
 
-#: ui/kptscheduleeditor.cpp:406
+#: ui/kptscheduleeditor.cpp:417
 #, fuzzy, kde-format
 #| msgid "Add Schedule"
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
 msgstr "समय सारिनी जोड़व"
 
-#: ui/kptscheduleeditor.cpp:448
+#: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:453
+#: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:457
+#: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
 msgstr ""
 
-#: ui/kptscheduleeditor.cpp:460 ui/kptscheduleeditor.cpp:464
+#: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, fuzzy, kde-format
 #| msgid "Baselined"
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
 msgstr "बेसलाइन्ड"
 
-#: ui/kptscheduleeditor.cpp:474
+#: ui/kptscheduleeditor.cpp:485
 #, fuzzy, kde-format
 #| msgid "Add Schedule"
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
 msgstr "समय सारिनी जोड़व"
 
-#: ui/kptscheduleeditor.cpp:490
+#: ui/kptscheduleeditor.cpp:501
 #, fuzzy, kde-format
 #| msgid "Add Schedule"
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
 msgstr "समय सारिनी जोड़व"
 
-#: ui/kptscheduleeditor.cpp:533
+#: ui/kptscheduleeditor.cpp:510
+#, fuzzy, kde-format
+#| msgid "Add Schedule"
+msgctxt "(qtundo-format)"
+msgid "Claim schedule %1"
+msgstr "समय सारिनी जोड़व"
+
+#: ui/kptscheduleeditor.cpp:553
 #, fuzzy, kde-kuit-format
 #| msgid "ForInformation"
 msgctxt "@action"
 msgid "Show Debug Information"
 msgstr "जानकारी-बर"
 
-#: ui/kptscheduleeditor.cpp:768
+#: ui/kptscheduleeditor.cpp:788
 #, kde-format
 msgid "Result"
 msgstr "परिनाम"
 
-#: ui/kptscheduleeditor.cpp:779
+#: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
 msgstr "सेड्यूलिंग लाग"
 
-#: ui/kptscheduleeditor.cpp:963
+#: ui/kptscheduleeditor.cpp:983
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
 msgstr "सारिनी मं चालू समय"
 
-#: ui/kptscheduleeditor.cpp:975
+#: ui/kptscheduleeditor.cpp:995
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
@@ -11479,11 +11505,6 @@ msgstr ""
 #~ msgctxt "application name"
 #~ msgid "Plan"
 #~ msgstr "प्लान"
-
-#, fuzzy
-#~| msgid "Generate Report"
-#~ msgid "New Portfolio"
-#~ msgstr "रिपोट बनाव"
 
 #, fuzzy
 #~ msgctxt "@info:tooltip 1=resource name, 2=list of required resources"

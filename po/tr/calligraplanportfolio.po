@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-02-02 19:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -718,7 +718,7 @@ msgstr ""
 "başlangıç:\t%2</item><item>Planlanan bitiş:\t%3</item><item>Hedef başlangıcı:"
 "\t%4</item><item>Hedef bitişi:\t%5</item></list></para>"
 
-#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:343
+#: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
@@ -745,10 +745,16 @@ msgstr "%1 Programı: Bitirilmeye zamanlandı: %1"
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
+msgid "Schedule is owned by Portfolio"
+msgstr ""
+
+#: ProjectsModel.cpp:340
+#, kde-format
+msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
 msgstr "Program ana hatı çıkarılmış"
 
-#: ProjectsModel.cpp:340
+#: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
@@ -836,30 +842,36 @@ msgstr "Yeni program"
 msgid "New sub-schedule"
 msgstr "Yeni alt program"
 
-#: ScheduleManagerInfoDialog.cpp:71
+#: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
 msgstr "Yeni program '%1' oluşturulacak."
 
-#: ScheduleManagerInfoDialog.cpp:77
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:84
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Existing schedule '%1' is not scheduled.\n"
+"Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
 "Var olan program '%1', zamanlanmamış.\n"
 "'%1' zamanlanacak."
 
-#: ScheduleManagerInfoDialog.cpp:84
-#, kde-format
+#: ScheduleManagerInfoDialog.cpp:93
+#, fuzzy, kde-format
+#| msgid ""
+#| "Existing schedule '%1' is not scheduled.\n"
+#| "'%1' will be scheduled."
 msgid ""
-"Project is baselined.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"Existing schedule '%1' is owned by Plan.\n"
+"New shcedule '%2' will be created."
 msgstr ""
-"Proje ana hatı çıkarıldı.\n"
-"'%1', '%2' ögesine bir alt program olarak oluşturulacak."
+"Var olan program '%1', zamanlanmamış.\n"
+"'%1' zamanlanacak."
 
-#: ScheduleManagerInfoDialog.cpp:91 ScheduleManagerInfoDialog.cpp:103
+#: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
 msgid ""
 "Project is started.\n"
@@ -867,53 +879,6 @@ msgid ""
 msgstr ""
 "Proje başlatıldı.\n"
 "'%1', '%2' ögesine bir alt program olarak oluşturulacak."
-
-#: ScheduleManagerInfoDialog.cpp:95
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Schedule '%1' will be re-scheduled."
-msgstr ""
-"Proje başlatıldı.\n"
-"'%1' programı yeniden zamanlanacak."
-
-#: ScheduleManagerInfoDialog.cpp:107
-#, kde-format
-msgid ""
-"Project is started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Proje başlatıldı.\n"
-"Var olan program '%1' yeniden zamanlanacak."
-
-#: ScheduleManagerInfoDialog.cpp:116
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New sub-schedule '%1'.\n"
-"'%1' will be created as sub-schedule to '%2'."
-msgstr ""
-"Proje başlatılmadı.\n"
-"Yeni alt program '%1'.\n"
-"'%1', '%2' ögesine bir alt program olarak oluşturulacak."
-
-#: ScheduleManagerInfoDialog.cpp:118
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"New schedule '%1' will be created."
-msgstr ""
-"Proje başlatılmadı.\n"
-"Yeni program '%1' oluşturulacak."
-
-#: ScheduleManagerInfoDialog.cpp:122
-#, kde-format
-msgid ""
-"Project is not started.\n"
-"Existing schedule '%1' will be re-scheduled."
-msgstr ""
-"Proje başlatılmadı.\n"
-"Var olan program '%1' yeniden zamanlanacak."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -1235,6 +1200,50 @@ msgstr "Özkaynak Kullanımı"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Gantt Özeti"
+
+#~ msgid ""
+#~ "Project is baselined.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Proje ana hatı çıkarıldı.\n"
+#~ "'%1', '%2' ögesine bir alt program olarak oluşturulacak."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Proje başlatıldı.\n"
+#~ "'%1' programı yeniden zamanlanacak."
+
+#~ msgid ""
+#~ "Project is started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Proje başlatıldı.\n"
+#~ "Var olan program '%1' yeniden zamanlanacak."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New sub-schedule '%1'.\n"
+#~ "'%1' will be created as sub-schedule to '%2'."
+#~ msgstr ""
+#~ "Proje başlatılmadı.\n"
+#~ "Yeni alt program '%1'.\n"
+#~ "'%1', '%2' ögesine bir alt program olarak oluşturulacak."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "New schedule '%1' will be created."
+#~ msgstr ""
+#~ "Proje başlatılmadı.\n"
+#~ "Yeni program '%1' oluşturulacak."
+
+#~ msgid ""
+#~ "Project is not started.\n"
+#~ "Existing schedule '%1' will be re-scheduled."
+#~ msgstr ""
+#~ "Proje başlatılmadı.\n"
+#~ "Var olan program '%1' yeniden zamanlanacak."
 
 #~ msgid "Scheduling running..."
 #~ msgstr "Zamanlama çalışıyor..."
