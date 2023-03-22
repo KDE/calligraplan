@@ -90,7 +90,7 @@ void ScheduleManagerInfoDialog::createScheduleManagerInfoList(const QList<KoDocu
             info.manager = project->createScheduleManager(info.parentManager);
             info.manager->setOwner(KPlato::ScheduleManager::OwnerPortfolio);
             info.name = info.manager->name();
-            info.state = i18n("Existing schedule '%1' is owned by Plan.\nNew shcedule '%2' will be created.", sm->name(), info.name);
+            info.state = i18n("Existing schedule '%1' is owned by Plan.\nNew schedule '%2' will be created.", sm->name(), info.name);
         } else if (project->isStarted() && !sm->parentManager()) {
             // project is started and sm is a top-level schedule so create new sub-schedule to sm
             info.newSubSchedule = true;
