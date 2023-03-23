@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 10:01+0100\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
+"PO-Revision-Date: 2023-03-22 13:01+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -754,7 +754,7 @@ msgstr "Planificació %1: Planificat per a finalitzar: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "La planificació és propietat de Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -856,28 +856,25 @@ msgid "New schedule '%1' will be created."
 msgstr "Es crearà la planificació nova «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"La planificació existent «%1» no està planificada.\n"
+"La planificació existent «%1» és propietat de Portfolio.\n"
 "Es planificarà «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#| "Existing schedule '%1' is owned by Plan.\n"
+#| "New shcedule '%2' will be created."
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
-"New shcedule '%2' will be created."
+"New schedule '%2' will be created."
 msgstr ""
-"La planificació existent «%1» no està planificada.\n"
-"Es planificarà «%1»."
+"La planificació existent «%1» és propietat de Plan.\n"
+"Es crearà la planificació nova «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -1209,47 +1206,3 @@ msgstr "Ús dels recursos"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Resum de Gantt"
-
-#~ msgid ""
-#~ "Project is baselined.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "El projecte és una línia base.\n"
-#~ "«%1» es crearà com a subplanificació a «%2»."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El projecte està iniciat.\n"
-#~ "La planificació «%1» es replanificarà."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El projecte està iniciat.\n"
-#~ "La planificació existent «%1» es replanificarà."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New sub-schedule '%1'.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "El projecte no està iniciat.\n"
-#~ "Subplanificació nova «%1».\n"
-#~ "«%1» es crearà com a subplanificació a «%2»."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New schedule '%1' will be created."
-#~ msgstr ""
-#~ "El projecte no està iniciat.\n"
-#~ "Es crearà la subplanificació nova «%1»."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El projecte no està iniciat.\n"
-#~ "La planificació existent «%1» es replanificarà."

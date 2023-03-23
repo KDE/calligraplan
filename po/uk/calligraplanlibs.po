@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 10:53+0200\n"
+"PO-Revision-Date: 2023-03-22 13:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -631,10 +631,9 @@ msgid "Scheduling"
 msgstr "Планування"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Нове портфоліо"
+msgstr "Портфоліо"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -5004,7 +5003,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Цей розклад створено засобом керування портфоліо"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -8083,11 +8082,10 @@ msgid "Detach"
 msgstr "Відокремити"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Розклад"
+msgstr "Заявити розклад"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -8180,14 +8178,12 @@ msgstr ""
 "пересування розкладу %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
 msgstr ""
-"Додати розклад %1\n"
-"додавання розкладу %1"
+"Заявити розклад %1\n"
+"заявлення розкладу %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format

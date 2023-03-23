@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-03-06 13:31+0100\n"
+"PO-Revision-Date: 2023-03-22 12:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -635,7 +635,7 @@ msgstr "Planificació"
 #: kernel/kptschedule.cpp:1792
 #, kde-format
 msgid "Portfolio"
-msgstr ""
+msgstr "Cartera"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4867,7 +4867,7 @@ msgstr "Modifiqueu el mode de planificació"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Esta planificació ha sigut creada pel gestor de carteres"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7809,11 +7809,10 @@ msgid "Detach"
 msgstr "Separa"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Planificació"
+msgstr "Reclama una planificació"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7890,12 +7889,10 @@ msgid "Move schedule %1"
 msgstr "Mou la planificació %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Afig la planificació %1"
+msgstr "Reclama la planificació %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 19:08+0300\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
+"PO-Revision-Date: 2023-03-22 11:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -746,7 +746,7 @@ msgstr "%1 Programı: Bitirilmeye zamanlandı: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Programın sahibi Portföy"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -848,28 +848,25 @@ msgid "New schedule '%1' will be created."
 msgstr "Yeni program '%1' oluşturulacak."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"Var olan program '%1', zamanlanmamış.\n"
+"Var olan '%1' programının sahibi Portföy.\n"
 "'%1' zamanlanacak."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#| "Existing schedule '%1' is owned by Plan.\n"
+#| "New shcedule '%2' will be created."
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
-"New shcedule '%2' will be created."
+"New schedule '%2' will be created."
 msgstr ""
-"Var olan program '%1', zamanlanmamış.\n"
-"'%1' zamanlanacak."
+"Var olan '%1' programının sahibi Plan.\n"
+"'%2' zamanlanacak."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -1200,50 +1197,3 @@ msgstr "Özkaynak Kullanımı"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Gantt Özeti"
-
-#~ msgid ""
-#~ "Project is baselined.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "Proje ana hatı çıkarıldı.\n"
-#~ "'%1', '%2' ögesine bir alt program olarak oluşturulacak."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "Proje başlatıldı.\n"
-#~ "'%1' programı yeniden zamanlanacak."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "Proje başlatıldı.\n"
-#~ "Var olan program '%1' yeniden zamanlanacak."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New sub-schedule '%1'.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "Proje başlatılmadı.\n"
-#~ "Yeni alt program '%1'.\n"
-#~ "'%1', '%2' ögesine bir alt program olarak oluşturulacak."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New schedule '%1' will be created."
-#~ msgstr ""
-#~ "Proje başlatılmadı.\n"
-#~ "Yeni program '%1' oluşturulacak."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "Proje başlatılmadı.\n"
-#~ "Var olan program '%1' yeniden zamanlanacak."
-
-#~ msgid "Scheduling running..."
-#~ msgstr "Zamanlama çalışıyor..."

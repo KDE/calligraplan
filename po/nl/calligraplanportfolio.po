@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 10:20+0100\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
+"PO-Revision-Date: 2023-03-22 13:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -752,7 +752,7 @@ msgstr "Planning: : gepland te eindigen: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Planning is eigendom van Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -854,28 +854,25 @@ msgid "New schedule '%1' will be created."
 msgstr "Nieuwe planning '%1' zal aangemaakt worden."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"Bestaande planning '%1' is niet gepland.\n"
-"'%1' zal worden gepland."
+"Bestaande planning '%1' is eigendom van Portfolio.\n"
+"'%1' zal gepland worden."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#| "Existing schedule '%1' is owned by Plan.\n"
+#| "New shcedule '%2' will be created."
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
-"New shcedule '%2' will be created."
+"New schedule '%2' will be created."
 msgstr ""
-"Bestaande planning '%1' is niet gepland.\n"
-"'%1' zal worden gepland."
+"Bestaande planning '%1' is eigendom van Plan.\n"
+"Nieuwe planning '%2' zal aangemaakt worden."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format

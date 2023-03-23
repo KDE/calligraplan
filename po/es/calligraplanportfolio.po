@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 23:43+0100\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
+"PO-Revision-Date: 2023-03-22 20:39+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.03.80\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -759,7 +759,7 @@ msgstr "Programación de %1: programada para terminar: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "El propietario de la planificación es Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -861,28 +861,25 @@ msgid "New schedule '%1' will be created."
 msgstr "Se creará la nueva programación «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"La programación «%1» no está programada.\n"
+"El propietario de la programación «%1» es Portfolio.\n"
 "Se programará «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#| "Existing schedule '%1' is owned by Plan.\n"
+#| "New shcedule '%2' will be created."
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
-"New shcedule '%2' will be created."
+"New schedule '%2' will be created."
 msgstr ""
-"La programación «%1» no está programada.\n"
-"Se programará «%1»."
+"El propietario de la programación «%1» es Plan.\n"
+"Se creará la nueva programación «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format

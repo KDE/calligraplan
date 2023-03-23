@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-03-21 13:26+0300\n"
+"PO-Revision-Date: 2023-03-22 11:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -633,7 +633,7 @@ msgstr "Zamanlama"
 #: kernel/kptschedule.cpp:1792
 #, kde-format
 msgid "Portfolio"
-msgstr ""
+msgstr "Portföy"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4850,7 +4850,7 @@ msgstr "Zamanlama kipini değiştir"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Bu program, Portföy Yöneticisi tarafından oluşturulmuştur"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7783,11 +7783,10 @@ msgid "Detach"
 msgstr "Ayır"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Program"
+msgstr "Programı İste"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7864,12 +7863,10 @@ msgid "Move schedule %1"
 msgstr "Zamanlamayı taşı: %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Zamanlama ekle: %1"
+msgstr "Programı iste: %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format

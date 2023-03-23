@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-15 16:12+0000\n"
+"PO-Revision-Date: 2023-03-22 11:54+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -659,7 +659,7 @@ msgstr "Agendamento"
 #: kernel/kptschedule.cpp:1792
 #, kde-format
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfólio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4893,7 +4893,7 @@ msgstr "Modificar o modo do escalonamento"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Este agendamento é criado pelo Gestor de Portfólios"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7834,11 +7834,10 @@ msgid "Detach"
 msgstr "Destacar"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Escalonar"
+msgstr "Reclamar o Escalonamento"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7916,12 +7915,10 @@ msgid "Move schedule %1"
 msgstr "Mover o escalonamento %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Adicionar o Escalonamento %1"
+msgstr "Reclamar o escalonamento %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format

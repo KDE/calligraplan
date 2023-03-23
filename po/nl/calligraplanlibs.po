@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 10:20+0100\n"
+"PO-Revision-Date: 2023-03-22 13:24+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -635,10 +635,9 @@ msgid "Scheduling"
 msgstr "Planning"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Nieuw portfolio"
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4872,7 +4871,7 @@ msgstr "De planningsmodus wijzigen"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Deze planning is aangemaakt door de portfoliobeheerder"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7810,11 +7809,10 @@ msgid "Detach"
 msgstr "Losmaken"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Plan"
+msgstr "Plan claimen"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7891,12 +7889,10 @@ msgid "Move schedule %1"
 msgstr "Planning %1 verplaatsen"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Planning %1 toevoegen"
+msgstr "Planning %1 claimen"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
