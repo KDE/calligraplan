@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-03-22 11:57+0300\n"
+"PO-Revision-Date: 2023-03-23 13:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -746,7 +746,7 @@ msgstr "%1 Programı: Bitirilmeye zamanlandı: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr "Programın sahibi Portföy"
+msgstr "Planın sahibi Portföy'dür"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -853,20 +853,17 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"Var olan '%1' programının sahibi Portföy.\n"
-"'%1' zamanlanacak."
+"Var olan program '%1', Portföy'e aittir.\n"
+"'%1' programlanacak."
 
 #: ScheduleManagerInfoDialog.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is owned by Plan.\n"
-#| "New shcedule '%2' will be created."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
-"Var olan '%1' programının sahibi Plan.\n"
-"'%2' zamanlanacak."
+"Var olan program '%1', Plan'a aittir.\n"
+"Yeni program '%2' oluşturulacak."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format

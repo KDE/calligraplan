@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-03 16:25+0100\n"
+"PO-Revision-Date: 2023-03-23 14:24+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -631,7 +631,7 @@ msgstr "დაგეგმილი"
 #: kernel/kptschedule.cpp:1792
 #, kde-format
 msgid "Portfolio"
-msgstr ""
+msgstr "პორტფოლიო"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -7557,11 +7557,10 @@ msgid "Detach"
 msgstr "მოძრობა"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "განრიგი"
+msgstr ""
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7634,12 +7633,10 @@ msgid "Move schedule %1"
 msgstr ""
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Create sub-schedule"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "ქვეგეგმის დამატება"
+msgstr ""
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format

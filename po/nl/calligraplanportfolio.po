@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-03-22 13:27+0100\n"
+"PO-Revision-Date: 2023-03-23 10:11+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -863,10 +863,7 @@ msgstr ""
 "'%1' zal gepland worden."
 
 #: ScheduleManagerInfoDialog.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is owned by Plan.\n"
-#| "New shcedule '%2' will be created."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
