@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-01-09 09:01+0100\n"
-"PO-Revision-Date: 2023-03-21 13:26+0300\n"
+"PO-Revision-Date: 2023-03-23 14:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -288,7 +288,7 @@ msgstr "Başlangıç kısıtlama zamanının nasıl kullanılacağını tanımla
 #: calligraplansettings.kcfg:204
 #, kde-format
 msgid "Constraint start date and time"
-msgstr "Başlangıç tarihini/saatini kısıtla"
+msgstr "Başlangıç tarihini/zamanını kısıtla"
 
 #. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
 #: calligraplansettings.kcfg:207
@@ -300,7 +300,7 @@ msgstr "Bitiş kısıtlama zamanının nasıl kullanılacağını tanımlar"
 #: calligraplansettings.kcfg:216
 #, kde-format
 msgid "Constraint end date and time"
-msgstr "Bitiş tarihini/saatini kısıtla"
+msgstr "Bitiş tarihini/zamanını kısıtla"
 
 #. i18n: ectx: label, entry (EstimateType), group (Task defaults)
 #: calligraplansettings.kcfg:220

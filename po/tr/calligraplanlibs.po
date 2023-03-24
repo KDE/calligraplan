@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-03-21 13:26+0300\n"
+"PO-Revision-Date: 2023-03-23 13:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2983,7 +2983,7 @@ msgstr "Zamanlanmış bitiş: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled duration: %1"
-msgstr "Planlanan süre: %1"
+msgstr "Zamanlanan süre: %1"
 
 #: models/kptnodeitemmodel.cpp:877
 #, kde-kuit-format
