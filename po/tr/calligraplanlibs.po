@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-03-23 13:47+0300\n"
+"PO-Revision-Date: 2023-03-24 16:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -9441,7 +9441,7 @@ msgstr "Sağ Kenar:"
 #: widgets/KoPageLayoutWidget.cpp:193
 #, kde-format
 msgid "Binding Edge:"
-msgstr "Cilt Kenarı:"
+msgstr "Cilt Kenarlığı:"
 
 #: widgets/KoPageLayoutWidget.cpp:194
 #, kde-format
@@ -9569,7 +9569,7 @@ msgstr "Üst:"
 #: widgets/KoPageLayoutWidget.ui:230
 #, kde-format
 msgid "Binding edge:"
-msgstr "Cilt kenarı:"
+msgstr "Cilt kenarlığı:"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: widgets/KoPageLayoutWidget.ui:250
