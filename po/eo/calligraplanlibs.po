@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-03-01 20:28+0100\n"
+"PO-Revision-Date: 2023-03-25 16:29+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -7774,11 +7774,10 @@ msgid "Detach"
 msgstr "Malkroĉi"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Horaro"
+msgstr "Postuli Horaron"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7855,12 +7854,10 @@ msgid "Move schedule %1"
 msgstr "Movi horaron %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Aldoni horaron %1"
+msgstr "Postuli horaron %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
