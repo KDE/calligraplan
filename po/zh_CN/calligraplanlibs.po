@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-03-11 04:55\n"
+"PO-Revision-Date: 2023-03-26 02:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3789,32 +3789,32 @@ msgstr "修改启动成本"
 #: models/kptnodeitemmodel.cpp:3035
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown account"
-msgstr ""
+msgstr "修改关闭账户"
 
 #: models/kptnodeitemmodel.cpp:3052
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown cost"
-msgstr ""
+msgstr "修改关闭账户"
 
 #: models/kptnodeitemmodel.cpp:3074 models/kpttaskstatusmodel.cpp:452
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "修改剩余的工作"
 
 #: models/kptnodeitemmodel.cpp:3086 models/kpttaskstatusmodel.cpp:465
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "修改实际工作"
 
 #: models/kptnodeitemmodel.cpp:3099 models/kpttaskstatusmodel.cpp:479
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
-msgstr ""
+msgstr "修改实际开始时间"
 
 #: models/kptnodeitemmodel.cpp:3128 models/kpttaskstatusmodel.cpp:507
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
-msgstr ""
+msgstr "修改实际完成时间"
 
 #: models/kptnodeitemmodel.cpp:3559 models/kptnodeitemmodel.cpp:3568
 #: models/kptnodeitemmodel.cpp:3603 models/kptnodeitemmodel.cpp:3606
@@ -3833,18 +3833,18 @@ msgstr "添加资源"
 #: ui/ResourceAllocationView.cpp:159
 msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
-msgstr ""
+msgstr "修改资源分配"
 
 #: models/kptnodeitemmodel.cpp:3657 models/kpttaskstatusmodel.cpp:402
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
-msgstr ""
+msgstr "修改完成"
 
 #: models/kptnodeitemmodel.cpp:3686 models/kpttaskstatusmodel.cpp:431
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "设置完成"
 
 #: models/kptnodeitemmodel.cpp:4051
 msgctxt "(qtundo-format)"
@@ -3871,18 +3871,18 @@ msgstr "插入 %1"
 #: models/kptnodeitemmodel.cpp:4220 models/kptnodeitemmodel.cpp:5016
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
-msgstr ""
+msgstr "移动任务"
 
 #: models/kptnodeitemmodel.cpp:4288 ui/kpttaskdialog.cpp:178
 #: ui/kpttaskdialog.cpp:215
 msgctxt "(qtundo-format)"
 msgid "Add task"
-msgstr ""
+msgstr "添加任务"
 
 #: models/kptnodeitemmodel.cpp:4317 ui/kpttaskdialog.cpp:213
 msgctxt "(qtundo-format)"
 msgid "Add sub-task"
-msgstr ""
+msgstr "添加子任务"
 
 #: models/kptpertcpmmodel.cpp:162
 #, kde-format
@@ -3917,12 +3917,12 @@ msgstr "滞后"
 #: models/kptrelationmodel.cpp:330
 msgctxt "(qtundo-format)"
 msgid "Modify relation type"
-msgstr ""
+msgstr "修改关系类型"
 
 #: models/kptrelationmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Modify relation time lag"
-msgstr ""
+msgstr "修改关系时间延迟"
 
 #: models/kptresourceallocationmodel.cpp:162
 #: models/kptresourceallocationmodel.cpp:220
@@ -3948,7 +3948,7 @@ msgstr "分配的单元：%1%"
 #: models/kptresourceallocationmodel.cpp:225
 #, no-c-format, kde-format
 msgid "Maximum units available: %1%"
-msgstr ""
+msgstr "可用的最大单位数： %1%"
 
 #: models/kptresourceallocationmodel.cpp:254
 #, kde-kuit-format
@@ -3961,12 +3961,15 @@ msgid ""
 "resource must be part of a group of type <emphasis>Material</emphasis>.</"
 "para>"
 msgstr ""
+"<title>所需资源</title><para>工作资源可以分配给一个或多个所需资源。 所需资源"
+"是工作资源为开展工作所依赖的物质资源。</para><para>要能够使用物质资源作为所需"
+"的资源， 材料资源必须是一组类型 <emphasis>材料</emphasis>的一部分。</para>"
 
 #: models/kptresourceallocationmodel.cpp:271
 #, kde-format
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] ""
+msgstr[0] "该组有 %1 个资源"
 
 #: models/kptresourceallocationmodel.cpp:332
 #, kde-format
@@ -3994,13 +3997,13 @@ msgstr "资源分配"
 #, kde-kuit-format
 msgctxt "@info:tootip"
 msgid "Available resources or resource units"
-msgstr ""
+msgstr "可用资源或资源单位"
 
 #: models/kptresourceallocationmodel.cpp:348
 #, kde-kuit-format
 msgctxt "@info:tootip"
 msgid "Required material resources"
-msgstr ""
+msgstr "所需物质资源"
 
 #: models/kptresourceallocationmodel.cpp:354
 #, kde-kuit-format
@@ -4012,26 +4015,29 @@ msgid ""
 "be able to use a material resource as a required resource, the material "
 "resource must be part of a group of type Material.</para>"
 msgstr ""
+"<title>所需资源</title><para>工作资源可以分配给一个或多个所需资源。 所需资源"
+"是工作资源为开展工作所依赖的物质资源。</para><para>要能够使用物质资源作为所需"
+"的资源， 物质资源必须是一组类型材料的一部分。</para>"
 
 #: models/kptresourceallocationmodel.cpp:688 models/kptresourcemodel.cpp:1736
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1 allocated out of %2 available"
-msgstr ""
+msgstr "%1 分配了 %2"
 
 #: models/kptresourceallocationmodel.cpp:726 models/kptresourcemodel.cpp:1756
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 resource requested for dynamic allocation"
 msgid_plural "%1 resources requested for dynamic allocation"
-msgstr[0] ""
+msgstr[0] "为动态分配请求的 %1 资源"
 
 #: models/kptresourceallocationmodel.cpp:730 models/kptresourcemodel.cpp:1760
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 resource allocated"
 msgid_plural "%1 resources allocated"
-msgstr[0] ""
+msgstr[0] "已分配 %1 资源"
 
 #: models/kptresourceallocationmodel.cpp:734 models/kptresourcemodel.cpp:1764
 #, kde-kuit-format
@@ -4048,6 +4054,9 @@ msgid ""
 "the time of scheduling.</para> These dynamically allocated resources will be "
 "in addition to any resource you have allocated specifically."
 msgstr ""
+"<title>群组分配</title><para>您可以从群组中分配一些资源，并让调度程序在调度时"
+"从可用资源中选择。</para> 这些动态分配的资源将是你所分配的任何资源之外的资"
+"源。"
 
 #: models/kptresourceallocationmodel.cpp:810
 #, kde-format
@@ -4060,31 +4069,31 @@ msgstr "%1 of %2"
 msgctxt "@info:tooltip"
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] ""
+msgstr[0] "该组有 %1 个资源"
 
 #: models/kptresourceallocationmodel.cpp:847
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No material resources available"
-msgstr ""
+msgstr "没有可用的物质资源"
 
 #: models/kptresourceallocationmodel.cpp:855
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No required resources"
-msgstr ""
+msgstr "无需资源"
 
 #: models/kptresourceallocationmodel.cpp:858
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Material resources cannot have required resources"
-msgstr ""
+msgstr "物质资源不能有所需资源"
 
 #: models/kptresourceallocationmodel.cpp:860
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Team resources cannot have required resources"
-msgstr ""
+msgstr "团队资源不能拥有所需资源"
 
 #: models/kptresourceappointmentsmodel.cpp:589
 #, kde-format
@@ -4094,37 +4103,37 @@ msgstr "外部项目：%1"
 #: models/kptresourceappointmentsmodel.cpp:665
 #, kde-format
 msgid "The total booking on %1, along with the maximum hours for the resource"
-msgstr ""
+msgstr "%1上的预订以及资源的最大小时数"
 
 #: models/kptresourceappointmentsmodel.cpp:697
 #, kde-format
 msgid "Total booking by this task"
-msgstr ""
+msgstr "此任务的预订总数"
 
 #: models/kptresourceappointmentsmodel.cpp:699
 #, kde-format
 msgid "Total booking by the external project"
-msgstr ""
+msgstr "外部项目的预订总数"
 
 #: models/kptresourceappointmentsmodel.cpp:742
 #, kde-format
 msgid "Booking by this task on %1"
-msgstr ""
+msgstr "%1 上的任务预订"
 
 #: models/kptresourceappointmentsmodel.cpp:744
 #, kde-format
 msgid "Booking by external project on %1"
-msgstr ""
+msgstr "%1上的外部项目预订"
 
 #: models/kptresourceappointmentsmodel.cpp:935
 #, kde-format
 msgid "The total hours booked"
-msgstr ""
+msgstr "已预订的总小时"
 
 #: models/kptresourceappointmentsmodel.cpp:939
 #, kde-format
 msgid "Bookings on %1"
-msgstr ""
+msgstr "预订于 %1"
 
 #: models/kptresourceappointmentsmodel.cpp:1214
 #, kde-kuit-format
@@ -4141,7 +4150,7 @@ msgstr "间隔"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Assigned: %5<nl/>Available: %6"
-msgstr ""
+msgstr "%1: %2<nl/>%3: %4<nl/>已分配: %5<nl/>可用: %6"
 
 #: models/kptresourceappointmentsmodel.cpp:1505
 #, kde-format
@@ -4165,13 +4174,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "%1 is a <emphasis>Shared</emphasis> resource and can thus be shared with "
 "other projects"
-msgstr ""
+msgstr "%1 是 <emphasis>共享</emphasis> 资源，因此可以与其他项目共享"
 
 #: models/kptresourcemodel.cpp:96
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1:<nl/>This resource will be automatically allocated to new tasks"
-msgstr ""
+msgstr "%1:<nl/>此资源将自动分配给新任务"
 
 #: models/kptresourcemodel.cpp:126 models/kptresourcemodel.cpp:169
 #, kde-kuit-format
@@ -4179,7 +4188,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "%1 is a <emphasis>Shared</emphasis> resource group and can thus be shared "
 "with other projects"
-msgstr ""
+msgstr "%1 是 <emphasis>共享</emphasis> 资源，因此可以与其他项目共享"
 
 #: models/kptresourcemodel.cpp:142
 #, kde-kuit-format
@@ -4187,7 +4196,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "%1 is a <emphasis>Local</emphasis> resource and can only be used in this "
 "project"
-msgstr ""
+msgstr "%1 是 <emphasis>本地</emphasis> 资源，只能用于此项目"
 
 #: models/kptresourcemodel.cpp:167
 #, kde-kuit-format
@@ -4195,7 +4204,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "%1 is a <emphasis>Local</emphasis> resource group and can only be used in "
 "this project"
-msgstr ""
+msgstr "%1 是 <emphasis>本地</emphasis> 资源组，只能用于此项目"
 
 #: models/kptresourcemodel.cpp:275 models/kptresourcemodel.cpp:301
 #, kde-format
@@ -4207,37 +4216,37 @@ msgstr "默认 (%1)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A team resource does not have a calendar"
-msgstr ""
+msgstr "团队资源没有日历"
 
 #: models/kptresourcemodel.cpp:284
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No calendar"
-msgstr ""
+msgstr "无日历"
 
 #: models/kptresourcemodel.cpp:292
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "Using default calendar: %1"
-msgstr ""
+msgstr "使用默认日历： %1"
 
 #: models/kptresourcemodel.cpp:346
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available from: %1"
-msgstr ""
+msgstr "可用： %1"
 
 #: models/kptresourcemodel.cpp:348
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available from project target start time: %1"
-msgstr ""
+msgstr "从项目目标开始时间可用： %1"
 
 #: models/kptresourcemodel.cpp:368
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available until: %1"
-msgstr ""
+msgstr "可用时间到： %1"
 
 #: models/kptresourcemodel.cpp:370
 #, kde-kuit-format
@@ -4248,12 +4257,12 @@ msgstr ""
 #: models/kptresourcemodel.cpp:389
 #, kde-format
 msgid "Cost per hour, normal time: %1"
-msgstr ""
+msgstr "每小时成本，正常时间： %1"
 
 #: models/kptresourcemodel.cpp:407
 #, kde-format
 msgid "Cost per hour, overtime: %1"
-msgstr ""
+msgstr "每小时成本，加班时间： %1"
 
 #: models/kptresourcemodel.cpp:424
 #, kde-format
@@ -4745,17 +4754,17 @@ msgstr "下一周期"
 #: models/kpttaskstatusmodel.cpp:66
 #, kde-format
 msgid "Tasks that are scheduled to start next period"
-msgstr ""
+msgstr "预定开始下一期的任务"
 
 #: models/kptworkpackagemodel.cpp:83
 #, kde-format
 msgid "Sent to %1 at %2"
-msgstr ""
+msgstr "发送至 %1 于 %2"
 
 #: models/kptworkpackagemodel.cpp:86
 #, kde-format
 msgid "Received from %1 at %2"
-msgstr ""
+msgstr "从 %1 于 %2 接收"
 
 #: models/kptworkpackagemodel.cpp:88 models/kptworkpackagemodel.cpp:116
 #, kde-format
@@ -4765,27 +4774,27 @@ msgstr "不可用"
 #: models/kptworkpackagemodel.cpp:111
 #, kde-format
 msgid "Work package sent at: %1"
-msgstr ""
+msgstr "工作包发送于： %1"
 
 #: models/kptworkpackagemodel.cpp:114
 #, kde-format
 msgid "Work package transmission received at: %1"
-msgstr ""
+msgstr "工作包传输收到于： %1"
 
 #: models/kptworkpackagemodel.cpp:141
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr ""
+msgstr "任务报告 %1% 已完成"
 
 #: models/reportgenerator/ReportGenerator.cpp:81
 #, kde-format
 msgid "Unknown report type: %1"
-msgstr ""
+msgstr "未知报告类型： %1"
 
 #: models/reportgenerator/ReportGenerator.cpp:94
 #, kde-format
 msgid "The report generator has not been opened successfully."
-msgstr ""
+msgstr "报告生成器尚未成功打开。"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:172
 #: models/reportgenerator/ReportGeneratorOdt.cpp:192
@@ -4797,17 +4806,17 @@ msgstr "经理"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:321
 #, kde-format
 msgid "Missing report template file"
-msgstr ""
+msgstr "缺少报表模板文件"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:325
 #, kde-format
 msgid "Missing report result file"
-msgstr ""
+msgstr "缺少报告结果文件"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:329
 #, kde-format
 msgid "Report generator is already open"
-msgstr ""
+msgstr "报表生成器已经打开"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:333
 #, kde-format
@@ -4817,44 +4826,44 @@ msgstr ""
 #: models/reportgenerator/ReportGeneratorOdt.cpp:339
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr ""
+msgstr "打开模板文件失败： %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:366
 #, kde-format
 msgid "Report generator has not been correctly opened"
-msgstr ""
+msgstr "报表生成器未被正确打开"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:406
 #: models/reportgenerator/ReportGeneratorOdt.cpp:433
 #: models/reportgenerator/ReportGeneratorOdt.cpp:1025
 #, kde-format
 msgid "Failed to write to store: %1"
-msgstr ""
+msgstr "写入存储失败： %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:448
 #, kde-format
 msgid "Failed to write report file: %1"
-msgstr ""
+msgstr "写入报表文件失败： %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:864
 #, kde-format
 msgid "Report generator can only generate local files"
-msgstr ""
+msgstr "报表生成器只能生成本地文件"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:870
 #, kde-format
 msgid "Failed to open report file: %1"
-msgstr ""
+msgstr "打开报表文件失败： %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:876
 #, kde-format
 msgid "Failed to load manifest file"
-msgstr ""
+msgstr "加载清单文件失败"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:882
 #, kde-format
 msgid "Failed to write manifest file"
-msgstr ""
+msgstr "写入清单文件失败"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:908 odf/KoOdfReadStore.cpp:105
 #, kde-format
@@ -4865,13 +4874,13 @@ msgstr "无存储后端"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
-msgstr ""
+msgstr "无法从商店打开文件 <filename>%1</filename>"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:951
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "缺少命名空间声明：<nl/><filename>%1</filename>"
 
 #: odf/KoOdfReadStore.cpp:140
 #, kde-format
@@ -5212,6 +5221,10 @@ msgid ""
 "from resources.</para><para>This view supports printing using the context "
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>成本细分结构编辑器</title><para>成本细分结构(CBS)由一些账户组成的树结"
+"构。 账户可以与任务或资源挂钩。 通常有两个顶级账户，一个用于任务的总费用，另"
+"一个用于资源的总费用。</para><para>此视图支持使用上下文菜单打印<nl/><link "
+"url='%1'>更多...</link></para>"
 
 #: ui/kptaccountseditor.cpp:291
 #, kde-kuit-format
@@ -5229,7 +5242,7 @@ msgstr "添加子账户"
 #, kde-kuit-format
 msgctxt "@action:inmenu"
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: ui/kptaccountsview.cpp:72
 #, kde-kuit-format
@@ -5240,6 +5253,9 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>成本明细视图</title><para>显示总成本以及随着时间的成本分布。</"
+"para><para>此视图支持配置并使用上下文菜单打印。<nl/><link url='%1'>更多...</"
+"link></para>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_general)
 #: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
@@ -5301,19 +5317,19 @@ msgstr "实际成本"
 #: ui/kptaccountsviewconfigurepanelbase.ui:75
 #, kde-format
 msgid "Planned cost"
-msgstr ""
+msgstr "计划费用"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
 #: ui/kptaccountsviewconfigurepanelbase.ui:80
 #, kde-format
 msgid "Actual and planned"
-msgstr ""
+msgstr "实际和计划的"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
 #: ui/kptaccountsviewconfigurepanelbase.ui:85
 #, kde-format
 msgid "Deviation"
-msgstr ""
+msgstr "偏差"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/kptaccountsviewconfigurepanelbase.ui:101
@@ -5355,7 +5371,7 @@ msgstr "当前日期"
 #: ui/kptaccountsviewconfigurepanelbase.ui:158
 #, kde-format
 msgid "Project end"
-msgstr ""
+msgstr "项目结束"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5365,7 +5381,7 @@ msgstr "工作..."
 #: ui/kptcalendareditor.cpp:276 ui/kptcalendareditor.cpp:306
 msgctxt "(qtundo-format)"
 msgid "Modify Weekday State"
-msgstr ""
+msgstr "修改工作日状态"
 
 #: ui/kptcalendareditor.cpp:395
 #, kde-kuit-format
@@ -5385,6 +5401,15 @@ msgid ""
 "working resource, when the resources calendar is not explicitly set.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>工作与假期编辑器</title><para>日历定义了资源或任务类型的 <emphasis>持"
+"续时间</emphasis>日历可以是特定的资源或任务，也可以是多个资源或任务共享的。 "
+"一天可以是类型 <emphasis>未定义的</emphasis>, <emphasis>非工作日</emphasis> "
+"或 <emphasis>工作日</emphasis>。 工作日有一个或多个工作间隔。 </para><para>日"
+"历可以有子日历。 如果某一天在日历中未定义，则选中父日历。 一个 <emphasis>未定"
+"义的</emphasis> 日期默认为 <emphasis>不工作</emphasis> 如果被资源使用， 或者 "
+"<emphasis>全天可用</emphasis> 如果被某项任务使用。</para><para>日历可以定义"
+"为 <emphasis>默认日历</emphasis>。 默认日历由工作资源使用，当资源日历未明确设"
+"置。<nl/><link url='%1'></link></para>"
 
 #: ui/kptcalendareditor.cpp:646
 #, kde-format
@@ -5407,19 +5432,19 @@ msgstr "删除"
 #: ui/kptcalendareditor.cpp:814 ui/kptcalendareditor.cpp:848
 msgctxt "(qtundo-format)"
 msgid "Modify Calendar"
-msgstr ""
+msgstr "修改日历"
 
 #: ui/kptcalendareditor.cpp:823 ui/kptcalendareditor.cpp:829
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "%1: Set to Non-Working"
-msgstr ""
+msgstr "%1: 设置为非工作"
 
 #: ui/kptcalendareditor.cpp:855
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
-msgstr ""
+msgstr "设置 %1 为未定义"
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
@@ -5446,7 +5471,7 @@ msgstr "..."
 #: ui/kptcpmwidget.ui:71
 #, kde-format
 msgid "Probability of finishing before"
-msgstr ""
+msgstr "结束前的概率"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptcpmwidget.ui:91
@@ -5475,6 +5500,10 @@ msgid ""
 "delete a dependency using the context menu.</para><para>This view supports "
 "printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>任务依赖编辑器</title><para>编辑任务之间的依赖关系。 可以通过将一个连"
+"接区域(开始或结束)从一个任务拖动到另一个任务的连接区域来添加网页。 您可以使用"
+"上下文菜单编辑或删除依赖项。</para><para>此视图支持使用上下文菜单打印<nl/"
+"><link url='%1'>更多...</link></para>"
 
 #: ui/kptdependencyeditor.cpp:2344 ui/kpttaskeditor.cpp:865
 #: ui/kpttaskeditor.cpp:869
@@ -5568,32 +5597,32 @@ msgstr "文档 Url 已经存在：%1"
 #: ui/kptdocumentspanel.cpp:211
 msgctxt "(qtundo-format)"
 msgid "Modify documents"
-msgstr ""
+msgstr "修改文档"
 
 #: ui/kptdocumentspanel.cpp:229
 msgctxt "(qtundo-format)"
 msgid "Modify document url"
-msgstr ""
+msgstr "修改文档url"
 
 #: ui/kptdocumentspanel.cpp:233
 msgctxt "(qtundo-format)"
 msgid "Modify document type"
-msgstr ""
+msgstr "修改文档类型"
 
 #: ui/kptdocumentspanel.cpp:237
 msgctxt "(qtundo-format)"
 msgid "Modify document status"
-msgstr ""
+msgstr "修改文档状态"
 
 #: ui/kptdocumentspanel.cpp:241
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
-msgstr ""
+msgstr "修改文档发送控制"
 
 #: ui/kptdocumentspanel.cpp:252
 msgctxt "(qtundo-format)"
 msgid "Add document"
-msgstr ""
+msgstr "添加文档"
 
 #. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
 #. i18n: ectx: property (text), widget (QLabel, namelabel)
@@ -5746,7 +5775,7 @@ msgstr ""
 #: ui/kptganttchartdisplayoptions.ui:153
 #, kde-format
 msgid "Additional text information"
-msgstr ""
+msgstr "附加文本信息"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
 #: ui/kptganttchartdisplayoptions.ui:159
@@ -5758,19 +5787,19 @@ msgstr "任务名称"
 #: ui/kptganttchartdisplayoptions.ui:166
 #, kde-format
 msgid "Resource names"
-msgstr ""
+msgstr "资源名称"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/kptganttchartdisplayoptions.ui:176
 #, kde-format
 msgid "Additional graphics information"
-msgstr ""
+msgstr "附加图形信息"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
 #: ui/kptganttchartdisplayoptions.ui:185
 #, kde-format
 msgid "Task dependencies"
-msgstr ""
+msgstr "任务依赖关系"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
 #: ui/kptganttchartdisplayoptions.ui:192
@@ -5782,7 +5811,7 @@ msgstr "任务完成"
 #: ui/kptganttchartdisplayoptions.ui:199
 #, kde-format
 msgid "Time constraints"
-msgstr ""
+msgstr "时间限制"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
 #: ui/kptganttchartdisplayoptions.ui:219
@@ -5806,19 +5835,19 @@ msgstr "关键路径"
 #: ui/kptganttchartdisplayoptions.ui:240
 #, kde-format
 msgid "Critical tasks"
-msgstr ""
+msgstr "关键任务"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
 #: ui/kptganttchartdisplayoptions.ui:247
 #, kde-format
 msgid "Scheduling errors"
-msgstr ""
+msgstr "计划错误"
 
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
-msgstr ""
+msgstr "名称: %1<nl/>实际完成: %2<nl/>计划完成: %3<nl/>状态: %4"
 
 #: ui/kptganttitemdelegate.cpp:103
 #, kde-kuit-format
@@ -5827,6 +5856,7 @@ msgid ""
 "Name: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6"
 msgstr ""
+"名称: %1<nl/>完成: %2 %<nl/>实际开始: %3<nl/>计划: %4 - %5<nl/>状态: %6"
 
 #: ui/kptganttitemdelegate.cpp:126 ui/kptganttitemdelegate.cpp:144
 #, kde-kuit-format
@@ -5948,7 +5978,7 @@ msgstr "图表结尾："
 #, kde-format
 msgctxt "@option:radio"
 msgid "End:"
-msgstr ""
+msgstr "结束："
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:169
@@ -5978,6 +6008,10 @@ msgid ""
 "configuration and printing using the context menu of the tree view.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>甘特视图</title><para>以甘特图表显示计划任务。 图表区域可以用放置在时"
+"间尺度左上角的滑块缩放。 <note>你需要用鼠标悬停它来显示它。</note></"
+"para><para>此视图支持使用树视图的上下文菜单进行配置和打印。<nl/><link "
+"url='%1'>更多...</link></para>"
 
 #: ui/kptganttview.cpp:1109 ui/kpttaskeditor.cpp:921 ui/kpttaskeditor.cpp:1445
 #, kde-format
@@ -6042,6 +6076,10 @@ msgid ""
 "supports configuration and printing using the context menu.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>里程碑甘特视图</title><para>在甘特图中显示预定的里程碑。 图表区域可以"
+"用放置在时间尺度左上角的滑块缩放。 <note>你需要用鼠标悬停它来显示它。</"
+"note></para><para>此视图支持配置并使用上下文菜单打印<nl/><link url='%1'>更"
+"多...</link></para>"
 
 #: ui/kptganttview.cpp:1943
 #, kde-kuit-format
@@ -6054,6 +6092,10 @@ msgid ""
 "note></para><para>This view supports configuration and printing using the "
 "context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>资源分配(甘特)</title><para>显示计划资源-甘特图中的任务分配。 图表区域"
+"可以用放置在时间尺度左上角的滑块缩放。 <note>你需要用鼠标悬停它来显示它。</"
+"note></para><para>此视图支持配置并使用上下文菜单打印<nl/><link url='%1'>更"
+"多...</link></para>"
 
 #: ui/kptintervaledit.cpp:61
 #, kde-format
@@ -6075,7 +6117,7 @@ msgstr "编辑工作间隔"
 #: ui/kptintervaledit.cpp:221 ui/kptintervaledit.cpp:276
 msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
-msgstr ""
+msgstr "修改工作间隔"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
 #: ui/kptintervaleditbase.ui:21
@@ -6114,7 +6156,7 @@ msgstr "清除"
 #: ui/kptitemviewsettings.ui:28
 #, kde-format
 msgid "Stretch last section"
-msgstr ""
+msgstr "拉伸最后一个部分"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/kptitemviewsettings.ui:35
@@ -6142,7 +6184,7 @@ msgstr "树形视图"
 #: ui/kptitemviewsettup.cpp:149
 #, kde-format
 msgid "Tree View Column Configuration"
-msgstr ""
+msgstr "树形视图列配置"
 
 #: ui/kptitemviewsettup.cpp:223
 #, kde-format
@@ -6152,17 +6194,17 @@ msgstr "主视图"
 #: ui/kptitemviewsettup.cpp:224
 #, kde-format
 msgid "Main View Column Configuration"
-msgstr ""
+msgstr "主视图列配置"
 
 #: ui/kptitemviewsettup.cpp:229
 #, kde-format
 msgid "Auxiliary View"
-msgstr ""
+msgstr "辅助视图"
 
 #: ui/kptitemviewsettup.cpp:230
 #, kde-format
 msgid "Auxiliary View Column Configuration"
-msgstr ""
+msgstr "辅助视图列配置"
 
 #: ui/kptlocaleconfigmoneydialog.cpp:34
 #, kde-format
@@ -6172,7 +6214,7 @@ msgstr "货币设置"
 #: ui/kptlocaleconfigmoneydialog.cpp:51
 msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
-msgstr ""
+msgstr "修改货币设置"
 
 #: ui/kptmainprojectdialog.cpp:37
 #, kde-format
@@ -6182,7 +6224,7 @@ msgstr "项目设置"
 #: ui/kptmainprojectdialog.cpp:83 ui/kptmainprojectpanel.cpp:203
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
-msgstr ""
+msgstr "修改主项目"
 
 #: ui/kptmainprojectpanel.cpp:63
 #, kde-kuit-format
@@ -6198,7 +6240,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Enables sharing resources with other projects"
-msgstr ""
+msgstr "启用与其他项目共享资源"
 
 #: ui/kptmainprojectpanel.cpp:117
 #, kde-kuit-format
@@ -6209,36 +6251,39 @@ msgid ""
 "defined in a separate file, and you must have at least read access to it. "
 "The projects that share the resources must also be accessible by you."
 msgstr ""
+"<title>共享资源</title>可以在项目之间共享资源，以避免在所有项目之间过多预定资"
+"源。 共享资源必须在一个单独的文件中定义，并且您必须至少有读取访问权限。 共享"
+"资源的项目也必须让您能够访问。"
 
 #: ui/kptmainprojectpanel.cpp:125
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "File where shared resources are defined"
-msgstr ""
+msgstr "定义共享资源的文件"
 
 #: ui/kptmainprojectpanel.cpp:130
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Directory where all the projects that share resources can be found"
-msgstr ""
+msgstr "所有共享资源的项目都可以找到的目录"
 
 #: ui/kptmainprojectpanel.cpp:136
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Load shared resource assignments at startup"
-msgstr ""
+msgstr "启动时加载共享资源分配"
 
 #: ui/kptmainprojectpanel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Load (or re-load) shared resource assignments"
-msgstr ""
+msgstr "负载(或重新加载)共享资源分配"
 
 #: ui/kptmainprojectpanel.cpp:139
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Clear shared resource assignments"
-msgstr ""
+msgstr "清除共享资源分配"
 
 #: ui/kptmainprojectpanel.cpp:410
 #, kde-format
@@ -6349,7 +6394,7 @@ msgstr "目录"
 #: ui/kptmainprojectpanelbase.ui:287
 #, kde-format
 msgid "Load resource assignments at startup"
-msgstr ""
+msgstr "启动时加载资源分配"
 
 #. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
 #: ui/kptmainprojectpanelbase.ui:294
@@ -6429,7 +6474,7 @@ msgstr ""
 #: ui/kptmainprojectpanelbase.ui:481
 #, kde-format
 msgid "Task Modules"
-msgstr ""
+msgstr "任务模块"
 
 #. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
 #: ui/kptmainprojectpanelbase.ui:526
@@ -6451,12 +6496,12 @@ msgstr "里程碑进度"
 #: ui/kptmilestoneprogresspanel.cpp:52
 msgctxt "(qtundo-format)"
 msgid "Modify milestone completion"
-msgstr ""
+msgstr "修改里程碑完成情况"
 
 #: ui/kptperteditor.cpp:165
 msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
-msgstr ""
+msgstr "删除任务依赖关系"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
@@ -6532,13 +6577,13 @@ msgstr "重新计算日程"
 #: ui/kptrecalculatedialog.ui:26
 #, kde-format
 msgid "Re-calculate from current date/time"
-msgstr ""
+msgstr "从当前日期/时间重新计算"
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
 #: ui/kptrecalculatedialog.ui:33
 #, kde-format
 msgid "Re-calculate from:"
-msgstr ""
+msgstr "重新计算自："
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -6550,7 +6595,7 @@ msgstr "滞后:"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "<emphasis>Lag</emphasis> is the time the dependent task is delayed"
-msgstr ""
+msgstr "<emphasis>Lag</emphasis> 是依赖任务被延迟的时间"
 
 #: ui/kptrelationdialog.cpp:54
 #, kde-kuit-format
@@ -6583,7 +6628,7 @@ msgstr "删除任务依赖关系"
 #: ui/kptrelationdialog.cpp:179
 msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
-msgstr ""
+msgstr "修改任务依赖关系"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
 #: ui/kptresourceappointmentsdisplayoptions.ui:16
@@ -6610,16 +6655,18 @@ msgid ""
 "resource - task assignments.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>资源分配视图</title><para>显示计划资源 - 任务分配。</para><para>此视图"
+"支持配置并使用上下文菜单打印。<nl/><link url='%1'>更多...</link></para>"
 
 #: ui/kptresourceassignmentview.cpp:242
 #, kde-format
 msgid "No task attributed"
-msgstr ""
+msgstr "未分配任务"
 
 #: ui/kptresourceassignmentview.cpp:321
 #, kde-format
 msgid "No resource attributed"
-msgstr ""
+msgstr "未分配资源"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
 #: ui/kptresourceassignmentview.ui:38
@@ -6637,7 +6684,7 @@ msgstr "组"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Select team members"
-msgstr ""
+msgstr "选择团队成员"
 
 #: ui/kptresourcedialog.cpp:248
 #, kde-format
@@ -6647,7 +6694,7 @@ msgstr "资源设置"
 #: ui/kptresourcedialog.cpp:398
 msgctxt "(qtundo-format)"
 msgid "Modify Resource"
-msgstr ""
+msgstr "修改资源"
 
 #: ui/kptresourceeditor.cpp:130
 #, kde-kuit-format
@@ -6661,6 +6708,12 @@ msgid ""
 "refer to a <emphasis>Calendar</emphasis> defined in the <emphasis>Work and "
 "Vacation Editor</emphasis>.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Resource Editor</title><para>资源按资源细分结构进行组织。资源可以是类"
+"型 <emphasis>工作</emphasis> 或 <emphasis>材料</emphasis>当分配给某项任务时，"
+"资源类型 <emphasis>工作</emphasis> 可能影响任务的持续时间。 资源类型 "
+"<emphasis>材料</emphasis> 不是。 资源必须指向 <emphasis>日历</emphasis> 在 "
+"<emphasis>工作与假期编辑器</emphasis>中定义。<nl/><link url='%1'>更多...</"
+"link></para>"
 
 #: ui/kptresourceeditor.cpp:294
 #, kde-format
@@ -6717,7 +6770,7 @@ msgstr "分离"
 #: ui/kptscheduleeditor.cpp:390 ui/kptscheduleeditor.cpp:423
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
-msgstr ""
+msgstr "创建子计划"
 
 #: ui/kptscheduleeditor.cpp:401
 #, kde-format
@@ -6744,18 +6797,18 @@ msgstr "日程安排日志"
 #: ui/kptscheduleeditor.cpp:832
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
-msgstr ""
+msgstr "修改项目目标开始时间"
 
 #: ui/kptscheduleeditor.cpp:844
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
-msgstr ""
+msgstr "修改项目目标结束时间"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptscheduleeditor.ui:35
 #, kde-format
 msgid "Scheduling range:"
-msgstr ""
+msgstr "调度范围："
 
 #: ui/kptstandardworktimedialog.cpp:86
 #, kde-format
@@ -6765,7 +6818,7 @@ msgstr "预计转换"
 #: ui/kptstandardworktimedialog.cpp:104
 msgctxt "(qtundo-format)"
 msgid "Modify Estimate Conversions"
-msgstr ""
+msgstr "修改估计转换"
 
 #: ui/kptsummarytaskdialog.cpp:39
 #, kde-format
@@ -6775,7 +6828,7 @@ msgstr "摘要任务设置"
 #: ui/kptsummarytaskdialog.cpp:64
 msgctxt "(qtundo-format)"
 msgid "Modify Summary Task"
-msgstr ""
+msgstr "修改摘要任务"
 
 #: ui/kptsummarytaskgeneralpanel.cpp:58 ui/kpttaskgeneralpanel.cpp:53
 #, kde-format
@@ -6786,17 +6839,20 @@ msgid ""
 "You can define the WBS code pattern using the Define WBS Pattern command in "
 "the Tools menu."
 msgstr ""
+"工作分类结构根据任务结构为项目中的所有任务提供编号。\n"
+"WBS代码是自动生成的。\n"
+"您可以使用工具菜单中的定义WBS模式命令来定义WBS代码模式。"
 
 #: ui/kptsummarytaskgeneralpanel.cpp:90 ui/kpttaskdialog.cpp:109
 msgctxt "(qtundo-format)"
 msgid "Modify task"
-msgstr ""
+msgstr "修改任务"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
 #: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
 #, kde-format
 msgid "Work Breakdown Structure"
-msgstr ""
+msgstr "工作分类结构"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
@@ -6855,7 +6911,7 @@ msgstr ""
 #: ui/kpttaskcostpanel.cpp:101
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
-msgstr ""
+msgstr "修改任务成本"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
@@ -6889,17 +6945,17 @@ msgstr "关闭"
 #: ui/kpttaskdescriptiondialog.cpp:53
 msgctxt "(qtundo-format)"
 msgid "Modify milestone description"
-msgstr ""
+msgstr "修改里程碑描述"
 
 #: ui/kpttaskdescriptiondialog.cpp:55
 msgctxt "(qtundo-format)"
 msgid "Modify summary task description"
-msgstr ""
+msgstr "修改摘要任务描述"
 
 #: ui/kpttaskdescriptiondialog.cpp:57
 msgctxt "(qtundo-format)"
 msgid "Modify project description"
-msgstr ""
+msgstr "修改项目描述"
 
 #: ui/kpttaskdescriptiondialog.cpp:135
 #, kde-format
@@ -6945,7 +7001,7 @@ msgstr "描述(&E)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
-msgstr ""
+msgstr "任务类型或任务的估计类型"
 
 #: ui/kpttaskeditor.cpp:103
 #, kde-kuit-format
@@ -6956,29 +7012,33 @@ msgid ""
 "<emphasis>Duration</emphasis>.<nl/><note>If the type is <emphasis>Summary</"
 "emphasis> or <emphasis>Project</emphasis> the type is not editable.</note>"
 msgstr ""
+"<p>表示任务类型或任务的估计类型。</p>类型可以设置为 <emphasis>里程碑</"
+"emphasis>, <emphasis>尽力</emphasis> 或 <emphasis>持续时间</emphasis>.<nl/"
+"><note>如果类型是 <emphasis>摘要</emphasis> 或 <emphasis>项目</emphasis> 类型"
+"不可编辑</note>"
 
 #: ui/kpttaskeditor.cpp:147
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
-msgstr ""
+msgstr "估计类型的任务： %1"
 
 #: ui/kpttaskeditor.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type: %1"
-msgstr ""
+msgstr "任务类型： %1"
 
 #: ui/kpttaskeditor.cpp:185 ui/kpttaskeditor.cpp:187
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
-msgstr ""
+msgstr "设置类型为里程碑"
 
 #: ui/kpttaskeditor.cpp:194
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set type to %1"
-msgstr ""
+msgstr "设置类型为 %1"
 
 #: ui/kpttaskeditor.cpp:386
 #, kde-kuit-format
@@ -6989,6 +7049,9 @@ msgid ""
 "any depth.</para><para>This view supports configuration and printing using "
 "the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>任务编辑器</title><para>任务编辑器用于创建、编辑和删除任务。 任务组织"
+"在任何深度的工作分类结构 (WBS)。</para><para>此视图支持配置并使用上下文菜单打"
+"印。<nl/><link url='%1'>更多...</link></para>"
 
 #: ui/kpttaskeditor.cpp:440
 #, kde-kuit-format
@@ -7008,13 +7071,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "Drag resources into the Task Editor and drop into the allocations- or "
 "responsible column"
-msgstr ""
+msgstr "将资源拖动到任务编辑器并拖动到分配款或负责任列"
 
 #: ui/kpttaskeditor.cpp:490
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Task Modules"
-msgstr ""
+msgstr "任务模块"
 
 #: ui/kpttaskeditor.cpp:491
 #, kde-kuit-format
@@ -7022,7 +7085,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to "
 "the project"
-msgstr ""
+msgstr "拖动一个任务模块到 <emphasis>任务编辑器</emphasis> 来将其添加到项目"
 
 #: ui/kpttaskeditor.cpp:516
 #, kde-kuit-format
@@ -7088,6 +7151,9 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>任务执行视图</title><para>该视图用于编辑和检查项目执行期间的任务进度."
+"</para><para>此视图支持配置并使用上下文菜单打印。<nl/><link url='%1'>更多..."
+"</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
 #: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
@@ -7103,7 +7169,7 @@ msgstr ""
 #: ui/kpttaskeditor.cpp:1790
 msgctxt "(qtundo-format)"
 msgid "Log Send Workpackage"
-msgstr ""
+msgstr "日志发送工作包"
 
 #: ui/kpttaskgeneralpanel.cpp:115
 msgctxt "(qtundo-format)"
@@ -7122,13 +7188,13 @@ msgstr "名称(&A)："
 msgid ""
 "The person responsible for this task.\n"
 "        "
-msgstr ""
+msgstr "负责这项任务的人。"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: ui/kpttaskgeneralpanelbase.ui:82
 #, kde-format
 msgid "Responsi&ble:"
-msgstr ""
+msgstr "责任："
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
@@ -7148,6 +7214,11 @@ msgid ""
 "For duration based estimation, the assigned resources do not affect the "
 "fixed duration of the task, but only the costs."
 msgstr ""
+"调度配置。这些设置影响任务的实际调度。\n"
+"\n"
+"估算可以基于工作量，也可以基于持续时间。如果是基于工作量的，则最终持续时间将"
+"取决于分配给任务的资源。对于基于工期的估计，分配的资源不会影响任务的固定工"
+"期，而只会影响成本。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
 #: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
@@ -7189,7 +7260,7 @@ msgstr "完成不晚于"
 #: ui/kpttaskgeneralpanelbase.ui:300
 #, kde-format
 msgid "Esti&mate:"
-msgstr ""
+msgstr "Esti&mate"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
 #. i18n: ectx: property (toolTip), widget (KComboBox, risk)
@@ -7199,7 +7270,7 @@ msgstr ""
 msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task."
-msgstr ""
+msgstr "风险控制计算此任务的实际估计时使用的 PERT 分布。"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
 #: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
@@ -7212,6 +7283,10 @@ msgid ""
 "<b>High risk</b> means that the estimate will be slightly pessimistic "
 "compared to Low risk.</p>"
 msgstr ""
+"<p>风险控制计算任务实际估计时使用的PERT分布。\n"
+"<b>无</b> 表示预期的估计被用作原样。\n"
+"<b>低风险</b> 意味着使用正常分布。\n"
+"<b>高风险</b> 意味着与低风险相比，估计会略为悲观</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
 #: ui/kpttaskgeneralpanelbase.ui:348
@@ -7230,18 +7305,22 @@ msgid ""
 "<b>High risk</b> means that the estimate will be slightly pessimistic "
 "compared to Low risk.</p>"
 msgstr ""
+"<p>风险控制计算任务实际估计时使用的PERT分布。\n"
+"<b>无</b> 表示预期的估计被用作原样。\n"
+"<b>低风险</b> 意味着使用正常分布。\n"
+"<b>高风险</b> 意味着与低风险相比，估计会略为悲观</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/kpttaskgeneralpanelbase.ui:404
 #, kde-format
 msgid "Optimisti&c:"
-msgstr ""
+msgstr "最优化&c："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: ui/kpttaskgeneralpanelbase.ui:433
 #, kde-format
 msgid "&Pessimistic:"
-msgstr ""
+msgstr "&保守估计:"
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -7270,7 +7349,7 @@ msgstr ""
 #: ui/kpttaskprogressdialog.cpp:89
 msgctxt "(qtundo-format)"
 msgid "Modify Task Progress"
-msgstr ""
+msgstr "修改任务进度"
 
 #: ui/kpttaskprogresspanel.cpp:110
 #, kde-kuit-format
@@ -7287,7 +7366,7 @@ msgstr ""
 #: ui/kpttaskprogresspanel.cpp:126
 msgctxt "(qtundo-format)"
 msgid "Modify task completion"
-msgstr ""
+msgstr "修改任务完成"
 
 #: ui/kpttaskprogresspanel.cpp:414 ui/kpttaskprogresspanel.cpp:429
 #, kde-format
@@ -7383,6 +7462,12 @@ msgid ""
 "para><para>This view supports configuration and printing using the context "
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>任务状态视图</title><para>任务状态视图用于检查任务进度信息。 任务按任"
+"务状态分成组：<list><item>尚未开始的任务现在应该已经开始。</item><item>运行已"
+"经开始但尚未完成的任务。</item><item>完成了在此期间完成的任务。</item><item>"
+"计划在下一个时期开始的下一阶段任务。</item></list>时间段是可配置的。</"
+"para><para>此视图支持使用上下文菜单进行配置和打印。<nl/><link url='%1'>更"
+"多...</link></para>"
 
 #: ui/kpttaskstatusview.cpp:441
 #, kde-format
@@ -7393,13 +7478,13 @@ msgstr "常规设置"
 #: ui/kpttaskstatusviewsettingspanel.ui:16
 #, kde-format
 msgid "Period Definition"
-msgstr ""
+msgstr "周期定义"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskstatusviewsettingspanel.ui:25
 #, kde-format
 msgid "Period length (days):"
-msgstr ""
+msgstr "周期长度(天)："
 
 #. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
 #: ui/kpttaskstatusviewsettingspanel.ui:48
@@ -7426,7 +7511,7 @@ msgstr "本周"
 #: ui/kptusedefforteditor.cpp:223
 #, kde-format
 msgid "Total effort this week"
-msgstr ""
+msgstr "本周的全部努力"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -7436,17 +7521,17 @@ msgstr "完成百分比"
 #: ui/kptusedefforteditor.cpp:410
 #, kde-format
 msgid "Used Effort"
-msgstr ""
+msgstr "已用时间"
 
 #: ui/kptusedefforteditor.cpp:411
 #, kde-format
 msgid "Remaining Effort"
-msgstr ""
+msgstr "剩余时间"
 
 #: ui/kptusedefforteditor.cpp:412
 #, kde-format
 msgid "Planned Effort"
-msgstr ""
+msgstr "计划进行的工作"
 
 #: ui/kptusedefforteditor.cpp:553
 #, kde-kuit-format
@@ -7541,7 +7626,7 @@ msgstr "全部折叠"
 #: ui/kptviewbase.cpp:770
 #, kde-format
 msgid "Print Options..."
-msgstr ""
+msgstr "打印选项..."
 
 #: ui/kptviewbase.cpp:781
 #, kde-format
@@ -7551,7 +7636,7 @@ msgstr "配置视图..."
 #: ui/kptviewbase.cpp:2688
 #, kde-format
 msgid "Unsplit View"
-msgstr ""
+msgstr "未分割视图"
 
 #: ui/kptviewbase.cpp:2691
 #, kde-format
@@ -7566,20 +7651,20 @@ msgstr "WBS 定义"
 #: ui/kptwbsdefinitionpanel.cpp:148
 msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
-msgstr ""
+msgstr "修改 WBS 定义"
 
 #. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
 #: ui/kptwbsdefinitionpanelbase.ui:21
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define WBS code for the project"
-msgstr ""
+msgstr "定义项目的 WBS 代码"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptwbsdefinitionpanelbase.ui:33
 #, kde-format
 msgid "Project Code Definition"
-msgstr ""
+msgstr "项目代码定义"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
@@ -7600,7 +7685,7 @@ msgstr "开始："
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define default WBS code"
-msgstr ""
+msgstr "定义默认 WBS 代码"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptwbsdefinitionpanelbase.ui:98
@@ -7613,7 +7698,7 @@ msgstr "默认定义"
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define separate WBS codes for individual levels"
-msgstr ""
+msgstr "为各个级别定义单独的 WBS 代码"
 
 #. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
 #: ui/kptwbsdefinitionpanelbase.ui:151
@@ -7655,13 +7740,13 @@ msgstr "完成"
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Used Effort"
-msgstr ""
+msgstr "已用时间"
 
 #: ui/kptworkpackagemergedialog.cpp:69
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "剩余时间"
 
 #: ui/kptworkpackagemergedialog.cpp:72
 #, kde-kuit-format
@@ -7816,32 +7901,32 @@ msgstr "货币符号："
 #: ui/locale/localemon.cpp:53
 #, kde-format
 msgid "Fract digits:"
-msgstr ""
+msgstr "分形数字："
 
 #: ui/locale/localemon.cpp:111
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
-msgstr ""
+msgstr "您可以在此输入您通常的货币符号，例如美元或欧元。"
 
 #. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
 #: ui/locale/localemon.ui:32
 #, kde-format
 msgid "Fractional digits:"
-msgstr ""
+msgstr "分数数字："
 
 #: ui/performance/PerformanceStatusBase.cpp:535
 #: ui/performance/PerformanceStatusBase.cpp:538
 #, kde-format
 msgctxt "Chart axis title 1=currency symbol"
 msgid "Cost (%1)"
-msgstr ""
+msgstr "成本 (%1)"
 
 #: ui/performance/PerformanceStatusBase.cpp:536
 #: ui/performance/PerformanceStatusBase.cpp:539
 #, kde-format
 msgctxt "Chart axis title"
 msgid "Effort (hours)"
-msgstr ""
+msgstr "工作量（小时）"
 
 #: ui/performance/PerformanceStatusView.cpp:221
 #, kde-kuit-format
@@ -7852,6 +7937,8 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>任务性能视图</title><para>显示所选任务的性能数据。</para><para>此视图"
+"支持配置并使用上下文菜单打印。<nl/><link url='%1'>更多...</link></para>"
 
 #: ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:170
@@ -7887,13 +7974,13 @@ msgstr "表"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
 #, kde-format
 msgid "Base values"
-msgstr ""
+msgstr "基本值"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
 #, kde-format
 msgid "Indices"
-msgstr ""
+msgstr "指数"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
@@ -7909,7 +7996,7 @@ msgstr "成本"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
 #, kde-format
 msgid "Show BCWS plot"
-msgstr ""
+msgstr "显示 BCWS 图"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
@@ -7917,7 +8004,7 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
 #, kde-format
 msgid "Show BCWP plot"
-msgstr ""
+msgstr "显示 BCWP 图"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
@@ -7925,31 +8012,31 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
 #, kde-format
 msgid "Show ACWP plot"
-msgstr ""
+msgstr "显示 ACWP 图"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
 #, kde-format
 msgid "SPI Cost"
-msgstr ""
+msgstr "SPI 效益"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
 #, kde-format
 msgid "SPI Effort"
-msgstr ""
+msgstr "SPI 效益"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
 #, kde-format
 msgid "CPI Effort"
-msgstr ""
+msgstr "CPI 效益"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
 #, kde-format
 msgid "CPI Cost"
-msgstr ""
+msgstr "CPI 成本"
 
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
@@ -7960,6 +8047,8 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>项目性能视图</title><para>显示合计到项目级别的性能数据。</para><para>"
+"此视图支持配置并使用上下文菜单打印。<nl/><link url='%1'>更多...</link></para>"
 
 #: ui/projectview/ProjectView.cpp:52
 #, kde-format
@@ -8044,12 +8133,12 @@ msgstr "资源指派"
 #: ui/reports/reportdata.cpp:787
 #, kde-format
 msgid "Cost Performance"
-msgstr ""
+msgstr "成本性能"
 
 #: ui/reports/reportdata.cpp:841
 #, kde-format
 msgid "Effort Performance"
-msgstr ""
+msgstr "绩效"
 
 #: ui/reports/reportdata.cpp:894
 #, kde-format
@@ -8102,26 +8191,26 @@ msgstr "转到最后一页"
 #: ui/reports/reportsectionswidget.ui:28
 #, kde-format
 msgid "Enable report header"
-msgstr ""
+msgstr "启用报表标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportheader)
 #: ui/reports/reportsectionswidget.ui:31
 #, kde-format
 msgid "Report Header"
-msgstr ""
+msgstr "报告标题"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:38
 #, kde-format
 msgid "Enable report footer"
-msgstr ""
+msgstr "启用报告页脚"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:41
 #, kde-format
 msgid "Report Footer"
-msgstr ""
+msgstr "报告页脚"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/reports/reportsectionswidget.ui:50
@@ -8134,63 +8223,63 @@ msgstr "页眉"
 #: ui/reports/reportsectionswidget.ui:62
 #, kde-format
 msgid "Enable header on first page"
-msgstr ""
+msgstr "在首页启用标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
 #. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
 #: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
 #, kde-format
 msgid "First page"
-msgstr ""
+msgstr "首页"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
 #: ui/reports/reportsectionswidget.ui:72
 #, kde-format
 msgid "Enable header on last page"
-msgstr ""
+msgstr "在最后一页启用标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
 #. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
 #: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
 #, kde-format
 msgid "Last page"
-msgstr ""
+msgstr "最后页"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
 #: ui/reports/reportsectionswidget.ui:82
 #, kde-format
 msgid "Enable header on odd pages"
-msgstr ""
+msgstr "在奇数页上启用标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
 #: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
 #, kde-format
 msgid "Odd pages"
-msgstr ""
+msgstr "奇数页"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
 #: ui/reports/reportsectionswidget.ui:92
 #, kde-format
 msgid "Enable header on even pages"
-msgstr ""
+msgstr "在偶数页上启用标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
 #: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
 #, kde-format
 msgid "Even pages"
-msgstr ""
+msgstr "偶数页"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
 #: ui/reports/reportsectionswidget.ui:102
 #, kde-format
 msgid "Enable header on all pages"
-msgstr ""
+msgstr "在所有页面上启用标题"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
@@ -8198,7 +8287,7 @@ msgstr ""
 #: ui/reports/reportsectionswidget.ui:170
 #, kde-format
 msgid "All pages"
-msgstr ""
+msgstr "全部页面"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/reports/reportsectionswidget.ui:115
@@ -8211,35 +8300,35 @@ msgstr "页脚"
 #: ui/reports/reportsectionswidget.ui:127
 #, kde-format
 msgid "Enable footer on first page"
-msgstr ""
+msgstr "在第一页启用页脚"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
 #: ui/reports/reportsectionswidget.ui:137
 #, kde-format
 msgid "Enable footer on odd pages"
-msgstr ""
+msgstr "在奇数页面启用页脚"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
 #: ui/reports/reportsectionswidget.ui:147
 #, kde-format
 msgid "Enable footer on even pages"
-msgstr ""
+msgstr "在偶数页上启用页脚"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
 #: ui/reports/reportsectionswidget.ui:157
 #, kde-format
 msgid "Enable footer on last page"
-msgstr ""
+msgstr "在最后一页启用页脚"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
 #: ui/reports/reportsectionswidget.ui:167
 #, kde-format
 msgid "Enable footer on all pages"
-msgstr ""
+msgstr "在所有页面上启用页脚"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -8250,39 +8339,39 @@ msgstr "导出报表"
 #: ui/reports/reportview.cpp:381
 #, kde-format
 msgid "Export to text document is not supported"
-msgstr ""
+msgstr "不支持导出到文本文档"
 
 #: ui/reports/reportview.cpp:392
 #, kde-format
 msgid "Export to text document failed"
-msgstr ""
+msgstr "导出到文本文档失败"
 
 #: ui/reports/reportview.cpp:392 ui/reports/reportview.cpp:412
 #: ui/reports/reportview.cpp:433
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr ""
+msgstr "导出到 <filename>%1失败</filename>"
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
 msgid "Export to spreadsheet document is not supported"
-msgstr ""
+msgstr "不支持导出到电子表格文档"
 
 #: ui/reports/reportview.cpp:412
 #, kde-format
 msgid "Export to spreadsheet failed"
-msgstr ""
+msgstr "导出到电子表格失败"
 
 #: ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export to HTML document is not supported"
-msgstr ""
+msgstr "不支持导出为 HTML 文档"
 
 #: ui/reports/reportview.cpp:433
 #, kde-format
 msgid "Export to HTML failed"
-msgstr ""
+msgstr "导出到 HTML 失败"
 
 #: ui/reports/reportview.cpp:443
 #, kde-format
@@ -8299,7 +8388,7 @@ msgstr "编辑报表定义"
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the report design in the report design dialog."
-msgstr ""
+msgstr "在报告设计对话框中打开报告设计。"
 
 #: ui/reports/reportview.cpp:681
 #, kde-format
@@ -8309,12 +8398,12 @@ msgstr "查看报表"
 #: ui/reports/reportview.cpp:686
 #, kde-format
 msgid "Undo all changes"
-msgstr ""
+msgstr "撤销所有更改"
 
 #: ui/reports/reportview.cpp:692
 #, kde-format
 msgid "Export report definition"
-msgstr ""
+msgstr "导出报告定义"
 
 #: ui/reports/reportview.cpp:709
 #, kde-kuit-format
@@ -8326,13 +8415,13 @@ msgstr "无法打开文件：<nl/><filename>%1</filename>"
 #, kde-kuit-format
 msgctxt "@title:window report data elements"
 msgid "Data Elements"
-msgstr ""
+msgstr "数据元素"
 
 #: ui/reports/reportview.cpp:873
 #, kde-kuit-format
 msgctxt "@title:window report section docker"
 msgid "Headers && Footers"
-msgstr ""
+msgstr "页眉和页脚"
 
 #: ui/reports/reportview.cpp:907
 #, kde-kuit-format
@@ -8374,31 +8463,31 @@ msgstr "分页"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Groups data by the selected column"
-msgstr ""
+msgstr "按所选列分组数据"
 
 #: ui/reports/reportview.cpp:1081
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Sorts data"
-msgstr ""
+msgstr "排序数据"
 
 #: ui/reports/reportview.cpp:1082
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show header section"
-msgstr ""
+msgstr "显示标题部分"
 
 #: ui/reports/reportview.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show footer section"
-msgstr ""
+msgstr "显示页脚部分"
 
 #: ui/reports/reportview.cpp:1084
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Insert page break"
-msgstr ""
+msgstr "插入分页符"
 
 #: ui/reports/reportview.cpp:1246
 #, kde-format
@@ -8423,12 +8512,12 @@ msgstr "是"
 #: ui/reports/reportview.cpp:1344
 #, kde-format
 msgid "After footer"
-msgstr ""
+msgstr "页脚后"
 
 #: ui/reports/reportview.cpp:1344
 #, kde-format
 msgid "Before header"
-msgstr ""
+msgstr "在页眉前"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:202
 #, kde-format
@@ -8438,36 +8527,36 @@ msgstr "无操作"
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Report File"
-msgstr ""
+msgstr "报告文件"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Report Template"
-msgstr ""
+msgstr "报告模板"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:226
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
-msgstr ""
+msgstr "报表名称"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:227
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
-msgstr ""
+msgstr "报表模板文件名称"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:228
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
-msgstr ""
+msgstr "生成的报告文件名称"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
-msgstr ""
+msgstr "添加到文件名的信息"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:266
 #, kde-kuit-format
@@ -8478,6 +8567,9 @@ msgid ""
 "report template using any Open Document text editor.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>添加和生成报表</title><para>允许您根据打开文档 (.odf) 文件添加和生成报"
+"告。</para><para>您可以使用任何打开文档文本编辑器创建报告模板。<nl/><link "
+"url='%1'>更多...</link></para>"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:340
 #, kde-format
@@ -8512,6 +8604,8 @@ msgid ""
 "Failed to generate %1.\n"
 "Template file name is empty."
 msgstr ""
+"生成 %1失败。\n"
+"模板文件名为空。"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:428
 #, kde-format
@@ -8519,32 +8613,34 @@ msgid ""
 "Failed to generate %1.\n"
 "Report file name is empty."
 msgstr ""
+"生成 %1失败。\n"
+"模板文件名为空。"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:447
 #, kde-format
 msgid "File exists. Continue?"
-msgstr ""
+msgstr "文件存在。是否继续？"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:447
 #, kde-format
 msgid "Report Generation"
-msgstr ""
+msgstr "报告生成"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:465
 #, kde-format
 msgid "Failed to open report generator"
-msgstr ""
+msgstr "打开报表生成器失败"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:469
 #, kde-format
 msgid "Failed to create report"
-msgstr ""
+msgstr "创建报告失败"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:472
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
-msgstr ""
+msgstr "报告生成"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:472
 #, kde-kuit-format
@@ -8555,7 +8651,7 @@ msgstr ""
 #: ui/ResourceAllocationView.cpp:47
 #, kde-format
 msgid "Allocate"
-msgstr ""
+msgstr "分配"
 
 #. i18n: ectx: property (text), widget (QLabel, groupLabel)
 #: ui/resourcedialogbase.ui:23
@@ -8692,7 +8788,7 @@ msgstr "每天小时数："
 #: ui/TasksEditDialog.cpp:46
 #, kde-format
 msgid "Tasks Settings"
-msgstr ""
+msgstr "任务设置"
 
 #: ui/TasksEditDialog.cpp:79
 msgctxt "(qtundo-format)"
@@ -8708,37 +8804,37 @@ msgstr "修改任务"
 #: ui/TasksGeneralPanel.ui:25
 #, kde-format
 msgid "Responsib&le:"
-msgstr ""
+msgstr "责任&:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ui/TasksGeneralPanel.ui:146
 #, kde-format
 msgid "Sched&ule:"
-msgstr ""
+msgstr "调度(&U)："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: ui/TasksGeneralPanel.ui:252
 #, kde-format
 msgid "Es&timate:"
-msgstr ""
+msgstr "估算值："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
 #: ui/TasksGeneralPanel.ui:300
 #, kde-format
 msgid "Ris&k:"
-msgstr ""
+msgstr "风险&k："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/TasksGeneralPanel.ui:356
 #, kde-format
 msgid "Optimistic:"
-msgstr ""
+msgstr "乐观："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: ui/TasksGeneralPanel.ui:385
 #, kde-format
 msgid "Pessimistic:"
-msgstr ""
+msgstr "保守估计:"
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -8754,7 +8850,7 @@ msgstr "已修改"
 #, kde-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: widgets/KoDialog.cpp:864
 #, kde-format
