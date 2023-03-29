@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-02-02 22:18+0100\n"
+"PO-Revision-Date: 2023-03-23 17:50+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -757,7 +757,7 @@ msgstr "Pianificazione %1: pianificato per finire: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "La pianificazione è di proprietà di Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -859,28 +859,22 @@ msgid "New schedule '%1' will be created."
 msgstr "Sarà creata la nuova pianificazione «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"La pianificazione esistente «%1» non è pianificata.\n"
-"«%1» sarà ri-pianificata."
+"La pianificazione esistente «%1» non è di proprietà di Portfolio.\n"
+"«%1» sarà pianificata."
 
 #: ScheduleManagerInfoDialog.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
-"La pianificazione esistente «%1» non è pianificata.\n"
-"«%1» sarà ri-pianificata."
+"La pianificazione esistente «%1» è di proprietà di Plan.\n"
+"La nuova pianificazione «%2» sarà creata."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format

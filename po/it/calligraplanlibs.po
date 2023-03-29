@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-02 22:17+0100\n"
+"PO-Revision-Date: 2023-03-22 15:46+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -631,10 +631,9 @@ msgid "Scheduling"
 msgstr "Pianificazione"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Nuovo portafoglio"
+msgstr "Portafoglio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4875,7 +4874,7 @@ msgstr "Modifica la modalità di pianificazione"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Questa pianificazione è creata dal gestore dei portafogli"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7831,11 +7830,10 @@ msgid "Detach"
 msgstr "Stacca"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Pianifica"
+msgstr "Reclama la pianificazione"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7912,12 +7910,10 @@ msgid "Move schedule %1"
 msgstr "Sposta pianificazione %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Aggiungi pianificazione %1"
+msgstr "Reclama la pianificazione %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
