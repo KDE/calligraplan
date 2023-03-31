@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-08 12:14+0100\n"
+"PO-Revision-Date: 2023-03-30 12:03+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -628,10 +628,9 @@ msgid "Scheduling"
 msgstr "Planification"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Nove Portfolio"
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -7574,11 +7573,10 @@ msgid "Detach"
 msgstr "Detalia"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Planifica"
+msgstr "Reclama Planifica"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7651,12 +7649,10 @@ msgid "Move schedule %1"
 msgstr "Move planification %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Adde planification %1"
+msgstr "Reclama Planifica %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
