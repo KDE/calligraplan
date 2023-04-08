@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-03-25 16:29+0100\n"
+"PO-Revision-Date: 2023-04-07 10:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1805,7 +1805,7 @@ msgstr ""
 "sugestojn, kiujn oni povas montri per <emphasis>Kio ĉi tio estas</emphasis>."
 "</para><para>Aktivigu ĝin elektante la menueron <b> <interface>Helpo|Kio "
 "estas ĉi tio</interface></b> aŭ premante <shortcut>Shift+F1</shortcut>.</"
-"para><para >Provu ĝin sur ĉi tiu teksto!</para>"
+"para><para>Provu ĝin sur ĉi tiu teksto!</para>"
 
 #: main/WelcomeView.cpp:128
 #, kde-kuit-format
@@ -1859,7 +1859,7 @@ msgid ""
 msgstr ""
 "<title>Lastatempaj Projektoj</title><para>Listo de la 10 plej lastatempaj "
 "projektdosieroj malfermitaj.</para><para><nl/>Tio ebligas al vi rapide "
-"malfermi projektojn pri kiuj vi laboris lastatempe.</para >"
+"malfermi projektojn pri kiuj vi laboris lastatempe.</para>"
 
 #: main/WelcomeView.cpp:168
 #, kde-kuit-format
@@ -1913,7 +1913,7 @@ msgid ""
 "style:italic;\">Project templates:</span></p></body></html>"
 msgstr ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
-"style:italic;\">Projektaj ŝablonoj:</span></span> p ></ korpo ></ html >"
+"style:italic;\">Projektaj ŝablonoj:</span></p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:156
@@ -1942,7 +1942,7 @@ msgid ""
 "style:italic;\">Recent projects:</span></p></body></html>"
 msgstr ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
-"style:italic;\">Lastatempaj projektoj:</span></span> p ></ korpo ></ html >"
+"style:italic;\">Lastatempaj projektoj:</span></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: main/WelcomeView.ui:280
@@ -1966,7 +1966,7 @@ msgid ""
 "html>"
 msgstr ""
 "<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
-"teksto-ornamado: substreko; koloro:#2980b9;\" >Hejmo</span></a></p></body></"
+"teksto-ornamado: substreko; koloro:#2980b9;\">Hejmo</span></a></p></body></"
 "html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
@@ -3066,13 +3066,13 @@ msgid ""
 "On resource conflict, tasks will be delayed until the resource is available."
 "</para>"
 msgstr ""
-"<para >Regas supermendon de rimedo dum programado.</para><para >Se "
-"supermendo estas permesita, rimedo povas esti mendita (en labortagoj) por "
-"labori pli ol ĝi estas disponebla. Ĉi tio povas okazi se la rimedo estas "
-"asignita al pluraj taskoj aŭ estas rezervita en aliaj projektoj.</"
-"para><para>Se oni evitu tromendon, rimedoj ne estos rezervitaj pli ol ili "
-"estas disponeblaj. Pri rimedkonflikto, taskoj estos prokrastataj ĝis kiam la "
-"rimedo estos disponebla.</para>"
+"<para>Regas supermendon de rimedo dum programado.</para><para>Se supermendo "
+"estas permesita, rimedo povas esti mendita (en labortagoj) por labori pli ol "
+"ĝi estas disponebla. Ĉi tio povas okazi se la rimedo estas asignita al "
+"pluraj taskoj aŭ estas rezervita en aliaj projektoj.</para><para>Se oni "
+"evitu tromendon, rimedoj ne estos rezervitaj pli ol ili estas disponeblaj. "
+"Pri rimedkonflikto, taskoj estos prokrastataj ĝis kiam la rimedo estos "
+"disponebla.</para>"
 
 #: models/kptcommonstrings.cpp:133
 #, kde-kuit-format
@@ -3090,11 +3090,11 @@ msgid ""
 "on the entered optimistic- (O), pessimistic-(P) and most likely (M) "
 "estimate. The formula used for this is (O + 4 * M + P) / 6.</para>"
 msgstr ""
-"<para >La distribuo uzota dum planado</para><para >Se distribuo estas "
-"'Neniu', la takso de taskoj estas uzata kiel estas dum planado.</para><para "
-">Se distribuo estas 'PERT', la takso estas uzata. uzata estas kalkulita "
-"surbaze de la enmetita optimisma- (O), pesimisma-(P) kaj plej verŝajne (M) "
-"takso. La formulo uzata por tio estas (O + 4 * M + P) / 6.</para>"
+"<para>La distribuo uzota dum planado</para><para>Se distribuo estas 'Neniu', "
+"la takso de taskoj estas uzata kiel estas dum planado.</para><para >Se "
+"distribuo estas 'PERT', la takso estas uzata. uzata estas kalkulita surbaze "
+"de la enmetita optimisma- (O), pesimisma-(P) kaj plej verŝajne (M) takso. La "
+"formulo uzata por tio estas (O + 4 * M + P) / 6.</para>"
 
 #: models/kptcommonstrings.cpp:141
 #, kde-kuit-format
@@ -3130,11 +3130,11 @@ msgid ""
 "project is scheduled starting at the projects latest finish time specified "
 "in the main project dialog.</para>"
 msgstr ""
-"<para >La planaddirekto.</para><para >Se direkto estas Antaŭen, la projekto "
+"<para>La planaddirekto.</para><para>Se direkto estas Antaŭen, la projekto "
 "estas planita komencante ĉe la projekto plej frue komenctempo specifita en "
-"la ĉefprojekta dialogo.</para><para >Se direkto estas Malantaŭen, la "
-"projekto estas planita komencante je la plej lasta fintempo de la projekto "
-"specifita en la ĉefprojekta dialogo.</para>"
+"la ĉefprojekta dialogo.</para><para>Se direkto estas Malantaŭen, la projekto "
+"estas planita komencante je la plej lasta fintempo de la projekto specifita "
+"en la ĉefprojekta dialogo.</para>"
 
 #: models/kptcommonstrings.cpp:152
 #, kde-kuit-format
@@ -3152,7 +3152,7 @@ msgid ""
 "installed on your system. RCPS is a genetics based resource constrained "
 "project scheduler.</para>"
 msgstr ""
-"<para>La planilo uzata por kalkuli la projektan horaron.</para><para >La "
+"<para>La planilo uzata por kalkuli la projektan horaron.</para><para>La "
 "defaŭlta enkonstruita planilo estas la Reta Planilo.</para><para>Aliaj "
 "vicigiloj nuntempe disponeblaj estas RCPS se libRCPS estas instalita en via "
 "sistemo. RCPS estas genetik-bazita rimed-limigita projektplanilo.</para>"
@@ -6423,7 +6423,7 @@ msgstr ""
 "Kontoj povas esti ligitaj al taskoj aŭ rimedoj. Kutime estos du ĉefaj "
 "kontoj, unu por kunigo de kostoj el taskoj kaj unu por kunigo de kostoj el "
 "rimedoj.</para><para>Tiu ĉi vido subtenas presadon per la kunteksta menuo."
-"<nl/><link url='%1' >Pli...</link></para>"
+"<nl/><link url='%1'>Pli...</link></para>"
 
 #: ui/kptaccountseditor.cpp:270
 #, kde-kuit-format
@@ -8471,8 +8471,8 @@ msgstr ""
 "minimumon da informoj. Kiam kompletigo estas ŝanĝita, uzata peno kaj "
 "restanta peno estas aŭtomate kalkulitaj, sed kompreneble povas esti mane "
 "modifitaj se necese.</item></list><note>Vi devus elekti la deziratan "
-"redaktan reĝimon kiam vi komencas la taskon.</note ><nl/><link "
-"url='%1'>Pli...</link></para>"
+"redaktan reĝimon kiam vi komencas la taskon.</note><nl/><link url='%1'>Pli..."
+"</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:75
 msgctxt "(qtundo-format)"
