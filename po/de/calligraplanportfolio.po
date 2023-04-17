@@ -2,14 +2,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
-# Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2022-07-23 23:07+0200\n"
+"PO-Revision-Date: 2023-04-16 14:20+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -231,7 +231,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
-msgstr ""
+msgstr "Projekt kann nicht hinzugefügt werden"
 
 #: MainWindow.cpp:149
 #, kde-kuit-format
@@ -242,12 +242,10 @@ msgid ""
 msgstr ""
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr "Dokumente speichern"
+msgstr "Dokument speichern"
 
 #: Part.cpp:61
 #, kde-format
