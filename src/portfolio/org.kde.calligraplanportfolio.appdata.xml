@@ -12,6 +12,7 @@
   <name xml:lang="en-GB">Plan Portfolio</name>
   <name xml:lang="eo">Plan Portfolio</name>
   <name xml:lang="es">Plan Portafolio</name>
+  <name xml:lang="fi">Plan Portfolio</name>
   <name xml:lang="fr">Plan Portfolio</name>
   <name xml:lang="ia">Portfolio de Plan</name>
   <name xml:lang="id">Plan Portfolio</name>
@@ -34,6 +35,7 @@
   <summary xml:lang="en-GB">Project Portfolio Management</summary>
   <summary xml:lang="eo">Mastrumo de Projektaro</summary>
   <summary xml:lang="es">Gestión de portafolios de proyectos</summary>
+  <summary xml:lang="fi">Projektin portfolionhallinta</summary>
   <summary xml:lang="fr">Gestionnaire d'un porte-feuille de projets</summary>
   <summary xml:lang="ia">Administration de Portfolio de projecto</summary>
   <summary xml:lang="id">Pengelolaan Portfolio Proyek</summary>
@@ -57,6 +59,7 @@
     <p xml:lang="en-GB">Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.</p>
     <p xml:lang="eo">Plan Portfolio estas projektara mastrumilo. Ĝi estas intencita por administri kolekton de projektoj.</p>
     <p xml:lang="es">Plan Portfolio es una aplicación de gestión de portafolios de proyecto. Está pensada para la gestión de una colección de proyectos.</p>
+    <p xml:lang="fi">Plan Portfolio on projektin portfolionhallintasovellus. Se on tarkoitettu projektien kokoelman hallintaan.</p>
     <p xml:lang="fr">Plan Portfolio est une application de gestion d'un portefeuille de projets. Il est destiné à la gestion d'une collection de projets.</p>
     <p xml:lang="ia">Plan Portfolio es un application de projecto de administration de portfolio. Illo es intendite per gerer un collection de projectos.</p>
     <p xml:lang="id">Plan Portofolio adalah aplikasi pengelolaan portofolio proyek. Hal ini dimaksudkan untuk mengelola kumpulan proyek.</p>
