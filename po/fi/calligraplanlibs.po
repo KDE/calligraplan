@@ -2,7 +2,7 @@
 # Copyright © 2012 This_file_is_part_of_KDE
 # This file is distributed under the same license as the calligra package.
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007, 2008.
-# Tommi Nieminen <translator@legisign.org>, 2012, 2021.
+# Tommi Nieminen <translator@legisign.org>, 2012, 2021, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2016.
 #
 # KDE Finnish translation sprint participants:
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2021-07-24 23:12+0300\n"
+"PO-Revision-Date: 2023-04-14 17:43+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2013-01-13 22:09:48+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -114,13 +114,13 @@ msgstr "%1p %2t:%3m"
 #, kde-format
 msgctxt "<minutes>m:<seconds>s.<milliseconds>"
 msgid "%1m:%2s.%3"
-msgstr ""
+msgstr "%1 min:%2.%3 s"
 
 #: kernel/kptduration.cpp:217
 #, kde-format
 msgctxt "<minutes>m:<seconds>s"
 msgid "%1m:%2s"
-msgstr ""
+msgstr "%1 min:%2 s"
 
 #: kernel/kptduration.cpp:219
 #, fuzzy, kde-format
@@ -131,24 +131,22 @@ msgid "%1m"
 msgstr "%1 t"
 
 #: kernel/kptduration.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "<seconds>s"
 msgid "%1s"
-msgstr "%1 t"
+msgstr "%1 s"
 
 #: kernel/kptduration.cpp:225
 #, kde-format
 msgctxt "<seconds>s.<milliseconds>"
 msgid "%1s.%2"
-msgstr ""
+msgstr "%1.%2 s"
 
 #: kernel/kptduration.cpp:228
 #, kde-format
 msgctxt "<milliseconds>ms"
 msgid "%1ms"
-msgstr ""
+msgstr "%1 ms"
 
 #: kernel/kptduration.cpp:289
 #, kde-format
@@ -249,7 +247,7 @@ msgstr "Ajastusvirhe"
 #, kde-format
 msgctxt "project scheduling canceled by user"
 msgid "Canceled"
-msgstr ""
+msgstr "Peruttu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
@@ -614,7 +612,7 @@ msgstr "Odotettu"
 #: kernel/kptschedule.cpp:1460
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "Virheenpaikannus"
 
 #: kernel/kptschedule.cpp:1461
 #, kde-format
@@ -641,10 +639,9 @@ msgid "Scheduling"
 msgstr "Ajastetaan"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "View report"
+#, kde-format
 msgid "Portfolio"
-msgstr "Näytä raportti"
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -907,7 +904,7 @@ msgstr "Tee %1 uudelleen"
 #: kundo2/kundo2model.cpp:55
 #, kde-format
 msgid "<empty>"
-msgstr ""
+msgstr "<tyhjä>"
 
 #: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1667
 #: main/KoUndoStackAction.cpp:34
@@ -952,67 +949,63 @@ msgstr "Tiedoston tiedot"
 #: main/config/ConfigDocumentationPanel.ui:79
 #, kde-format
 msgid "Context help:"
-msgstr ""
+msgstr "Kontekstiohje:"
 
 #. i18n: ectx: property (text), widget (QLabel, languageLabel)
 #: main/config/ConfigDocumentationPanel.ui:95
 #, kde-format
 msgid "Context language"
-msgstr ""
+msgstr "Kontekstikieli"
 
 #: main/config/KoConfigDocumentPage.cpp:60
 #, kde-format
 msgid "No autosave"
-msgstr ""
+msgstr "Ei automaattitallennusta"
 
 #: main/config/KoConfigDocumentPage.cpp:61
 #, kde-format
 msgctxt "unit symbol for minutes, leading space as separator"
 msgid " min"
-msgstr ""
+msgstr " min"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: main/config/KoConfigDocumentPage.ui:45
 #, kde-format
 msgid "Autosave interval:"
-msgstr ""
+msgstr "Automaattitallennusväli:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: main/config/KoConfigDocumentPage.ui:52
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Create sub-schedule"
+#, kde-format
 msgid "Create backup file:"
-msgstr "Luo aliaikataulu"
+msgstr "Luo varmuuskopiotiedosto:"
 
 #: main/kedittoolbar.cpp:43
-#, fuzzy, kde-format
-#| msgid "Separator"
+#, kde-format
 msgid "--- separator ---"
-msgstr "Erotin"
+msgstr "--- erotin ---"
 
 #: main/kedittoolbar.cpp:44
 #, kde-format
 msgid "--- expanding spacer ---"
-msgstr ""
+msgstr "--- kasvava erotin ---"
 
 #: main/kedittoolbar.cpp:337
-#, fuzzy, kde-format
-#| msgid "Change"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change Text"
-msgstr "Muuta"
+msgstr "Muuta tekstiä"
 
 #: main/kedittoolbar.cpp:347
 #, kde-format
 msgid "Icon te&xt:"
-msgstr ""
+msgstr "Kuvakkeen &teksti:"
 
 #: main/kedittoolbar.cpp:352
 #, kde-format
 msgctxt "@option:check"
 msgid "&Hide text when toolbar shows text alongside icons"
-msgstr ""
+msgstr "&Piilota teksti, kun se on työkalurivillä kuvakkeen vierellä"
 
 #: main/kedittoolbar.cpp:601
 #, fuzzy, kde-format
@@ -1027,12 +1020,13 @@ msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr ""
+"Haluatko varmasti palauttaa sovelluksen työkalurivit oletustilaan? Muutokset "
+"tulevat voimaan heti."
 
 #: main/kedittoolbar.cpp:665
-#, fuzzy, kde-format
-#| msgid "Hide %1 Toolbar"
+#, kde-format
 msgid "Reset Toolbars"
-msgstr "Piilota työkalurivi %1"
+msgstr "Palauta työkalurivit"
 
 #: main/kedittoolbar.cpp:666
 #, fuzzy, kde-format
@@ -1043,7 +1037,7 @@ msgstr "&Palauta"
 #: main/kedittoolbar.cpp:997
 #, kde-format
 msgid "&Toolbar:"
-msgstr ""
+msgstr "&Työkalurivi:"
 
 #. i18n("&New"), this);
 #. new_toolbar->setPixmap(BarIcon("document-new", KIconLoader::SizeSmall));
@@ -1060,31 +1054,26 @@ msgstr "Saatavilla saakka"
 
 #: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
 #: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Estimate Type"
+#, kde-format
 msgid "Filter"
-msgstr "Arvion tyyppi"
+msgstr "Suodata"
 
 #: main/kedittoolbar.cpp:1037
-#, fuzzy, kde-format
-#| msgid "Current date"
+#, kde-format
 msgid "Curr&ent actions:"
-msgstr "Nykyinen päivämäärä"
+msgstr "&Nykyiset toiminnot:"
 
 #: main/kedittoolbar.cpp:1062
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
-msgstr "Muuta…"
+msgstr "Vaihda ku&vake…"
 
 #: main/kedittoolbar.cpp:1071
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
-msgstr "Muuta…"
+msgstr "Muuta t&ekstiä…"
 
 #: main/kedittoolbar.cpp:1233
 #, fuzzy, kde-format
@@ -1098,7 +1087,7 @@ msgstr "%1 t"
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
-msgstr ""
+msgstr "Elementti korvataan kaikilla upotetun komponentin elementeillä."
 
 #: main/kedittoolbar.cpp:1263
 #, fuzzy, kde-format
@@ -1118,41 +1107,39 @@ msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
 "will not be able to re-add it."
 msgstr ""
+"Tämä on dynaaminen toimintoluettelo. Sitä voi siirtää, mutta jos sen "
+"poistaa, sitä ei voi lisätä uudelleen."
 
 #: main/kedittoolbar.cpp:1276
-#, fuzzy, kde-format
-#| msgid "Account: %1"
+#, kde-format
 msgid "ActionList: %1"
-msgstr "Tili: %1"
+msgstr "Toimintoluettelo: %1"
 
 #: main/kedittoolbar.cpp:1377 main/kedittoolbar.cpp:1402
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
-msgstr "%1 t"
+msgstr "%1"
 
 #: main/kedittoolbar.cpp:1630
-#, fuzzy, kde-format
-#| msgid "Change"
+#, kde-format
 msgid "Change Icon"
-msgstr "Muuta"
+msgstr "Vaihda kuvake"
 
 #: main/KoApplication.cpp:192
 #, kde-format
 msgid "just load the file and then exit"
-msgstr ""
+msgstr "avaa tiedosto ja lopeta heti"
 
 #: main/KoApplication.cpp:193
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
-msgstr ""
+msgstr "avaa tiedosto, näytä ikkuna ja edistymispalkki ja lopeta heti"
 
 #: main/KoApplication.cpp:194
 #, kde-format
 msgid "Filename to write profiling information into."
-msgstr ""
+msgstr "Tiedostonimi, johon profilointitieto kirjoitetaan."
 
 #: main/KoApplication.cpp:195
 #, kde-format
@@ -1171,6 +1158,9 @@ msgid ""
 "This might be an installation issue.\n"
 "Try restarting or reinstalling."
 msgstr ""
+"Sovelluksen olennaisia osia ei löytynyt.\n"
+"Tämä voi merkitä asennusvirhettä.\n"
+"Yritä käynnistää tai asentaa uudelleen."
 
 #: main/KoAutoSaveRecoveryDialog.cpp:167
 #, kde-format
@@ -1191,7 +1181,7 @@ msgstr "Seuraavat automaattitallennustiedostot voi palauttaa:"
 #: main/KoDocument.cpp:560
 #, kde-format
 msgid "Making backup..."
-msgstr ""
+msgstr "Luodaan varmuuskopiota…"
 
 #: main/KoDocument.cpp:575
 #, kde-format
@@ -1217,10 +1207,9 @@ msgstr ""
 "Syy: %2"
 
 #: main/KoDocument.cpp:634
-#, fuzzy, kde-format
-#| msgid "Document loaded, URL=%1"
+#, kde-format
 msgid "Document <i>%1</i> saved"
-msgstr "Tiedosto ladattu, osoite=%1"
+msgstr "Tiedosto <i>%1</i> tallennettu"
 
 #: main/KoDocument.cpp:722
 #, kde-format
@@ -1228,6 +1217,8 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
+"Tämän salatun tiedoston salasanaa ei tiedetä. Automaattinen tallennus "
+"keskeytyi! Tallenna tiedosto käsin."
 
 #: main/KoDocument.cpp:725
 #, kde-format
@@ -1237,7 +1228,7 @@ msgstr "Tallennetaan automaattisesti…"
 #: main/KoDocument.cpp:737
 #, kde-format
 msgid "Error during autosave! Partition full?"
-msgstr ""
+msgstr "Automaattinen tallentaminen epäonnistui! Onko kiintolevytila täynnä?"
 
 #: main/KoDocument.cpp:831
 #, kde-format
@@ -1248,12 +1239,12 @@ msgstr "Ei voitu luoda tiedostoa tallennettavaksi"
 #: main/KoDocument.cpp:962
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr ""
+msgstr "Ei voitu kirjoittaa: ”%1”. Onko osio täynnä?"
 
 #: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
-msgstr ""
+msgstr "Ei voitu kirjoittaa tiedostoa ”%1”. Levyosio täynnä?"
 
 #: main/KoDocument.cpp:1181
 #, kde-format
@@ -1270,12 +1261,13 @@ msgid ""
 "An autosaved file exists for this document.\n"
 "Do you want to open it instead?"
 msgstr ""
+"Tästä tiedostosta on automaattisesti tallennettu versio.\n"
+"Haluatko avata sen?"
 
 #: main/KoDocument.cpp:1198
-#, fuzzy, kde-format
-#| msgid "Autosaving..."
+#, kde-format
 msgid "Autosave"
-msgstr "Tallennetaan automaattisesti…"
+msgstr "Automaattitallennus"
 
 #: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
 #, kde-format
@@ -1288,15 +1280,14 @@ msgid "Opening Document"
 msgstr "Avataan tiedostoa"
 
 #: main/KoDocument.cpp:1406
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
+#, kde-format
 msgid "Could not create the filter plugin"
-msgstr "Pohjatiedostoa %1 ei kyetty lataamaan!"
+msgstr "Ei voitu luoda suodatinliitännäistä"
 
 #: main/KoDocument.cpp:1409
 #, kde-format
 msgid "Could not create the output document"
-msgstr ""
+msgstr "Ei voitu luoda tulostiedostoa"
 
 #: main/KoDocument.cpp:1412
 #, kde-format
@@ -1311,17 +1302,17 @@ msgstr "Tallennustilaa ei voida luoda"
 #: main/KoDocument.cpp:1418
 #, kde-format
 msgid "Bad MIME type"
-msgstr ""
+msgstr "Virheellinen MIME-tyyppi"
 
 #: main/KoDocument.cpp:1421
 #, kde-format
 msgid "Error in embedded document"
-msgstr ""
+msgstr "Virhe upotetussa tiedostossa"
 
 #: main/KoDocument.cpp:1424
 #, kde-format
 msgid "Format not recognized"
-msgstr ""
+msgstr "Muotoa ei tunnistettu"
 
 #: main/KoDocument.cpp:1427
 #, kde-format
@@ -1334,15 +1325,14 @@ msgid "Parsing error"
 msgstr "Jäsennysvirhe1"
 
 #: main/KoDocument.cpp:1433
-#, fuzzy, kde-format
-#| msgid "Export to text document failed"
+#, kde-format
 msgid "Document is password protected"
-msgstr "Vienti tekstitiedostoksi epäonnistui"
+msgstr "Tiedosto on suojattu salasanalla"
 
 #: main/KoDocument.cpp:1436
 #, kde-format
 msgid "Invalid file format"
-msgstr ""
+msgstr "Virheellinen tiedostomuoto"
 
 #: main/KoDocument.cpp:1443
 #, kde-format
@@ -1357,12 +1347,12 @@ msgstr "Muisti loppui"
 #: main/KoDocument.cpp:1449
 #, kde-format
 msgid "Empty Filter Plugin"
-msgstr ""
+msgstr "Tyhjä suodatinliitännäinen"
 
 #: main/KoDocument.cpp:1452
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
-msgstr ""
+msgstr "Yritettiin ladata vääräntyyppiseen tiedostoon"
 
 #: main/KoDocument.cpp:1455
 #, kde-format
@@ -1372,7 +1362,7 @@ msgstr "Etätiedostoa ei voitu ladata"
 #: main/KoDocument.cpp:1463
 #, kde-format
 msgid "Reading file timed out"
-msgstr ""
+msgstr "Tiedoston luvun aikakatkaisu"
 
 #: main/KoDocument.cpp:1466 main/KoDocument.cpp:1477
 #, kde-format
@@ -1382,17 +1372,17 @@ msgstr "Tuntematon virhe"
 #: main/KoDocument.cpp:1469
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
-msgstr ""
+msgstr "Suodatinta planconvert.jar ei löytynyt: tarkista asennus"
 
 #: main/KoDocument.cpp:1472
 #, kde-format
 msgid "Execution failed. Check your installation"
-msgstr ""
+msgstr "Suoritus epäonnistui. Tarkista asennus"
 
 #: main/KoDocument.cpp:1475
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
-msgstr ""
+msgstr "Suoritus epäonnistui. ODBC-ajuria ei löytynyt"
 
 #: main/KoDocument.cpp:1481
 #, kde-format
@@ -1401,6 +1391,10 @@ msgid ""
 "Reason: %1.\n"
 "%3"
 msgstr ""
+"Ei voitu avata tiedostoa\n"
+"%2.\n"
+"Syy: %1.\n"
+"%3"
 
 #: main/KoDocument.cpp:1538
 #, kde-format
@@ -1424,18 +1418,17 @@ msgstr ""
 #: main/KoDocument.cpp:1640
 #, kde-format
 msgid "%1 is not a file."
-msgstr ""
+msgstr "%1 ei ole tiedosto."
 
 #: main/KoDocument.cpp:1655
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
-msgstr ""
+msgstr "Tiedostoa ei voitu avata luettavaksi (tarkista tiedoston oikeudet)."
 
 #: main/KoDocument.cpp:1666
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
+#, kde-format
 msgid "Could not read the beginning of the file."
-msgstr "Pohjatiedostoa %1 ei kyetty lataamaan!"
+msgstr "Ei voitu lukea tiedoston alkua."
 
 #: main/KoDocument.cpp:1696
 #, kde-format
@@ -1443,16 +1436,18 @@ msgid ""
 "parsing error in the main document at line %1, column %2\n"
 "Error message: %3"
 msgstr ""
+"Jäsennysvirhe päätiedostossa rivillä %1, sarakkeessa %2.\n"
+"Virheilmoitus: %3"
 
 #: main/KoDocument.cpp:1717
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
-msgstr ""
+msgstr "Ei kelvollinen Calligra Plan -tiedosto: %1"
 
 #: main/KoDocument.cpp:1734 main/KoDocument.cpp:1765
 #, kde-format
 msgid "Invalid password"
-msgstr ""
+msgstr "Virheellinen salasana"
 
 #: main/KoDocument.cpp:1805
 #, kde-format
@@ -1465,6 +1460,8 @@ msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr ""
+"Tiedosto <i>%1</i> sisältää useita versioita. Voit avata vanhemman version "
+"valitsemalla Tiedosto->Versiot."
 
 #: main/KoDocument.cpp:2040 main/KoDocument.cpp:2536 main/KoMainWindow.cpp:1261
 #, kde-format
@@ -1490,28 +1487,30 @@ msgstr "Tallenna tiedosto"
 #: main/KoDocument.cpp:2128
 #, kde-format
 msgid "Internal error: saveXML not implemented"
-msgstr ""
+msgstr "Sisäinen virhe: saveXML:ää ei toteutettu"
 
 #: main/KoDocument.cpp:2166
-#, fuzzy, kde-format
-#| msgid "Could not finish project in time: %1"
+#, kde-format
 msgid ""
 "Could not open\n"
 "%1"
-msgstr "Projektia ei voi lopettaa ajoissa: %1"
+msgstr ""
+"Kohteen avaus epäonnistui\n"
+"%1"
 
 #: main/KoDocument.cpp:2169
-#, fuzzy, kde-format
-#| msgid "Could not finish project in time: %1"
+#, kde-format
 msgid ""
 "Could not open %1\n"
 "Reason: %2"
-msgstr "Projektia ei voi lopettaa ajoissa: %1"
+msgstr ""
+"Ei voitu avata tiedostoa %1\n"
+"%2"
 
 #: main/KoDocument.cpp:2243
 #, kde-format
 msgid "a word processing"
-msgstr ""
+msgstr "tekstinkäsittely"
 
 #: main/KoDocument.cpp:2244
 #, kde-format
@@ -1519,10 +1518,9 @@ msgid "a spreadsheet"
 msgstr "laskentataulukko"
 
 #: main/KoDocument.cpp:2245
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "a presentation"
-msgstr "Kesto"
+msgstr "esitys"
 
 #: main/KoDocument.cpp:2246
 #, kde-format
@@ -1532,7 +1530,7 @@ msgstr "kaavio"
 #: main/KoDocument.cpp:2247
 #, kde-format
 msgid "a drawing"
-msgstr ""
+msgstr "piirros"
 
 #: main/KoDocument.cpp:2540
 #, kde-format
@@ -1549,36 +1547,33 @@ msgid "Close Document"
 msgstr "Sulje tiedosto"
 
 #: main/KoFilterManager.cpp:231 main/KoFilterManager.cpp:240
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
+#, kde-format
 msgid "Could not export file."
-msgstr "Pohjatiedostoa %1 ei kyetty lataamaan!"
+msgstr "Tiedostoa ei voitu viedä."
 
 #: main/KoFilterManager.cpp:231 main/KoFilterManager.cpp:240
-#, fuzzy, kde-format
-#| msgid "Cannot find report template file!"
+#, kde-format
 msgid "Missing Export Filter"
-msgstr "Pohjatiedostoa ei löydy!"
+msgstr "Puuttuva vientisuodatin"
 
 #: main/KoFilterManager.cpp:540
-#, fuzzy, kde-format
-#| msgid "Could not finish project in time: %1"
+#, kde-format
 msgid ""
 "Could not import file of type\n"
 "%1"
-msgstr "Projektia ei voi lopettaa ajoissa: %1"
+msgstr ""
+"Ei voitu tuoda tiedostoa, jonka tyyppi on\n"
+"%1"
 
 #: main/KoFilterManager.cpp:542
-#, fuzzy, kde-format
-#| msgid "Cannot find report template file!"
+#, kde-format
 msgid "Missing Import Filter"
-msgstr "Pohjatiedostoa ei löydy!"
+msgstr "Puuttuva tuontisuodatin"
 
 #: main/KoFilterManager_p.cpp:29
-#, fuzzy, kde-format
-#| msgid "Chart type"
+#, kde-format
 msgid "Choose Filter"
-msgstr "Kaaviotyyppi"
+msgstr "Valitse suodatin"
 
 #: main/KoMainWindow.cpp:160
 #, kde-format
@@ -1588,12 +1583,12 @@ msgstr "tallentamaton %1-tiedosto (%2)"
 #: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
-msgstr ""
+msgstr "Tulosta PDF:ksi…"
 
 #: main/KoMainWindow.cpp:285
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "Virkistä"
 
 #: main/KoMainWindow.cpp:289
 #, kde-format
@@ -1611,16 +1606,14 @@ msgid "En&crypt Document"
 msgstr "&Salaa tiedosto"
 
 #: main/KoMainWindow.cpp:302
-#, fuzzy, kde-format
-#| msgid "Direction"
+#, kde-format
 msgid "&Uncompress to Directory"
-msgstr "Suunta"
+msgstr "P&ura kansioon"
 
 #: main/KoMainWindow.cpp:307
-#, fuzzy, kde-format
-#| msgid "&New"
+#, kde-format
 msgid "&New View"
-msgstr "&Uusi"
+msgstr "&Uusi näkymä"
 
 #: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
@@ -1651,7 +1644,7 @@ msgstr "Telakat"
 #: main/KoMainWindow.cpp:671
 #, kde-format
 msgid "(write protected)"
-msgstr ""
+msgstr "(kirjoitussuojattu)"
 
 #: main/KoMainWindow.cpp:676
 #, kde-format
@@ -1671,12 +1664,15 @@ msgid ""
 "a new project using this template and save it using <interface>File->Create "
 "Project Template...</interface>."
 msgstr ""
+"Mallipohjaa ei voida avata.<nl/>Jos haluat muokata mallipohjaa, luo tällä "
+"mallipohjalla uusi tiedosto ja tallenna se valitsemalla <interface>Tiedosto "
+"→ Luo projektimallipohja…</interface>."
 
 #: main/KoMainWindow.cpp:899 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
-msgstr ""
+msgstr "%1 (tuntematon tiedostotyyppi)"
 
 #: main/KoMainWindow.cpp:907
 #, kde-format
@@ -1684,12 +1680,13 @@ msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr ""
+"<qt>Tiedoston muotoilu saattaa muuttua %1-muotoon tallennettaessa. "
+"<p>Haluatko varmasti muuntaa tähän muotoon?</qt>"
 
 #: main/KoMainWindow.cpp:910
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Confirm Save"
-msgstr "Ei käynnistynyt"
+msgstr "Vahvista tallennus"
 
 #: main/KoMainWindow.cpp:919
 #, kde-format
@@ -1697,6 +1694,8 @@ msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr ""
+"<qt>Tiedoston muotoilu saattaa muuttua %1-muotoon tallennettaessa."
+"<p>Haluatko varmasti muuntaa tähän muotoon?</qt>"
 
 #: main/KoMainWindow.cpp:922
 #, kde-format
@@ -1710,10 +1709,9 @@ msgid "Export"
 msgstr "Vie"
 
 #: main/KoMainWindow.cpp:1041
-#, fuzzy, kde-format
-#| msgid "Until"
+#, kde-format
 msgid "untitled"
-msgstr "Kunnes"
+msgstr "nimetön"
 
 #: main/KoMainWindow.cpp:1334 main/WelcomeView.cpp:274
 #, kde-format
@@ -1780,7 +1778,7 @@ msgstr "Piilota työkalurivi %1"
 #: main/KoPrintingDialog.cpp:44
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
@@ -1794,10 +1792,9 @@ msgid "Printing"
 msgstr "Tulostetaan"
 
 #: main/KoPrintingDialog_p.h:140
-#, fuzzy, kde-format
-#| msgid "Project"
+#, kde-format
 msgid "Printing done"
-msgstr "Projekti"
+msgstr "Tulostus valmis"
 
 #: main/KoPrintingDialog_p.h:141 models/kcalendar/kdatepicker.cpp:644
 #, kde-format
@@ -1823,7 +1820,7 @@ msgstr "Nimetön"
 #: main/KoView.cpp:463
 #, kde-format
 msgid "Default Author Profile"
-msgstr ""
+msgstr "Oletustekijäprofiili"
 
 #: main/WelcomeView.cpp:119
 #, kde-kuit-format
@@ -1971,13 +1968,16 @@ msgid ""
 "text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Koti</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
 #: main/WelcomeView.ui:403
 #, kde-format
 msgctxt "@info:status"
 msgid "https://docs.kde.org"
-msgstr ""
+msgstr "https://docs.kde.org/"
 
 #. i18n: ectx: property (text), widget (QLabel, userDocLabel)
 #: main/WelcomeView.ui:406
@@ -2016,7 +2016,7 @@ msgstr "https://userbase.kde.org/Plan"
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
-msgstr ""
+msgstr "<a href=\"https://userbase.kde.org/Plan\">Yhteisö</a>"
 
 #. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
 #: main/WelcomeView.ui:500
@@ -2274,16 +2274,15 @@ msgid "Planned"
 msgstr "Suunnitellut kulut"
 
 #: models/kptaccountsmodel.cpp:1058
-#, fuzzy, kde-format
-#| msgid "Actual cost"
+#, kde-format
 msgid "Actual"
-msgstr "Todelliset kulut"
+msgstr "Toteutunut"
 
 #: models/kptaccountsmodel.cpp:1070
 #, kde-format
 msgctxt "@title:column week-year"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1–%2"
 
 #: models/kptaccountsmodel.cpp:1123
 #, kde-format
@@ -2291,11 +2290,10 @@ msgid "The total cost for the account shown as: Actual cost [ Planned cost ]"
 msgstr ""
 
 #: models/kptaccountsmodel.cpp:1136
-#, fuzzy, kde-format
-#| msgid "Week %1"
+#, kde-format
 msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
-msgstr "Viikko %1"
+msgstr "Viikko %1–%2"
 
 #: models/kptcalendarmodel.cpp:291
 #, kde-kuit-format
@@ -3281,9 +3279,7 @@ msgid "Parent"
 msgstr "Parent"
 
 #: models/kptitemmodelbase.cpp:242
-#, fuzzy, kde-format
-#| msgctxt "<value>%"
-#| msgid "%1%"
+#, kde-format
 msgctxt "task progress"
 msgid "%1%"
 msgstr "%1 %"
@@ -3592,20 +3588,16 @@ msgid "Estimated duration: %1"
 msgstr "Arvioitu kesto: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Arvioitu työmäärä: %1"
+msgstr "Arvioitu työmäärä: %1<nl/>Odotettu työmäärä: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Arvioitu kesto: %1"
+msgstr "Arvioitu kesto: %1<nl/>Odotettu kesto: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -3739,12 +3731,10 @@ msgid "Assigned resources:<nl/>%1"
 msgstr "Annetut resurssit:<nl/>%1"
 
 #: models/kptnodeitemmodel.cpp:1343
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task finished at %1"
-msgstr "Tehtävä valmistui: %1"
+msgstr "Tehtävä valmistui %1"
 
 #: models/kptnodeitemmodel.cpp:1345
 #, kde-kuit-format
@@ -3753,12 +3743,10 @@ msgid "Task is %1% completed"
 msgstr "Tehtävä on %1 % valmis"
 
 #: models/kptnodeitemmodel.cpp:1348
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
-msgstr "Tehtävä valmistui: %1"
+msgstr "Välitavoite valmistui %1"
 
 #: models/kptnodeitemmodel.cpp:1372
 #, kde-format
@@ -4113,20 +4101,16 @@ msgid "Estimate"
 msgstr "Arvio"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimistinen (kesto)"
+msgstr "Optimistinen (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimistinen (kesto)"
+msgstr "Pessimistinen (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
@@ -4138,7 +4122,7 @@ msgstr "Riski"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
-msgstr ""
+msgstr "Etusija"
 
 #: models/kptnodeitemmodel.cpp:2332
 #, kde-kuit-format
@@ -4845,9 +4829,7 @@ msgid "Required Resources"
 msgstr "Vaaditut resurssit"
 
 #: models/kptresourceallocationmodel.cpp:544
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tootip"
-#| msgid "Available resources or resource units"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Available resources or resource units"
 msgstr "Saatavilla olevat resurssit tai resurssiyksiköt"
@@ -4861,9 +4843,7 @@ msgid "List of resources that can be used as an alternative"
 msgstr "Mitään resursseja ei ole varattu"
 
 #: models/kptresourceallocationmodel.cpp:546
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tootip"
-#| msgid "Required material resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Required material resources"
 msgstr "Vaaditut materiaaliresurssit"
@@ -5095,11 +5075,10 @@ msgid "Use the tasks expected estimate directly"
 msgstr ""
 
 #: models/kptschedulemodel.cpp:619
-#, fuzzy, kde-kuit-format
-#| msgid "None"
+#, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "None"
-msgstr "Ei"
+msgstr "Ei mitään"
 
 #: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
@@ -5220,8 +5199,7 @@ msgid "Modify scheduler"
 msgstr "Muokkaa aikataulutusta"
 
 #: models/kptschedulemodel.cpp:873
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
 msgstr "Ei mitään"
@@ -5284,10 +5262,9 @@ msgid "Planned Finish"
 msgstr "Suunniteltu lopetus"
 
 #: models/kptschedulemodel.cpp:995
-#, fuzzy, kde-format
-#| msgid "Schedule:"
+#, kde-format
 msgid "Scheduler"
-msgstr "Aikataulu:"
+msgstr "Ajastin"
 
 #: models/kptschedulemodel.cpp:996
 #, kde-kuit-format
@@ -5732,18 +5709,16 @@ msgid "Team: No team members"
 msgstr "Valitse työryhmän jäsenet"
 
 #: models/ResourceModel.cpp:142
-#, fuzzy, kde-format
-#| msgid "Task: %1"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team: %1"
-msgstr "Tehtävä: %1"
+msgstr "Työryhmä: %1"
 
 #: models/ResourceModel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Required"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Required: %1"
-msgstr "Pakollinen"
+msgstr "Vaadittu: %1"
 
 #: models/ResourceModel.cpp:216 models/ResourceModel.cpp:242
 #, kde-format
@@ -6084,6 +6059,8 @@ msgid ""
 "This document contains an unknown checksum. When you give a password it "
 "might not be verified."
 msgstr ""
+"Tiedoston tarkistussumma on tuntematon. Kun annat salasanan, sitä ei kenties "
+"vahvisteta."
 
 #: store/KoEncryptedStore.cpp:257 store/KoEncryptedStore.cpp:274
 #, kde-format
@@ -6091,6 +6068,7 @@ msgid ""
 "This document contains an unknown encryption method. Some parts may be "
 "unreadable."
 msgstr ""
+"Tiedoston salausmenetelmä on tuntematon. Tiedosto voi olla osin lukukelvoton."
 
 #: store/KoEncryptedStore.cpp:289
 #, kde-format
@@ -6098,6 +6076,8 @@ msgid ""
 "This document contains incomplete encryption data. Some parts may be "
 "unreadable."
 msgstr ""
+"Tiedoston salausmenetelmän tiedot ovat epätäydellisiä. Tiedosto voi olla "
+"osin lukukelvoton."
 
 #: store/KoEncryptedStore.cpp:303
 #, kde-format
@@ -6105,6 +6085,8 @@ msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
 msgstr ""
+"QCA ei toistaiseksi tue SHA1 tai PBKDF2 käyttäen SHA1. Tiedoston avaaminen "
+"epäonnistui."
 
 #: store/KoEncryptedStore.cpp:333
 #, kde-format
@@ -6113,6 +6095,9 @@ msgid ""
 "document will remain unreadable. Please try and save the document again to "
 "prevent losing your work."
 msgstr ""
+"Tiedosto vaikuttaa vialliselta. Sitä ei voitu muuttaa ja tiedosto pysyy "
+"lukukelvottomana. Yritä tallentaa tiedosto uudestaan jotta et menettäisi "
+"työtäsi."
 
 #: store/KoEncryptedStore.cpp:431
 #, kde-format
@@ -6120,12 +6105,13 @@ msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
 "Please try and save the document again to prevent losing your work."
 msgstr ""
+"Tiedostoa ei voitu kirjoittaa ja tiedosto pysyy lukukelvottomana. Yritä "
+"tallentaa tiedosto uudestaan jotta et menettäisi työtäsi."
 
 #: store/KoEncryptedStore.cpp:530
-#, fuzzy, kde-format
-#| msgid "Internal error"
+#, kde-format
 msgid "Read error"
-msgstr "Sisäinen virhe"
+msgstr "Lukuvirhe"
 
 #: store/KoEncryptedStore.cpp:555
 #, kde-kuit-format
@@ -6141,29 +6127,28 @@ msgstr ""
 #: store/KoEncryptedStore.cpp:737
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
-msgstr ""
+msgstr "Anna salasana tiedoston salaamiseksi."
 
 #: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgid "Do you want to save the password?"
-msgstr ""
+msgstr "Haluatko tallentaa salasanan?"
 
 #: store/KoEncryptedStore.cpp:758
-#, fuzzy, kde-format
-#| msgid "Save as %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
-msgstr "Tallenna nimellä %1"
+msgstr "Tallenna salasana"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
 msgid "File '%1' is not readable"
-msgstr ""
+msgstr "Tiedosto ”%1” ei ole luettavissa"
 
 #: store/KoNetAccess.cpp:412
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
-msgstr ""
+msgstr "Virhe: tuntematon yhteyskäytäntö ”%1”"
 
 #: store/KoStore.cpp:169
 #, kde-format
@@ -6182,12 +6167,10 @@ msgid "Toggle extended filter options"
 msgstr ""
 
 #: ui/FilterWidget.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Estimate Type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr "Arvion tyyppi"
+msgstr "Suodata nimiä"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
@@ -6201,24 +6184,21 @@ msgstr "Tulostuvalinnat"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/GanttFilterOptionsWidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Printing Options"
+#, kde-format
 msgid "Filter Options"
-msgstr "Tulostuvalinnat"
+msgstr "Hakuasetukset"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
 msgstr "Näytä projekti"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
-#, fuzzy, kde-format
-#| msgid "Add Milestone"
+#, kde-format
 msgid "Tasks and Milestones"
-msgstr "Lisää välitavoite"
+msgstr "Tehtävät ja välitavoitteet"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -6230,45 +6210,39 @@ msgstr "Tehtävät"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Virstanpylväs"
+msgstr "Välitavoitteet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Unscheduled tasks"
-msgstr "Ei ajastettu"
+msgstr "Aikatauluttamattomat tehtävät"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period"
-msgstr "Ajoittainen"
+msgstr "Jakso"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_running)
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Running tasks"
-msgstr "On myöhässä"
+msgstr "Käynnissä olevat tehtävät"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
-#, fuzzy, kde-format
-#| msgid "Finished late"
+#, kde-format
 msgid "Finished tasks"
-msgstr "Valmistui myöhässä"
+msgstr "Valmistuneet tehtävät"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Not started"
+#, kde-format
 msgid "Not started tasks"
-msgstr "Ei käynnistynyt"
+msgstr "Aloittamattomat tehtävät"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
@@ -6281,10 +6255,9 @@ msgstr "Laske aikataulu..."
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Ajoittainen"
+msgstr "Jakso:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
@@ -6741,10 +6714,9 @@ msgstr "Näytä:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/kptaccountsviewconfigurepanelbase.ui:33
-#, fuzzy, kde-format
-#| msgid "Periodicity:%1"
+#, kde-format
 msgid "Periodicity:"
-msgstr "Aikajakso: %1"
+msgstr "Jaksollisuus:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
 #: ui/kptaccountsviewconfigurepanelbase.ui:44
@@ -7099,12 +7071,10 @@ msgid "Cannot Attach Document"
 msgstr "Tiedoston liittäminen epäonnistui"
 
 #: ui/kptdocumentspanel.cpp:116
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Document is already attached:<br/><filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
-msgstr "Tiedosto on jo liitetty:<br/><filename>%1</filename>"
+msgstr "Tiedosto on jo liitetty:<nl/><filename>%1</filename>"
 
 #: ui/kptdocumentspanel.cpp:137
 #, kde-kuit-format
@@ -7233,21 +7203,17 @@ msgstr "Ctrl+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Ei vapaapäiviä"
 
 #: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:97
 #: ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Ei vapaapäiviä"
+msgstr "Projektin vapaapäivät"
 
 #: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
 #: ui/MilestoneGanttView.cpp:130 ui/MilestoneGanttView.cpp:147
@@ -7283,28 +7249,24 @@ msgid "Show Project"
 msgstr "Näytä projekti"
 
 #: ui/kptganttview.cpp:318
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Tulostusvalinnat…"
+msgstr "Suodatusvalinnat…"
 
 #: ui/kptganttview.cpp:330
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Show Unscheduled Tasks"
-msgstr "Ei ajastettu"
+msgstr "Näytä aikatauluttamattomat tehtävät"
 
 #: ui/kptganttview.cpp:337
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Tehtävät"
+msgstr "Näytä tehtävät"
 
 #: ui/kptganttview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Virstanpylväs"
+msgstr "Näytä välitavoitteet"
 
 #: ui/kptganttview.cpp:354
 #, kde-kuit-format
@@ -7321,10 +7283,9 @@ msgid "Activates the Period filter options."
 msgstr ""
 
 #: ui/kptganttview.cpp:370
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Show Running Tasks"
-msgstr "On myöhässä"
+msgstr "Näytä käynnissä olevat tehtävät"
 
 #: ui/kptganttview.cpp:371
 #, kde-format
@@ -7333,10 +7294,9 @@ msgid "Shows tasks that has been started before or during this period."
 msgstr ""
 
 #: ui/kptganttview.cpp:378
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Show Finished Tasks"
-msgstr "Ei ajastettu"
+msgstr "Näytä valmistuneet tehtävät"
 
 #: ui/kptganttview.cpp:379
 #, kde-format
@@ -7345,10 +7305,9 @@ msgid "Shows tasks and milestones that has been finished during this period."
 msgstr ""
 
 #: ui/kptganttview.cpp:386
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Show Not Started Tasks"
-msgstr "Ei käynnistynyt"
+msgstr "Näytä aloittamattomat tehtävät"
 
 #: ui/kptganttview.cpp:387
 #, kde-format
@@ -7411,11 +7370,10 @@ msgid "Zoom Out"
 msgstr "Loitonna"
 
 #: ui/kptintervaledit.cpp:48
-#, fuzzy, kde-format
-#| msgid "Started"
+#, kde-format
 msgctxt "Interval start time"
 msgid "Start"
-msgstr "Käynnistynyt"
+msgstr "Aloita"
 
 #: ui/kptintervaledit.cpp:49
 #, kde-format
@@ -7663,7 +7621,7 @@ msgstr "Myöhäisin lopetus:"
 #: ui/kptmainprojectpanelbase.ui:192
 #, kde-format
 msgid "<html><head/><body><p align=\"right\">Time zone:</p></body></html>"
-msgstr ""
+msgstr "<html><head/><body><p align=\"right\">Aikavyöhyke:</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
 #: ui/kptmainprojectpanelbase.ui:220
@@ -7679,11 +7637,9 @@ msgstr "Selaa…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgid "Freedays"
-msgstr "Ei vapaapäiviä"
+msgstr "Vapaapäivät"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -8329,13 +8285,9 @@ msgstr ""
 "projektin kuvauksen muutos"
 
 #: ui/kpttaskdescriptiondialog.cpp:122
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify project description"
+#, kde-format
 msgid "Project Description"
-msgstr ""
-"Muuta projektin kuvausta\n"
-"projektin kuvauksen muutos"
+msgstr "Projektin kuvaus"
 
 #: ui/kpttaskdescriptiondialog.cpp:122
 #, kde-format
@@ -8498,10 +8450,9 @@ msgid "Move Down"
 msgstr "Siirrä alemmas"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "Jaa näkymä"
+msgstr "Jaa"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -8567,7 +8518,7 @@ msgstr ""
 #: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
-msgstr ""
+msgstr "Julkaise…"
 
 #: ui/kpttaskeditor.cpp:2450
 #, kde-format
@@ -9120,32 +9071,28 @@ msgid "Add Level"
 msgstr "Lisää taso"
 
 #: ui/kptworkpackagemergedialog.cpp:53
-#, fuzzy, kde-kuit-format
-#| msgid "Date"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Date"
-msgstr "Päivämäärä"
+msgstr "Päiväys"
 
 #: ui/kptworkpackagemergedialog.cpp:54
-#, fuzzy, kde-kuit-format
-#| msgid "Completion"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Completion"
 msgstr "Valmistuminen"
 
 #: ui/kptworkpackagemergedialog.cpp:55
-#, fuzzy, kde-kuit-format
-#| msgid "Used Effort"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Used Effort"
 msgstr "Käytetty työmäärä"
 
 #: ui/kptworkpackagemergedialog.cpp:56
-#, fuzzy, kde-kuit-format
-#| msgid "Remaining Effort"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Remaining Effort"
-msgstr "Jäljellä oleva työpanos"
+msgstr "Jäljellä oleva työmäärä"
 
 #: ui/kptworkpackagemergedialog.cpp:59
 #, fuzzy, kde-kuit-format
@@ -9259,9 +9206,7 @@ msgstr "Luotu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/kptworkpackagemergepanel.ui:77
-#, fuzzy, kde-format
-#| msgctxt "Start time"
-#| msgid "From:"
+#, kde-format
 msgid "From:"
 msgstr "Alkaen:"
 
@@ -9486,8 +9431,7 @@ msgid "Predecessor"
 msgstr ""
 
 #: ui/RelationEditorDialog.cpp:244
-#, fuzzy, kde-kuit-format
-#| msgid "Lag"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Lag"
 msgstr "Viive"
@@ -9952,22 +9896,19 @@ msgid "Nothing"
 msgstr "Ei mitään"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
-#, fuzzy, kde-format
-#| msgid "Report Template"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Raporttimalli"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Lisää"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:257
-#, fuzzy, kde-format
-#| msgid "Report File"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Raporttitiedosto"
@@ -10022,10 +9963,9 @@ msgid "Generate Report"
 msgstr "Luo raportti"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:395
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open..."
-msgstr "Avaa"
+msgstr "Avaa…"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format

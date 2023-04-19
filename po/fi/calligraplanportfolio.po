@@ -1,14 +1,14 @@
 # POT_PART_NORMAL only
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-# Tommi Nieminen <translator@legisign.org>, 2021.
+# Tommi Nieminen <translator@legisign.org>, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2021-07-24 23:19+0300\n"
+"PO-Revision-Date: 2023-04-14 17:35+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -54,60 +54,58 @@ msgstr "translator@legisign.org"
 
 #. i18n: ectx: Menu (file)
 #: calligraplanportfolio_shell.rc:4 Portfolio_ViewUi.rc:4
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "File"
+#, kde-format
 msgid "&File"
-msgstr "Tiedosto"
+msgstr "&Tiedosto"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplanportfolio_shell.rc:11
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "&Asetukset"
 
 #. i18n: ectx: Menu (help)
 #: calligraplanportfolio_shell.rc:25 Portfolio_ViewUi.rc:40
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Ohje"
 
 #: config/ConfigDialog.cpp:28
 #, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr ""
+msgstr "Tiedosto"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: config/portfoliosettings.kcfg:10
 #, kde-format
 msgid "Path to the documentation"
-msgstr ""
+msgstr "Ohjeistuksen sijainti"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: config/portfoliosettings.kcfg:14
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "Kontekstiohjeistuksen sijainti"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: config/portfoliosettings.kcfg:18
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "Kontekstiohjeistuksen tulee olla käännetty oikealle kielelle"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: config/portfoliosettings.kcfg:24
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "Automaattitallennusväli"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: config/portfoliosettings.kcfg:28
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "Luo varmuuskopiotiedosto"
 
 #: DocumentsSaveDialog.cpp:27 PortfolioModel.cpp:23
 #, kde-format, kde-kuit-format
@@ -119,25 +117,25 @@ msgstr "Portfolio"
 #, kde-format
 msgctxt "@title:column"
 msgid "Modified"
-msgstr ""
+msgstr "Muutettu"
 
 #: DocumentsSaveDialog.cpp:29
 #, kde-format
 msgctxt "@title:column"
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: DocumentsSaveDialog.cpp:30
 #, kde-format
 msgctxt "@title:column"
 msgid "Internal"
-msgstr ""
+msgstr "Sisäinen"
 
 #: DocumentsSaveDialog.cpp:31
 #, kde-format
 msgctxt "@title:column"
 msgid "Url"
-msgstr ""
+msgstr "Verkko-osoite"
 
 #: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
 #: PortfolioModel.cpp:114
@@ -155,24 +153,24 @@ msgstr "Ei"
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Documents"
-msgstr ""
+msgstr "Tallenna tiedostot"
 
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr ""
+msgstr "Tiedosto on jo olemassa. Haluatko korvata sen?"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
-msgstr ""
+msgstr "Korvataanko tiedosto?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, saveMain)
 #: DocumentsSaveDialog.ui:40
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: GanttView.cpp:81
 #, kde-kuit-format
@@ -183,6 +181,10 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Gantt-yhteenveto</title><para>Näyttää portfolion kaikkien projektien "
+"Gantt-kaavion.</para><para>Projektin Gantt-näkymän voi näyttää valitsemalla "
+"<interface>kontekstivalikosta → Avaa projekti</interface>.<nl/><link "
+"url='%1'>Lisää…</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -222,14 +224,14 @@ msgstr "Jatka"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr ""
+msgstr "Projekti on jo olemassa.<nl/>Projekti: %1<nl/>Tiedosto: %2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
-msgstr ""
+msgstr "Projektia ei voitu lisätä"
 
 #: MainWindow.cpp:149
 #, kde-kuit-format
@@ -238,12 +240,14 @@ msgid ""
 "<p>The external project file <filename>%1</filename> has been modified.</"
 "p><p>Do you want to save it?</p>"
 msgstr ""
+"<p>Ulkoinen projektitiedosto <filename>%1</filename> on muuttunut.</"
+"p><p>Haluatko tallentaa sen?</p>"
 
 #: MainWindow.cpp:150
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr ""
+msgstr "Tallenna tiedosto"
 
 #: Part.cpp:61
 #, kde-format
@@ -251,20 +255,16 @@ msgid "Configure Portfolio..."
 msgstr "Portfolioasetukset…"
 
 #: Part.cpp:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Portfolio"
+#, kde-kuit-format
 msgctxt "title:window"
 msgid "Portfolio Settings"
-msgstr "Portfolio"
+msgstr "Portfolioasetukset"
 
 #: Part.cpp:72
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Portfolio"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Portfolio Settings"
-msgstr "Portfolio"
+msgstr "Portfolioasetukset"
 
 #: PerformanceView.cpp:170
 #, kde-format
@@ -279,7 +279,7 @@ msgstr "Kulut (%1)"
 #: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
-msgstr ""
+msgstr "Työmäärä (tuntia)"
 
 #: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
@@ -316,7 +316,7 @@ msgstr "Kustannus"
 #: PerformanceView.ui:237
 #, kde-format
 msgid "Effort"
-msgstr ""
+msgstr "Työmäärä"
 
 #. i18n: ectx: Menu (view)
 #. i18n: ectx: Menu (gantt_context_menu)
@@ -327,7 +327,7 @@ msgstr ""
 #: Portfolio_ViewUi.rc:35
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "&Näkymä"
 
 #. i18n: ectx: ToolBar (contentsviewToolBar)
 #. i18n: ectx: ToolBar (progressviewToolBar)
@@ -342,20 +342,18 @@ msgstr ""
 #: Portfolio_SummaryViewUi.rc:13
 #, kde-format
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 #. i18n: ectx: Menu (edit)
 #: Portfolio_PortfolioViewUi.rc:5 Portfolio_SchedulingViewUi.rc:5
 #: Portfolio_ViewUi.rc:26
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "&Muokkaa"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: Portfolio_ViewUi.rc:44
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "File"
+#, kde-format
 msgid "File"
 msgstr "Tiedosto"
 
@@ -363,13 +361,13 @@ msgstr "Tiedosto"
 #: Portfolio_ViewUi.rc:49
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Muokkaa"
 
 #: PortfolioModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Storage"
-msgstr ""
+msgstr "Talletuspaikka"
 
 #: PortfolioModel.cpp:25
 #, kde-kuit-format
@@ -381,7 +379,7 @@ msgstr "Tiedosto"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
-msgstr ""
+msgstr "Asettaa, onko projekti osa portfoliota"
 
 #: PortfolioModel.cpp:79
 #, kde-format
@@ -390,12 +388,14 @@ msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
 msgstr ""
+"Asettaa, onko projekti upotettu portfoliotiedostoon vai tallennettu "
+"ulkoiseksi tiedostoksi"
 
 #: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
-msgstr ""
+msgstr "Projektitiedoston ulkoinen verkko-osoite"
 
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
@@ -406,25 +406,23 @@ msgstr "Virhe"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
-msgstr ""
+msgstr "Tiedoston lataaminen epäonnistui"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "Embedded"
-msgstr ""
+msgstr "Upotettu"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
 msgid "External"
-msgstr ""
+msgstr "Ulkoinen"
 
 #: PortfolioView.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "application name"
-#| msgid "Plan Portfolio"
+#, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
-msgstr "Plan-portfolio"
+msgstr "Viimeaikaiset portfoliot"
 
 #: PortfolioView.cpp:133
 #, kde-kuit-format
@@ -510,10 +508,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
-#, fuzzy, kde-format
-#| msgid "Configuration"
+#, kde-format
 msgid "Information"
-msgstr "Asetukset"
+msgstr "Tietoa"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:243
@@ -530,13 +527,16 @@ msgid ""
 "text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Koti</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:259
 #, kde-format
 msgctxt "@info:status"
 msgid "https://docs.kde.org"
-msgstr ""
+msgstr "https://docs.kde.org/"
 
 #. i18n: ectx: property (text), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:262
@@ -546,13 +546,15 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
 "\">User documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">Käyttöopas</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: PortfolioView.ui:278
 #, kde-format
 msgctxt "@info:status"
 msgid "https://forum.kde.org/viewforum.php?f=203"
-msgstr ""
+msgstr "https://forum.kde.org/viewforum.php?f=203"
 
 #. i18n: ectx: property (text), widget (QLabel, forumLabel)
 #: PortfolioView.ui:281
@@ -561,13 +563,14 @@ msgctxt "@action:button"
 msgid ""
 "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
 msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Yhteisöfoorumi</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:297
 #, kde-format
 msgctxt "@info:status"
 msgid "https://userbase.kde.org/Plan"
-msgstr ""
+msgstr "https://userbase.kde.org/Plan"
 
 #. i18n: ectx: property (text), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:300
@@ -593,10 +596,9 @@ msgid ""
 msgstr ""
 
 #: ProjectsDashboard.cpp:79
-#, fuzzy, kde-format
-#| msgid "Add Project"
+#, kde-format
 msgid "Projects"
-msgstr "Lisää projekti"
+msgstr "Projektit"
 
 #: ProjectsModel.cpp:142
 #, kde-format
@@ -630,7 +632,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
-msgstr ""
+msgstr "Projektin kuvaus"
 
 #: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
 #: SchedulingModel.cpp:29
@@ -678,12 +680,10 @@ msgid "Not scheduled"
 msgstr "Ei aikataulutettu"
 
 #: ProjectsModel.cpp:295 ProjectsModel.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select schedule"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr "Valitse aikataulu"
+msgstr "Aikataulu: %1 ei ole aikataulutettu"
 
 #: ProjectsModel.cpp:297
 #, kde-format
@@ -748,63 +748,56 @@ msgstr ""
 #: ResourceUsageView.cpp:110
 #, kde-format
 msgid "Normal"
-msgstr ""
+msgstr "Tavallinen"
 
 #: ResourceUsageView.cpp:114
 #, kde-format
 msgid "Stacked"
-msgstr ""
+msgstr "Pinottu"
 
 #: ResourceUsageView.cpp:122
 #, kde-format
 msgid "Range"
-msgstr ""
+msgstr "Väli"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Add Project"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Lisää projekti"
+msgstr "Projekti"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
-msgstr "Aikatauluta"
+msgstr "Aikataulu"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Valinnat"
+msgstr "Toiminto"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Tila"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "Ei aikataulua"
+msgstr "Uusi aikataulu"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Ei aikataulua"
+msgstr "Uusi aliaikataulu"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Luotiin uusi aikataulu ”%1”."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -812,6 +805,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Portfolio omistaa olemassa olevan aikataulun ”%1”.\n"
+"”%1” aikataulutetaan."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -819,6 +814,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"Plan omistaa olemassa olevan aikataulun ”%1”.\n"
+"Luodaan uusi aikataulu ”%2”."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -826,6 +823,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projekti on käynnistynyt.\n"
+"”%1” luodaan aliaikatauluksi aikataululle ”%2”."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -886,6 +885,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Aikataulutus ei ole mahdollista. Projektin suunnitellun lopun on oltava "
+"laskettua aikaa myöhemmin"
 
 #: SchedulingModel.cpp:190
 #, kde-format
@@ -924,6 +925,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Aikataulutus ei ole mahdollista. Projektin suunnitellun lopun on oltava "
+"laskettua aikaa myöhemmin"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
@@ -971,24 +974,23 @@ msgstr ""
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minuutti"
+msgstr[1] "%1 minuuttia"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr ""
+msgstr "Kuvaus…"
 
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "Sisäinen virhe. Aikataulutusliitännäistä ei löytynyt."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
-#, fuzzy, kde-format
-#| msgid "Not scheduled"
+#, kde-format
 msgid "Nothing to schedule"
-msgstr "Ei aikataulutettu"
+msgstr "Ei aikataulutettavaa"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -998,11 +1000,9 @@ msgid ""
 msgstr ""
 
 #: SchedulingView.cpp:458
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Schedule this project"
+#, kde-format
 msgid "Scheduling projects"
-msgstr "Aikatauluta tämä projekti"
+msgstr "Projektien aikatauluttaminen"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
@@ -1096,11 +1096,9 @@ msgid ""
 msgstr ""
 
 #: View.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Portfolio"
+#, kde-format
 msgid "Portfolio Content"
-msgstr "Portfolio"
+msgstr "Portfolion sisältö"
 
 #: View.cpp:64
 #, kde-format
@@ -1120,12 +1118,12 @@ msgstr "Eteneminen"
 #: View.cpp:83
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "Suorituskyky"
 
 #: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
-msgstr ""
+msgstr "Resurssien käyttö"
 
 #: View.cpp:96
 #, kde-format
