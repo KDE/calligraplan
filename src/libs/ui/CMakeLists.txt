@@ -194,7 +194,7 @@ if (PLAN_USE_KREPORT)
 endif()
 
 if(KF5AkonadiContact_FOUND)
-    target_link_libraries(calligraplanui  PRIVATE KF5::AkonadiContact)
+    target_link_libraries(calligraplanui  PRIVATE KF5::AkonadiContactCore)
 endif()
 
 set_target_properties(calligraplanui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )

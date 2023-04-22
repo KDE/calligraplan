@@ -83,7 +83,7 @@ target_link_libraries(calligraplanprivate
         #KF5::KHtml
 )
 if(KF5AkonadiContact_FOUND)
-    target_link_libraries(calligraplanprivate  PRIVATE KF5::AkonadiContact)
+    target_link_libraries(calligraplanprivate  PRIVATE KF5::AkonadiContactCore)
 endif()
 set_target_properties(calligraplanprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
