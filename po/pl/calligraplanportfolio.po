@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-02-18 09:12+0100\n"
+"PO-Revision-Date: 2023-04-23 12:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -751,7 +751,7 @@ msgstr "Harmonogram %1: Zaplanowane zakończenie: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Harmonogram należy do Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -853,28 +853,22 @@ msgid "New schedule '%1' will be created."
 msgstr "Zostanie utworzony nowy harmonogram '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
-"Istniejący harmonogram '%1' nie jest zaplanowany.\n"
+"Istniejący harmonogram '%1' należy do Portfolio.\n"
 "Zostanie zaplanowany '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Existing schedule '%1' is not scheduled.\n"
-#| "'%1' will be scheduled."
+#, kde-format
 msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
-"Istniejący harmonogram '%1' nie jest zaplanowany.\n"
-"Zostanie zaplanowany '%1'."
+"Istniejący harmonogram '%1' należy do Plana.\n"
+"Nowy harmonogram '%2' zostanie utworzony."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format

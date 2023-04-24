@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-02-18 08:55+0100\n"
+"PO-Revision-Date: 2023-04-23 12:11+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -633,10 +633,9 @@ msgid "Scheduling"
 msgstr "Planowanie"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Nowe portfolio"
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -4869,6 +4868,8 @@ msgstr "Zmień tryb harmonogramowania"
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
 msgstr ""
+"Ten harmonogram został stworzony przy użyciu programu do zarządzania "
+"portfolio"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -7814,11 +7815,10 @@ msgid "Detach"
 msgstr "Odłącz"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Harmonogram"
+msgstr "Poproś o harmonogram"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7895,12 +7895,10 @@ msgid "Move schedule %1"
 msgstr "Przenieś harmonogram %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr "Dodaj harmonogram %1"
+msgstr "Poproś o harmonogram %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
