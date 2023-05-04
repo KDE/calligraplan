@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-04-07 10:09+0100\n"
+"PO-Revision-Date: 2023-05-03 06:40+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -4402,13 +4402,13 @@ msgstr "Tempo"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package owner"
-msgstr "Laborpako posedanto"
+msgstr "Posedanto de laborpako"
 
 #: models/kptnodeitemmodel.cpp:2589
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package status"
-msgstr "Laborpakaĵo statuso"
+msgstr "Laborpaka statuso"
 
 #: models/kptnodeitemmodel.cpp:2590
 #, kde-kuit-format
@@ -5640,7 +5640,7 @@ msgstr "Ekrano"
 #, kde-format
 msgctxt "Page size"
 msgid "Custom"
-msgstr "Kutimo"
+msgstr "Propra"
 
 #: odf/KoPageFormat.cpp:61
 #, kde-format
@@ -5925,7 +5925,7 @@ msgstr "La dosieruja reĝimo ne estas subtenata por foraj lokoj."
 #: store/KoStore.cpp:170
 #, kde-format
 msgid "Calligra Storage"
-msgstr "Calligra Stokado"
+msgstr "Calligra Konservo"
 
 #: ui/FilterWidget.cpp:38
 #, kde-format
@@ -9145,7 +9145,7 @@ msgstr "Kostoj"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
 #, kde-format
 msgid "Show BCWS plot"
-msgstr "Montri BCWS-intrigon"
+msgstr "Montri BCWS-diagramon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
@@ -9153,7 +9153,7 @@ msgstr "Montri BCWS-intrigon"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
 #, kde-format
 msgid "Show BCWP plot"
-msgstr "Montri BCWP-intrigon"
+msgstr "Montri BCWP-diagramon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
@@ -9161,7 +9161,7 @@ msgstr "Montri BCWP-intrigon"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
 #, kde-format
 msgid "Show ACWP plot"
-msgstr "Montri ACWP-intrigon"
+msgstr "Montri ACWP-diagramon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
