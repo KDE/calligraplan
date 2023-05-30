@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-05-03 06:40+0100\n"
+"PO-Revision-Date: 2023-05-29 21:25+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -632,7 +632,7 @@ msgstr "Planado"
 #: kernel/kptschedule.cpp:1792
 #, kde-format
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -2053,8 +2053,8 @@ msgstr "Ne asignita"
 #, kde-format
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Estas %1 rimedo disponebla en ĉi tiu grupo"
+msgstr[1] "Estas %1 rimedoj disponeblaj en ĉi tiu grupo"
 
 #: models/GroupAllocationItemModel.cpp:171 models/kptaccountsmodel.cpp:112
 #: models/kptaccountsmodel.cpp:1054 models/kptdocumentmodel.cpp:187
@@ -2108,8 +2108,8 @@ msgstr "Disponeblaj rimedoj aŭ rimedunuoj"
 msgctxt "@info:tooltip"
 msgid "%1 resource requested for dynamic allocation"
 msgid_plural "%1 resources requested for dynamic allocation"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 rimedo alpetita por dinamika asignado"
+msgstr[1] "%1 rimedoj alpetitaj por dinamika asignado"
 
 #: models/GroupAllocationItemModel.cpp:467
 #, kde-format
@@ -4847,7 +4847,7 @@ msgstr "Modifi planan reĝimon"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Tiu plano estas kreita fare de la Portfolio-mastrumilo"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
