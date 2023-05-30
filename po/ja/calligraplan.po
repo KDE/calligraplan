@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.2\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -1947,7 +1947,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
 msgstr[0] "タスクを削除"
-msgstr[1] "タスクを削除"
 
 #: kptview.cpp:2275
 #, kde-format
@@ -1993,7 +1992,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete resource"
 msgid_plural "Delete resources"
 msgstr[0] "リソースを削除"
-msgstr[1] "リソースを削除"
 
 #: kptview.cpp:2495 kptview.cpp:2553
 #, fuzzy
@@ -2003,7 +2001,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete resourcegroup"
 msgid_plural "Delete resourcegroups"
 msgstr[0] "リソースグループを削除"
-msgstr[1] "リソースグループを削除"
 
 #: kptview.cpp:2504 kptview.cpp:2512
 #, kde-format
