@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 1.0\n"
@@ -2058,7 +2058,6 @@ msgstr "割り当てられていません"
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
 msgstr[0] "このグループには %1 の利用可能リソースがあります"
-msgstr[1] "このグループには %1 の利用可能リソースがあります"
 
 #: models/GroupAllocationItemModel.cpp:171 models/kptaccountsmodel.cpp:112
 #: models/kptaccountsmodel.cpp:1054 models/kptdocumentmodel.cpp:187
@@ -2113,7 +2112,6 @@ msgctxt "@info:tooltip"
 msgid "%1 resource requested for dynamic allocation"
 msgid_plural "%1 resources requested for dynamic allocation"
 msgstr[0] ""
-msgstr[1] ""
 
 #: models/GroupAllocationItemModel.cpp:467
 #, kde-format
@@ -2121,7 +2119,6 @@ msgctxt "@info:tooltip"
 msgid "%1 resource allocated"
 msgid_plural "%1 resources allocated"
 msgstr[0] "%1 リソースが割り当てられました"
-msgstr[1] "%1 リソースが割り当てられました"
 
 #: models/GroupAllocationItemModel.cpp:471
 #, kde-kuit-format
@@ -2151,7 +2148,6 @@ msgctxt "@info:tooltip"
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
 msgstr[0] "このグループには %1 の利用可能リソースがあります"
-msgstr[1] "このグループには %1 の利用可能リソースがあります"
 
 #: models/kcalendar/kdatepicker.cpp:188
 #, kde-format
@@ -2243,8 +2239,7 @@ msgstr "アカウントを追加"
 msgctxt "(qtundo-format)"
 msgid "Delete Account"
 msgid_plural "Delete %1 Accounts"
-msgstr[0] "アカウントを削除"
-msgstr[1] "%1 アカウントを削除"
+msgstr[0] "%1 アカウントを削除"
 
 #: models/kptaccountsmodel.cpp:856
 #, kde-format
@@ -5454,8 +5449,7 @@ msgstr "リソースグループ名を変更"
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
 msgid_plural "Add %1 resources from address book"
-msgstr[0] "アドレス帳からリソースを追加"
-msgstr[1] "アドレス帳から %1 リソースを追加"
+msgstr[0] "アドレス帳から %1 リソースを追加"
 
 #: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:950
 #, fuzzy, kde-format
@@ -5464,8 +5458,7 @@ msgstr[1] "アドレス帳から %1 リソースを追加"
 msgctxt "(qtundo-format)"
 msgid "Move resource"
 msgid_plural "Move %1 resources"
-msgstr[0] "リソースを移動"
-msgstr[1] "%1 のリソースを移動"
+msgstr[0] "%1 のリソースを移動"
 
 #: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:970
 #, fuzzy, kde-format
@@ -5474,8 +5467,7 @@ msgstr[1] "%1 のリソースを移動"
 msgctxt "(qtundo-format)"
 msgid "Copy resource"
 msgid_plural "Copy %1 resources"
-msgstr[0] "リソースをコピー"
-msgstr[1] "%1 個のリソースをコピー"
+msgstr[0] "%1 個のリソースをコピー"
 
 #: models/ResourceGroupItemModel.cpp:789 models/ResourceGroupItemModel.cpp:793
 msgctxt "(qtundo-format)"
@@ -7924,7 +7916,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete resource"
 msgid_plural "Delete resources"
 msgstr[0] "リソース当たり"
-msgstr[1] "リソース当たり"
 
 #: ui/kptresourceeditor.cpp:423
 #, fuzzy
@@ -8445,7 +8436,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
 msgstr[0] "削除"
-msgstr[1] "削除"
 
 #: ui/kpttaskeditor.cpp:1164
 #, fuzzy
@@ -8462,7 +8452,6 @@ msgctxt "(qtundo-format)"
 msgid "Indent task"
 msgid_plural "Indent %1 tasks"
 msgstr[0] "タスクをインデント"
-msgstr[1] "タスクをインデント"
 
 #: ui/kpttaskeditor.cpp:1217
 #, fuzzy
@@ -8478,7 +8467,6 @@ msgctxt "(qtundo-format)"
 msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
 msgstr[0] "タスクを逆インデント"
-msgstr[1] "タスクを逆インデント"
 
 #: ui/kpttaskeditor.cpp:1240
 #, fuzzy
@@ -10315,7 +10303,6 @@ msgctxt "(qtundo-format)"
 msgid "Delete resourcegroup"
 msgid_plural "Delete resourcegroups"
 msgstr[0] "リソースグループを追加"
-msgstr[1] "リソースグループを追加"
 
 #: ui/RichTextWidget.cpp:26 ui/RichTextWidget.cpp:39
 #, fuzzy, kde-kuit-format
