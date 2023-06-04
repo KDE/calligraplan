@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-05-15 21:50+0300\n"
+"PO-Revision-Date: 2023-06-04 02:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1802,7 +1802,7 @@ msgstr ""
 "<subtitle>Bağlam Yardımı</subtitle><para>Birçok işlevin <emphasis>Bu Nedir?</"
 "emphasis> ile görüntülenebilen yardım ve ipuçları vardır.</"
 "para><para><b><interface>Yardım|Bu Nedir?</interface></b> menü ögesini "
-"etkinleştirerek veya <shortcut>Shift+F1</shortcut>'e basarak "
+"etkinleştirerek veya <shortcut>Üst Karakter+F1</shortcut>'e basarak "
 "etkinleştirebilirsiniz.</para><para>Bu metin üzerinde deneyin!</para>"
 
 #: main/WelcomeView.cpp:128
@@ -1874,7 +1874,7 @@ msgid ""
 msgstr ""
 "<title>Bağlam yardımı</title><para>Yardıma, <emphasis>Bu Nedir?</emphasis> "
 "kullanarak çoğu yerde erişebilirsiniz.<nl/><interface>Yardım->Bu Nedir?</"
-"interface> menü ögesinden veya <shortcut>Shift+F1</shortcut> klavye "
+"interface> menü ögesinden veya <shortcut>Üst Karakter+F1</shortcut> klavye "
 "kısayolundan etkinleştirilebilir.</para><para>Pencerelerde, başlık "
 "çubuğundaki <interface>?</interface> düğmesine basarak da "
 "etkinleştirebilirsiniz.</para><para>Metinde <link url='%1'>Daha Fazla...</"
@@ -6931,7 +6931,7 @@ msgstr "Ekle..."
 #: ui/kptdocumentspanel.ui:61
 #, kde-format
 msgid "Ctrl+I"
-msgstr "Ctrl+I"
+msgstr "Kontrol+I"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: ui/kptdocumentspanel.ui:68
@@ -6943,7 +6943,7 @@ msgstr "Değiştir..."
 #: ui/kptdocumentspanel.ui:75
 #, kde-format
 msgid "Ctrl+M"
-msgstr "Ctrl+M"
+msgstr "Kontrol+M"
 
 #. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
 #. i18n: ectx: property (text), widget (QPushButton, removeBtn)
@@ -6971,7 +6971,7 @@ msgstr "Aç"
 #: ui/kptdocumentspanel.ui:103
 #, kde-format
 msgid "Ctrl+O"
-msgstr "Ctrl+O"
+msgstr "Kontrol+O"
 
 #: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
