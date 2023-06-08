@@ -8235,12 +8235,12 @@ msgstr "Dessagna la tasca"
 #: ui/kpttaskeditor.cpp:947
 #, kde-format
 msgid "Move Up"
-msgstr "Mou amunt"
+msgstr "Mou cap amunt"
 
 #: ui/kpttaskeditor.cpp:951
 #, kde-format
 msgid "Move Down"
-msgstr "Mou avall"
+msgstr "Mou cap avall"
 
 #: ui/kpttaskeditor.cpp:955
 #, kde-format
