@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-05-29 21:25+0100\n"
+"PO-Revision-Date: 2023-06-15 21:48+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1354,7 +1354,7 @@ msgstr "Rulo malsukcesis. Kontrolu vian instaladon"
 #: main/KoDocument.cpp:1475
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
-msgstr "Rulo malsukcesis. ODBC-ŝoforo ne trovita"
+msgstr "Rulo malsukcesis. ODBC-pelilo ne trovita"
 
 #: main/KoDocument.cpp:1481
 #, kde-format
