@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-01-09 09:01+0100\n"
-"PO-Revision-Date: 2023-03-23 14:18+0300\n"
+"PO-Revision-Date: 2023-06-16 12:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4
@@ -2281,32 +2281,32 @@ msgstr "Görünüm Ekle"
 #: kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Resource Editor"
-msgstr "Özkaynak Düzenleyici"
+msgstr "Özkaynak Düzenleyicisi"
 
 #: kptviewlistdialog.cpp:104
 #, kde-format
 msgid "Task Editor"
-msgstr "Görev Düzenleyici"
+msgstr "Görev Düzenleyicisi"
 
 #: kptviewlistdialog.cpp:105
 #, kde-format
 msgid "Work & Vacation Editor"
-msgstr "Çalışma Zamanı & Boz Zaman Düzenleyici"
+msgstr "Çalışma Zamanı ve Boş Zaman Düzenleyicisi"
 
 #: kptviewlistdialog.cpp:106
 #, kde-format
 msgid "Accounts Editor"
-msgstr "Hesap Düzenleyici"
+msgstr "Hesap Düzenleyicisi"
 
 #: kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Dependency Editor (Graphic)"
-msgstr "Bağımlılık Düzenleyici (Grafik)"
+msgstr "Bağımlılık Düzenleyicisi (Grafik)"
 
 #: kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Dependency Editor (List)"
-msgstr "Bağımlılık Düzenleyici (Liste)"
+msgstr "Bağımlılık Düzenleyicisi (Liste)"
 
 #: kptviewlistdialog.cpp:109
 #, kde-format
