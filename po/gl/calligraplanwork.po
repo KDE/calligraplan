@@ -2,19 +2,19 @@
 # translation of kplatowork.po to
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Miguel Branco <mgl.branco@gmail.com>, 2007, 2008.
 # Miguel Branco <mgl.branco@gmail.com>, 2008.
 # Miguel Branco <mgl.branco@gmail.com>, 2008, 2009, 2012.
 # Marce Villarino <mvillarino@gmail.com>, 2009, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2013, 2015, 2016.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2019-10-19 15:50+0200\n"
+"PO-Revision-Date: 2023-06-18 21:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: aboutdata.h:33 aboutdata.h:42
 #, kde-format
@@ -136,7 +136,7 @@ msgstr ""
 #: part.cpp:419
 #, kde-format
 msgid "Remove failed. Cannot find work package"
-msgstr "Fallou a retiración. Non se poden atopar paquetes de traballo"
+msgstr "Fallou a retirada. Non se poden atopar paquetes de traballo"
 
 #: part.cpp:422 part.cpp:433
 msgctxt "(qtundo-format)"
@@ -175,7 +175,7 @@ msgstr ""
 #: part.cpp:569 part.cpp:612
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr "Documento incorrecto. Non se especificou a clase de ficheiro."
+msgstr "Documento incorrecto. Non se indicou a clase de ficheiro."
 
 #: part.cpp:575
 #, kde-format
@@ -443,7 +443,7 @@ msgstr "Lista"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr "Escoller a lista de tarefas"
+msgstr "Escoller a lista de tarefas."
 
 #: view.cpp:109
 #, kde-format
@@ -454,7 +454,7 @@ msgstr "Gantt"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr "Escoller a liña de tempo"
+msgstr "Escoller a liña de tempo."
 
 #. i18n("Progress..."), this);
 #. collection->addAction("task_progress", actionTaskProgress);
@@ -494,7 +494,7 @@ msgstr "Ver a descrición…"
 #: view.cpp:332
 #, kde-format
 msgid "This file is not editable"
-msgstr "Este ficheiro non pode editarse."
+msgstr "Este ficheiro non é editábel."
 
 #: view.cpp:352
 #, kde-format
