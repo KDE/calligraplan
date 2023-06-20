@@ -811,7 +811,7 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
-"Estes valores empréganse cando a estimación non se fai en horas.\n"
+"Estes valores úsanse cando a estimación non se fai en horas.\n"
 "Poñamos que as horas por día fosen 8. Se vostede estima que unha tarefa "
 "precisa de 3 días de esforzo para completarse, isto convértese a 24 horas ao "
 "planificarse. Por suposto, o tempo real necesario para completar a tarefa "
@@ -842,8 +842,8 @@ msgstr "Horas por &semana:"
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
-"Estes valores empréganse cando se estima o esforzo requirido para completar "
-"unha tarefa."
+"Estes valores úsanse cando se estima o esforzo requirido para completar unha "
+"tarefa."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:388
@@ -1585,7 +1585,7 @@ msgstr "Crear un proxecto novo…"
 #: kptview.cpp:202
 #, kde-format
 msgid "Show Selector"
-msgstr "Mostrar o seleccionador"
+msgstr "Amosar o seleccionador"
 
 #: kptview.cpp:209 kptview.cpp:250
 #, kde-format
@@ -1910,7 +1910,7 @@ msgstr "Informe"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
-msgstr "Mostrar o informe"
+msgstr "Amosar o informe"
 
 #: kptview.cpp:713
 #, kde-format
@@ -2047,7 +2047,7 @@ msgid ""
 "categories and views</item></list><nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Selector de vistas</title><para>Esta é a lista de vistas e editores.</"
-"para><para>Pode configurar a lista empregando o menú contextual:"
+"para><para>Pode configurar a lista usando o menú contextual:"
 "<list><item>Renomea as categorías ou as vistas</item><item>Configurar. Move, "
 "retirar ou edita as ferramentas para as categorías ou vistas</"
 "item><item>Inserir categorías e vistas</item></list><nl/><link url='%1'>Máis…"
@@ -2062,9 +2062,8 @@ msgid ""
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Selector de programas</title><para>Selecciona o programa para usar a "
-"mostrar datos que dependan dun programa.<nl/><note>As tarefas non "
-"programadas só se mostran en editores.</note><nl/><link url='%1'>Máis…</"
-"link></para>"
+"amosar datos que dependan dun programa.<nl/><note>As tarefas non programadas "
+"só se amosan en editores.</note><nl/><link url='%1'>Máis…</link></para>"
 
 #: kptviewlist.cpp:606
 #, kde-format

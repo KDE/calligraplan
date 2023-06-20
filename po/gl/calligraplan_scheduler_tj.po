@@ -33,7 +33,7 @@ msgstr ""
 "lixeiramente modificada do planificador empregado en TaskJuggler. "
 "Modificouse para manexar unidades.</para> <para>A planificación cara a atrás "
 "simúlase planificando todas as tarefas o máis tarde posíbel.</para> "
-"<para><note>Plan non emprega toda a súa funcionalidade.</note></para>"
+"<para><note>Plan non usa toda a súa funcionalidade.</note></para>"
 
 #: PlanTJScheduler.cpp:151
 #, kde-kuit-format
@@ -178,8 +178,7 @@ msgstr "Tipo de constrición temporal non manipulada"
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
 msgstr ""
-"Non se puido empregar o calendario correcto para calcular a duración da "
-"tarefa."
+"Non se puido usar o calendario correcto para calcular a duración da tarefa."
 
 #: PlanTJScheduler.cpp:986
 #, fuzzy, kde-format

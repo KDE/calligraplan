@@ -1140,7 +1140,7 @@ msgstr "só cargar o ficheiro e logo saír"
 #: main/KoApplication.cpp:193
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
-msgstr "cargar o ficheiro, mostrar a xanela e a barra de progreso e saír"
+msgstr "cargar o ficheiro, amosar a xanela e a barra de progreso e saír"
 
 #: main/KoApplication.cpp:194
 #, kde-format
@@ -1636,13 +1636,13 @@ msgstr "Modo a pantalla completa"
 #: main/KoMainWindow.cpp:345
 #, kde-format
 msgid "Show Dockers"
-msgstr "Mostrar as docas"
+msgstr "Amosar as docas"
 
 #: main/KoMainWindow.cpp:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
-msgstr "Mostrar as barras de título das docas"
+msgstr "Amosar as barras de título das docas"
 
 #: main/KoMainWindow.cpp:357
 #, kde-format
@@ -1776,7 +1776,7 @@ msgstr ""
 #: main/KoMainWindow.cpp:2211
 #, kde-format
 msgid "Show %1 Toolbar"
-msgstr "Mostrar a barra de ferramentas %1"
+msgstr "Amosar a barra de ferramentas %1"
 
 #: main/KoMainWindow.cpp:2213
 #, kde-format
@@ -2352,7 +2352,7 @@ msgstr ""
 #, kde-format
 msgid "The total cost for the account shown as: Actual cost [ Planned cost ]"
 msgstr ""
-"O custo total para a conta mostrado como «Custo real [ Custo previsto ]»."
+"O custo total para a conta amosado como «Custo real [ Custo previsto ]»."
 
 #: models/kptaccountsmodel.cpp:1136
 #, fuzzy, kde-format
@@ -5992,7 +5992,7 @@ msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
 msgstr ""
-"QCA non é compatíbel actualmente con SHA1 ou PBKDF2 empregando SHA1. Este "
+"QCA non é compatíbel actualmente con SHA1 ou PBKDF2 usando SHA1. Este "
 "documento non se pode abrir."
 
 #: store/KoEncryptedStore.cpp:333
@@ -6209,7 +6209,7 @@ msgstr "Cronoloxía"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:28
 #, kde-format
 msgid "Do not show the timeline"
-msgstr "Non mostrar a cronoloxía"
+msgstr "Non amosar a cronoloxía"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineHide)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
@@ -6227,7 +6227,7 @@ msgstr "Agochar"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:38
 #, kde-format
 msgid "Show timeline in the foreground"
-msgstr "Mostrar a cronoloxía en primeiro plano"
+msgstr "Amosar a cronoloxía en primeiro plano"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineForeground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
@@ -6245,7 +6245,7 @@ msgstr "Primeiro plano"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:48
 #, kde-format
 msgid "Show timeline in the background"
-msgstr "Mostrar a cronoloxía en segundo plano"
+msgstr "Amosar a cronoloxía en segundo plano"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineBackground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
@@ -6649,7 +6649,7 @@ msgstr "Ver Configuracións"
 #: ui/kptaccountsviewconfigurepanelbase.ui:26
 #, kde-format
 msgid "Show:"
-msgstr "Mostrar:"
+msgstr "Amosar:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/kptaccountsviewconfigurepanelbase.ui:33
@@ -6784,8 +6784,8 @@ msgstr ""
 "intervalos de traballo.</para><para>Os calendarios poden ter á s´ua vez sub-"
 "calendarios. Se un día está indeterminado nun calendario, compróbase o "
 "calendario pai. Os días <emphasis>indeterminados</emphasis> son "
-"<emphasis>non laborábeis</emphasis> por omisión cando os emprega un recurso, "
-"ou están <emphasis>dispoñíbeis todo o día</emphasis> se os usa unha tarefa.</"
+"<emphasis>non laborábeis</emphasis> por omisión cando os usa un recurso, ou "
+"están <emphasis>dispoñíbeis todo o día</emphasis> se os usa unha tarefa.</"
 "para><para>Pode marcarse un calendario como <emphasis>predeterminado</"
 "emphasis> para que os recursos de traballo o usen cando non se indique un "
 "calendario para eles de maneira explícita.<nl/><link url='%1'>Máis…</link></"
@@ -7211,7 +7211,7 @@ msgstr ""
 #: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
-msgstr "Mostrar o proxecto"
+msgstr "Amosar o proxecto"
 
 #: ui/kptganttview.cpp:318
 #, fuzzy, kde-format
@@ -7222,7 +7222,7 @@ msgstr "Opcións de impresión…"
 #: ui/kptganttview.cpp:330
 #, kde-format
 msgid "Show Unscheduled Tasks"
-msgstr "Mostrar tarefas non planificadas"
+msgstr "Amosar tarefas non planificadas"
 
 #: ui/kptganttview.cpp:337
 #, fuzzy, kde-format
@@ -7406,7 +7406,7 @@ msgstr "Expandir última sección"
 #: ui/kptitemviewsettings.ui:35
 #, kde-format
 msgid "Select columns to be shown:"
-msgstr "Escoller columnas a mostrar:"
+msgstr "Escoller columnas a amosar:"
 
 #. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
 #: ui/kptitemviewsettings.ui:56
@@ -8091,7 +8091,7 @@ msgstr "Engadir o programa %1"
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
-msgstr "Mostrar información de depuración"
+msgstr "Amosar información de depuración"
 
 #: ui/kptscheduleeditor.cpp:788
 #, kde-format
@@ -8659,9 +8659,8 @@ msgid ""
 msgstr ""
 "<p>O risco controla a distribución PERT empregada cando se calcula a "
 "estimación final para a tarefa.\n"
-"Se o risco non é <b>ningún</b>, emprégase a estimación prevista "
-"directamente.\n"
-"Se é <b>baixo</b>, emprégase unha distribución normal.\n"
+"Se o risco non é <b>ningún</b>, úsase a estimación prevista directamente.\n"
+"Se é <b>baixo</b>, úsase unha distribución normal.\n"
 "Se é <b>alto</b>, a estimación será lixeiramente máis pesimista que a de "
 "risco «baixo».</p>"
 
@@ -8869,7 +8868,7 @@ msgstr "Duración do período (en días):"
 #: ui/kpttaskstatusviewsettingspanel.ui:48
 #, kde-format
 msgid "Use current date"
-msgstr "Empregar a data actual"
+msgstr "Usar a data actual"
 
 #. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
 #: ui/kpttaskstatusviewsettingspanel.ui:68
@@ -9150,7 +9149,7 @@ msgstr "Fusionar"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Merge the changes and display the resulting progress information"
-msgstr "Fusionar os cambios e mostrar a información de progreso resultante"
+msgstr "Fusionar os cambios e amosar a información de progreso resultante"
 
 #: ui/kptworkpackagemergedialog.cpp:84
 #, kde-format
@@ -9279,7 +9278,7 @@ msgstr "Recurso"
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr ""
-"Aquí pode inserir o símbolo de moeda que empregue habitualmente, p.ex $ ou €."
+"Aquí pode inserir o símbolo de moeda que use habitualmente, p.ex $ ou €."
 
 #. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
 #: ui/locale/localemon.ui:19
@@ -9395,7 +9394,7 @@ msgstr "Custo"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
 #, kde-format
 msgid "Show BCWS plot"
-msgstr "Mostrar a traza do valor programado."
+msgstr "Amosar a traza do valor programado."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
@@ -9403,7 +9402,7 @@ msgstr "Mostrar a traza do valor programado."
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
 #, kde-format
 msgid "Show BCWP plot"
-msgstr "Mostrar a traza do valor gañado."
+msgstr "Amosar a traza do valor gañado."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
@@ -9411,7 +9410,7 @@ msgstr "Mostrar a traza do valor gañado."
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
 #, kde-format
 msgid "Show ACWP plot"
-msgstr "Mostrar a gráfica ACWP."
+msgstr "Amosar a gráfica ACWP."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
@@ -9584,7 +9583,7 @@ msgstr "Ir á páxina anterior"
 #: ui/reports/reportnavigator.ui:77
 #, kde-format
 msgid "Show page"
-msgstr "Mostrar a páxina"
+msgstr "Amosar a páxina"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/reports/reportnavigator.ui:99
@@ -9892,13 +9891,13 @@ msgstr "Ordena os datos."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show header section"
-msgstr "Mostrar a sección da cabeceira."
+msgstr "Amosar a sección da cabeceira."
 
 #: ui/reports/reportview.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show footer section"
-msgstr "Mostrar a sección do pé de páxina."
+msgstr "Amosar a sección do pé de páxina."
 
 #: ui/reports/reportview.cpp:1084
 #, kde-kuit-format
@@ -10305,7 +10304,7 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
-"Estes valores empréganse cando a estimación non se fai en horas.\n"
+"Estes valores úsanse cando a estimación non se fai en horas.\n"
 "Poñamos que as horas por día fosen 8. Se vostede estima que unha tarefa "
 "precisa de 3 días de esforzo para completarse, isto convértese a 24 horas ao "
 "planificarse. Por suposto, o tempo real necesario para completar a tarefa "
@@ -10336,8 +10335,8 @@ msgstr "Horas por semana:"
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
-"Estes valores empréganse cando se estima o esforzo requirido para completar "
-"unha tarefa."
+"Estes valores úsanse cando se estima o esforzo requirido para completar unha "
+"tarefa."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: ui/standardworktimedialogbase.ui:118
@@ -10647,7 +10646,7 @@ msgstr "Gardado de último por"
 #: widgets/KoDocumentInfoDlg.cpp:196
 #, kde-format
 msgid "Use ';' (Example: Office;KDE;Calligra)"
-msgstr "Empregue ';' (Exemplo: Office; KDE, Calligra)"
+msgstr "Use ';' (Exemplo: Office; KDE, Calligra)"
 
 #: widgets/KoDocumentInfoDlg.cpp:226 widgets/KoDocumentInfoDlg.cpp:322
 #, kde-format
