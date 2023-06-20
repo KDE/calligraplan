@@ -3,14 +3,14 @@
 # Miguel Branco <mgl.branco@gmail.com>, 2008, 2012.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: krossmodulekplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2019-11-03 13:37+0100\n"
+"PO-Revision-Date: 2023-06-19 14:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: Project.cpp:375 Project.cpp:378 Project.cpp:390 Project.cpp:393
 msgctxt "(qtundo-format)"
@@ -53,7 +53,7 @@ msgstr "Limpar todas as citas externas"
 #: Resource.cpp:102
 msgctxt "(qtundo-format)"
 msgid "Set resource team members"
-msgstr "Marcar os membros do equipo de recursos"
+msgstr "Definir os membros do equipo de recursos"
 
 #. i18n: ectx: Menu (tools)
 #: scripting.rc:4
@@ -320,8 +320,8 @@ msgstr "Exportación da información do recurso de ocupación"
 #, kde-format
 msgid "Python script to export busy information to file"
 msgstr ""
-"O script en Python que se encarga de exportar a información de ocupación a "
-"un ficheiro"
+"Guión en Python que se encarga de exportar a información de ocupación a un "
+"ficheiro"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:12
@@ -334,8 +334,7 @@ msgstr "Importar información do recurso de ocupación"
 #, kde-format
 msgid "Python script to import busy information from file"
 msgstr ""
-"O script en python que se encarga da importación de ocupación desde un "
-"ficheiro"
+"Guión en Python que se encarga da importación de ocupación desde un ficheiro"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:16
@@ -348,8 +347,8 @@ msgstr "Limpar a información do recurso de ocupación"
 #, kde-format
 msgid "Python script to clear the imported resource busy information"
 msgstr ""
-"O script en python que se encarga de limpar a información importada do "
-"recurso de ocupación"
+"Guión en Python que se encarga de limpar a información importada do recurso "
+"de ocupación"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
@@ -373,7 +372,7 @@ msgstr "Recursos desde o ficheiro de Plan"
 #: scripts/scripts.rc:22
 #, kde-format
 msgid "Python script to import resources from project file"
-msgstr "Script en python para importar recursos desde un ficheiro de proxecto"
+msgstr "Guión en Python para importar recursos desde un ficheiro de proxecto"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:31
@@ -421,7 +420,7 @@ msgstr "Ferramentas"
 #: scripts/scripts.rc:46
 #, kde-format
 msgid "Miscellaneous scripts"
-msgstr "Scripts diversos"
+msgstr "Guións diversos"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:47
@@ -436,8 +435,8 @@ msgid ""
 "Python script that uses the KHTML Part to display the Plan Scripting online "
 "help"
 msgstr ""
-"O script en Python que emprega KHTML Part para mostrar a axuda para a "
-"construción de guións de Plan Scripting en Internet"
+"Guión en Python que usa KHTML Part para amosar a axuda de guionización de "
+"Plan en Internet"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:58
@@ -449,7 +448,7 @@ msgstr "Mostras"
 #: scripts/scripts.rc:58
 #, kde-format
 msgid "Samples to demonstrate scripting with Plan"
-msgstr "Mostras que ensinan como se fan scripts con Plan"
+msgstr "Mostras que demostran a guionización con Plan"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:59
@@ -461,7 +460,7 @@ msgstr "Imprimir información do Proxecto…"
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Example python script that print project information"
-msgstr "Script de exemplo en python para imprimir información de proxecto"
+msgstr "Guión de exemplo en Python para imprimir información de proxecto"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:63
@@ -474,7 +473,7 @@ msgstr "Imprimir a información do recurso de ocupación…"
 #, kde-format
 msgid "Example python script that print resource busy information"
 msgstr ""
-"Script en python de exemplo de como se imprime a información de ocupación"
+"Guión en Python de exemplo de como se imprime a información de ocupación"
 
 #, fuzzy
 #~| msgid "Select from:"

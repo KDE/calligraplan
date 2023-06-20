@@ -34,7 +34,7 @@ msgstr ""
 "evitar a saturación de recursos. Respecta as dependencias das tarefas e "
 "ademais intenta axustarse ás constricións temporais. Malia a todo, as "
 "constricións temporais poden complicar que se atope unha solución así que "
-"nese caso recoméndase empregar outro planificador temporal.</para>"
+"nese caso recoméndase usar outro planificador temporal.</para>"
 
 #: KPlatoRCPSScheduler.cpp:117
 #, kde-format
