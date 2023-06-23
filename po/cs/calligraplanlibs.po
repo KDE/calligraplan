@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-02-03 17:04+0100\n"
+"PO-Revision-Date: 2023-06-22 11:14+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6581,13 +6581,13 @@ msgstr "Upravit závislost úlohy"
 #: ui/kptresourceappointmentsdisplayoptions.ui:16
 #, kde-format
 msgid "Show internal appointments"
-msgstr ""
+msgstr "Zobrazit interní schůzky"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
 #: ui/kptresourceappointmentsdisplayoptions.ui:23
 #, kde-format
 msgid "Show external appointments"
-msgstr ""
+msgstr "Zobrazit externí schůzky"
 
 #: ui/kptresourceappointmentsview.cpp:92
 #, kde-format
@@ -9246,7 +9246,7 @@ msgstr "Parametr"
 #, kde-kuit-format
 msgctxt "title@column"
 msgid "Substitution"
-msgstr ""
+msgstr "Náhrada"
 
 #: widgetutils/KoFileDialog.cpp:490
 #, kde-format
