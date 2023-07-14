@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-04-14 17:43+0300\n"
+"PO-Revision-Date: 2023-06-27 18:11+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -351,7 +351,7 @@ msgstr "Kiinteä väli"
 #: kernel/kptnode.cpp:848
 #, kde-format
 msgid "Task constraint outside project constraint"
-msgstr ""
+msgstr "Tehtävän rajoitus projektin rajoituksen ulkopuolella"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
@@ -587,12 +587,12 @@ msgstr "Alku-Alku"
 #: kernel/kptresourcerequest.cpp:722
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
-msgstr ""
+msgstr "Uudelleenajoitetaan, mutta käytettyjä resursseja ei löytynyt"
 
 #: kernel/kptresourcerequest.cpp:819
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
-msgstr ""
+msgstr "Poikkeamaosuma: tarkkuus: %1, poikkeama: %2"
 
 #: kernel/kptresourcerequest.cpp:973
 #, kde-format
@@ -717,7 +717,7 @@ msgstr "%1: Ei täytetty ehtoja"
 #: kernel/kpttask.cpp:1833 kernel/kpttask.cpp:2221
 #, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
-msgstr ""
+msgstr "Työmääräpoikkeama. Arvio: %1, suunniteltu: %2, tarkkuus: %3"
 
 #: kernel/kpttask.cpp:1841 kernel/kpttask.cpp:2229
 #, kde-format
@@ -787,7 +787,7 @@ msgstr "Mitään resurssia ei ole varattu"
 #: kernel/kpttask.cpp:2559
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
-msgstr ""
+msgstr "Työn kesto ei täsmää. Haluttu: %1, saatu: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
@@ -834,28 +834,25 @@ msgid "Team"
 msgstr "Työryhmä"
 
 #: kernel/Resource.cpp:577
-#, fuzzy, kde-format
-#| msgid "No description available"
+#, kde-format
 msgid "Make appointments: Invalid time"
-msgstr "Kuvausta ei saatavilla"
+msgstr "Tee ajanvarauksia: virheellinen aika"
 
 #: kernel/Resource.cpp:582 kernel/Resource.cpp:643 kernel/Resource.cpp:893
 #: kernel/Resource.cpp:968
 #, kde-format
 msgid "Resource %1 has no calendar defined"
-msgstr ""
+msgstr "Resurssille %1 ei ole määritetty kalenteria"
 
 #: kernel/Resource.cpp:606
-#, fuzzy, kde-format
-#| msgid "No description available"
+#, kde-format
 msgid "Make appointments: Node start time is not valid"
-msgstr "Kuvausta ei saatavilla"
+msgstr "Tee ajanvarauksia: solmun alkuaika ei ole kelvollinen"
 
 #: kernel/Resource.cpp:610
-#, fuzzy, kde-format
-#| msgid "No description available"
+#, kde-format
 msgid "Make appointments: Node end time is not valid"
-msgstr "Kuvausta ei saatavilla"
+msgstr "Tee ajanvarauksia: solmun loppuaika ei ole kelvollinen"
 
 #: kernel/Resource.cpp:657 kernel/Resource.cpp:674
 #, kde-format
@@ -1832,12 +1829,17 @@ msgid ""
 "this</interface></b> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
+"<subtitle>Kontekstiohje</subtitle><para>Monilla toiminnoilla on ohje ja "
+"vihjeitä, jotka näkyvät <emphasis>Mikä tämä on</emphasis> -toiminnolla.</"
+"para><para>Se käynnistyy valikkokohdasta <b><interface>Ohje|Mikä tämä on</"
+"interface></b> tai napsauttamalla <shortcut>Vaihto+F1</shortcut>.</"
+"para><para>Kokeile sitä tälle tekstille!</para>"
 
 #: main/WelcomeView.cpp:128
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>Verkkoresurssit</subtitle>"
 
 #: main/WelcomeView.cpp:132
 #, kde-kuit-format
@@ -1868,6 +1870,12 @@ msgid ""
 "<nl/>Shared resources must be defined in a separate file.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Jaetut resurssit</title><para>Luo jaettu resurssitiedosto.<nl/>Näin "
+"resurssi tarvitsee luoda vain kerran, minkä jälkeen uutta projektia "
+"luotaessa vain viitataan resurssitiedostoon.<nl/>Resursseja voi jakaa "
+"projektien välillä, jolloin vältetään ylivaraaminen.<nl/>Jaetut resurssit "
+"tulee määrittää erillisessä tiedostossa.<nl/><link url='%1'>Lisää…</link></"
+"para>"
 
 #: main/WelcomeView.cpp:159
 #, kde-kuit-format
@@ -1893,6 +1901,13 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>Kontekstiohje</title><para>Ohjeen saa monesta kohtaa <emphasis>Mikä "
+"tämän on</emphasis> -toiminnolla.<nl/>Se käynnistyy joko valikkokohdasta "
+"<interface>Ohje → Mikä tämä on?</interface> tai pikanäppäimellä "
+"<shortcut>Vaihto+F1</shortcut>.</para><para>Kyselyikkunoista sen voi "
+"käynnistää otsikkopalkin <interface>?</interface>-painikkeella.</"
+"para><para>Jos teksti päättyy <link url='%1'>Lisää…</link>, sitä "
+"napsauttamalla saa ohjeista lisätietoa.</para>"
 
 #: main/WelcomeView.cpp:186
 #, kde-kuit-format
@@ -1905,6 +1920,12 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Projektimallipohjat</title><para>Luo uusi projekti valitsemalla sen "
+"perustaksi mallipohja.</para><para>Plan etsii mallipohjia sijainneista, "
+"jotka voi määrittää asetusikkunassa: <interface>Asetukset → Planin "
+"asetukset</interface>.</para><para>Uusia mallipohjia voi luoda projektista "
+"käyttämällä valikkokohtaa <interface>Luo projektimallipohja</interface>.<nl/"
+"><link url='%1'>Lisää…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -1919,6 +1940,8 @@ msgid ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
 "style:italic;\">Project templates:</span></p></body></html>"
 msgstr ""
+"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
+"style:italic;\">Projektimallipohjat:</span></p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:156
@@ -1958,7 +1981,7 @@ msgstr "Tiedot"
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: main/WelcomeView.ui:390
@@ -3187,7 +3210,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The granularity used when calculating the project schedule"
-msgstr ""
+msgstr "Projektin aikataulua laskettaessa käytettävä tarkkuus"
 
 #: models/kptcommonstrings.cpp:163
 #, kde-kuit-format
@@ -3457,8 +3480,7 @@ msgstr "ACWP"
 
 #: models/kptnodechartmodel.cpp:515 models/kptnodeitemmodel.cpp:2400
 #: models/reportgenerator/ReportGenerator.cpp:36
-#, fuzzy, kde-kuit-format
-#| msgid "SPI"
+#, kde-kuit-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
 msgstr "SPI"
@@ -5212,18 +5234,15 @@ msgid "Scheduling granularityIndex not supported"
 msgstr "Aikataulun mukainen päättymisaika"
 
 #: models/kptschedulemodel.cpp:886
-#, fuzzy, kde-kuit-format
-#| msgid "The scheduled finish time"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
-msgstr "Aikataulun mukainen päättymisaika"
+msgstr "Valittu suunnittelutarkkuus: %1"
 
 #: models/kptschedulemodel.cpp:912
-#, fuzzy
-#| msgid "The scheduled finish time"
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
-msgstr "Aikataulun mukainen päättymisaika"
+msgstr "Muokkaa suunnittelun tarkkuutta"
 
 #: models/kptschedulemodel.cpp:987
 #, kde-format
@@ -5270,7 +5289,7 @@ msgstr "Ajastin"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
-msgstr ""
+msgstr "Tarkkuus:"
 
 #: models/kptschedulemodel.cpp:1311
 #, kde-format
@@ -5280,7 +5299,7 @@ msgstr "Viesti"
 #: models/kptschedulemodel.cpp:1311
 #, kde-format
 msgid "Phase"
-msgstr ""
+msgstr "Vaihe"
 
 #: models/kptschedulemodel.cpp:1311
 #, kde-format
@@ -5363,7 +5382,7 @@ msgstr "Johtaja:"
 #: models/reportgenerator/ReportGenerator.cpp:247
 #, kde-format
 msgid "Missing report template file"
-msgstr "Raportin mallitiedosto puuttuu"
+msgstr "Raportin mallipohjatiedosto puuttuu"
 
 #: models/reportgenerator/ReportGenerator.cpp:251
 #, kde-format
@@ -5373,12 +5392,12 @@ msgstr "Raportin tulostiedosto puuttuu"
 #: models/reportgenerator/ReportGenerator.cpp:255
 #, kde-format
 msgid "Report template file does not exist"
-msgstr "Raportin mallitiedostoa ei ole olemassa"
+msgstr "Raportin mallipohjatiedostoa ei ole olemassa"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr "Mallitiedostoa ei voitu avata: %1"
+msgstr "Mallipohjatiedostoa ei voitu avata: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
@@ -5670,11 +5689,9 @@ msgid "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4"
 msgstr ""
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Manual"
+#, kde-format
 msgid "Manual"
-msgstr "Manuaalinen"
+msgstr "Käsin"
 
 #: models/ResourceModel.cpp:82
 #, fuzzy, kde-format
@@ -6675,9 +6692,7 @@ msgid "Add Subaccount"
 msgstr "Lisää alitili"
 
 #: ui/kptaccountseditor.cpp:280
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action"
-#| msgid "Delete"
+#, kde-kuit-format
 msgctxt "@action:inmenu"
 msgid "Delete"
 msgstr "Poista"
@@ -9899,7 +9914,7 @@ msgstr "Ei mitään"
 #, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
-msgstr "Raporttimalli"
+msgstr "Raporttimallipohja"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, kde-format
@@ -9923,7 +9938,7 @@ msgstr "Raportin nimi"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
-msgstr "Raporttimallin tiedostonimi"
+msgstr "Raporttimallipohjan tiedostonimi"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
@@ -9946,6 +9961,10 @@ msgid ""
 "report template using any Open Document text editor.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Lisää ja luo raportteja</title><para>Tällä voi lisätä ja luoda "
+"OpenDocument-tiedostoihin (.odf) perustuvia raportteja.</"
+"para><para>Raporttimallipohjan voi luoda millä vain OpenDocument-"
+"tekstimuokkaimella.<nl/><link url='%1'>Lisää…</link></para>"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
@@ -9981,16 +10000,14 @@ msgid "Generate Report"
 msgstr "Luo raportti"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:473
-#, fuzzy, kde-kuit-format
-#| msgid "Unable to download template file: %1"
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
-msgstr "Pohjatiedostoa %1 ei kyetty lataamaan!"
+msgstr "Ei voitu luoda: %1<nl/>Mallipohjan tiedostonimi on tyhjä."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
-#, fuzzy, kde-kuit-format
-#| msgid "Unable to download template file: %1"
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
-msgstr "Pohjatiedostoa %1 ei kyetty lataamaan!"
+msgstr "Ei voitu luoda: %1<nl/>Mallipohjatiedostoa ei ole olemassa:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, fuzzy, kde-kuit-format

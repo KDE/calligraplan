@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-04-14 17:35+0300\n"
+"PO-Revision-Date: 2023-06-15 16:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -284,27 +284,27 @@ msgstr "Työmäärä (tuntia)"
 #: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
 msgid "SPI: %1"
-msgstr ""
+msgstr "SPI: %1"
 
 #: PerformanceView.cpp:194 PerformanceView.cpp:214
 #, kde-format
 msgid "CPI: %1"
-msgstr ""
+msgstr "CPI: %1"
 
 #: PerformanceView.cpp:198 PerformanceView.cpp:218
 #, kde-format
 msgid "BCWS: %1"
-msgstr ""
+msgstr "BCWS: %1"
 
 #: PerformanceView.cpp:202 PerformanceView.cpp:222
 #, kde-format
 msgid "BCWP: %1"
-msgstr ""
+msgstr "BCWP: %1"
 
 #: PerformanceView.cpp:206 PerformanceView.cpp:226
 #, kde-format
 msgid "ACWP: %1"
-msgstr ""
+msgstr "ACWP: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: PerformanceView.ui:57
@@ -456,7 +456,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>Verkkoresurssit</subtitle>"
 
 #: PortfolioView.cpp:165
 #, kde-kuit-format
@@ -470,6 +470,13 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>Kontekstiohje</title><para>Ohjeen saa monesta kohtaa <emphasis>Mikä "
+"tämän on</emphasis> -toiminnolla.<nl/>Se käynnistyy joko valikkokohdasta "
+"<interface>Ohje → Mikä tämä on?</interface> tai pikanäppäimellä "
+"<shortcut>Vaihto+F1</shortcut>.</para><para>Kyselyikkunoista sen voi "
+"käynnistää otsikkopalkin <interface>?</interface>-painikkeella.</"
+"para><para>Jos teksti päättyy <link url='%1'>Lisää…</link>, sitä "
+"napsauttamalla saa ohjeista lisätietoa.</para>"
 
 #: PortfolioView.cpp:184
 #, kde-format
@@ -491,12 +498,14 @@ msgstr "Lisää projekti"
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
 msgstr ""
+"Projektin lataaminen epäonnistui. Ei ole kelvollinen Plan-tiedosto:<nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
 msgstr ""
+"Projektin avaaminen epäonnistui. Tämä vaikuttaa portfoliotiedostolta:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -505,6 +514,8 @@ msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
 msgstr ""
+"Projekti on jo olemassa, joten projektia ei lisätä.<nl/>Projekti: %1<nl/"
+">Tiedosto: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
@@ -517,7 +528,7 @@ msgstr "Tietoa"
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:246
@@ -577,7 +588,7 @@ msgstr "https://userbase.kde.org/Plan"
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
-msgstr ""
+msgstr "<a href=\"https://userbase.kde.org/Plan\">Yhteisö</a>"
 
 #: ProgressView.cpp:68
 #, kde-kuit-format
@@ -594,6 +605,16 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Edistyminen</title><para>Tässä näkymässä voi tutkia ja muokata "
+"valitun projektin tehtävien edistymistietoa.<nl/>Tehtävät ryhmitellään "
+"tilansa mukaan:<list><item><emphasis>Ei aloitettu:</emphasis> Tehtävät, "
+"jotka olisi jo pitänyt aloittaa.</item><item><emphasis>Käynnissä:</emphasis> "
+"Aloitetut mutteivat vielä päättyneet tehtävät.</"
+"item><item><emphasis>Valmistuneet:</emphasis> Tällä ajanjaksolla "
+"valmistuneet tehtävät.</item><item><emphasis>Seuraava jakso:</emphasis> Ensi "
+"jaksolla alkaviksi ajoitetut tehtävät.</item></list>Ajanjakso on "
+"mukautettavissa.</para><para>Kontekstivalikostaan näkymä tukee mukautusta ja "
+"tulostusta.<nl/><link url='%1'>Lisää…</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -654,6 +675,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Projekti: %1</title><para>Aikataulu: ei aikataulua</"
+"para><para><list><item>Tavoitteen aloitus:\t%2</item><item>Tavoitteen "
+"lopetus:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -663,6 +687,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Projekti: %1</title><para>Aikataulu: %4 ei aikataulua</"
+"para><para><list><item>Tavoitteen aloitus:\t%2</item><item>Tavoitteen "
+"lopetus:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -672,6 +699,10 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>Projekti: %1</title><para>Aikataulu: %6</"
+"para><para><list><item>Suunniteltu aloitus: \t%2</item><item>Suunniteltu "
+"lopetus:\t%3</item><item>Tavoitteen aloitus:\t%4</item><item>Tavoitteen "
+"lopetus:\t%5</item></list></para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
@@ -689,19 +720,19 @@ msgstr "Aikataulu: %1 ei ole aikataulutettu"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "Aikataulu %1: ajoitettu alkavaksi: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "Aikataulu %1: ajoitettu päättyväksi: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Aikataulun omistaa Portfolio"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -718,18 +749,18 @@ msgstr ""
 #: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
-msgstr ""
+msgstr "Ei tehtäviä"
 
 #: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr ""
+msgstr "WBS: %1<nl/>Tehtävä: %2<nl/>Projekti: %3"
 
 #: ResourceUsageView.cpp:51
 #, kde-format
 msgid "Tasks"
-msgstr ""
+msgstr "Tehtävät"
 
 #: ResourceUsageView.cpp:89
 #, kde-kuit-format
@@ -739,11 +770,14 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>Resurssinkäyttö</title><para>Tässä näkymässä näkyy resurssien osoitus "
+"tehtäviin kullekin päivälle.</para><para><nl/><link url='%1'>Lisää…</link></"
+"para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
 msgid "Diagram Types"
-msgstr ""
+msgstr "Diagrammityypit"
 
 #: ResourceUsageView.cpp:110
 #, kde-format
@@ -901,7 +935,7 @@ msgstr "Ei aikataulutettu"
 #: SchedulingModel.cpp:194
 #, kde-format
 msgid "Finished"
-msgstr "Valmistunut"
+msgstr "Valmistuneet"
 
 #: SchedulingModel.cpp:196
 #, kde-format
@@ -998,6 +1032,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"Aikataulutus ei ole mahdollista. Projektin suunnitellun lopun on oltava "
+"laskettua aikaa myöhemmin."
 
 #: SchedulingView.cpp:458
 #, kde-format
@@ -1038,7 +1074,7 @@ msgstr "Peräkkäinen"
 #: SchedulingView.ui:91
 #, kde-format
 msgid "Granularity:"
-msgstr ""
+msgstr "Rakeisuus:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, parallel)
 #: SchedulingView.ui:101
@@ -1075,7 +1111,7 @@ msgstr "Huomenna"
 #, kde-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
-msgstr ""
+msgstr "SPI"
 
 #: SummaryModel.cpp:88
 #, kde-format
@@ -1083,7 +1119,7 @@ msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
-msgstr ""
+msgstr "Aikataulun suorituskykyindeksi (BCWS/BCWP)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1094,6 +1130,10 @@ msgid ""
 "shown for both cost based and effort based calculations.</para><para><nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Projektien yhteenvetonäkymä</title><para>Tämä näkymä vetää yhteen "
+"portfoliosi projektien suorituskykytiedot.</para><para>Suorituskykyindeksit "
+"näytetään sekä kustannus- että työmääräperustaisille laskelmille.</"
+"para><para><nl/><link url='%1'>Lisää…</link></para>"
 
 #: View.cpp:58
 #, kde-format
