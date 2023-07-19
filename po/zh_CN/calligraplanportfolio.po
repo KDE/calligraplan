@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-07-03 11:38\n"
+"PO-Revision-Date: 2023-07-18 11:10\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -36,7 +36,7 @@ msgstr "Copyright 2020-%1, The Plan Team"
 #: AboutData.h:29
 #, kde-format
 msgid "Dag Andersen"
-msgstr ""
+msgstr "Dag Andersen"
 
 #. i18n translator strings
 #: AboutData.h:32
@@ -55,31 +55,31 @@ msgstr ""
 #: calligraplanportfolio_shell.rc:4 Portfolio_ViewUi.rc:4
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "文件(&F)"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplanportfolio_shell.rc:11
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "设置(&S)"
 
 #. i18n: ectx: Menu (help)
 #: calligraplanportfolio_shell.rc:25 Portfolio_ViewUi.rc:40
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "帮助(&H)"
 
 #: config/ConfigDialog.cpp:28
 #, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr ""
+msgstr "文档"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: config/portfoliosettings.kcfg:10
 #, kde-format
 msgid "Path to the documentation"
-msgstr ""
+msgstr "文档路径"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: config/portfoliosettings.kcfg:14
@@ -98,13 +98,13 @@ msgstr ""
 #: config/portfoliosettings.kcfg:24
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "自动保存间隔"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: config/portfoliosettings.kcfg:28
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "创建备份文件"
 
 #: DocumentsSaveDialog.cpp:27 PortfolioModel.cpp:23
 #, kde-format, kde-kuit-format
@@ -122,7 +122,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column"
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: DocumentsSaveDialog.cpp:30
 #, kde-format
@@ -134,42 +134,42 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column"
 msgid "Url"
-msgstr ""
+msgstr "URL"
 
 #: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
 #: PortfolioModel.cpp:114
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
 #: PortfolioModel.cpp:114
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: DocumentsSaveDialog.cpp:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Documents"
-msgstr ""
+msgstr "保存文档"
 
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr ""
+msgstr "文件已存在。您想要覆盖吗？"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
-msgstr ""
+msgstr "覆盖文件？"
 
 #. i18n: ectx: property (text), widget (QCheckBox, saveMain)
 #: DocumentsSaveDialog.ui:40
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: GanttView.cpp:81
 #, kde-kuit-format
@@ -184,7 +184,7 @@ msgstr ""
 #: GanttView.cpp:100
 #, kde-format
 msgid "Open Project"
-msgstr ""
+msgstr "打开项目"
 
 #: MainDocument.cpp:89
 #, kde-format
@@ -206,18 +206,18 @@ msgstr ""
 #: MainDocument.cpp:102
 #, kde-format
 msgid "File-Format Mismatch"
-msgstr ""
+msgstr "文件格式不匹配"
 
 #: MainDocument.cpp:102
 #, kde-format
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: MainDocument.cpp:165
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr ""
+msgstr "项目已经存在。<nl/>项目：%1<nl/>文档：%2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
@@ -238,7 +238,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr ""
+msgstr "保存文档"
 
 #: Part.cpp:61
 #, kde-format
@@ -318,7 +318,7 @@ msgstr ""
 #: Portfolio_ViewUi.rc:35
 #, kde-format
 msgid "&View"
-msgstr ""
+msgstr "视图(&V)"
 
 #. i18n: ectx: ToolBar (contentsviewToolBar)
 #. i18n: ectx: ToolBar (progressviewToolBar)
@@ -340,31 +340,31 @@ msgstr ""
 #: Portfolio_ViewUi.rc:26
 #, kde-format
 msgid "&Edit"
-msgstr ""
+msgstr "编辑(&E)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: Portfolio_ViewUi.rc:44
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: Portfolio_ViewUi.rc:49
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: PortfolioModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Storage"
-msgstr ""
+msgstr "存储"
 
 #: PortfolioModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #: PortfolioModel.cpp:77
 #, kde-format
@@ -389,13 +389,13 @@ msgstr ""
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: PortfolioModel.cpp:109
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
-msgstr ""
+msgstr "文档加载失败"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
@@ -445,7 +445,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>在线资源</subtitle>"
 
 #: PortfolioView.cpp:165
 #, kde-kuit-format
@@ -463,12 +463,12 @@ msgstr ""
 #: PortfolioView.cpp:184
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: PortfolioView.cpp:189
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: PortfolioView.cpp:210
 #, kde-format
@@ -560,7 +560,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
-msgstr ""
+msgstr "<a href=\"https://userbase.kde.org/Plan\">社区</a>"
 
 #: ProgressView.cpp:68
 #, kde-kuit-format
@@ -759,7 +759,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr ""
+msgstr "操作"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
