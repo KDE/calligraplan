@@ -8,20 +8,22 @@
 # Spiros Georgaras <sngeorgaras@otenet.gr>, 2008.
 # Stelios <sstavra@gmail.com>, 2011, 2017.
 # Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# George Stefanakis <george.stefanakis@gmail.com>, 2023.
+# Petros Vidalis <pvidalis@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2017-04-29 11:58+0200\n"
-"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"PO-Revision-Date: 2023-07-27 22:26+0300\n"
+"Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -67,10 +69,9 @@ msgstr "&Βοήθεια"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "&Αρχείο"
+msgstr "Αρχείο"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
@@ -82,96 +83,96 @@ msgstr "Επεξεργασία"
 #: calligraplansettings.kcfg:9
 #, kde-format
 msgid "Hours per year"
-msgstr ""
+msgstr "Ώρες ανά έτος"
 
 #. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
 #: calligraplansettings.kcfg:13
 #, kde-format
 msgid "Hours per month"
-msgstr ""
+msgstr "Ώρες ανά μήνα"
 
 #. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
 #: calligraplansettings.kcfg:17
 #, kde-format
 msgid "Hours per week"
-msgstr ""
+msgstr "Ώρες ανά εβδομάδα"
 
 #. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
 #: calligraplansettings.kcfg:21
 #, kde-format
 msgid "Hours per day"
-msgstr ""
+msgstr "Ώρες ανά ημέρα"
 
 #. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
 #: calligraplansettings.kcfg:27
 #, kde-format
 msgid "Generate working week"
-msgstr ""
+msgstr "Δημιουργία εργάσιμης εβδομάδας"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
 #, kde-format
 msgid "Generate working week options"
-msgstr ""
+msgstr "Επιλογές δημιουργίας εργάσιμης εβδομάδας"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
 #, kde-format
 msgid "If none exists"
-msgstr ""
+msgstr "αν δεν υπάρχει κανένα"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "Πάντα"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
 #, kde-format
 msgid "Generate holidays"
-msgstr ""
+msgstr "Δημιουργία διακοπών"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
 #, kde-format
 msgid "Generate holidays options"
-msgstr ""
+msgstr "Επιλογές δημιουργίας διακοπών"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
 #, kde-format
 msgid "In base calendar"
-msgstr ""
+msgstr "Στο βασικό ημερολόγιο"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
 #, kde-format
 msgid "As sub-calendar"
-msgstr ""
+msgstr "Ως υπό-ημερολόγιο"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
 #, kde-format
 msgid "As separate calendar"
-msgstr ""
+msgstr "Ως ξεχωριστό ημερολόγιο"
 
 #. i18n: ectx: label, entry (Region), group (CalendarGeneration)
 #: calligraplansettings.kcfg:62
 #, kde-format
 msgid "Holiday region"
-msgstr ""
+msgstr "Περιοχή διακοπών"
 
 #. i18n: ectx: label, entry (Monday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
 #: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
 #, kde-format
 msgid "Monday:"
-msgstr ""
+msgstr "Δευτέρα:"
 
 #. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
@@ -186,7 +187,7 @@ msgstr ""
 #: calligraplansettings.kcfg:150
 #, kde-format
 msgid "Start of working day"
-msgstr ""
+msgstr "Έναρξη εργάσιμης ημέρας"
 
 #. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
@@ -201,77 +202,73 @@ msgstr ""
 #: calligraplansettings.kcfg:154
 #, kde-format
 msgid "End of working day"
-msgstr ""
+msgstr "Λήξη εργάσιμης ημέρας"
 
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
 #: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
 #, kde-format
 msgid "Tuesday:"
-msgstr ""
+msgstr "Τρίτη:"
 
 #. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
 #: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
 #, kde-format
 msgid "Wednesday:"
-msgstr ""
+msgstr "Τετάρτη:"
 
 #. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
 #: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
 #, kde-format
 msgid "Thursday:"
-msgstr ""
+msgstr "Πέμπτη:"
 
 #. i18n: ectx: label, entry (Friday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
 #: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
 #, kde-format
 msgid "Friday:"
-msgstr ""
+msgstr "Παρασκευή:"
 
 #. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
 #: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
 #, kde-format
 msgid "Saturday:"
-msgstr ""
+msgstr "Σάββατο:"
 
 #. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
 #: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
 #, kde-format
 msgid "Sunday:"
-msgstr ""
+msgstr "Κυριακή:"
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
-#, fuzzy, kde-format
-#| msgid "Project manager:"
+#, kde-format
 msgid "Name of project manager"
-msgstr "Διαχειριστής έργου:"
+msgstr "Το όνομα του διαχειριστή του έργου"
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Use shared resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Χρήση διαμοιρασμένων πόρων"
 
 #. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
 #: calligraplansettings.kcfg:168
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "File to contain shared resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Αρχείο που περιέχει κοινόχρηστους πόρους"
 
 #. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
 #: calligraplansettings.kcfg:171
-#, fuzzy, kde-format
-#| msgid "Task description"
+#, kde-format
 msgid "Project description"
-msgstr "Περιγραφή εργασίας"
+msgstr "Περιγραφή έργου"
 
 #. i18n: ectx: label, entry (Leader), group (Task defaults)
 #: calligraplansettings.kcfg:176
@@ -323,16 +320,15 @@ msgstr "Μονάδα χρόνου εκτίμησης"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Τύπος εκτίμησης:"
+msgstr "Εκτίμηση"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Ρίσκο"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -488,10 +484,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
 #: calligraplansettings.kcfg:349
-#, fuzzy, kde-format
-#| msgid "Directory where Plan retrieves work packages from project members"
+#, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr "Κατάλογος όπου το Plan ανακτά πακέτα εργασίας από τα μέλη του έργου"
+msgstr "Κατάλογος όπου το Πλάνο δημοσιεύει πακέτα εργασίας"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
@@ -507,16 +502,15 @@ msgstr "Η μέγιστη επιτρεπόμενη μονάδα διάρκεια
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Path to the documentation"
-msgstr "Διάρκεια"
+msgstr "Διαδρομή προς την τεκμηρίωση"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: calligraplansettings.kcfg:370
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "Διαδρομή προς τα περιεχόμενα της τεκμηρίωσης βοήθειας"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: calligraplansettings.kcfg:374
@@ -524,48 +518,49 @@ msgstr ""
 msgid ""
 "The context help documentation must have been translated to the language"
 msgstr ""
+"Τα περιεχόμενα της τεκμηρίωσης βοήθειας πρέπει να έχουν μεταφραστεί στην "
+"γλώσσα"
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
 #: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
-msgstr ""
+msgstr "Χρησιμοποιήστε τα αρθρώματα εργασιών από το ιδιωτικό σας κατάστημα"
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
 #: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to task modules"
-msgstr ""
+msgstr "Λίστα διαδρομών προς τα αρθρώματα εργασίας"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
 #, kde-format
 msgid "List of paths to report templates"
-msgstr ""
+msgstr "Κατάλογος διαδρομών σε πρότυπα εκθέσεων"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
 #, kde-format
 msgid "List of paths to project templates"
-msgstr ""
+msgstr "Κατάλογος διαδρομών σε πρότυπα έργων"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "Διάστημα αυτόματης αποθήκευσης"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "Δημιουργία εφεδρικού αρχείου"
 
 #: config/ConfigDialog.cpp:36
-#, fuzzy, kde-format
-#| msgid "Project Status"
+#, kde-format
 msgid "Project Defaults"
-msgstr "Κατάσταση έργου"
+msgstr "Προεπιλογές Έργου"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
@@ -583,10 +578,9 @@ msgid "Task Colors"
 msgstr "Χρώματα εργασίας"
 
 #: config/ConfigDialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Modules"
-msgstr "Χρώματα εργασίας"
+msgstr "Αρθρώματα εργασίας"
 
 #: config/ConfigDialog.cpp:45
 #, kde-format
@@ -594,43 +588,38 @@ msgid "Work Package"
 msgstr "Πακέτο εργασίας"
 
 #: config/ConfigDialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Project Templates"
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Πρότυπα έργου"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Report Templates"
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Πρότυπα αναφορών"
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "Έγγραφα"
+msgstr "Έγγραφο"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "Ο διαχειριστής αυτού του έργου."
 
 #: config/ConfigProjectPanel.cpp:39
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Επιλέξτε για να ενεργοποιήσετε τους κοινόχρηστους πόρους"
 
 #: config/ConfigProjectPanel.cpp:42
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Το αρχείο στο οποίο προσδιορίζονται οι διαμοιρασμένοι πόροι"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -640,32 +629,27 @@ msgstr "Γενικά"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #: config/ConfigProjectPanel.ui:44
-#, fuzzy, kde-format
-#| msgid "Choose..."
+#, kde-format
 msgid "Browse..."
-msgstr "Επιλογή..."
+msgstr "Περιήγηση..."
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
-#, fuzzy, kde-format
-#| msgid "Add resource"
+#, kde-format
 msgid "Shared resource file:"
-msgstr "Προσθήκη πόρου"
+msgstr "Αρχείο διαμοιρασμένων πόρων:"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:67
-#, fuzzy, kde-format
-#| msgctxt "Project manager"
-#| msgid "Manager:"
+#, kde-format
 msgid "&Manager:"
-msgstr "Διαχειριστής:"
+msgstr "&Υπεύθυνος:"
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Use shared resources:"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Χρήση διαμοιρασμένων πόρων:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
@@ -675,57 +659,49 @@ msgid "Description"
 msgstr "Περιγραφή"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Project Templates Path"
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Διαδρομή Προτύπων Έργου"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:17
 #: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Insert View"
-#| msgid "Insert..."
+#, kde-format
 msgid "Insert"
-msgstr "Εισαγωγή..."
+msgstr "Εισαγωγή"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:41
 #: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
 #: SharedResourcesDialog.cpp:248
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu remove view"
-#| msgid "Remove"
+#, kde-format
 msgid "Remove"
 msgstr "Αφαίρεση"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Modules Path"
-msgstr "Χρώματα εργασίας"
+msgstr "Διαδρομή αρθρωμάτων Εργασίας"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr ""
+msgstr "Χρήση τοπικών αρθρωμάτων εργασίας"
 
 #: config/ConfigWorkVacationPanel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Default"
-msgstr "Προκαθορισμένο:"
+msgstr "Προεπιλογή"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
 msgid "Working Hours"
-msgstr ""
+msgstr "Εργάσιμες Ώρες"
 
 #. i18n: info@whatsthis
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
@@ -746,50 +722,65 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Τιμές που χρησιμοποιούνται για τη δημιουργία "
+"προεπιλεγμένων ημερολογίων για εργάσιμες εβδομάδες και αργίες.</p><p>Το<span "
+"style=\" font-style:italic;\"> ημερολόγιο Εβδομάδας</span> χρησιμοποιεί τις "
+"τιμές που ορίζονται στην<span style=\" font-style:italic;\"> ενότητα "
+"Εβδομάδα εργασίας</span>.</p><p>Το<span style=\" font-style:italic;\"> "
+"ημερολόγιο της εβδομάδας</span>  μπορεί να δημιουργείται<span style=\" font-"
+"style:italic;\">πάντα</span> ή να δημιουργείται μόνο εάν<span style=\" font-"
+"style:italic;\"> δεν υπάρχει κανένα</span>. Η τελευταία επιλογή είναι η πιο "
+"συνηθισμένη, καθώς συχνά έχετε ημερολόγια που ορίζονται ως μέρος προτύπων ή "
+"κοινόχρηστων πόρων.</p><p><span style=\" font-style:italic;\">Οι αργίες </"
+"span>μπορούν να δημιουργηθούν για την περιοχή σας (προεπιλογή) ή οποιαδήποτε "
+"περιοχή επιλέξετε. Οι αργίες μπορούν να προστεθούν στο εβδομαδιαίο "
+"ημερολόγιο, ως υπο-ημερολόγιο στο εβδομαδιαίο ημερολόγιο ή ως ξεχωριστό "
+"ημερολόγιο.</p><p>Εάν δεν δημιουργηθεί εβδομαδιαίο ημερολόγιο, οι αργίες "
+"τοποθετούνται σε ξεχωριστό ημερολόγιο.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: config/ConfigWorkVacationPanel.ui:31
 #, kde-format
 msgid "Calendar generation"
-msgstr ""
+msgstr "Παραγωγή ημερολογίου"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr ""
+msgstr "Εβδομάδα"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "Αργίες"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
 #, kde-format
 msgid "In week calendar"
-msgstr ""
+msgstr "Στο εβδομαδιαίο ημερολόγιο"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/ConfigWorkVacationPanel.ui:99
 #, kde-format
 msgid "Holida&y region:"
-msgstr ""
+msgstr "Περιοχή Α&ργιών"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/ConfigWorkVacationPanel.ui:131
 #, kde-format
 msgid "Working week"
-msgstr ""
+msgstr "Εργάσιμη εβδομάδα"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
 #: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
 #, kde-format
 msgid "Tick  if working day"
-msgstr ""
+msgstr "Σημειώστε εάν είναι εργάσιμη ημέρα"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
@@ -801,14 +792,13 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:242
 #, kde-format
 msgid "Tick if working day"
-msgstr ""
+msgstr "Σημειώστε εάν είναι εργάσιμη ημέρα"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigWorkVacationPanel.ui:266
-#, fuzzy, kde-format
-#| msgid "Define Estimate Conversions..."
+#, kde-format
 msgid "Estimate Conversions"
-msgstr "Ορισμός μετατροπών εκτίμησης..."
+msgstr "Εκτίμηση των μετατροπών"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
 #: config/ConfigWorkVacationPanel.ui:273
@@ -820,24 +810,30 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"Αυτές οι τιμές χρησιμοποιούνται αν η εκτίμηση σας δεν είναι σε ώρες.\n"
+"Ας πούμε ότι οι ώρες ανά ημέρα είναι 8.  Αν υπολογίζετε ότι η εργασία "
+"χρειάζεται 3 μέρες δουλειάς για να ολοκληρωθεί, αυτό μετατρέπετε σε 24 ώρες, "
+"όταν η εργασία προγραμματιστή. Ο πραγματικός χρόνος ολοκλήρωσης της εργασίας "
+"φυσικά εξαρτάται από την διαθεσιμότητα του ατόμου (ή ατόμων) που έχει "
+"ανατεθεί η εργασία."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: config/ConfigWorkVacationPanel.ui:282
 #, kde-format
 msgid "Hours &per year:"
-msgstr ""
+msgstr "Ώρες &ανά έτος:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: config/ConfigWorkVacationPanel.ui:311
 #, kde-format
 msgid "Hours per &month:"
-msgstr ""
+msgstr "Ώρες ανά &μήνα:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabe3)
 #: config/ConfigWorkVacationPanel.ui:356
 #, kde-format
 msgid "Hours per wee&k:"
-msgstr ""
+msgstr "Ώρες ανά εβδο&μάδα:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:385
@@ -845,12 +841,14 @@ msgstr ""
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
+"Οι τιμές αυτές χρησιμοποιούνται όταν εκτιμάτε την προσπάθεια που απαιτείται "
+"για την ολοκλήρωση μιας εργασίας."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:388
 #, kde-format
 msgid "Hours per &day:"
-msgstr ""
+msgstr "Ώρες ανά &ημέρα:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: config/kptcolorsconfigpanel.ui:28
@@ -1134,32 +1132,31 @@ msgstr "Περιορισμός χρονοπρογραμματισμού:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Ρίσκο:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Χαμηλό"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Υψηλό"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
-#, fuzzy, kde-format
-#| msgid "Retrieve URL:"
+#, kde-format
 msgid "Retrieve"
-msgstr "Ανάκτηση URL:"
+msgstr "Ανάκτηση"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
 #: config/kptworkpackageconfigpanel.ui:23
@@ -1169,16 +1166,15 @@ msgstr "Έλεγχος για πακέτα εργασίας"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptworkpackageconfigpanel.ui:32
-#, fuzzy, kde-format
-#| msgid "Retrieve URL:"
+#, kde-format
 msgid "Retrieve:"
-msgstr "Ανάκτηση URL:"
+msgstr "Ανάκτηση:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: config/kptworkpackageconfigpanel.ui:47
 #, kde-format
 msgid "Archive"
-msgstr ""
+msgstr "Αρχειοθήκη"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
 #: config/kptworkpackageconfigpanel.ui:53
@@ -1188,54 +1184,51 @@ msgstr "Διαγραφή αρχείου μετά την ανάκτηση"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
 #: config/kptworkpackageconfigpanel.ui:60
-#, fuzzy, kde-format
-#| msgid "Save file after it has been retrieved"
+#, kde-format
 msgid "Archive file after it has been retrieved"
-msgstr "Αποθήκευση αρχείου μετά την ανάκτηση"
+msgstr "Αρχειοθέτηση αρχείου μετά την ανάκτηση του"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "Αρχειοθήκη:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "Δημοσίευση"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "Δημοσίευση:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Διάλογος"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Βασικό πρότυπο:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Μετονομασία"
+msgstr "Όνομα αρχείου:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Άνοιγμα βοηθού"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1378,31 +1371,30 @@ msgstr ""
 "πλασματικές εξαρτήσεις για να αποφύγετε τις συγκρούσεις.</note></para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "Περιορισμός χρονοπρογραμματισμού:"
+msgstr "Ο προγραμματισμός ξεκίνησε: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Επαναϋπολογισμός από: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Χειριστής χρονικού προγραμματισμού"
+msgstr "Ο προγραμματισμός ακυρώθηκε"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
 msgstr ""
+"Ο προγραμματισμός ολοκληρώθηκε στο %1, χρόνος που παρήλθε: %2 δευτερόλεπτα"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Εισαγωγή κρατήσεων πόρων από το έργο: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1456,17 +1448,15 @@ msgstr ""
 "Το άνοιγμα με αυτήν την έκδοση του Plan θα προκαλέσει απώλεια πληροφοριών."
 
 #: kptmaindocument.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
-msgstr "Αποτυχία αποθήκευσης σε προσωρινό αρχείο:<br/> <filename>%1</filename>"
+msgstr ""
+"Αποτυχία αποθήκευσης σε προσωρινό αρχείο. Δεν έχουν προσδιοριστεί πόροι"
 
 #: kptmaindocument.cpp:474
-#, fuzzy, kde-format
-#| msgid "Failed to open temporary file"
+#, kde-format
 msgid "Failed to open work package file"
-msgstr "Αποτυχία ανοίγματος προσωρινού αρχείου"
+msgstr "Αποτυχία ανοίγματος αρχείου πακέτου εργασίας"
 
 #: kptmaindocument.cpp:481
 #, kde-kuit-format
@@ -1490,13 +1480,9 @@ msgid "Saving..."
 msgstr "Αποθήκευση..."
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan, ελήφθη "
-"%1"
+msgstr "Λανθασμένο έγγραφο.  Αναμενόταν τύπος mime %2, πήρα %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1522,13 +1508,14 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Αποτυχία φόρτωσης διαμοιρασμένων πόρων στο έργο %1: <nl/>Εσωτερικό σφάλμα, "
+"αποτυχία εισαγωγής αρχείου."
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Αποτυχία φόρτωσης διαμοιρασμένων πόρων στο έργο %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1538,38 +1525,34 @@ msgstr "Εισαγωγή έργου"
 #: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
-msgstr ""
+msgstr "Ομάδα: %1"
 
 #: kptmaindocument.cpp:1457
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource: %1"
-msgstr "Πόροι"
+msgstr "Πόρος: %1"
 
 #: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
-msgstr ""
+msgstr "Ημερολόγιο: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Tasks by resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Ενημέρωση διαμοιρασμένων πόρων"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "Έργο:"
+msgstr "Έργο: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "Βάση"
 
 #: kptpart.cpp:96
 #, kde-format
@@ -1582,16 +1565,14 @@ msgid "Schedule Selector"
 msgstr "Επιλογέας χρονοπρογραμματισμού"
 
 #: kptview.cpp:186
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Create Project Template..."
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Δημιουργία προτύπου Έργου..."
 
 #: kptview.cpp:190
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Create New Project..."
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Δημιουργία Νέου Έργου..."
 
 #: kptview.cpp:202
 #, kde-format
@@ -1619,10 +1600,9 @@ msgid "Define Currency..."
 msgstr "Ορισμός νομίσματος..."
 
 #: kptview.cpp:225
-#, fuzzy, kde-format
-#| msgid "Description..."
+#, kde-format
 msgid "Edit Description..."
-msgstr "Περιγραφή..."
+msgstr "Επεξεργασία περιγραφής..."
 
 #: kptview.cpp:230
 #, kde-format
@@ -1630,10 +1610,9 @@ msgid "Insert Project File..."
 msgstr "Εισαγωγή αρχείου έργου..."
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Ενημέρωση διαμοιρασμένων πόρων"
 
 #: kptview.cpp:239
 #, kde-format
@@ -1641,23 +1620,20 @@ msgid "Open Report Definition File..."
 msgstr "Άνοιγμα αρχείου ορισμού αναφοράς..."
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Δημιουργία προτύπου αναφοράς..."
 
 #: kptview.cpp:260
-#, fuzzy, kde-format
-#| msgid "Work Package"
+#, kde-format
 msgid "Work Packages..."
-msgstr "Πακέτο εργασίας"
+msgstr "Πακέτα εργασίας..."
 
 #: kptview.cpp:261
-#, fuzzy, kde-format
-#| msgid "Work Package View"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr "Προβολή πακέτου εργασίας"
+msgstr "Διαθέσιμα πακέτα εργασίας"
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1675,34 +1651,29 @@ msgstr ""
 "συνεχίσετε;"
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Edit task scheduling constraints"
-msgstr "Περιορισμός χρονοπρογραμματισμού:"
+msgstr "Επεξεργασία περιορισμών προγραμματισμού εργασίας"
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Task Constraints"
-msgstr "Περιορισμοί"
+msgstr "Περιορισμοί εργασίας"
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit task dependencies"
+#, kde-format
 msgid "Edit task cost"
-msgstr "Επεξεργασία εξαρτήσεων εργασίας"
+msgstr "Επεξεργασία κόστους εργασίας"
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Cost"
-msgstr "Χρώματα εργασίας"
+msgstr "Κόστος Εργασίας"
 
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr ""
+msgstr "Παραγωγή αναφορών"
 
 #: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
@@ -1727,11 +1698,9 @@ msgid "Edit cost breakdown structure."
 msgstr "Επεξεργασία δομής ανάλυσης κόστους."
 
 #: kptview.cpp:644
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit resource breakdown structure"
+#, kde-format
 msgid "Resource Breakdown Structure"
-msgstr "Επεξεργασία δομής ανάλυσης πόρων"
+msgstr "Διάρθρωση κατανομής πόρων"
 
 #: kptview.cpp:645
 #, kde-kuit-format
@@ -1745,11 +1714,10 @@ msgid "Resources"
 msgstr "Πόροι"
 
 #: kptview.cpp:648
-#, fuzzy, kde-kuit-format
-#| msgid "Edit Resources..."
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr "Επεξεργασία πόρων..."
+msgstr "Επεξεργασία πόρων"
 
 #: kptview.cpp:650
 #, kde-format
@@ -1878,16 +1846,15 @@ msgid "View resource assignments in Gantt chart"
 msgstr "Προβολή ορισμών πόρων σε διάγραμμα Gantt"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Coverage"
-msgstr "Επεξεργαστής πόρων"
+msgstr "Κάλυψη Πόρων"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "Επιθεώρηση κάλυψης πόρου"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
@@ -1914,13 +1881,13 @@ msgstr "Προβολή πληροφοριών κατάστασης απόδοσ�
 #: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
-msgstr ""
+msgstr "Παραγωγή Αναφορών"
 
 #: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr ""
+msgstr "Παραγωγή αναφορών"
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
@@ -1958,21 +1925,19 @@ msgstr "Αναφορές"
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "Το αρχείο %1 υπάρχει ήδη, θέλετε να το αντικαταστήσετε;"
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "&Create New Project..."
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Δημιουργία νέου έργου..."
+msgstr "Πρότυπο Αναφοράς"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "Εργασίες κατά πόρους"
+msgstr "Διαμοιρασμένοι Πόροι"
 
 #: kptview.cpp:1824
 #, kde-kuit-format
@@ -1980,6 +1945,7 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Έχει ενεργοποιηθεί η χρήση διαμοιρασμένων πόρων.<nl/>Να ενημερωθούν οι πόροι;"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -2058,14 +2024,7 @@ msgid "Completion (%)"
 msgstr "Ολοκλήρωση (%)"
 
 #: kptviewlist.cpp:335
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "<para>This is the list of available views and editors.</para><para>You "
-#| "can configure the list by using the context menu:<list><item>Rename "
-#| "categories or views</item><item>Configure. Move, remove, rename or edit "
-#| "tool tip for categories or views</item><item>Insert categories and views</"
-#| "item></list></para>"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "<title>View Selector</title><para>This is the list of views and editors.</"
@@ -2074,11 +2033,13 @@ msgid ""
 "rename or edit tool tip for categories or views</item><item>Insert "
 "categories and views</item></list><nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<para>Αυτή είναι η λίστα των διαθέσιμων προβολών και επεξεργαστών.</"
-"para><para>Μπορείτε να διαμορφώσετε τη λίστα με το μενού:"
-"<list><item>Μετονομάστε κατηγορίες ή προβολές</item><item>Διαμορφώστε, "
-"μετακινήστε, αφαιρέστε, μετονομάστε ή επεξεργαστείτε συμβουλή για κατηγορίες "
-"ή προβολές</item><item>Εισαγωγή κατηγοριών και προβολών</item></list></para>"
+"<title>Επιλογέας Προβολής</title><para> Αυτή είναι η λίστα προβολών και "
+"επεξεργαστών.</para><para>Μπορείτε να ρυθμίσετε την λίστα μέσο του μενού "
+"περιεχομένων: <list><item> Μετονομασία κατηγοριών ή προβολών</"
+"item><item>Ρύθμιση. Μετακίνηση, αφαίρεση, μετονομασία ή επεξεργασία "
+"εργαλείου συμβουλών για τις κατηγορίες ή τις προβολές</item><item>Εισαγωγή "
+"κατηγοριών και προβολών</item></list><nl/><link url='%1'>Περισσότερα...</"
+"link></para>"
 
 #: kptviewlist.cpp:357
 #, kde-kuit-format
@@ -2088,6 +2049,10 @@ msgid ""
 "displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Επιλογέας χρονοδιαγράμματος</title><para>Επιλέγει το πρόγραμμα που θα "
+"χρησιμοποιείται όταν προβάλλονται δεδομένα εξαρτώμενα από το χρονοδιάγραμμα."
+"<nl/><note>Μη προγραμματισμένες εργασίες προβάλλονται μόνο στους "
+"επεξεργαστές.</note><nl/><link url='%1'>Περισσότερα...</link></para>"
 
 #: kptviewlist.cpp:606
 #, kde-format
@@ -2207,10 +2172,9 @@ msgid "Add View"
 msgstr "Προσθήκη προβολής"
 
 #: kptviewlistdialog.cpp:93
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Group Editor"
-msgstr "Επεξεργαστής πόρων"
+msgstr "Επεξεργαστής Ομάδας Πόρων"
 
 #: kptviewlistdialog.cpp:94
 #, kde-format
@@ -2265,7 +2229,7 @@ msgstr "Προβολή ορόσημου Gantt"
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr ""
+msgstr "Παραγωγή Αναφορών"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
@@ -2415,25 +2379,21 @@ msgid "The description of the category"
 msgstr "Η περιγραφή της κατηγορίας"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Διάρκεια"
+msgstr "Ενέργεια"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Όνομα"
 
 #: SharedResourcesDialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Edit Calendar..."
+#, kde-format
 msgid "Calendars"
-msgstr "Επεξεργασία ημερολογίου..."
+msgstr "Ημερολόγια"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2448,58 +2408,67 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Διάλογος Διαμοιρασμένων πόρων</title><para>Σας επιτρέπει να "
+"αποφασίσετε στο πως αντιμετωπίζετε τους κοινόχρηστους πόρους, τις ομάδες "
+"κοινόχρηστων πόρων και τα κοινόχρηστα ημερολόγια όταν έχουν διαγραφεί από το "
+"αρχείο κοινόχρηστων πόρων.</para><para>Μπορείτε να να επιλέξετε αν ένα "
+"στοιχείο θα:<list><item><emphasis>Αφαιρεμένο:</emphasis> Αφαιρεί το "
+"αντικείμενο και από το έργο.</item><item><emphasis>Μετατράπηκε:</emphasis> "
+"Μετατρέπει το αντικείμενο σε τοπικό.</item><item><emphasis>Διατηρήθηκε:</"
+"emphasis> Διατηρεί το αντικείμενο ως διαμοιρασμένο.</item></list><nl/><link "
+"url='%1'>Περισσότερα...</link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Convert"
-msgstr ""
+msgstr "Μετατροπή"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Keep"
-msgstr ""
+msgstr "Διατήρηση"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Σημειώστε όλα τα επιλεγμένα στοιχεία που θα αφαιρεθούν από το έργο σας"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Επισήμανση ως: Αφαίρεση"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "Σημειώστε όλα τα επιλεγμένα στοιχεία προς μετατροπή σε τοπικούς πόρους"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
 #, kde-format
 msgid "Mark as: Convert"
-msgstr ""
+msgstr "Σημειώστε ως: Μετατροπή"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "Σημειώστε όλα τα αντικείμενα να κρατηθούν ως διαμοιρασμένοι πόροι"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "Σημείωση ως: Διατήρηση"
 
 #, fuzzy
 #~| msgid "Overtime"
