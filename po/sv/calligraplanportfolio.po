@@ -2,13 +2,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2021, 2022.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2022-09-25 15:48+0200\n"
+"PO-Revision-Date: 2023-07-30 12:07+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -245,9 +245,7 @@ msgstr ""
 "du spara den?</p>"
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
 msgstr "Spara dokument"
@@ -749,7 +747,7 @@ msgstr "Tidplan %1: Schemalagt att avslutas: %1"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Tidplanen ägs av portföljen"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -812,50 +810,43 @@ msgid "Range"
 msgstr "Intervall"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
 msgstr "Projekt"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Tidplan"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Alternativ"
+msgstr "Åtgärd"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Status"
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Status"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New schedule"
-msgstr "Ingen tidplan"
+msgstr "Ny tidplan"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "No schedule"
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Ingen tidplan"
+msgstr "Ny deltidplan"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Ny tidplan '%1' kommer att skapas."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -863,6 +854,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Befintlig tidplan '%1' ägs av portföljen.\n"
+"'%1' kommer att schemaläggas."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -870,6 +863,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"Befintlig tidplan '%1' ägs av Plan.\n"
+"Ny tidplan '%2' kommer att skapas."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -877,6 +872,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projektet har påbörjats.\n"
+"'%1' kommer att skapas som deltidplan av '%2'."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
