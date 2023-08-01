@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-06-04 02:02+0300\n"
+"PO-Revision-Date: 2023-08-01 00:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4420,12 +4420,12 @@ msgstr "İş paketi gönderme/alma zamanı"
 #: models/kptnodeitemmodel.cpp:2726
 msgctxt "(qtundo-format)"
 msgid "Modify name"
-msgstr "İsim düzenle"
+msgstr "Adı değiştir"
 
 #: models/kptnodeitemmodel.cpp:2728
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
-msgstr "Görev ismini düzenle"
+msgstr "Görev adını değiştir"
 
 #: models/kptnodeitemmodel.cpp:2729
 msgctxt "(qtundo-format)"
@@ -4440,7 +4440,7 @@ msgstr "Özet görev adını değiştir"
 #: models/kptnodeitemmodel.cpp:2731
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
-msgstr "Proje ismini düzenle"
+msgstr "Proje adını değiştir"
 
 #: models/kptnodeitemmodel.cpp:2744
 msgctxt "(qtundo-format)"
@@ -4540,12 +4540,12 @@ msgstr "Geçerli eforu değiştir"
 #: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
-msgstr "Gerçek başlangıç zamanını düzenle"
+msgstr "Gerçek başlangıç zamanını değiştir"
 
 #: models/kptnodeitemmodel.cpp:3167 models/kpttaskstatusmodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
-msgstr "Gerçek bitiş zamanını düzenle"
+msgstr "Gerçek bitiş zamanını değiştir"
 
 #: models/kptnodeitemmodel.cpp:3638
 msgctxt "(qtundo-format)"
@@ -5287,12 +5287,12 @@ msgstr "Eksik ad alanı tanımları:<nl/><filename>%1</filename>"
 #: models/ResourceGroupItemModel.cpp:356
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup name"
-msgstr "Özkaynak grubu adını düzenle"
+msgstr "Özkaynak grubu adını değiştir"
 
 #: models/ResourceGroupItemModel.cpp:382
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup type"
-msgstr "Özkaynak grubu türünü düzenle"
+msgstr "Özkaynak grubu türünü değiştir"
 
 #: models/ResourceGroupItemModel.cpp:401
 msgctxt "(qtundo-format)"
@@ -5381,7 +5381,7 @@ msgstr "Koordinatör"
 #: models/ResourceItemModel.cpp:422
 msgctxt "(qtundo-format)"
 msgid "Modify resource name"
-msgstr "Özkaynak adını düzenle"
+msgstr "Özkaynak adını değiştir"
 
 #: models/ResourceItemModel.cpp:425
 msgctxt "(qtundo-format)"
@@ -5391,7 +5391,7 @@ msgstr "Otomatik özkaynak ayırmayı değiştir"
 #: models/ResourceItemModel.cpp:445
 msgctxt "(qtundo-format)"
 msgid "Modify resource type"
-msgstr "Özkaynak türünü düzenle"
+msgstr "Özkaynak türünü değiştir"
 
 #: models/ResourceItemModel.cpp:459
 msgctxt "(qtundo-format)"
@@ -5401,17 +5401,17 @@ msgstr "Özkaynak paraflarını değiştir"
 #: models/ResourceItemModel.cpp:472
 msgctxt "(qtundo-format)"
 msgid "Modify resource email"
-msgstr "Özkaynak e-postasını düzenle"
+msgstr "Özkaynak e-postasını değiştir"
 
 #: models/ResourceItemModel.cpp:493
 msgctxt "(qtundo-format)"
 msgid "Modify resource calendar"
-msgstr "Özkaynak takvimini düzenle"
+msgstr "Özkaynak takvimini değiştir"
 
 #: models/ResourceItemModel.cpp:508
 msgctxt "(qtundo-format)"
 msgid "Modify resource available units"
-msgstr "Kullanılabilir özkaynakları düzenle"
+msgstr "Kullanılabilir özkaynakları değiştir"
 
 #: models/ResourceItemModel.cpp:521
 msgctxt "(qtundo-format)"
@@ -6642,7 +6642,7 @@ msgstr "Sil"
 #: ui/kptcalendareditor.cpp:753 ui/kptcalendareditor.cpp:787
 msgctxt "(qtundo-format)"
 msgid "Modify Calendar"
-msgstr "Takvimi Düzenle"
+msgstr "Takvimi Değiştir"
 
 #: ui/kptcalendareditor.cpp:762 ui/kptcalendareditor.cpp:768
 #, kde-format
@@ -6863,12 +6863,12 @@ msgstr "Belge, zaten ekli:<nl/><filename>%1</filename>"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Modify Url"
-msgstr "URL'yi Düzenle"
+msgstr "URL'yi Değiştir"
 
 #: ui/kptdocumentspanel.cpp:142
 #, kde-format
 msgid "Cannot Modify Url"
-msgstr "URL Düzenlenemez"
+msgstr "URL Değiştirilemiyor"
 
 #: ui/kptdocumentspanel.cpp:142
 #, kde-format
@@ -7267,7 +7267,7 @@ msgstr "Para Birimi Ayarları"
 #: ui/kptlocaleconfigmoneydialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
-msgstr "Para birimi ayarlarını düzenle"
+msgstr "Para birimi ayarlarını değiştir"
 
 #: ui/kptmainprojectdialog.cpp:24
 #, kde-format
@@ -7887,12 +7887,12 @@ msgstr "Zamanlama Günlüğü"
 #: ui/kptscheduleeditor.cpp:983
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
-msgstr "Proje hedef başyangıç zamanını düzenle"
+msgstr "Proje hedef başlangıç zamanını değiştir"
 
 #: ui/kptscheduleeditor.cpp:995
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
-msgstr "Projeyi hedef bitiş zamanını düzenle"
+msgstr "Proje hedef bitiş zamanını değiştir"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptscheduleeditor.ui:35
