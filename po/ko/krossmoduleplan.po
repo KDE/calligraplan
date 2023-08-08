@@ -25,12 +25,12 @@ msgstr "작업 추가"
 #: Project.cpp:420 Project.cpp:428
 msgctxt "(qtundo-format)"
 msgid "Add resource group"
-msgstr "자원 그룹 추가"
+msgstr "리소스 그룹 추가"
 
 #: Project.cpp:506 Project.cpp:524
 msgctxt "(qtundo-format)"
 msgid "Add resource"
-msgstr "자원 추가"
+msgstr "리소스 추가"
 
 #: Project.cpp:627
 msgctxt "(qtundo-format)"
@@ -50,7 +50,7 @@ msgstr "모든 외부 약속 지우기"
 #: Resource.cpp:91
 msgctxt "(qtundo-format)"
 msgid "Set resource team members"
-msgstr "자원 팀 구성원 설정"
+msgstr "리소스 팀 구성원 설정"
 
 #. i18n: ectx: Menu (tools)
 #: scripting.rc:4
@@ -74,7 +74,7 @@ msgstr "작업"
 #: ScriptingDataQueryView.ui:35
 #, kde-format
 msgid "Resources"
-msgstr "자원"
+msgstr "리소스"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
 #: ScriptingDataQueryView.ui:40
@@ -163,7 +163,7 @@ msgstr "열기"
 #: scripts/busyinfoimport.py:29
 msgctxt "(qtundo_format)"
 msgid "Import resource busy information"
-msgstr "자원 바쁨 정보 가져오기"
+msgstr "리소스 바쁨 정보 가져오기"
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
@@ -247,11 +247,11 @@ msgstr "경고"
 
 #: scripts/resourcesimport.py:17
 msgid "Resources Import"
-msgstr "자원 가져오기"
+msgstr "리소스 가져오기"
 
 #: scripts/resourcesimport.py:23
 msgid "Plan Resources"
-msgstr "Plan 자원"
+msgstr "Plan 리소스"
 
 #: scripts/resourcesimport.py:26
 msgid "Plan"
@@ -260,7 +260,7 @@ msgstr "Plan"
 #: scripts/resourcesimport.py:30
 msgctxt "(qtundo_format )"
 msgid "Import resources"
-msgstr "자원 가져오기"
+msgstr "리소스 가져오기"
 
 #: scripts/resourcesimport.py:44
 msgid "Could not open document: %1"
@@ -276,15 +276,15 @@ msgstr "프로젝트 ID가 같음"
 
 #: scripts/resourcesimport.py:69
 msgid "Unable to create copy of resource group: %1"
-msgstr "자원 그룹의 사본을 만들 수 없음: %1"
+msgstr "리소스 그룹의 사본을 만들 수 없음: %1"
 
 #: scripts/resourcesimport.py:74
 msgid "No resource to copy from"
-msgstr "복사할 자원이 없음"
+msgstr "복사할 리소스가 없음"
 
 #: scripts/resourcesimport.py:83
 msgid "Unable to create copy of resource: %1"
-msgstr "자원의 복사본을 만들 수 없음: %1"
+msgstr "리소스의 복사본을 만들 수 없음: %1"
 
 #: scripts/resourcesimport.py:93
 msgid "Calendar already exists: %1"
@@ -298,19 +298,19 @@ msgstr "캘린더의 사본을 만들 수 없음: %1"
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Resource Busy Information"
-msgstr "자원 바쁨 정보"
+msgstr "리소스 바쁨 정보"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Handle resource busy information"
-msgstr "자원 바쁨 정보 처리"
+msgstr "리소스 바쁨 정보 처리"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Export Resource Busy Information"
-msgstr "자원 바쁨 정보 내보내기"
+msgstr "리소스 바쁨 정보 내보내기"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:8
@@ -322,7 +322,7 @@ msgstr "바쁨 정보를 파일로 내보내는 Python 스크립트"
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Import Resource Busy Information"
-msgstr "자원 바쁨 정보 가져오기"
+msgstr "리소스 바쁨 정보 가져오기"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:12
@@ -334,13 +334,13 @@ msgstr "바쁨 정보를 파일에서 가져오는 Python 스크립트"
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Clear Resource Busy Information"
-msgstr "자원 바쁨 정보 지우기"
+msgstr "리소스 바쁨 정보 지우기"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Python script to clear the imported resource busy information"
-msgstr "가져온 자원 바쁨 정보를 지우는 Python 스크립트"
+msgstr "가져온 리소스 바쁨 정보를 지우는 Python 스크립트"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
@@ -358,13 +358,13 @@ msgstr "내용 가져오기"
 #: scripts/scripts.rc:22
 #, kde-format
 msgid "Resources from Plan File"
-msgstr "Plan 파일의 자원"
+msgstr "Plan 파일의 리소스"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:22
 #, kde-format
 msgid "Python script to import resources from project file"
-msgstr "프로젝트 파일에서 자원을 가져오는 Python 스크립트"
+msgstr "프로젝트 파일에서 리소스를 가져오는 Python 스크립트"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:31
@@ -457,10 +457,10 @@ msgstr "프로젝트 정보를 출력하는 Python 예제 스크립트"
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr "자원 바쁨 정보 출력..."
+msgstr "리소스 바쁨 정보 출력..."
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Example python script that print resource busy information"
-msgstr "자원 바쁨 정보를 출력하는 Python 예제 스크립트"
+msgstr "리소스 바쁨 정보를 출력하는 Python 예제 스크립트"
