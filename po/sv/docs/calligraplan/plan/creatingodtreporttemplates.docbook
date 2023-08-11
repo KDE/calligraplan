@@ -537,7 +537,7 @@
               </entry>
               <entry>
                 <para
->Namn</para>
+>Riktning</para>
               </entry>
               <entry>
                 <para
@@ -1839,6 +1839,8 @@
 >Diagram</title>
   <para
 >Använd genom att placera en variabel kallad chartX (X=någon text för att göra variabelnamnet unikt) med ett värde projekt innan diagrammet som ska användas. </para>
+  <para
+>Observera att diagrammet måste vara "förankrat som tecken" annars kan inte rapportgeneratorn hitta det. </para>
   <para
 >Variabeln har detta format: </para>
   <para

@@ -1,4 +1,6 @@
-<sect2 id="description"
+<sect2
+><title/>
+<sect3 id="description"
 ><title
 >Beskrivning</title>
   <para
@@ -8,9 +10,48 @@
 >Arbets- och semestereditorn</link
 >. </para>
   <para
->Om du dock ska använda samma resurser i många projekt (vilket ofta är fallet) är det bekvämare att underhålla resurser i en separat fil. Det bästa sättet att göra det är att först skapa en egen resursfil och sedan ställa in Plan att alltid läsa in filen när ett nytt projekt skapas. </para>
+>Om du dock ska använda samma resurser i många projekt (vilket ofta är fallet) är det bekvämare att underhålla resurser i en separat fil. Det bästa sättet att göra det är att först skapa en egen resursfil och sedan ställa in &plan; att alltid läsa in filen när ett nytt projekt skapas. </para>
+</sect3>
+<sect3 id="shared-resources"
+><title
+>Delade resurser</title>
+  <para
+>Delade resurser är resurser som kan delas mellan projekt och därmedunderlättar resursutjämning över projekt. </para>
   <para
 >Om du hanterar projekt som använder helt olika resurspooler kan du skapa flera resursfiler, men ett projekt kan bara referera till en resursfil. </para>
   <para
->Du kan välja resursfil att använda när ett nytt projekt skapas. </para>
+>Du kan välja den resursfil som ska användas när du skapar ett nytt projekt. Resurserna kan laddas automatiskt när du öppnar ditt projekt eller så kan du uppdatera manuellt genom att välja <menuchoice
+><guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Uppdatera delade resurser</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Observera att projektet fortfarande kan öppnas även om resursfilen inte är tillgänglig. </para>
+  <para
+>Om något har raderats i den delade resursfilen kommer du att få en dialogruta där du kan välja hur de raderade objekten ska behandlas. </para>
+  <para
+>Du kan välja om ett objekt ska bli: <itemizedlist>
+  <listitem
+><para
+><emphasis
+>Borttaget:</emphasis
+> Tar bort objektet från ditt projekt. Det är åtgärden du normalt bör välja eftersom det håller projektet synkroniserat med resursfilen. Men om objektet används i projektet kanske du vill konvertera till ett lokalt objekt.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Konverterat:</emphasis
+> Konverterar objketet till ett lokalt objekt.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Behållet:</emphasis
+> Behåller objektet som ett delat objekt i projektet. Nästa gång resursfilen läses in kommer du att bli tillfrågad igen hur objektet ska behandlas.</para>
+  </listitem>
+  </itemizedlist>
+  </para>
+</sect3>
 </sect2>

@@ -1,5 +1,14 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY plan "<application
+>Plan</application
+>">
+<!ENTITY portfolio "<application
+>Plan Portfolio Manager</application
+>">
+<!ENTITY work "<application
+>Plan Work</application
+>">
 <!ENTITY plan-introduction-chapter SYSTEM "planintroduction.docbook">
 <!ENTITY guidelines-chapter SYSTEM "guidelines.docbook">
 <!ENTITY common-user-interface-chapter SYSTEM "commonuserinterface.docbook">
@@ -30,9 +39,16 @@
 <!ENTITY resource-assignment-view-section SYSTEM "resourceassignmentview.docbook">
 <!ENTITY resource-assignment-gantt-view-section SYSTEM "resourceassignmentganttview.docbook">
 <!ENTITY reports-generator-view-section SYSTEM "reportsgeneratorview.docbook">
+<!ENTITY cost-breakdown-view-section SYSTEM "costbreakdownview.docbook">
+<!ENTITY plan-configuration-chapter SYSTEM "planconfiguration.docbook">
 <!ENTITY % addindex "IGNORE">
 <!ENTITY % Swedish "INCLUDE"
 ><!-- change language only here -->
+
+<!ENTITY WIP "<para
+>WIP: Work In Progress. Do not translate!</para
+>">
+
 ]>
 <book lang="&language;">
   <bookinfo>
@@ -83,7 +99,8 @@
   &guidelines-chapter;
   &views-and-editors-chapter;
   &reports-chapter;
-  
+  &plan-configuration-chapter;
+
   <!--userbase-content-->
   <chapter id="credits">
     <title

@@ -60,9 +60,13 @@
   <sect1 id="resource-assignment-gantt-view"
 ><title
 >GANTT-resurstilldelningsvy</title
->&resource-assignment-view-section; </sect1>
+>&resource-assignment-gantt-view-section; </sect1>
   <sect1 id="resource-assignment-view"
 ><title
 >Resurstilldelningsvy</title
->&resource-assignment-gantt-view-section; </sect1>
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="cost-breakdown-view"
+><title
+>Kostnadsfördelningsvy</title
+>&cost-breakdown-view-section; </sect1>
 </chapter>

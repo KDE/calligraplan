@@ -446,9 +446,7 @@
   <para
 >En aktivitetsmodul infogas i projektet genom att dra den från panelen och släppa den i projektet. </para>
   <para
->En aktivitetsmodul är en vanlig planfil, och konstrueras genom att använda <guilabel
->Plan</guilabel
-> på samma sätt som ett vanligt projekt. </para>
+>En aktivitetsmodul är en vanlig Plan-fil, och konstrueras genom att använda &plan; på samma sätt som ett vanligt projekt. </para>
   <para
 >En aktivitetsmodul innehåller dock typiskt bara aktiviteter, uppskattningar och beroenden. </para>
   <para
@@ -458,7 +456,7 @@
   <para
 >Modulerna kan grupperas genom att lagra dem i olika kataloger. Var man söker efter dem ställs in genom att använda projektinställningsdialogrutan. </para>
   <para
->Standardvärden för nya projekt kan definieras genom att använda inställningsdialogrutan i Plan. </para>
+>Standardvärden för nya projekt kan definieras genom att använda inställningsdialogrutan, se <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
 </sect3>
 <sect3 id="resources-docker"
 ><title
