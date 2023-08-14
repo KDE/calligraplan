@@ -53,9 +53,7 @@
 <book lang="&language;">
   <bookinfo>
     <title
->El manual del <application
->Plan</application
-></title>
+>El manual del Plan</title>
     <authorgroup>
       <author>
         <personname
@@ -95,9 +93,7 @@
 >Crèdits i llicència</title>
     <para
 >Copyright de la documentació veure la <ulink url="http://userbase.kde.org/index.php?title=Plan&amp;action=history"
->pàgina historial de «<application
->Plan</application
->»</ulink
+>historial de la pàgina del Plan</ulink
 ></para>
     <para
 >Traductor de la documentació: &credits.Antoni.Bella;</para
