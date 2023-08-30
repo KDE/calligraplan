@@ -6,20 +6,21 @@
 # Toussis Manolis <manolis@koppermind.homelinux.org>, 2007.
 # Stelios <sstavra@gmail.com>, 2011, 2017.
 # Dimitris Kardarakos <dimkard@gmail.com>, 2014.
+# George Stefanakis <geosrge.stefanakis@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2017-04-29 00:37+0200\n"
-"Last-Translator: Stelios <sstavra@gmail.com>\n"
-"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"PO-Revision-Date: 2023-08-29 00:22+0300\n"
+"Last-Translator: George Stefanakis <geosrge.stefanakis@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-doc@kde.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -132,11 +133,10 @@ msgstr ""
 "από το νέο;</p>"
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "Πακέτο εργασίας: %1"
+msgstr "Ενημέρωση Πακέτου Εργασίας"
 
 #: part.cpp:414
 #, kde-format
@@ -144,10 +144,6 @@ msgid "Remove failed. Cannot find work package"
 msgstr "Αποτυχία αφαίρεσης. Δεν βρέθηκε το πακέτο εργασίας"
 
 #: part.cpp:418
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Remove work package"
-#| msgid_plural "Remove work packages"
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "Αφαίρεση πακέτου εργασίας"
@@ -220,14 +216,9 @@ msgid "File-Format Mismatch"
 msgstr "Ασυμφωνία τύπων αρχειοθέτησης"
 
 #: part.cpp:640
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
-#| "%1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime application/x-vnd.kde.plan.work, "
-"ελήφθη %1"
+msgstr "Μη έγκυρο έγγραφο. Αναμενόταν τύπος mime %2, ελήφθη %1"
 
 #: part.cpp:742
 #, kde-format
@@ -266,13 +257,13 @@ msgstr "Αφαίρεση δεδομένων εισόδου"
 #: taskworkpackagemodel.cpp:289
 #, kde-format
 msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
-msgstr ""
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 
 #: taskworkpackagemodel.cpp:411
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Type: %1<nl/>Url: %2"
-msgstr ""
+msgstr "Τύπος: %1<nl/>Url: %2"
 
 #: taskworkpackagemodel.cpp:433
 #, no-c-format
@@ -296,109 +287,94 @@ msgid "Modify actual effort"
 msgstr "Τροποποίηση πραγματικής προσπάθειας"
 
 #: taskworkpackagemodel.cpp:600
-#, fuzzy, kde-kuit-format
-#| msgid "Name"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Όνομα"
 
 #: taskworkpackagemodel.cpp:601
-#, fuzzy, kde-kuit-format
-#| msgid "Type"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Type"
 msgstr "Τύπος"
 
 #: taskworkpackagemodel.cpp:602
-#, fuzzy, kde-kuit-format
-#| msgid "Responsible"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
 msgstr "Υπεύθυνος"
 
 #: taskworkpackagemodel.cpp:603
-#, fuzzy, kde-kuit-format
-#| msgid "Description"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
 msgstr "Περιγραφή"
 
 #: taskworkpackagemodel.cpp:606
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Start"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Start"
 msgstr "Προγραμματισμένη έναρξη"
 
 #: taskworkpackagemodel.cpp:607
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Finish"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Finish"
 msgstr "Προγραμματισμένη λήξη"
 
 #: taskworkpackagemodel.cpp:608
-#, fuzzy, kde-kuit-format
-#| msgid "Resource Assignments"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Assignments"
-msgstr "Καταχωρήσεις πόρων"
+msgstr "Αναθέσεις Πόρων"
 
 #: taskworkpackagemodel.cpp:611
-#, fuzzy, kde-kuit-format
-#| msgid "Completion"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Completion"
-msgstr "Ολοκλήρωση"
+msgstr "Συμπλήρωση"
 
 #: taskworkpackagemodel.cpp:612
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
 msgstr "Πραγματική προσπάθεια"
 
 #: taskworkpackagemodel.cpp:613
-#, fuzzy, kde-kuit-format
-#| msgid "Remaining Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
 msgstr "Υπολειπόμενη προσπάθεια"
 
 #: taskworkpackagemodel.cpp:614
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
 msgstr "Προγραμματισμένη προσπάθεια"
 
 #: taskworkpackagemodel.cpp:615
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Start"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
 msgstr "Πραγματική έναρξη"
 
 #: taskworkpackagemodel.cpp:616
-#, fuzzy, kde-kuit-format
-#| msgid "Started"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Started"
 msgstr "Ξεκίνησε"
 
 #: taskworkpackagemodel.cpp:617
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Finish"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
 msgstr "Πραγματική λήξη"
 
 #: taskworkpackagemodel.cpp:618
-#, fuzzy, kde-kuit-format
-#| msgid "Finished"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finished"
-msgstr "Τερματισμένη"
+msgstr "Ολοκληρώθηκε"
 
 #: taskworkpackagemodel.cpp:619
 #, kde-kuit-format
@@ -407,25 +383,22 @@ msgid "Status"
 msgstr "Κατάσταση"
 
 #: taskworkpackagemodel.cpp:620
-#, fuzzy, kde-kuit-format
-#| msgid "Note"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Note"
 msgstr "Σημείωση"
 
 #: taskworkpackagemodel.cpp:622
-#, fuzzy, kde-kuit-format
-#| msgid "Project Name"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Name"
 msgstr "Όνομα έργου"
 
 #: taskworkpackagemodel.cpp:623
-#, fuzzy, kde-kuit-format
-#| msgid "Project Manager"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Manager"
-msgstr "Διαχειριστής έργου"
+msgstr "Διαχειριστής έργων"
 
 #: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, kde-format
@@ -508,10 +481,9 @@ msgid "View..."
 msgstr "Προβολή..."
 
 #: view.cpp:116
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
+#, kde-format
 msgid "Remove document"
-msgstr "Αφαίρεση δεδομένων εισόδου"
+msgstr "Αφαίρεση εγγράφου"
 
 #: view.cpp:120
 #, kde-format
@@ -544,10 +516,9 @@ msgid "Cannot find work package"
 msgstr "Αδυναμία εύρεσης πακέτου εργασίας"
 
 #: view.cpp:358
-#, fuzzy, kde-format
-#| msgid "Could not open temporary file. Sending is aborted."
+#, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr "Αδυναμία ανοίγματος προσωρινού αρχείου. Η αποστολή εγκαταλείφθηκε."
+msgstr "Αδυναμία ανοίγματος αρχείου. Η αποστολή εγκαταλείφθηκε."
 
 #: view.cpp:366
 #, kde-format
@@ -603,11 +574,9 @@ msgstr ""
 " %1"
 
 #: workpackage.cpp:455
-#, fuzzy
-#| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove document"
-msgstr "Αφαίρεση δεδομένων εισόδου"
+msgstr "Αφαίρεση εγγράφου"
 
 #: workpackage.cpp:464
 #, kde-format
