@@ -6876,7 +6876,7 @@ msgstr ""
 "note></para><para>Una planificació pot tindre subplanificacions. Una "
 "subplanificació pot utilitzar la data de progrés dels projectes per a "
 "replanificar només les tasques que encara no han finalitzat. Llavors, la "
-"replanificació utilitzarà p. ex. l'inici real i l'esforç romanent per a les "
+"replanificació utilitzarà p. ex., l'inici real i l'esforç romanent per a les "
 "tasques.<nl/><link url='%1'>Més...</link></para>"
 
 #: ui/kptscheduleeditor.cpp:308
@@ -8096,7 +8096,8 @@ msgstr "Dígits:"
 #: ui/locale/localemon.cpp:111
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
-msgstr "Ací podeu introduir el vostre símbol de moneda habitual, p. ex. $ o €."
+msgstr ""
+"Ací podeu introduir el vostre símbol de moneda habitual, p. ex., $ o €."
 
 #. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
 #: ui/locale/localemon.ui:32
