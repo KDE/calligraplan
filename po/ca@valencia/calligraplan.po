@@ -2514,6 +2514,3 @@ msgstr ""
 #, kde-format
 msgid "Mark as: Keep"
 msgstr "Marca com a: Mantín"
-
-#~ msgid "Overwrite"
-#~ msgstr "Sobreescriu"
