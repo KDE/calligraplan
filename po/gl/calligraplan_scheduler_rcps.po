@@ -64,7 +64,7 @@ msgstr "Planificar o programa desde a data de remate: %1"
 #: KPlatoRCPSScheduler.cpp:458
 #, kde-format
 msgid "Failed to build a valid RCPS project"
-msgstr "Non se puido abrir un proxecto PPRL correcto"
+msgstr "Non foi posíbel abrir un proxecto PPRL correcto"
 
 #: KPlatoRCPSScheduler.cpp:462
 #, kde-format

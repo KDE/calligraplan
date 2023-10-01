@@ -170,11 +170,11 @@ msgstr "Importar información do recurso de ocupación"
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
-msgstr "Non se pode importar a información dun proxecto coa mesma identidade"
+msgstr "Non é posíbel importar a información dun proxecto coa mesma identidade"
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
-msgstr "Non se puideron iniciar Sheets. Ten o programa instalado?"
+msgstr "Non foi posíbel iniciar Sheets. Ten o programa instalado?"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
 msgid "No data to export"
@@ -230,19 +230,19 @@ msgstr "Hai definida unha folla incorrecta, «%1»."
 
 #: scripts/plan2odsexport.py:42
 msgid "Could not select cell 'A1'"
-msgstr "Non se puido seleccionar a cela «A1»."
+msgstr "Non foi posíbel seleccionar a cela «A1»."
 
 #: scripts/plan2odsexport.py:58
 msgid ""
 "Could not write to file:\n"
 "%1"
 msgstr ""
-"Non se puido escribir no ficheiro:\n"
+"Non foi posíbel escribir no ficheiro:\n"
 "%1"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Failed to set all properties of '%1' to cell '%2'"
-msgstr "Non se puideron definir todas as propiedades de «%1» na cela «%2»."
+msgstr "Non foi posíbel definir todas as propiedades de «%1» na cela «%2»."
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Warning"
@@ -267,7 +267,7 @@ msgstr "Recursos importantes"
 
 #: scripts/resourcesimport.py:44
 msgid "Could not open document: %1"
-msgstr "Non se puido abrir o documento: %1"
+msgstr "Non foi posíbel abrir o documento: %1"
 
 #: scripts/resourcesimport.py:48
 msgid "No project to import from"
@@ -279,7 +279,7 @@ msgstr "As identidades dos proxectos son as mesmas"
 
 #: scripts/resourcesimport.py:69
 msgid "Unable to create copy of resource group: %1"
-msgstr "Non se pode crear unha copia do grupo de recursos: %1"
+msgstr "Non é posíbel crear unha copia do grupo de recursos: %1"
 
 #: scripts/resourcesimport.py:74
 msgid "No resource to copy from"
@@ -287,7 +287,7 @@ msgstr "Non hai recursos dos que copiar"
 
 #: scripts/resourcesimport.py:83
 msgid "Unable to create copy of resource: %1"
-msgstr "Non se pode crear unha copia do recurso: %1"
+msgstr "Non é posíbel crear unha copia do recurso: %1"
 
 #: scripts/resourcesimport.py:93
 msgid "Calendar already exists: %1"
@@ -295,7 +295,7 @@ msgstr "O calendario xa existe: %1"
 
 #: scripts/resourcesimport.py:97
 msgid "Unable to create copy of calendar: %1"
-msgstr "Non se pode crear unha copia do calendario: %1"
+msgstr "Non é posíbel crear unha copia do calendario: %1"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:7

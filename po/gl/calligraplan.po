@@ -1374,7 +1374,8 @@ msgstr ""
 #: kptmaindocument.cpp:502
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
-msgstr "Non se puido crear o ficheiro de paquete de traballo para gardar: %1"
+msgstr ""
+"Non foi posíbel crear o ficheiro de paquete de traballo para gardar: %1"
 
 #: kptmaindocument.cpp:510
 #, kde-format
@@ -1862,7 +1863,7 @@ msgstr "Planificar %1"
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
-"Non se pode estabelecer outro programa como pauta, xa hai un programa "
+"Non é posíbel estabelecer outro programa como pauta, xa hai un programa "
 "definido como tal."
 
 #: kptview.cpp:1719
@@ -1990,7 +1991,7 @@ msgstr "Eliminar o grupo de recursos e os recursos"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
-msgstr "Non se pode abrir o ficheiro:<br/><filename>%1</filename>"
+msgstr "Non é posíbel abrir o ficheiro:<br/><filename>%1</filename>"
 
 #: kptview.cpp:2846
 msgctxt "(qtundo-format)"
@@ -2026,13 +2027,14 @@ msgstr "Non planificado"
 #: kptview.cpp:2985
 #, kde-format
 msgid "Failed to open temporary file"
-msgstr "Non se puido abrir o ficheiro temporal"
+msgstr "Non foi posíbel abrir o ficheiro temporal"
 
 #: kptview.cpp:2991
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
-msgstr "Non se puido gardar ao ficheiro temporal:<br/> <filename>%1</filename>"
+msgstr ""
+"Non foi posíbel gardar ao ficheiro temporal:<br/> <filename>%1</filename>"
 
 #: kptview.cpp:2999
 #, kde-format
@@ -2052,13 +2054,14 @@ msgstr ""
 #: kptview.cpp:3030
 #, kde-format
 msgid "Failed to open work package file"
-msgstr "Non se puido abrir o ficheiro de paquete de traballo"
+msgstr "Non foi posíbel abrir o ficheiro de paquete de traballo"
 
 #: kptview.cpp:3037
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
-msgstr "Non se puido gardar ao ficheiro temporal:<br/> <filename>%1</filename>"
+msgstr ""
+"Non foi posíbel gardar ao ficheiro temporal:<br/> <filename>%1</filename>"
 
 #: kptview.cpp:3046
 #, kde-format
