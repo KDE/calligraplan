@@ -233,7 +233,7 @@ msgstr "Non se asignaron recursos"
 #: kernel/kptglobal.cpp:30
 #, kde-format
 msgid "Cannot fulfill constraints"
-msgstr "Non se poden cumprir as constricións."
+msgstr "Non é posíbel cumprir as constricións."
 
 #: kernel/kptglobal.cpp:32
 #, kde-format
@@ -447,7 +447,7 @@ msgstr "Remate planificado: %1"
 #: kernel/kptproject.cpp:301 kernel/kptproject.cpp:412
 #, kde-format
 msgid "Could not finish project in time: %1"
-msgstr "Non se puido rematar o proxecto en tempo: %1"
+msgstr "Non foi posíbel rematar o proxecto en tempo: %1"
 
 #: kernel/kptproject.cpp:303 kernel/kptproject.cpp:414
 #, kde-format
@@ -497,7 +497,7 @@ msgstr "Planificar as tarefas cara a atrás"
 #: kernel/kptproject.cpp:451
 #, kde-format
 msgid "Failed to finish project within target time"
-msgstr "Non se puido rematar o proxecto dentro do tempo proposto."
+msgstr "Non foi posíbel rematar o proxecto dentro do tempo proposto."
 
 #: kernel/kptproject.cpp:454
 #, kde-format
@@ -730,7 +730,7 @@ msgstr "Non se cumpriu o esforzo. Estimación: %1, previsión: %2."
 #: kernel/kpttask.cpp:1929 kernel/kpttask.cpp:2311
 #, kde-format
 msgid "Failed to schedule within project target time"
-msgstr "Non se puido planificar o programa dentro do tempo proposto."
+msgstr "Non foi posíbel planificar o programa dentro do tempo proposto."
 
 #: kernel/kpttask.cpp:1936 kernel/kpttask.cpp:2318
 #, kde-format
@@ -786,7 +786,7 @@ msgstr "Non se asignou ningún recurso."
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
 msgstr ""
-"Non se puido casar coa duración do traballo: Quérese: %1 pero tense: %2"
+"Non foi posíbel casar coa duración do traballo: Quérese: %1 pero tense: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
@@ -1188,7 +1188,7 @@ msgstr "Pódense recuperar os seguintes ficheiros de garda automática:"
 #: main/KoDocument.cpp:560
 #, kde-format
 msgid "Making backup..."
-msgstr "Creando unha copia de seguridade…"
+msgstr "Creando unha salvagarda…"
 
 #: main/KoDocument.cpp:575
 #, kde-format
@@ -1240,13 +1240,13 @@ msgstr "Erro durante o gardado automático! Estará a partición chea?"
 #: main/KoDocument.cpp:831
 #, kde-format
 msgid "Could not create the file for saving"
-msgstr "Non se puido crear un ficheiro para gardar"
+msgstr "Non foi posíbel crear un ficheiro para gardar"
 
 #: main/KoDocument.cpp:875 main/KoDocument.cpp:897 main/KoDocument.cpp:928
 #: main/KoDocument.cpp:962
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "Non se pode escribir en '%1'. Está a partición chea?"
+msgstr "Non é posíbel escribir en '%1'. Está a partición chea?"
 
 #: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
 #, kde-format
@@ -1411,7 +1411,7 @@ msgstr "Documento <i>%1</i> cargado"
 #: main/KoDocument.cpp:1607 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
-msgstr "Non se puido atopar %1"
+msgstr "Non foi posíbel atopar %1"
 
 #: main/KoDocument.cpp:1619
 #, kde-format
@@ -1431,7 +1431,8 @@ msgstr "%1 non é un ficheiro."
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
-"Non se puido abrir o ficheiro para lectura (revise os permisos de lectura)."
+"Non foi posíbel abrir o ficheiro para lectura (revise os permisos de "
+"lectura)."
 
 #: main/KoDocument.cpp:1666
 #, kde-format
@@ -1672,7 +1673,7 @@ msgid ""
 "a new project using this template and save it using <interface>File->Create "
 "Project Template...</interface>."
 msgstr ""
-"Non se pode abrir un ficheiro de modelo.<nl/>Se quere modificar o modelo, "
+"Non é posíbel abrir un ficheiro de modelo.<nl/>Se quere modificar o modelo, "
 "cree un proxecto novo usando este modelo e gárdeo usando <interface>Ficheiro-"
 ">Crear un modelo de proxecto…</interface>."
 
@@ -2966,7 +2967,7 @@ msgstr "Un dos recursos asignados a esta tarefa non está dispoñíbel."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A timing constraint could not be met"
-msgstr "Non se puido cumprir cunha constrición de tempo."
+msgstr "Non foi posíbel cumprir cunha constrición de tempo."
 
 #: models/kptcommonstrings.cpp:91
 #, kde-kuit-format
@@ -3872,7 +3873,7 @@ msgstr "Atrasada"
 #: models/kptnodeitemmodel.cpp:1407
 #, kde-format
 msgid "Cannot start"
-msgstr "Non se pode comezar"
+msgstr "Non é posíbel comezar"
 
 #: models/kptnodeitemmodel.cpp:1420
 #, kde-kuit-format
@@ -3926,7 +3927,7 @@ msgstr "Pode comezar."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cannot start"
-msgstr "Non se pode comezar."
+msgstr "Non é posíbel comezar."
 
 #: models/kptnodeitemmodel.cpp:1448
 #, kde-kuit-format
@@ -4026,7 +4027,7 @@ msgstr "Non hai ningún recurso dispoñíbel para esta tarefa."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Failed to comply with a timing constraint"
-msgstr "Non se puido cumprir cunha constrición de tempo."
+msgstr "Non foi posíbel cumprir cunha constrición de tempo."
 
 #: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
@@ -5341,7 +5342,7 @@ msgstr "Ficheiro de modelo de informe non existe"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr "Non se puido abrir o ficheiro de modelo: %1"
+msgstr "Non foi posíbel abrir o ficheiro de modelo: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
@@ -5353,12 +5354,12 @@ msgstr "O xerador de informes non se abriu correctamente"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:789
 #, kde-format
 msgid "Failed to write to store: %1"
-msgstr "Non se puido escribir para almacenar: %1"
+msgstr "Non foi posíbel escribir para almacenar: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:197
 #, kde-format
 msgid "Failed to write report file: %1"
-msgstr "Non se puido escribir o ficheiro do informe: %1"
+msgstr "Non foi posíbel escribir o ficheiro do informe: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:590
 #, fuzzy, kde-format
@@ -5380,7 +5381,7 @@ msgstr "O xerador de informes só pode xerar ficheiros locais."
 #: models/reportgenerator/ReportGeneratorOdt.cpp:627
 #, kde-format
 msgid "Failed to open report file: %1"
-msgstr "Non se puido abrir o ficheiro do informe: %1"
+msgstr "Non foi posíbel abrir o ficheiro do informe: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:636
 #, fuzzy, kde-format
@@ -5391,7 +5392,7 @@ msgstr "Non se puido abrir o ficheiro de manifesto."
 #: models/reportgenerator/ReportGeneratorOdt.cpp:645
 #, kde-format
 msgid "Failed to write manifest file"
-msgstr "Non se puido escribir o ficheiro de manifesto."
+msgstr "Non foi posíbel escribir o ficheiro de manifesto."
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
@@ -5403,7 +5404,7 @@ msgstr "Non hai ningunha infraestrutura de almacén"
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr ""
-"Non se puido abrir o ficheiro <filename>%1</filename> do almacenamento."
+"Non foi posíbel abrir o ficheiro <filename>%1</filename> do almacenamento."
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:714
 #, kde-kuit-format
@@ -7034,7 +7035,7 @@ msgstr "Anexar un documento"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Attach Document"
-msgstr "Non se pode anexar o documento"
+msgstr "Non é posíbel anexar o documento"
 
 #: ui/kptdocumentspanel.cpp:116
 #, kde-kuit-format
@@ -7051,7 +7052,7 @@ msgstr "Modificar o URL"
 #: ui/kptdocumentspanel.cpp:142
 #, kde-format
 msgid "Cannot Modify Url"
-msgstr "Non se pode modificar o URL"
+msgstr "Non é posíbel modificar o URL"
 
 #: ui/kptdocumentspanel.cpp:142
 #, kde-format
@@ -9767,7 +9768,7 @@ msgstr "A exportación a un documento de texto fallou."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr "Non se puido exportar a <filename>%1</filename>."
+msgstr "Non foi posíbel exportar a <filename>%1</filename>."
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
@@ -9825,7 +9826,7 @@ msgstr "Exportar a definición do informe"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<nl/><filename>%1</filename>"
-msgstr "Non se pode abrir o ficheiro:<nl/><filename>%1</filename>"
+msgstr "Non é posíbel abrir o ficheiro:<nl/><filename>%1</filename>"
 
 #: ui/reports/reportview.cpp:818
 #, kde-kuit-format
@@ -10081,12 +10082,12 @@ msgstr "Xeración de informes"
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
-msgstr "Non se puido abrir o xerador de informes"
+msgstr "Non foi posíbel abrir o xerador de informes"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
-msgstr "Non se puido crear o informe"
+msgstr "Non foi posíbel crear o informe"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format

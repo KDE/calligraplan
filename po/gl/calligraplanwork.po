@@ -85,7 +85,7 @@ msgstr "Ficheiro a abrir"
 #: commandlineparser.cpp:85
 #, kde-format
 msgid "Failed to open document"
-msgstr "Non se puido abrir o documento"
+msgstr "Non foi posíbel abrir o documento"
 
 #: mainwindow.cpp:92
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "O documento xa está aberto:<br> %1"
 #: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
-msgstr "Non se puido extraer o ficheiro do almacén:<br> %1"
+msgstr "Non foi posíbel extraer o ficheiro do almacén:<br> %1"
 
 #: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
@@ -159,7 +159,7 @@ msgstr[1] "Retirar os paquetes de traballo"
 #: part.cpp:470
 #, kde-format
 msgid "Failed to load file:<br>%1"
-msgstr "Non se puido cargar o ficheiro:<br>%1"
+msgstr "Non foi posíbel cargar o ficheiro:<br>%1"
 
 #: part.cpp:492
 #, kde-format
@@ -174,7 +174,7 @@ msgstr "Documento incorrecto. O documento non contén un 'maindoc.xml'."
 #: part.cpp:550
 #, kde-format
 msgid "Failed to open file: %1"
-msgstr "Non se puido abrir o ficheiro %1"
+msgstr "Non foi posíbel abrir o ficheiro %1"
 
 #: part.cpp:564
 #, kde-format
@@ -513,17 +513,17 @@ msgstr "Non hai ningún paquete escollido"
 #: view.cpp:341
 #, kde-format
 msgid "Cannot find work package"
-msgstr "Non se poden atopar paquetes de traballo"
+msgstr "Non é posíbel atopar paquetes de traballo"
 
 #: view.cpp:358
 #, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr "Non se puido acceder a un ficheiro. Interrompeuse o envío."
+msgstr "Non foi posíbel acceder a un ficheiro. Interrompeuse o envío."
 
 #: view.cpp:366
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr "Non se puido acceder a un ficheiro temporal. Interrompeuse o envío."
+msgstr "Non foi posíbel acceder a un ficheiro temporal. Interrompeuse o envío."
 
 #: view.cpp:375
 #, kde-format
@@ -538,22 +538,22 @@ msgstr "O documento xa está aberto"
 #: workpackage.cpp:169 workpackage.cpp:224
 #, kde-format
 msgid "Failed to load project: %1"
-msgstr "Non se puido cargar o proxecto: %1"
+msgstr "Non foi posíbel cargar o proxecto: %1"
 
 #: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
-msgstr "Non se pode gardar o ficheiro cun nome baleiro"
+msgstr "Non é posíbel gardar o ficheiro cun nome baleiro"
 
 #: workpackage.cpp:294
 #, kde-format
 msgid "Could not create the file for saving"
-msgstr "Non se puido crear un ficheiro para gardar"
+msgstr "Non foi posíbel crear un ficheiro para gardar"
 
 #: workpackage.cpp:308
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "Non se pode escribir en '%1'. Está a partición chea?"
+msgstr "Non é posíbel escribir en '%1'. Está a partición chea?"
 
 #: workpackage.cpp:334
 #, kde-format
@@ -561,7 +561,7 @@ msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr ""
-"Non se puido abrir o almacén:\n"
+"Non foi posíbel abrir o almacén:\n"
 "%1"
 
 #: workpackage.cpp:412
@@ -570,7 +570,7 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
-"Non se pode gardar documento no almacén de proxectos:\n"
+"Non é posíbel gardar documento no almacén de proxectos:\n"
 "%1"
 
 #: workpackage.cpp:455
