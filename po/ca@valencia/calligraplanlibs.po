@@ -1291,7 +1291,7 @@ msgstr "Falta el filtre d'importació"
 #: main/KoFilterManager_p.cpp:44
 #, kde-format
 msgid "Choose Filter"
-msgstr "Seleccioneu el filtre"
+msgstr "Seleccioneu un filtre"
 
 #: main/KoMainWindow.cpp:168
 #, kde-format
@@ -8540,7 +8540,7 @@ msgstr "Exporta l'informe"
 #: ui/reports/reportview.cpp:381
 #, kde-format
 msgid "Export to text document is not supported"
-msgstr "L'exportació a document de text no està admesa"
+msgstr "L'exportació cap a document de text no està admesa"
 
 #: ui/reports/reportview.cpp:392
 #, kde-format
@@ -8557,7 +8557,7 @@ msgstr "No s'ha pogut exportar a <filename>%1</filename>"
 #: ui/reports/reportview.cpp:401
 #, kde-format
 msgid "Export to spreadsheet document is not supported"
-msgstr "L'exportació a full de càlcul no està admesa"
+msgstr "L'exportació cap a full de càlcul no està admesa"
 
 #: ui/reports/reportview.cpp:412
 #, kde-format
@@ -8567,7 +8567,7 @@ msgstr "No s'ha pogut exportar el full de càlcul"
 #: ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export to HTML document is not supported"
-msgstr "L'exportació a document HTML no està admesa"
+msgstr "L'exportació cap a document HTML no està admesa"
 
 #: ui/reports/reportview.cpp:433
 #, kde-format
