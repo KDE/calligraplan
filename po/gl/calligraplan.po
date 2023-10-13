@@ -1,19 +1,19 @@
 # translation of kplato.po to galician
 # translation of kplato.po to
 #
+# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
 # mvillarino <mvillarino@users.sourceforge.net>, 2006, 2009.
 # Xabi G. Feal <xabigf@gmx.net>, 2006, 2007.
 # Miguel Branco <mgl.branco@gmail.com>, 2007, 2008.
 # Miguel Branco <mgl.branco@gmail.com>, 2008, 2009, 2012.
 # Marce Villarino <mvillarino@kde-espana.es>, 2009, 2012, 2013, 2014.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2013, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-08-05 11:44+0200\n"
+"PO-Revision-Date: 2023-10-12 23:48+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -67,10 +67,9 @@ msgstr "&Axuda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "&Ficheiro"
+msgstr "Ficheiro"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
@@ -319,16 +318,15 @@ msgstr "Unidade de estimación de tempo"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Tipo de estimación:"
+msgstr "Estimación"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risco"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -461,8 +459,7 @@ msgstr "Comprobar automaticamente se hai novos paquetes de traballo"
 #, kde-format
 msgid "Directory where Plan retrieves work packages from project members"
 msgstr ""
-"O directorio de onde Plan obtén os paquetes de traballo dos membros do "
-"proxecto"
+"O cartafol de onde Plan obtén os paquetes de traballo dos membros do proxecto"
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
 #: calligraplansettings.kcfg:340
@@ -481,13 +478,13 @@ msgstr "Se se define, Plan garda o ficheiro despois de lelo"
 #, kde-format
 msgid "Directory where Plan saves work packages when the package has been read"
 msgstr ""
-"Directorio onde Plan garda os paquetes de traballo despois de que foran lidos"
+"Cartafol onde Plan garda os paquetes de traballo despois de que foran lidos"
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
 #: calligraplansettings.kcfg:349
 #, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr "O directorio onde Plan publica os paquetes de traballo"
+msgstr "O cartafol onde Plan publica os paquetes de traballo"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
@@ -534,10 +531,9 @@ msgstr "Lista de rutas de módulos de tarefas"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
-msgstr "Lista de rutas de modelos de proxecto"
+msgstr "Lista de rutas de modelos de informe"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
@@ -549,13 +545,13 @@ msgstr "Lista de rutas de modelos de proxecto"
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "Intervalo de garda automática"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "Crear un ficheiro de salvagarda"
 
 #: config/ConfigDialog.cpp:36
 #, kde-format
@@ -593,17 +589,15 @@ msgid "Project Templates"
 msgstr "Modelos de proxecto"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Modelos de proxecto"
+msgstr "Modelos de informe"
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Documents..."
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "Documentos…"
+msgstr "Documento"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
@@ -615,13 +609,13 @@ msgstr "O xestor de proxectos deste proxecto."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "Marcar para activar os recursos compartidos"
+msgstr "Marcar para activar os recursos compartidos."
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr "O ficheiro no que se definen os recursos compartidos"
+msgstr "O ficheiro no que se definen os recursos compartidos."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -692,7 +686,7 @@ msgstr "Ruta dos módulos de tarefas"
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr "Usar módulos de tarefas locais"
+msgstr "Usar módulos de tarefas locais."
 
 #: config/ConfigWorkVacationPanel.cpp:38
 #, kde-format
@@ -724,20 +718,20 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>valores usados para generar calendarios "
-"predeterminados para semanas laborais e vacacións.</p><p>O calendario da "
-"<span style=\" font-style:italic;\">semana</span> usa valores definidos na "
-"<span style=\" font-style:italic;\">semana laboral</span>.</p><p>O "
-"calendario da <span style=\" font-style:italic;\">semana</span> pode xerarse "
-"<span style=\" font-style:italic;\">sempre</span> ou só <span style=\" font-"
-"style:italic;\">se non existe ningún</span>. Esta última opción é a máis "
-"habitual dado que a xente adoita ter calendarios definidos como parte de "
-"modelos ou de recursos compartidos.</p><p>As <span style=\" font-style:"
-"italic;\">vacacións</span> poden xerarse para a súa rexión (predeterminado) "
-"ou para unha rexión que elixa. As vacacións poden engadirse ao calendario "
-"semanal, como calendario subordinado do calendario semanal ou como "
-"calendario aparte.</p><p>Se non se xera un calendario semanal, as vacacións "
-"colócanse un calendario aparte.</p></body></html>"
+"<html><head/><body><p>valores usados para xerar calendarios predeterminados "
+"para semanas laborais e vacacións.</p><p>O calendario da <span style=\" font-"
+"style:italic;\">semana</span> usa valores definidos na <span style=\" font-"
+"style:italic;\">semana laboral</span>.</p><p>O calendario da <span style=\" "
+"font-style:italic;\">semana</span> pode xerarse <span style=\" font-style:"
+"italic;\">sempre</span> ou só <span style=\" font-style:italic;\">se non "
+"existe ningún</span>. Esta última opción é a máis habitual dado que a xente "
+"adoita ter calendarios definidos como parte de modelos ou de recursos "
+"compartidos.</p><p>As <span style=\" font-style:italic;\">vacacións</span> "
+"poden xerarse para a súa rexión (predeterminado) ou para unha rexión que "
+"elixa. As vacacións poden engadirse ao calendario semanal, como calendario "
+"subordinado do calendario semanal ou como calendario aparte.</p><p>Se non se "
+"xera un calendario semanal, as vacacións colócanse un calendario aparte.</"
+"p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: config/ConfigWorkVacationPanel.ui:31
@@ -749,14 +743,14 @@ msgstr "Xeración de calendarios"
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr "Semana"
+msgstr "Semana."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr "Vacacións"
+msgstr "Vacacións."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
@@ -1011,14 +1005,14 @@ msgstr "Hora e data actuais"
 #: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
 #, kde-format
 msgid "Current date, specified time"
-msgstr "Data actual, hora especificado"
+msgstr "Data actual, hora indicada"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
 #, kde-format
 msgid "Specified date and time"
-msgstr "Hora e data especificados"
+msgstr "Hora e data indicadas"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
 #: config/kptconfigtaskpanelbase.ui:186
@@ -1030,7 +1024,7 @@ msgstr "Tipo de estimación:"
 #: config/kptconfigtaskpanelbase.ui:208
 #, kde-format
 msgid "Constraint Start time usage:"
-msgstr "Uso da data de comezo da constrición:"
+msgstr "Uso da hora de comezo da constrición:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
@@ -1043,7 +1037,7 @@ msgstr "%"
 #: config/kptconfigtaskpanelbase.ui:257
 #, kde-format
 msgid "Constraint End time usage:"
-msgstr "Uso da data de remate da constrición:"
+msgstr "Uso da hora de remate da constrición:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
 #: config/kptconfigtaskpanelbase.ui:279
@@ -1055,7 +1049,7 @@ msgstr "Estimación esperada:"
 #: config/kptconfigtaskpanelbase.ui:301
 #, kde-format
 msgid "Constraint start time:"
-msgstr "Data de comezo da constrición:"
+msgstr "Hora de comezo da constrición:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:356
@@ -1103,13 +1097,13 @@ msgstr "Intervalo fixo"
 #: config/kptconfigtaskpanelbase.ui:400
 #, kde-format
 msgid "Constraint end time:"
-msgstr "Data de remate da constrición:"
+msgstr "Hora de remate da constrición:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:458
 #, kde-format
 msgid "Insert a person from your address book"
-msgstr "Insira unha persoa da súa axenda de enderezos"
+msgstr "Insira unha persoa da súa axenda de enderezos."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:461
@@ -1133,25 +1127,25 @@ msgstr "Constrición de planificación:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risco:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Ningún"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Baixo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1163,7 +1157,7 @@ msgstr "Obter"
 #: config/kptworkpackageconfigpanel.ui:23
 #, kde-format
 msgid "Check for work packages"
-msgstr "Comprobar se hai novos paquetes de traballo"
+msgstr "Comprobar se hai novos paquetes de traballo."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptworkpackageconfigpanel.ui:32
@@ -1211,27 +1205,25 @@ msgstr "Publicar:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Diálogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Modelo base:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Renomear"
+msgstr "Nome do ficheiro:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Abrir o asistente."
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1342,7 +1334,7 @@ msgstr "Planificador de rede"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
-msgstr "Planificador de serie baseado en redes (PERT)."
+msgstr "Planificador incluído baseado en redes (PERT)."
 
 #: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
@@ -1361,8 +1353,8 @@ msgid ""
 msgstr ""
 "<title>O planificador de rede (PERT)</title><para>O planificador de rede "
 "adoita planificar as tarefas de acordo coas súas dependencias. Cando se "
-"planifica unha tarefa, planifícase por completo, ocupando todos os recursos "
-"asignados se os houber. Se non se permite a saturación de recursos, as "
+"planifica unha tarefa, planifícase por completo, reservando todos os "
+"recursos asignados se os houber. Se non se permite reservar de máis, as "
 "seguintes tarefas que soliciten os mesmos recursos planificaranse para "
 "despois da tarefa que ocupe o recurso primeiro.</para> <para>As tarefas con "
 "contrición temporal planificaranse as primeiras para minimizar os posíbeis "
@@ -1372,31 +1364,29 @@ msgstr ""
 "dependencias irrelevantes para evitar os conflitos.</note></para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "Constrición de planificación:"
+msgstr "Iniciouse a planificación: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Recalculando desde: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Xestor dos programas"
+msgstr "Cancelouse a planificación"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "A planificación rematou ás %1, tras %2 segundos."
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Inserindo as reservas de recursos do proxecto: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1407,7 +1397,7 @@ msgstr "Inserir un ficheiro"
 #: kptinsertfilepanel.ui:40
 #, kde-format
 msgid "Current node:"
-msgstr "Nó actual:"
+msgstr "Nodo actual:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
 #: kptinsertfilepanel.ui:68
@@ -1419,13 +1409,13 @@ msgstr "Inserir no nivel superior"
 #: kptinsertfilepanel.ui:75
 #, kde-format
 msgid "Insert as children to current node"
-msgstr "Inserir anoado neste nó"
+msgstr "Inserir anoado neste nodo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
 #: kptinsertfilepanel.ui:82
 #, kde-format
 msgid "Insert after current node"
-msgstr "Inserir tras o nó actual"
+msgstr "Inserir tras o nodo actual"
 
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
@@ -1436,8 +1426,8 @@ msgstr "Documento incorrecto. Non se indicou o mimetype."
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
-"Documento incorrecto. Esperábase o mimetype application/x-vnd.kde.plan "
-"erecibiuse %1"
+"Documento non válido Esperábase o tipo MIME «application/x-vnd.kde.plan», "
+"obtívose «%1»."
 
 #: kptmaindocument.cpp:373
 #, kde-format
@@ -1450,11 +1440,10 @@ msgstr ""
 "Se o abre con esta versión de Plan vai perder algunha información."
 
 #: kptmaindocument.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
-msgstr "Non se puido gardar ao ficheiro temporal:<br/> <filename>%1</filename>"
+msgstr ""
+"Non foi posíbel gardar ao ficheiro temporal. Non se indicou ningún recurso."
 
 #: kptmaindocument.cpp:474
 #, kde-format
@@ -1485,13 +1474,9 @@ msgid "Saving..."
 msgstr "Gardando…"
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Documento incorrecto. Esperábase o mimetype application/x-vnd.kde.plan "
-"erecibiuse %1"
+msgstr "Documento incorrecto. Esperábase o tipo MIME %2, non %1."
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1516,13 +1501,14 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Non foi posíbel cargar os recursos compartidos no proxecto %1:<nl/"
+">Produciuse un erro interno, non se puido inserir o ficheiro."
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgid "File to contain shared resources"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "Ficheiro para conter os recursos compartidos"
+msgstr "Non foi posíbel cargar os recursos compartidos no proxecto %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1545,18 +1531,15 @@ msgid "Calendar: %1"
 msgstr "Calendario: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Create Shared Resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "Crear recursos compartidos"
+msgstr "Actualizar os recursos compartidos"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "Proxecto:"
+msgstr "Proxecto: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
@@ -1620,10 +1603,9 @@ msgid "Insert Project File..."
 msgstr "Inserir o ficheiro do proxecto…"
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgid "Create Shared Resources"
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "Crear recursos compartidos"
+msgstr "Actualizar os recursos compartidos"
 
 #: kptview.cpp:239
 #, kde-format
@@ -1631,10 +1613,9 @@ msgid "Open Report Definition File..."
 msgstr "Abrir o ficheiro de definición do informe…"
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Crear un modelo de proxecto…"
+msgstr "Crear un modelo de informe…"
 
 #: kptview.cpp:260
 #, kde-format
@@ -1645,7 +1626,7 @@ msgstr "Paquetes de traballo…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr "Paquetes de traballo dispoñíbeis"
+msgstr "Paquetes de traballo dispoñíbeis."
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1696,7 +1677,7 @@ msgstr "Informe do estado da tarefa"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
-msgstr "Editar os recursos dos días de traballo e dos de vacacións"
+msgstr "Editar os recursos dos días de traballo e dos de vacacións."
 
 #: kptview.cpp:641
 #, kde-format
@@ -1718,7 +1699,7 @@ msgstr "Estrutura de división dos recursos"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr "Editar a estrutura de división dos recursos"
+msgstr "Editar a estrutura de división dos recursos."
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
@@ -1729,7 +1710,7 @@ msgstr "Recursos"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr "Editar os recursos"
+msgstr "Editar os recursos."
 
 #: kptview.cpp:650
 #, kde-format
@@ -1740,7 +1721,7 @@ msgstr "Tarefas"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
-msgstr "Editar a estrutura de repartición do traballo"
+msgstr "Editar a estrutura de repartición do traballo."
 
 #: kptview.cpp:653
 #, kde-format
@@ -1751,7 +1732,7 @@ msgstr "Dependencias (gráfica)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
-msgstr "Editar as dependencias das tarefas"
+msgstr "Editar as dependencias das tarefas."
 
 #: kptview.cpp:656
 #, kde-format
@@ -1778,7 +1759,7 @@ msgstr "Gráfica de rendemento do proxecto"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
-msgstr "Ver a información sobre o estado do proxecto"
+msgstr "Ver a información sobre o estado do proxecto."
 
 #: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
@@ -1789,7 +1770,7 @@ msgstr "Estado da tarefa"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
-msgstr "Ver a información do progreso das tarefas"
+msgstr "Ver a información do progreso das tarefas."
 
 #: kptview.cpp:671
 #, kde-format
@@ -1800,7 +1781,7 @@ msgstr "Execución da tarefa"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
-msgstr "Ver a información do progreso da tarefa"
+msgstr "Ver a información de execución da tarefa."
 
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
@@ -1811,7 +1792,7 @@ msgstr "Vista de paquetes de traballo"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
-msgstr "Ver a información das tarefas de paquetes de traballo"
+msgstr "Ver a información das tarefas de paquetes de traballo."
 
 #: kptview.cpp:677
 #, kde-format
@@ -1822,7 +1803,7 @@ msgstr "Gantt"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
-msgstr "Ver as gráficas de Gantt"
+msgstr "Ver os diagramas de Gantt."
 
 #: kptview.cpp:680
 #, kde-format
@@ -1833,7 +1814,7 @@ msgstr "Fito Gantt"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
-msgstr "Ver a gráfica de Gantt de fitos"
+msgstr "Ver o diagrama de Gantt de fitos."
 
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
@@ -1844,7 +1825,7 @@ msgstr "Asignación dos recursos"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
-msgstr "Ver a asignación de recursos nunha táboa"
+msgstr "Ver a asignación de recursos nunha táboa."
 
 #: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
@@ -1855,19 +1836,18 @@ msgstr "Asignación de recursos (Gantt)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr "Ver a asignación de recursos cunha gráfica de Gantt"
+msgstr "Ver a asignación de recursos cun diagrama de Gantt."
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Coverage"
-msgstr "Editor de recursos"
+msgstr "Cobertura dos recursos"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "Inspeccionar a cobertura dos recursos."
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
@@ -1878,7 +1858,7 @@ msgstr "Cese do presuposto"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
-msgstr "Ver custo o planificado e o actual"
+msgstr "Ver custo o planificado e o actual."
 
 #: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
@@ -1889,7 +1869,7 @@ msgstr "Gráfica do rendemento das tarefas"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
-msgstr "Ver a información do estado de rendemento das tarefas"
+msgstr "Ver a información do estado de rendemento das tarefas."
 
 #: kptview.cpp:698
 #, kde-format
@@ -1900,7 +1880,7 @@ msgstr "Xerador de informes"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr "Xerar informes"
+msgstr "Xerar informes."
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
@@ -1912,7 +1892,7 @@ msgstr "Informe"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
-msgstr "Amosar o informe"
+msgstr "Amosar o informe."
 
 #: kptview.cpp:713
 #, kde-format
@@ -1938,19 +1918,16 @@ msgstr "Informes"
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "Xa existe o ficheiro «%1», quere sobrescribilo?"
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Modelos de proxecto"
+msgstr "Modelo de informe"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Recursos compartidos"
@@ -1961,6 +1938,7 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Activouse o uso de recursos compartidos.<nl/>Quere actualizar os recursos?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -1997,7 +1975,7 @@ msgstr "Modificar o nome do proxecto"
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid "Not scheduled"
-msgstr "Non planificado"
+msgstr "Non planificado."
 
 #: kptview.cpp:2303
 #, kde-format
@@ -2364,13 +2342,13 @@ msgstr "…"
 #: kptviewlistdocker.ui:84
 #, kde-format
 msgid "Include text from foot- and endnotes"
-msgstr "Incluír o texto do rodapé e da cabeceira"
+msgstr "Incluír o texto do rodapé e da cabeceira."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
 #: kptviewlistdocker.ui:91
 #, kde-format
 msgid "Automatically refresh data"
-msgstr "Actualizar a información automaticamente"
+msgstr "Actualizar os datos automaticamente."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlisteditcategory.ui:20
@@ -2391,25 +2369,21 @@ msgid "The description of the category"
 msgstr "A descrición da categoría."
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Duración"
+msgstr "Acción"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
 #: SharedResourcesDialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Calendar: %1"
+#, kde-format
 msgid "Calendars"
-msgstr "Calendario: %1"
+msgstr "Calendarios"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2424,6 +2398,15 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Diálogo de recursos compartidos</title><para>Permítelle decidir como "
+"tratar os recursos compartidos, os grupos de recursos compartidos e os "
+"calendarios compartidos cando se eliminaron do ficheiro de recursos "
+"compartidos.</para><para>Dado un elemento, pode escoller entre:"
+"<list><item><emphasis>Retirar:</emphasis> retirar o elemento tamén do "
+"proxecto.</item><item><emphasis>Converter:</emphasis> converter o elemento "
+"nun elemento local.</item><item><emphasis>Manter:</emphasis> manter o "
+"elemento como elemento compartido.</item></list><nl/><link url='%1'>Máis…</"
+"link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
@@ -2440,30 +2423,29 @@ msgstr "Manter"
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Marcar todos os elementos seleccionados para retiralos do proxecto."
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Marcar como: Retirar"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
-#, fuzzy, kde-format
-#| msgid "Shall the removed shared resources be deleted?"
+#, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr "Quere eliminar os recursos compartidos retirados?"
+msgstr ""
+"Marcar todos os elementos seleccionados para convertelos en recursos locais."
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Convert"
+#, kde-format
 msgid "Mark as: Convert"
-msgstr "Converter"
+msgstr "Marcar como: Converter"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
@@ -2471,13 +2453,15 @@ msgstr "Converter"
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
 msgstr ""
+"Marcar todos os elementos seleccionados para mantelos como recursos "
+"compartidos."
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "Marcar como: Manter"
 
 #~ msgid "Expected estimate"
 #~ msgstr "Estimación esperada"
