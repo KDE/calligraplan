@@ -1423,7 +1423,7 @@ msgid ""
 "want to export to this format?</qt>"
 msgstr ""
 "<qt>Exportar com a %1 pot resultar en pèrdua de format.<p> Segur que voleu "
-"exportar a este format?</qt>"
+"exportar cap a este format?</qt>"
 
 #: main/KoMainWindow.cpp:895
 #, kde-format
@@ -6410,7 +6410,7 @@ msgstr "Neteja les assignacions dels recursos compartits"
 #: ui/kptmainprojectpanel.cpp:410
 #, kde-format
 msgid "Task Modules Path"
-msgstr "Camí als mòduls de tasques"
+msgstr "Camí cap als mòduls de tasques"
 
 #. i18n: ectx: property (text), widget (QLabel, wbslabel)
 #: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
@@ -7968,13 +7968,13 @@ msgstr "Rebutja"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
-msgstr "Rebutja este paquet i ves al paquet següent"
+msgstr "Rebutja este paquet i ves fins al paquet següent"
 
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Commit the changes and go to next package"
-msgstr "Comet els canvis i ves al paquet següent"
+msgstr "Comet els canvis i ves fins al paquet següent"
 
 #: ui/kptworkpackagemergedialog.cpp:106
 #, kde-format
@@ -8356,13 +8356,13 @@ msgstr "Pàgina"
 #: ui/reports/reportnavigator.ui:42
 #, kde-format
 msgid "Go to first page"
-msgstr "Ves a la primera pàgina"
+msgstr "Ves fins a la primera pàgina"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
 #: ui/reports/reportnavigator.ui:64
 #, kde-format
 msgid "Go to previous page"
-msgstr "Ves a la pàgina prèvia"
+msgstr "Ves fins a la pàgina prèvia"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
 #: ui/reports/reportnavigator.ui:77
@@ -8380,13 +8380,13 @@ msgstr "de"
 #: ui/reports/reportnavigator.ui:149
 #, kde-format
 msgid "Go to next page"
-msgstr "Ves a la pàgina següent"
+msgstr "Ves fins a la pàgina següent"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
 #: ui/reports/reportnavigator.ui:171
 #, kde-format
 msgid "Go to last page"
-msgstr "Ves a l'última pàgina"
+msgstr "Ves fins a l'última pàgina"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
 #: ui/reports/reportsectionswidget.ui:28
@@ -8552,7 +8552,7 @@ msgstr "No s'ha pogut exportar el document de text"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr "No s'ha pogut exportar a <filename>%1</filename>"
+msgstr "No s'ha pogut exportar cap a <filename>%1</filename>"
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
@@ -8572,7 +8572,7 @@ msgstr "L'exportació cap a document HTML no està admesa"
 #: ui/reports/reportview.cpp:433
 #, kde-format
 msgid "Export to HTML failed"
-msgstr "No s'ha pogut exportar a HTML"
+msgstr "No s'ha pogut exportar cap a HTML"
 
 #: ui/reports/reportview.cpp:443
 #, kde-format

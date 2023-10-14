@@ -526,13 +526,13 @@ msgstr "Utilitza els mòduls de tasques per a l'emmagatzematge privat"
 #: calligraplansettings.kcfg:378
 #, kde-format
 msgid "List of paths to task modules"
-msgstr "Llista de camins als mòduls de tasques"
+msgstr "Llista de camins cap als mòduls de tasques"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to project templates"
-msgstr "Llista de camins a les plantilles de projecte"
+msgstr "Llista de camins cap a les plantilles de projecte"
 
 #: config/ConfigDialog.cpp:47
 #, kde-format
@@ -701,7 +701,7 @@ msgstr "Elimina"
 #: config/ConfigTaskModulesPanel.cpp:61
 #, kde-format
 msgid "Task Modules Path"
-msgstr "Camí als mòduls de tasques"
+msgstr "Camí cap als mòduls de tasques"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
@@ -1591,12 +1591,12 @@ msgstr "Dessagna la tasca"
 #: kptview.cpp:277
 #, kde-format
 msgid "Move Task Up"
-msgstr "Mou la tasca amunt"
+msgstr "Mou la tasca cap amunt"
 
 #: kptview.cpp:280
 #, kde-format
 msgid "Move Task Down"
-msgstr "Mou la tasca avall"
+msgstr "Mou la tasca cap avall"
 
 #: kptview.cpp:284
 #, kde-format
@@ -1984,12 +1984,12 @@ msgstr "Dessagna la tasca"
 #: kptview.cpp:2335
 msgctxt "(qtundo-format)"
 msgid "Move task up"
-msgstr "Mou la tasca amunt"
+msgstr "Mou la tasca cap amunt"
 
 #: kptview.cpp:2356
 msgctxt "(qtundo-format)"
 msgid "Move task down"
-msgstr "Mou la tasca avall"
+msgstr "Mou la tasca cap avall"
 
 #: kptview.cpp:2392
 msgctxt "(qtundo-format)"
