@@ -1,11 +1,11 @@
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-23 00:47+0000\n"
-"PO-Revision-Date: 2023-03-26 11:32+0200\n"
+"PO-Revision-Date: 2023-10-24 22:00+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -156,7 +156,7 @@ msgstr "Enregistrer les documents"
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr "Le fichier existe déjà. Voulez-vous vraiment l'écraser ?"
+msgstr "Le fichier existe déjà. Voulez-vous vraiment l'écraser ?"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
@@ -452,8 +452,8 @@ msgstr ""
 "ressources partagées entre plusieurs projets et que souhaitez faire une re-"
 "planification ou parcourir l'utilisation des ressources, vous devez ajouter "
 "tous les projets concernés et ensuite, positionnez le paramètre "
-"« Portfolio » à <emphasis>« No »</emphasis> pour ceux-ci.</note></para><link "
-"url='%1'>Pour en savoir plus...</link></para>"
+"« Portfolio » à <emphasis> « No » </emphasis> pour ceux-ci.</note></"
+"para><link url='%1'>Pour en savoir plus...</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -469,8 +469,8 @@ msgstr ""
 "proposent de l'aide et des astuces pouvant s'afficher avec <emphasis>Qu'est-"
 "ce que c'est</emphasis>.</para><para>Activez le en sélectionnant l'élément "
 "de menu <interface>Aide | Qu'est-ce que c'est</interface> ou en appuyant sur "
-"<shortcut>« MAJ » + « F1 »</shortcut>.</para><para>Essayez le sur ce texte !"
-"</para>"
+"<shortcut> « MAJ » + « F1 » </shortcut>.</para><para>Essayez le sur ce "
+"texte !</para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
