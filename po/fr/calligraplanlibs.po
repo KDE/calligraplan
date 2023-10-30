@@ -5,7 +5,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2010.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2011.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023 xavier <xavier.besnard@neuf.fr>
 # Thomas Vergnaud <thomas.vergnaud@gmx.fr>, 2014, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
 # Christophe Moulin <mevouillon.corp@gmail.com>, 2020.
@@ -16,15 +16,15 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-22 00:48+0000\n"
-"PO-Revision-Date: 2023-03-26 18:50+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"PO-Revision-Date: 2023-10-28 15:50+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -592,7 +592,7 @@ msgstr "Début-Début"
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr ""
-"Replanification en cours mais aucune ressource utilisée n'a été trouvée."
+"Re-planification en cours mais aucune ressource utilisée n'a été trouvée."
 
 #: kernel/kptresourcerequest.cpp:819
 #, kde-format
@@ -2946,26 +2946,24 @@ msgstr "Une erreur de planification est survenue"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled"
-msgstr "Budgeted Cost of Work Scheduled : coût budgété du travail planifié"
+msgstr "Coût budgété du travail planifié"
 
 #: models/kptcommonstrings.cpp:95 models/kptnodechartmodel.cpp:530
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed"
-msgstr "Budgeted Cost of Work Performed : coût budgété du travail effectué"
+msgstr "Coût budgété du travail effectué"
 
 #: models/kptcommonstrings.cpp:96 models/kptnodechartmodel.cpp:531
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed"
-msgstr "Actual Cost of Work Performed : coût réel du travail effectué"
+msgstr "Coût actuel du travail réalisé"
 
 #: models/kptcommonstrings.cpp:97
 #, kde-format
 msgid "Schedule performance index (BCWP/BCWS)"
-msgstr ""
-"Schedule performance index (BCWP/BCWS) : indice de performance vision "
-"planning"
+msgstr "Indice de performance planning (BCWP/BCWS)"
 
 #: models/kptcommonstrings.cpp:99
 #, kde-kuit-format
@@ -3288,7 +3286,7 @@ msgstr "Décalage entre les relations"
 #: models/kptdocumentmodel.cpp:186
 #, kde-format
 msgid "Url"
-msgstr "Url"
+msgstr "URL"
 
 #: models/kptdocumentmodel.cpp:189
 #, kde-format
@@ -3447,7 +3445,7 @@ msgstr "Indice de performance vision planning (BCWP/BCWS), fondé sur la charge"
 msgctxt "@info:tooltip"
 msgid "Effort based Cost Performance Index (BCWP/ACWS)"
 msgstr ""
-"Indice de performance vision budgétaire (BCWP/ACWS), fondé sur la charge"
+"Indice de performance vision budgétaire (BCWP / ACWS), reposant sur la charge"
 
 #: models/kptnodechartmodel.cpp:512 models/kptnodeitemmodel.cpp:2397
 #: models/reportgenerator/ReportGenerator.cpp:33
@@ -5690,7 +5688,7 @@ msgstr "A5"
 #, kde-format
 msgctxt "Page size"
 msgid "US Letter"
-msgstr "US Letter"
+msgstr "Lettre US"
 
 #: odf/KoPageFormat.cpp:58
 #, kde-format
@@ -7826,18 +7824,18 @@ msgid ""
 "start and remaining effort for the tasks.<nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
-"<title>Éditeur de planifications</title><para>L'éditeur de planification est "
-"utilisé pour créer, modifier, calculer et supprimer des planifications.</"
+"<title>Éditeur de planifications</title><para>L'éditeur de planifications "
+"est utilisé pour créer, modifier, calculer et supprimer des planifications.</"
 "para><para>Si <emphasis>Mode</emphasis> est défini sur "
 "<emphasis>Automatique</emphasis>, la planification est calculée "
 "automatiquement. <note>Une seule planification peut être en <emphasis>Mode "
 "Automatique</emphasis> simultanément et elle doit être au niveau le plus "
 "haut des planifications sans sous-planification.</note></para><para>Une "
 "planification peut avoir des sous-planifications. Une sous-planification "
-"peut utiliser les données de progression des projets afin de replanifier "
-"seulement les tâches qui ne sont pas terminées. La replanification utilisera "
-"alors, par exemple, le vrai début et la charge restante des tâches.<nl/"
-"><link url='%1'>En savoir plus…</link></para>"
+"peut utiliser les données de progression des projets afin de re-planifier "
+"seulement les tâches qui ne sont pas terminées. La re-planification "
+"utilisera alors, par exemple, le vrai début et la charge restante des tâches."
+"<nl/><link url='%1'>En savoir plus…</link></para>"
 
 #: ui/kptscheduleeditor.cpp:301
 #, kde-format
