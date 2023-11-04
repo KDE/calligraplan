@@ -26,7 +26,6 @@ Name[sl]=Plan uvozni filter za Planner
 Name[sv]=Plan planeringsimportfilter
 Name[tr]=Plan Planner İçe Aktarma Süzgeci
 Name[uk]=Фільтр імпортування даних Planner для Plan
-Name[x-test]=xxPlan Planner Import Filterxx
 Name[zh_CN]=Plan 计划工具导入筛选器
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/x-planner
