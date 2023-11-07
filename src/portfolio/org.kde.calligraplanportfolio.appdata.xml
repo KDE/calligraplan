@@ -27,6 +27,7 @@
   <name xml:lang="sv">Plan Portfölj</name>
   <name xml:lang="tr">Plan Portföy</name>
   <name xml:lang="uk">Портфоліо Plan</name>
+  <name xml:lang="x-test">xxPlan Portfolioxx</name>
   <summary>Project Portfolio Management</summary>
   <summary xml:lang="ca">Gestió de carteres de projectes</summary>
   <summary xml:lang="ca-valencia">Gestió de carteres de projectes</summary>
@@ -50,6 +51,7 @@
   <summary xml:lang="sv">Hantering av projektportfölj</summary>
   <summary xml:lang="tr">Proje Portföy Yönetimi</summary>
   <summary xml:lang="uk">Керування портфоліо проєктів</summary>
+  <summary xml:lang="x-test">xxProject Portfolio Managementxx</summary>
   <description>
     <p>
       Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.
@@ -72,6 +74,7 @@
     <p xml:lang="sv">Plan Portfölj är ett program för hantering av projektportföljer. Det är avsett för att hantera en projektsamling.</p>
     <p xml:lang="tr">Plan Portföy, bir proje portföy yönetimi uygulamasıdır. Bir proje koleksiyonunu yönetmek için tasarlanmıştır.</p>
     <p xml:lang="uk">«Портфоліо Plan» є програмою для керування портфоліо проєктів. Її призначено для керування збірками проєктів.</p>
+    <p xml:lang="x-test">xxPlan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.xx</p>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>
