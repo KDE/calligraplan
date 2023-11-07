@@ -20,6 +20,7 @@ Name[sl]=Plan MS Project uvozni filter
 Name[sv]=Plan MS Project-importfilter
 Name[tr]=Plan MS Project İçe Aktarma Süzgeci
 Name[uk]=Фільтр імпортування даних MS Project для Plan
+Name[x-test]=xxPlan MS Project Import Filterxx
 X-KDE-Export=application/x-vnd.kde.plan
 X-KDE-Import=application/vnd.ms-project,application/x-ms-project-db,application/x-mspdi,application/x-project,application/x-project-template,application/x-fasttrack,application/x-phoenix,application/x-asta,application/x-primavera-pmxml,application/x-primavera-xer,application/x-ganttproject,application/x-projectlibre,application/x-conceptdraw-cdpx,application/x-conceptdraw-cdpz,application/x-conceptdraw-cdptz,application/x-syncroscheduler,application/x-ganttdesigner,application/x-projectcommander,application/x-turboproject,application/x-sdef
 X-KDE-Weight=1
