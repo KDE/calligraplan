@@ -7078,8 +7078,8 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
-"Activa les opcions de filtratge de tasques i fites.<nl/>Desactivant açò es "
-"mostraran totes les tasques i fites planificades."
+"Activa les opcions de filtratge de tasques i fites.<nl/>Desseleccionant-la "
+"es mostraran totes les tasques i fites planificades."
 
 #: ui/kptganttview.cpp:363
 #, kde-format
@@ -9432,7 +9432,7 @@ msgstr "Capçalera de pàgina"
 #: ui/reports/reportsectionswidget.ui:62
 #, kde-format
 msgid "Enable header on first page"
-msgstr "Activa la capçalera a la primera pàgina"
+msgstr "Activa la capçalera en la primera pàgina"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
 #. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
@@ -9460,7 +9460,7 @@ msgstr "Última pàgina"
 #: ui/reports/reportsectionswidget.ui:82
 #, kde-format
 msgid "Enable header on odd pages"
-msgstr "Activa la capçalera a les pàgines senars"
+msgstr "Activa la capçalera en les pàgines senars"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
@@ -9474,7 +9474,7 @@ msgstr "Pàgines senars"
 #: ui/reports/reportsectionswidget.ui:92
 #, kde-format
 msgid "Enable header on even pages"
-msgstr "Activa la capçalera a les pàgines parelles"
+msgstr "Activa la capçalera en les pàgines parelles"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
@@ -9488,7 +9488,7 @@ msgstr "Pàgines parelles"
 #: ui/reports/reportsectionswidget.ui:102
 #, kde-format
 msgid "Enable header on all pages"
-msgstr "Activa la capçalera a totes les pàgines"
+msgstr "Activa la capçalera en totes les pàgines"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
@@ -9516,14 +9516,14 @@ msgstr "Activa el peu de pàgina en la primera pàgina"
 #: ui/reports/reportsectionswidget.ui:137
 #, kde-format
 msgid "Enable footer on odd pages"
-msgstr "Activa el peu de pàgina a les pàgines senars"
+msgstr "Activa el peu de pàgina en les pàgines senars"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
 #: ui/reports/reportsectionswidget.ui:147
 #, kde-format
 msgid "Enable footer on even pages"
-msgstr "Activa el peu de pàgina a les pàgines parelles"
+msgstr "Activa el peu de pàgina en les pàgines parelles"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
@@ -9537,7 +9537,7 @@ msgstr "Activa el peu de pàgina a l'última pàgina"
 #: ui/reports/reportsectionswidget.ui:167
 #, kde-format
 msgid "Enable footer on all pages"
-msgstr "Activa el peu de pàgina a totes les pàgines"
+msgstr "Activa el peu de pàgina en totes les pàgines"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format

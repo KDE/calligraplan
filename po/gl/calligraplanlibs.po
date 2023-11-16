@@ -7,14 +7,14 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2008.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
+# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-08-05 11:45+0200\n"
+"PO-Revision-Date: 2023-11-15 19:55+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -114,41 +114,37 @@ msgstr "%1d %2h:%3m"
 #, kde-format
 msgctxt "<minutes>m:<seconds>s.<milliseconds>"
 msgid "%1m:%2s.%3"
-msgstr ""
+msgstr "%1m:%2s,%3"
 
 #: kernel/kptduration.cpp:217
 #, kde-format
 msgctxt "<minutes>m:<seconds>s"
 msgid "%1m:%2s"
-msgstr ""
+msgstr "%1m:%2s"
 
 #: kernel/kptduration.cpp:219
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "<minutes>m"
 msgid "%1m"
-msgstr "%1h"
+msgstr "%1m"
 
 #: kernel/kptduration.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "<seconds>s"
 msgid "%1s"
-msgstr "%1h"
+msgstr "%1s"
 
 #: kernel/kptduration.cpp:225
 #, kde-format
 msgctxt "<seconds>s.<milliseconds>"
 msgid "%1s.%2"
-msgstr ""
+msgstr "%1s,%2"
 
 #: kernel/kptduration.cpp:228
 #, kde-format
 msgctxt "<milliseconds>ms"
 msgid "%1ms"
-msgstr ""
+msgstr "%1ms"
 
 #: kernel/kptduration.cpp:289
 #, kde-format
@@ -249,7 +245,7 @@ msgstr "Erro de programación"
 #, kde-format
 msgctxt "project scheduling canceled by user"
 msgid "Canceled"
-msgstr ""
+msgstr "Cancelada"
 
 # Este termo úsase para o concepto de «risco». Pode que tamén se empregue para conceptos que requiran o uso do feminino, en cuxo caso habería que solicitar que o termo se separe en máis traducións distintas, pero ata que se atope un caso deses, a tirar para adiante!
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)

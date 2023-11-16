@@ -616,7 +616,7 @@ msgstr "El gestor de projectes d'este projecte."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "Marqueu-la per a activar els recursos compartits"
+msgstr "Seleccioneu-la per a activar els recursos compartits"
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
