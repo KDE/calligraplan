@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-08-05 11:45+0200\n"
+"PO-Revision-Date: 2023-11-16 19:18+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -178,18 +178,18 @@ msgstr "Eliminada"
 #: models/kptschedulemodel.cpp:853
 #, kde-format
 msgid "Not scheduled"
-msgstr "Non planificado"
+msgstr "Non programado"
 
 #: kernel/kptglobal.cpp:35 models/kptschedulemodel.cpp:853
 #: models/kptschedulemodel.cpp:1001
 #, kde-format
 msgid "Scheduled"
-msgstr "Planificado"
+msgstr "Programado"
 
 #: kernel/kptglobal.cpp:37
 #, kde-format
 msgid "Resource overbooked"
-msgstr "Recurso sobreempregado"
+msgstr "Recurso sobrecargado"
 
 #: kernel/kptglobal.cpp:39
 #, kde-format
@@ -353,7 +353,7 @@ msgstr "Inicialización"
 #: kernel/kptproject.cpp:221
 #, kde-format
 msgid "Schedule project from: %1"
-msgstr "Planificar o programa desde o: %1"
+msgstr "Programar o proxecto desde o: %1"
 
 #: kernel/kptproject.cpp:226 kernel/kptproject.cpp:332
 #: kernel/kptproject.cpp:366
@@ -388,12 +388,12 @@ msgstr "Programa"
 #: kernel/kptproject.cpp:237 kernel/kptproject.cpp:342
 #, kde-format
 msgid "Schedule tasks forward"
-msgstr "Planificar as tarefas cara a adiante"
+msgstr "Programar as tarefas cara a adiante"
 
 #: kernel/kptproject.cpp:239 kernel/kptproject.cpp:345
 #, kde-format
 msgid "Scheduled finish: %1"
-msgstr "Remate planificado: %1"
+msgstr "Remate programado: %1"
 
 #: kernel/kptproject.cpp:241 kernel/kptproject.cpp:348
 #, kde-format
@@ -413,7 +413,7 @@ msgstr "Rematouse o proxecto antes de tempo: %1"
 #: kernel/kptproject.cpp:327
 #, kde-format
 msgid "Schedule project forward from: %1"
-msgstr "Planificar o programa cara a adiante desde o: %1"
+msgstr "Programar o proxecto cara a adiante desde o: %1"
 
 #: kernel/kptproject.cpp:333 kernel/kptproject.cpp:367
 #, kde-format
@@ -433,7 +433,7 @@ msgstr "Planificar o comezo temperán"
 #: kernel/kptproject.cpp:357
 #, kde-format
 msgid "Schedule project backward from: %1"
-msgstr "Planificar o programa cara a atrás desde o: %1"
+msgstr "Programar o proxecto cara a atrás desde o: %1"
 
 #: kernel/kptproject.cpp:364
 #, kde-format
@@ -443,7 +443,7 @@ msgstr "Planificouse o comezo temperán: %1"
 #: kernel/kptproject.cpp:371
 #, kde-format
 msgid "Schedule tasks backward"
-msgstr "Planificar as tarefas cara a atrás"
+msgstr "Programar as tarefas cara a atrás"
 
 #: kernel/kptproject.cpp:384
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "Non foi posíbel rematar o proxecto dentro do tempo proposto."
 #: kernel/kptproject.cpp:387
 #, kde-format
 msgid "Scheduled start: %1, target time: %2"
-msgstr "Comezo planificado: %1; tempo proposto: %2."
+msgstr "Comezo programado: %1; tempo proposto: %2."
 
 #: kernel/kptproject.cpp:390
 #, kde-format
@@ -2522,7 +2522,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The granularity used when calculating the project schedule"
-msgstr "O nivel de detalle empregado ao calcular o programa do proxecto."
+msgstr "A precisión para calcular o programa do proxecto."
 
 #: models/kptcommonstrings.cpp:172
 #, kde-kuit-format
@@ -4737,29 +4737,29 @@ msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
 msgstr "Modificar o planificador"
 
-# Aplícase ao concepto de «nivel de detalle».
+# Aplícase ao concepto de «precisión».
 #: models/kptschedulemodel.cpp:878
 #, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
-msgstr "Ningún"
+msgstr "Ningunha"
 
 #: models/kptschedulemodel.cpp:887
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularity not supported"
-msgstr "Non se admite o nivel de detalle da programación."
+msgstr "Non se admite a precisión da programación."
 
 #: models/kptschedulemodel.cpp:891
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
-msgstr "Nivel de detalle da programación seleccionado: %1"
+msgstr "Precisión da programación seleccionada: %1"
 
 #: models/kptschedulemodel.cpp:916
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
-msgstr "Modificar o nivel de detalle da programación"
+msgstr "Modificar a precisión da programación"
 
 #: models/kptschedulemodel.cpp:991
 #, kde-format
@@ -4806,7 +4806,7 @@ msgstr "Planificador"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Granularity"
-msgstr "Nivel de detalle"
+msgstr "Precisión"
 
 #: models/kptschedulemodel.cpp:1313
 #, kde-format
@@ -6018,101 +6018,87 @@ msgstr "Nome: %1<nl/>Previsto: %2 - %3"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptganttprintingoptions.ui:17
-#, fuzzy, kde-format
-#| msgid "Header"
+#, kde-format
 msgctxt "@title:group"
 msgid "Headers"
-msgstr "Cabeceira"
+msgstr "Cabeceiras"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
 #: ui/kptganttprintingoptions.ui:23
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify task name"
+#, kde-format
 msgctxt "@option:check"
 msgid "Print task names"
-msgstr "Modificar o nome da tarefa"
+msgstr "Imprimir os nomes das tarefas."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
 #: ui/kptganttprintingoptions.ui:30
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify task name"
+#, kde-format
 msgctxt "@option:check"
 msgid "Print time scale"
-msgstr "Modificar o nome da tarefa"
+msgstr "Imprimir a escala do tempo."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/kptganttprintingoptions.ui:40
-#, fuzzy, kde-format
-#| msgid "Scheduling"
+#, kde-format
 msgctxt "@title:group"
 msgid "Scaling"
-msgstr "Programando"
+msgstr "Escala"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
 #: ui/kptganttprintingoptions.ui:46
-#, fuzzy, kde-format
-#| msgid "Divide chart on multiple pages"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Divide chart on multiple pages"
-msgstr "Dividir a gráfica en múltiples páxinas"
+msgstr "Dividir a gráfica en múltiples páxinas."
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
 #: ui/kptganttprintingoptions.ui:53
-#, fuzzy, kde-format
-#| msgid "Print chart on a single page"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to page height"
-msgstr "Imprimir a gráfica nunha única páxina"
+msgstr "Axustar a gráfica á altura da páxina."
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
 #: ui/kptganttprintingoptions.ui:60
-#, fuzzy, kde-format
-#| msgid "Print chart on a single page"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to a single page"
-msgstr "Imprimir a gráfica nunha única páxina"
+msgstr "Axustar a gráfica a unha única páxina."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #: ui/kptganttprintingoptions.ui:73
-#, fuzzy, kde-format
-#| msgid "Change"
+#, kde-format
 msgctxt "@title:group"
 msgid "Range"
-msgstr "Cambiar"
+msgstr "Intervalo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
 #: ui/kptganttprintingoptions.ui:88
-#, fuzzy, kde-format
-#| msgid "Can start"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Chart start:"
-msgstr "Pode comezar"
+msgstr "Inicio da gráfica:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
 #: ui/kptganttprintingoptions.ui:105
-#, fuzzy, kde-format
-#| msgctxt "Interval start time"
-#| msgid "Start"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Start:"
-msgstr "Comezar"
+msgstr "Inicio:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
 #: ui/kptganttprintingoptions.ui:137
-#, fuzzy, kde-format
-#| msgid "Chart type"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Chart end:"
-msgstr "Tipo de gráfica"
+msgstr "Fin da gráfica:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
 #: ui/kptganttprintingoptions.ui:154
 #, kde-format
 msgctxt "@option:radio"
 msgid "End:"
-msgstr ""
+msgstr "Fin:"
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:169
