@@ -28,4 +28,7 @@ Dependencies:
     'frameworks/kholidays': '@latest'
     'frameworks/kwallet': '@latest'
     'graphics/kdiagram': '@latest'
-    'plasma/kactivities': '@latest'
+
+- 'on': ['Linux', 'FreeBSD']
+  'require':
+    'plasma/plasma-activities': '@latest'
