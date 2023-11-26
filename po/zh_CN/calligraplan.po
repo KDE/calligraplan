@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-11-19 03:40\n"
+"PO-Revision-Date: 2023-11-25 02:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1298,8 +1298,7 @@ msgstr "KDE 中国,fangzheng,Guo Yunhe,Tyson Tan"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"kde-china@kde.org,fangzheng@kde.org,i@guoyunhe.me,tysontan@tysontan.com"
+msgstr "kde-china@kde.org, fangzheng@kde.org, i@guoyunhe.me, tds00@qq.com"
 
 #: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
