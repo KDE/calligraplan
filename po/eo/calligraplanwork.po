@@ -1,36 +1,39 @@
-# Translation of kplatowork into esperanto.
+# Translation of calligraplanwork.pot into esperanto.
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# This file is distributed under the same license as the calligraplan package.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kplatowork\n"
+"Project-Id-Version: calligraplanwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-01 20:28+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: pology\n"
 
 #: aboutdata.h:33 aboutdata.h:42
 #, kde-format
 msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
-msgstr ""
+msgstr "PlanWork - Prizorganto de Laborpakaĵo por la Plana Projekto-Planado"
 
 #: aboutdata.h:40
 #, kde-format
 msgctxt "application name"
 msgid "Plan WorkPackage Handler"
-msgstr ""
+msgstr "Plano WorkPackage Handler"
 
 #: aboutdata.h:44
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr ""
+msgstr "Kopirajto 1998-%1, La Plana Teamo"
 
 #: aboutdata.h:48
 #, kde-format
@@ -42,19 +45,19 @@ msgstr "Dag Andersen"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #: aboutdata.h:51
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #. i18n: ectx: Menu (edit)
 #: calligraplanwork.rc:4 calligraplanworkui.rc:4
 #, kde-format
 msgid "&Edit"
-msgstr "&Redakti"
+msgstr "R&edakti"
 
 #. i18n: ectx: ToolBar (view_selection)
 #: calligraplanwork.rc:8
@@ -66,7 +69,7 @@ msgstr "Vido"
 #: calligraplanwork_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Rigardi"
+msgstr "&Vido"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -74,10 +77,9 @@ msgid "File to open"
 msgstr "Malfermenda dosiero"
 
 #: commandlineparser.cpp:107
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid "Failed to open document"
-msgstr "Malfermenda dosiero"
+msgstr "Malsukcesis malfermi la dokumenton"
 
 #: mainwindow.cpp:110
 #, kde-format
@@ -87,34 +89,32 @@ msgstr "La dosiero %1 ne ekzistas."
 #: part.cpp:174 part.cpp:205
 #, kde-format
 msgid "Document is already open:<br>%1"
-msgstr ""
+msgstr "Dokumento jam estas malfermita:<br>%1"
 
 #: part.cpp:186 part.cpp:213 workpackage.cpp:609
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
-msgstr ""
+msgstr "Ne eblis eltiri dokumenton el konservejo:<br>%1"
 
 #: part.cpp:194 part.cpp:221 workpackage.cpp:613
 #, kde-format
 msgid "Invalid URL:<br>%1"
-msgstr ""
+msgstr "Nevalida URL:<br>%1"
 
 #: part.cpp:233
 #, kde-format
 msgid "Document is already open:<br> %1"
-msgstr ""
+msgstr "Dokumento jam estas malfermita:<br> %1"
 
 #: part.cpp:237
-#, fuzzy, kde-format
-#| msgid "The file %1 does not exist."
+#, kde-format
 msgid "File does not exist:<br>%1"
-msgstr "La dosiero %1 ne ekzistas."
+msgstr "Dosiero ne ekzistas:<br>%1"
 
 #: part.cpp:263
-#, fuzzy, kde-format
-#| msgid "Edit Identity"
+#, kde-format
 msgid "Edit with:"
-msgstr "Redaktu identecon"
+msgstr "Redakti per:"
 
 #: part.cpp:391
 #, kde-format
@@ -123,56 +123,60 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
+"<p>La laborpakaĵo jam ekzistas en la projekta konservejo.</p><p>Projekto: "
+"%1<br>Tasko: %2</p><p>Ĉu vi volas ĝisdatigi la ekzistantan pakaĵon kun "
+"datumoj de la nova?</p>"
 
 #: part.cpp:419
 #, kde-format
 msgid "Remove failed. Cannot find work package"
-msgstr ""
+msgstr "Forigo malsukcesis. Ne povas trovi laborpakaĵon"
 
 #: part.cpp:422 part.cpp:433
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] "Forigi laborpakaĵojn"
 
 #: part.cpp:472
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid "Failed to load file:<br>%1"
-msgstr "Malfermenda dosiero"
+msgstr "Malsukcesis ŝargi dosieron:<br>%1"
 
 #: part.cpp:486
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
-msgstr ""
+msgstr "Ne valida laborpakaĵdosiero:<br>%1"
 
 #: part.cpp:514
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
-msgstr ""
+msgstr "Nevalida dokumento. La dokumento ne enhavas 'maindoc.xml'."
 
 #: part.cpp:540
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid "Failed to open file: %1"
-msgstr "Malfermenda dosiero"
+msgstr "Malsukcesis malfermi dosieron: %1"
 
 #: part.cpp:552
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr ""
+"Analiza eraro en dosiero '%1' ĉe linio %2, kolumno %3<br>Erarmesaĝo: %4"
 
 #: part.cpp:569 part.cpp:612
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
+msgstr "Malvalida dokumento. Neniu 'mime'-tipo difinita."
 
 #: part.cpp:575
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
+"Nevalida dokumento. Atendis mimetype application/x-vnd.kde.plan.work, "
+"ektrovis %1"
 
 #: part.cpp:582 part.cpp:623
 #, kde-format
@@ -180,6 +184,9 @@ msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Ĉi tiu dokumento estas pli nova versio ol subtenata de PlanWork (sintakso "
+"versio: %1)<br>Malfermi ĝin en ĉi tiu versio de PlanWork perdos iujn "
+"informojn."
 
 #: part.cpp:584 part.cpp:625
 #, kde-format
@@ -189,7 +196,7 @@ msgstr "Daŭrigi"
 #: part.cpp:584 part.cpp:625
 #, kde-format
 msgid "File-Format Mismatch"
-msgstr ""
+msgstr "Dosiero-Formata Miskongruo"
 
 #: part.cpp:616
 #, kde-format
@@ -200,26 +207,24 @@ msgstr ""
 #: part.cpp:713
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
-msgstr ""
+msgstr "Redakto malsukcesis. Ne povas trovi laborpakaĵon."
 
 #: taskcompletiondialog.cpp:45
-#, fuzzy, kde-format
-#| msgid "Progress"
+#, kde-format
 msgid "Task Progress"
-msgstr "Progreso"
+msgstr "Taska Progreso"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: taskcompletionpanel.ui:33
 #, kde-format
 msgid "Started:"
-msgstr ""
+msgstr "Komencis:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: taskcompletionpanel.ui:50
-#, fuzzy, kde-format
-#| msgid "Finished"
+#, kde-format
 msgid "Finished:"
-msgstr "Finita"
+msgstr "Finis:"
 
 #. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
 #: taskcompletionpanel.ui:143
@@ -236,47 +241,43 @@ msgstr "Forigi eron"
 #: taskworkpackagemodel.cpp:298
 #, kde-format
 msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
-msgstr ""
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 
 #: taskworkpackagemodel.cpp:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Type: %1<nl/>Url: %2"
-msgstr ""
+msgstr "Tipo: %1<nl/>Url: %2"
 
 #: taskworkpackagemodel.cpp:442
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
-msgstr ""
+msgstr "Modifi kompletigon"
 
 #: taskworkpackagemodel.cpp:477
-#, fuzzy
-#| msgid "Finished"
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr "Finita"
+msgstr "Meti finita"
 
 #: taskworkpackagemodel.cpp:498
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "Modifi la restantan laborkvanton"
 
 #: taskworkpackagemodel.cpp:511
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "Modifi realan laborkvanton"
 
 #: taskworkpackagemodel.cpp:609
-#, fuzzy, kde-kuit-format
-#| msgid "Name"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nomo"
 
 #: taskworkpackagemodel.cpp:610
-#, fuzzy, kde-kuit-format
-#| msgid "Type"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipo"
@@ -285,11 +286,10 @@ msgstr "Tipo"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
-msgstr ""
+msgstr "Respondeca"
 
 #: taskworkpackagemodel.cpp:612
-#, fuzzy, kde-kuit-format
-#| msgid "Description"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
 msgstr "Priskribo"
@@ -298,65 +298,64 @@ msgstr "Priskribo"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Start"
-msgstr ""
+msgstr "Planita Komenco"
 
 #: taskworkpackagemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Finish"
-msgstr ""
+msgstr "Planita Fino"
 
 #: taskworkpackagemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Assignments"
-msgstr ""
+msgstr "Atribuoj de Rimedoj"
 
 #: taskworkpackagemodel.cpp:620
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Completion"
-msgstr ""
+msgstr "Kompletigo"
 
 #: taskworkpackagemodel.cpp:621
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
-msgstr ""
+msgstr "Reala Laborkvanto"
 
 #: taskworkpackagemodel.cpp:622
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "Restanta Laborkvanto"
 
 #: taskworkpackagemodel.cpp:623
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
-msgstr ""
+msgstr "Planita Laborkvanto"
 
 #: taskworkpackagemodel.cpp:624
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
-msgstr ""
+msgstr "Fakta Komenco"
 
 #: taskworkpackagemodel.cpp:625
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Started"
-msgstr ""
+msgstr "Komenciĝis"
 
 #: taskworkpackagemodel.cpp:626
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
-msgstr ""
+msgstr "Fakta Fino"
 
 #: taskworkpackagemodel.cpp:627
-#, fuzzy, kde-kuit-format
-#| msgid "Finished"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finished"
 msgstr "Finita"
@@ -368,22 +367,19 @@ msgid "Status"
 msgstr "Stato"
 
 #: taskworkpackagemodel.cpp:629
-#, fuzzy, kde-kuit-format
-#| msgid "Note"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Note"
 msgstr "Noto"
 
 #: taskworkpackagemodel.cpp:631
-#, fuzzy, kde-kuit-format
-#| msgid "Project Manager"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Name"
-msgstr "Projektadministrilo"
+msgstr "Projektnomo"
 
 #: taskworkpackagemodel.cpp:632
-#, fuzzy, kde-kuit-format
-#| msgid "Project Manager"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Projektadministrilo"
@@ -391,7 +387,7 @@ msgstr "Projektadministrilo"
 #: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
 #, kde-format
 msgid "Configure View..."
-msgstr ""
+msgstr "Agordi Vidon..."
 
 #: taskworkpackageview.cpp:642
 #, kde-kuit-format
@@ -400,6 +396,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
+"Tasko: %1<nl/>Efektiva fino: %2<nl/>Planita finiĝo: %3<nl/>Stato: %4<nl/"
+">Projekto: %5"
 
 #: taskworkpackageview.cpp:657
 #, kde-kuit-format
@@ -408,22 +406,24 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"Tasko: %1<nl/>Completigo: %2 %<nl/>Efektiva komenco: %3<nl/>Planita: %4 - "
+"%5<nl/>Stato: %6<nl/>Projekto: %7"
 
 #: taskworkpackageview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "Tasko: %1<nl/>Planita: %2 - %3<nl/>Stato: %4<nl/>Projekto: %5"
 
 #: view.cpp:96
 #, kde-format
 msgid "Remove Packages"
-msgstr ""
+msgstr "Forigi Pakojn"
 
 #: view.cpp:100
 #, kde-format
 msgid "Remove Package"
-msgstr ""
+msgstr "Forigi Pakon"
 
 #: view.cpp:104
 #, kde-format
@@ -434,18 +434,18 @@ msgstr "Listo"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "Elekti liston de taskoj"
 
 #: view.cpp:109
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "Gantt"
 
 #: view.cpp:110
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "Elekti templinion"
 
 #. i18n("Progress..."), this);
 #. collection->addAction("task_progress", actionTaskProgress);
@@ -454,7 +454,7 @@ msgstr ""
 #: view.cpp:119
 #, kde-format
 msgid "Configure PlanWork..."
-msgstr ""
+msgstr "Agordi PlanWork..."
 
 #: view.cpp:124
 #, kde-format
@@ -462,122 +462,121 @@ msgid "Edit..."
 msgstr "Redakti..."
 
 #: view.cpp:128
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgctxt "@verb"
 msgid "View..."
-msgstr "Vido"
+msgstr "Vido..."
 
 #: view.cpp:137
 #, kde-format
 msgid "Send Package..."
-msgstr ""
+msgstr "Sendi pakon..."
 
 #: view.cpp:141
-#, fuzzy, kde-format
-#| msgid "Progress"
+#, kde-format
 msgid "Edit Progress..."
-msgstr "Progreso"
+msgstr "Redakti Progreson..."
 
 #: view.cpp:145
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "View Description..."
-msgstr "Priskribo"
+msgstr "Vidi Priskribon..."
 
 #: view.cpp:332
-#, fuzzy, kde-format
-#| msgid "The file %1 does not exist."
+#, kde-format
 msgid "This file is not editable"
-msgstr "La dosiero %1 ne ekzistas."
+msgstr "Ĉi tiu dosiero ne estas redaktebla"
 
 #: view.cpp:352
 #, kde-format
 msgid "No work package is selected"
-msgstr ""
+msgstr "Neniu laborpakaĵo estas elektita"
 
 #: view.cpp:358
 #, kde-format
 msgid "Cannot find work package"
-msgstr ""
+msgstr "Ne povas trovi laborpakaĵon"
 
 #: view.cpp:375
 #, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr ""
+msgstr "Ne eblis malfermi dosieron. Sendado estas ĉesigita."
 
 #: view.cpp:383
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr ""
+msgstr "Ne eblis malfermi provizoran dosieron. Sendado estas ĉesigita."
 
 #: view.cpp:394
 #, kde-format
 msgid "Work Package: %1"
-msgstr ""
+msgstr "Laborpako: %1"
 
 #: workpackage.cpp:111
 #, kde-format
 msgid "Document is already open"
-msgstr ""
+msgstr "Dokumento jam estas malfermita"
 
 #: workpackage.cpp:184 workpackage.cpp:252
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid "Failed to load project: %1"
-msgstr "Malfermenda dosiero"
+msgstr "Malsukcesis ŝargi projekton: %1"
 
 #: workpackage.cpp:311
 #, kde-format
 msgid "Cannot save to empty filename"
-msgstr ""
+msgstr "Ne povas konservi al malplena dosiernomo"
 
 #: workpackage.cpp:317
 #, kde-format
 msgid "Could not create the file for saving"
-msgstr "Ne eblis krei la dosieron por savi"
+msgstr "Ne eblis krei la dosieron por konservado"
 
 #: workpackage.cpp:329
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "Ne eblas skribi '%1'. Diskospaco elĉerpita?"
+msgstr "Ne eblas skribi '%1'. Ĉu diskospaco elĉerpita?"
 
 #: workpackage.cpp:353
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid ""
 "Failed to open store:\n"
 " %1"
-msgstr "Malfermenda dosiero"
+msgstr ""
+"Malsukcesis malfermi konservejon:\n"
+" %1"
 
 #: workpackage.cpp:428
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid ""
 "Cannot save to projects store:\n"
 "%1"
-msgstr "Malfermenda dosiero"
+msgstr ""
+"Ne povas konservi en projekt-konservejo:\n"
+"%1"
 
 #: workpackage.cpp:478
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid ""
 "Failed read file:\n"
 " %1"
-msgstr "Malfermenda dosiero"
+msgstr ""
+"Malsukcesis legi dosieron:\n"
+" %1"
 
 #: workpackage.cpp:482
-#, fuzzy, kde-format
-#| msgid "File to open"
+#, kde-format
 msgid ""
 "Failed write file:\n"
 " %1"
-msgstr "Malfermenda dosiero"
+msgstr ""
+"Malsukcesis skribi dosieron:\n"
+" %1"
 
 #: workpackage.cpp:525
 msgctxt "(qtundo-format)"
 msgid "Merge data"
-msgstr ""
+msgstr "Kunfandi datumojn"
 
 #: workpackage.cpp:634
 #, kde-format
@@ -588,7 +587,11 @@ msgid_plural ""
 "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
 "if you continue.</p>"
 msgstr[0] ""
+"<p>La laborpakaĵo <b>'%2'</b> havas malfermitan dokumenton.</p><p>Datumoj "
+"povus perdiĝi se vi daŭrigas.</p>"
 msgstr[1] ""
+"<p>La laborpakaĵo <b>'%2'</b> havas malfermitajn dokumentojn.</p><p>Datumoj "
+"povus perdiĝi se vi daŭrigas.</p>"
 
 #: workpackage.cpp:655
 #, kde-format
@@ -596,190 +599,16 @@ msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
 msgstr ""
+"<p>La laborpakaĵo <b>'%1'</b> estas modifita.</p><p>Ĉu vi volas konservi ĝin?"
+"</p>"
 
 #: workpackage.cpp:681
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
+"<p>Laborpakaĵo <b>'%1'</b></p><p>Ne eblis malfermi konservejon:</p><p>%2</p>"
 
 #: workpackage.cpp:697
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr ""
-
-#~ msgid "Progress"
-#~ msgstr "Progreso"
-
-#~ msgid "Documents"
-#~ msgstr "Dokumentoj"
-
-#, fuzzy
-#~| msgid "Finished"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Finished:"
-#~ msgstr "Finita"
-
-#, fuzzy
-#~| msgid "Add Entry"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Add Entry"
-#~ msgstr "Aldoni eron"
-
-#, fuzzy
-#~| msgid "Remove Entry"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Remove Entry"
-#~ msgstr "Forigi eron"
-
-#, fuzzy
-#~| msgid "Progress"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Progress"
-#~ msgstr "Progreso"
-
-#, fuzzy
-#~| msgid "Documents"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Documents"
-#~ msgstr "Dokumentoj"
-
-#, fuzzy
-#~| msgid "&Edit"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Edit"
-#~ msgstr "&Redakti"
-
-#, fuzzy
-#~| msgid "&View"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&View"
-#~ msgstr "&Rigardi"
-
-#, fuzzy
-#~| msgid "View"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "View"
-#~ msgstr "Vido"
-
-#, fuzzy
-#~| msgid "Dag Andersen"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Dag Andersen"
-#~ msgstr "Dag Andersen"
-
-#, fuzzy
-#~| msgctxt "NAME OF TRANSLATORS"
-#~| msgid "Your names"
-#~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Axel Rousseau"
-
-#, fuzzy
-#~| msgctxt "EMAIL OF TRANSLATORS"
-#~| msgid "Your emails"
-#~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "axel@esperanto-jeunes.org"
-
-#, fuzzy
-#~| msgid "File to open"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "File to open"
-#~ msgstr "Malfermenda dosiero"
-
-#, fuzzy
-#~| msgid "The file %1 does not exist."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "The file %1 does not exist."
-#~ msgstr "La dosiero %1 ne ekzistas."
-
-#, fuzzy
-#~| msgid "Edit Identity"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Edit with:"
-#~ msgstr "Redaktu identecon"
-
-#, fuzzy
-#~| msgid "Invalid document. No mimetype specified."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Invalid document. No mimetype specified."
-#~ msgstr "Malvalida dokumento. Neniu 'mime'-tipo klarigita."
-
-#, fuzzy
-#~| msgid "Continue"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Continue"
-#~ msgstr "Daŭrigi"
-
-#, fuzzy
-#~| msgid "Name"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Name"
-#~ msgstr "Nomo"
-
-#, fuzzy
-#~| msgid "Type"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Type"
-#~ msgstr "Tipo"
-
-#, fuzzy
-#~| msgid "Description"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Description"
-#~ msgstr "Priskribo"
-
-#, fuzzy
-#~| msgid "Finished"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Finished"
-#~ msgstr "Finita"
-
-#, fuzzy
-#~| msgctxt "@title:column"
-#~| msgid "Status"
-#~ msgctxt "(qtundo-format) @title:column"
-#~ msgid "Status"
-#~ msgstr "Stato"
-
-#, fuzzy
-#~| msgid "Note"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Note"
-#~ msgstr "Noto"
-
-#, fuzzy
-#~| msgid "Project Manager"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Project Manager"
-#~ msgstr "Projektadministrilo"
-
-#, fuzzy
-#~| msgid "List"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "List"
-#~ msgstr "Listo"
-
-#, fuzzy
-#~| msgid "Edit..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Edit..."
-#~ msgstr "Redakti..."
-
-#, fuzzy
-#~| msgid "Could not create the file for saving"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Could not create the file for saving"
-#~ msgstr "Ne eblis krei la dosieron por savi"
-
-#, fuzzy
-#~| msgid "Not able to write '%1'. Partition full?"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Not able to write '%1'. Partition full?"
-#~ msgstr "Ne eblas skribi '%1'. Diskospaco elĉerpita?"
-
-#~ msgid "&Settings"
-#~ msgstr "A&gordo"
-
-#~ msgid "Calculate"
-#~ msgstr "Kalkulu"
+msgstr "<p>Laborpakaĵo <b>'%1'</b></p><p>Ne eblis ĉerpi dosieron:</p><p>%2</p>"
