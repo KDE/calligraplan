@@ -13,6 +13,7 @@
   <name xml:lang="de">Plan</name>
   <name xml:lang="el">Plan</name>
   <name xml:lang="en-GB">Plan</name>
+  <name xml:lang="eo">Plan</name>
   <name xml:lang="es">Plan</name>
   <name xml:lang="et">Plan</name>
   <name xml:lang="eu">Plan</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="de">Projektverwaltung</summary>
   <summary xml:lang="el">Διαχείριση έργων</summary>
   <summary xml:lang="en-GB">Project Management</summary>
+  <summary xml:lang="eo">Projektadministrado</summary>
   <summary xml:lang="es">Gestor de proyectos</summary>
   <summary xml:lang="et">Projektihaldus</summary>
   <summary xml:lang="eu">Proiektu-kudeaketa</summary>
@@ -107,6 +109,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funcionalidades:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
@@ -138,6 +141,7 @@
       <li xml:lang="de">Mehrere Ansichten: Gant-Diagramme, Ressourcen-Ansicht und Kontenansicht</li>
       <li xml:lang="el">Πολλαπλές προβολές: διαγράμματα Gantt, προβολή πόρων, προβολή λογαριασμών</li>
       <li xml:lang="en-GB">Multiple views: Gant Charts, Resource View, Accounts View</li>
+      <li xml:lang="eo">Multoblaj vidoj: Gantt Diagramoj, Rimeda Vido, Konta Vido</li>
       <li xml:lang="es">Varias vistas: diagramas de Gant, Vista de recursos, vista de cuentas</li>
       <li xml:lang="et">Mitmed vaated: Gantti diagramm, ressursivaade, kontovaade</li>
       <li xml:lang="eu">Ikuspegi anizkoitzak: Gantt diagramak, Baliabideen ikuspegia, Kontuen ikuspegia</li>
@@ -196,6 +200,7 @@
       <li xml:lang="de">Einstellbare Detailstufen auf dem Gantt-Diagramm</li>
       <li xml:lang="el">Διαμορφώσιμο επίπεδο λεπτομέρειας στο διάγραμμα Gantt</li>
       <li xml:lang="en-GB">Configurable level of detail on Gantt Chart</li>
+      <li xml:lang="eo">Agordebla nivelo de detalo sur Gantt Diagramo</li>
       <li xml:lang="es">Nivel de detalles configurable en el diagrama de Gantt</li>
       <li xml:lang="et">Üksikasjalikkuse taseme seadistamine Gantti diagrammil</li>
       <li xml:lang="eu">Zehaztasun maila konfiguragarria Gantt diagrametan</li>
@@ -225,6 +230,7 @@
       <li xml:lang="de">Unterstützt Aufgabenübersichten, Aufgaben und Meilensteine</li>
       <li xml:lang="el">Υποστηρίζει περιλήψεις εργασιών, εργασίες και ορόσημα</li>
       <li xml:lang="en-GB">Supports Summarytasks, Tasks, and milestones</li>
+      <li xml:lang="eo">Subtenas Resumajn taskojn, Taskojn kaj mejloŝtonojn</li>
       <li xml:lang="es">Permite el uso de tareas de resumen, tareas e hitos</li>
       <li xml:lang="et">Koondülesannete, ülesannete ja tähtaegade toetamine</li>
       <li xml:lang="eu">Zereginen laburpenak, zereginak eta mugarriak onartzen ditu</li>
@@ -255,6 +261,7 @@
       <li xml:lang="de">Einstellbare Planungsvorgaben</li>
       <li xml:lang="el">Διαμορφώσιμοι περιορισμοί χρονοπρογραμματισμού</li>
       <li xml:lang="en-GB">Configurable Scheduling Constraints</li>
+      <li xml:lang="eo">Agordeblaj Limigoj de Planado</li>
       <li xml:lang="es">Restricciones de planificación configurables</li>
       <li xml:lang="et">Seadistatavad ajakava piirangud</li>
       <li xml:lang="eu">Antolaketa murrizketa konfiguragarriak</li>
