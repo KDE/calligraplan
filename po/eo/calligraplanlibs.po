@@ -4009,8 +4009,8 @@ msgstr ""
 #, kde-format
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] "Estas %1 rimedo disponebla en ĉi tiu grupo"
-msgstr[1] "Estas %1 rimedoj disponeblaj en ĉi tiu grupo"
+msgstr[0] "Estas %1 rimedo disponebla en ĉi grupo"
+msgstr[1] "Estas %1 rimedoj disponeblaj en ĉi grupo"
 
 #: models/kptresourceallocationmodel.cpp:332
 #, kde-format
@@ -4110,8 +4110,8 @@ msgstr "%1 de %2"
 msgctxt "@info:tooltip"
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] "Estas %1 rimedo disponebla en ĉi tiu grupo"
-msgstr[1] "Estas %1 rimedoj disponeblaj en ĉi tiu grupo"
+msgstr[0] "Estas %1 rimedo disponebla en ĉi grupo"
+msgstr[1] "Estas %1 rimedoj disponeblaj en ĉi grupo"
 
 #: models/kptresourceallocationmodel.cpp:847
 #, kde-kuit-format
@@ -7250,7 +7250,7 @@ msgstr[1] "Deŝovi %1 taskojn"
 msgctxt "(qtundo-format)"
 msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
-msgstr[0] ""
+msgstr[0] "Maldeŝovi taskon"
 msgstr[1] "Maldeŝovi %1 taskojn"
 
 #: ui/kpttaskeditor.cpp:1277

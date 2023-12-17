@@ -136,7 +136,7 @@ msgstr "Forigo malsukcesis. Ne povas trovi laborpakaĵon"
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
-msgstr[0] ""
+msgstr[0] "Forigi laborpakaĵon"
 msgstr[1] "Forigi laborpakaĵojn"
 
 #: part.cpp:472
