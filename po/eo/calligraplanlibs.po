@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-09-19 07:51+0100\n"
+"PO-Revision-Date: 2023-12-16 23:54+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3808,7 +3808,7 @@ msgstr "Komenciĝis"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Running"
-msgstr "Ruliĝas"
+msgstr "Rulanta"
 
 #: models/kptnodeitemmodel.cpp:1443
 #, kde-kuit-format
@@ -9900,7 +9900,7 @@ msgstr "Laboro"
 #: ui/resourcedialogbase.ui:191
 #, kde-format
 msgid "Material"
-msgstr "Material"
+msgstr "Materialo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: ui/resourcedialogbase.ui:196
