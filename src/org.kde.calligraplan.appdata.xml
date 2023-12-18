@@ -79,6 +79,7 @@
     <p xml:lang="de">Plan ist ein Programm zur Projektplanung und -verwaltung. Es ist für mittelgroße Projekte mit mehreren Ressourcen geeignet.</p>
     <p xml:lang="el">Το Plan είναι μια εφαρμογή διαχείρισης έργων. Στοχεύει στη διαχείριση σχετικά μεγάλων έργων με πολλούς πόρους.</p>
     <p xml:lang="en-GB">Plan is a project management application. It is intended for managing moderately large projects with multiple resources.</p>
+    <p xml:lang="eo">Plano estas projekt-administra aplikaĵo. Ĝi estas celita por administri modere grandajn projektojn kun multoblaj rimedoj.</p>
     <p xml:lang="es">Plan es una aplicación para gestionar proyectos. Está enfocada a la gestión de proyectos moderadamente grandes con varios recursos.</p>
     <p xml:lang="et">Plan on projektihalduse rakendus. See on mõeldud haldama mõõduka suurusega ja paljude ressurssidega projekte.</p>
     <p xml:lang="eu">Plan, proiektuak kudeatzeko aplikazio bat da. Baliabide anizkoitzeko proiektu handi samarrak kudeatzeko prestatuta dago.</p>
@@ -171,6 +172,7 @@
       <li xml:lang="de">Verwendet Standardstrukturen: Projektstrukturplan (PSP), Ressourcenstrukturplan (RSP), Kostenstrukturplan (KSP)</li>
       <li xml:lang="el">Χρησιμοποιεί πρότυπες δομές: Αναλυτική δομή εργασιών (Work breakdown structure, WBS), Αναλυτική δομή πόρων (Resource breakdown structure, RBS), Αναλυτική δομή κόστους (Cost breakdown structure, CBS)</li>
       <li xml:lang="en-GB">Uses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
+      <li xml:lang="eo">Uzas normajn strukturojn: Labor-dispartiga strukturo (WBS), Rimedo-dispartiga strukturo (RBS), Kosto-dispartiga strukturo (CBS)</li>
       <li xml:lang="es">Utiliza estructuras estándar: estructura de desglose del trabajo (WBS), estructura de desglose de los recursos (RBS), estructura de desglose de los costes (CBS)</li>
       <li xml:lang="et">Standardstruktuuride kasutamine: tegevuse liigendamine (WBS), ressursside liigendamine (RBS), maksumuse liigendamine (CBS)</li>
       <li xml:lang="eu">Egitura estandarrak erabiltzen ditu: Lana deskonponsatzeko egitura (WBS) Baliabideak deskonposatzeko egitura (RBS), Kostua deskonposatzeko egitura (CBS)</li>
