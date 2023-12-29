@@ -27,7 +27,7 @@ Dependencies:
     'frameworks/threadweaver': '@latest'
     'frameworks/kholidays': '@latest'
     'frameworks/kwallet': '@latest'
-    'graphics/kdiagram': '@latest'
+    'graphics/kdiagram': '@stable'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
