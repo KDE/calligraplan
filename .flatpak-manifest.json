@@ -83,7 +83,7 @@
             "config-opts": [ "-DENABLE_TESTING=OFF" ],
             "name": "kdiagram",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/kdiagram.git" } ]
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/kdiagram.git", "branch": "2.8" } ]
         },
         {
             "name": "calligraplan",
