@@ -3172,7 +3172,7 @@ msgstr ""
 "<para>La planificació utilitzada per a calcular la planificació del projecte."
 "</para><para>El planificador integrat per defecte és el planificador de "
 "xarxa.</para><para>Un altre planificador actualment disponible és RCPS si "
-"libRCPS està instal·lat al vostre sistema. El RCPS és un planificador de "
+"libRCPS està instal·lat en el vostre sistema. El RCPS és un planificador de "
 "projectes de restricció de recursos basat en la genètica.</para>"
 
 #: models/kptcommonstrings.cpp:161
