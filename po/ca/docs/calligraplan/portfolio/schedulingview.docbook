@@ -1,6 +1,144 @@
-<chapter id="scheduling-view"
+<chapter id="scheduling"
 ><title
->Planificació</title
+>Planificació</title>
+<sect1 id="scheduling-description"
+><title
+>Descripció</title
 >&WORK-IN-PROGRESS; <para
->Planificació de projectes. </para>
+>La vista de planificació permet programar els projectes de la cartera. Els projectes estan programats segons la seva prioritat. </para
+><para
+>Establiu el <emphasis
+>Control</emphasis
+> a <emphasis
+>Planificació</emphasis
+> per al projecte o projectes que vulgueu planificar. Establiu el <emphasis
+>Control</emphasis
+> a <emphasis
+>Inclou</emphasis
+> per a tenir les assignacions de recursos incloses en l'anivellament de recursos. Establiu el <emphasis
+>Control</emphasis
+> a <emphasis
+>Exclou</emphasis
+> si voleu excloure el projecte. </para>
+  <tip
+><para
+>Si els seus projectes comparteixen recursos amb projectes que no formen part de la vostra cartera, aquests projectes han d'incloure's perquè l'anivellament de recursos pugui funcionar correctament. Vegeu <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>La vista té tres seccions: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Taula de projectes</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Nom</guilabel
+></entry>
+          <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Nom</entry
+><entry
+>Nom del projecte</entry
+></row>
+      <row
+><entry
+>Planificació</entry
+><entry
+>Nom de la planificació</entry
+></row>
+      <row
+><entry
+>Estat</entry
+><entry
+>Estat de la planificació</entry
+></row>
+      <row
+><entry
+>Control</entry>
+        <entry
+>El control de la planificació pot tenir els valors següents: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Planificació:</emphasis
+> El projecte es planificarà.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Inclou:</emphasis
+> Les reserves de recursos s'inclouran en l'anivellament de recursos.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Exclou:</emphasis
+> El projecte no s'inclourà.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Prioritat</entry
+><entry
+>Prioritat del projecte. Un nombre més alt significa una prioritat més alta.</entry
+></row>
+      <row
+><entry
+>Objectiu d'inici</entry
+><entry
+>La data d'inici més avançada del projecte</entry
+></row>
+      <row
+><entry
+>Objectiu de finalització</entry
+><entry
+>La darrera data final del projecte</entry
+></row>
+      <row
+><entry
+>Descripció</entry
+><entry
+>Descripció del projecte</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Control de la planificació</title
+>&WORK-IN-PROGRESS; </sect1>
+<sect1 id="scheduling-log"
+><title
+>Bitàcola de planificació</title
+>&WORK-IN-PROGRESS; </sect1>
 </chapter>

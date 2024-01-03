@@ -1,13 +1,13 @@
-<chapter id="summary-view"
+<chapter id="summary"
 ><title
 >Resum</title
 >&WORK-IN-PROGRESS; <para
->Fa un resum de les dades de compliment de tots els projectes de la cartera. </para
+>Aquesta vista fa un resum de les dades de compliment dels projectes de la cartera. </para
 ><para>
-  <informaltable>
-    <tgroup cols="2">
-      <thead>
-        <row>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
           <entry
 ><guilabel
 >Nom</guilabel
@@ -16,8 +16,8 @@
 ><guilabel
 >Descripció</guilabel
 ></entry>
-        </row>
-      </thead>
+        </row
+></thead>
       <tbody>
       <row
 ><entry
@@ -58,5 +58,7 @@
       </tbody>
     </tgroup>
   </informaltable>
-  </para>
+  </para
+><para
+>L'SPI indica si el progrés està segons la planificació (1), darrere la planificació (menys d'1) o abans de la planificació (més gran que 1). El CPI indica quant ha costat obtenir el progrés real. Un valor d'1 significa com estava previst, menys d'1 significa que ha costat més del que hauria d'haver fet i un valor superior a 1 significa que el progrés s'ha aconseguit amb menys ús dels recursos del que estava previst. </para>
 </chapter>

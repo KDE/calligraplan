@@ -1,6 +1,269 @@
-<chapter id="progress-view"
+<chapter id="progress"
 ><title
->Progress</title
+>Progrés</title>
+<sect1 id="progress-description"
+><title
+>Descripció</title
 >&WORK-IN-PROGRESS; <para
->Mostra l'estat de les tasques del projecte seleccionat i permet editar el progrés. </para>
+>La vista de progrés llista els projectes de la cartera a l'esquerra i mostra informació de progrés per al projecte seleccionat a la dreta. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="progressview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Les tasques es divideixen en grups que dependran de l'estat de la tasca: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>No començada</para>
+            </entry>
+            <entry>
+              <para
+>Les tasques que ja s'haurien d'haver iniciat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>En execució</para>
+            </entry>
+            <entry>
+              <para
+>Les tasques que s'han iniciat, però que encara no s'han acabat.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalitzada</para>
+            </entry>
+            <entry>
+              <para
+>Les tasques que s'han acabat durant aquest període</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Període següent</para>
+            </entry>
+            <entry>
+              <para
+>Les tasques que estan planificades per a començar durant el pròxim període.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-editing-data"
+><title
+>Edició de dades</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La informació sobre el progrés es pot editar a la línia emprant el diàleg de progrés de la tasca.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>De manera predeterminada es mostren les columnes següents: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripció</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nom</para>
+            </entry>
+            <entry>
+              <para
+>El nom de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estat</para>
+            </entry>
+            <entry>
+              <para
+>Estat de la tasca</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% de compleció</para>
+            </entry>
+            <entry>
+              <para
+>Compleció de la tasca</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforç planificat</para>
+            </entry>
+            <entry>
+              <para
+>La quantitat de treball planejat per a ser utilitzat al final del període actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforç real</para>
+            </entry>
+            <entry>
+              <para
+>La quantitat de treball invertit.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforç romanent</para>
+            </entry>
+            <entry>
+              <para
+>L'esforç romanent necessari per a completar la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cost planificat</para>
+            </entry>
+            <entry>
+              <para
+>El cost planificat al final del període actual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Cost real</para>
+            </entry>
+            <entry>
+              <para
+>El cost real incorregut.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Inici real</para>
+            </entry>
+            <entry>
+              <para
+>El temps de començament real de la tasca.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Finalització real</para>
+            </entry>
+            <entry>
+              <para
+>El temps real de finalització de la tasca.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-configuration"
+><title
+>Configuració</title>
+  <para
+>Utilitzant el menú contextual, la vista es podrà configurar per a dividir/no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diàleg de configuració permet personalitzar la quantitat d'informació que mostra la vista per a satisfer les vostres necessitats.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="progressview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                </screenshot>
+              </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
 </chapter>

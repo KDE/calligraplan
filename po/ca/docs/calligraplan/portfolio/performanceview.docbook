@@ -1,6 +1,10 @@
-<chapter id="perfomance-view"
+<chapter id="perfomance"
 ><title
->Compliment</title
+>Compliment</title>
+<sect1 id="perfomance-description"
+><title
+>Descripció</title
 >&WORK-IN-PROGRESS; <para
 >Mostra diagrames de compliment del projecte seleccionat. </para>
+</sect1>
 </chapter>

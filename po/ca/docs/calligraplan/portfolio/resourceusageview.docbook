@@ -1,6 +1,10 @@
-<chapter id="resourceusage-view"
+<chapter id="resourceusage"
 ><title
->Ús dels recursos</title
+>Ús dels recursos</title>
+<sect1 id="resourceusage-description"
+><title
+>Descripció</title
 >&WORK-IN-PROGRESS; <para
 >Mostra un diagrama de la càrrega planificada per al recurs seleccionat codificat amb un color per cada tasca. </para>
+</sect1>
 </chapter>
