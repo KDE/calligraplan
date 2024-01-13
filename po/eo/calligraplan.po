@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-01-09 09:01+0100\n"
-"PO-Revision-Date: 2023-04-09 23:45+0100\n"
+"PO-Revision-Date: 2024-01-03 14:17+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -626,7 +626,7 @@ msgstr ""
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
 #, kde-format
 msgid "General"
-msgstr "Ĝeneralo"
+msgstr "Ĝenerala"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:42
@@ -2117,7 +2117,7 @@ msgstr "Forigante ĉi tiun kategorion ankaŭ forigos ĉiujn ĝiajn vidojn."
 #, kde-kuit-format
 msgctxt "@action:inmenu rename view"
 msgid "Rename"
-msgstr "Alinomi"
+msgstr "Renomi"
 
 #: kptviewlist.cpp:742
 #, kde-kuit-format
@@ -2135,7 +2135,7 @@ msgstr "Forpreni"
 #, kde-kuit-format
 msgctxt "@action:inmenu rename view category"
 msgid "Rename"
-msgstr "Alinomi"
+msgstr "Renomi"
 
 #: kptviewlist.cpp:759
 #, kde-kuit-format
