@@ -159,7 +159,7 @@
 ><title
 >Editar les dades</title>
   <para
->Els elements editables s'obren per editar fent doble clic sobre l'element o, si feu servir el teclat, prement la tecla <keycap
+>Els elements editables s'obren per a editar fent doble clic sobre l'element o, si feu servir el teclat, prement la tecla <keycap
 >F2</keycap
 > s'obrirà l'element actual. </para>
   <para
@@ -225,7 +225,7 @@
 ><title
 >Arrossegar i deixar anar / Copiar i enganxar</title>
   <para
->La majoria de les vistes admeten arrossegar i deixar anar, així com copia i enganxa. Els gràfics i els gràfics de Gantt es poden arrossegar cap a aplicacions que admeten imatges. Les dades de la taula empren el tipus mime &HTML;, per la qual cosa es poden descartar en qualsevol aplicació que L'admeti. Si la vista admet moure o copiar elements internament, &pex;, a l'<link linkend="task-editor"
+>La majoria de les vistes admeten arrossegar i deixar anar, així com copia i enganxa. Els gràfics i els gràfics de Gantt es poden arrossegar cap a aplicacions que admeten imatges. Les dades de la taula empren el tipus MIME &HTML;, per la qual cosa es poden descartar en qualsevol aplicació que l'admeti. Si la vista admet moure o copiar elements internament, &pex;, a l'<link linkend="task-editor"
 >Editor de tasques</link
 >, els elements també es poden moure o copiar. </para>
 </sect3>

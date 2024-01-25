@@ -4,7 +4,7 @@
 ><title
 >Descripció</title>
   <para
->La vista del generador d'informes s'utilitza per afegir i generar informes en el format de text de document obert (ODT).</para
+>La vista del generador d'informes s'utilitza per a afegir i generar informes en el format de text de document obert (ODT).</para
 ><para
 >Els informes poden basar-se en les plantilles d'informe proporcionades, o podeu <link linkend="creating-odt-report-templates"
 >escriure les vostres pròpies plantilles</link
@@ -109,7 +109,7 @@
 ><title
 >Barra d'eines</title>
   <para
->La barra d'eines proporciona els mitjans per afegir, eliminar i generar informes. </para>
+>La barra d'eines proporciona els mitjans per a afegir, eliminar i generar informes. </para>
   <para>
     <informaltable>
       <tgroup cols="3">

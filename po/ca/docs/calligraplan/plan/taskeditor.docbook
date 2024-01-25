@@ -444,7 +444,7 @@
   <para
 >Permet recórrer a experiències passades i estandarditzar operacions similars. </para>
   <para
->Per inserir un mòdul de tasques en el vostre projecte, arrossegueu-lo des de l'acoblador i deixeu-lo anar en el projecte. </para>
+>Per a inserir un mòdul de tasques en el vostre projecte, arrossegueu-lo des de l'acoblador i deixeu-lo anar en el projecte. </para>
   <para
 >Un mòdul de tasques és un fitxer normal del Plan, i està dissenyat utilitzant el &plan; de la mateixa manera que es dissenya un projecte normal. </para>
   <para
@@ -480,7 +480,7 @@
 ><title
 >Configurar</title>
   <para
->Utilitzant el menú contextual, la vista es podrà configurar per mostrar/ocultar el Projecte, dividir / no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració. </para>
+>Utilitzant el menú contextual, la vista es podrà configurar per a mostrar/ocultar el Projecte, dividir / no dividir la vista en arbre o es podrà configurar utilitzant el diàleg de configuració. </para>
   <para>
     <informaltable>
       <tgroup cols="2">

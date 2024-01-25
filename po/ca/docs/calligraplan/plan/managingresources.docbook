@@ -30,7 +30,7 @@
   <para
 >Tingueu en compte que el projecte encara es pot obrir inclús si el fitxer de recursos no està disponible. </para>
   <para
->Si s'ha suprimit quelcom al fitxer de recursos compartits, se us presentarà un diàleg on podreu seleccionar com tractar els elements suprimits. </para>
+>Si s'ha suprimit alguna cosa al fitxer de recursos compartits, se us presentarà un diàleg on podreu seleccionar com tractar els elements suprimits. </para>
   <para
 >Podeu seleccionar si un element s'haurà de: <itemizedlist>
   <listitem
@@ -49,7 +49,7 @@
 ><para
 ><emphasis
 >Mantenir:</emphasis
-> Manté l'element com a element compartit al projecte. La propera vegada que es carregui el fitxer de recursos, se us demanarà de nou com tractar l'element.</para>
+> Manté l'element com a element compartit al projecte. La pròxima vegada que es carregui el fitxer de recursos, se us demanarà de nou com tractar l'element.</para>
   </listitem>
   </itemizedlist>
   </para>

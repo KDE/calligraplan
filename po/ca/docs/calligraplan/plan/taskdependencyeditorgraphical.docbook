@@ -53,7 +53,7 @@
             </entry>
             <entry>
               <para
->Seleccioneu l'element per editar-lo</para>
+>Seleccioneu l'element per a editar-lo</para>
             </entry>
           </row>
           <row>
@@ -99,7 +99,7 @@
   <para
 >De manera alternativa, podreu posar l'àrea de connexió del predecessor en l'àrea de connexió del successor. </para>
   <para
->Per editar o suprimir una dependència existent, podreu obrir una dependència seleccionant-la o obrint el seu menú contextual. </para>
+>Per a editar o suprimir una dependència existent, podreu obrir una dependència seleccionant-la o obrint el seu menú contextual. </para>
   <para
 >També podreu obrir el menú contextual sobre una àrea de connexió, el qual permetrà editar totes les dependències connectades amb aquesta àrea. </para>
 </sect3>

@@ -97,7 +97,7 @@
 ></term>
       <listitem>
       <para
->El cost (o esforç) que s'hauria d'haver utilitzat per assolir el progrés establert.</para>
+>El cost (o esforç) que s'hauria d'haver utilitzat per a assolir el progrés establert.</para>
       </listitem>
   </varlistentry>
   <varlistentry
@@ -275,7 +275,7 @@
 ></term>
       <listitem>
       <para
->Un grup de recursos s'utilitza per agrupar els <link linkend="resource"
+>Un grup de recursos s'utilitza per a agrupar els <link linkend="resource"
 >recursos</link
 > similars.</para>
       </listitem>

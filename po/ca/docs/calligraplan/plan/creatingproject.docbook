@@ -9,7 +9,7 @@
 >Vista inicial</link
 >. </para>
 <para
->Això crearà un projecte nou amb els valors predeterminats definits a <xref linkend="configure-plan-dialog" xrefstyle="select:title"/> o a partir dels valors definits a la plantilla. S'obrirà el diàleg Configuració del projecte per permetre definir les propietats específiques del projecte, com el <emphasis
+>Això crearà un projecte nou amb els valors predeterminats definits a <xref linkend="configure-plan-dialog" xrefstyle="select:title"/> o a partir dels valors definits a la plantilla. S'obrirà el diàleg Configuració del projecte per a permetre definir les propietats específiques del projecte, com el <emphasis
 >nom del projecte</emphasis
 >, <emphasis
 >gestor</emphasis

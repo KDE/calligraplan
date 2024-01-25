@@ -92,7 +92,7 @@
 ><title
 >Dades de la taula</title
 > <para
->Una taula en una plantilla d'informe consisteix d'una variable per especificar la taula de dades a utilitzar.</para
+>Una taula en una plantilla d'informe consisteix d'una variable per a especificar la taula de dades a utilitzar.</para
 > <para
 >El nom de la variable haurà de començar amb <replaceable
 >taula</replaceable
@@ -128,7 +128,7 @@
 ><title
 >Dades del gràfic</title
 > <para
->Un gràfic en una plantilla d'informe consta d'una variable per especificar les dades que s'utilitzaran en el gràfic.</para
+>Un gràfic en una plantilla d'informe consta d'una variable per a especificar les dades que s'utilitzaran en el gràfic.</para
 ><para
 >El nom de la variable haurà de començar amb el <replaceable
 >gràfic</replaceable
@@ -677,7 +677,7 @@
 >tableTaskStatus</guilabel
 >. </para>
     <para
->El valor de la variable s'empra per apuntar a les dades que s'han d'obtenir i haurà de ser una de les taules admeses llistades anteriorment, &pex;. <guilabel
+>El valor de la variable s'empra per a apuntar a les dades que s'han d'obtenir i haurà de ser una de les taules admeses llistades anteriorment, &pex;. <guilabel
 >taskstatus</guilabel
 >. </para>
     <para
