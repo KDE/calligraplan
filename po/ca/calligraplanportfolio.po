@@ -1,16 +1,16 @@
 # Translation of calligraplanportfolio.po to Catalan
-# Copyright (C) 2021-2023 This_file_is_part_of_KDE
+# Copyright (C) 2021-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2021, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-03-23 09:53+0100\n"
+"PO-Revision-Date: 2024-01-28 18:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -446,7 +446,7 @@ msgstr ""
 "<title>L'editor de contingut de la cartera</title><para>Aquest editor permet "
 "configurar el contingut de la vostra cartera.</para><para>Seleccioneu "
 "<interface>Edita|Afegeix...</interface> o premeu <interface>Afegeix...</"
-"interface> per afegir projectes a la cartera.<nl/>Seleccioneu "
+"interface> per a afegir projectes a la cartera.<nl/>Seleccioneu "
 "<interface>Edita|Elimina</interface> o premeu <interface>Elimina</interface> "
 "per a eliminar els projectes seleccionats.</para><para>Afegiu els projectes "
 "que esteu gestionant i establiu <emphasis>Cartera</emphasis> = <emphasis>Sí</"
@@ -625,7 +625,7 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Progrés</title><para>Aquesta vista s'utilitza per inspeccionar i "
+"<title>Progrés</title><para>Aquesta vista s'utilitza per a inspeccionar i "
 "editar la informació del progrés de les tasques per al projecte seleccionat."
 "<nl/>Les tasques es divideixen en grups dependents de l'estat de la tasca:"
 "<list><item><emphasis>No iniciada:</emphasis> Tasques que haurien d'haver "
@@ -633,10 +633,10 @@ msgstr ""
 "s'han iniciat, però que encara no han acabat.</"
 "item><item><emphasis>Finalitzada:</emphasis> Tasques que han acabat en "
 "aquest període.</item><item><emphasis>Pròxim període:</emphasis>Tasques que "
-"s'han programat per començar en el període següent.</item></list>El període "
-"de temps és configurable.</para><para>Aquesta vista admet la configuració i "
-"la impressió utilitzant el menú contextual.<nl/><link url='%1'>Més...</"
-"link></para>"
+"s'han programat per a començar en el període següent.</item></list>El "
+"període de temps és configurable.</para><para>Aquesta vista admet la "
+"configuració i la impressió utilitzant el menú contextual.<nl/><link "
+"url='%1'>Més...</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -742,13 +742,13 @@ msgstr "Planificació: %1 no està planificat"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr "Planificació %1: Planificat per iniciar-se: %1"
+msgstr "Planificació %1: Planificat per a iniciar-se: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr "Planificació %1: Planificat per finalitzar: %1"
+msgstr "Planificació %1: Planificat per a finalitzar: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
@@ -1029,13 +1029,13 @@ msgstr ""
 "prioritat.</para><para>Establiu el <emphasis>Control</emphasis> a "
 "<emphasis>Planificació</emphasis> per al projecte o projectes que voleu "
 "programar.<nl/>Establiu el <emphasis>Control</emphasis> a <emphasis>Inclou</"
-"emphasis> per tenir assignacions de recursos incloses en l'anivellament de "
+"emphasis> per a tenir assignacions de recursos incloses en l'anivellament de "
 "recursos.<nl/>Establiu el <emphasis>Control</emphasis> a <emphasis>Exclou</"
 "emphasis> si voleu excloure el projecte.</para><para><note>Si els vostres "
 "projectes comparteixen recursos amb projectes que no formen part de la "
 "vostra cartera, aquests projectes cal incloure'ls a l'anivellament de "
-"recursos per funcionar correctament.</note></para><para><link url='%1'>Més..."
-"</link></para>"
+"recursos per a funcionar correctament.</note></para><para><link "
+"url='%1'>Més...</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
