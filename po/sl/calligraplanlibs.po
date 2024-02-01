@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2008, 2012, 2013.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2021-03-31 12:43+0200\n"
+"PO-Revision-Date: 2024-01-31 17:54+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -248,7 +248,7 @@ msgstr "Podprojekt"
 #: kernel/kptnode.cpp:157
 #, kde-format
 msgid "Task"
-msgstr "Opravilo"
+msgstr "Naloga"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
 #: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
@@ -382,7 +382,7 @@ msgstr "Razporedi"
 #: kernel/kptproject.cpp:237 kernel/kptproject.cpp:342
 #, kde-format
 msgid "Schedule tasks forward"
-msgstr "Razpored opravilo naprej"
+msgstr "Razporejanje nalog naprej"
 
 #: kernel/kptproject.cpp:239 kernel/kptproject.cpp:345
 #, kde-format
@@ -437,7 +437,7 @@ msgstr "Izračunan zgodnji začetek: %1"
 #: kernel/kptproject.cpp:371
 #, kde-format
 msgid "Schedule tasks backward"
-msgstr "Razporedi opravila nazaj"
+msgstr "Razporejanje nalog nazaj"
 
 #: kernel/kptproject.cpp:384
 #, kde-format
@@ -744,7 +744,7 @@ msgstr "%1: Ni mogoče razporediti do poznega zaključka."
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
-msgstr "%1: Ni mogoče razporediti do začetka naslednjega opravila"
+msgstr "%1: Ni mogoče razporediti do začetka naslednje naloge"
 
 #: kernel/kpttask.cpp:2169 kernel/kpttask.cpp:2295
 #, kde-format
@@ -760,7 +760,7 @@ msgstr "Noben vir ni bil dodeljen"
 #: kernel/kpttask.cpp:2608
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
-msgstr "Ni mogoče uskladiti trajanja opravila. Željeno: %1 dobljeno: %2"
+msgstr "Ni mogoče uskladiti trajanja naloge. Želeno: %1 dobljeno: %2"
 
 #: kernel/kpttask.cpp:3858
 #, kde-format
@@ -1869,19 +1869,19 @@ msgstr "Datum"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The name of the task"
-msgstr "Ime opravila"
+msgstr "Ime naloge"
 
 #: models/kptcommonstrings.cpp:31
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type"
-msgstr "Vrsta opravila"
+msgstr "Vrsta naloge"
 
 #: models/kptcommonstrings.cpp:32
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The person responsible for this task"
-msgstr "Oseba, odgovorna za to opravilo"
+msgstr "Oseba, odgovorna za to nalogo"
 
 #: models/kptcommonstrings.cpp:33
 #, kde-kuit-format
@@ -1911,7 +1911,7 @@ msgstr "Končni čas omejitve"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task notes"
-msgstr "Opombe opravila"
+msgstr "Opombe naloge"
 
 #: models/kptcommonstrings.cpp:38
 #, kde-kuit-format
@@ -1933,7 +1933,7 @@ msgid ""
 "estimate for this task"
 msgstr ""
 "Kontrole tveganj, ki so ga uporabili algoritmi PERTH ob izračunu trenutne "
-"ocene za to opravilo"
+"ocene za to nalogo"
 
 #: models/kptcommonstrings.cpp:41
 #, kde-kuit-format
@@ -1955,25 +1955,25 @@ msgstr "Tekoči stroški za račun"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at startup of the task"
-msgstr "Račun za stroške, ki se pojavijo ob začetku opravila"
+msgstr "Račun za stroške, ki se pojavijo ob začetku naloge"
 
 #: models/kptcommonstrings.cpp:44
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at startup of the task"
-msgstr "Stroški, ki so se pojavili o začetku opravila"
+msgstr "Stroški, ki so se pojavili o začetku naloge"
 
 #: models/kptcommonstrings.cpp:45
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at shutdown of the task"
-msgstr "Račun za stroške, ki so se pojavili ob zaključku opravila"
+msgstr "Račun za stroške, ki so se pojavili ob zaključku naloge"
 
 #: models/kptcommonstrings.cpp:46
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at shutdown of the task"
-msgstr "Stroški, ki so se pojavili ob zaključku opravila"
+msgstr "Stroški, ki so se pojavili ob zaključku naloge"
 
 #: models/kptcommonstrings.cpp:48
 #, kde-kuit-format
@@ -1991,25 +1991,25 @@ msgstr "Planiran čas zaključka"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest start time allowed by dependencies"
-msgstr "Najzgodnejši začetek, dovoljen glede odvisnih opravil"
+msgstr "Najzgodnejši začetek, dovoljen glede odvisnih nalog"
 
 #: models/kptcommonstrings.cpp:51
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest finish time allowed by dependencies"
-msgstr "Najzgodnejši čas zaključka, dovoljen glede odvisnih opravil"
+msgstr "Najzgodnejši čas zaključka, dovoljen glede odvisnih nalog"
 
 #: models/kptcommonstrings.cpp:52
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest start time allowed by dependencies"
-msgstr "Najpoznejši začetek, dovoljen glede odvisnih opravil"
+msgstr "Najpoznejši začetek, dovoljen glede odvisnih nalog"
 
 #: models/kptcommonstrings.cpp:53
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest finish time allowed by dependencies"
-msgstr "Najpoznejši čas zaključka, dovoljen glede odvisnih opravil"
+msgstr "Najpoznejši čas zaključka, dovoljen glede odvisnih nalog"
 
 #: models/kptcommonstrings.cpp:55
 #, kde-kuit-format
@@ -2021,7 +2021,7 @@ msgstr "Načrtovano trajanje"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The variance of the duration"
-msgstr "Varianca trajanja opravila"
+msgstr "Varianca trajanja naloge"
 
 #: models/kptcommonstrings.cpp:57
 #, kde-kuit-format
@@ -2042,8 +2042,8 @@ msgid ""
 "The duration by which a tasks start can be delayed without affecting the "
 "project completion time"
 msgstr ""
-"Čas, za kolikor lahko začetek opravila zamudi, ne da bi vplival na končni "
-"čas projekta"
+"Čas, za kolikor lahko začetek naloge zamudi, ne da bi vplival na končni čas "
+"projekta"
 
 #: models/kptcommonstrings.cpp:62
 #, kde-kuit-format
@@ -2052,7 +2052,7 @@ msgid ""
 "The duration by which the duration of a task or path has to be reduced in "
 "order to fulfill a timing constraint"
 msgstr ""
-"Čas za kolikor je treba čas opravila skrajšati, da bi lahko zadovoljili "
+"Čas za kolikor je treba čas naloge skrajšati, da bi lahko zadovoljili "
 "časovne omejitve"
 
 #: models/kptcommonstrings.cpp:63
@@ -2062,7 +2062,7 @@ msgid ""
 "Negative float is the duration by which the duration of a task or path has "
 "to be reduced in order to fulfill a timing constraint."
 msgstr ""
-"Negativna premičnost je dolžina časa, za katerega je treba trajanje opravila "
+"Negativna premičnost je dolžina časa, za katerega je treba trajanje naloge "
 "ali poti zmanjšati, da se izpolni časovna omejitev."
 
 #: models/kptcommonstrings.cpp:65
@@ -2072,8 +2072,8 @@ msgid ""
 "The duration by which a task can be delayed or extended without affecting "
 "the start of any succeeding task"
 msgstr ""
-"Čas za koliko lahko opravilo zamuja ali je lahko podaljšano, ne da bi "
-"vplival na začetek kateregakoli naslednjega opravila"
+"Čas za koliko lahko naloga zamuja ali je lahko podaljšano, ne da bi vplivala "
+"na začetek katerekoli naslednje naloge"
 
 #: models/kptcommonstrings.cpp:66
 #, kde-kuit-format
@@ -2082,8 +2082,8 @@ msgid ""
 "Free float is the duration by which a task can be delayed or extended "
 "without affecting the start of any succeeding task."
 msgstr ""
-"Prosta premičnost je dolžina časa, s katerim lahko opravilo odložite ali "
-"podaljšate, ne da bi to vplivalo na začetek katere koli naslednje opravila."
+"Prosta premičnost je dolžina časa, s katerim lahko nalogo odložite ali "
+"podaljšate, ne da bi to vplivalo na začetek katere koli naslednje naloge."
 
 #: models/kptcommonstrings.cpp:68
 #, kde-kuit-format
@@ -2115,19 +2115,19 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The resources assigned to the task"
-msgstr "Viri ki so dodeljeni opravilu"
+msgstr "Viri dodeljeni k nalogi"
 
 #: models/kptcommonstrings.cpp:76
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task status"
-msgstr "Stanje opravila"
+msgstr "Stanje naloge"
 
 #: models/kptcommonstrings.cpp:77
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task completion"
-msgstr "Dokončanje opravila"
+msgstr "Dokončanje naloge"
 
 #: models/kptcommonstrings.cpp:78
 #, kde-kuit-format
@@ -2163,25 +2163,25 @@ msgstr "Dejanski strošek"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually started"
-msgstr "Čas ob katerem se je opravilo res pričelo"
+msgstr "Čas ob katerem se je naloga res pričela"
 
 #: models/kptcommonstrings.cpp:84
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is started"
-msgstr "Prikaže če je bilo opravilo pričeto"
+msgstr "Prikaže se, če je bila naloga pričeta"
 
 #: models/kptcommonstrings.cpp:85
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually finished"
-msgstr "Čas ob katerem se je opravilo res zaključilo"
+msgstr "Čas ob katerem se je naloga res zaključila"
 
 #: models/kptcommonstrings.cpp:86
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is finished"
-msgstr "Prikaže če je opravilo zaključeno"
+msgstr "Prikaže se, če je naloga zaključena"
 
 #: models/kptcommonstrings.cpp:87
 #, kde-kuit-format
@@ -2241,13 +2241,13 @@ msgstr "Vrsta tveganja"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows the tasks scheduling status"
-msgstr "Prikazuje planirana stanja opravil"
+msgstr "Prikazuje planirana stanja nalog"
 
 #: models/kptcommonstrings.cpp:101
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task has not been scheduled"
-msgstr "Opravilo še ni bilo razporejeno"
+msgstr "Naloga še ni bilo razporejena"
 
 #: models/kptcommonstrings.cpp:102
 #, kde-format
@@ -2258,13 +2258,13 @@ msgstr "Napor je bil ocenjen, a noben vir še ni bil dodeljen"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is overbooked"
-msgstr "Vir dodeljen temu opravilu je večkratno dodeljen"
+msgstr "Vir dodeljen tej nalogi je večkratno dodeljen"
 
 #: models/kptcommonstrings.cpp:104
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is not available"
-msgstr "Vir dodeljen temu opravilu ni na voljo"
+msgstr "Vir dodeljen tej nalogi ni na voljo"
 
 #: models/kptcommonstrings.cpp:105
 #, kde-kuit-format
@@ -2424,9 +2424,9 @@ msgstr ""
 "<para>Kontrolira prekomerno dodeljevanje virov pri razporejanju.</para> "
 "<para>Če je dovoljeno prekomerno dodeljevanje, se (v delovnih dneh) lahko za "
 "delo rezervira več virov, kot jih je na voljo. To se lahko zgodi, če je vir "
-"dodeljen pri več opravilih, ki so rezervirani pri drugih projektih.</para> "
+"dodeljen pri več nalogah, ki so rezervirani pri drugih projektih.</para> "
 "<para>Če se prekomernemu dodeljevanju želimo izogniti, viri ne bodo "
-"rezervirani večkrat kot so na voljo. V primeru konflikta z viri, se opravila "
+"rezervirani večkrat kot so na voljo. V primeru konflikta z viri, se naloge "
 "zakasnijo, dokler njihov vir ni na voljo.</para>"
 
 #: models/kptcommonstrings.cpp:142
@@ -2445,8 +2445,8 @@ msgid ""
 "on the entered optimistic- (O), pessimistic-(P) and most likely (M) "
 "estimate. The formula used for this is (O + 4 * M + P) / 6.</para>"
 msgstr ""
-"<para>Porazdelitev, ki se uporablja med planiranjem</para><para>Če je "
-"porazdelitev 'Brez', se uporablja enaka ocena opravil kot pri planiranju.</"
+"<para>Porazdelitev, ki se uporablja med razporejanjem</para><para>Če je "
+"porazdelitev 'Brez', se uporablja enaka ocena nalog kot pri planiranju.</"
 "para><para>Če je distribucija \"PERT\", se uporablja trajanje na podlagi na "
 "vnesenih optimističnih- (O), pesimističnih- (P) in najverjetnejših- (M) "
 "ocen. Za to je uporabljena formula (O + 4 * M + P) / 6.</para>"
@@ -2572,13 +2572,13 @@ msgstr "Časovna cona koledarja"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The name of the required task"
-msgstr "Ime zahtevanega opravila"
+msgstr "Ime zahtevane naloge"
 
 #: models/kptcommonstrings.cpp:189
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The name of the dependent task"
-msgstr "Ime odvisnega opravila"
+msgstr "Ime odvisne naloge"
 
 #: models/kptcommonstrings.cpp:190
 #, kde-kuit-format
@@ -2719,7 +2719,7 @@ msgstr "Izveden stroškovno proračunski plan"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cost based Actual Cost of Work Performed"
-msgstr "Stroški dejansko izvedenih opravil"
+msgstr "Stroški dejansko izvedenih nalog"
 
 #: models/kptnodechartmodel.cpp:266
 #, kde-kuit-format
@@ -3030,7 +3030,7 @@ msgstr "Dodeljeni viri:<nl/>%1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
-msgstr "Opravilo %1 je končano"
+msgstr "Naloga %1 je končana"
 
 #: models/kptnodeitemmodel.cpp:1339
 #, kde-format
@@ -3170,13 +3170,13 @@ msgstr "Dejanski začetek: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task started at: %1"
-msgstr "Opravilo se je začelo ob: %1"
+msgstr "Naloga se je začela ob: %1"
 
 #: models/kptnodeitemmodel.cpp:1470
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not started"
-msgstr "Opravilo ni začeto"
+msgstr "Naloga še ni začeta"
 
 #: models/kptnodeitemmodel.cpp:1492
 #, kde-kuit-format
@@ -3188,13 +3188,13 @@ msgstr "Dejanski zaključek: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task finished at: %1"
-msgstr "Opravilo se je zaključilo ob: %1"
+msgstr "Naloga se je zaključila ob: %1"
 
 #: models/kptnodeitemmodel.cpp:1521
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not finished"
-msgstr "Opravilo ni zaključeno"
+msgstr "Naloga še ni zaključena"
 
 #: models/kptnodeitemmodel.cpp:1535
 #, kde-kuit-format
@@ -3233,8 +3233,8 @@ msgid ""
 "Resource allocation is expected when the task estimate type is  "
 "<emphasis>Effort</emphasis>"
 msgstr ""
-"Razporeditev virov je pričakovana, ko je vrsta ocene opravila "
-"<emphasis>Napor</emphasis>"
+"Razporeditev virov je pričakovana, ko je vrsta ocene naloge <emphasis>Napor</"
+"emphasis>"
 
 #: models/kptnodeitemmodel.cpp:1712
 #, kde-kuit-format
@@ -3246,7 +3246,7 @@ msgstr "Vir je bil večkratno dodeljen"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resource is available for this task"
-msgstr "Za to opravilo ni na voljo vira"
+msgstr "Za to nalogo ni na voljo vira"
 
 #: models/kptnodeitemmodel.cpp:1778
 #, kde-kuit-format
@@ -3258,7 +3258,7 @@ msgstr "Ne ustreza zahtevanim časovnim omejitvam"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "This task has not been scheduled"
-msgstr "To opravilo še ni bilo razporejeno"
+msgstr "Ta naloga še ni bila razporejena"
 
 #: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
@@ -3277,31 +3277,31 @@ msgstr "Napaka pri razporejanju"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work breakdown structure code: %1"
-msgstr "Koda razčlenitve strukture opravil: %1"
+msgstr "Koda razčlenitve strukture nalog: %1"
 
 #: models/kptnodeitemmodel.cpp:1922
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task level: %1"
-msgstr "Stopnja opravila: %1"
+msgstr "Nivo naloge: %1"
 
 #: models/kptnodeitemmodel.cpp:1938
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled at %1: %2"
-msgstr "Proračunski stroški razporejenih opravil pri %1: %2"
+msgstr "Proračunski stroški razporejenih nalog pri %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1954
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed at %1: %2"
-msgstr "Proračunski stroški izvedenih opravil pri %1: %2"
+msgstr "Proračunski stroški izvedenih nalog pri %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1970
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed at %1: %2"
-msgstr "Dejanski stroški izvedenih opravil pri %1: %2"
+msgstr "Dejanski stroški izvedenih nalog pri %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1986
 #, kde-kuit-format
@@ -3320,13 +3320,13 @@ msgstr "NA"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent to %1 at %2"
-msgstr "Zadnji paket opravil poslan na %1: %2"
+msgstr "Zadnji delovni paket poslan na %1: %2"
 
 #: models/kptnodeitemmodel.cpp:2071
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received from %1 at %2"
-msgstr "Zadnji paket opravil sprejet od %1: %2"
+msgstr "Zadnji delovni paket sprejet od %1: %2"
 
 #: models/kptnodeitemmodel.cpp:2073 models/kptnodeitemmodel.cpp:2137
 #, kde-kuit-format
@@ -3338,13 +3338,13 @@ msgstr "Ni na voljo"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent: %1"
-msgstr "Zadnji paket opravil poslan: %1"
+msgstr "Zadnji delovni paket poslan: %1"
 
 #: models/kptnodeitemmodel.cpp:2135
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received: %1"
-msgstr "Zadnji paket opravil sprejet: %1"
+msgstr "Zadnji delovni paket sprejet: %1"
 
 #: models/kptnodeitemmodel.cpp:2289 ui/RelationEditorDialog.cpp:257
 #, kde-kuit-format
@@ -3750,7 +3750,7 @@ msgstr "Spremeni ime"
 #: models/kptnodeitemmodel.cpp:2695
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
-msgstr "Spremeni ime opravila"
+msgstr "Spremeni ime naloge"
 
 #: models/kptnodeitemmodel.cpp:2696
 msgctxt "(qtundo-format)"
@@ -3760,7 +3760,7 @@ msgstr "Spremeni ime mejnika"
 #: models/kptnodeitemmodel.cpp:2697
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
-msgstr "Spremeni ime zaključnega opravila"
+msgstr "Spremeni ime zaključne naloge"
 
 #: models/kptnodeitemmodel.cpp:2698
 msgctxt "(qtundo-format)"
@@ -3775,7 +3775,7 @@ msgstr "Spremeni odgovorno osebo"
 #: models/kptnodeitemmodel.cpp:2733 ui/kpttaskdescriptiondialog.cpp:51
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
-msgstr "Spremeni opis opravila"
+msgstr "Spremeni opis naloge"
 
 #: models/kptnodeitemmodel.cpp:2756
 msgctxt "(qtundo-format)"
@@ -3905,18 +3905,18 @@ msgstr "Označi kot dokončano"
 #: models/kptnodeitemmodel.cpp:4051
 msgctxt "(qtundo-format)"
 msgid "Insert tasks"
-msgstr "Vstavi opravila"
+msgstr "Vstavi naloge"
 
 #: models/kptnodeitemmodel.cpp:4076
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Task Module Parameters"
-msgstr "Parametri modula opravila"
+msgstr "Parametri modula naloge"
 
 #: models/kptnodeitemmodel.cpp:4082
 msgctxt "(qtundo-format)"
 msgid "Insert task module"
-msgstr "Vstavi modul opravila"
+msgstr "Vstavi modul naloge"
 
 #: models/kptnodeitemmodel.cpp:4140
 #, kde-format
@@ -3927,18 +3927,18 @@ msgstr "Vstavi %1"
 #: models/kptnodeitemmodel.cpp:4220 models/kptnodeitemmodel.cpp:5016
 msgctxt "(qtundo-format)"
 msgid "Move tasks"
-msgstr "Premakni opravila"
+msgstr "Premakni naloge"
 
 #: models/kptnodeitemmodel.cpp:4288 ui/kpttaskdialog.cpp:178
 #: ui/kpttaskdialog.cpp:215
 msgctxt "(qtundo-format)"
 msgid "Add task"
-msgstr "Dodaj opravilo"
+msgstr "Dodaj nalogo"
 
 #: models/kptnodeitemmodel.cpp:4317 ui/kpttaskdialog.cpp:213
 msgctxt "(qtundo-format)"
 msgid "Add sub-task"
-msgstr "Dodaj podopravilo"
+msgstr "Dodaj pod-nalogo"
 
 #: models/kptpertcpmmodel.cpp:162
 #, kde-format
@@ -3973,12 +3973,12 @@ msgstr "Zakasnitev"
 #: models/kptrelationmodel.cpp:330
 msgctxt "(qtundo-format)"
 msgid "Modify relation type"
-msgstr "Spremeni relacijo med opravili"
+msgstr "Spremeni vrsto relacije"
 
 #: models/kptrelationmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Modify relation time lag"
-msgstr "Spremeni časovni zamik med opravili"
+msgstr "Spremeni časovni zamik relacije"
 
 #: models/kptresourceallocationmodel.cpp:162
 #: models/kptresourceallocationmodel.cpp:220
@@ -4181,7 +4181,7 @@ msgstr "Celotna dodelitev %1 z maksimalnimi urami za vir"
 #: models/kptresourceappointmentsmodel.cpp:697
 #, kde-format
 msgid "Total booking by this task"
-msgstr "Skupne dodelitve za to opravilo"
+msgstr "Skupne rezervacije te naloge"
 
 #: models/kptresourceappointmentsmodel.cpp:699
 #, kde-format
@@ -4191,7 +4191,7 @@ msgstr "Skupne dodelitve za zunanji projekt"
 #: models/kptresourceappointmentsmodel.cpp:742
 #, kde-format
 msgid "Booking by this task on %1"
-msgstr "Dodelitev za to opravilo za %1"
+msgstr "Rezervacije te naloge za %1"
 
 #: models/kptresourceappointmentsmodel.cpp:744
 #, kde-format
@@ -4255,7 +4255,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1:<nl/>This resource will be automatically allocated to new tasks"
-msgstr "%1:<nl/>Ta vir bo avtomatično dodeljen novim opravilom"
+msgstr "%1:<nl/>Ta vir bo avtomatično dodeljen novim nalogam"
 
 #: models/kptresourcemodel.cpp:126 models/kptresourcemodel.cpp:169
 #, kde-kuit-format
@@ -4610,7 +4610,7 @@ msgstr "PERT"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
-msgstr "Uporabite PERT distribucijo za izračun pričakovane ocene opravil"
+msgstr "Uporabite PERT distribucijo za izračun pričakovane ocene nalog"
 
 #: models/kptschedulemodel.cpp:622
 #, kde-kuit-format
@@ -4824,17 +4824,17 @@ msgstr "Ni začeto"
 #: models/kpttaskstatusmodel.cpp:54
 #, kde-format
 msgid "Tasks that should have been started"
-msgstr "Opravila, ki so se začela"
+msgstr "Naloge, ki so se začele"
 
 #: models/kpttaskstatusmodel.cpp:58
 #, kde-format
 msgid "Tasks that are running"
-msgstr "Opravila, ki so v teku"
+msgstr "Naloge, ki so v teku"
 
 #: models/kpttaskstatusmodel.cpp:62
 #, kde-format
 msgid "Tasks that have finished during this period"
-msgstr "Opravila, ki so se zaključila v tem obdobju"
+msgstr "Naloge, ki so se zaključile v tem obdobju"
 
 #: models/kpttaskstatusmodel.cpp:65
 #, kde-format
@@ -4844,7 +4844,7 @@ msgstr "Naslednje obdobje"
 #: models/kpttaskstatusmodel.cpp:66
 #, kde-format
 msgid "Tasks that are scheduled to start next period"
-msgstr "Opravila razporejena tako, da se začenjajo v naslednjem obdobju"
+msgstr "Naloge razporejene tako, da se začenjajo v naslednjem obdobju"
 
 #: models/kptworkpackagemodel.cpp:83
 #, kde-format
@@ -4874,7 +4874,7 @@ msgstr "Delovni paket prejet ob: %1"
 #: models/kptworkpackagemodel.cpp:141
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr "Sporočeno, da je opravilo %1 dokončano"
+msgstr "Sporočeno, da je naloga %1 dokončana"
 
 #: models/reportgenerator/ReportGenerator.cpp:81
 #, kde-format
@@ -5320,10 +5320,10 @@ msgid ""
 msgstr ""
 "<title>Urejevalnik struktur razčlenitve stroškov</title><para>Struktura "
 "razčlenitve stroškov(CBS) je sestavljena iz računov organiziranih v drevesno "
-"strukturo. Računi so lahko vezani na opravila ali vire. Običajno bosta dva "
-"vrha računov, enega za združevanje stroškov iz opravil in enega za "
-"združevanje stroškov virov.</para><para>Ta pogled podpira tiskanje v "
-"kontekstu <nl/><link url='%1'>Več ...</link></para>"
+"strukturo. Računi so lahko vezani na naloge ali vire. Običajno bosta dva "
+"vrha računov, enega za združevanje stroškov iz nalog in enega za združevanje "
+"stroškov virov.</para><para>Ta pogled podpira tiskanje v kontekstu <nl/"
+"><link url='%1'>Več ...</link></para>"
 
 #: ui/kptaccountseditor.cpp:291
 #, kde-kuit-format
@@ -5501,19 +5501,19 @@ msgid ""
 "working resource, when the resources calendar is not explicitly set.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Urejevalnik dela in dopustov</title><para>Koledar določa "
-"razpoložljivost virov ali opravil tipa <emphasis>Trajanje</emphasis>. "
-"Koledar je lahko določen samo za vir ali opravilo ali v skupni rabi z več "
-"viri ali opravili.Dan je lahko tipa <emphasis>Neopredeljen</emphasis>, "
-"<emphasis>Ne-delovni dan</emphasis> ali <emphasis>Delovni dan</emphasis>. "
-"Delovni dan ima eno oz.določenih več delovnih intervalov.</"
-"para><para>Koledar ima lahko pod koledarje.Če dan v koledarju ni določen, se "
-"preveri nadrejeni koledar. <emphasis>Neopredeljen</emphasis> dan je privzeto "
-"<emphasis>ne-deloven</emphasis>, če ga uporablja vir ali <emphasis>na voljo "
-"ves dan</emphasis>,če ga uporablja opravilo.</para><para>Koledar je mogoče "
-"opredeliti kot<emphasis>Privzeti koledar</emphasis>. Delovni vir uporablja "
-"privzeti koledar, kadar koledar virov ni izrecno nastavljen.<nl/><link "
-"url='%1'>Več...</link></para>"
+"<title>Urejevalnik dela in počitnic</title><para>Koledar določa "
+"razpoložljivost virov ali nalog tipa <emphasis>Trajanje</emphasis>. Koledar "
+"je lahko določen samo za vir ali nalogo ali v skupni rabi z več viri ali "
+"nalogami. Dan je lahko tipa <emphasis>Neopredeljen</emphasis>, <emphasis>Ne-"
+"delovni dan</emphasis> ali <emphasis>Delovni dan</emphasis>. Delovni dan ima "
+"eno oz. določenih več delovnih intervalov.</para><para>Koledar ima lahko pod "
+"koledarje. Če dan v koledarju ni določen, se preveri nadrejeni koledar. "
+"<emphasis>Neopredeljen</emphasis> dan je privzeto <emphasis>ne-deloven</"
+"emphasis>, če ga uporablja vir ali <emphasis>na voljo ves dan</emphasis>, če "
+"ga uporablja naloga.</para><para>Koledar je mogoče opredeliti "
+"kot<emphasis>Privzeti koledar</emphasis>. Delovni vir uporablja privzeti "
+"koledar, kadar koledar virov ni izrecno nastavljen.<nl/><link url='%1'>Več..."
+"</link></para>"
 
 #: ui/kptcalendareditor.cpp:646
 #, kde-format
@@ -5604,23 +5604,22 @@ msgid ""
 "delete a dependency using the context menu.</para><para>This view supports "
 "printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Urejevalnik odvisnosti opravil</title><para>Urejanje odvisnosti med "
-"opravili. Odvisnosti lahko dodate z vlečenjem območja povezave (začetek ali "
-"zaključek) od enega opravila do področja povezave drugega opravila. Lahko "
-"urejate oz. brišete odvisnosti s kontekstnim menijem.</para><para>Ta pogled "
-"podpira tiskanje s kontekstnim menijem.<nl/><link url='%1'>Več...</link></"
-"para>"
+"<title>Urejevalnik odvisnosti nalog</title><para>Urejanje odvisnosti med "
+"nalogami. Odvisnosti lahko dodate z vlečenjem območja povezave (začetek ali "
+"zaključek) od ene naloge do področja povezave druge naloge. Lahko urejate "
+"oz. brišete odvisnosti s kontekstnim menijem.</para><para>Ta pogled podpira "
+"tiskanje s kontekstnim menijem.<nl/><link url='%1'>Več...</link></para>"
 
 #: ui/kptdependencyeditor.cpp:2344 ui/kpttaskeditor.cpp:865
 #: ui/kpttaskeditor.cpp:869
 #, kde-format
 msgid "Add Task"
-msgstr "Dodaj opravilo"
+msgstr "Dodaj nalogo"
 
 #: ui/kptdependencyeditor.cpp:2348
 #, kde-format
 msgid "Add Task..."
-msgstr "Dodaj opravilo ..."
+msgstr "Dodaj nalogo..."
 
 #: ui/kptdependencyeditor.cpp:2353
 #, kde-format
@@ -5631,12 +5630,12 @@ msgstr "Dodaj mejnik ..."
 #: ui/kpttaskeditor.cpp:884
 #, kde-format
 msgid "Add Sub-Task"
-msgstr "Dodaj podopravilo"
+msgstr "Dodaj pod-nalogo"
 
 #: ui/kptdependencyeditor.cpp:2363
 #, kde-format
 msgid "Add Sub-Task..."
-msgstr "Dodaj podopravilo ..."
+msgstr "Dodaj pod-nalogo..."
 
 #: ui/kptdependencyeditor.cpp:2368
 #, kde-format
@@ -5652,7 +5651,7 @@ msgstr "Povezava"
 #: ui/kptdocumentsdialog.cpp:37
 #, kde-format
 msgid "Task Documents"
-msgstr "Dokumenti opravila"
+msgstr "Dokumenti naloge"
 
 #: ui/kptdocumentseditor.cpp:219 ui/kptscheduleeditor.cpp:658
 #: ui/kpttaskeditor.cpp:672
@@ -5887,7 +5886,7 @@ msgstr "Dodatna besedilna informacija"
 #: ui/kptganttchartdisplayoptions.ui:159
 #, kde-format
 msgid "Task name"
-msgstr "Ime opravila"
+msgstr "Ime naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
 #: ui/kptganttchartdisplayoptions.ui:166
@@ -5905,13 +5904,13 @@ msgstr "Dodatna slikovna informacija"
 #: ui/kptganttchartdisplayoptions.ui:185
 #, kde-format
 msgid "Task dependencies"
-msgstr "Odvisnosti opravil"
+msgstr "Odvisnosti nalog"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
 #: ui/kptganttchartdisplayoptions.ui:192
 #, kde-format
 msgid "Task completion"
-msgstr "Dokončanje opravila"
+msgstr "Dokončanje naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
 #: ui/kptganttchartdisplayoptions.ui:199
@@ -5941,7 +5940,7 @@ msgstr "Kritična pot"
 #: ui/kptganttchartdisplayoptions.ui:240
 #, kde-format
 msgid "Critical tasks"
-msgstr "Kritična opravila"
+msgstr "Kritične naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
 #: ui/kptganttchartdisplayoptions.ui:247
@@ -5954,7 +5953,7 @@ msgstr "Napake pri razporejanju"
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr ""
-"Ime: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/>Status: %4"
+"Ime: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/>Stanje: %4"
 
 #: ui/kptganttitemdelegate.cpp:103
 #, kde-kuit-format
@@ -5964,7 +5963,7 @@ msgid ""
 ">Status: %6"
 msgstr ""
 "Ime: %1<nl/>Dokončano: %2 %<nl/>Dejanski začetek: %3<nl/>Planirano: %4 - "
-"%5<nl/>Status: %6"
+"%5<nl/>Stanje: %6"
 
 #: ui/kptganttitemdelegate.cpp:126 ui/kptganttitemdelegate.cpp:144
 #, kde-kuit-format
@@ -5973,14 +5972,14 @@ msgid ""
 "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Constraint type: %5<nl/"
 ">Constraint time: %6<nl/>Negative float: %7 h"
 msgstr ""
-"Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Vrsta omejitve: %5<nl/"
-">Časovna omejitev: %6<nl/>xxxNegative float: %7 h"
+"Ime: %1<nl/>Planirano: %2 - %3<nl/>Stanje: %4<nl/>Vrsta omejitve: %5<nl/"
+">Časovna omejitev: %6<nl/>Negativna pomičnost: %7 h"
 
 #: ui/kptganttitemdelegate.cpp:161
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
-msgstr "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5 xxx"
+msgstr "Ime: %1<nl/>Planirano: %2 - %3<nl/>Stanje: %4<nl/>Razporejanje: %5"
 
 #: ui/kptganttitemdelegate.cpp:180 ui/kptganttitemdelegate.cpp:197
 #, kde-kuit-format
@@ -5989,14 +5988,14 @@ msgid ""
 "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Constraint type: %4<nl/"
 ">Constraint time: %5<nl/>Negative float: %6 h"
 msgstr ""
-"Ime: %1<nl/>Planirano: %2 Status: %3<nl/>Vrsta omejitve: %4<nl/>Omejitveni "
-"čas: %5 Negative float: %6 h xxx"
+"Ime: %1<nl/>Planirano: %2 Stanje: %3<nl/>Vrsta omejitve: %4<nl/>Omejitveni "
+"čas: %5 Negativna pomičnost: %6 h"
 
 #: ui/kptganttitemdelegate.cpp:213
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
-msgstr "Ime: %1<nl/>Planirano: %2<nl/>Status: %3<nl/>Scheduling: %4 xxx"
+msgstr "Ime: %1<nl/>Planirano: %2<nl/>Stanje: %3<nl/>Razporejanje: %4"
 
 #: ui/kptganttitemdelegate.cpp:226
 #, kde-kuit-format
@@ -6016,7 +6015,7 @@ msgstr "Glave"
 #, kde-format
 msgctxt "@option:check"
 msgid "Print task names"
-msgstr "Natisni imena opravil"
+msgstr "Natisni imena nalog"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
 #: ui/kptganttprintingoptions.ui:30
@@ -6116,7 +6115,7 @@ msgid ""
 "configuration and printing using the context menu of the tree view.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Ganttov diagram</title><para>Prikaže razporejena opravila v Ganttovem "
+"<title>Ganttov diagram</title><para>Prikaže razporejene naloge v Ganttovem "
 "diagramu. Območje grafikona lahko povečate in pomanjšate z drsnikom, "
 "nameščenim v zgornjem levem kotu časovne lestvice.<note>Da se pokaže, morate "
 "z miško premakniti nad njim</note></para><para>Ta pogled podpira nastavitve "
@@ -6131,7 +6130,7 @@ msgstr "Prikaži projekt"
 #: ui/kptganttview.cpp:1117
 #, kde-format
 msgid "Show Unscheduled Tasks"
-msgstr "Prikaži nerazporejena opravila"
+msgstr "Prikaži nerazporejene naloge"
 
 #: ui/kptganttview.cpp:1128 ui/kptganttview.cpp:1691 ui/kptganttview.cpp:2028
 #, kde-format
@@ -6205,9 +6204,9 @@ msgid ""
 "context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Ganttov diagram dodelitve virov</title><para>Prikaže načrtovano "
-"dodelitev virov - opravilom v Ganttovem diagramu. Območje grafikona je "
-"mogoče povečati ali zmanjšati z drsnikom, nameščenim v zgornjem levem kotu "
-"časovne lestvice.<note>Da se pokaže, morate z miško prek njega.</note></"
+"dodelitev virov - nalogam v Ganttovem diagramu. Območje grafikona je mogoče "
+"povečati ali zmanjšati z drsnikom, nameščenim v zgornjem levem kotu časovne "
+"lestvice.<note>Da se pokaže, morate z miško prek njega.</note></"
 "para><para>Ta pogled podpira nastavitve in tiskanje s pomočjo kontekstnega "
 "menija.<nl/><link url='%1'>Več...</link></para>"
 
@@ -6349,10 +6348,10 @@ msgid ""
 "<nl/>You can define the WBS code pattern using the <interface>Project-"
 ">Define WBS Pattern</interface> menu entry."
 msgstr ""
-"Struktura razčlenitve dela uvaja oštevilčenje vseh opravil v projektu, v "
-"skladu s strukturo opravil.<nl/>Koda WBS se ustvari samodejno.<nl/>Vzorec "
-"kode WBS lahko določite s pomočjo vmesnika <interface> Project- > Določite "
-"vzorec WBS</interface>."
+"Struktura razčlenitve dela uvaja oštevilčenje vseh nalog v projektu, v "
+"skladu s strukturo nalog.<nl/>Koda WBS se ustvari samodejno.<nl/>Vzorec kode "
+"WBS lahko določite s pomočjo vmesnika <interface> Projekt- >Določi vzorec "
+"WBS</interface>."
 
 #: ui/kptmainprojectpanel.cpp:115
 #, kde-kuit-format
@@ -6407,7 +6406,7 @@ msgstr "Očisti dodelitve deljenih virov"
 #: ui/kptmainprojectpanel.cpp:410
 #, kde-format
 msgid "Task Modules Path"
-msgstr "Pot modulov opravil"
+msgstr "Pot modulov nalog"
 
 #. i18n: ectx: property (text), widget (QLabel, wbslabel)
 #: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
@@ -6593,7 +6592,7 @@ msgstr "Arhiv:"
 #: ui/kptmainprojectpanelbase.ui:481
 #, kde-format
 msgid "Task Modules"
-msgstr "Moduli opravil"
+msgstr "Moduli nalog"
 
 #. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
 #: ui/kptmainprojectpanelbase.ui:526
@@ -6605,7 +6604,7 @@ msgstr "Vstavi"
 #: ui/kptmainprojectpanelbase.ui:550
 #, kde-format
 msgid "Use local task modules"
-msgstr "Uporabi lokalne module opravil"
+msgstr "Uporabi lokalne module nalog"
 
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, kde-format
@@ -6620,7 +6619,7 @@ msgstr "Spremeni dokončanje mejnika"
 #: ui/kptperteditor.cpp:165
 msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
-msgstr "Odstrani odvisnost opravila"
+msgstr "Odstrani odvisnost naloge"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
@@ -6628,25 +6627,25 @@ msgstr "Odstrani odvisnost opravila"
 #: ui/reports/reportdata.cpp:383
 #, kde-format
 msgid "Tasks"
-msgstr "Opravila"
+msgstr "Naloge"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, available)
 #: ui/kptperteditor.ui:29
 #, kde-format
 msgid "Available tasks"
-msgstr "Opravila ki so na voljo"
+msgstr "Naloge, ki so na voljo"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
 #: ui/kptperteditor.ui:64
 #, kde-format
 msgid "Add required task"
-msgstr "Dodaj zahtevano opravilo"
+msgstr "Dodaj zahtevano nalogo"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
 #: ui/kptperteditor.ui:80
 #, kde-format
 msgid "Remove required task"
-msgstr "Odstrani zahtevano opravilo"
+msgstr "Odstrani zahtevano nalogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/kptpertresult.ui:90
@@ -6714,7 +6713,7 @@ msgstr "Zakasnitev:"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "<emphasis>Lag</emphasis> is the time the dependent task is delayed"
-msgstr "<emphasis>Zamik</emphasis> je čas, ko odvisno opravilo zamuja"
+msgstr "<emphasis>Zamik</emphasis> je čas, ko odvisna naloga zamuja"
 
 #: ui/kptrelationdialog.cpp:54
 #, kde-kuit-format
@@ -6725,7 +6724,7 @@ msgstr "Dodaj odvisnost"
 #: ui/kptrelationdialog.cpp:100
 msgctxt "(qtundo-format)"
 msgid "Add task dependency"
-msgstr "Dodaj odvisnost opravila"
+msgstr "Dodaj odvisnost naloge"
 
 #: ui/kptrelationdialog.cpp:146 ui/RelationEditorDialog.cpp:248
 #, kde-kuit-format
@@ -6742,12 +6741,12 @@ msgstr "Izbriši"
 #: ui/kptrelationdialog.cpp:175
 msgctxt "(qtundo-format)"
 msgid "Delete task dependency"
-msgstr "Izbriši odvisnost opravila"
+msgstr "Izbriši odvisnost naloge"
 
 #: ui/kptrelationdialog.cpp:179
 msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
-msgstr "Spremeni odvisnost opravila"
+msgstr "Spremeni odvisnost naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
 #: ui/kptresourceappointmentsdisplayoptions.ui:16
@@ -6775,13 +6774,13 @@ msgid ""
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Pogled dodeljevanja virov</title><para>Prikaže razporejene dodelitve "
-"virov k opravilom.</para><para>Ta pogled podpira nastavitve in tiskanje s "
+"virov k nalogam.</para><para>Ta pogled podpira nastavitve in tiskanje s "
 "kontekstnim menijem.<nl/><link url='%1'>Več...</link></para>"
 
 #: ui/kptresourceassignmentview.cpp:242
 #, kde-format
 msgid "No task attributed"
-msgstr "Nobeno opravilo ni dodeljeno"
+msgstr "Nobena naloga ni dodeljena"
 
 #: ui/kptresourceassignmentview.cpp:321
 #, kde-format
@@ -6830,11 +6829,11 @@ msgid ""
 msgstr ""
 "<title>Urejevalnik virov</title><para>Viri so organizirani v Strukturi "
 "razčlenitve virov. Viri so lahko tipa <emphasis>Delo</emphasis> ali "
-"<emphasis>Material</emphasis>. Ko je opravilo dodeljeno, vir vrste "
-"<emphasis>Delo</emphasis> lahko vpliva na trajanje opravila, medtem ko vir "
+"<emphasis>Material</emphasis>. Ko je naloga dodeljena, vir vrste "
+"<emphasis>Delo</emphasis> lahko vpliva na trajanje naloge, medtem ko vir "
 "vrste <emphasis>Material</emphasis> ne. Viri se morajo sklicevati na "
 "<emphasis>koledar</emphasis>, opredeljen v <emphasis> Urejevalniku dela in "
-"dopustov</emphasis>.<nl/><link url='%1'>Več...</link></para>"
+"počitnic</emphasis>.<nl/><link url='%1'>Več...</link></para>"
 
 #: ui/kptresourceeditor.cpp:294
 #, kde-format
@@ -6869,9 +6868,9 @@ msgstr ""
 "emphasis> in mora biti razpored najvišje ravni brez podrejenih razporeditev."
 "</note></para><para>V razporeditvi so lahko podrejene razporeditve. "
 "Podrejene razporeditve lahko uporabijo podatke o napredku projektov, da se "
-"preloži opravila, ki še niso zaključena. Ponovno razporejanje bo nato "
-"uporabilo npr. dejanski začetek in preostanek delovnega napora za opravila."
-"<nl/><link url='%1'>Več...</link></para>"
+"preloži naloge, ki še niso zaključene. Ponovno razporejanje bo nato "
+"uporabilo npr. dejanski začetek in preostanek delovnega napora za naloge.<nl/"
+"><link url='%1'>Več...</link></para>"
 
 #: ui/kptscheduleeditor.cpp:308
 #, kde-format
@@ -6955,12 +6954,12 @@ msgstr "Spremeni konverzije ocen"
 #: ui/kptsummarytaskdialog.cpp:39
 #, kde-format
 msgid "Summary Task Settings"
-msgstr "Nastavitev povzetka opravil"
+msgstr "Nastavitev povzetka nalog"
 
 #: ui/kptsummarytaskdialog.cpp:64
 msgctxt "(qtundo-format)"
 msgid "Modify Summary Task"
-msgstr "Spremeni zaključno opravilo"
+msgstr "Spremeni zaključno nalogo"
 
 #: ui/kptsummarytaskgeneralpanel.cpp:58 ui/kpttaskgeneralpanel.cpp:53
 #, kde-format
@@ -6971,8 +6970,8 @@ msgid ""
 "You can define the WBS code pattern using the Define WBS Pattern command in "
 "the Tools menu."
 msgstr ""
-"Struktura razčlenitve opravil uvaja oštevilčenje vseh opravil v projekt, v "
-"skladu s strukturo opravil.\n"
+"Struktura razčlenitve nalog uvaja oštevilčenje vseh nalog v projekt, v "
+"skladu s strukturo nalog.\n"
 "Koda WBS se ustvari samodejno.\n"
 "Vzorec označevanja WBS lahko določite z ukazom Definiraj vzorec WBS v meniju "
 "Orodja."
@@ -6980,13 +6979,13 @@ msgstr ""
 #: ui/kptsummarytaskgeneralpanel.cpp:90 ui/kpttaskdialog.cpp:109
 msgctxt "(qtundo-format)"
 msgid "Modify task"
-msgstr "Spremeni opravilo"
+msgstr "Spremeni nalogo"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
 #: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
 #, kde-format
 msgid "Work Breakdown Structure"
-msgstr "Struktura delovnih opravil"
+msgstr "Struktura delovnih nalog"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
@@ -6996,7 +6995,7 @@ msgstr "Struktura delovnih opravil"
 #: ui/kpttaskgeneralpanelbase.ui:71
 #, kde-format
 msgid "The name of the Task."
-msgstr "Ime opravila."
+msgstr "Ime naloge."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
@@ -7011,7 +7010,7 @@ msgid ""
 "anyone. You can even directly access your address book with the Choose "
 "button."
 msgstr ""
-"Oseba, ki je odgovorna za to opravilo.\n"
+"Oseba, ki je odgovorna za to nalogo.\n"
 "\n"
 "Ni omejeno samo na osebe, ki so na voljo v skupini virov. To je lahko "
 "kdorkoli. Z gumbom Izbor lahko neposredno dostopate do svojega adresarja."
@@ -7047,7 +7046,7 @@ msgstr "Prednost:"
 #: ui/kpttaskcostpanel.cpp:101
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
-msgstr "Spremeni stroške opravila"
+msgstr "Spremeni stroške naloge"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
@@ -7086,7 +7085,7 @@ msgstr "Spremeni opis mejnika"
 #: ui/kpttaskdescriptiondialog.cpp:55
 msgctxt "(qtundo-format)"
 msgid "Modify summary task description"
-msgstr "Spremeni povzetek opisa opravila"
+msgstr "Spremeni povzetek opisa naloge"
 
 #: ui/kpttaskdescriptiondialog.cpp:57
 msgctxt "(qtundo-format)"
@@ -7101,12 +7100,12 @@ msgstr "Opis projekta"
 #: ui/kpttaskdescriptiondialog.cpp:135
 #, kde-format
 msgid "Task Description"
-msgstr "Opis opravila"
+msgstr "Opis naloge"
 
 #: ui/kpttaskdialog.cpp:45
 #, kde-format
 msgid "Task Settings"
-msgstr "Nastavitve opravila"
+msgstr "Nastavitve naloge"
 
 #: ui/kpttaskdialog.cpp:52
 #, kde-format
@@ -7137,7 +7136,7 @@ msgstr "&Opis"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
-msgstr "Tip opravila ali tip ocene opravila"
+msgstr "Tip naloge ali tip ocene naloge"
 
 #: ui/kpttaskeditor.cpp:103
 #, kde-kuit-format
@@ -7148,8 +7147,8 @@ msgid ""
 "<emphasis>Duration</emphasis>.<nl/><note>If the type is <emphasis>Summary</"
 "emphasis> or <emphasis>Project</emphasis> the type is not editable.</note>"
 msgstr ""
-"<p>Označuje vrsto opravila ali vrsto ocene opravila.</p>Vrsto lahko "
-"nastavite na <emphasis>mejnik</emphasis>, <emphasis>napor</emphasis> ali "
+"<p>Označuje vrsto naloge ali vrsto ocene naloge.</p>Vrsto lahko nastavite na "
+"<emphasis>mejnik</emphasis>, <emphasis>napor</emphasis> ali "
 "<emphasis>Trajanje</emphasis>.<nl/><note>Če je vrsta <emphasis>Povzetek</"
 "emphasis> ali <emphasis>Projekt</emphasis> te vrste ni mogoče urejati.</note>"
 
@@ -7157,13 +7156,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
-msgstr "Opravilo s tipom ocene: %1"
+msgstr "Naloga s tipom ocene: %1"
 
 #: ui/kpttaskeditor.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task type: %1"
-msgstr "Vrsta opravila: %1"
+msgstr "Vrsta naloge: %1"
 
 #: ui/kpttaskeditor.cpp:185 ui/kpttaskeditor.cpp:187
 msgctxt "(qtundo-format)"
@@ -7185,10 +7184,10 @@ msgid ""
 "any depth.</para><para>This view supports configuration and printing using "
 "the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Urejevalnik opravil</title><para>Urejevalnik opravil se uporablja za "
-"ustvarjanje, urejanje in brisanje opravil. Opravila so organizirana v "
-"strukturo razčlenitve del (WBS) do poljubne globine.</para><para>Ta pogled "
-"podpira nastavitve in tiskanje z uporabo kontekstnega menija.<nl/><link "
+"<title>Urejevalnik nalog</title><para>Urejevalnik nalog se uporablja za "
+"ustvarjanje, urejanje in brisanje nalog. Naloge so organizirane v strukturo "
+"razčlenitve del (WBS) do poljubne globine.</para><para>Ta pogled podpira "
+"nastavitve in tiskanje z uporabo kontekstnega menija.<nl/><link "
 "url='%1'>Več...</link></para>"
 
 #: ui/kpttaskeditor.cpp:440
@@ -7210,14 +7209,14 @@ msgid ""
 "Drag resources into the Task Editor and drop into the allocations- or "
 "responsible column"
 msgstr ""
-"Povlecite vire v urejevalnik opravil in jih spustite v dodelitve oz. "
-"odgovorni stolpec"
+"Povlecite vire v urejevalnik nalog in jih spustite v dodelitve oz. odgovorni "
+"stolpec"
 
 #: ui/kpttaskeditor.cpp:490
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Task Modules"
-msgstr "Moduli opravil"
+msgstr "Moduli nalog"
 
 #: ui/kpttaskeditor.cpp:491
 #, kde-kuit-format
@@ -7226,7 +7225,7 @@ msgid ""
 "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to "
 "the project"
 msgstr ""
-"Povlecite modul opravila v <emphasis>Urejevalnik opravil</emphasis>, da ga "
+"Povlecite modul naloge v <emphasis>Urejevalnik nalog</emphasis>, da ga "
 "dodate k projektu"
 
 #: ui/kpttaskeditor.cpp:516
@@ -7239,11 +7238,11 @@ msgid ""
 "regular plan file and typically includes tasks, estimates and dependencies.</"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Moduli opravil</title> <para>Moduli opravil je skupina opravil, ki "
-"jih lahko ponovno uporabimo med projekti. To omogoča črpanje preteklih "
-"izkušenj in standardizacijo podobnih operacij.</para><para>Modul opravila je "
-"običajna datoteka plana in vključuje opravila, ocene in odvisnosti.</"
-"para><para><link url='%1'>Več...</link></para>"
+"<title>Moduli nalog</title> <para>Moduli nalog so skupina nalog, ki jih "
+"lahko ponovno uporabimo med projekti. To omogoča črpanje preteklih izkušenj "
+"in standardizacijo podobnih operacij.</para><para>Modul naloge je običajna "
+"datoteka plana in vključuje naloge, ocene in odvisnosti.</para><para><link "
+"url='%1'>Več...</link></para>"
 
 #: ui/kpttaskeditor.cpp:874
 #, kde-format
@@ -7258,12 +7257,12 @@ msgstr "Dodaj podrejeni mejnik"
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Indent Task"
-msgstr "Zamakni opravilo"
+msgstr "Zamakni nalogo"
 
 #: ui/kpttaskeditor.cpp:908
 #, kde-format
 msgid "Unindent Task"
-msgstr "Odzamakni opravilo"
+msgstr "Odzamakni nalogo"
 
 #: ui/kpttaskeditor.cpp:912
 #, kde-format
@@ -7280,20 +7279,20 @@ msgstr "Premakni dol"
 msgctxt "(qtundo-format)"
 msgid "Indent task"
 msgid_plural "Indent %1 tasks"
-msgstr[0] "Zamakni %1 opravilo"
-msgstr[1] "Zamakni %1 opravili"
-msgstr[2] "Zamakni %1 opravila"
-msgstr[3] "Zamakni %1 opravil"
+msgstr[0] "Zamakni %1 nalogo"
+msgstr[1] "Zamakni %1 nalogi"
+msgstr[2] "Zamakni %1 naloge"
+msgstr[3] "Zamakni %1 nalog"
 
 #: ui/kpttaskeditor.cpp:1123
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
-msgstr[0] "Odzamakni %1 opravilo"
-msgstr[1] "Odzamakni %1 opravili"
-msgstr[2] "Odzamakni %1 opravila"
-msgstr[3] "Odzamakni %1 opravil"
+msgstr[0] "Odzamakni %1 nalogo"
+msgstr[1] "Odzamakni %1 nalogi"
+msgstr[2] "Odzamakni %1 naloge"
+msgstr[3] "Odzamakni %1 nalog"
 
 #: ui/kpttaskeditor.cpp:1277
 #, kde-kuit-format
@@ -7304,10 +7303,10 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
-"<title>Pogled izvajanja opravil</title><para>Pogled se uporablja za urejanje "
-"in pregledovanje napredovanja opravil med izvajanjem projekta.</"
-"para><para>Ta pogled podpira nastavitve in tiskanje s kontekstnim menijem."
-"<nl/><link url='%1'>Več...</link></para>"
+"<title>Pogled izvajanja nalog</title><para>Pogled se uporablja za urejanje "
+"in pregledovanje napredovanja nalog med izvajanjem projekta.</para><para>Ta "
+"pogled podpira nastavitve in tiskanje s kontekstnim menijem.<nl/><link "
+"url='%1'>Več...</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
 #: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
@@ -7328,7 +7327,7 @@ msgstr "Delovni paket za pošiljanje dnevnika"
 #: ui/kpttaskgeneralpanel.cpp:115
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
-msgstr "Spremeni opravilo"
+msgstr "Spremeni nalogo"
 
 #. i18n: ectx: property (text), widget (QLabel, namelabel)
 #: ui/kpttaskgeneralpanelbase.ui:55
@@ -7343,7 +7342,7 @@ msgid ""
 "The person responsible for this task.\n"
 "        "
 msgstr ""
-"Oseba, odgovorna za to opravilo.\n"
+"Oseba, odgovorna za to nalogo.\n"
 "        "
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
@@ -7371,12 +7370,12 @@ msgid ""
 "fixed duration of the task, but only the costs."
 msgstr ""
 "Nastavitve razporejanja. Te nastavitve vplivajo na dejansko razporejanje "
-"opravil.\n"
+"nalog.\n"
 "\n"
 "Ocena je lahko na podlagi delovnega napora ali trajanja. Če je ocena na "
 "osnovi delovnega napora, je končno trajanje odvisno od virov, ki so "
-"dodeljenih opravil. Pri oceni na podlagi trajanja dodeljeni viri ne vplivajo "
-"na določeno trajanje opravila, ampak le na stroške."
+"dodeljeni nalogi. Pri oceni na podlagi trajanja dodeljeni viri ne vplivajo "
+"na določeno trajanje naloge, ampak le na stroške."
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
 #: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
@@ -7430,7 +7429,7 @@ msgid ""
 "estimate for this task."
 msgstr ""
 "Tveganje nadzoruje porazdelitev PERT pri izračunu dejanske ocene časa za to "
-"opravilo."
+"nalogo."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
 #: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
@@ -7444,7 +7443,7 @@ msgid ""
 "compared to Low risk.</p>"
 msgstr ""
 "<p>Tveganje nadzoruje porazdelitev PERT, uporabljena pri izračunu dejanske "
-"ocene opravila.\n"
+"ocene naloge.\n"
 "<b>Brez</b> pomeni, da se pričakovana ocena uporablja kot je.\n"
 "<b>Nizko tveganje</b> pomeni, da se uporablja normalna porazdelitev.\n"
 "<b>Visoko tveganje</b> pomeni, da bo ocena nekoliko pesimistična v "
@@ -7468,7 +7467,7 @@ msgid ""
 "compared to Low risk.</p>"
 msgstr ""
 "<p>Tveganje nadzoruje porazdelitev PERT, uporabljena pri izračunu dejanske "
-"ocene opravila.\n"
+"ocene naloge.\n"
 "<b>Brez</b> pomeni, da se pričakovana ocena uporablja kot je.\n"
 "<b>Nizko tveganje</b> pomeni, da se uporablja normalna porazdelitev.\n"
 "<b>Visoko tveganje</b> pomeni, da bo ocena nekoliko pesimistična v "
@@ -7489,7 +7488,7 @@ msgstr "&Pesimistično:"
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
 msgid "Task Progress"
-msgstr "Potek opravila"
+msgstr "Potek naloge"
 
 #: ui/kpttaskprogressdialog.cpp:55
 #, kde-kuit-format
@@ -7509,42 +7508,42 @@ msgid ""
 "item></list><note>You should select the desired edit mode when starting the "
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Urejanje napredka opravila</title><para>To pogovorno okno vsebuje "
+"<title>Urejanje napredka naloge</title><para>To pogovorno okno vsebuje "
 "naslednje dele:<list><item>Nadzor načina urejanja za določitev obnašanja "
-"pogovornega okna.</item> <item>Nadzor za označevanje opravila kot začetega "
-"in končanega.</item><item>Tabela za vnos uporabljenega napora za vsak vir.</"
-"item><item>Tabela za vnos dokončanja opravila in preostalega delovnega "
-"napora.</item></list></para><para>Načini urejanja:<list><item><emphasis>Na "
-"vir</emphasis> vnesti morate uporabljeni delovni napor za vsak vir, dodeljen "
-"tem opravilu. To omogoča najbolj podrobno sledenje porabe delovnega napora "
-"in stroškov. </item><item><emphasis>Na opravilo</emphasis> vam omogoča, da "
+"pogovornega okna.</item> <item>Nadzor za označevanje naloge kot začete in "
+"končane.</item><item>Tabela za vnos uporabljenega napora za vsak vir.</"
+"item><item>Tabela za vnos dokončanja naloge in preostalega delovnega napora."
+"</item></list></para><para>Načini urejanja:<list><item><emphasis>Na vir</"
+"emphasis> vnesti morate uporabljeni delovni napor za vsak vir, dodeljen tej "
+"nalogi. To omogoča najbolj podrobno sledenje porabe delovnega napora in "
+"stroškov. </item><item><emphasis>Po nalogi</emphasis> vam omogoča, da "
 "vnesete minimum informacije. Ko se dokončanje spremeni, se dosedanji napor "
 "in preostali delovni napor samodejno izračuna, po želji pa ga lahko po "
 "potrebi ročno spremenite.</item></list> <note>Pri zagonu nastavitve morate "
-"izbrati želeni način urejanja opravila.</note><nl/><link url='%1'>Več...</"
+"izbrati želeni način urejanja naloge.</note><nl/><link url='%1'>Več...</"
 "link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:89
 msgctxt "(qtundo-format)"
 msgid "Modify Task Progress"
-msgstr "Spremeni potek opravil"
+msgstr "Spremeni potek naloge"
 
 #: ui/kpttaskprogresspanel.cpp:110
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Select the tasks finish time"
-msgstr "Izberite čas zaključka opravila"
+msgstr "Izberi čas zaključka naloge"
 
 #: ui/kpttaskprogresspanel.cpp:111
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finish the task at the selected time"
-msgstr "Zaključi opravilo ob izbranem času"
+msgstr "Zaključi nalogo ob izbranem času"
 
 #: ui/kpttaskprogresspanel.cpp:126
 msgctxt "(qtundo-format)"
 msgid "Modify task completion"
-msgstr "Spremeni dokončanje opravila"
+msgstr "Spremeni dokončanje naloge"
 
 #: ui/kpttaskprogresspanel.cpp:414 ui/kpttaskprogresspanel.cpp:429
 #, kde-format
@@ -7564,7 +7563,7 @@ msgstr "Teden %1"
 #: ui/RelationEditorDialog.ui:58
 #, kde-format
 msgid "Task:"
-msgstr "Opravilo:"
+msgstr "Naloge:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: ui/kpttaskprogresspanelbase.ui:45
@@ -7594,7 +7593,7 @@ msgstr "Po viru"
 #: ui/kpttaskprogresspanelbase.ui:130
 #, kde-format
 msgid "Per task"
-msgstr "Po opravilu"
+msgstr "Po nalogi"
 
 #. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
 #: ui/kpttaskprogresspanelbase.ui:177
@@ -7640,15 +7639,15 @@ msgid ""
 "para><para>This view supports configuration and printing using the context "
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Ogled stanja opravila</title><para>Pogled stanja opravil se uporablja "
-"za pregled informacije o napredku opravila. Opravila so razdeljena v "
-"skupine, odvisno od njihovih stanj:<list> <item>Ni zagnano\tOpravila, ki bi "
-"morala biti že začeta.</item> <item>Teče\tOpravila, ki so se začela, ne pa "
-"še zaključila.</item> <item>Zaključeno\tZa opravila, ki so se zaključila v "
-"tem obdobju.</item> <item>Naslednje obdobje\tOpravila, ki naj bi se začela v "
-"naslednjem obdobju.</item></list> Časovno obdobje je nastavljivo.</"
-"para><para>Ta pogled podpira nastavitve in tiskanje v kontekstu<nl/><link "
-"url='%1'>Več...</link></para>"
+"<title>Ogled stanja naloge</title><para>Pogled stanja nalog se uporablja za "
+"pregled informacije o napredku naloge. Naloge so razdeljene v skupine, "
+"odvisno od njihovih stanj:<list> <item>Ni zagnano\tNaloge, ki bi morala biti "
+"že začete.</item> <item>V teku\tNaloge, ki so se začele, ne pa še zaključile."
+"</item> <item>Zaključeno\tZa naloge, ki so se zaključile v tem obdobju.</"
+"item> <item>Naslednje obdobje\tNaloge, ki naj bi se začele v naslednjem "
+"obdobju.</item></list> Časovno obdobje je nastavljivo.</para><para>Ta pogled "
+"podpira nastavitve in tiskanje v kontekstu<nl/><link url='%1'>Več...</link></"
+"para>"
 
 #: ui/kpttaskstatusview.cpp:441
 #, kde-format
@@ -7740,7 +7739,7 @@ msgstr "Akumulirani uporabljeni napor"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Remaining effort to complete the task"
-msgstr "Preostali napor za dokončanje opravila"
+msgstr "Preostali napor za dokončanje naloge"
 
 #: ui/kptusedefforteditor.cpp:729
 #, kde-kuit-format
@@ -7986,13 +7985,13 @@ msgstr "Prekliči spremembe in pojdi nazaj na trenutni paket"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not started"
-msgstr "Opravilo še ni začeto"
+msgstr "Naloga še ni začeta"
 
 #: ui/kptworkpackagemergedialog.cpp:185
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not finished"
-msgstr "Opravilo še ni zaključeno"
+msgstr "Naloga še ni zaključena"
 
 #: ui/kptworkpackagemergedialog.cpp:197
 #, kde-kuit-format
@@ -8120,8 +8119,8 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
-"<title>Pogled uspešnosti opravil</title><para>Prikaže podatke o uspešnosti "
-"za izbrano opravilo.</para><para>Ta pogled podpira nastavitve in tiskanje s "
+"<title>Pogled uspešnosti nalog</title><para>Prikaže podatke o uspešnosti za "
+"izbrano nalogo.</para><para>Ta pogled podpira nastavitve in tiskanje s "
 "kontekstnim menijem.<nl/><link url='%1'>Več...</link></para>"
 
 #: ui/performance/PerformanceStatusView.cpp:391
@@ -8268,12 +8267,12 @@ msgid ""
 "<interface>OK</interface>.<nl/>The dropdown list of possible predecessors is "
 "sorted with the most likely tasks first.</para>"
 msgstr ""
-"<title>Pogovorno okno odvisnosti opravil</title> <para>Pogovorno okno "
-"odvisnosti opravil vam omogoča enostavno dodajanje predhodnika k izbranem "
-"opravilu.<nl/>Ko odpremo to okno, prikaže prejšnje opravilo kot privzetega "
-"predhodnika. Tole jepogosto želen predhodnik, in dodate ga lahko s pritiskom "
-"<interface>OK</interface>. <nl/>Spustni seznam možnih predhodnikov "
-"jerazvrščen z najverjetnejšimi opravili na začetku seznama.</para>"
+"<title>Pogovorno okno odvisnosti nalog</title> <para>Pogovorno okno "
+"odvisnosti nalog vam omogoča enostavno dodajanje predhodnika k izbrani "
+"nalogi.<nl/>Ko odpremo to okno, prikaže prejšnja naloga kot privzeta "
+"predhodnica. Tole je pogosto želen predhodnik, in dodate ga lahko s "
+"pritiskom <interface>OK</interface>. <nl/>Spustni seznam možnih predhodnikov "
+"je razvrščen z najverjetnejšimi nalogami na začetku seznama.</para>"
 
 #: ui/RelationEditorDialog.cpp:320
 #, kde-format
@@ -8314,7 +8313,7 @@ msgstr "Vrsta odvisnosti"
 #: ui/reports/reportdata.cpp:432
 #, kde-format
 msgid "Task status"
-msgstr "Stanje opravila"
+msgstr "Stanje naloge"
 
 #: ui/reports/reportdata.cpp:533
 #, kde-format
@@ -8943,10 +8942,10 @@ msgid ""
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
 "Te vrednosti se uporabijo, če vaša ocena ni v urah.\n"
-"Recimo, da je delovni dan 8 ur. Če ocenite, da opravila potrebujejo 3 dni "
-"delovnega napora za dokončanje, se to pretvori v 24 ur, kot je opravilo po "
+"Recimo, da je delovni dan 8 ur. Če ocenite, da naloge potrebujejo 3 dni "
+"delovnega napora za dokončanje, se to pretvori v 24 ur, kot je naloga po "
 "razporeditvi. Dejanski čas, potreben za dokončanje, je seveda odvisen od "
-"razpoložljivosti osebe (ali oseb), ki ji je dodeljeno opravilo."
+"razpoložljivosti osebe (ali oseb), ki ji je dodeljena naloga."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: ui/standardworktimedialogbase.ui:25
@@ -8972,8 +8971,7 @@ msgstr "Ur na teden:"
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
-"Te vrednosti se uporabljajo, ko ocenite napor, potreben za dokončanje "
-"opravila."
+"Te vrednosti se uporabljajo, ko ocenite napor, potreben za dokončanje naloge."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: ui/standardworktimedialogbase.ui:118
@@ -8984,17 +8982,17 @@ msgstr "Ur na dan:"
 #: ui/TasksEditDialog.cpp:46
 #, kde-format
 msgid "Tasks Settings"
-msgstr "Nastavitve opravil"
+msgstr "Nastavitve naloge"
 
 #: ui/TasksEditDialog.cpp:79
 msgctxt "(qtundo-format)"
 msgid "Modify tasks"
-msgstr "Spremeni opravila"
+msgstr "Spremeni naloge"
 
 #: ui/TasksGeneralPanel.cpp:111
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
-msgstr "Spremeni opravila"
+msgstr "Spremeni naloge"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: ui/TasksGeneralPanel.ui:25

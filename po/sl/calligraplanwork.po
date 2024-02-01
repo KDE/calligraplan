@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2010, 2012, 2013.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2021-03-31 12:43+0200\n"
+"PO-Revision-Date: 2024-01-31 17:54+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: aboutdata.h:33 aboutdata.h:42
 #, kde-format
@@ -57,7 +57,7 @@ msgstr "andrej.vernekar@gmail.com"
 #: calligraplanwork.rc:4 calligraplanworkui.rc:4
 #, kde-format
 msgid "&Edit"
-msgstr "&Uredi"
+msgstr "Ur&edi"
 
 #. i18n: ectx: ToolBar (view_selection)
 #: calligraplanwork.rc:8
@@ -69,7 +69,7 @@ msgstr "Pogled"
 #: calligraplanwork_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Pogled"
+msgstr "Pogled"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -123,8 +123,8 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
-"<p>Delovni paket že obstaja v skladišču.</p><p>Projekt: %1<br>Opravilo: %2</"
-"p><p> Ali želite posodobiti obstoječi paket s podatkiiz novega?</p>"
+"<p>Delovni paket že obstaja v hrambi.</p><p>Projekt: %1<br>Naloga: %2</p><p> "
+"Ali želite posodobiti obstoječi paket s podatki iz novega?</p>"
 
 #: part.cpp:419
 #, kde-format
@@ -216,7 +216,7 @@ msgstr "Ni mogoče urejati. Ni mogoče najti delovnega paketa."
 #: taskcompletiondialog.cpp:45
 #, kde-format
 msgid "Task Progress"
-msgstr "Potek opravila"
+msgstr "Potek naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: taskcompletionpanel.ui:33
@@ -400,8 +400,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
-"Opravilo: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/"
-">Stanje: %4<nl/>Projekt: %5"
+"Naloga: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/>Stanje: "
+"%4<nl/>Projekt: %5"
 
 #: taskworkpackageview.cpp:657
 #, kde-kuit-format
@@ -410,14 +410,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
-"Opravilo: %1<nl/>Zaključeno: %2 %<nl/>Dejanski začetek: %3<nl/>Planirano: %4 "
-"- %5<nl/>Stanje: %6<nl/>Projekt: %7"
+"Naloga: %1<nl/>Zaključena: %2 %<nl/>Dejanski začetek: %3<nl/>Planirana: %4 - "
+"%5<nl/>Stanje: %6<nl/>Projekt: %7"
 
 #: taskworkpackageview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr "Opravilo: %1<nl/>Planirano: %2 - %3<nl/>Stanje: %4<nl/>Projekt: %5"
+msgstr "Naloga: %1<nl/>Planirana: %2 - %3<nl/>Stanje: %4<nl/>Projekt: %5"
 
 #: view.cpp:96
 #, kde-format
@@ -438,7 +438,7 @@ msgstr "Seznam"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr "Izberi seznam opravil"
+msgstr "Izberi seznam nalog"
 
 #: view.cpp:109
 #, kde-format
@@ -556,7 +556,7 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
-"Ni mogoče shraniti v skladišče projektov:\n"
+"Ni mogoče shraniti v hrambo projektov:\n"
 "%1"
 
 #: workpackage.cpp:478

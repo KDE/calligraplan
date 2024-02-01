@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrej Vernekar <andrej.vernekar@gmail.com>, 2012.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2021-03-20 22:00+0100\n"
+"PO-Revision-Date: 2024-01-31 16:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: PlanTJPlugin.cpp:57
 #, kde-kuit-format
@@ -124,19 +124,19 @@ msgstr "Razporejen mejnik: %1"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled task: %1 - %2"
-msgstr "Razporejeno opravilo: %1 - %2"
+msgstr "Razporejena naloga: %1 - %2"
 
 #: PlanTJScheduler.cpp:549
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
-msgstr "%1: ni mogoče zadovoljiti omejitvam. Negativni plavajoči čas=%2"
+msgstr "%1: ni mogoče zadovoljiti omejitvam. Negativna pomičnost=%2"
 
 #: PlanTJScheduler.cpp:564
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
-msgstr "Ni mogoče zadovoljiti odvisnostim. Negativni plavajoči čas=%1"
+msgstr "Ni mogoče zadovoljiti odvisnostim. Negativna pomičnost=%1"
 
 #: PlanTJScheduler.cpp:721
 #, kde-kuit-format
