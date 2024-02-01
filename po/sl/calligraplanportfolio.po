@@ -1,14 +1,14 @@
 # POT_PART_NORMAL only
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-03-25 10:35+0100\n"
+"PO-Revision-Date: 2024-01-31 18:08+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -622,13 +622,13 @@ msgid ""
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Napredek</title><para>Ta pogled je v rabi nadzor in urejanje podatkov "
-"o napredku opravil za izbrani projekt.<nl/>Opravila so grupirana v "
-"odvisnosti od njihovega stanja:<list><item><emphasis>Ni začeto:</emphasis> "
-"Opravila, ki bi se morala zdaj že začeti.</item><item><emphasis>V teku:</"
-"emphasis> Opravila, ki so bila, a še niso bila dokončana.</"
-"item><item><emphasis>Dokončana:</emphasis> Opravila, ki so bila končana v "
-"tem obdobju.</item><item><emphasis>Naslednje obdobje:</emphasis> Opravila, "
-"ki so razporejena, da bodo začeta v naslednjem obdobju.</item></list>Časovno "
+"o napredku nalog za izbrani projekt.<nl/>Naloge so grupirane v odvisnosti od "
+"njihovega stanja:<list><item><emphasis>Ni začeto:</emphasis> Naloge, ki bi "
+"se morale zdaj že začeti.</item><item><emphasis>V teku:</emphasis> Naloge, "
+"ki so bile začete, a še niso bile dokončane.</item><item><emphasis>Dokončana:"
+"</emphasis> Naloge, ki so bila končane v tem obdobju.</"
+"item><item><emphasis>Naslednje obdobje:</emphasis> Naloge, ki so "
+"razporejene, da bodo začete v naslednjem obdobju.</item></list>Časovno "
 "obdobje je nastavljivo.</para><para>Ta pogled podpira konfiguracije in tisk "
 "s kontekstnim menijem.<nl/><link url='%1'>Več...</link></para>"
 
@@ -765,18 +765,18 @@ msgstr "Projekt nima nastavljene osnove"
 #: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
-msgstr "Ni opravil"
+msgstr "Ni nalog"
 
 #: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr "WBS: %1<nl/>Opravilo: %2<nl/>Projekt: %3"
+msgstr "WBS: %1<nl/>Naloga: %2<nl/>Projekt: %3"
 
 #: ResourceUsageView.cpp:51
 #, kde-format
 msgid "Tasks"
-msgstr "Opravila"
+msgstr "Naloge"
 
 #: ResourceUsageView.cpp:89
 #, kde-kuit-format
@@ -786,7 +786,7 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
-"<title>Raba virov</title><para>Ta pogled prikazuje dodelitve virov opravilom "
+"<title>Raba virov</title><para>Ta pogled prikazuje dodelitve virov nalogam "
 "za vsak dan.</para><para><nl/><link url='%1'>Več...</link></para>"
 
 #: ResourceUsageView.cpp:106
@@ -825,7 +825,7 @@ msgstr "Razporeditev"
 #, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Opravilo"
+msgstr "Naloga"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
@@ -999,7 +999,7 @@ msgstr "Izvzemi ta projekt"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr "Prednostna opravila so najprej razporejena"
+msgstr "Prednostne naloge so najprej razporejene"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format

@@ -3,14 +3,14 @@
 #
 #
 # Andrej Vernekar <andrej.vernekar@moj.net>, 2010, 2012, 2013.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2019, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 # Martin Srebotnjak <miles@filmsi.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-02-03 08:36+0100\n"
+"PO-Revision-Date: 2024-01-31 16:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Vernekar <andrej.vernekar@gmail.com>\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Orodje za upravljanje delovnih planov"
 #: aboutdata.h:31
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr "(c) 1998-%1, ekipa Plana"
+msgstr "(c) 1998-%1, Ekipa Plana"
 
 #: aboutdata.h:35
 #, kde-format
@@ -126,8 +126,8 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
-"<p>Delovni paket že obstaja v skladišču.</p><p>Projekt: %1<br>Opravilo: %2</"
-"p><p> Ali želite posodobiti obstoječi paket s podatkiiz novega?</p>"
+"<p>Delovni paket že obstaja v hrambi.</p><p>Projekt: %1<br>Naloga: %2</p><p> "
+"Ali želite posodobiti obstoječi paket s podatki iz novega?</p>"
 
 #: part.cpp:384
 #, kde-format
@@ -227,7 +227,7 @@ msgstr "Ni mogoče urejati. Ni mogoče najti delovnega paketa."
 #: taskcompletiondialog.cpp:32
 #, kde-format
 msgid "Task Progress"
-msgstr "Potek opravila"
+msgstr "Potek naloge"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: taskcompletionpanel.ui:33
@@ -411,8 +411,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
-"Opravilo: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/"
-">Stanje: %4<nl/>Projekt: %5"
+"Naloga: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/>Stanje: "
+"%4<nl/>Projekt: %5"
 
 #: taskworkpackageview.cpp:645
 #, kde-kuit-format
@@ -421,14 +421,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
-"Opravilo: %1<nl/>Zaključeno: %2 %<nl/>Dejanski začetek: %3<nl/>Planirano: %4 "
-"- %5<nl/>Stanje: %6<nl/>Projekt: %7"
+"Naloga: %1<nl/>Zaključeno: %2 %<nl/>Dejanski začetek: %3<nl/>Planirano: %4 - "
+"%5<nl/>Stanje: %6<nl/>Projekt: %7"
 
 #: taskworkpackageview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr "Opravilo: %1<nl/>Planirano: %2 - %3<nl/>Stanje: %4<nl/>Projekt: %5"
+msgstr "Naloga: %1<nl/>Planirano: %2 - %3<nl/>Stanje: %4<nl/>Projekt: %5"
 
 #: view.cpp:84
 #, kde-format
@@ -449,7 +449,7 @@ msgstr "Seznam"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr "Izberi seznam opravil"
+msgstr "Izberi seznam nalog"
 
 #: view.cpp:97
 #, kde-format
@@ -559,7 +559,7 @@ msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr ""
-"Ni bilo moč odpreti skladišča:\n"
+"Ni bilo moč odpreti hrambe:\n"
 "%1"
 
 #: workpackage.cpp:412
@@ -568,7 +568,7 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
-"Ni mogoče shraniti v skladišče projektov:\n"
+"Ni mogoče shraniti v hrambo projektov:\n"
 "%1"
 
 #: workpackage.cpp:455
