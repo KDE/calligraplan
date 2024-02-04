@@ -5,7 +5,7 @@
 # Kristof Bal <kristof.bal@gmail.com>, 2008.
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2008.
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011.
-# Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2012, 2014, 2016.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2012, 2014, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: krossmodulekplato\n"
