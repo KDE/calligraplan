@@ -7,22 +7,22 @@
 # mvillarino <mvillarino@users.sourceforge.net>, 2008.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2023-11-16 19:18+0100\n"
+"PO-Revision-Date: 2024-02-25 14:48+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -266,7 +266,7 @@ msgstr "Fito"
 #: kernel/kptnode.cpp:159
 #, kde-format
 msgid "Periodic"
-msgstr "Periodico"
+msgstr "Periódico"
 
 #: kernel/kptnode.cpp:160
 #, kde-format
@@ -579,7 +579,7 @@ msgstr "Organización das citas: a data é incorrecta."
 #: kernel/kptresource.cpp:1196 kernel/kptresource.cpp:1269
 #, kde-format
 msgid "Resource %1 has no calendar defined"
-msgstr "Non se defininu yn calendario para o recurso %1"
+msgstr "Non se definiu un calendario para o recurso %1"
 
 #: kernel/kptresource.cpp:915
 #, kde-format
@@ -865,7 +865,7 @@ msgstr "cargar o ficheiro, amosar a xanela e a barra de progreso e saír"
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr ""
-"Nome do ficheiro para lle rexistrar a información de análise de rendemendo."
+"Nome do ficheiro para lle rexistrar a información de análise de rendemento."
 
 #: main/KoApplication.cpp:212
 #, kde-format
@@ -1607,7 +1607,7 @@ msgstr "Nome"
 #: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
-msgstr "Drescripción"
+msgstr "Descrición"
 
 #: models/kptaccountsmodel.cpp:330
 msgctxt "(qtundo-format)"
@@ -1686,7 +1686,7 @@ msgstr "Local"
 #: models/kptresourcemodel.cpp:164 models/kptresourcemodel.cpp:173
 #, kde-format
 msgid "Shared"
-msgstr "Compartillado"
+msgstr "Compartido"
 
 #: models/kptcalendarmodel.cpp:324
 #, kde-kuit-format
@@ -2700,6 +2700,7 @@ msgctxt "Effort based Cost Performance Index"
 msgid "CPI Effort"
 msgstr "Esforzo do rendemento económico"
 
+# well-spelled: dd
 #: models/kptnodechartmodel.cpp:258
 #, kde-format
 msgctxt ""
@@ -4784,7 +4785,7 @@ msgstr "Exceso de uso"
 #: models/kptschedulemodel.cpp:995
 #, kde-format
 msgid "Distribution"
-msgstr "Dristribución"
+msgstr "Distribución"
 
 #. i18n("Calculate");
 #: models/kptschedulemodel.cpp:997
@@ -4857,7 +4858,7 @@ msgstr "Tarefas planificadas para comezar no seguinte período"
 #: models/kptworkpackagemodel.cpp:83
 #, kde-format
 msgid "Sent to %1 at %2"
-msgstr "Envíar a %1 en %2"
+msgstr "Enviar a %1 en %2"
 
 #: models/kptworkpackagemodel.cpp:86
 #, kde-format
@@ -5346,7 +5347,7 @@ msgstr "Engadir unha conta"
 #, kde-kuit-format
 msgctxt "@action:inmenu"
 msgid "Add Subaccount"
-msgstr "Engadir Subconta"
+msgstr "Engadir subconta"
 
 #: ui/kptaccountseditor.cpp:301
 #, kde-kuit-format
@@ -5518,7 +5519,7 @@ msgstr ""
 "compartidos por varios recursos ou tarefas. Os días poden ser de tipo "
 "<emphasis>indeterminado</emphasis>, <emphasis>non laborábel</emphasis> ou "
 "<emphasis>laborábel</emphasis>. Nos días laborábeis poden definirse "
-"intervalos de traballo.</para><para>Os calendarios poden ter á s´ua vez sub-"
+"intervalos de traballo.</para><para>Os calendarios poden ter á súa vez sub-"
 "calendarios. Se un día está indeterminado nun calendario, compróbase o "
 "calendario pai. Os días <emphasis>indeterminados</emphasis> son "
 "<emphasis>non laborábeis</emphasis> por omisión cando os usa un recurso, ou "
@@ -6128,8 +6129,8 @@ msgid ""
 "configuration and printing using the context menu of the tree view.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Vista de Gantt</title><para>Mostra tarefas programadas nun diagrama "
-"de Gantt. A zona de gráficos pode achegarse ou afastarse cun control "
+"<title>Vista de Gantt</title><para>Amosa tarefas programadas nun diagrama de "
+"Gantt. A zona de gráficos pode achegarse ou afastarse cun control "
 "desprazábel situado na columna superior esquerda da escala de tempo. "
 "<note>Ten que situar o rato por riba para que apareza.</note></"
 "para><para>Esta vista permite configurar e imprimir mediante o menú de "
@@ -6198,7 +6199,7 @@ msgid ""
 "supports configuration and printing using the context menu.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
-"<title>Vista de fitos de Gantt</title><para>Mostra fitos programados nun "
+"<title>Vista de fitos de Gantt</title><para>Amosa fitos programados nun "
 "diagrama de Gantt. A zona de gráficos pode achegarse ou afastarse cun "
 "control desprazábel situado na columna superior esquerda da escala de tempo. "
 "<note>Ten que situar o rato por riba para que apareza.</note></"
@@ -6216,7 +6217,7 @@ msgid ""
 "note></para><para>This view supports configuration and printing using the "
 "context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Asignacións de recursos (Gantt)</title><para>Mostra as asignacións "
+"<title>Asignacións de recursos (Gantt)</title><para>Amosa as asignacións "
 "programadas de recursos e tarefas nun diagrama de Gantt A zona de gráficos "
 "pode achegarse ou afastarse cun control desprazábel situado na columna "
 "superior esquerda da escala de tempo. <note>Ten que situar o rato por riba "
@@ -6450,7 +6451,7 @@ msgstr "&Nome:"
 #: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
 #, kde-format
 msgid "The project leader."
-msgstr "O lider do proxecto."
+msgstr "Quen lidera o proxecto."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: ui/kptmainprojectpanelbase.ui:103
@@ -7282,12 +7283,12 @@ msgstr "Engadir un sub-fito"
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Indent Task"
-msgstr "Indentar Tarefa"
+msgstr "Sangrar a tarefa"
 
 #: ui/kpttaskeditor.cpp:908
 #, kde-format
 msgid "Unindent Task"
-msgstr "Desindentar Tarefa"
+msgstr "Desangrar da tarefa"
 
 #: ui/kpttaskeditor.cpp:912
 #, kde-format
@@ -7304,16 +7305,16 @@ msgstr "Baixar"
 msgctxt "(qtundo-format)"
 msgid "Indent task"
 msgid_plural "Indent %1 tasks"
-msgstr[0] "Indentar %1 tarefa"
-msgstr[1] "Indentar %1 tarefas"
+msgstr[0] "Sangrar a tarefa"
+msgstr[1] "Sangrar as %1 tarefas"
 
 #: ui/kpttaskeditor.cpp:1123
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unindent task"
 msgid_plural "Unindent %1 tasks"
-msgstr[0] "Desindentar %1 tarefa"
-msgstr[1] "Desindentar %1 tarefas"
+msgstr[0] "Desangrar a tarefa"
+msgstr[1] "Desangrar as %1 tarefas"
 
 #: ui/kpttaskeditor.cpp:1277
 #, kde-kuit-format
