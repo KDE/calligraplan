@@ -1,0 +1,25 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction"
+><title
+>Uvod v planiranje</title>
+  <sect1 id="introduction-section"
+><title
+>Uvod</title
+>&introduction-section; </sect1>
+  <sect1 id="definitions"
+><title
+>Definicije</title
+>&definitions-section; </sect1>
+  <sect1 id="context-help"
+><title
+>Kontekstna pomoč</title
+>&context-help-section; </sect1>
+  <sect1 id="main-work-space"
+><title
+>Glavni delovni prostor</title
+>&main-work-space-section; </sect1>
+  <sect1 id="using-the-views"
+><title
+>Uporaba Pogledov</title
+>&using-the-views-section; </sect1>
+</chapter>

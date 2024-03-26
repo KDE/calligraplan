@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Opis</title>
+  <para
+>Urejevalnik dela in počitnic se uporablja za ustvarjanje, urejanje in brisanje koledarjev.</para
+><para
+>Koledarji določajo delovni čas virov. Koledarji se lahko uporabljajo tudi pri nalogah z vrsto ocene <emphasis
+>Trajanje</emphasis
+>. </para>
+  <para
+>Koledarji imajo specifikacijo časovnega pasu, tako da lahko določite delovne ure v virih po lokalnem času. </para>
+  <para
+>Koledar je sestavljen iz definicij za dneve v tednu in datume. Če ima datum definicijo, se uporabi ta definicija. Če je stanje datuma <emphasis
+>Nedefinirano</emphasis
+>, se uporabi definicija za dan v tednu. Če je tudi to <emphasis
+>Nedefinirano</emphasis
+>, je označen nadrejeni koledar. </para>
+  <para
+>Koledar lahko definirate kot <emphasis
+>Privzeti</emphasis
+> in ga nato uporabljajo vsi delovni viri brez sklicevanja na koledar. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Orodna vrstica ponuja sredstva za ustvarjanje in brisanje koledarjev: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Dodaj koledar</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje koledarja. Nov koledar je pripet na isti ravni kot izbrani koledar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodaj podkoledar</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje podrejenega koledarja. Nov koledar je trenutno izbranemu koledarju pripet kot podrejeni.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Izbriši izbrani koledar</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Izbriši</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbriše izbrani koledar.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Urejanje podatkov</title>
+  <para
+>Ime koledarja in časovni pas je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>. </para>
+  <para
+>Stanje dni in dni v tednu urejate tako, da izberete dan ali dneve, ki jih želite urediti, in odprete kontekstni meni. </para>
+  <para
+>Če izberete <emphasis
+>Delo...</emphasis
+>, se odpre pogovorno okno Urejanje delovnih intervalov. </para>
+  
+</sect3>
+</sect2>

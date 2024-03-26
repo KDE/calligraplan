@@ -1,0 +1,144 @@
+<chapter id="scheduling"
+><title
+>Razporejanje</title>
+<sect1 id="scheduling-description"
+><title
+>Opis</title
+>&WORK-IN-PROGRESS; <para
+>Pogled razporejanja vam omogoča načrtovanje projektov v vašem portfelju. Projekti so razporejeni po prioriteti. </para
+><para
+>Nastavite <emphasis
+>Nadzor</emphasis
+> na <emphasis
+>Razpored</emphasis
+> za projekt ali projekte, ki jih želite načrtovati. Nastavite <emphasis
+>Nadzor</emphasis
+> na <emphasis
+>Vključi</emphasis
+>, da bodo dodelitve virov vključene v izravnavo virov. Nastavite <emphasis
+>Nadzor</emphasis
+> na <emphasis
+>Izvzemi</emphasis
+>, če želite izvzeti projekt. </para>
+  <tip
+><para
+>Če si vaši projekti delijo vire s projekti, ki niso del vašega portfelja, je treba te projekte vključiti, da bo izravnava virov delovala pravilno. Glejte <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>Pogled ima drevesne razdelke: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Tabela projektov</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Ime</guilabel
+></entry>
+          <entry
+><guilabel
+>Opis</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Ime</entry
+><entry
+>Ime projekta</entry
+></row>
+      <row
+><entry
+>Časovni plan</entry
+><entry
+>Ime časovnega plana</entry
+></row>
+      <row
+><entry
+>Stanje</entry
+><entry
+>Stanje razporejanja</entry
+></row>
+      <row
+><entry
+>Nadzor</entry>
+        <entry
+>Nadzor razporejanja ima lahko naslednje vrednosti: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Razpored:</emphasis
+> Projekt bo načrtovan.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Vključen:</emphasis
+> Rezervacije virov bodo vključene v izravnavo virov.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Izvzet:</emphasis
+> Projekt ne bo vključen.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Prioriteta</entry
+><entry
+>Prioriteta projekta. Večje število pomeni višjo prednost.</entry
+></row>
+      <row
+><entry
+>Ciljni začetek</entry
+><entry
+>Najzgodnejši čas začetka projekta</entry
+></row>
+      <row
+><entry
+>Ciljni konec</entry
+><entry
+>Najnovejši čas zaključka projekta</entry
+></row>
+      <row
+><entry
+>Opis</entry
+><entry
+>Opis projekta</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Nadzor načrtovanja</title
+>&WORK-IN-PROGRESS; </sect1>
+<sect1 id="scheduling-log"
+><title
+>Dnevnik razporejanja</title
+>&WORK-IN-PROGRESS; </sect1>
+</chapter>

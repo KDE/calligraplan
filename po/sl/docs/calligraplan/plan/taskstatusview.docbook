@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>Opis</title>
+  <para
+>Pogled stanja naloge se uporablja za pregled informacij o napredku naloge v obdobju, ki je nastavljeno v konfiguraciji. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Naloge so razdeljene v skupine glede na stanje naloge: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ni se začelo</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki bi jih zdaj že morali začeti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>V teku</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so bile začete, a še niso dokončane.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dokončano</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so bile v tem obdobju končane</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Naslednje obdobje</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so načrtovane za začetek v naslednjem obdobju.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>Urejanje podatkov</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Podatke o napredku je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>, ali v pogovornem oknu napredka naloge.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stanje</para>
+            </entry>
+            <entry>
+              <para
+>Stanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% dokončanja</para>
+            </entry>
+            <entry>
+              <para
+>Dokončanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovani napor</para>
+            </entry>
+            <entry>
+              <para
+>Količina dela, načrtovana za uporabo ob koncu tekočega obdobja.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski napor</para>
+            </entry>
+            <entry>
+              <para
+>Količina porabljenega dela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Preostali napor</para>
+            </entry>
+            <entry>
+              <para
+>Preostali napor, potreben za dokončanje naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovani stroški</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani stroški ob koncu tekočega obdobja.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski stroški</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski nastali stroški.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski začetek</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski začetni čas naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski zaključek</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski končni čas naloge.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>Konfiguracija</title>
+  <para
+>S kontekstnim menijem lahko pogled konfigurirate tako, da razdeli/razdeli drevesni pogled, ali pa ga konfigurirate v pogovornem oknu za konfiguracijo. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

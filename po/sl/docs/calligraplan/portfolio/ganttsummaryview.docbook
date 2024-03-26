@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Ganttov povzetek</title>
+<sect1 id="description"
+><title
+>Opis</title
+>&WORK-IN-PROGRESS; <para
+>Prikazuje Ganttov diagram vseh projektov v vašem portfelju. </para
+><para
+>Ganttov pogled za projekt lahko prikažete tako, da izberete <userinput
+>Kontekstni meni->Odpri projekt</userinput
+>. </para>
+</sect1>
+</chapter>

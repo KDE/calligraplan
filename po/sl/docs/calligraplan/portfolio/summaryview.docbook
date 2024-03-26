@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>Povzetek</title
+>&WORK-IN-PROGRESS; <para
+>Ta pogled povzema podatke o uspešnosti za projekte v vašem portfelju. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Ime</guilabel
+></entry>
+          <entry
+><guilabel
+>Opis</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Ime</entry
+><entry
+>Ime projekta</entry
+></row>
+      <row
+><entry
+>Časovni plan</entry
+><entry
+>Ime časovnega plana</entry
+></row>
+      <row
+><entry
+>Stroški SPI</entry
+><entry
+>Indeks uspešnosti časovnega plana (na podlagi stroškov)</entry
+></row>
+      <row
+><entry
+>Stroški CPI</entry
+><entry
+>Indeks uspešnosti časovnega plana (na podlagi stroškov)</entry
+></row>
+      <row
+><entry
+>Napor SPI</entry
+><entry
+>Indeks uspešnosti časovnega plana (na podlagi napora)</entry
+></row>
+      <row
+><entry
+>CPI napor</entry
+><entry
+>Indeks uspešnosti časovnega plana (na podlagi napora)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>SPI označuje, ali napredek poteka po načrtu (1), zaostaja za načrtom (manj kot 1) ali pred rokom (več kot 1). CPI označuje, koliko je stalo doseganje dejanskega napredka. Vrednost 1 pomeni, da je bilo načrtovano, manj kot 1 pomeni, da je stalo več, kot bi moralo, in vrednost, večja od 1, pomeni, da je bil napredek dosežen z manjšo uporabo virov od načrtovane. </para>
+</chapter>

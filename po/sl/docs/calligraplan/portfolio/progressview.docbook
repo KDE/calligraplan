@@ -1,0 +1,269 @@
+<chapter id="progress"
+><title
+>Napredek</title>
+<sect1 id="progress-description"
+><title
+>Opis</title
+>&WORK-IN-PROGRESS; <para
+>Pogled napredka navaja projekte v vašem portfelju na levi in prikazuje informacije o napredku za izbrani projekt na desni. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="progressview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Naloge so razdeljene v skupine glede na stanje naloge: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ni se začelo</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki bi jih zdaj že morali začeti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>V teku</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so bile začete, a še niso dokončane.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dokončano</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so bile v tem obdobju končane</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Naslednje obdobje</para>
+            </entry>
+            <entry>
+              <para
+>Naloge, ki so načrtovane za začetek v naslednjem obdobju.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-editing-data"
+><title
+>Urejanje podatkov</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Podatke o napredku je mogoče urejati neposredno ali v pogovornem oknu napredka naloge.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stanje</para>
+            </entry>
+            <entry>
+              <para
+>Stanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% dokončanja</para>
+            </entry>
+            <entry>
+              <para
+>Dokončanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovani napor</para>
+            </entry>
+            <entry>
+              <para
+>Količina dela, načrtovana za uporabo ob koncu tekočega obdobja.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski napor</para>
+            </entry>
+            <entry>
+              <para
+>Količina porabljenega dela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Preostali napor</para>
+            </entry>
+            <entry>
+              <para
+>Preostali napor potreben za dokončanje naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovani stroški</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani stroški ob koncu tekočega obdobja.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski stroški</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski nastali stroški.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski začetek</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski začetni čas naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dejanski zaključek</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski končni čas naloge.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-configuration"
+><title
+>Konfiguracija</title>
+  <para
+>S kontekstnim menijem lahko pogled konfigurirate tako, da razdeli/razdeli drevesni pogled, ali pa ga konfigurirate v pogovornem oknu za konfiguracijo. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="progressview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                </screenshot>
+              </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+</chapter>

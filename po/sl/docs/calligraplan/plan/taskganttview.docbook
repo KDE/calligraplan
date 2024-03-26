@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Opis</title>
+  <para
+>Ganttov pogled se uporablja za prikaz nalog na časovnici. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Ganttov pogled</phrase>
+        </textobject>
+        <caption>
+          <para
+>Ganttov pogled</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Urejanje podatkov</title>
+  <para
+>Opis in napredek naloge lahko urejate s pomočjo kontekstnega menija. </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Začetni čas</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani začetni čas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Končni čas</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani končni čas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% dokončano</para>
+            </entry>
+            <entry>
+              <para
+>Dokončanje</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Konfiguracija</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Z uporabo kontekstnega menija lahko pogled konfigurirate v pogovornem oknu za konfiguracijo.</para>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Pogovorno okno konfiguracije</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Pogovorno okno konfiguracije</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

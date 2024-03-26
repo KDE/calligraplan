@@ -1,0 +1,10 @@
+<chapter id="resourceusage"
+><title
+>Uporaba virov</title>
+<sect1 id="resourceusage-description"
+><title
+>Opis</title
+>&WORK-IN-PROGRESS; <para
+>Prikazuje grafikon načrtovane obremenitve za izbrani vir, barvno kodiran po nalogi. </para>
+</sect1>
+</chapter>

@@ -1,0 +1,23 @@
+<sect2
+><title/>
+<para
+>Številne funkcije in pogledi imajo pomoč in namige, ki jih je mogoče prikazati s funkcijo <emphasis
+>Kaj je to</emphasis
+>. </para>
+<para
+>Aktivirate ga lahko z menijskim vnosom <menuchoice
+><guimenu
+>Pomoč</guimenu
+><guimenuitem
+>KajJeTo</guimenuitem
+></menuchoice
+> ali bližnjico na tipkovnici <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo 
+>. </para>
+<para
+>V pogovornih oknih se aktivira s pritiskom <varname
+>?</varname
+> v naslovni vrstici pogovornega okna. </para>
+</sect2>

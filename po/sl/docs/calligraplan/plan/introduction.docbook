@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Zmožnosti vključujejo: </para>
+<itemizedlist>
+  <listitem
+><para
+>Upravljanje nalog z <link linkend="task-editor"
+>urejevalnikom nalog</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Struktura razčlenitve dela z nastavljivimi kodami WBS</para
+></listitem>
+        <listitem
+><para
+>Naloge, povzetki nalog in mejniki</para
+></listitem>
+        <listitem
+><para
+>Različne vrste časovnih omejitev</para
+></listitem>
+        <listitem
+><para
+>Različne vrste odvisnosti.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Upravljanje virov z <link linkend="resource-editor"
+>urejevalnikom virov</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Struktura razčlenitve virov</para
+></listitem>
+        <listitem
+><para
+>Vrste delovnih in materialnih sredstev</para
+></listitem>
+        <listitem
+><para
+>Dodeljevanje virov na ravni skupine</para
+></listitem>
+        <listitem
+><para
+>Ekipe virov</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Delovni čas &amp; opredelitev počitnic z <link linkend="work-and-vacation-editor"
+>urejevalnikom dela in počitnic</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Upravljanje stroškov z <link linkend="cost-breakdown-structure-editor"
+>urejevalnikom strukture razčlenitve stroškov</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Upravljanje prislužene vrednosti</para
+></listitem>
+  <listitem
+><para
+>Načrtovanje projekta z <link linkend="schedules-editor"
+>urejevalnikom časovnih planov</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Načrtovanje razporeditve naprej od začetnega časa ali nazaj od končnega časa</para
+></listitem>
+        <listitem
+><para
+>Dovoljevanje ali se izogibanje prezasedenosti virov</para
+></listitem>
+        <listitem
+><para
+>Porazdelitev PERT z optimističnimi, pesimističnimi in najverjetnejšimi ocenami</para
+></listitem>
+        <listitem
+><para
+>Več časovnih planov z možnostjo načrtovanja iz trenutnih informacij o napredku</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Sledenje nalogam s <link linkend="task-execution-view"
+>Pogledom izvajanja nalog</link
+> ali <link linkend="task-status-view"
+>Pogledom stanja nalog</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

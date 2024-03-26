@@ -1,0 +1,36 @@
+<chapter id="configure-plan-dialog"
+><title
+>Konfiguriranje načrta</title>
+  <sect1 id="configure-project-defaults"
+><title
+>Privzete nastavitve projekta</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-and-vacation"
+><title
+>Delo in počitnice</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-defaults"
+><title
+>Privzete nastavitve nalog</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-colors"
+><title
+>Barve nalog</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-modules"
+><title
+>Moduli nalog</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-package"
+><title
+>Delovni paket</title
+>&WIP; </sect1>
+  <sect1 id="configure-project-templates"
+><title
+>Projektne predloge</title
+>&WIP; </sect1>
+  <sect1 id="configure-document"
+><title
+>Dokument</title
+>&WIP; </sect1>
+</chapter>

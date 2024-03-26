@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Opis</title>
+  <para
+>Pogled Generatorja poročil se uporablja za dodajanje in ustvarjanje poročil v formatu Open Document Text (odt).</para
+><para
+>Poročila lahko temeljijo na priloženih predlogah poročil ali pa <link linkend="creating-odt-report-templates"
+>napišete lastne predloge</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime po vaši izbiri</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Predloga poročila</para>
+            </entry>
+            <entry>
+              <para
+>Pot do datoteke predloge poročila. Izberete lahko eno od priloženih standardnih predlog ali pa vnesete ime datoteke predloge, ki jo zagotovite sami.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Datoteka poročila</para>
+            </entry>
+            <entry>
+              <para
+>Ime datoteke, ki bo zgenerirana.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodaj</para>
+            </entry>
+            <entry>
+              <para
+>Informacije, ki jih lahko dodate imenu datoteke poročila, da jo ločite od predhodno ustvarjenih različic. To je lahko:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Nič</emphasis
+>; uporabite ime datoteke, kot je</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Število</emphasis
+>; imenu datoteke dodajte zaporedno število</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Datum</emphasis
+>; imenu datoteke dodate trenutni datum</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Orodna vrstica</title>
+  <para
+>Orodna vrstica ponuja sredstva za dodajanje, odstranjevanje in ustvarjanje poročil. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Dodaj poročilo</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Dodaj novo poročilo</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Odstrani poročilo</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Odstrani izbrano poročilo</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Zgeneriraj poročilo</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Zgeneriraj izbrano poročilo</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,516 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Opis</title>
+  <para
+>Urejevalnik nalog se uporablja za ustvarjanje, urejanje in brisanje nalog.</para
+><para
+>Naloge je mogoče organizirati v hierarhično drevesno strukturo do poljubne globine. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Orodna vrstica</title>
+  <para
+>Orodna vrstica ponuja sredstva za ustvarjanje, brisanje in premikanje nalog in mejnikov: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Dodaj nalogo</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Spustno polje za ustvarjanje naloge ali mejnika. Nov element je postavljen za trenutno izbranim elementom na isti ravni kot izbrani element. Če ni izbran noben element, se nov element doda na najvišjo raven.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodaj pod-nalogo</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Spustno polje za ustvarjanje pod-naloge ali mejnika. Nov element je pripet trenutno izbranemu elementu kot podrejeni element.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Izbriši nalogo</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Izbriši</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbriše izbrano nalogo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Zamakni nalogo</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Doda izbrano nalogo kot podrejeno nalogi zgoraj.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Odzamakni nalogo</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Premakne izbrano nalogo eno raven navzgor in jo vstavi za trenutno nadrejeno nalogo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Pomakni navzgor</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Premakne izbrano nalogo eno mesto navzgor.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Premakni navzdol</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Premakne izbrano nalogo za eno mesto navzdol.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Upoštevajte, da lahko naloge premikate ali kopirate tudi z uporabo tehnike povleci in spusti ali kopiraj/prilepi. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Urejanje podatkov</title>
+  <para
+>Podatke je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>, ali v pogovornem oknu z nastavitvami naloge. </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stanje</para>
+            </entry>
+            <entry>
+              <para
+>Stanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Odgovorni</para>
+            </entry>
+            <entry>
+              <para
+>Oseba odgovorna za to nalogo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodelitev</para>
+            </entry>
+            <entry>
+              <para
+>Seznam dodeljenih virov.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Vrsta</para>
+            </entry>
+            <entry>
+              <para
+>Vrsta naloge ali vrsta ocene naloge.</para
+><para
+>Vrsto lahko nastavite na <emphasis
+>Mejnik</emphasis
+>, <emphasis
+>Napor</emphasis
+> ali <emphasis
+>Trajanje</emphasis
+>. </para>
+              <para
+><guilabel
+>Opomba:</guilabel
+> Če je vrsta <emphasis
+>Povzetek</emphasis
+> ali <emphasis
+>Projekt</emphasis
+>, vrste ni mogoče urejati. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Koledar</para>
+            </entry>
+            <entry>
+              <para
+>Koledar, uporabljen, ko je vrsta ocene <emphasis
+>Trajanje</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ocena</para>
+            </entry>
+            <entry>
+              <para
+>Najverjetnejša ocena. Ocena je pričakovana količina napora ali časa, potrebnega za dokončanje naloge. Lahko se izrazi v različnih enotah: h (ure), d (dnevi), w (tedni) in M (meseci).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Optimistično razmerje</para>
+            </entry>
+            <entry>
+              <para
+>Optimistična ocena, izražena kot negativni odstotek najverjetnejše ocene. (Npr. -20%).</para
+><para
+>To se uporablja samo, če se uporablja distribucija PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Pesimistično razmerje</para>
+            </entry>
+            <entry>
+              <para
+>Pesimistična ocena, izražena kot pozitiven odstotek najverjetnejše ocene. (Npr. 50%).</para
+><para
+>To se uporablja samo, če se uporablja distribucija PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tveganje</para>
+            </entry>
+            <entry>
+              <para
+>Tveganje nadzira porazdelitev PERT, ki se uporablja pri izračunu dejanske ocene za to nalogo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Omejitev</para>
+            </entry>
+            <entry>
+              <para
+>Vrsta časovne omejitve.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Začetek omejitve</para>
+            </entry>
+            <entry>
+              <para
+>Začetni čas omejitve.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Konec omejitve</para>
+            </entry>
+            <entry>
+              <para
+>Končni čas omejitve.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tekoči račun</para>
+            </entry>
+            <entry>
+              <para
+>Račun za tekoče stroške.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Zagonski račun</para>
+            </entry>
+            <entry>
+              <para
+>Račun za stroške, ki so nastali ob zagonu naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stroški zagona</para>
+            </entry>
+            <entry>
+              <para
+>Stroški, ki nastanejo ob zagonu naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Zapri račun</para>
+            </entry>
+            <entry>
+              <para
+>Račun za stroške, ki so nastali ob zaustavitvi naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stroški zaustavitve</para>
+            </entry>
+            <entry>
+              <para
+>Stroški, ki nastanejo ob zaustavitvi naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Opis</para>
+            </entry>
+            <entry>
+              <para
+>Opombe nalog.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Sidrišče za module nalog</title>
+  <para
+>Moduli nalog so skupine nalog, ki jih je mogoče ponovno uporabiti v projektih. </para>
+  <para
+>To omogoča črpanje iz preteklih izkušenj in standardizacijo podobnih operacij. </para>
+  <para
+>Modul nalog se vstavi v vaš projekt tako, da ga povlečete iz okna in spustite v svoj projekt. </para>
+  <para
+>Modul nalog je običajna datoteka načrta in je zasnovan z uporabo &plan; na enak način kot načrtovanje običajnega projekta. </para>
+  <para
+>Modul nalog pa običajno vključuje samo naloge, ocene in odvisnosti. </para>
+  <para
+>Ime projekta je prikazano v priklopnem oknu, opis pa se uporablja kot opis orodja. </para>
+  <para
+>Modul lahko odprete za pregled ali urejanje z dvojnim klikom na modul. </para>
+  <para
+>Module lahko združite tako, da jih shranite v različne imenike. Kje jih iskati, je konfigurirano v pogovornem oknu za nastavitve projekta. </para>
+  <para
+>Privzete vrednosti za nove projekte je mogoče določiti s konfiguracijskim pogovornim oknom, glejte <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Sidrišče virov</title>
+  <para
+>Sidrišče virov ponuja preprost način dodeljevanja virov nalogam tako, da izberete vire, ki jih potrebujete, in jih povlečete v stolpec <emphasis
+>Dodelitev</emphasis
+>. </para>
+  <para
+>Vir lahko spustite tudi v stolpec <emphasis
+>Odgovorni</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Sidrišče za dodelitve</title>
+  <para
+>Sidrišče za dodelitve prikaže trenutno dodelitev sredstev za izbrano nalogo. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Konfiguracija</title>
+  <para
+>Z uporabo kontekstnega menija lahko pogled konfigurirate za prikaz/skrivanje projekta, razdelitev/razdelitev drevesnega pogleda ali pa ga lahko konfigurirate z uporabo pogovornega okna za konfiguracijo. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

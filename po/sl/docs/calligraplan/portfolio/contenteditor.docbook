@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Vsebina portfelja</title
+>&WORK-IN-PROGRESS; <para
+>Ta urejevalnik vam omogoča, da konfigurirate vsebino svojega portfelja. </para
+><para
+>Izberite <menuchoice
+> <shortcut
+><keycap
+>Vstavi</keycap
+></shortcut
+> <guimenu
+>Uredi</guimenu
+><guimenuitem
+>Dodaj</guimenuitem
+> </menuchoice
+> ali pritisnite <guibutton
+>Dodaj</guibutton
+> za dodajte projekte v svoj portfelj. </para
+><para
+>Izberite <menuchoice
+> <shortcut
+><keycap
+>Delete</keycap
+></shortcut
+> <guimenu
+>Uredi</guimenu
+><guimenuitem
+>Odstrani</guimenuitem
+> </menuchoice
+> ali pritisnite <guibutton
+>Odstrani</guibutton
+> za odstranitev izbranih projektov. </para
+><para
+>Dodajte projekte, ki jih upravljate, in nastavite <guilabel
+>Portfelj</guilabel
+> = <emphasis
+>Da</emphasis
+>. </para
+><para
+>Če imate vire, ki jih uporabljajo projekti, ki niso del vašega portfelja, in želite znova razporediti ali pregledati uporabo virov, morate dodati vse ustrezne projekte in nastaviti <guilabel
+>Portfelj</guilabel
+> = <emphasis
+>Ne</emphasis
+> za te projekte. </para>
+<formalpara
+><title
+>Hramba</title>
+<para
+></para>
+</formalpara>
+<para
+>Spremembe projekta je mogoče shraniti v izvirno datoteko projekta ali pa jih je mogoče vdelati v datoteko portfelja. Če upravljate projekte, jih je treba običajno shraniti v izvirne datoteke. V tem primeru nastavite <guilabel
+>Hramba</guilabel
+> = <emphasis
+>Zunanja</emphasis
+>. Če pa želite samo videti, kakšen vpliv bi lahko imele spremembe, boste morda želeli shraniti vdelane projekte, medtem ko delate na različnih scenarijih. V tem primeru nastavite <guilabel
+>Hramba</guilabel
+> = <emphasis
+>Vdelana</emphasis
+>. Zunanji url projekta se ohrani, če pozneje želite shraniti spremembe v izvirno datoteko. </para>
+</chapter>

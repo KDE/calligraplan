@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Opis</title>
+  <para
+>Urejevalnik urnikov se uporablja za ustvarjanje, urejanje, izračun in brisanje časovnih planov. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Urejevalnik razporeda ima tri podpoglede, ki prikazujejo rezultate razporejanja. </para>
+  <para
+>Podpogled rezultatov prikazuje vrednosti, potrebne za analizo PERT, vključno z zgodnjim začetkom in ciljem, poznim začetkom in ciljem, skupaj z različnimi vrstami pomičnosti. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Podpogled Kritična pot prikazuje naloge, ki spadajo v kritično pot. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Podpogled dnevnika razporejanja prikazuje seznam sporočil, ustvarjenih med razporejanjem. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Orodna vrstica</title>
+  <para
+>Orodna vrstica ponuja sredstva za ustvarjanje, brisanje in izračun urnikov: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Dodaj časovni plan</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje skupine virov. Nova skupina je dodana na koncu skupin.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Dodaj časovni pod-plan</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje časovnega pod-plana. Nov plan je trenutno izbranemu urniku dodan kot podrejeni.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Izbriši</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Izbriši</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbriše izbrani časovni plan.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Izračunaj</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Izračuna izbrani časovni plan.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Izhodišče</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Osnova izbranega časovnega plana. Preprečuje ponoven izračun ali brisanje časovnega plana.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Loči</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbrani pod-plan naredi za vrhnjega</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Urejanje podatkov</title>
+  <para
+>Podatke je mogoče urejati sproti, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>. </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime časovnega plana.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stanje</para>
+            </entry>
+            <entry>
+              <para
+>Stanje časovnih planov. Med razporejanjem prikazuje vrstico napredka.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Smer</para>
+            </entry>
+            <entry>
+              <para
+>Smer načrtovanja.</para
+><para
+>Če je smer Naprej, je projekt načrtovan za začetek ob najzgodnejšem času začetka projekta, določenem v glavnem pogovornem oknu projekta. Če je smer Nazaj, je projekt načrtovan za začetek ob zadnjem končnem času projekta, določenem v glavnem pogovornem oknu projekta. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Presežna rezervacija</para>
+            </entry>
+            <entry>
+              <para
+>Nadzoruje prezasedenost virov pri razporejanju.</para
+><para
+>Če je presežna rezervacija dovoljena, se lahko vir rezervira (ob delovnih dnevih), da deluje več, kot je na voljo. To se lahko zgodi, če je vir dodeljen več nalogam ali je rezerviran za druge projekte. </para>
+              <para
+>Če se želimo izogniti presežni rezervaciji, viri ne bodo rezervirani več, kot so na voljo. V primeru konflikta virov bodo naloge odložene, dokler vir ni na voljo. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Distribucija</para>
+            </entry>
+            <entry>
+              <para
+>Distribucija, ki bo uporabljena med razporejanjem.</para
+><para
+>Če je porazdelitev »Brez«, se ocena naloge med razporejanjem uporabi takšna, kot je. </para>
+              <para
+>Če je porazdelitev 'PERT', se uporabljena ocena (E) izračuna na podlagi vnesene optimistične (O), pesimistične (P) in najverjetnejše (M) ocene. Za to se uporablja formula: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovan začetek</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani začetni čas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Načrtovani zaključek</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani končni čas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Razporejevalnik</para>
+            </entry>
+            <entry>
+              <para
+>Razporejevalnik, ki se uporablja za izračun urnika projekta.</para
+><para
+>Privzeti vgrajeni razporejevalnik je omrežni razporejevalnik. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Konfiguracija</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>S kontekstnim menijem lahko pogled konfigurirate tako, da razdeli/razdeli drevesni pogled, ali pa ga konfigurirate s pogovornim oknom za konfiguracijo.</para
+><para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

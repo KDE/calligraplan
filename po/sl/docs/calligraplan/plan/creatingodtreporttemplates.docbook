@@ -1,0 +1,1941 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Opis</title>
+  <para
+>Predloge odprtih besedilnih dokumentov poročil so običajne datoteke ODT, ki jih je mogoče oblikovati s katerim koli urejevalnikom besedil ODT, kot je <emphasis
+>Calligra Words</emphasis
+> ali <emphasis
+>LibreOffice Writer</emphasis
+>. Uporabljena tehnika je uporaba spremenljivk <emphasis
+>uporabniškega polja</emphasis
+> za shranjevanje sklicev na informacije, ki bodo pridobljene iz projekta. Spremenljivke se imenujejo <emphasis
+>Uporabniška polja</emphasis
+> v programu <emphasis
+>Writer</emphasis
+> in jih najdete pod <menuchoice
+><guimenu
+>Vstavi</guimenu
+><guisubmenu
+>Polje</guisubmenu
+><guimenuitem
+>Več polj</guimenuitem
+><guimenuitem
+>Spremenljivke</guimenuitem
+><guimenuitem
+>Uporabniška polja</guimenuitem
+></menuchoice
+>. V <emphasis
+>Words</emphasis
+> se imenujejo <emphasis
+>Spremenljivke po meri</emphasis
+> in jih najdete pod <menuchoice
+><guimenu
+>Sidrišče za urejanje besedila</guimenu
+><guisubmenu
+>Spremenljivka</guisubmenu
+><guimenuitem
+> Po meri</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Novo predlogo poročila najlažje ustvarite tako, da spremenite obstoječo, saj so definirana vsa uporabniška polja. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Spremenljivke uporabniških polj</title>
+  <sect4 id="variables"
+><title
+>Spremenljivke</title>
+    <para
+>Spremenljivke se uporabljajo, da generatorju omogočijo pridobivanje podatkov iz projekta. </para>
+    <para
+>Spremenljivka je lahko sklic na posamezno podatkovno polje, sklic na podatke tabele ali sklic na podatke grafikona. </para
+><sect5
+><title
+>Eno podatkovno polje</title
+> <para
+>Ena spremenljivka podatkovnega polja ima naslednjo obliko: </para
+> <para
+><replaceable
+>ime podatkovne skupine</replaceable
+>.<replaceable
+>lastnost</replaceable
+> = <replaceable
+>identifikator lastnosti</replaceable
+> </para
+> <para
+>kjer je: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>ime podatkovne skupine</replaceable
+> je lahko tr, project ali razpored (glejte spodaj).</para
+></listitem
+> <listitem
+><para
+><replaceable
+>lastnost</replaceable
+> naredi ime uporabniškega polja edinstveno.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>identiteta lastnosti</replaceable
+> identificira lastnost v skupini podatkov.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Podatki tabele</title
+> <para
+>Tabela v Predloga poročila je sestavljena iz spremenljivke za določanje podatkovne tabele za uporabo. </para
+> <para 
+>Ime spremenljivke se mora začeti s <replaceable
+>table</replaceable
+> (&eg; tableTasks) in vrednost spremenljivke mora biti ime podatkovne tabele (&eg; tasks). </para
+> <para 
+>Takoj za spremenljivko je treba vstaviti tabelo in stolpce izpolniti s spremenljivkami uporabniškega polja, ki določajo, katere lastnosti je treba pridobiti iz zgoraj navedene tabele. Te spremenljivke morajo imeti imena, ki se začnejo z imenom spremenljivke zgornje tabele. </para
+> <para
+>Te spremenljivke imajo naslednjo obliko: </para
+> <para
+>tableTasks.<replaceable
+>lastnost</replaceable
+> = <replaceable
+>identifikator lastnosti</replaceable
+> </para
+> <para
+>kjer je: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>lastnost</guilabel
+> naredi ime uporabniškega polja edinstveno.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>identifikator lastnosti</guilabel 
+> identificira lastnost v skupini podatkov.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Podatki grafikona</title
+> <para
+>Grafikon v predlogi poročila je sestavljen iz spremenljivke da določite podatke za uporabo v grafikonu. </para
+> <para 
+>Ime spremenljivke se mora začeti z <replaceable
+>chart</replaceable
+> (&eg; chartBudgetCost), vrednost spremenljivke pa določa podatkovno skupino in vrednosti za zapolnitev grafikona. </para
+> <para 
+>Spremenljivka ima naslednjo obliko (upoštevajte podpičja): </para
+> <para
+><replaceable
+>ime</replaceable
+> = <replaceable
+>skupina podatkov</replaceable
+>; values=<replaceable
+>z vejicami ločen seznam lastnosti podatkov</replaceable
+>; </para
+> <para
+>kjer: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>ime</replaceable
+> se mora začeti z <guilabel
+>chart</guilabel
+> (&eg; chartBudgetCost)</para
+> </listitem
+> <listitem
+><para
+><replaceable
+>podatkovna skupina</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>z vejicami ločen seznam lastnosti podatkov</guilabel
+> identificira lastnosti v skupino podatkov.</para
+></listitem
+> </itemizedlist
+> <para
+>&eg; </para
+> <para
+>chartBudget = projekt; vrednosti=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Prevedene oznake</title>
+    <para
+>Prevedene oznake nam omogočajo izdelavo splošnih predlog poročil, ki jih je mogoče uporabiti v različnih jezikih. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Ime spremenljivke</guilabel
+></entry>
+              <entry
+><guilabel
+>Spremenljiva vrednost</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Projekt</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Vodja</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Časovni razpored</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Projektne vrednosti</title>
+    <para
+>Prikazuje vrednosti iz glavnega projekta. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Ime spremenljivke</guilabel
+></entry>
+              <entry
+><guilabel
+>Spremenljiva vrednost</guilabel
+></entry>
+              <entry
+><guilabel
+>Opis</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>Ime</para>
+              </entry>
+              <entry>
+                <para
+>Ime projekta</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>Vodja</para>
+              </entry>
+              <entry>
+                <para
+>Ime vodje projekta</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>BCWS Cost</para>
+              </entry>
+              <entry>
+                <para
+>Na podlagi stroškov predvideni stroški načrtovanega dela</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>BCWP Cost</para>
+              </entry>
+              <entry>
+                <para
+>Predračunski stroški opravljenega dela na podlagi stroškov</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ACWP Cost</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski stroški opravljenega dela na podlagi stroškov</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>SPI Cost</para>
+              </entry>
+              <entry>
+                <para
+>Indeks uspešnosti urnika na podlagi stroškov</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>CPI Cost</para>
+              </entry>
+              <entry>
+                <para
+>Indeks stroškovne uspešnosti na podlagi stroškov</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWS Effort</para>
+              </entry>
+              <entry>
+                <para
+>Predvideni stroški dela, ki temeljijo na naporu</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWP Effort</para>
+              </entry>
+              <entry>
+                <para
+>Predvideni stroški opravljenega dela na podlagi napora</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ACWP Effort</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski stroški opravljenega dela na podlagi napora</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>SPI Effort</para>
+              </entry>
+              <entry>
+                <para
+>Indeks uspešnosti urnika na podlagi napora</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>CPI Effort</para>
+              </entry>
+              <entry>
+                <para
+>Indeks stroškovne uspešnosti na podlagi napora</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Vrednosti razporeda</title>
+    <para
+>Prikazuje vrednosti iz trenutnega časovnega razporeda. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Ime spremenljivke</guilabel
+></entry>
+              <entry
+><guilabel
+>Spremenljiva vrednost</guilabel
+></entry>
+              <entry
+><guilabel
+>Opis</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>Ime</para>
+              </entry>
+              <entry>
+                <para
+>Ime časovnega razporeda</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Stanje</para>
+              </entry>
+              <entry>
+                <para
+>Stanje razporejanja</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Smer</para>
+              </entry>
+              <entry>
+                <para
+>Smer načrtovanja</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Presežena rezervacija</para>
+              </entry>
+              <entry>
+                <para
+>Presežena rezervacija</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Distribucija</para>
+              </entry>
+              <entry>
+                <para
+>Distribucija</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovan začetek</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovan začetek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani zaključek</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani zaključek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Razporejevalnik</para>
+              </entry>
+              <entry>
+                <para
+>Razporejevalnik</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Zrnatost</para>
+              </entry>
+              <entry>
+                <para
+>Zrnatost</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Način</para>
+              </entry>
+              <entry>
+                <para
+>Način razporejanja (samodejno ali ročno)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Tabele</title>
+    <para
+>Podprte vrste tabel: </para>
+    <itemizedlist>
+      <listitem
+><para
+>tasks</para
+></listitem>
+      <listitem
+><para
+>taskstatus</para
+></listitem>
+      <listitem
+><para
+>schedules</para
+></listitem>
+      <listitem
+><para
+>projects</para
+></listitem>
+    </itemizedlist>
+    <para
+>Če želite ustvariti tabelo, postavite spremenljivko tik pred tabelo v datoteki predloge. Ime spremenljivke identificira tabelo in se mora začeti z <guilabel
+>table</guilabel
+>, &eg; <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>Vrednost spremenljivke se uporablja za kazanje na podatke, ki jih je treba pridobiti, in mora biti ena od podprtih tabel, navedenih zgoraj, &eg; <guilabel
+>stanje naloge</guilabel
+>. </para>
+    <para
+>Nato v celice tabele vstavite spremenljivke z imenom in vrednostjo iz spodnje tabele. </para>
+    <para
+>Upoštevajte, da tabela razporedov podpira vrednosti, opisane v <link linkend="schedule-values"
+>Vrednosti razporeda</link
+> zgoraj. </para>
+    <para
+>Projekti, naloge in tabele stanj nalog podpirajo naslednje vrednosti: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Ime spremenljivke</guilabel
+></entry>
+              <entry
+><guilabel
+>Spremenljiva vrednost</guilabel
+></entry>
+              <entry
+><guilabel
+>Opis</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Ime</para>
+              </entry>
+              <entry>
+                <para
+>Ime naloge ali projekta</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>WBS Code</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Vrsta</para>
+              </entry>
+              <entry>
+                <para
+>Vrsta naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Responsible</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Dodelitev</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Vrsta ocene</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Koledar</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Ocena</para>
+              </entry>
+              <entry>
+                <para
+>Najverjetnejša ocena</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistična</para>
+              </entry>
+              <entry>
+                <para
+>Optimistično razmerje</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pesimistična</para>
+              </entry>
+              <entry>
+                <para
+>Pesimistično razmerje</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Tveganje</para>
+              </entry>
+              <entry>
+                <para
+>Ocena negotovosti</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Omejitev</para>
+              </entry>
+              <entry>
+                <para
+>Vrsta časovne omejitve</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Začetek omejitve</para>
+              </entry>
+              <entry>
+                <para
+>Začetni čas omejitve</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Konec omejitve</para>
+              </entry>
+              <entry>
+                <para
+>Končni čas omejitve</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Tekoči račun</para>
+              </entry>
+              <entry>
+                <para
+>Račun za tekoče stroške</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Zagonski račun</para>
+              </entry>
+              <entry>
+                <para
+>Račun za zagonske stroške</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Stroški zagona</para>
+              </entry>
+              <entry>
+                <para
+>Stroški, ki nastanejo ob zagonu naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Zapri račun</para>
+              </entry>
+              <entry>
+                <para
+>Račun za stroške zaustavitve</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Stroški zaustavitve</para>
+              </entry>
+              <entry>
+                <para
+>Stroški, ki nastanejo ob zaustavitvi naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Opis</para>
+              </entry>
+              <entry>
+                <para
+>Opis naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Pričakovano</para>
+              </entry>
+              <entry>
+                <para
+>Izračunana najverjetnejša ocena</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Optimistična</para>
+              </entry>
+              <entry>
+                <para
+>Izračunana optimistična ocena</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Pesimistična</para>
+              </entry>
+              <entry>
+                <para
+>Izračunana pesimistična ocena</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Začetni čas</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani začetni čas</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Končni čas</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani zaključni čas</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Trajanje</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovano trajanje</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Zgodnji začetek</para>
+              </entry>
+              <entry>
+                <para
+>Najzgodnejši možni začetek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Zgodnji zaključek</para>
+              </entry>
+              <entry>
+                <para
+>Najzgodnejši možni zaključek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Pozni začetek</para>
+              </entry>
+              <entry>
+                <para
+>Najbolj pozni možni začetek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Pozni zaključek</para>
+              </entry>
+              <entry>
+                <para
+>Zadnji možni zaključek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Pozitivna pomičnost</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Prosta pomičnost</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Negativna pomičnost</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Začetna pomičnost</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Končna pomičnost</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Naloge</para>
+              </entry>
+              <entry>
+                <para
+>Dodelitve virov</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Varianca (ocena)</para>
+              </entry>
+              <entry>
+                <para
+>Izračunana varianca ocene</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Varianca (Dur)</para>
+              </entry>
+              <entry>
+                <para
+>Izračunana varianca trajanja</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Optimistično (Trajanje)</para>
+              </entry>
+              <entry>
+                <para
+>Izračunano optimistično trajanje</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Pesimistično (Trajanje)</para>
+              </entry>
+              <entry>
+                <para
+>Izračunano pesimistično trajanje</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Stanje</para>
+              </entry>
+              <entry>
+                <para
+>Stanje naloge, kot je prikazano v pogledu stanja naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% dokončano</para>
+              </entry>
+              <entry>
+                <para
+>Dokončanje naloge</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani napor</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani napor</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski napor</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski napor</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Preostali napor</para>
+              </entry>
+              <entry>
+                <para
+>Preostali napor</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani stroški</para>
+              </entry>
+              <entry>
+                <para
+>Načrtovani stroški</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski stroški</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski stroški</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski začetek</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski začetek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Začeto</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski zaključek</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski zaključek</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Dokončano</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Status razporejanja</para>
+              </entry>
+              <entry>
+                <para
+>Stanje razporejanja</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+              <entry>
+                <para
+>Predvideni stroški načrtovanega dela (na podlagi stroškov)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+              <entry>
+                <para
+>Predvideni stroški opravljenega dela (na podlagi stroškov)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+              <entry>
+                <para
+>Dejanski stroški opravljenega dela (na podlagi stroškov)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Indeks uspešnosti urnika</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Kritično</para>
+              </entry>
+              <entry>
+                <para
+>Naloga je kritična</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Kritična pot</para>
+              </entry>
+              <entry>
+                <para
+>Naloga je na kritični poti</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Ni načrtovano</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Naloga manjka</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Vir je prezaseden</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Vir ni na voljo</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Napaka omejitve</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Napor ni dosežen</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Napaka pri načrtovanju</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Raven vozlišča, raven</para>
+              </entry>
+              <entry>
+                <para
+>Ni zanimivo</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Opomba o stanju</para>
+              </entry>
+              <entry>
+                <para
+>Opomba: Ni implementirano</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Lastnik</para>
+              </entry>
+              <entry>
+                <para
+>Ne smejo se uporabljati in niso zelo zanimivi</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Stanje</para>
+              </entry>
+              <entry>
+                <para
+>Ne smejo se uporabljati in niso zelo zanimivi</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>table name</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Čas</para>
+              </entry>
+              <entry>
+                <para
+>Ne smejo se uporabljati in niso zelo zanimivi</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Grafikon</title>
+  <para
+>Uporabite tako, da postavite spremenljivko z imenom chartX (X=nekaj besedila, da bo ime spremenljivke edinstveno) s projektom vrednosti pred grafikon, ki bo uporabljen. </para>
+  <para
+>Upoštevajte, da mora biti grafikon »zasidran kot znak«, sicer ga generator poročil ne more najti. </para>
+  <para
+>Spremenljivka ima to obliko: </para>
+  <para
+>Spremenljivka: <varname
+>Ime: chartX (X=nekaj besedila) Value: project; values=<replaceable
+>data</replaceable
+>;</varname
+> </para>
+  <para
+>kjer so <replaceable
+>data</replaceable
+> seznam vrednosti, ločenih z vejicami, ki jih je treba vključiti v grafikon. </para>
+  <para
+>Možne vrednosti <replaceable
+>data</replaceable
+> so: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>bcws effort</guilabel
+> Predvideni stroški načrtovanega dela, ki temeljijo na naporu.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp effort</guilabel
+> Predvideni stroški opravljenega dela, ki temeljijo na naporu.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp effort</guilabel
+> Dejanski stroški opravljenega dela, ki temeljijo na naporu.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi effort</guilabel
+> Indeks uspešnosti časovne razporeditve, ki temelji na naporu.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi effort</guilabel
+> Indeks stroškovne uspešnosti, ki temelji na naporu.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws cost</guilabel
+> Predvideni stroški načrtovanega dela, ki temeljijo na stroških.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp cost</guilabel
+> Predvideni stroški opravljenega dela, ki temeljijo na stroških.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> Dejanski stroški opravljenega dela, ki temeljijo na stroških.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> Indeks uspešnosti urnika, ki temelji na stroških.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> Indeks stroškovne uspešnosti, ki temelji na stroških.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Grafikoni, ki jih ustvarite v svoji predlogi, morajo imeti enako (ali več) število stolpcev kot število vrednosti, ki jih podate v svoji spremenljivki. </para>
+  <para
+>Primer: </para>
+  <para
+>Ime spremenljivke: <varname
+>chart1</varname
+> Value: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Upoštevajte, da ne morete mešati vrednosti na podlagi napora in stroškov. Če želite prikazati oboje, ustvarite dva grafikona. </para>
+  <sect4 id="gantt"
+><title
+>Gantt</title>
+    <para
+>Ne podprto. </para>
+  </sect4>
+</sect3>
+</sect2>

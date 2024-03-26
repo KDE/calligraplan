@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Opis</title>
+  <para
+>Pogled dodelitve virov prikazuje načrtovane dodelitve virov nalog v tabeli. <note
+><para
+>Ta pogled lahko močno vpliva na učinkovitost velikih projektov.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Podatki</title>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime predmeta (skupina virov, vir, naloga)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Skupaj</para>
+            </entry>
+            <entry>
+              <para
+>Skupna dodelitev za vir</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Datumi</para>
+            </entry>
+            <entry>
+              <para
+>Skupne dodelitve za vir na dan in dodelitve za vir za nalogo.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Urejanje podatkov</title>
+  <para
+>Opis naloge in napredek lahko urejate s kontekstnim menijem. </para>
+</sect3>
+</sect2>

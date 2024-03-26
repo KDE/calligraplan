@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Opis</title>
+  <para
+>Urejevalnik strukture razčlenitve stroškov (Cost Breakdown Structure Editor) se uporablja za ustvarjanje, urejanje in brisanje računov. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Računi se lahko povežejo z nalogami in viri, da se kopičijo stroški teh nalog in virov. </para>
+  <para
+>Privzeti račun zbira stroške, ki nastanejo zaradi nalog, ki niso povezana z računom. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Orodna vrstica</title>
+  <para
+>Orodna vrstica ponuja sredstva za ustvarjanje in brisanje računov: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Dodaj račun</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje računa. Nov račun se vstavi za izbranim računom. Če ni izbran noben račun, se nov račun doda na najvišjo raven.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodaj podračun</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje podračuna. Nov račun je izbranemu računu dodan kot podrejeni.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Izbriši</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Izbriši</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbriše izbrani račun.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Urejanje podatkov</title>
+  <para
+>Podatke je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>. </para>
+  <para
+>Na voljo so naslednji stolpci: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime računa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Opis</para>
+            </entry>
+            <entry>
+              <para
+>Opis računa.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

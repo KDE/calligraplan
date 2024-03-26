@@ -1,0 +1,57 @@
+<sect2
+><title/>
+<sect3 id="description"
+><title
+>Opis</title>
+  <para
+>Vire za projekt lahko ustvarite z <link linkend="resource-editor"
+>urejevalnikom virov</link
+> in <link linkend="work-and-vacation-editor"
+>urejevalnikom dela in počitnic</link
+>. </para>
+  <para
+>Če pa boste uporabljali iste vire v številnih projektih (kar se pogosto zgodi), je bolj priročno vzdrževati vire v ločeni datoteki. Najboljši način za to je, da najprej ustvarite svojo datoteko virov in nato nastavite &plan; da to datoteko vedno naložite, ko ustvarjate nov projekt. </para>
+</sect3>
+<sect3 id="shared-resources"
+><title
+>Viri v skupni rabi</title>
+  <para
+>Viri v skupni rabi so viri, ki jih je mogoče deliti med projekti in tako olajšajo izravnavo virov med projekti. </para>
+  <para
+>Če upravljate projekte, ki uporabljajo popolnoma različna področja virov, lahko ustvarite več datotek virov, vendar se en projekt lahko nanaša samo na eno datoteko virov. </para>
+  <para
+>Izberete lahko datoteko virov, ki jo želite uporabiti pri ustvarjanju novega projekta. Viri se lahko samodejno naložijo ob odpiranju vašega projekta ali pa jih posodobite ročno tako, da izberete <menuchoice
+><guimenu
+>Orodja</guimenu
+><guimenuitem
+>Posodobi vire v skupni rabi</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Upoštevajte, da je projekt še vedno mogoče odpreti, tudi če datoteka virov ni na voljo. </para>
+  <para
+>Če je bilo karkoli izbrisano v datoteki virov v skupni rabi, se vam prikaže pogovorno okno, v katerem lahko izberete, kako ravnati z izbrisanimi elementi. </para>
+  <para
+>Izberete lahko, ali naj bo predmet: <itemizedlist>
+  <listitem
+><para
+><emphasis
+>Odstranjen:</emphasis
+> Odstrani element iz vašega projekta. To je dejanje, ki bi ga običajno izbrali, saj ohranja vaš projekt sinhroniziran z datoteko virov. Če pa je element uporabljen v vašem projektu, ga boste morda želeli pretvoriti v lokalni element.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Pretvorjen:</emphasis
+> Pretvori element v lokalni element.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Ohranjen:</emphasis
+> Ohrani element kot element v skupni rabi v vašem projektu. Naslednjič, ko se datoteka virov naloži, boste znova vprašani, kako ravnati z elementom.</para>
+  </listitem>
+  </itemizedlist>
+  </para>
+</sect3>
+</sect2>
