@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>Zagonski pogled je prikazan ob zagonu in ko je izbrana <menuchoice
+><guimenu
+>Datoteka</guimenu
+><guimenuitem
+>Nova</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Ima 3 razdelke za: </para>
+<itemizedlist>
+  <listitem
+><para
+>Ustvarjanje novih projektov. Glejte tudi <link linkend="creating-a-project"
+>Ustvarjanje projekta</link
+> in <link linkend="managing-resources"
+>Upravljanje virov</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Odpiranje obstoječih projektov. Ta razdelek vam daje možnost, da odprete obstoječo projektno datoteko ali enega od 10 zadnjih projektov, ki ste jih odprli.</para
+></listitem>
+  <listitem
+><para
+>V razdelku Pomoč so povezave do uvodnih strani, dokumentacije in foruma skupnosti.</para
+></listitem>
+</itemizedlist>
+</sect2>

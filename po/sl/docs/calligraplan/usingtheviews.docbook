@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Opis</title>
+  <para
+>Urejevalnik nalog je pogled, ki prikazuje podatke naloge v drevesni strukturi. Večino podatkov v urejevalniku nalog je mogoče urejati na mestu. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Krmarjenje</title>
+  <para
+>Po drevesni strukturi lahko krmarite s tipkovnico: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Razširi razširljivo vrstico.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Strni zložljiv element.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Puščica levo</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na prejšnji stolpec v isti vrstici.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Puščica desno</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na naslednji stolpec v isti vrstici.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Puščica navzgor</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na prejšnjo vrstico v istem stolpcu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Puščica navzdol</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na naslednjo vrstico v istem stolpcu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Domov</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na prvo vrstico, prvi stolpec.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Konec</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na zadnjo vrstico, zadnji stolpec.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Stran gor</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na prvo vidno vrstico v istem stolpcu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Stran navzdol</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na zadnjo vidno vrstico v istem stolpcu.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Urejanje podatkov</title>
+  <para
+>Elemente, ki jih je mogoče urejati, odprete za urejanje z dvojnim klikom na element ali, če uporabljate tipkovnico, s pritiskom <keycap
+>F2</keycap
+> odprete trenutni element. </para>
+  <para
+>Ko urejate element, se lahko pomaknete do naslednjega elementa, ki ga je mogoče urejati, kot sledi: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Puščica levo</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na prejšnji element, ki ga je mogoče urejati, v isti vrstici.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Puščica desno</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na naslednji element, ki ga je mogoče urejati, v isti vrstici.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Puščica navzgor</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na naslednji element, ki ga je mogoče urejati, v prejšnjih vrsticah.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Puščica navzdol</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Pojdi na naslednji element, ki ga je mogoče urejati, v naslednjih vrsticah.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Povleci &amp; spusti in kopiraj/prilepi</title>
+  <para
+>Večina pogledov podpira povleci &amp; spusti in kopiraj/prilepi. Grafe in Ganttove diagrame lahko povlečete v aplikacije, ki podpirajo slike. Podatki tabele uporabljajo vrsto html mime, zato jih je mogoče izpustiti v kateri koli aplikaciji, ki to podpira. Če pogled podpira notranje premikanje ali kopiranje elementov &eg; <link linkend="task-editor"
+>Urejevalnik nalog</link
+>, lahko elemente tudi premaknete ali kopirate. </para>
+</sect3>
+</sect2>

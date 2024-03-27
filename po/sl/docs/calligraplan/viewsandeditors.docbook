@@ -1,0 +1,68 @@
+<chapter id="startup-view"
+><title
+>Pogledi in urejevalniki</title>
+  <sect1 id="startup-view-section"
+><title
+>Začetni pogled</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Urejevalnik naloge</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Urejevalnik virov</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Urejevalnik dela in počitnic</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Urejevalnik strukture stroškov</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Urejevalnik odvisnosti nalog (Grafični)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Urejevalnik odvisnosti nalog (Seznam)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Urejevalnik časovnih planov</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Pogled izvedbe projekta</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Pogled izvedbe naloge</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Pogled stanja naloge</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Pogled izvajanja naloge</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Pogled Ganttovega diagrama nalog</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Pogled Ganttovih mejnikov</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Pogled Ganttovega diagrama dodelitev virov</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Pogled dodelitev virov</title
+>&resource-assignment-gantt-view-section; </sect1>
+</chapter>

@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Opis</title>
+  <para
+>Pogled izvajanja nalog se uporablja za pregled informacij o izvajanju nalog. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Podatki</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Podatke o napredku je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>, ali v pogovornem oknu napredka naloge.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime naloge.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Stanje</para>
+            </entry>
+            <entry>
+              <para
+>Stanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% dokončano</para>
+            </entry>
+            <entry>
+              <para
+>Dokončanje naloge</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Odgovornost</para>
+            </entry>
+            <entry>
+              <para
+>Oseba, odgovorna za to nalogo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodelitev</para>
+            </entry>
+            <entry>
+              <para
+>Sredstva dodeljena tej nalogi.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>Indeks uspešnosti časovnega plana. (BCWP / BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWS</para>
+            </entry>
+            <entry>
+              <para
+>Predvideni stroški načrtovanega dela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWP</para>
+            </entry>
+            <entry>
+              <para
+>Predvideni stroški opravljenega dela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ACWP</para>
+            </entry>
+            <entry>
+              <para
+>Dejanski stroški opravljenega dela.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Opis</para>
+            </entry>
+            <entry>
+              <para
+>Opis naloge</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Konfiguracija</title>
+  <para
+>Z uporabo kontekstnega menija lahko pogled konfigurirate za prikaz/skrivanje projekta, razdelitev/razdelitev drevesnega pogleda ali pa ga lahko konfigurirate z uporabo pogovornega okna za konfiguracijo. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Opis</title>
+  <para
+>Urejevalnik virov se uporablja za ustvarjanje, urejanje in brisanje virov in skupin virov. Viri morajo pripadati skupini virov. Podskupine trenutno niso dovoljene. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Delovni viri se morajo nanašati na <emphasis
+>koledar</emphasis
+>, ki določa delovne ure za vir. Koledarji so ustvarjeni z <link linkend="work-and-vacation-editor"
+>urejevalnikom dela in počitnic</link
+>. </para>
+  <para
+>Materialni viri so privzeto vedno na voljo. S koledarjem lahko omejite njegovo razpoložljivost. </para>
+  <para
+>Viri so lahko <emphasis
+>v skupni rabi</emphasis
+> ali <emphasis
+>lokalni</emphasis
+>. Lokalni vir se uporablja samo v trenutnem projektu. Skupni vir je lahko v skupni rabi med več projekti in je shranjen v ločeni datoteki, glejte <link linkend="managing-resources"
+>Upravljanje virov</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Orodna vrstica</title>
+  <para
+>Orodna vrstica nudi sredstva za ustvarjanje in brisanje virov in skupin virov: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Gumb</guilabel
+></entry>
+            <entry
+><guilabel
+>Bližnjica</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Dodaj skupino virov</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje skupine virov. Nova skupina je dodana na koncu skupin.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Dodaj vir</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gumb za ustvarjanje vira. Nov vir je kot podrejeni pripet trenutno izbrani skupini. Če je izbran vir, se novi vir doda svoji nadrejeni skupini.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Izbriši</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Izbriši</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Izbriše izbrane vire in/ali skupine virov.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Vire lahko ustvarite tako, da spustite podatke iz katere koli aplikacije, ki podpira vlečenje informacij vCard, na primer <emphasis
+>KAddressBook</emphasis
+> ali <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Vire je mogoče kopirati ali premakniti v drugo skupino virov s tehniko povleci in spusti. </para>
+  <para
+><note
+><para
+>Pri premikanju vira bo t vir izgubil vse dodelitve.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Urejanje podatkov</title>
+  <para
+>Podatke je mogoče urejati neposredno, kot je opisano <link linkend="using-the-views"
+>tukaj</link
+>. </para>
+  <para
+>Vire lahko urejate tudi v pogovornem oknu za nastavitve virov. </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime vira ali skupine virov.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Obseg</para>
+            </entry>
+            <entry>
+              <para
+>Vir je lahko <emphasis
+>v skupni rabi</emphasis
+> ali <emphasis
+>lokalni</emphasis
+>. Skupnega vira ni mogoče urejati.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Vrsta</para>
+            </entry>
+            <entry>
+              <para
+>Vrsta vira ali skupine virov.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Začetnice</para>
+            </entry>
+            <entry>
+              <para
+>Začetnice vira.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>E-naslov</para>
+            </entry>
+            <entry>
+              <para
+>E-poštni naslov vira.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Koledar</para>
+            </entry>
+            <entry>
+              <para
+>Koledar določa, kdaj vir deluje.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Omejitev (%)</para>
+            </entry>
+            <entry>
+              <para
+>Največja obremenitev, ki jo je mogoče dodeliti.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Na voljo od</para>
+            </entry>
+            <entry>
+              <para
+>Določa, kdaj je vir na voljo projektu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Na voljo do</para>
+            </entry>
+            <entry>
+              <para
+>Določa, kdaj je vir na voljo projektu.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Normalna cena</para>
+            </entry>
+            <entry>
+              <para
+>Cena na uro, normalne ure.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Račun</para>
+            </entry>
+            <entry>
+              <para
+>Račun, na katerem se zbirajo stroški vira.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Konfiguracija</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>S kontekstnim menijem lahko pogled konfigurirate tako, da razdeli/razdeli drevesni pogled, ali pa ga konfigurirate s pogovornim oknom za konfiguracijo.</para
+><para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

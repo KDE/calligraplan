@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Opis</title>
+  <para
+>Pogled uspešnosti projekta je grafikon vodenja projekta, kjer je mogoče razumeti dejansko stanje projekta glede na metodo prislužene vrednosti. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>kjer: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS pomeni načrtovano delo s proračunskimi stroški,</para
+></listitem>
+    <listitem
+><para
+>BCWP pomeni proračunske stroške opravljenega dela,</para
+></listitem>
+    <listitem
+><para
+>ACWP pomeni dejanske stroške opravljenega dela.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Vse to se šteje kot napor v urah in stroških. </para>
+  <para
+>PI so indeksi uspešnosti, kjer: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI je indeks stroškovne učinkovitosti,</para
+></listitem>
+    <listitem
+><para
+>SPI je indeks uspešnosti časovnega plana.</para
+></listitem>
+  </itemizedlist>
+</sect2>

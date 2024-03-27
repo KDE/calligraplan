@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Opis</title>
+  <para
+>Pogled Gantt mejniki se uporablja za prikaz mejnikov na časovni premici. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Ganttov pogled</phrase>
+        </textobject>
+        <caption>
+          <para
+>Ganttov pogled</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Urejanje podatkov</title>
+  <para
+>Opis mejnika in napredek je mogoče urejati s kontekstnim menijem. </para>
+  <para
+>Naslednji stolpci so privzeto prikazani: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Stolpec</guilabel
+></entry>
+            <entry
+><guilabel
+>Opis</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Koda WBS</para>
+            </entry>
+            <entry>
+              <para
+>Koda strukture razčlenitve dela</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ime</para>
+            </entry>
+            <entry>
+              <para
+>Ime mejnika.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Začetni čas</para>
+            </entry>
+            <entry>
+              <para
+>Načrtovani začetni čas.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Konfiguracija</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Z uporabo kontekstnega menija lahko pogled konfigurirate v pogovornem oknu za konfiguracijo.</para>
+              <para
+>Konfiguracijsko pogovorno okno vam omogoča, da količino informacij, ki jih prikaže pogled, prilagodite svojim potrebam.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Pogovorno okno za konfiguracijo</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Pogovorno okno za konfiguracijo</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

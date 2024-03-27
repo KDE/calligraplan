@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>Na grafikonu uspešnosti naloge lahko podrobno analiziramo vsako podnalogo ali nalogo z enakimi indeksi kot za pogled uspešnosti projekta. </para>
+<para
+>To je zelo uporabno pri dolgem in zapletenem projektu. </para>
+<para
+>V levem oknu lahko izberete vsako posamezno pod-nalogo kot tudi celotno nalogo, nato pa se bo v desnem oknu pojavila ustrezna tabela. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>kjer: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS pomeni načrtovano delo z načrtovanimi stroški,</para
+></listitem>
+  <listitem
+><para
+>BCWP pomeni načrtovane stroške opravljenega dela,</para
+></listitem>
+  <listitem
+><para
+>ACWP pomeni dejanske stroške opravljenega dela.</para
+></listitem>
+</itemizedlist>
+<para
+>Vse to se šteje kot napor v urah in stroških. </para>
+<para
+>PI so indeksi uspešnosti, kjer: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI je indeks stroškovne učinkovitosti,</para
+></listitem>
+  <listitem
+><para
+>SPI je indeks uspešnosti časovnega plana.</para
+></listitem>
+</itemizedlist>
+</sect2>

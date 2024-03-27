@@ -1,0 +1,46 @@
+<sect2
+><title/>
+<para
+>Nov projekt lahko ustvarite tako, da pritisnete gumb <guibutton
+>Nov projekt</guibutton
+> ali izberete <emphasis
+>predlogo projekta</emphasis
+> v <link linkend="startup-view"
+>Pogledu ob zagonu</link
+>. </para>
+<para
+>To bo ustvarilo nov projekt s privzetimi vrednostmi, določenimi v <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
+>Nastavitve</ulink
+> ali iz vrednosti, definiranih v predlogi Odprlo se bo pogovorno okno z nastavitvami projekta, v katerem boste lahko definirali specifičen projektlastnosti, kot so <emphasis
+>ime projekta</emphasis
+>, <emphasis
+>manager</emphasis
+> in <emphasis
+>ciljni časi</emphasis
+>.​ </para>
+<para
+>Ko ustvarite svoj prvi projekt, razmislite o ustvarjanju virov v ločeni datoteki. Ko se sklicujete na to datoteko v svojih projektih, vam ni treba znova definirati virov in lahko uskladite uporabo virov med projekti. </para>
+<para
+>Glejte <link linkend="managing-resources"
+>Upravljanje virov</link
+>. </para>
+<para
+>Če želite uskladiti uporabo virov med projekti, morajo biti vaše projektne datoteke shranjene v istem imeniku. </para>
+<para
+>Uporabna struktura bi lahko bila nekaj takega: </para>
+<para
+><screen
+>Plan
+    &nbsp;!-- Resources
+    &nbsp;!      !-- SharedResources.plan
+    &nbsp;!-- Taskmodules
+    &nbsp;!      !-- Task modules (if any)
+    &nbsp;!-- Templates
+    &nbsp;!      !-- Project templates (if any)
+    &nbsp;!-- Projects
+    &nbsp;!      !-- &lt;project 1&gt;.plan
+    &nbsp;!      !-- &lt;project 2&gt;.plan
+    &nbsp;!      !-- etc
+  </screen>
+</para>
+</sect2>

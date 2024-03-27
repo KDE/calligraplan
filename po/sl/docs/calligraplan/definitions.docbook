@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Uvod</title>
+  <para
+>Pri vodenju projektov se izrazi lahko uporabljajo na različne načine v različnih programih ali različnih podjetjih ali vrstah projektov. Če pogledamo izčrpnejše glosarje projektnega vodenja, boste našli alternativne definicije za večino izrazov. </para>
+  <para
+>Ta seznam določa, kako se določeni izrazi uporabljajo v <guilabel
+>Planu</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Pogoji</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Račun</emphasis
+></term>
+      <listitem>
+      <para
+>Račun se uporablja v <emphasis
+>Strukturi razčlenitve stroškov</emphasis
+> (<link linkend="cbs"
+>CBS</link
+>), da predstavlja mesto, kjer stroški iz <link linkend="task"
+>nalog</link 
+> ali <link linkend="resource"
+>vire</link
+> je mogoče združiti.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ACWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Dejanski stroški opravljenega dela</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Dejanski stroški opravljenega dela</emphasis
+></term>
+      <listitem>
+      <para
+>Dejanski stroški (ali napor), ki je bil opravljen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Dodelitev</emphasis
+></term>
+      <listitem>
+      <para
+>Naloge so v fazi načrtovanja projekta dodeljene <link linkend="resource"
+>Virom</link
+>. Dejanska dodelitev se opravi med razporejanjem. Upoštevajte, da dodelitev ni zagotovljena, ker vir morda ni na voljo.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Dodelitev</emphasis
+></term>
+      <listitem>
+      <para
+>Naloge so med razporejanjem dodeljene <link linkend="resource"
+>Virom</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BCWS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Načrtovani stroški planiranega dela</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Načrtovani stroški planiranega dela</emphasis
+></term>
+      <listitem>
+      <para
+>Strošek (ali napor), ki bi ga morali porabiti, da bi dosegli navedeni napredek.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BCWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Načrtovani stroški opravljenega dela</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Načrtovani stroški opravljenega dela</emphasis
+></term>
+      <listitem>
+      <para
+>Strošek (ali napor), ki je bil opravljen.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>CBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Struktura razčlenitve stroškov</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>Je <emphasis
+>indeks stroškovne uspešnosti</emphasis
+> in je enak <link linkend="bcwp"
+>BCWP</link
+>/<link linkend="acwp"
+>ACWP</link
+>. Ko je ta indeks pod 1, pomeni, da ste presegli načrt. Če je indeks večji od 1, pomeni, da so stroški pod načrtovanimi.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Struktura razčlenitve stroškov</emphasis
+></term>
+      <listitem>
+      <para
+>CBS organizira <link linkend="account"
+>račune</link
+> v strukturo, ki omogoča združevanje stroškov neodvisno od <link linkend="wbs"
+>WBS</link
+> in <link linkend="rbs"
+> RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Ocena</emphasis
+></term>
+      <listitem>
+      <para
+>Ocena je pričakovana količina napora ali časa, potrebnega za dokončanje <link linkend="task"
+>naloge</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Mejnik</emphasis
+></term>
+      <listitem>
+      <para
+>Mejnik je <link linkend="task"
+>naloga</link
+> z naporom 0,00 h. Običajno se uporablja za označevanje pomembnega izida, na primer dokončanje končnega izdelka po sprejemu stranke.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Tehnika ocenjevanja in pregleda programa</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Tehnika vrednotenja in pregleda programa</emphasis
+></term>
+      <listitem>
+      <para
+>Tehnika vrednotenja in pregleda programa je izboljšava metode kritične poti. Ocene napora <link linkend="task"
+>naloge</link
+> v CPM so točkovne ocene, medtem ko so ocene napora <link linkend="task"
+>naloge</link
+> v PERT izračunane s ponderiranjem Optimistične, Najverjetnejše in Pesimistične ocene (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Distribucija PERT</emphasis
+></term>
+      <listitem>
+      <para
+>Poenostavljen način za izračun pričakovane ocene iz optimistične, najverjetnejše in pesimistične ocene.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Struktura razčlenitve virov</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Struktura razčlenitve virov</emphasis
+></term>
+      <listitem>
+      <para
+>RBS organizira vire v <link linkend="Resource-Group"
+>skupine virov</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Vir</emphasis
+></term>
+      <listitem>
+      <para
+>Vir je lahko vrste <emphasis
+>Delo</emphasis
+>, <emphasis
+>Material</emphasis
+> ali <emphasis
+>Ekipa</emphasis
+>. Vir mora vedno pripadati <link linkend="Resource-Group"
+>skupini virov</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Skupina virov</emphasis
+></term>
+      <listitem>
+      <para
+>Skupina virov se uporablja za združevanje podobnih <link linkend="resource"
+>virov</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Ekipa za vire</emphasis
+></term>
+      <listitem>
+      <para
+>Ekipa za <link linkend="resource"
+>vir</link
+> je vir, ki je sestavljen iz številnih drugih virov.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>Je indeks uspešnosti urnika in je enak BCWP/BCWS. Ko je ta indeks pod 1, pomeni, da zaostajate za načrtom. Če je indeks večji od 1, pomeni, da prehitevate načrt.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Zbirna naloga</emphasis
+></term>
+      <listitem>
+      <para
+>Naloga povzetka ima podrejene pod-naloge in zbira informacije na podlagi pod-nalog.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Naloga</emphasis
+></term>
+      <listitem>
+      <para
+>Naloga je enota dela. <link linkend="resource"
+>Viri</link
+> so običajno dodeljeni na ravni naloge.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard je standardna oblika datoteke za elektronske vizitke.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>WBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Struktura razčlenitve dela</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Struktura razčlenitve dela</emphasis
+></term>
+      <listitem>
+      <para
+>WBS se uporablja za razčlenitev velikih projektov na obvladljive dele za lažje načrtovanje in upravljanje.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

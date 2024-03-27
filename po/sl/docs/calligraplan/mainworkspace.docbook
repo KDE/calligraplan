@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Opis</title>
+  <para
+>Glavni delovni prostor je običajno organiziran z izbirnikom pogleda na levi in pogledom podatkov na desni.</para
+><para
+>Kot običajno boste na vrhu našli tudi menijsko vrstico in orodno vrstico, na dnu pa vrstico stanja. </para>
+  <para
+>Ker sta izbirnik pogleda in okence za skripte okna, ju je mogoče premakniti na drugo obrobo, lebdeti ali skriti. Če želite prikazati skrito sidrišče za okna, uporabite menijski vnos <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guimenuitem
+>Sidrišča</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>Izbirnik pogleda</title>
+  <para
+><link linkend="the-view-selector"
+>Izbirnik pogleda</link
+> vam omogoča, da med trenutno navedenimi pogledi izberete pogled podatkov, ki ga želite prikazati. </para>
+  <para
+>Pogledi so razvrščeni v kategorije za lažje iskanje: privzeto urejevalniki, pogledi, izvajanje in poročila: </para>
+  <itemizedlist>
+    <listitem
+><para
+>Urejevalniki vsebuje urejevalnike, ki jih potrebujete za definiranje in načrtovanje vašega projekta.</para
+></listitem>
+    <listitem
+><para
+>Pogledi vsebujejo poglede, ki se uporabljajo za pregled vašega projekta.</para
+></listitem>
+    <listitem
+><para
+>Izvedba vsebuje poglede, ki so še posebej uporabni med izvajanjem vašega projekta.</para
+></listitem>
+    <listitem
+><para
+>Poročila vsebujejo poglede za ustvarjanje poročil.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Poglede je mogoče tudi premikati znotraj kategorij ali med njimi ali jih dodati ali odstraniti iz <link linkend="the-view-selector"
+>izbirnika pogledov</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Izbirnik časovnega plana</title>
+  <para
+>Izbirnik časovnega plana vam omogoča, da izberete plan, iz katerega bodo prikazane vrednosti vseh pogledov (&eg; <link linkend="task-gantt-view"
+>Ganttov pogled</link
+>). Naloge, ki niso bile načrtovane v izbranem urniku, običajno niso prikazane v nobenem pogledu. (Seveda so prikazane v urejevalnikih.) </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Vrstica stanja</title>
+  <para
+>Vrstica stanja prikazuje sporočila in informacije o napredku. Predvsem je trenutno izbrani časovni plan prikazan na desni strani vrstice stanja. Upoštevajte, da večina pogledov v kategoriji <emphasis
+>Pogledi</emphasis
+> prikazuje informacije glede na izbrani plan, tako da če projekt ni načrtovan (<emphasis
+>Ni razporejen</emphasis
+>), bo večina pogledov praznih. </para>
+</sect3>
+</sect2>
