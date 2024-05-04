@@ -5,7 +5,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2010.
 # Geoffray Levasseur <geoffray.levasseurbrandin@numericable.fr>, 2011.
-# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@gmx.fr>, 2014, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
 # Christophe Moulin <mevouillon.corp@gmail.com>, 2020.
@@ -17,15 +17,15 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-12-20 09:26+0100\n"
+"PO-Revision-Date: 2024-04-29 15:29+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -5833,7 +5833,7 @@ msgstr "US Folio"
 #, kde-format
 msgctxt "Page size"
 msgid "US Ledger"
-msgstr "US Ledger"
+msgstr "Comptabilité US"
 
 #: odf/KoPageFormat.cpp:82
 #, kde-format
@@ -9854,7 +9854,7 @@ msgid ""
 "url='%1'>More...</link></para>"
 msgstr ""
 "<title>Ajouter et générer des rapports</title><para>Vous permet d'ajouter et "
-"de générer des rapports à partir de fichiers Open Document (.odf).</"
+"de générer des rapports à partir de fichiers « Open Document » (.odf).</"
 "para><para>Vous pouvez créer un modèle de rapport en utilisant n'importe "
 "quel traitement de texte Open Document.<nl/><link url='%1'>En savoir plus…</"
 "link></para>"
