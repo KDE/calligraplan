@@ -2,14 +2,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2021, 2022, 2023.
+# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
 "PO-Revision-Date: 2023-07-30 12:07+0200\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Stefan Asserhäll"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "stefan.asserhall@bredband.net"
+msgstr "stefan.asserhall@gmail.com"
 
 #. i18n: ectx: Menu (file)
 #: calligraplanportfolio_shell.rc:4 Portfolio_ViewUi.rc:4
