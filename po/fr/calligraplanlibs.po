@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-04-29 15:29+0200\n"
+"PO-Revision-Date: 2024-05-06 16:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -985,7 +985,7 @@ msgstr "--- Séparateur ---"
 #: main/kedittoolbar.cpp:44
 #, kde-format
 msgid "--- expanding spacer ---"
-msgstr "--- Séparateur avec extension ---"
+msgstr "--- Séparateur extensible ---"
 
 #: main/kedittoolbar.cpp:337
 #, kde-format
