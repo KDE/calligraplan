@@ -201,9 +201,9 @@ msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
-"Este document s'ha creat amb una versió més recent del PlanWork (versió de "
-"la sintaxi: %1)<br>Si l'obriu amb la versió actual del PlanWork, es perdrà "
-"part de la informació."
+"Este document s'ha creat amb una versió més recent de PlanWork (versió de la "
+"sintaxi: %1)<br>Si l'obriu amb la versió actual de PlanWork, es perdrà part "
+"de la informació."
 
 #: part.cpp:604 part.cpp:652
 #, kde-format
@@ -403,7 +403,7 @@ msgstr "Gestor del projecte"
 #: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
 #, kde-format
 msgid "Configure View..."
-msgstr "Configura la vista..."
+msgstr "Configura la vista…"
 
 #: taskworkpackageview.cpp:630
 #, kde-kuit-format
@@ -466,18 +466,18 @@ msgstr "Seleccioneu la «línia de temps»"
 #: view.cpp:103
 #, kde-format
 msgid "Configure PlanWork..."
-msgstr "Configura el PlanWork..."
+msgstr "Configura PlanWork…"
 
 #: view.cpp:108
 #, kde-format
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: view.cpp:112
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
-msgstr "Visualitza..."
+msgstr "Visualitza…"
 
 #: view.cpp:116
 #, kde-format
@@ -487,17 +487,17 @@ msgstr "Elimina el document"
 #: view.cpp:120
 #, kde-format
 msgid "Send Package..."
-msgstr "Envia el paquet..."
+msgstr "Envia el paquet…"
 
 #: view.cpp:124
 #, kde-format
 msgid "Edit Progress..."
-msgstr "Edita el progrés..."
+msgstr "Edita el progrés…"
 
 #: view.cpp:128
 #, kde-format
 msgid "View Description..."
-msgstr "Visualitza la descripció..."
+msgstr "Visualitza la descripció…"
 
 #: view.cpp:315
 #, kde-format

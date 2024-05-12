@@ -1047,13 +1047,13 @@ msgstr "Acc&ions actuals:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
-msgstr "Canvia la &icona..."
+msgstr "Canvia la &icona…"
 
 #: main/kedittoolbar.cpp:1071
 #, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
-msgstr "Canvia el te&xt..."
+msgstr "Canvia el te&xt…"
 
 #: main/kedittoolbar.cpp:1233
 #, kde-format
@@ -1159,12 +1159,12 @@ msgstr "Es poden recuperar els fitxers de guardada automàtica següents:"
 #: main/KoDocument.cpp:560
 #, kde-format
 msgid "Making backup..."
-msgstr "S'està fent la còpia de seguretat..."
+msgstr "S'està fent la còpia de seguretat…"
 
 #: main/KoDocument.cpp:575
 #, kde-format
 msgid "Saving..."
-msgstr "S'està guardant..."
+msgstr "S'està guardant…"
 
 #: main/KoDocument.cpp:603
 #, kde-format
@@ -1201,7 +1201,7 @@ msgstr ""
 #: main/KoDocument.cpp:725
 #, kde-format
 msgid "Autosaving..."
-msgstr "S'està guardant automàticament..."
+msgstr "S'està guardant automàticament…"
 
 #: main/KoDocument.cpp:737
 #, kde-format
@@ -1563,7 +1563,7 @@ msgstr "%1 document sense guardar (%2)"
 #: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
-msgstr "Imprimix a PDF..."
+msgstr "Imprimix a PDF…"
 
 #: main/KoMainWindow.cpp:285
 #, kde-format
@@ -1573,12 +1573,12 @@ msgstr "Torna a carregar"
 #: main/KoMainWindow.cpp:289
 #, kde-format
 msgid "Import..."
-msgstr "Importa..."
+msgstr "Importa…"
 
 #: main/KoMainWindow.cpp:293
 #, kde-format
 msgid "E&xport..."
-msgstr "E&xporta..."
+msgstr "E&xporta…"
 
 #: main/KoMainWindow.cpp:297
 #, kde-format
@@ -1646,7 +1646,7 @@ msgid ""
 msgstr ""
 "No s'ha pogut obrir un fitxer de plantilla.<nl/>Si voleu modificar la "
 "plantilla, creeu un projecte nou utilitzant esta plantilla i guardeu-la "
-"utilitzant <interface>Fitxer->Crea una plantilla de projectes...</interface>."
+"utilitzant <interface>Fitxer->Crea una plantilla de projectes…</interface>."
 
 #: main/KoMainWindow.cpp:899 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
@@ -1666,7 +1666,7 @@ msgstr ""
 #: main/KoMainWindow.cpp:910
 #, kde-format
 msgid "Confirm Save"
-msgstr "Confirmació del guardada"
+msgstr "Confirmeu la guardada"
 
 #: main/KoMainWindow.cpp:919
 #, kde-format
@@ -1680,7 +1680,7 @@ msgstr ""
 #: main/KoMainWindow.cpp:922
 #, kde-format
 msgid "Confirm Export"
-msgstr "Confirmació d'exportació"
+msgstr "Confirmeu l'exportació"
 
 #: main/KoMainWindow.cpp:923 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
@@ -1837,7 +1837,7 @@ msgstr ""
 "<emphasis>diàleg del projecte</emphasis> per a definir les propietats "
 "específiques del projecte com el <resource>Nom del projecte</resource>, i el "
 "moment d'<resource>Inici objectiu</resource> i <resource>- Final</resource>."
-"<nl/><link url='%1'>Més...</link></para>"
+"<nl/><link url='%1'>Més…</link></para>"
 
 #: main/WelcomeView.cpp:146
 #, kde-kuit-format
@@ -1855,7 +1855,7 @@ msgstr ""
 "referenciar al fitxer de recursos quan es cree un projecte nou.<nl/>Els "
 "recursos també es poden compartir entre projectes per a evitar la "
 "sobrecàrrega de recursos entre projectes.<nl/>Els recursos compartits cal "
-"que es definisquen en un fitxer separat.<nl/><link url='%1'>Més...</link></"
+"que es definisquen en un fitxer separat.<nl/><link url='%1'>Més…</link></"
 "para>"
 
 #: main/WelcomeView.cpp:159
@@ -1887,7 +1887,7 @@ msgstr ""
 "l'entrada del menú <interface>Ajuda -> Què és açò?</interface> o amb la "
 "drecera del teclat <shortcut>Maj+F1</shortcut>.</para><para>En els diàlegs "
 "està disponible des del <interface>?</interface> de la barra de títol del "
-"diàleg.</para><para>Si veeu <link url='%1'>Més...</link> en el text, prement-"
+"diàleg.</para><para>Si veeu <link url='%1'>Més…</link> en el text, prement-"
 "ho mostrarà més informació a partir de la documentació.</para>"
 
 #: main/WelcomeView.cpp:186
@@ -1907,7 +1907,7 @@ msgstr ""
 "configuració: <interface>Configuració -> Configura Plan</interface>.</"
 "para><para>Podeu crear plantilles noves a partir d'un projecte utilitzant "
 "l'entrada de menú <interface>Fitxer -> Crea una plantilla de projectes</"
-"interface>.<nl/><link url='%1'>Més...</link></para>"
+"interface>.<nl/><link url='%1'>Més…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -6452,7 +6452,7 @@ msgstr ""
 "a tasques o a recursos. Normalment, hi ha dos comptes principals, un per a "
 "agregar els costos de les tasques i un per a agregar els costos dels "
 "recursos.</para><para>Esta vista permet la impressió utilitzant el menú "
-"contextual.<nl/><link url='%1'>Més...</link></para>"
+"contextual.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kptaccountseditor.cpp:270
 #, kde-kuit-format
@@ -6484,7 +6484,7 @@ msgstr ""
 "<title>Vista de descomposició de costos</title><para>Mostra el cost agregat "
 "total, així com la distribució del cost en el temps.</para><para>Esta vista "
 "permet la configuració i la impressió utilitzant el menú contextual.<nl/"
-"><link url='%1'>Més...</link></para>"
+"><link url='%1'>Més…</link></para>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_general)
 #: ui/kptaccountsviewconfigdialog.cpp:62 ui/kptmainprojectpanelbase.ui:25
@@ -6605,7 +6605,7 @@ msgstr "Final del projecte"
 #: ui/kptcalendareditor.cpp:189 ui/kptcalendareditor.cpp:600
 #, kde-format
 msgid "Work..."
-msgstr "Faena..."
+msgstr "Faena…"
 
 #: ui/kptcalendareditor.cpp:263 ui/kptcalendareditor.cpp:293
 msgctxt "(qtundo-format)"
@@ -6643,7 +6643,7 @@ msgstr ""
 "tasca. </para><para>Un calendari es pot definir com a <emphasis>Calendari "
 "predeterminat</emphasis>. El calendari predeterminat s'utilitza per a un "
 "recurs de treball, quan el calendari de recursos no està establit "
-"explícitament.<nl/><link url='%1'>Més...</link></para>"
+"explícitament.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kptcalendareditor.cpp:585
 #, kde-format
@@ -6699,7 +6699,7 @@ msgstr "Planificació del projecte:"
 #: ui/reports/reportgroupsectionswidget.ui:43
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptcpmwidget.ui:71
@@ -6739,12 +6739,12 @@ msgstr ""
 "connexió (inici o final) des d'una tasca a l'àrea de connexió d'una tasca "
 "diferent. Podeu editar o suprimir una dependència utilitzant el menú "
 "contextual.</para><para>Esta vista permet la impressió utilitzant el menú "
-"contextual.<nl/><link url='%1'>Més...</link></para>"
+"contextual.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kptdependencyeditor.cpp:2542
 #, kde-format
 msgid "Edit Dependency..."
-msgstr "Edita la dependència..."
+msgstr "Edita la dependència…"
 
 #: ui/kptdependencyeditor.cpp:2546
 #, kde-format
@@ -6766,12 +6766,12 @@ msgstr "Afig una tasca"
 #: ui/kptdependencyeditor.cpp:2559
 #, kde-format
 msgid "Add Task..."
-msgstr "Afig tasca..."
+msgstr "Afig una tasca…"
 
 #: ui/kptdependencyeditor.cpp:2564
 #, kde-format
 msgid "Add Milestone..."
-msgstr "Afig fita..."
+msgstr "Afig una fita…"
 
 #: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
 #: ui/kpttaskeditor.cpp:919
@@ -6782,12 +6782,12 @@ msgstr "Afig una subtasca"
 #: ui/kptdependencyeditor.cpp:2574
 #, kde-format
 msgid "Add Sub-Task..."
-msgstr "Afig subtasca..."
+msgstr "Afig una subtasca…"
 
 #: ui/kptdependencyeditor.cpp:2579
 #, kde-format
 msgid "Add Sub-Milestone..."
-msgstr "Afig una subfita..."
+msgstr "Afig una subfita…"
 
 #: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
 #: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
@@ -6797,7 +6797,7 @@ msgstr "Afig una subfita..."
 #: ui/ResourceAppointmentsGanttView.cpp:363
 #, kde-format
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
@@ -6807,7 +6807,7 @@ msgstr "Edita..."
 #: ui/ResourceAppointmentsGanttView.cpp:367
 #, kde-format
 msgid "Progress..."
-msgstr "Progrés..."
+msgstr "Progrés…"
 
 #: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
@@ -6817,7 +6817,7 @@ msgstr "Progrés..."
 #: ui/ResourceAppointmentsGanttView.cpp:371
 #, kde-format
 msgid "Description..."
-msgstr "Descripció..."
+msgstr "Descripció…"
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
@@ -6827,7 +6827,7 @@ msgstr "Descripció..."
 #: ui/ResourceAppointmentsGanttView.cpp:375
 #, kde-format
 msgid "Documents..."
-msgstr "Documents..."
+msgstr "Documents…"
 
 #: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
@@ -6863,7 +6863,7 @@ msgstr "Documents de la tasca"
 #, kde-kuit-format
 msgctxt "@action View a document"
 msgid "View..."
-msgstr "Visualitza..."
+msgstr "Visualitza…"
 
 #: ui/kptdocumentspanel.cpp:112
 #, kde-kuit-format
@@ -6949,7 +6949,7 @@ msgstr "Nom:"
 #: ui/kptdocumentspanel.ui:54
 #, kde-format
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
 #: ui/kptdocumentspanel.ui:61
@@ -6961,7 +6961,7 @@ msgstr "Ctrl+I"
 #: ui/kptdocumentspanel.ui:68
 #, kde-format
 msgid "Change..."
-msgstr "Canvia..."
+msgstr "Canvia…"
 
 #. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
 #: ui/kptdocumentspanel.ui:75
@@ -7043,8 +7043,8 @@ msgstr ""
 "amb un control lliscant situat en el cantó superior esquerre de l'escala de "
 "temps. <note>Cal passar-hi per damunt amb el ratolí per a visualitzar-la.</"
 "note></para><para>Esta vista permet la configuració i la impressió "
-"utilitzant el menú contextual de la vista en arbre.<nl/><link url='%1'>Més..."
-"</link></para>"
+"utilitzant el menú contextual de la vista en arbre.<nl/><link url='%1'>Més…</"
+"link></para>"
 
 #: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
@@ -7054,7 +7054,7 @@ msgstr "Mostra el projecte"
 #: ui/kptganttview.cpp:318
 #, kde-format
 msgid "Filter Options..."
-msgstr "Opcions de filtratge..."
+msgstr "Opcions de filtratge…"
 
 #: ui/kptganttview.cpp:330
 #, kde-format
@@ -7078,8 +7078,8 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
-"Activa les opcions de filtratge de tasques i fites.<nl/>Desseleccionant-la "
-"es mostraran totes les tasques i fites planificades."
+"Activa les opcions de filtratge de tasques i fites.<nl/>Desactivant açò es "
+"mostraran totes les tasques i fites planificades."
 
 #: ui/kptganttview.cpp:363
 #, kde-format
@@ -7390,7 +7390,7 @@ msgstr "Trieu un líder de projecte des de la vostra llibreta d'adreces."
 #: ui/kptmainprojectpanelbase.ui:135
 #, kde-format
 msgid "&Choose..."
-msgstr "&Trieu..."
+msgstr "&Trieu…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
 #: ui/kptmainprojectpanelbase.ui:144
@@ -7426,7 +7426,7 @@ msgstr "Utilit&za recursos compartits"
 #: ui/kptmainprojectpanelbase.ui:238
 #, kde-format
 msgid "Browse..."
-msgstr "Navega..."
+msgstr "Navega…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
@@ -7655,7 +7655,7 @@ msgid ""
 msgstr ""
 "<title>Vista d'assignació de recursos</title><para>Mostra les assignacions "
 "de recurs-tasca planificades.</para><para>Esta vista permet la configuració "
-"i la impressió utilitzant el menú contextual.<nl/><link url='%1'>Més...</"
+"i la impressió utilitzant el menú contextual.<nl/><link url='%1'>Més…</"
 "link></para>"
 
 #: ui/kptresourcedialog.cpp:53
@@ -7699,7 +7699,7 @@ msgstr ""
 "afectar la duració de la tasca, mentre que un recurs de tipus "
 "<emphasis>Material</emphasis> no. Un recurs s'ha de referir a un "
 "<emphasis>Calendari</emphasis> definit en l'<emphasis>Editor de tasques i "
-"vacances</emphasis>.<nl/><link url='%1'>Més...</link></para>"
+"vacances</emphasis>.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kptresourceeditor.cpp:297
 #, kde-format
@@ -7709,7 +7709,7 @@ msgstr "Afig un recurs"
 #: ui/kptresourceeditor.cpp:307
 #, kde-format
 msgid "Edit Resource..."
-msgstr "Edita el recurs..."
+msgstr "Edita el recurs…"
 
 #: ui/kptresourceeditor.cpp:311
 #, kde-format
@@ -7780,7 +7780,7 @@ msgstr ""
 "subplanificació pot utilitzar la data de progrés dels projectes per a "
 "replanificar només les tasques que encara no han finalitzat. Llavors, la "
 "replanificació utilitzarà p. ex., l'inici real i l'esforç romanent per a les "
-"tasques.<nl/><link url='%1'>Més...</link></para>"
+"tasques.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kptscheduleeditor.cpp:301
 #, kde-format
@@ -8001,7 +8001,7 @@ msgstr "Inserix una persona des de la vostra llibreta d'adreces"
 #: ui/resourcedialogbase.ui:146 ui/TasksGeneralPanel.ui:70
 #, kde-format
 msgid "Choose..."
-msgstr "Trieu..."
+msgstr "Trieu…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
@@ -8155,7 +8155,7 @@ msgstr ""
 "crear, editar, i suprimir tasques. Les tasques estan organitzades en una "
 "estructura de descomposició de treball (WBS) en qualsevol profunditat.</"
 "para><para>Esta vista permet la configuració i la impressió utilitzant el "
-"menú contextual.<nl/><link url='%1'>Més...</link></para>"
+"menú contextual.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kpttaskeditor.cpp:449
 #, kde-kuit-format
@@ -8210,7 +8210,7 @@ msgstr ""
 "aprofitar l'experiència del passat i estandarditzar les operacions semblants."
 "</para><para>Un mòdul de tasca és un fitxer de planificació normal i "
 "habitualment inclou tasques, estimacions i dependències.</para><para><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: ui/kpttaskeditor.cpp:909
 #, kde-format
@@ -8311,18 +8311,18 @@ msgstr ""
 "<title>Vista d'execució de tasques</title><para>La vista s'utilitza per a "
 "editar i inspeccionar el progrés de les tasques durant l'execució del "
 "projecte.</para><para>Esta vista permet la configuració i la impressió "
-"utilitzant el menú contextual.<nl/><link url='%1'>Més...</link></para>"
+"utilitzant el menú contextual.<nl/><link url='%1'>Més…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
 #: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
-msgstr "Publica..."
+msgstr "Publica…"
 
 #: ui/kpttaskeditor.cpp:2450
 #, kde-format
 msgid "Work Packages..."
-msgstr "Paquets de faena..."
+msgstr "Paquets de faena…"
 
 #: ui/kpttaskeditor.cpp:2468
 msgctxt "(qtundo-format)"
@@ -8510,7 +8510,7 @@ msgstr ""
 "compleció, l'esforç utilitzat i l'esforç romanent es calculen "
 "automàticament, es pot modificar manualment si cal.</item></list><note>Cal "
 "seleccionar el mode d'edició desitjat en iniciar la tasca.</note><nl/><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:75
 msgctxt "(qtundo-format)"
@@ -8637,7 +8637,7 @@ msgstr ""
 "item><item>Període següent \tTasques que s'han planificat per a iniciar en "
 "el període següent.</item></list>El període de temps és configurable.</"
 "para><para>Esta vista permet la configuració i la impressió utilitzant el "
-"menú contextual.<nl/><link url='%1'>Més...</link></para>"
+"menú contextual.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/kpttaskstatusview.cpp:668
 #, kde-format
@@ -8798,12 +8798,12 @@ msgstr "Reduïx-ho tot"
 #: ui/kptviewbase.cpp:762
 #, kde-format
 msgid "Print Options..."
-msgstr "Opcions d'impressió..."
+msgstr "Opcions d'impressió…"
 
 #: ui/kptviewbase.cpp:773
 #, kde-format
 msgid "Configure View..."
-msgstr "Configura la visualització..."
+msgstr "Configura la visualització…"
 
 #: ui/kptviewbase.cpp:2704
 #, kde-format
@@ -9100,7 +9100,7 @@ msgstr ""
 "reduint amb un control lliscant situat en el cantó superior esquerre de "
 "l'escala de temps. <note>Cal passar-hi per damunt amb el ratolí per a "
 "visualitzar-la.</note></para><para>Esta vista permet la configuració i la "
-"impressió utilitzant el menú contextual.<nl/><link url='%1'>Més...</link></"
+"impressió utilitzant el menú contextual.<nl/><link url='%1'>Més…</link></"
 "para>"
 
 #: ui/performance/PerformanceStatusBase.cpp:525
@@ -9129,7 +9129,7 @@ msgstr ""
 "<title>Vista de compliment de la tasca</title><para>Mostra dades de "
 "compliment agregades a la tasca seleccionada.</para><para>Esta vista permet "
 "la configuració i la impressió utilitzant el menú contextual.<nl/><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:156
@@ -9241,7 +9241,7 @@ msgstr ""
 "<title>Vista de compliment del projecte</title><para>Mostra dades de "
 "compliment agregades a nivell de projecte.</para><para>Esta vista permet la "
 "configuració i la impressió utilitzant el menú contextual.<nl/><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: ui/projectview/ProjectView.cpp:39
 #, kde-format
@@ -9787,7 +9787,7 @@ msgstr ""
 "<title>Afig i genera informes</title><para>Permet afegir i generar informes "
 "basats en fitxers Open Document (.odf).</para><para>Podeu crear una "
 "plantilla d'informe utilitzant qualsevol editor de text d'Open Document.<nl/"
-"><link url='%1'>Més...</link></para>"
+"><link url='%1'>Més…</link></para>"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
@@ -9807,7 +9807,7 @@ msgstr "Genera informe"
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:395
 #, kde-format
 msgid "Open..."
-msgstr "Obri..."
+msgstr "Obri…"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
@@ -9902,7 +9902,7 @@ msgstr ""
 "cantó superior esquerre de l'escala de temps. <note>Cal passar-hi per damunt "
 "amb el ratolí per a visualitzar-la.</note></para><para>Esta vista permet la "
 "configuració i la impressió utilitzant el menú contextual.<nl/><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: ui/ResourceCoverageView.cpp:134 ui/ResourceCoverageView.cpp:249
 #, kde-kuit-format
@@ -10009,7 +10009,7 @@ msgstr ""
 "<title>Estructura de descomposició de recursos</title><para>El recursos es "
 "poden organitzar en una Estructura de descomposició de recursos. "
 "L'estructura només és organitzativa i no té cap impacte en les assignacions "
-"de recursos.<nl/><link url='%1'>Més...</link></para>"
+"de recursos.<nl/><link url='%1'>Més…</link></para>"
 
 #: ui/ResourceGroupEditor.cpp:281
 #, kde-format
@@ -10212,7 +10212,7 @@ msgstr "&Detalls"
 #: widgets/KoDialog.cpp:880
 #, kde-format
 msgid "Get help..."
-msgstr "Obtín ajuda..."
+msgstr "Obtín ajuda…"
 
 #: widgets/KoDockWidgetTitleBar.cpp:53
 #, kde-format
@@ -10457,7 +10457,7 @@ msgstr ""
 #: widgets/KoDocumentInfoDlg.cpp:360
 #, kde-format
 msgid "Confirm Decrypt"
-msgstr "Confirmació de desencriptació"
+msgstr "Confirmeu la desencriptació"
 
 #: widgets/KoDocumentInfoDlg.cpp:361
 #, kde-format

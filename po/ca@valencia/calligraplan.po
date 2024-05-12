@@ -616,7 +616,7 @@ msgstr "El gestor de projectes d'este projecte."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "Seleccioneu-la per a activar els recursos compartits"
+msgstr "Marqueu-la per a activar els recursos compartits"
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
@@ -634,7 +634,7 @@ msgstr "General"
 #: config/ConfigProjectPanel.ui:44
 #, kde-format
 msgid "Browse..."
-msgstr "Navega..."
+msgstr "Navega…"
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
@@ -1124,7 +1124,7 @@ msgstr "Inserix una persona des de la vostra llibreta d'adreces."
 #: config/kptconfigtaskpanelbase.ui:464
 #, kde-format
 msgid "Choose..."
-msgstr "Trieu..."
+msgstr "Trieu…"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: config/kptconfigtaskpanelbase.ui:482
@@ -1295,8 +1295,7 @@ msgid ""
 msgstr ""
 "Este document s'ha creat amb una versió més recent del KPlatoWork (versió de "
 "la sintaxi: %1)\n"
-"Si l'obriu amb la versió actual del PlanWork, es perdrà part de la "
-"informació."
+"Si l'obriu amb la versió actual de PlanWork, es perdrà part de la informació."
 
 #: kptaboutdata.h:24
 #, kde-format
@@ -1501,7 +1500,7 @@ msgstr "No s'ha pogut escriure «%1». La partició està plena?"
 #: kptmaindocument.cpp:592
 #, kde-format
 msgid "Saving..."
-msgstr "S'està guardant..."
+msgstr "S'està guardant…"
 
 # msgid ""
 # "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, "
@@ -1522,10 +1521,9 @@ msgid ""
 "%1)\n"
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
-"Este document s'ha creat amb una versió més recent del PlanWork (versió de "
-"la sintaxi: %1)\n"
-"Si l'obriu amb la versió actual del PlanWork, es perdrà part de la "
-"informació."
+"Este document s'ha creat amb una versió més recent de PlanWork (versió de la "
+"sintaxi: %1)\n"
+"Si l'obriu amb la versió actual de PlanWork, es perdrà part de la informació."
 
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
@@ -1590,7 +1588,7 @@ msgstr "Base"
 #: kptpart.cpp:96
 #, kde-format
 msgid "Configure Plan..."
-msgstr "Configura Plan..."
+msgstr "Configura Plan…"
 
 #: kptschedulesdocker.cpp:26
 #, kde-format
@@ -1600,12 +1598,12 @@ msgstr "Selector de planificació"
 #: kptview.cpp:186
 #, kde-format
 msgid "Create Project Template..."
-msgstr "Crea una plantilla de projectes..."
+msgstr "Crea una plantilla de projectes…"
 
 #: kptview.cpp:190
 #, kde-format
 msgid "Create New Project..."
-msgstr "Crea un projecte nou..."
+msgstr "Crea un projecte nou…"
 
 #: kptview.cpp:202
 #, kde-format
@@ -1616,32 +1614,32 @@ msgstr "Mostra el selector"
 #: kptview.cpp:209 kptview.cpp:250
 #, kde-format
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: kptview.cpp:213
 #, kde-format
 msgid "Define Estimate Conversions..."
-msgstr "Definix les conversions estimades..."
+msgstr "Definix les conversions estimades…"
 
 #: kptview.cpp:217
 #, kde-format
 msgid "Define WBS Pattern..."
-msgstr "Definix el patró WBS..."
+msgstr "Definix el patró WBS…"
 
 #: kptview.cpp:221
 #, kde-format
 msgid "Define Currency..."
-msgstr "Definix la moneda..."
+msgstr "Definix la moneda…"
 
 #: kptview.cpp:225
 #, kde-format
 msgid "Edit Description..."
-msgstr "Edita la descripció..."
+msgstr "Edita la descripció…"
 
 #: kptview.cpp:230
 #, kde-format
 msgid "Insert Project File..."
-msgstr "Inserix un fitxer de projecte..."
+msgstr "Inserix un fitxer de projecte…"
 
 #: kptview.cpp:234
 #, kde-format
@@ -1651,18 +1649,18 @@ msgstr "Actualitza els recursos compartits"
 #: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr "Obri un fitxer de definició d'informe..."
+msgstr "Obri un fitxer de definició d'informe…"
 
 #: kptview.cpp:244
 #, kde-format
 msgid "Create Report Template..."
-msgstr "Crea una plantilla d'informes..."
+msgstr "Crea una plantilla d'informes…"
 
 # msgid "KPlato WorkPackage Handler"
 #: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
-msgstr "Paquets de faena..."
+msgstr "Paquets de faena…"
 
 # msgid "KPlato WorkPackage Handler"
 #: kptview.cpp:261
@@ -2078,7 +2076,7 @@ msgstr ""
 "contextual:<list><item>Canvia el nom de les categories o vistes</"
 "item><item>Configura. Consell d'eina de moure, eliminar, canviar de nom o "
 "editar per a categories o vistes</item><item>Inserix categories i vistes</"
-"item></list><nl/><link url='%1'>Més...</link></para>"
+"item></list><nl/><link url='%1'>Més…</link></para>"
 
 #: kptviewlist.cpp:357
 #, kde-kuit-format
@@ -2091,7 +2089,7 @@ msgstr ""
 "<title>Selector de planificacions</title><para>Selecciona la planificació "
 "que s'utilitzarà quan es mostren dades dependents de planificació.<nl/"
 "><note>Les tasques no planificades només es mostren en els editors.</"
-"note><nl/><link url='%1'>Més...</link></para>"
+"note><nl/><link url='%1'>Més…</link></para>"
 
 #: kptviewlist.cpp:606
 #, kde-format
@@ -2109,7 +2107,7 @@ msgstr "Canvia el nom"
 #, kde-kuit-format
 msgctxt "@action:inmenu configure view"
 msgid "Configure..."
-msgstr "Configura..."
+msgstr "Configura…"
 
 #: kptviewlist.cpp:747
 #, kde-kuit-format
@@ -2128,7 +2126,7 @@ msgstr "Canvia el nom"
 #, kde-kuit-format
 msgctxt "@action:inmenu configure view category"
 msgid "Configure..."
-msgstr "Configura..."
+msgstr "Configura…"
 
 #: kptviewlist.cpp:764
 #, kde-kuit-format
@@ -2140,7 +2138,7 @@ msgstr "Elimina"
 #, kde-kuit-format
 msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
-msgstr "Inserix..."
+msgstr "Inserix…"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
@@ -2387,7 +2385,7 @@ msgstr "0"
 #: kptviewlistdocker.ui:73
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
 #: kptviewlistdocker.ui:84
@@ -2457,7 +2455,7 @@ msgstr ""
 "vostre projecte.</item><item><emphasis>Convertit:</emphasis> Convertix "
 "l'element a un element local.</item><item><emphasis>Mantingut:</emphasis> "
 "Manté l'element com a element compartit.</item></list><nl/><link "
-"url='%1'>Més...</link></para>"
+"url='%1'>Més…</link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format

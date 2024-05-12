@@ -186,7 +186,7 @@ msgstr ""
 "<title>Resum de Gantt</title><para>Mostra un diagrama de Gantt de tots els "
 "projectes de la cartera.</para><para>Es pot mostrar una vista de Gantt d'un "
 "projecte seleccionant <interface>Menú contextual->Obri un projecte</"
-"interface>.<nl/><link url='%1'>Més...</link></para>"
+"interface>.<nl/><link url='%1'>Més…</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -255,7 +255,7 @@ msgstr "Guardeu el document"
 #: Part.cpp:61
 #, kde-format
 msgid "Configure Portfolio..."
-msgstr "Configura la cartera..."
+msgstr "Configura la cartera…"
 
 #: Part.cpp:69
 #, kde-kuit-format
@@ -445,8 +445,8 @@ msgid ""
 msgstr ""
 "<title>L'editor de contingut de la cartera</title><para>Este editor permet "
 "configurar el contingut de la vostra cartera.</para><para>Seleccioneu "
-"<interface>Edita|Afig...</interface> o premeu <interface>Afig...</interface> "
-"per a afegir projectes a la cartera.<nl/>Seleccioneu <interface>Edita|"
+"<interface>Edita -> Afig…</interface> o premeu <interface>Afig…</interface> "
+"per a afegir projectes a la cartera.<nl/>Seleccioneu <interface>Edita -> "
 "Elimina</interface> o premeu <interface>Elimina</interface> per a eliminar "
 "els projectes seleccionats.</para><para>Afegiu els projectes que esteu "
 "gestionant i establiu <emphasis>Cartera</emphasis> = <emphasis>Sí</emphasis>."
@@ -454,7 +454,7 @@ msgstr ""
 "els voleu tornar a programar o inspeccionar l'ús dels recursos, cal afegir "
 "tots els projectes rellevants i després establir <emphasis>Cartera</"
 "emphasis> = <emphasis>No</emphasis> per a estos projectes.</note></"
-"para><para><link url='%1'>Més...</link></para>"
+"para><para><link url='%1'>Més…</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -495,7 +495,7 @@ msgstr ""
 "l'entrada del menú <interface>Ajuda -> Què és açò?</interface> o amb la "
 "drecera del teclat <shortcut>Maj+F1</shortcut>.</para><para>En els diàlegs "
 "està disponible des del <interface>?</interface> de la barra de títol del "
-"diàleg.</para><para>Si veeu <link url='%1'>Més...</link> en el text, prement-"
+"diàleg.</para><para>Si veeu <link url='%1'>Més…</link> en el text, prement-"
 "ho mostrarà més informació a partir de la documentació.</para>"
 
 #: PortfolioView.cpp:184
@@ -635,7 +635,7 @@ msgstr ""
 "període.</item><item><emphasis>Pròxim període:</emphasis>Tasques que s'han "
 "programat per a començar en el període següent.</item></list>El període de "
 "temps és configurable.</para><para>Esta vista admet la configuració i la "
-"impressió utilitzant el menú contextual.<nl/><link url='%1'>Més...</link></"
+"impressió utilitzant el menú contextual.<nl/><link url='%1'>Més…</link></"
 "para>"
 
 #: ProjectsDashboard.cpp:79
@@ -793,7 +793,7 @@ msgid ""
 "para>"
 msgstr ""
 "<title>Ús dels recursos</title><para>Esta vista mostra les assignacions de "
-"recursos a tasques per a cada dia.</para><para><nl/><link url='%1'>Més...</"
+"recursos a tasques per a cada dia.</para><para><nl/><link url='%1'>Més…</"
 "link></para>"
 
 #: ResourceUsageView.cpp:106
@@ -947,7 +947,7 @@ msgstr ""
 #: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
-msgstr "S'està planificant..."
+msgstr "S'està planificant…"
 
 #: SchedulingModel.cpp:192
 #, kde-format
@@ -1035,7 +1035,7 @@ msgstr ""
 "para><para><note>Si els vostres projectes compartixen recursos amb projectes "
 "que no formen part de la vostra cartera, estos projectes cal incloure'ls a "
 "l'anivellament de recursos per a funcionar correctament.</note></"
-"para><para><link url='%1'>Més...</link></para>"
+"para><para><link url='%1'>Més…</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
@@ -1048,7 +1048,7 @@ msgstr[1] "%1 minuts"
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr "Descripció..."
+msgstr "Descripció…"
 
 #: SchedulingView.cpp:397
 #, kde-format
@@ -1167,7 +1167,7 @@ msgstr ""
 "<title>Vista de resum dels projectes</title><para>Esta vista resumix les "
 "dades de compliment dels projectes de la cartera.</para><para>Els índexs de "
 "compliment es mostren per a càlculs basats en costos i esforços.</"
-"para><para><nl/><link url='%1'>Més...</link></para>"
+"para><para><nl/><link url='%1'>Més…</link></para>"
 
 #: View.cpp:58
 #, kde-format
