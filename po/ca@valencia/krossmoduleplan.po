@@ -454,7 +454,7 @@ msgstr "Exemples per a explicar la creació de scripts amb Plan"
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Print Project Information..."
-msgstr "Informació del projecte d'impressió..."
+msgstr "Informació del projecte d'impressió…"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:59
@@ -466,7 +466,7 @@ msgstr "Exemple de script en Python que imprimix la informació del projecte"
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr "Imprimix la informació dels recursos ocupats..."
+msgstr "Imprimix la informació dels recursos ocupats…"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
