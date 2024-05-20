@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-03-01 16:05+0300\n"
+"PO-Revision-Date: 2024-05-20 00:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -102,13 +102,13 @@ msgstr "Günde saat"
 #: calligraplansettings.kcfg:27
 #, kde-format
 msgid "Generate working week"
-msgstr "Çalışma haftası oluştur"
+msgstr "Çalışma haftası üret"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
 #, kde-format
 msgid "Generate working week options"
-msgstr "Çalışma haftası seçenekleri oluştur"
+msgstr "Çalışma haftası seçenekleri üret"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
@@ -128,13 +128,13 @@ msgstr "Her zaman"
 #: calligraplansettings.kcfg:43
 #, kde-format
 msgid "Generate holidays"
-msgstr "Tatilleri oluştur"
+msgstr "Tatilleri üret"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
 #, kde-format
 msgid "Generate holidays options"
-msgstr "Tatiller seçenekleri oluştur"
+msgstr "Tatiller seçenekleri üret"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
@@ -714,7 +714,7 @@ msgid ""
 "into a separate calendar.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Çalışma haftaları ve tatiller için öntanımlı takvimler "
-"oluşturulurken kullanılan değerler.</p><p><span style=\" font-style:italic;"
+"üretilirken kullanılan değerler.</p><p><span style=\" font-style:italic;"
 "\">Hafta</span> takvimi, <span style=\" font-style:italic;\">Çalışma "
 "haftası</span>'nda tanımlı değerleri kullanır.</p><p><span style=\" font-"
 "style:italic;\">Hafta</span> takvumu, <span style=\" font-style:italic;"
@@ -731,7 +731,7 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:31
 #, kde-format
 msgid "Calendar generation"
-msgstr "Takvim oluşturma"
+msgstr "Takvim üretimi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
@@ -1656,7 +1656,7 @@ msgstr "Görev Maliyeti"
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr "Raporlar oluştur"
+msgstr "Raporlar üret"
 
 #: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
@@ -1864,13 +1864,13 @@ msgstr "Projenin başarım durumuna ait bilgileri göster"
 #: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
-msgstr "Rapor Oluşturucu"
+msgstr "Rapor Üreteci"
 
 #: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr "Raporlar oluştur"
+msgstr "Raporlar üret"
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
@@ -2213,7 +2213,7 @@ msgstr "Dönüm Noktası Gantt Görünümü"
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr "Rapor oluşturucu"
+msgstr "Rapor üreteci"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
