@@ -6,19 +6,20 @@
 # Translator: Chao-Hsiung Liao <pesder@seed.net.tw, 2002.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2008, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2012-06-14 08:33+0800\n"
-"Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
-"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2024-05-21 01:37+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. i18n: ectx: Menu (file)
@@ -65,41 +66,39 @@ msgstr "說明(&H)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "檔案(&F)"
+msgstr "檔案"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
-#, fuzzy, kde-format
-#| msgid "&Edit"
+#, kde-format
 msgid "Edit"
-msgstr "編輯(&E)"
+msgstr "編輯"
 
 #. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
 #: calligraplansettings.kcfg:9
 #, kde-format
 msgid "Hours per year"
-msgstr ""
+msgstr "每年幾小時"
 
 #. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
 #: calligraplansettings.kcfg:13
 #, kde-format
 msgid "Hours per month"
-msgstr ""
+msgstr "每月幾小時"
 
 #. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
 #: calligraplansettings.kcfg:17
 #, kde-format
 msgid "Hours per week"
-msgstr ""
+msgstr "每週幾小時"
 
 #. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
 #: calligraplansettings.kcfg:21
 #, kde-format
 msgid "Hours per day"
-msgstr ""
+msgstr "每天幾小時"
 
 #. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
 #: calligraplansettings.kcfg:27
@@ -538,31 +537,30 @@ msgstr ""
 #: calligraplansettings.kcfg:390
 #, kde-format
 msgid "List of paths to report templates"
-msgstr ""
+msgstr "報告樣本的路徑清單"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
 #, kde-format
 msgid "List of paths to project templates"
-msgstr ""
+msgstr "專案樣本的路徑清單"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "自動儲存間隔"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "建立備份檔案"
 
 #: config/ConfigDialog.cpp:36
-#, fuzzy, kde-format
-#| msgid "Project Status"
+#, kde-format
 msgid "Project Defaults"
-msgstr "專案狀態"
+msgstr "專案預設值"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
@@ -580,10 +578,9 @@ msgid "Task Colors"
 msgstr "工作顏色"
 
 #: config/ConfigDialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Modules"
-msgstr "工作顏色"
+msgstr "工作模組"
 
 #: config/ConfigDialog.cpp:45
 #, kde-format
@@ -591,43 +588,38 @@ msgid "Work Package"
 msgstr "工作套件"
 
 #: config/ConfigDialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Project Templates"
-msgstr "建立報告..."
+msgstr "專案樣本"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Report Templates"
-msgstr "建立報告..."
+msgstr "報告樣本"
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "期間"
+msgstr "文件"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "此專案的專案管理者。"
 
 #: config/ConfigProjectPanel.cpp:39
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "依資源檢視工作狀態"
+msgstr "勾選來啟用共享資源"
 
 #: config/ConfigProjectPanel.cpp:42
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr "依資源檢視工作狀態"
+msgstr "定義共享資源的檔案"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -637,32 +629,27 @@ msgstr "一般"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #: config/ConfigProjectPanel.ui:44
-#, fuzzy, kde-format
-#| msgid "Choose..."
+#, kde-format
 msgid "Browse..."
-msgstr "選擇..."
+msgstr "瀏覽…"
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
-#, fuzzy, kde-format
-#| msgid "Add resource"
+#, kde-format
 msgid "Shared resource file:"
-msgstr "新增資源"
+msgstr "共享資源檔案："
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:67
-#, fuzzy, kde-format
-#| msgctxt "Project manager"
-#| msgid "Manager:"
+#, kde-format
 msgid "&Manager:"
-msgstr "管理者："
+msgstr "管理者(&M)："
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Use shared resources:"
-msgstr "依資源檢視工作狀態"
+msgstr "使用共享資源："
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
@@ -672,57 +659,49 @@ msgid "Description"
 msgstr "描述"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Project Templates Path"
-msgstr "建立報告..."
+msgstr "專案樣本路徑"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:17
 #: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Insert View"
-#| msgid "Insert..."
+#, kde-format
 msgid "Insert"
-msgstr "插入..."
+msgstr "插入"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:41
 #: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
 #: SharedResourcesDialog.cpp:248
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu remove view"
-#| msgid "Remove"
+#, kde-format
 msgid "Remove"
 msgstr "移除"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Modules Path"
-msgstr "工作顏色"
+msgstr "工作模組路徑"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr ""
+msgstr "使用本地工作模組"
 
 #: config/ConfigWorkVacationPanel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Default"
-msgstr "預設："
+msgstr "預設"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
 msgid "Working Hours"
-msgstr ""
+msgstr "工作時間"
 
 #. i18n: info@whatsthis
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
@@ -748,20 +727,20 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:31
 #, kde-format
 msgid "Calendar generation"
-msgstr ""
+msgstr "行事曆產生"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr ""
+msgstr "週"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "假日"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
@@ -1210,27 +1189,25 @@ msgstr ""
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "對話框"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "基底樣本："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "重新命名"
+msgstr "檔案名稱："
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "開啟助理"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1565,16 +1542,14 @@ msgid "Schedule Selector"
 msgstr "排程選擇器"
 
 #: kptview.cpp:186
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Create Project Template..."
-msgstr "建立報告..."
+msgstr "建立專案樣本…"
 
 #: kptview.cpp:190
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Create New Project..."
-msgstr "建立報告..."
+msgstr "建立新專案…"
 
 #: kptview.cpp:202
 #, kde-format
@@ -1624,10 +1599,9 @@ msgid "Open Report Definition File..."
 msgstr ""
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "建立報告..."
+msgstr "建立報告樣本…"
 
 #: kptview.cpp:260
 #, fuzzy, kde-format
@@ -1946,11 +1920,10 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Create Report..."
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "建立報告..."
+msgstr "報告樣本"
 
 #: kptview.cpp:1824
 #, fuzzy, kde-format

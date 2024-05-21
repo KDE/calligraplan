@@ -6,32 +6,31 @@
 #
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2011-12-26 08:35+0800\n"
-"Last-Translator: Franklin Weng <franklin@mail.everfocus.com.tw>\n"
-"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2024-05-21 01:59+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 24.04.70\n"
 
-#, fuzzy, kde-format
-#| msgid "Resource names"
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "資源名稱"
+msgstr "Frank Weng (a.k.a. Franklin), Kisaragi Hiu"
 
-#, fuzzy, kde-format
-#| msgid "Resource names"
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "資源名稱"
+msgstr "franklin@goodhorse.idv.tw, mail@kisaragi-hiu.com"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1055 kernel/kptdocuments.cpp:279
 #: kernel/ProjectLoader_v0.cpp:1511
@@ -98,12 +97,10 @@ msgid "%1h:%2m"
 msgstr "%1 小時 %2 分"
 
 #: kernel/kptduration.cpp:184
-#, fuzzy, kde-format
-#| msgctxt "<value>%"
-#| msgid "%1%"
+#, kde-format
 msgctxt "<hours>h:<minutes>m"
 msgid "%1h"
-msgstr "%1%"
+msgstr "%1 小時"
 
 #: kernel/kptduration.cpp:210
 #, kde-format
@@ -962,7 +959,7 @@ msgstr ""
 #: main/config/KoConfigDocumentPage.cpp:60
 #, kde-format
 msgid "No autosave"
-msgstr ""
+msgstr "不自動儲存"
 
 #: main/config/KoConfigDocumentPage.cpp:61
 #, kde-format
@@ -974,7 +971,7 @@ msgstr ""
 #: main/config/KoConfigDocumentPage.ui:45
 #, kde-format
 msgid "Autosave interval:"
-msgstr ""
+msgstr "自動儲存間隔："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: main/config/KoConfigDocumentPage.ui:52
@@ -1550,16 +1547,14 @@ msgid "Close Document"
 msgstr "文件"
 
 #: main/KoFilterManager.cpp:231 main/KoFilterManager.cpp:240
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
+#, kde-format
 msgid "Could not export file."
-msgstr "無法下載樣本檔案：%1"
+msgstr "無法匯出檔案。"
 
 #: main/KoFilterManager.cpp:231 main/KoFilterManager.cpp:240
-#, fuzzy, kde-format
-#| msgid "Exporting report to %1 failed"
+#, kde-format
 msgid "Missing Export Filter"
-msgstr "將此報告匯出為 %1 時失敗"
+msgstr "缺乏匯出過濾程式"
 
 #: main/KoFilterManager.cpp:540
 #, fuzzy, kde-format
@@ -1595,19 +1590,17 @@ msgstr "選項"
 #: main/KoMainWindow.cpp:285
 #, kde-format
 msgid "Reload"
-msgstr ""
+msgstr "重新載入"
 
 #: main/KoMainWindow.cpp:289
-#, fuzzy, kde-format
-#| msgid "Export"
+#, kde-format
 msgid "Import..."
-msgstr "匯出"
+msgstr "匯入..."
 
 #: main/KoMainWindow.cpp:293
-#, fuzzy, kde-format
-#| msgid "Export"
+#, kde-format
 msgid "E&xport..."
-msgstr "匯出"
+msgstr "匯出(&X)…"
 
 #: main/KoMainWindow.cpp:297
 #, fuzzy, kde-format
@@ -1641,18 +1634,18 @@ msgstr ""
 #: main/KoMainWindow.cpp:345
 #, kde-format
 msgid "Show Dockers"
-msgstr ""
+msgstr "顯示工具面板"
 
 #: main/KoMainWindow.cpp:350
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
-msgstr ""
+msgstr "顯示工具面板的標題列"
 
 #: main/KoMainWindow.cpp:357
 #, kde-format
 msgid "Dockers"
-msgstr ""
+msgstr "工具面板"
 
 #: main/KoMainWindow.cpp:671
 #, kde-format
@@ -1706,10 +1699,9 @@ msgid ""
 msgstr ""
 
 #: main/KoMainWindow.cpp:922
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Confirm Export"
-msgstr "未開始"
+msgstr "確認匯出"
 
 #: main/KoMainWindow.cpp:923 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
@@ -1724,53 +1716,44 @@ msgid "untitled"
 msgstr "到"
 
 #: main/KoMainWindow.cpp:1334 main/WelcomeView.cpp:274
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgid "Open Document"
-msgstr "文件"
+msgstr "開啟文件"
 
 #: main/KoMainWindow.cpp:1343
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgid "Import Document"
-msgstr "文件"
+msgstr "匯入文件"
 
 #: main/KoMainWindow.cpp:1551
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Cannot Attach Document"
+#, kde-format
 msgid "Cannot preview the document"
-msgstr "無法附加文件"
+msgstr "無法預覽文件"
 
 #: main/KoMainWindow.cpp:1559
-#, fuzzy, kde-format
-#| msgid "Cannot Modify Url"
+#, kde-format
 msgid "Cannot open pdf viewer"
-msgstr "無法變更網址"
+msgstr "無法開啟 PDF 檢視器"
 
 #: main/KoMainWindow.cpp:1607
-#, fuzzy, kde-format
-#| msgid "Export"
+#, kde-format
 msgid "Export as PDF"
-msgstr "匯出"
+msgstr "匯出為 PDF"
 
 #: main/KoMainWindow.cpp:1644
-#, fuzzy, kde-format
-#| msgid "Cannot open report template file!"
+#, kde-format
 msgid "Cannot export to the specified file"
-msgstr "無法開啟報告樣本檔！"
+msgstr "無法匯出到指定檔案"
 
 #: main/KoMainWindow.cpp:1820
-#, fuzzy, kde-format
-#| msgid "&Documents"
+#, kde-format
 msgid "Document"
-msgstr "文件(&D)"
+msgstr "文件"
 
 #: main/KoMainWindow.cpp:1828
-#, fuzzy, kde-format
-#| msgid "&Documents"
+#, kde-format
 msgid "Document - %1"
-msgstr "文件(&D)"
+msgstr "文件 — %1"
 
 #: main/KoMainWindow.cpp:1849
 #, kde-format
@@ -1792,7 +1775,7 @@ msgstr ""
 #: main/KoPrintingDialog.cpp:44
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
@@ -1801,16 +1784,14 @@ msgstr ""
 #: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:149
 #: ui/performance/ProjectStatusView.cpp:170
 #: ui/ResourceAppointmentsGanttView.cpp:163
-#, fuzzy, kde-format
-#| msgid "Print"
+#, kde-format
 msgid "Printing"
-msgstr "列印"
+msgstr "列印中"
 
 #: main/KoPrintingDialog_p.h:140
-#, fuzzy, kde-format
-#| msgid "Print"
+#, kde-format
 msgid "Printing done"
-msgstr "列印"
+msgstr "列印完成"
 
 #: main/KoPrintingDialog_p.h:141 models/kcalendar/kdatepicker.cpp:644
 #, kde-format
@@ -1887,6 +1868,8 @@ msgid ""
 "files opened.</para><para><nl/>This enables you to quickly open projects you "
 "have worked on recently.</para>"
 msgstr ""
+"<title>最近專案</title><para>最近開啟的 10 個專案。</para><para><nl/>這讓您快"
+"速開啟最近處理過的專案。</para>"
 
 #: main/WelcomeView.cpp:168
 #, kde-kuit-format
@@ -1912,6 +1895,10 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>專案樣本</title><para>選擇樣本並利用它來建立新專案。</para><para>Plan "
+"會在您在設定對話框中所定義的位置中搜尋樣本：<interface>設定→設定 Plan</"
+"interface>。</para><para>您可以利用 <interface>檔案→建立專案樣本</interface> "
+"選單項目來從專案建立新的樣本。<nl/><link url='%1'>更多資訊…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -1940,10 +1927,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:159
-#, fuzzy, kde-format
-#| msgid "Project"
+#, kde-format
 msgid "Open Project"
-msgstr "專案"
+msgstr "開啟專案"
 
 #. i18n: ectx: property (text), widget (QLabel, recentProjectLabel)
 #: main/WelcomeView.ui:191
@@ -5445,19 +5431,14 @@ msgid "Add resource"
 msgstr "新增資源"
 
 #: models/ResourceGroupItemModel.cpp:863 ui/ResourceGroupDocker.cpp:154
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Add resource group"
 msgctxt "(qtundo-format)"
 msgid "Add parent group"
-msgstr "新增資源群組"
+msgstr "新增上層群組"
 
 #: models/ResourceGroupItemModel.cpp:865 ui/ResourceGroupDocker.cpp:157
-#, fuzzy
-#| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove parent group"
-msgstr "移除項目"
+msgstr "移除上層群組"
 
 #: models/ResourceGroupModel.cpp:79 models/ResourceGroupModel.cpp:97
 #, kde-kuit-format
@@ -9831,11 +9812,9 @@ msgid "Undo all changes"
 msgstr ""
 
 #: ui/reports/reportview.cpp:692
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit the report definition"
+#, kde-format
 msgid "Export report definition"
-msgstr "編輯報告定義"
+msgstr "匯出報告定義"
 
 #: ui/reports/reportview.cpp:709
 #, fuzzy, kde-kuit-format
@@ -9852,16 +9831,13 @@ msgid "Data Elements"
 msgstr ""
 
 #: ui/reports/reportview.cpp:873
-#, fuzzy, kde-kuit-format
-#| msgid "Header and Footer"
+#, kde-kuit-format
 msgctxt "@title:window report section docker"
 msgid "Headers && Footers"
 msgstr "標頭與註腳"
 
 #: ui/reports/reportview.cpp:907
-#, fuzzy, kde-kuit-format
-#| msgctxt "title:column"
-#| msgid "Group"
+#, kde-kuit-format
 msgctxt "@title:window report group section docker"
 msgid "Groups"
 msgstr "群組"
@@ -10492,27 +10468,25 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Float Docker"
-msgstr ""
+msgstr "浮動面板"
 
 #: widgets/KoDockWidgetTitleBar.cpp:60
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Close Docker"
-msgstr "文件"
+msgstr "關閉面板"
 
 #: widgets/KoDockWidgetTitleBar.cpp:68
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Collapse Docker"
-msgstr "文件"
+msgstr "收起面板"
 
 #: widgets/KoDockWidgetTitleBar.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Lock Docker"
-msgstr ""
+msgstr "鎖定面板"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
 #: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:242
@@ -10911,24 +10885,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: widgets/KoPageLayoutWidget.ui:119
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Orientation:"
-msgstr "期間"
+msgstr "方向："
 
 #. i18n: ectx: property (text), widget (QRadioButton, portrait)
 #: widgets/KoPageLayoutWidget.ui:129
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Constraint"
+#, kde-format
 msgid "Portrait"
-msgstr "限制"
+msgstr "縱向"
 
 #. i18n: ectx: property (text), widget (QRadioButton, landscape)
 #: widgets/KoPageLayoutWidget.ui:136
 #, kde-format
 msgid "Landscape"
-msgstr ""
+msgstr "橫向"
 
 #. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
 #: widgets/KoPageLayoutWidget.ui:143
