@@ -30,6 +30,7 @@ Comment[tr]=Calligra Bileşeni
 Comment[uk]=Компонент Calligra
 Comment[x-test]=xxCalligra Componentxx
 Comment[zh_CN]=Calligra 组件
+Comment[zh_TW]=Calligra 組件
 
 # Name of the native mimetype (mandatory)
 [PropertyDef::X-KDE-NativeMimeType]
