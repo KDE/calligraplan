@@ -28,6 +28,7 @@ Name[tr]=Calligra Proje Yönetimi Bileşeni
 Name[uk]=Компонент керування проєктами Calligra
 Name[x-test]=xxCalligra Project Management Componentxx
 Name[zh_CN]=Calligra 项目管理组件
+Name[zh_TW]=Calligra 專案管理組件
 X-KDE-Library=planpart
 MimeType=application/x-vnd.kde.plan;application/x-vnd.kde.kplato;application/x-planner
 Type=Service
