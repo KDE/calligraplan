@@ -4,19 +4,20 @@
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2011.
 # Jeff Huang <s8321414@gmail.com>, 2016.
 # pan93412 <pan93412@gmail.com>, 2018.
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2018-03-24 19:24+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-05-21 01:53+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: PlanTJPlugin.cpp:57
@@ -104,13 +105,13 @@ msgstr "專案排程於 %1 開始 %2 結束"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid start time"
-msgstr "不合法的啟始時間"
+msgstr "無效的啟始時間"
 
 #: PlanTJScheduler.cpp:441
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid end time"
-msgstr "不合法的結束時間"
+msgstr "無效的結束時間"
 
 #: PlanTJScheduler.cpp:464
 #, kde-kuit-format
@@ -146,13 +147,13 @@ msgstr "相依型態 %1 未處理。改用 FinishStart。"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid start constraint"
-msgstr "%1：不合法的啟始限制"
+msgstr "%1：無效的啟始限制"
 
 #: PlanTJScheduler.cpp:795
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid end constraint"
-msgstr "%1：不合法的結束限制"
+msgstr "%1：無效的結束限制"
 
 #: PlanTJScheduler.cpp:818
 #, kde-kuit-format
