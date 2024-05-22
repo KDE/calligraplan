@@ -33,7 +33,8 @@
                 "Name[tr]": "Calligra Takımı",
                 "Name[uk]": "Команда розробників Calligra",
                 "Name[x-test]": "xxCalligra Teamxx",
-                "Name[zh_CN]": "Calligra 团队"
+                "Name[zh_CN]": "Calligra 团队",
+                "Name[zh_TW]": "Calligra 團隊"
             }
         ],
         "Category": "",
@@ -68,6 +69,7 @@
         "Description[uk]": "Елемент тексту для звітів",
         "Description[x-test]": "xxText element for Reportsxx",
         "Description[zh_CN]": "Reports 的文本元素",
+        "Description[zh_TW]": "報告用的文字元素",
         "EnabledByDefault": true,
         "Icon": "text-enriched",
         "Id": "org.kde.kreport.plan.text",
@@ -102,6 +104,7 @@
         "Name[uk]": "Текст",
         "Name[x-test]": "xxTextxx",
         "Name[zh_CN]": "文本",
+        "Name[zh_TW]": "文字",
         "ServiceTypes": [
             "KReport/Element"
         ],
