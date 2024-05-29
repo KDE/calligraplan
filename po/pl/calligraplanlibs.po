@@ -18,7 +18,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -1568,7 +1567,7 @@ msgstr "Wczytaj ponownie"
 #: main/KoMainWindow.cpp:289
 #, kde-format
 msgid "Import..."
-msgstr "Zaimportuj..."
+msgstr "Importuj..."
 
 #: main/KoMainWindow.cpp:293
 #, kde-format
@@ -1681,7 +1680,7 @@ msgstr "Potwierdzanie eksportu"
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
-msgstr "Wyeksportuj"
+msgstr "Eksportuj"
 
 #: main/KoMainWindow.cpp:1041
 #, kde-format
@@ -9053,7 +9052,7 @@ msgstr "<czas pakietu>"
 #: ui/kptworkpackagemergepanel.ui:198
 #, kde-format
 msgid "Update"
-msgstr "Uaktualnij"
+msgstr "Aktualizacja"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/kptworkpackagemergepanel.ui:245
@@ -9370,7 +9369,7 @@ msgstr "Strona"
 #: ui/reports/reportnavigator.ui:42
 #, kde-format
 msgid "Go to first page"
-msgstr "Przejdź do pierwszej strony"
+msgstr "Idź do pierwszej strony"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
 #: ui/reports/reportnavigator.ui:64
@@ -9394,7 +9393,7 @@ msgstr "z"
 #: ui/reports/reportnavigator.ui:149
 #, kde-format
 msgid "Go to next page"
-msgstr "Przejdź do następnej strony"
+msgstr "Idź do następnej strony"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
 #: ui/reports/reportnavigator.ui:171
