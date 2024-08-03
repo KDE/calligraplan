@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-02-01 09:25+0100\n"
+"PO-Revision-Date: 2024-08-02 06:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Vernekar <andrej.vernekar@gmail.com>\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6309,13 +6309,13 @@ msgid ""
 ">Constraint time: %6<nl/>Negative float: %7 h"
 msgstr ""
 "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Vrsta omejitve: %5<nl/"
-">Časovna omejitev: %6<nl/>xxxNegative float: %7 h"
+">Časovna omejitev: %6<nl/>Negative float: %7 h"
 
 #: ui/gantt/kptganttitemdelegate.cpp:148
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
-msgstr "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5 xxx"
+msgstr "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
 
 #: ui/gantt/kptganttitemdelegate.cpp:167 ui/gantt/kptganttitemdelegate.cpp:184
 #, kde-kuit-format
@@ -6325,13 +6325,13 @@ msgid ""
 ">Constraint time: %5<nl/>Negative float: %6 h"
 msgstr ""
 "Ime: %1<nl/>Planirano: %2 Status: %3<nl/>Vrsta omejitve: %4<nl/>Omejitveni "
-"čas: %5 Negative float: %6 h xxx"
+"čas: %5 Negative float: %6 h"
 
 #: ui/gantt/kptganttitemdelegate.cpp:200
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
-msgstr "Ime: %1<nl/>Planirano: %2<nl/>Status: %3<nl/>Scheduling: %4 xxx"
+msgstr "Ime: %1<nl/>Planirano: %2<nl/>Status: %3<nl/>Scheduling: %4"
 
 #: ui/gantt/kptganttitemdelegate.cpp:213
 #, kde-kuit-format
