@@ -2,7 +2,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2018, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: plantjplugin\n"
+"Project-Id-Version: calligraplan_scheduler_tj\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
 "PO-Revision-Date: 2018-02-19 16:34+0100\n"
