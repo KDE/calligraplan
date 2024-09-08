@@ -3,38 +3,40 @@
 # Ibrahim Khaled Al-Ibrahim  <ibrahim@arabeyes.org>, 2002.
 # Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
+# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-01-09 09:01+0100\n"
-"PO-Revision-Date: 2007-10-14 16:05+0000\n"
-"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2024-09-07 22:16+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4
-#, fuzzy, kde-format
+#, kde-format
 msgid "&File"
-msgstr "ا&عرض"
+msgstr "&ملف"
 
 #. i18n: ectx: Menu (edit)
 #: calligraplan.rc:9
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Edit"
 msgstr "&حرّر"
 
 #. i18n: ectx: Menu (view)
 #: calligraplan.rc:20 calligraplan_readonly.rc:4
-#, fuzzy, kde-format
+#, kde-format
 msgid "&View"
-msgstr "ا&عرض"
+msgstr "&عرض"
 
 #. i18n: ectx: Menu (project)
 #: calligraplan.rc:27
@@ -44,13 +46,13 @@ msgstr "&مشروع"
 
 #. i18n: ectx: Menu (tools)
 #: calligraplan.rc:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Tools"
 msgstr "أ&دوات"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplan.rc:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Settings"
 msgstr "إ&عدادات"
 
@@ -58,37 +60,37 @@ msgstr "إ&عدادات"
 #: calligraplan.rc:43
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "م&ساعدة"
 
 #. i18n: ectx: ToolBar (edit)
 #: calligraplan.rc:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit"
-msgstr "&حرّر"
+msgstr "حرّر"
 
 #. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
 #: calligraplansettings.kcfg:9
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hours per year"
-msgstr "ساعات السنة:"
+msgstr "الساعات في السنة"
 
 #. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
 #: calligraplansettings.kcfg:13
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hours per month"
-msgstr "ساعات شهر:"
+msgstr "الساعات في الشهر"
 
 #. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
 #: calligraplansettings.kcfg:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hours per week"
-msgstr "ساعات أسبوع:"
+msgstr "الساعات في الأسبوع"
 
 #. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
 #: calligraplansettings.kcfg:21
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hours per day"
-msgstr "ساعات اليوم:"
+msgstr "الساعات في اليوم"
 
 #. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
 #: calligraplansettings.kcfg:27
@@ -114,7 +116,7 @@ msgstr ""
 #: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "دائمًا"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
@@ -159,7 +161,7 @@ msgstr ""
 #: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
 #, kde-format
 msgid "Monday:"
-msgstr ""
+msgstr "الإثنين:"
 
 #. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
@@ -194,44 +196,44 @@ msgstr ""
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
 #: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tuesday:"
-msgstr "ساعات اليوم:"
+msgstr "الثلاثاء:"
 
 #. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
 #: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
 #, kde-format
 msgid "Wednesday:"
-msgstr ""
+msgstr "الأربعاء:"
 
 #. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
 #: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "Thursday:"
-msgstr "ساعات اليوم:"
+msgstr "الخميس:"
 
 #. i18n: ectx: label, entry (Friday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
 #: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Friday:"
-msgstr "ساعات اليوم:"
+msgstr "الجمعة:"
 
 #. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
 #: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
-#, fuzzy, kde-format
+#, kde-format
 msgid "Saturday:"
-msgstr "ساعات اليوم:"
+msgstr "السبت:"
 
 #. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
 #: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sunday:"
-msgstr "ساعات اليوم:"
+msgstr "الأحد:"
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
@@ -321,39 +323,39 @@ msgstr "محسوب"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:246
-#, fuzzy, kde-format
+#, kde-format
 msgid "Optimistic estimate"
-msgstr "متفائل"
+msgstr "تقدير متفائل"
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:250
-#, fuzzy, kde-format
+#, kde-format
 msgid "Pessimistic estimate"
-msgstr "متشائم"
+msgstr "تقدير متشائم"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
 #: calligraplansettings.kcfg:255
-#, fuzzy, kde-format
+#, kde-format
 msgid "Task description"
-msgstr "وصف"
+msgstr "وصف المهمة"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:261
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradient"
-msgstr "جانت"
+msgstr "تدرج اللون"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "Linear"
-msgstr "المشاهد"
+msgstr "خطّي"
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "Flat"
-msgstr "عشري"
+msgstr "مسطح"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
 #: calligraplansettings.kcfg:269
@@ -525,10 +527,9 @@ msgid "List of paths to project templates"
 msgstr ""
 
 #: config/ConfigDialog.cpp:47
-#, fuzzy, kde-format
-#| msgid "Project Settings"
+#, kde-format
 msgid "Project Defaults"
-msgstr "إعدادت المشروع"
+msgstr "افتراضيّات المشروع"
 
 #: config/ConfigDialog.cpp:48 kptview.cpp:660
 #, fuzzy, kde-format
@@ -556,9 +557,9 @@ msgid "Work Package"
 msgstr "مورد ليس متوفّر"
 
 #: config/ConfigDialog.cpp:57
-#, fuzzy, kde-format
+#, kde-format
 msgid "Documentation"
-msgstr "مستندات"
+msgstr "التّوثيق"
 
 #: config/ConfigDialog.cpp:60
 #, fuzzy, kde-format
@@ -582,15 +583,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigDocumentationPanel.ui:43
-#, fuzzy, kde-format
+#, kde-format
 msgid "Documentation:"
-msgstr "مستندات"
+msgstr "التّوثيق:"
 
 #. i18n: ectx: property (text), widget (QLabel, contextlabel)
 #: config/ConfigDocumentationPanel.ui:79
 #, kde-format
 msgid "Context help:"
-msgstr ""
+msgstr "مساعدة سياقيّة:"
 
 #. i18n: ectx: property (text), widget (QLabel, languageLabel)
 #: config/ConfigDocumentationPanel.ui:95
@@ -624,9 +625,9 @@ msgstr "الـ رزنامة مورِد هو"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "General"
-msgstr "&عام"
+msgstr "عامّ"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:42
@@ -649,9 +650,9 @@ msgstr "إضافة مورِد"
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
 #: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Browse..."
-msgstr "اختر..."
+msgstr "تصفّح..."
 
 #. i18n: ectx: property (text), widget (QLabel, spplabel)
 #: config/ConfigProjectPanel.ui:110
@@ -662,9 +663,9 @@ msgstr "تعيين:"
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
 #: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
-#, fuzzy, kde-format
+#, kde-format
 msgid "Description"
-msgstr "وصف"
+msgstr "الوصف"
 
 #: config/ConfigProjectTemplatesPanel.cpp:61
 #, fuzzy, kde-format
@@ -674,16 +675,16 @@ msgstr "أنشئ تقرير"
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Insert"
-msgstr "صريح"
+msgstr "أدرج"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove"
-msgstr "احذف"
+msgstr "أزل"
 
 #: config/ConfigTaskModulesPanel.cpp:61
 #, fuzzy, kde-format
@@ -697,9 +698,9 @@ msgid "Use local task modules"
 msgstr ""
 
 #: config/ConfigWorkVacationPanel.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Default"
-msgstr "افتراضي"
+msgstr "المبدئيّ"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
@@ -735,7 +736,7 @@ msgstr "التقويم s إعدادات"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Week"
 msgstr "الأسبوع"
 
@@ -744,7 +745,7 @@ msgstr "الأسبوع"
 #: kptmaindocument.cpp:1576
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "العُطل"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
@@ -833,86 +834,86 @@ msgstr "ساعات اليوم:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: config/kptcolorsconfigpanel.ui:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Gradient:"
-msgstr "جانت"
+msgstr "التدرّج:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/kptcolorsconfigpanel.ui:57
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Summary task"
-msgstr "الملخّص"
+msgstr "ملخّص المهمة"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptcolorsconfigpanel.ui:69
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Default:"
-msgstr "افتراضي"
+msgstr "المبدئيّ:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
 #: config/kptcolorsconfigpanel.ui:92
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "Use level colors"
-msgstr "إستعمل المستويات"
+msgstr "استعمل ألوان المستويات"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: config/kptcolorsconfigpanel.ui:110
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Level 1"
-msgstr "إضافة المستوى"
+msgstr "المستوى 1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: config/kptcolorsconfigpanel.ui:139
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Level 2"
-msgstr "إضافة المستوى"
+msgstr "المستوى 2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptcolorsconfigpanel.ui:168
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Level 3"
-msgstr "إضافة المستوى"
+msgstr "المستوى 3"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: config/kptcolorsconfigpanel.ui:197
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Level 4"
-msgstr "إضافة المستوى"
+msgstr "المستوى 4"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/kptcolorsconfigpanel.ui:231
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Task"
-msgstr "مهمَّة"
+msgstr "المهمّة"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Normal:"
-msgstr "عادي النسبة"
+msgstr "عادي:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #. i18n: ectx: property (text), widget (QLabel, label_14)
 #: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Critical:"
-msgstr "حرج"
+msgstr "حرج:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_13)
 #: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Finished:"
 msgstr "انتهى:"
@@ -920,21 +921,21 @@ msgstr "انتهى:"
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:chooser"
 msgid "Error:"
-msgstr "خطأ"
+msgstr "خطأ:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: config/kptcolorsconfigpanel.ui:373
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Milestone"
-msgstr "المعلم"
+msgstr "علامة مسافات"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/kptconfigtaskpanelbase.ui:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Responsible:"
 msgstr "المسؤول:"
 
@@ -952,7 +953,7 @@ msgstr "إدراج a من عنوان كتاب."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose..."
 msgstr "اختر..."
 
@@ -1059,13 +1060,13 @@ msgstr "التخمين النوع"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:348
-#, fuzzy, kde-format
+#, kde-format
 msgid "Effort"
 msgstr "الجهد"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:353
-#, fuzzy, kde-format
+#, kde-format
 msgid "Duration"
 msgstr "المدّة"
 
@@ -1084,9 +1085,9 @@ msgstr "متفائل"
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
-#, fuzzy, no-c-format, kde-format
+#, no-c-format, kde-format
 msgid "%"
-msgstr "%"
+msgstr "٪"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: config/kptconfigtaskpanelbase.ui:434
@@ -1098,7 +1099,7 @@ msgstr "متشائم"
 #: config/kptworkpackageconfigpanel.ui:17
 #, kde-format
 msgid "Retrieve"
-msgstr ""
+msgstr "الجلب"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
 #: config/kptworkpackageconfigpanel.ui:23
@@ -1110,13 +1111,13 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:32
 #, kde-format
 msgid "Retrieve:"
-msgstr ""
+msgstr "الجلب:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: config/kptworkpackageconfigpanel.ui:47
 #, kde-format
 msgid "Archive"
-msgstr ""
+msgstr "الأرشيف"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
 #: config/kptworkpackageconfigpanel.ui:53
@@ -1134,19 +1135,19 @@ msgstr "احذف مختار عنصر"
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "الأرشيف:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "النشر"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "النشر:"
 
 #: KPlatoXmlLoader.cpp:69
 #, fuzzy, kde-format
@@ -1181,9 +1182,9 @@ msgstr ""
 
 #: KPlatoXmlLoader.cpp:83 KPlatoXmlLoader.cpp:125 kptmaindocument.cpp:357
 #: kptmaindocument.cpp:644
-#, fuzzy, kde-format
+#, kde-format
 msgid "File-Format Mismatch"
-msgstr "ملف تنسيق عدم مطابقة"
+msgstr "تنسيق الملف غير مطابق"
 
 #: KPlatoXmlLoader.cpp:123
 #, fuzzy, kde-format
@@ -1196,10 +1197,10 @@ msgstr ""
 "نحو النسخة الإيطالية بوصة النسخة من كي بلاتو بعض معلومات."
 
 #: kptaboutdata.h:37
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "application name"
 msgid "Plan"
-msgstr "خطّة"
+msgstr "الخطة"
 
 #: kptaboutdata.h:39
 #, fuzzy, kde-format
@@ -1212,24 +1213,24 @@ msgid "Copyright 1998-%1, The Plan Team"
 msgstr "c الـ كي بلاتو فريق"
 
 #: kptaboutdata.h:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Dag Andersen"
-msgstr "اندرسن"
+msgstr "داغ أندرسن"
 
 #: kptaboutdata.h:46
-#, fuzzy, kde-format
+#, kde-format
 msgid "Thomas Zander"
-msgstr "توماس سمك الزّندر"
+msgstr "توماس تساندر"
 
 #: kptaboutdata.h:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Bo Thorsen"
-msgstr "Bo"
+msgstr "بو تورسن"
 
 #: kptaboutdata.h:48
-#, fuzzy, kde-format
+#, kde-format
 msgid "Raphael Langerhorst"
-msgstr "رافائيل"
+msgstr "رافائيل لانغرهورست"
 
 #. i18n translator strings
 #: kptaboutdata.h:51
@@ -1245,10 +1246,10 @@ msgid "Your emails"
 msgstr "ibrahim@arabeyes.org"
 
 #: kptbuiltinschedulerplugin.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
-msgstr "لا"
+msgstr "مجدول الشبكة"
 
 #: kptbuiltinschedulerplugin.cpp:36
 #, kde-kuit-format
@@ -1273,9 +1274,9 @@ msgid ""
 msgstr ""
 
 #: kptinsertfiledlg.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "Insert File"
-msgstr "إدراج مستند"
+msgstr "أدرج ملفًّا"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
@@ -1334,7 +1335,7 @@ msgstr ""
 #: kptmaindocument.cpp:510
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr ""
+msgstr "لا يمكن كتابة '%1'. القسم مليء؟"
 
 #: kptmaindocument.cpp:537
 #, fuzzy, kde-format
@@ -1369,20 +1370,19 @@ msgid "Insert project"
 msgstr "الـ مشروع الاسم."
 
 #: kptmaindocument.cpp:1309
-#, fuzzy, kde-format
+#, kde-format
 msgid "Group: %1"
-msgstr "المجموعة"
+msgstr "المجموعة: %1"
 
 #: kptmaindocument.cpp:1315
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource: %1"
-msgstr "موارد"
+msgstr "المورد: %1"
 
 #: kptmaindocument.cpp:1320
-#, fuzzy, kde-format
+#, kde-format
 msgid "Calendar: %1"
-msgstr "التقويم"
+msgstr "التقويم: %1"
 
 #: kptmaindocument.cpp:1325
 #, kde-format
@@ -1400,18 +1400,18 @@ msgstr "تعيين:"
 #: kptmaindocument.cpp:1330
 #, kde-format
 msgid "Convert"
-msgstr ""
+msgstr "حوّل"
 
 #: kptmaindocument.cpp:1331
 #, kde-format
 msgid "Keep"
-msgstr ""
+msgstr "أبقِ"
 
 #: kptmaindocument.cpp:1542
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "القاعدة"
 
 #: kptschedulesdocker.cpp:39
 #, fuzzy, kde-format
@@ -1434,9 +1434,9 @@ msgid "Show Selector"
 msgstr "اعرض منتقيالمختار"
 
 #: kptview.cpp:220 kptview.cpp:256
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit..."
-msgstr "حرر..."
+msgstr "حرّر..."
 
 #: kptview.cpp:224
 #, kde-format
@@ -1474,9 +1474,9 @@ msgid "Open Report Definition File..."
 msgstr ""
 
 #: kptview.cpp:259
-#, fuzzy, kde-format
+#, kde-format
 msgid "Progress..."
-msgstr "التقدم."
+msgstr "التّقدّم..."
 
 #: kptview.cpp:262
 #, fuzzy, kde-format
@@ -1484,14 +1484,14 @@ msgid "Delete Task"
 msgstr "احذف مهمَّة"
 
 #: kptview.cpp:265
-#, fuzzy, kde-format
+#, kde-format
 msgid "Description..."
-msgstr "وصف"
+msgstr "الوصف..."
 
 #: kptview.cpp:268
-#, fuzzy, kde-format
+#, kde-format
 msgid "Documents..."
-msgstr "مستندات"
+msgstr "المستندات..."
 
 #: kptview.cpp:271
 #, fuzzy, kde-format
@@ -1610,7 +1610,7 @@ msgid "Edit resource breakdown structure"
 msgstr "تحرير مورِد بنية."
 
 #: kptview.cpp:669
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tasks"
 msgstr "المهام"
 
@@ -1770,9 +1770,9 @@ msgstr "أنشئ WBS الرّمز"
 
 #: kptview.cpp:717 kptview.cpp:3198 kptviewlistdialog.cpp:122
 #: kptviewlistdialog.cpp:564
-#, fuzzy, kde-format, kde-kuit-format
+#, kde-format, kde-kuit-format
 msgid "Report"
-msgstr "صريح"
+msgstr "التقرير"
 
 #: kptview.cpp:718
 #, fuzzy, kde-kuit-format
@@ -1781,31 +1781,31 @@ msgid "View report"
 msgstr "اعرض منتقيالمختار"
 
 #: kptview.cpp:729
-#, fuzzy, kde-format
+#, kde-format
 msgid "Editors"
-msgstr "محررات النصوص"
+msgstr "المحرّرات"
 
 #: kptview.cpp:731
-#, fuzzy, kde-format
+#, kde-format
 msgid "Views"
-msgstr "المشاهد"
+msgstr "المناظير"
 
 #: kptview.cpp:733
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Project execution views"
 msgid "Execution"
-msgstr "مهمَّة"
+msgstr "التنفيذ"
 
 #: kptview.cpp:735
-#, fuzzy, kde-format
+#, kde-format
 msgid "Reports"
-msgstr "موارد"
+msgstr "التقارير"
 
 #: kptview.cpp:1695
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
-msgstr "إحسب 1"
+msgstr "احسب %1"
 
 #: kptview.cpp:1714
 #, kde-format
@@ -1824,10 +1824,10 @@ msgid "Reset baseline %1"
 msgstr "احذف جدول 1"
 
 #: kptview.cpp:1726 kptview.cpp:1730
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
-msgstr "احذف جدول 1"
+msgstr "خط القاعدة %1"
 
 #: kptview.cpp:1741
 #, fuzzy, kde-format
@@ -1920,11 +1920,10 @@ msgid "Delete task dependency"
 msgstr "احذف مهمَّة التبعية"
 
 #: kptview.cpp:2490 kptview.cpp:2551
-#, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete resource"
 msgid_plural "Delete resources"
-msgstr[0] "احذف مورد"
+msgstr[0] "احذف المورد"
 msgstr[1] "احذف مورد"
 msgstr[2] "احذف مورد"
 msgstr[3] "احذف مورد"
@@ -1957,10 +1956,10 @@ msgid "Delete resourcegroups and resources"
 msgstr "احذف"
 
 #: kptview.cpp:2720
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<br/><filename>%1</filename>"
-msgstr "غير قادر على إنزال ملف القالب: %1"
+msgstr "تعذّر فتح الملفّ:<br/><filename>%1</filename>"
 
 #: kptview.cpp:2846
 #, fuzzy
@@ -2015,12 +2014,14 @@ msgid "Work Package: %1"
 msgstr ""
 
 #: kptview.cpp:3000
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "1=project name, 2=task name"
 msgid ""
 "%1\n"
 "%2"
-msgstr "%1-%2"
+msgstr ""
+"%1\n"
+"%2"
 
 #: kptview.cpp:3030
 #, fuzzy, kde-format
@@ -2039,38 +2040,38 @@ msgid "Work Package for project: %1"
 msgstr ""
 
 #: kptview.cpp:3199
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Project manager"
 msgid "Manager:"
-msgstr "الصفحة:"
+msgstr "المدير"
 
 #: kptview.cpp:3200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Project:"
-msgstr "مشروع"
+msgstr "المشروع:"
 
 #: kptview.cpp:3202
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
-msgstr ""
+msgstr "من"
 
 #: kptview.cpp:3203
-#, fuzzy, kde-format
+#, kde-format
 msgid "Page"
-msgstr "الصفحة:"
+msgstr "الصفحة"
 
 #: kptview.cpp:3204
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Task name"
 msgid "Name"
 msgstr "الاسم"
 
 #: kptview.cpp:3205
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Task completion"
 msgid "Completion (%)"
-msgstr "التكلمة الآلية"
+msgstr "الإكمال (٪)"
 
 #: kptviewlist.cpp:349
 #, kde-kuit-format
@@ -2098,46 +2099,46 @@ msgid "Removing this category will also remove all its views."
 msgstr ""
 
 #: kptviewlist.cpp:738
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu rename view"
 msgid "Rename"
-msgstr "احذف"
+msgstr "غيّر الاسم"
 
 #: kptviewlist.cpp:742
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu configure view"
 msgid "Configure..."
-msgstr "اضبط كي بلاتو."
+msgstr "اضبط..."
 
 #: kptviewlist.cpp:746
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu remove view"
 msgid "Remove"
-msgstr "احذف"
+msgstr "أزل"
 
 #: kptviewlist.cpp:755
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu rename view category"
 msgid "Rename"
-msgstr "احذف"
+msgstr "غيّر الاسم"
 
 #: kptviewlist.cpp:759
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu configure view category"
 msgid "Configure..."
-msgstr "اضبط كي بلاتو."
+msgstr "اضبط..."
 
 #: kptviewlist.cpp:763
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu Remove view category"
 msgid "Remove"
-msgstr "احذف"
+msgstr "أزل"
 
 #: kptviewlist.cpp:772
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
-msgstr "صريح"
+msgstr "أدرج..."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
@@ -2149,7 +2150,7 @@ msgstr "الـ الاسم من المهمة"
 #: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
 #, kde-format
 msgid "Category:"
-msgstr ""
+msgstr "التصنيف:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
@@ -2162,7 +2163,7 @@ msgstr "الـ الاسم من المهمة"
 #: kptviewlisteditview.ui:58
 #, kde-format
 msgid "After"
-msgstr ""
+msgstr "بعد"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:75
@@ -2186,7 +2187,7 @@ msgstr "الـ الاسم من المهمة"
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
 #: kptviewlisteditview.ui:81
-#, fuzzy, kde-format
+#, kde-format
 msgid "Name:"
 msgstr "الاسم:"
 
@@ -2199,15 +2200,15 @@ msgstr "وصف"
 #. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
 #: kptviewlisteditview.ui:97
-#, fuzzy, kde-format
+#, kde-format
 msgid "Description:"
-msgstr "وصف"
+msgstr "الوصف:"
 
 #: kptviewlistdialog.cpp:42
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add View"
-msgstr "عرض"
+msgstr "إضافة عرض"
 
 #: kptviewlistdialog.cpp:103
 #, fuzzy, kde-format
@@ -2245,9 +2246,9 @@ msgid "Schedule Handler"
 msgstr "المجدول"
 
 #: kptviewlistdialog.cpp:111
-#, fuzzy, kde-format
+#, kde-format
 msgid "Task View"
-msgstr "مهمَّة هوية:"
+msgstr "عرض المهام"
 
 #: kptviewlistdialog.cpp:113
 #, fuzzy, kde-format
@@ -2321,27 +2322,27 @@ msgstr "اعرض منتقيالمختار"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Words"
-msgstr "العمل"
+msgstr "الكلمات"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sentences"
-msgstr "التبعيات"
+msgstr "الجمل"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:32
 #, kde-format
 msgid "Syllables"
-msgstr ""
+msgstr "مقاطع"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Lines"
-msgstr "المشاهد"
+msgstr "السطور"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:42
@@ -2353,7 +2354,7 @@ msgstr ""
 #: kptviewlistdocker.ui:47
 #, kde-format
 msgid "Characters without spaces"
-msgstr ""
+msgstr "المحارف بدون فراغات"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:52
@@ -2363,13 +2364,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLineEdit, count)
 #: kptviewlistdocker.ui:63
-#, fuzzy, kde-format
+#, kde-format
 msgid "0"
 msgstr "0"
 
 #. i18n: ectx: property (text), widget (QToolButton, refresh)
 #: kptviewlistdocker.ui:73
-#, fuzzy, kde-format
+#, kde-format
 msgid "..."
 msgstr "..."
 
@@ -2462,9 +2463,9 @@ msgid ""
 msgstr ""
 
 #: welcome/WelcomeView.cpp:312
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open Document"
-msgstr "مستندات"
+msgstr "افتح المستند"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: welcome/WelcomeView.ui:37
@@ -2498,10 +2499,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
 #: welcome/WelcomeView.ui:155
-#, fuzzy, kde-format
-#| msgid "Edit Main Project..."
+#, kde-format
 msgid "Open Project..."
-msgstr "تحرير المشروع الرئيسي..."
+msgstr "افتح مشروعًا..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: welcome/WelcomeView.ui:181
@@ -2513,9 +2513,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: welcome/WelcomeView.ui:236
-#, fuzzy, kde-format
+#, kde-format
 msgid "Introduction"
-msgstr "قائمة من مورِد"
+msgstr "المقدّمة"
 
 #. i18n: ectx: property (text), widget (QLabel, contextHelp)
 #: welcome/WelcomeView.ui:271
@@ -2569,7 +2569,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://calligra.org\">Calligra</a>"
-msgstr ""
+msgstr "<a href=\"https://calligra.org\"> كاليغرا</a>"
 
 #, fuzzy
 #~ msgid "Plan"
