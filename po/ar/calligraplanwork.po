@@ -1,0 +1,601 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
+# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: calligraplan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"PO-Revision-Date: 2024-09-07 22:47+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: aboutdata.h:20 aboutdata.h:29
+#, kde-format
+msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
+msgstr ""
+
+#: aboutdata.h:27
+#, kde-format
+msgctxt "application name"
+msgid "Plan WorkPackage Handler"
+msgstr ""
+
+#: aboutdata.h:31
+#, kde-format
+msgid "Copyright 1998-%1, The Plan Team"
+msgstr ""
+
+#: aboutdata.h:35
+#, kde-format
+msgid "Dag Andersen"
+msgstr "داغ أندرسن"
+
+#. i18n translator strings
+#: aboutdata.h:37
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "زايد السعيدي"
+
+#: aboutdata.h:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zayed.alsaidi@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&حرّر"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "عرض"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&عرض"
+
+#: commandlineparser.cpp:33
+#, kde-format
+msgid "File to open"
+msgstr "الملف المراد فتحه"
+
+#: commandlineparser.cpp:85
+#, kde-format
+msgid "Failed to open document"
+msgstr ""
+
+#: mainwindow.cpp:92
+#, kde-format
+msgid "The file %1 does not exist."
+msgstr "الملفّ %1 غير موجود."
+
+#: part.cpp:139 part.cpp:170
+#, kde-format
+msgid "Document is already open:<br>%1"
+msgstr ""
+
+#: part.cpp:151 part.cpp:178 workpackage.cpp:608
+#, kde-format
+msgid "Could not extract document from storage:<br>%1"
+msgstr ""
+
+#: part.cpp:159 part.cpp:186 workpackage.cpp:614
+#, kde-format
+msgid "Invalid URL:<br>%1"
+msgstr "المسار غير صالح: <br>%1"
+
+#: part.cpp:198
+#, kde-format
+msgid "Document is already open:<br> %1"
+msgstr ""
+
+#: part.cpp:202
+#, kde-format
+msgid "File does not exist:<br>%1"
+msgstr "الملف  غير موجود:<br>%1"
+
+#: part.cpp:228
+#, kde-format
+msgid "Edit with:"
+msgstr ""
+
+#: part.cpp:380
+#, kde-format
+msgid ""
+"<p>The work package already exists in the projects store.</p><p>Project: "
+"%1<br>Task: %2</p><p>Do you want to update the existing package with data "
+"from the new?</p>"
+msgstr ""
+
+#: part.cpp:384
+#, kde-format
+msgctxt "@title:window"
+msgid "Update Work Package"
+msgstr ""
+
+#: part.cpp:414
+#, kde-format
+msgid "Remove failed. Cannot find work package"
+msgstr ""
+
+#: part.cpp:418
+msgctxt "(qtundo-format) @action"
+msgid "Remove work package"
+msgstr ""
+
+#: part.cpp:429
+msgctxt "(qtundo-format)"
+msgid "Remove work package"
+msgid_plural "Remove work packages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: part.cpp:470
+#, kde-format
+msgid "Failed to load file:<br>%1"
+msgstr ""
+
+#: part.cpp:492
+#, kde-format
+msgid "Not a valid work package file:<br>%1"
+msgstr ""
+
+#: part.cpp:522
+#, kde-format
+msgid "Invalid document. The document does not contain 'maindoc.xml'."
+msgstr ""
+
+#: part.cpp:550
+#, kde-format
+msgid "Failed to open file: %1"
+msgstr ""
+
+#: part.cpp:564
+#, kde-format
+msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
+msgstr ""
+
+#: part.cpp:583 part.cpp:634
+#, kde-format
+msgid "Invalid document. No mimetype specified."
+msgstr ""
+
+#: part.cpp:591
+#, kde-format
+msgid ""
+"Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
+msgstr ""
+
+#: part.cpp:602 part.cpp:650
+#, kde-format
+msgid ""
+"This document is a newer version than supported by PlanWork (syntax version: "
+"%1)<br>Opening it in this version of PlanWork will lose some information."
+msgstr ""
+
+#: part.cpp:604 part.cpp:652
+#, kde-format
+msgid "Continue"
+msgstr "تابع"
+
+#: part.cpp:604 part.cpp:652
+#, kde-format
+msgid "File-Format Mismatch"
+msgstr "تنسيق الملف غير مطابق"
+
+#: part.cpp:640
+#, kde-format
+msgid "Invalid document. Expected mimetype %2, got %1"
+msgstr ""
+
+#: part.cpp:742
+#, kde-format
+msgid "Edit failed. Cannot find a work package."
+msgstr ""
+
+#: taskcompletiondialog.cpp:32
+#, kde-format
+msgid "Task Progress"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "بدأ:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "انتهى:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "أضف مدخلة"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "أزِل المدخلة"
+
+#: taskworkpackagemodel.cpp:289
+#, kde-format
+msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:411
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Type: %1<nl/>Url: %2"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:433
+#, no-c-format
+msgctxt "(qtundo-format)"
+msgid "Modify completion"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:468
+msgctxt "(qtundo-format)"
+msgid "Set finished"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:489
+msgctxt "(qtundo-format)"
+msgid "Modify remaining effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:502
+msgctxt "(qtundo-format)"
+msgid "Modify actual effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:600
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Name"
+msgstr "الاسم"
+
+#: taskworkpackagemodel.cpp:601
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Type"
+msgstr "النّوع"
+
+#: taskworkpackagemodel.cpp:602
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Responsible"
+msgstr "المسؤول"
+
+#: taskworkpackagemodel.cpp:603
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Description"
+msgstr "الوصف"
+
+#: taskworkpackagemodel.cpp:606
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Start"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:607
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Finish"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:608
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Resource Assignments"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:611
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Completion"
+msgstr "الإكمال"
+
+#: taskworkpackagemodel.cpp:612
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:613
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Remaining Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:614
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Planned Effort"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:615
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Start"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:616
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Started"
+msgstr "بدأ"
+
+#: taskworkpackagemodel.cpp:617
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Actual Finish"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:618
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Finished"
+msgstr "انتهى"
+
+#: taskworkpackagemodel.cpp:619
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Status"
+msgstr "الحالة"
+
+#: taskworkpackagemodel.cpp:620
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "ملاحظة"
+
+#: taskworkpackagemodel.cpp:622
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Name"
+msgstr ""
+
+#: taskworkpackagemodel.cpp:623
+#, kde-kuit-format
+msgctxt "@title:column"
+msgid "Project Manager"
+msgstr ""
+
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#, kde-format
+msgid "Configure View..."
+msgstr "اضبط المنظور…"
+
+#: taskworkpackageview.cpp:630
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
+">Project: %5"
+msgstr ""
+
+#: taskworkpackageview.cpp:645
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid ""
+"Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
+">Status: %6<nl/>Project: %7"
+msgstr ""
+
+#: taskworkpackageview.cpp:666
+#, kde-kuit-format
+msgctxt "@info:tooltip"
+msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
+msgstr ""
+
+#: view.cpp:84
+#, kde-format
+msgid "Remove Packages"
+msgstr "أزل الحزم"
+
+#: view.cpp:88
+#, kde-format
+msgid "Remove Package"
+msgstr ""
+
+#: view.cpp:92
+#, kde-format
+msgid "List"
+msgstr "قائمة"
+
+#: view.cpp:93
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select task list"
+msgstr ""
+
+#: view.cpp:97
+#, kde-format
+msgid "Gantt"
+msgstr ""
+
+#: view.cpp:98
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Select timeline"
+msgstr ""
+
+#: view.cpp:103
+#, kde-format
+msgid "Configure PlanWork..."
+msgstr ""
+
+#: view.cpp:108
+#, kde-format
+msgid "Edit..."
+msgstr "حرّر..."
+
+#: view.cpp:112
+#, kde-format
+msgctxt "@verb"
+msgid "View..."
+msgstr "عرض..."
+
+#: view.cpp:116
+#, kde-format
+msgid "Remove document"
+msgstr ""
+
+#: view.cpp:120
+#, kde-format
+msgid "Send Package..."
+msgstr ""
+
+#: view.cpp:124
+#, kde-format
+msgid "Edit Progress..."
+msgstr ""
+
+#: view.cpp:128
+#, kde-format
+msgid "View Description..."
+msgstr ""
+
+#: view.cpp:315
+#, kde-format
+msgid "This file is not editable"
+msgstr ""
+
+#: view.cpp:335
+#, kde-format
+msgid "No work package is selected"
+msgstr ""
+
+#: view.cpp:341
+#, kde-format
+msgid "Cannot find work package"
+msgstr ""
+
+#: view.cpp:358
+#, kde-format
+msgid "Could not open file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:366
+#, kde-format
+msgid "Could not open temporary file. Sending is aborted."
+msgstr ""
+
+#: view.cpp:375
+#, kde-format
+msgid "Work Package: %1"
+msgstr ""
+
+#: workpackage.cpp:103
+#, kde-format
+msgid "Document is already open"
+msgstr ""
+
+#: workpackage.cpp:169 workpackage.cpp:224
+#, kde-format
+msgid "Failed to load project: %1"
+msgstr ""
+
+#: workpackage.cpp:286
+#, kde-format
+msgid "Cannot save to empty filename"
+msgstr ""
+
+#: workpackage.cpp:294
+#, kde-format
+msgid "Could not create the file for saving"
+msgstr "لا يمكن إنشاء الملف للحفظ"
+
+#: workpackage.cpp:308
+#, kde-format
+msgid "Not able to write '%1'. Partition full?"
+msgstr "لا يمكن كتابة '%1'. القسم مليء؟"
+
+#: workpackage.cpp:334
+#, kde-format
+msgid ""
+"Failed to open store:\n"
+" %1"
+msgstr ""
+
+#: workpackage.cpp:412
+#, kde-format
+msgid ""
+"Cannot save to projects store:\n"
+"%1"
+msgstr ""
+
+#: workpackage.cpp:455
+msgctxt "(qtundo-format)"
+msgid "Remove document"
+msgstr ""
+
+#: workpackage.cpp:464
+#, kde-format
+msgid ""
+"Failed read file:\n"
+" %1"
+msgstr ""
+
+#: workpackage.cpp:470
+#, kde-format
+msgid ""
+"Failed write file:\n"
+" %1"
+msgstr ""
+
+#: workpackage.cpp:514
+msgctxt "(qtundo-format)"
+msgid "Merge data"
+msgstr ""
+
+#: workpackage.cpp:638
+#, kde-format
+msgid ""
+"<p>The work package <b>'%2'</b> has an open document.</p><p>Data may be lost "
+"if you continue.</p>"
+msgid_plural ""
+"<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
+"if you continue.</p>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: workpackage.cpp:661
+#, kde-format
+msgid ""
+"<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
+"it?</p>"
+msgstr ""
+
+#: workpackage.cpp:688
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
+msgstr ""
+
+#: workpackage.cpp:706
+#, kde-format
+msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
+msgstr ""
