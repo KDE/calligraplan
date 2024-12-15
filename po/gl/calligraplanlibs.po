@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-12-13 22:06+0100\n"
+"PO-Revision-Date: 2024-12-14 10:30+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -5937,7 +5937,7 @@ msgstr "O ficheiro descifrado está baleiro"
 #: store/KoEncryptedStore.cpp:737
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
-msgstr "Introduza o contrasinal co que descifrar este documento."
+msgstr "Introduza o contrasinal co que cifrar este documento."
 
 #: store/KoEncryptedStore.cpp:757
 #, kde-format
@@ -9307,6 +9307,7 @@ msgstr ""
 "engadirse simplemente premendo <interface>Aceptar</interface>.<nl/>A lista "
 "despregábel de predecesores posíbeis está ordenada por probabilidade.</para>"
 
+# skip-rule: trasno-delete
 #: ui/RelationEditorDialog.cpp:306
 #, kde-format
 msgid "Un-Delete"
