@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-12-14 10:30+0100\n"
+"PO-Revision-Date: 2024-12-15 10:14+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -8137,8 +8137,8 @@ msgid ""
 msgstr ""
 "<p>Indica o tipo de tarefa ou o tipo de estimación da tarefa.</p> O tipo "
 "pode ser <emphasis>fito</emphasis>, <emphasis>esforzo</emphasis> ou "
-"<emphasis>duración</emphasis>.<nl/> <note>O tipo non pode editarse se é "
-"<emphasis>resumo</emphasis> ou <emphasis>proxecto</emphasis>.</note>"
+"<emphasis>duración</emphasis>.<nl/> <note>Os tipos <emphasis>resumo</"
+"emphasis> e <emphasis>proxecto</emphasis> non son editábeis.</note>"
 
 #: ui/kpttaskeditor.cpp:143
 #, kde-kuit-format
