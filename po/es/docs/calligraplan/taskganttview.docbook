@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Descripción</title>
+  <para
+>La vista de Gantt se usa para mostrar tareas en una línea de tiempo. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Vista de Gantt</phrase>
+        </textobject>
+        <caption>
+          <para
+>Vista de Gantt</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Edición de datos</title>
+  <para
+>La descripción y el avance de una tarea se pueden editar usando el menú de contexto. </para>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora de inicio</para>
+            </entry>
+            <entry>
+              <para
+>La hora de inicio programada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora de finalización</para>
+            </entry>
+            <entry>
+              <para
+>La hora de finalización programada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Porcentaje completado</para>
+            </entry>
+            <entry>
+              <para
+>Terminación</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Configuración</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Puede usar el menú de contexto para configurar la vista usando el diálogo de configuración.</para>
+              <para
+>El diálogo de configuración le permite adaptar la cantidad de información que se muestra en la vista según sus necesidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Diálogo de configuración</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Diálogo de configuración</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

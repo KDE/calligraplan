@@ -1,0 +1,68 @@
+<chapter id="startup-view"
+><title
+>Vistas y editores</title>
+  <sect1 id="startup-view-section"
+><title
+>Vista inicial</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Editor de tareas</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Editor de recursos</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Editor de trabajo y vacaciones</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Editor de estructura de desglose de costos</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Editor de dependencias de tareas (gráfico)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Editor de dependencias de tareas (lista)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Editor de planificaciones</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Vista de rendimiento del proyecto</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Vista de rendimiento de la tarea</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Vista del estado de la tarea</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Vista de ejecución de la tarea</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Vista de Gantt de la tarea</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Vista de Gantt de las metas</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Vista de Gantt de asignación de recursos</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Vista de asignación de recursos</title
+>&resource-assignment-gantt-view-section; </sect1>
+</chapter>

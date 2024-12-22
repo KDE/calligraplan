@@ -1,0 +1,46 @@
+<sect2
+><title/>
+<para
+>Puede crear un nuevo proyecto pulsando el botón <emphasis
+>Nuevo proyecto</emphasis
+> o seleccionando una <emphasis
+>plantilla de proyecto</emphasis
+> en la <link linkend="startup-view"
+>Vista de inicio</link
+>. </para>
+<para
+>Esto creará un nuevo proyecto con los valores por omisión definidos en las <ulink url="http://userbase.kde.org/Special:myLanguage/Plan/Manual/Configure Plan Dialog"
+>Preferencias</ulink
+> o con los valores definidos en la plantilla. Se abrirá el diálogo de preferencias del proyecto para permitirle definir las propiedades específicas del proyecto, como el <emphasis
+>nombre del proyecto</emphasis
+>, el <emphasis
+>gestor</emphasis
+> y los <emphasis
+>tiempos del objetivo</emphasis
+>. </para>
+<para
+>Al crear el primer proyecto, considere la creación de recursos en un archivo separado. Cuando haga referencia a este archivo en sus proyectos no necesitará volver a definir los recursos, por lo que podrá coordinar el uso de los recursos entre varios proyectos. </para>
+<para
+>Consulte <link linkend="managing-resources"
+>Gestión de recursos</link
+>. </para>
+<para
+>Si desea coordinar el uso de recursos entre proyectos, los archivos de esos proyectos se deben guardar en el mismo directorio. </para>
+<para
+>Una estructura útil puede ser algo parecido a esto: </para>
+<para
+><screen
+>Plan
+    &nbsp;!-- Recursos
+    &nbsp;!      !-- RecursosCompartidos.plan
+    &nbsp;!-- Módulos de tareas
+    &nbsp;!      !-- Módulos de tareas (si existen)
+    &nbsp;!-- Plantillas
+    &nbsp;!      !-- Plantillas de proyectos (si existen)
+    &nbsp;!-- Proyectos
+    &nbsp;!      !-- &lt;proyecto 1&gt;.plan
+    &nbsp;!      !-- &lt;proyecto 2&gt;.plan
+    &nbsp;!      !-- etc
+  </screen>
+</para>
+</sect2>

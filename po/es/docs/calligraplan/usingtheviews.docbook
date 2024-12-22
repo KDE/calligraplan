@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Descripción</title>
+  <para
+>El editor de tareas es una vista que muestra datos de la tarea en una estructura de árbol. La mayor parte de los dados del editor de tareas se pueden modificar in situ. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navegación</title>
+  <para
+>Puede navegar por la estructura de árbol usando el teclado: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Desplegar una fila desplegable.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Plegar un elemento plegable.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Flecha izquierda</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la columna anterior de la misma fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Flecha derecha</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la columna siguiente de la misma fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Flecha arriba</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la fila anterior de la misma columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Flecha abajo</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la fila siguiente de la misma columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Inicio</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la primera fila, primera columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Fin</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la última fila, última columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>RePág</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la primera fila visible de la misma columna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>AvPág</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir a la última fila visible de la misma columna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Edición de datos</title>
+  <para
+>Los elementos editables se pueden modificar haciendo doble clic sobre ellos o, si está usando el teclado, pulsando <keycap
+>F2</keycap
+> para abrir el elemento actual. </para>
+  <para
+>Al editar un elemento, puede ir hasta el siguiente elemento editable del siguiente modo: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Flecha izquierda</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir al elemento editable anterior de la misma fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Flecha derecha</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir al elemento editable siguiente de la misma fila.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Flecha arriba</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir al elemento editable siguiente de las filas precedentes.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Flecha abajo</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Ir al elemento editable siguiente de las filas que siguen.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Arrastrar y soltar, copiar y pegar</title>
+  <para
+>Casi todas las vistas permiten arrastrar y soltar elementos, copiarlos y pegarlos. Los gráficos y los diagramas de Gantt se pueden arrastrar hasta aplicaciones que permitan usar imágenes. Los datos de la tabla usan el tipo MIME «html», por lo que se pueden soltar en cualquier aplicación que permita usarlo. Si la vista permite mover y copiar elementos internamente, como el <link linkend="task-editor"
+>Editor de tareas</link
+>, los elementos también se pueden mover y copiar. </para>
+</sect3>
+</sect2>

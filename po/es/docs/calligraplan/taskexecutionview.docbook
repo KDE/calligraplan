@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Descripción</title>
+  <para
+>La vista de ejecución de la tarea se usa para inspeccionar la información de desempeño de la tarea. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Datos</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>La información de avance se puede editar directamente como se describe <link linkend="using-the-views"
+>aquí</link
+> o usando el diálogo de avance de la tarea.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre de la tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estado</para>
+            </entry>
+            <entry>
+              <para
+>Estado de la tarea</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Porcentaje completado</para>
+            </entry>
+            <entry>
+              <para
+>Completación de la tarea</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Responsable</para>
+            </entry>
+            <entry>
+              <para
+>La persona responsable de esta tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Asignación</para>
+            </entry>
+            <entry>
+              <para
+>Los recursos asignados a esta tarea.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>Índice de desempeño planificado (BCWP / BCWS).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWS</para>
+            </entry>
+            <entry>
+              <para
+>Costo presupuestado del trabajo planificado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWP</para>
+            </entry>
+            <entry>
+              <para
+>Costo presupuestado del trabajo realizado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ACWP</para>
+            </entry>
+            <entry>
+              <para
+>Costo real del trabajo realizado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descripción</para>
+            </entry>
+            <entry>
+              <para
+>Descripción de la tarea</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Configuración</title>
+  <para
+>Puede usar el menú de contexto para configurar la vista para mostrar/ocultar el proyecto y dividir/unir la vista de árbol. También puede hacerlo desde el diálogo de configuración. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>El diálogo de configuración le permite adaptar la cantidad de información que se muestra en la vista según sus necesidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

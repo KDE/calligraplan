@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Descripción</title>
+  <para
+>La vista de Gantt de asignación de recursos muestra las asignaciones de tareas-recursos planificadas en un diagrama de Gantt. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Datos</title>
+  <para
+>Las siguientes columnas se muestran de forma predeterminada: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>El nombre del objeto (grupo de recursos, recurso, tarea)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>Tipo de objeto</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora de inicio</para>
+            </entry>
+            <entry>
+              <para
+>El inicio de la asignación</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora de finalización</para>
+            </entry>
+            <entry>
+              <para
+>El final de la asignación</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Edición de datos</title>
+  <para
+>La descripción y el avance de una tarea se pueden editar usando el menú de contexto. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Configuración</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Puede usar el menú de contexto para configurar la vista usando el diálogo de configuración.</para
+><para
+>El diálogo de configuración le permite seleccionar las columnas a mostrar. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Diálogo de configuración</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Diálogo de configuración</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

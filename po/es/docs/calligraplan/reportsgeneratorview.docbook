@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Descripción</title>
+  <para
+>La vista del generador de informes se usa para añadir y generar informes en el formato de texto de Open Document (odt).</para
+><para
+>Los informes se pueden basar en las plantillas de informen que se suministran o en <link linkend="creating-odt-report-templates"
+>plantillas escritas por usted mismo</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Columna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nombre</para>
+            </entry>
+            <entry>
+              <para
+>Un nombre de su elección</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Plantilla del informe</para>
+            </entry>
+            <entry>
+              <para
+>Ruta del archivo de plantilla del informe. Puede seleccionar una de las plantillas estándares que se suministran o introducir el nombre de archivo de una plantilla personalizada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Archivo del informe</para>
+            </entry>
+            <entry>
+              <para
+>El nombre del archivo que se va a generar.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Añadir</para>
+            </entry>
+            <entry>
+              <para
+>La información que se puede añadir al nombre de archivo del informe para distinguirlo de otras versiones generadas con anterioridad puede ser:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Nada</emphasis
+>; usar el nombre del archivo tal cual</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Número</emphasis
+>; añadir una secuencia numérica al nombre del archivo</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Fecha</emphasis
+>; añadir la fecha actual al nombre del archivo</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Barra de herramientas</title>
+  <para
+>La barra de herramientas proporciona los medios para añadir, eliminar y generar informes. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botón</guilabel
+></entry>
+            <entry
+><guilabel
+>Acceso rápido</guilabel
+></entry>
+            <entry
+><guilabel
+>Descripción</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Añadir informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Añadir un nuevo informe</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Eliminar informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Eliminar el informe seleccionado</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Generar informe</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Genera el informe seleccionado</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>
