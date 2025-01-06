@@ -2,15 +2,15 @@
 # Copyright (C) 2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the calligraplan package.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2024-01-05 21:11+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-30 22:41+0200\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Axel Rousseau,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
+msgstr "axel@esperanto-jeunes.org,olivermkellogg@gmail.com"
 
 #: kernel/KPlatoXmlLoaderBase.cpp:1082 kernel/kptdocuments.cpp:291
 #, kde-format
@@ -1926,8 +1926,8 @@ msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task"
 msgstr ""
-"Risko kontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso "
-"por ĉi tiu tasko"
+"Riskkontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso por "
+"ĉi tiu tasko"
 
 #: models/kptcommonstrings.cpp:41
 #, kde-kuit-format
@@ -2397,7 +2397,7 @@ msgstr "La horaroj deklaras"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Controls resource overbooking when scheduling"
-msgstr "Kontrolas rimedon superrezervado dum programado"
+msgstr "Mastrumas rimedan superrezervadon dum programado"
 
 #: models/kptcommonstrings.cpp:136
 #, kde-kuit-format
@@ -5169,7 +5169,7 @@ msgid ""
 "might not be verified."
 msgstr ""
 "Ĉi tiu dokumento enhavas nekonatan ĉeksumon. Kiam vi donas pasvorton, ĝi "
-"eble ne estas kontrolita."
+"eble ne estas konfirmita."
 
 #: store/KoEncryptedStore.cpp:268 store/KoEncryptedStore.cpp:285
 #, kde-format
@@ -5685,7 +5685,7 @@ msgstr "Modifi dokumentan staton"
 #: ui/kptdocumentspanel.cpp:241
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
-msgstr "Modifi kontrolon de sendado de dokumentoj"
+msgstr "Modifi mastrumon de sendado de dokumentoj"
 
 #: ui/kptdocumentspanel.cpp:252
 msgctxt "(qtundo-format)"
@@ -7386,8 +7386,8 @@ msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task."
 msgstr ""
-"Risko kontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso "
-"por ĉi tiu tasko."
+"Riskkontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso por "
+"ĉi tiu tasko."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
 #: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
@@ -7400,7 +7400,7 @@ msgid ""
 "<b>High risk</b> means that the estimate will be slightly pessimistic "
 "compared to Low risk.</p>"
 msgstr ""
-"<p>Risko kontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso "
+"<p>Riskkontrolas la PERT-distribuon uzatan dum kalkulado de la reala takso "
 "por la tasko.\n"
 "<b>Neniu</b> signifas, ke la Atendita takso estas uzata kiel estas.\n"
 "<b>Malalta risko</b> signifas, ke normala distribuo estas uzata.\n"
@@ -7461,19 +7461,18 @@ msgid ""
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Redakti Taskan Progreson</title><para>Ĉi tiu dialogo konsistas el la "
-"jenaj partoj:<list><item>Redakti reĝimkontrolon por difini la konduton de la "
-"dialogo.</item><item>Kontroloj por marki la taskon kiel komencita kaj finita."
-"</item><item>Tabelo por enigi uzitan penon por ĉiu rimedo.</"
-"item><item>Tabelo por enigo de taskokompletigo kaj restanta peno.</item></"
-"list></para> <para>Redakti reĝimoj:<list><item><emphasis>Pou rimedo</"
-"emphasis> postulas, ke vi enmetu uzatan penon por ĉiu rimedo atribuita al ĉi "
-"tiu tasko. Ĉi tio ebligas la plej detalan spuradon de penado- kaj kosto-"
-"uzado.</item><item><emphasis>Pou tasko</emphasis> ebligas al vi enigi la "
-"minimumon da informoj. Kiam kompletigo estas ŝanĝita, uzata peno kaj "
-"restanta peno estas aŭtomate kalkulitaj, sed kompreneble povas esti mane "
-"modifitaj se necese.</item></list><note>Vi devus elekti la deziratan "
-"redaktan reĝimon kiam vi komencas la taskon.</note><nl/><link url='%1'>Pli..."
-"</link></para>"
+"jenaj partoj:<list><item>Redaktoreĝima regilo por difini la konduton de la "
+"dialogo.</item><item>Regiloj por marki la taskon kiel komencita kaj finita.</"
+"item><item>Tabelo por enigi uzitan penon por ĉiu rimedo.</item><item>Tabelo "
+"por enigo de taskokompletigo kaj restanta peno.</item></list></para> "
+"<para>Redakti reĝimoj:<list><item><emphasis>Pou rimedo</emphasis> postulas, "
+"ke vi enmetu uzatan penon por ĉiu rimedo atribuita al ĉi tiu tasko. Ĉi tio "
+"ebligas la plej detalan spuradon de penado- kaj kosto-uzado.</"
+"item><item><emphasis>Pou tasko</emphasis> ebligas al vi enigi la minimumon "
+"da informoj. Kiam kompletigo estas ŝanĝita, uzata peno kaj restanta peno "
+"estas aŭtomate kalkulitaj, sed kompreneble povas esti mane modifitaj se "
+"necese.</item></list><note>Vi devus elekti la deziratan redaktan reĝimon "
+"kiam vi komencas la taskon.</note><nl/><link url='%1'>Pli...</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:89
 msgctxt "(qtundo-format)"
