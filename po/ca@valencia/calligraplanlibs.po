@@ -1222,7 +1222,8 @@ msgstr "No s'ha pogut escriure «%1». La partició està plena?"
 #: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
-msgstr "Error mentre s'escrivia «%1». Potser la partició és plena?"
+msgstr ""
+"S'ha produït un error mentre s'escrivia «%1». Potser la partició és plena?"
 
 #: main/KoDocument.cpp:1181
 #, kde-format
@@ -8498,7 +8499,7 @@ msgid ""
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Editeu el progrés de la tasca</title><para>Este diàleg consistix en "
-"les parts següents:<list><item>Control de mode d'edició per a definir el "
+"les parts següents:<list><item>Control de mode edició per a definir el "
 "comportament del diàleg.</item><item>Controls per a marcar la tasca com a "
 "iniciada o finalitzada.</item><item>Taula per a introduir l'esforç utilitzat "
 "per cada recurs.</item><item>Taula per a introduir la compleció de la tasca "
@@ -8509,7 +8510,7 @@ msgstr ""
 "emphasis> activa la introducció de la informació mínima. En canviar la "
 "compleció, l'esforç utilitzat i l'esforç romanent es calculen "
 "automàticament, es pot modificar manualment si cal.</item></list><note>Cal "
-"seleccionar el mode d'edició desitjat en iniciar la tasca.</note><nl/><link "
+"seleccionar el mode edició desitjat en iniciar la tasca.</note><nl/><link "
 "url='%1'>Més…</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:75
@@ -8570,7 +8571,7 @@ msgstr "Acabada:"
 #: ui/kpttaskprogresspanelbase.ui:117
 #, kde-format
 msgid "Edit mode:"
-msgstr "Mode d'edició:"
+msgstr "Mode edició:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, editmode)
 #: ui/kpttaskprogresspanelbase.ui:125
