@@ -1313,13 +1313,13 @@ msgstr "Raphael Langerhorst"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Thomas Diehl, Jannick Kuhr, Burkhard Lück"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: kptaboutdata.h:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "thd@kde.org, opensource@kuhr.org, lueck@hube-lueck.de"
+msgstr "kde-i18n-de@kde.org"
 
 #: kptbuiltinschedulerplugin.cpp:29
 #, kde-format

@@ -45,7 +45,7 @@ msgstr "Dag Andersen"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: AboutData.h:33
 #, kde-format
