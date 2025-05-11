@@ -1,0 +1,42 @@
+{
+    "KPlugin": {
+        "Name": "Plan KPlato Import Filter",
+        "Name[ca@valencia]": "Filtre d'importació de KPlato per a Plan",
+        "Name[ca]": "Filtre d'importació del KPlato per al Plan",
+        "Name[de]": "KPlato-Importfilter für Calligra Plan",
+        "Name[en_GB]": "Plan KPlato Import Filter",
+        "Name[eo]": "Plan KPlato-Importa Filtrilo",
+        "Name[es]": "Filtro de importación KPlato de Plan",
+        "Name[et]": "Plani KPlato impordifilter",
+        "Name[eu]": "Plan-en KPlato-tik inportatzeko iragazkia",
+        "Name[fi]": "Planin KPlato-tuontisuodatin",
+        "Name[fr]": "Filtre d'importation KPlato de Plan",
+        "Name[gl]": "Filtro para Plan de importación de KPlato",
+        "Name[id]": "Filter Impor KPlato Plan",
+        "Name[it]": "Filtro di importazione da KPlato di Plan",
+        "Name[ka]": "KPlato-დან გეგმის შემოტანის ფილტრი",
+        "Name[nl]": "Plan importfilter voor KPlato",
+        "Name[pl]": "Filtr importu KPlato do Plan",
+        "Name[pt]": "Filtro de Importação do KPlato do Plan",
+        "Name[pt_BR]": "Filtro de importação do KPlato para Plan",
+        "Name[ru]": "Фильтр импорта файлов планировщика KPlato",
+        "Name[sk]": "Importný filter Plan KPlato",
+        "Name[sl]": "Plan uvozni filter za KPlato",
+        "Name[sv]": "Plan KPlato importfilter",
+        "Name[tr]": "Plan KPlato İçe Aktarma Süzgeci",
+        "Name[uk]": "Фільтр імпортування даних KPlato для Plan",
+        "Name[x-test]": "xxPlan KPlato Import Filterxx",
+        "Name[zh_CN]": "Plan KPlato 导入过滤器",
+        "Name[zh_TW]": "Plan KPlato 匯入過濾程式",
+        "ServiceTypes": [
+            "Plan/Filter"
+        ]
+    },
+    "X-KDE-Export": [
+        "application/x-vnd.kde.plan"
+    ],
+    "X-KDE-Import": [
+        "application/x-vnd.kde.kplato"
+    ],
+    "X-KDE-Weight": 1
+}

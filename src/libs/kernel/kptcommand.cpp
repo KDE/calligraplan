@@ -3086,7 +3086,7 @@ DocumentModifyStatusCmd::DocumentModifyStatusCmd(Document *doc, const QString &v
 {
     Q_ASSERT(doc);
     m_value = value;
-    m_oldvalue = doc->type();
+    m_oldvalue = Document::typeToString(doc->type()); //doc->type();
 }
 void DocumentModifyStatusCmd::execute()
 {

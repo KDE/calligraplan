@@ -608,7 +608,7 @@ void KDateTable::setFontSize(int size)
 
 void KDateTable::wheelEvent (QWheelEvent * e)
 {
-    setDate(d->m_date.addMonths(-(int)(e->delta()/120)));
+    setDate(d->m_date.addMonths(-(int)(e->angleDelta().y()/120)));
     e->accept();
 }
 
@@ -617,12 +617,12 @@ bool KDateTable::event(QEvent *ev)
     switch (ev->type()) {
     case QEvent::HoverMove: {
         QHoverEvent *e = static_cast<QHoverEvent *>(ev);
-        const int row = e->pos().y() * 7 / height();
+        const int row = e->position().toPoint().y() * 7 / height();
         int col;
         if (layoutDirection() == Qt::RightToLeft) {
-            col = (d->m_paintweeknumbers ? 8 : 7) - (e->pos().x() * (d->m_paintweeknumbers ? 8 : 7) / width()) - 1;
+            col = (d->m_paintweeknumbers ? 8 : 7) - (e->position().toPoint().x() * (d->m_paintweeknumbers ? 8 : 7) / width()) - 1;
         } else {
-            col = e->pos().x() * (d->m_paintweeknumbers ? 8 : 7) / width();
+            col = e->position().toPoint().x() * (d->m_paintweeknumbers ? 8 : 7) / width();
         }
 
         const int pos = row < 1 ? -1 : ((d->m_paintweeknumbers ? 8 : 7) * (row - 1)) + col;
@@ -809,7 +809,7 @@ void KDateTable::mousePressEvent(QMouseEvent *e)
             menu->setTitle(QLocale().toString(clickedDate, QLocale::ShortFormat));
             Q_EMIT aboutToShowContextMenu(menu, QList<QDate>()<<clickedDate);
         }
-        menu->popup(e->globalPos());
+        menu->popup(e->globalPosition().toPoint());
   }
 }
 

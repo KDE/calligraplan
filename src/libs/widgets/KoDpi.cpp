@@ -15,7 +15,7 @@
 #include <QX11Info>
 #else
 #include <QApplication>
-#include <QDesktopWidget>
+#include <QScreen>
 #endif
 
 #include <QGlobalStatic>
@@ -36,10 +36,10 @@ KoDpi::KoDpi()
     m_dpiX = QX11Info::appDpiX();
     m_dpiY = QX11Info::appDpiY();
 #else
-    QDesktopWidget *w = QApplication::desktop();
-    if (w) {
-        m_dpiX = w->logicalDpiX();
-        m_dpiY = w->logicalDpiY();
+    QScreen *screen = QGuiApplication::primaryScreen();
+    if (screen) {
+        m_dpiX = screen->logicalDotsPerInchX();
+        m_dpiY = screen->logicalDotsPerInchY();
     } else {
         m_dpiX = 75;
         m_dpiY = 75;

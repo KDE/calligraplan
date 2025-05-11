@@ -13,5 +13,5 @@ endmacro()
 
 plan_add_unit_test(WorkPackageTester
     WorkPackageTester.cpp
-    LINK_LIBRARIES calligraplanworkprivate calligraplanprivate calligraplankernel calligraplanmain Qt5::Test
+    LINK_LIBRARIES calligraplanworkprivate calligraplanprivate calligraplankernel calligraplanmain Qt6::Test
 )

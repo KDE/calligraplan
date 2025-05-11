@@ -181,7 +181,7 @@ public:
     virtual ~ViewActionLists() {}
 
     QList<QAction*> contextActionList() const { return m_contextActionList; }
-    void addContextAction(QAction *action, int pos = INT_MAX) {
+    void addContextAction(QAction *action, qsizetype pos = INT_MAX) {
         m_contextActionList.insert(std::min(pos, m_contextActionList.count()), action);
     }
 

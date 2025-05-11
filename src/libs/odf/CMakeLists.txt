@@ -50,12 +50,12 @@ generate_export_header(calligraplanodf BASE_NAME koodf)
 target_link_libraries(calligraplanodf
     PUBLIC
         calligraplanstore
-        KF5::ConfigCore
-        KF5::CoreAddons
-        Qt5::PrintSupport
-        Qt5::Xml
+        KF6::ConfigCore
+        KF6::CoreAddons
+        Qt6::PrintSupport
+        Qt6::Xml
     PRIVATE
-        KF5::I18n
+        KF6::I18n
 )
 
 set_target_properties(calligraplanodf PROPERTIES

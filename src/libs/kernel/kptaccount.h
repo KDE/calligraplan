@@ -21,7 +21,6 @@
 #include <KoXmlReaderForward.h>
 
 class QDomElement;
-class QStringList;
 
 namespace KPlato
 {

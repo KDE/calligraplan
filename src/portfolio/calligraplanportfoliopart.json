@@ -1,0 +1,39 @@
+{
+    "KPlugin": {
+        "Icon": "calligraplanportfolio",
+        "MimeTypes": [
+            "application/x-vnd.kde.plan.portfolio"
+        ],
+        "Name": "CalligraPlanPortfolioPart",
+        "Name[ca@valencia]": "Part Portfolio de Calligra Plan",
+        "Name[ca]": "Part Portfolio del Calligra Plan",
+        "Name[de]": "CalligraPlanPortfolioPart",
+        "Name[en_GB]": "CalligraPlanPortfolioPart",
+        "Name[eo]": "CalligraPlanPortfolioParto",
+        "Name[es]": "CalligraPlanPortfolioPart",
+        "Name[eu]": "CalligraPlanPortfolioPart",
+        "Name[fr]": "CalligraPlanPortfolioPart",
+        "Name[gl]": "CalligraPlanPortfolioPart",
+        "Name[id]": "CalligraPlanPortfolioPart",
+        "Name[it]": "CalligraPlanPortfolioPart",
+        "Name[ka]": "CalligraPlanPortfolioPart",
+        "Name[nl]": "CalligraPlanPortfolioPart",
+        "Name[pl]": "CalligraPlanPortfolioPart",
+        "Name[pt]": "CalligraPlanPortfolioPart",
+        "Name[pt_BR]": "CalligraPlanPortfolioPart",
+        "Name[ru]": "Модуль портфеля Calligra Plan",
+        "Name[sl]": "Del portfelja Calligra Plan",
+        "Name[sv]": "Calligra Plan-portföljprogramdel",
+        "Name[tr]": "CalligraPlanPortfolioPart",
+        "Name[uk]": "Модуль портфоліо Calligra Plan",
+        "Name[x-test]": "xxCalligraPlanPortfolioPartxx",
+        "Name[zh_CN]": "CalligraPlanPortfolioPart",
+        "ServiceTypes": [
+            "KParts/ReadOnlyPart",
+            "KParts/ReadWritePart"
+        ]
+    },
+    "MimeType": "application/x-vnd.kde.plan.portfolio;",
+    "X-KDE-NativeMimeType": "application/x-vnd.kde.plan.portfolio",
+    "X-PLAN-Documentation": "plan:calligraplan;portfolio:calligraplanportfolio;work:calligraplanwork;"
+}

@@ -73,7 +73,7 @@ InsertFilePanel::InsertFilePanel(Project &project, Node *currentNode, QWidget *p
 
 void InsertFilePanel::slotOpenFileDialog(KUrlRequester *)
 {
-    ui.ui_url->setFilter(QStringLiteral("*.plan"));
+    ui.ui_url->setNameFilter(QStringLiteral("*.plan"));
 }
 
 void InsertFilePanel::changed(const QString &text)

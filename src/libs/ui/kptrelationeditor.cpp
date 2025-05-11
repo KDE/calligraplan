@@ -57,7 +57,7 @@ RelationEditor::RelationEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     debugPlan<<"----------------- Create RelationEditor ----------------------";
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new RelationTreeView(this);
     l->addWidget(m_view);
     //debugPlan<<m_view->actionSplitView();

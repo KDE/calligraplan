@@ -111,7 +111,7 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt2, i.value().endTime());
@@ -134,7 +134,7 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -161,7 +161,7 @@ void AppointmentIntervalTester::addInterval()
     qDebug()<<'\n'<<lst;
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt9, i.value().endTime());
@@ -193,7 +193,7 @@ void AppointmentIntervalTester::addInterval()
 {
     QCOMPARE(lst.map().count(), 7);
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt7, i.value().startTime());
     QCOMPARE(dt9, i.value().endTime());
@@ -236,7 +236,7 @@ void AppointmentIntervalTester::addInterval()
 {
     QCOMPARE(lst.map().count(), 3);
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt2, i.value().endTime());
@@ -264,7 +264,7 @@ void AppointmentIntervalTester::addInterval()
 {
     QCOMPARE(lst.map().count(), 4);
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -291,7 +291,7 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -322,7 +322,7 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt5, i.value().startTime());
     QCOMPARE(dt1, i.value().endTime());
@@ -353,7 +353,7 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());
@@ -384,7 +384,7 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());
@@ -411,7 +411,7 @@ void AppointmentIntervalTester::addInterval()
     lst.add(dt5, dt6, load);
 {
     const auto map = lst.map();
-    QMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
+    QMultiMap<QDate, AppointmentInterval>::const_iterator i(map.constBegin());
 
     QCOMPARE(dt1, i.value().startTime());
     QCOMPARE(dt5, i.value().endTime());

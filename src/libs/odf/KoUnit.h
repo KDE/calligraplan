@@ -20,8 +20,6 @@
 // std
 #include <math.h> // for floor
 
-class QStringList;
-
 // 1 inch ^= 72 pt
 // 1 inch ^= 25.399956 mm (-pedantic ;p)
 // 1 pt = 1/12 pi

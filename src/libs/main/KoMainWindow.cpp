@@ -52,7 +52,7 @@
 #include <KDialogJobUiDelegate>
 
 #ifdef HAVE_KACTIVITIES
-#include <KActivities/ResourceInstance>
+#include <PlasmaActivities/ResourceInstance>
 #endif
 
 //   // qt includes
@@ -64,7 +64,7 @@
 #include <QTabBar>
 #include <QPrinter>
 #include <QPrintDialog>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QPrintPreviewDialog>
 #include <QCloseEvent>
 #include <QPointer>
@@ -120,9 +120,6 @@ public:
         dockWidgetMenu = nullptr;
         deferredClosingEvent = nullptr;
         blockClose = false;
-#ifdef HAVE_KACTIVITIES
-        activityResource = nullptr;
-#endif
 
         m_helpMenu = nullptr;
 
@@ -225,9 +222,6 @@ public:
     QCloseEvent *deferredClosingEvent;
     bool blockClose;
 
-#ifdef HAVE_KACTIVITIES
-    KActivities::ResourceInstance *activityResource;
-#endif
 
     KoComponentData componentData;
 
@@ -610,10 +604,7 @@ void KoMainWindow::addRecentURL(const QString &projectName, const QUrl &url)
         saveRecentFiles();
 
 #ifdef HAVE_KACTIVITIES
-        if (!d->activityResource) {
-            d->activityResource = new KActivities::ResourceInstance(winId(), this);
-        }
-        d->activityResource->setUri(url);
+        KActivities::ResourceInstance::notifyAccessed(url);
 #endif
     }
 }
@@ -1520,7 +1511,7 @@ KoPrintJob* KoMainWindow::printPreviewToPdf()
         if (pDoc && pDoc->url().isValid()) {
             auto startUrl = pDoc->url();
             QString fileName = startUrl.fileName();
-            pdfFileName = fileName.replace(QRegExp(QStringLiteral("\\.\\w{2,5}$"), Qt::CaseInsensitive), QStringLiteral(".pdf"));
+            pdfFileName = fileName.replace(QRegularExpression(QStringLiteral("\\.\\w{2,5}$"), QRegularExpression::CaseInsensitiveOption), QStringLiteral(".pdf"));
         }
     }
     pdfFileName = QStringLiteral("%1/%2").arg(dir.path()).arg(pdfFileName);
@@ -1589,7 +1580,7 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
         if (pDoc && pDoc->url().isValid()) {
             startUrl = pDoc->url();
             QString fileName = startUrl.fileName();
-            fileName = fileName.replace(QRegExp(QStringLiteral("\\.\\w{2,5}$"), Qt::CaseInsensitive), QStringLiteral(".pdf"));
+            fileName = fileName.replace(QRegularExpression(QStringLiteral("\\.\\w{2,5}$"), QRegularExpression::CaseInsensitiveOption), QStringLiteral(".pdf"));
             startUrl = startUrl.adjusted(QUrl::RemoveFilename);
             startUrl.setPath(startUrl.path() +  fileName);
         }

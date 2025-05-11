@@ -1338,7 +1338,7 @@ QAction* KUndo2Stack::createRedoAction(KActionCollection* actionCollection, cons
     QAction* action = KUndo2QStack::createRedoAction(actionCollection);
 
     if (actionName.isEmpty()) {
-        action->setObjectName(QLatin1String(KStandardAction::name(KStandardAction::Redo)));
+        action->setObjectName(KStandardAction::name(KStandardAction::Redo));
     } else {
         action->setObjectName(actionName);
     }
@@ -1357,7 +1357,7 @@ QAction* KUndo2Stack::createUndoAction(KActionCollection* actionCollection, cons
     QAction* action = KUndo2QStack::createUndoAction(actionCollection);
 
     if (actionName.isEmpty()) {
-        action->setObjectName(QLatin1String(KStandardAction::name(KStandardAction::Undo)));
+        action->setObjectName(KStandardAction::name(KStandardAction::Undo));
     } else {
         action->setObjectName(actionName);
     }

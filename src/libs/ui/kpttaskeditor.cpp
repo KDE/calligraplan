@@ -302,7 +302,7 @@ TaskEditor::TaskEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setXMLFile(QStringLiteral("TaskEditorUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new TaskEditorTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
@@ -902,12 +902,12 @@ void TaskEditor::setupGui()
     connect(menuAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask);
 
     actionAddTask  = new QAction(i18n("Add Task"), this);
-    actionAddTask->setShortcut(Qt::CTRL + Qt::Key_I);
+    actionAddTask->setShortcut(Qt::CTRL | Qt::Key_I);
     connect(actionAddTask, &QAction::triggered, this, &TaskEditor::slotAddTask);
     menuAddTask->addAction(actionAddTask);
 
     actionAddMilestone  = new QAction(i18n("Add Milestone"), this);
-    actionAddMilestone->setShortcut(Qt::CTRL + Qt::ALT + Qt::Key_I);
+    actionAddMilestone->setShortcut(Qt::CTRL | Qt::ALT | Qt::Key_I);
     connect(actionAddMilestone, &QAction::triggered, this, &TaskEditor::slotAddMilestone);
     menuAddTask->addAction(actionAddMilestone);
 
@@ -917,12 +917,12 @@ void TaskEditor::setupGui()
     connect(menuAddSubTask, &QAction::triggered, this, &TaskEditor::slotAddSubtask);
 
     actionAddSubtask  = new QAction(i18n("Add Sub-Task"), this);
-    actionAddSubtask->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    actionAddSubtask->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_I);
     connect(actionAddSubtask, &QAction::triggered, this, &TaskEditor::slotAddSubtask);
     menuAddSubTask->addAction(actionAddSubtask);
 
     actionAddSubMilestone = new QAction(i18n("Add Sub-Milestone"), this);
-    actionAddSubMilestone->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I);
+    actionAddSubMilestone->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::ALT | Qt::Key_I);
     connect(actionAddSubMilestone, &QAction::triggered, this, &TaskEditor::slotAddSubMilestone);
     menuAddSubTask->addAction(actionAddSubMilestone);
 
@@ -932,7 +932,7 @@ void TaskEditor::setupGui()
     connect(actionDeleteTask, &QAction::triggered, this, &TaskEditor::slotDeleteTask);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
-    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
+    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL | Qt::Key_L);
     actionCollection()->addAction(QStringLiteral("link_task"), actionLinkTask);
     connect(actionLinkTask, &QAction::triggered, this, &TaskEditor::slotLinkTask);
 
@@ -1555,7 +1555,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
     setXMLFile(QStringLiteral("TaskViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new NodeTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
@@ -2182,7 +2182,7 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
     }
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new WorkPackageTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);

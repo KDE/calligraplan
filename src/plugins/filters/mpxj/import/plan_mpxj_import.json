@@ -1,0 +1,55 @@
+{
+    "KPlugin": {
+        "Name": "Plan MS Project Import Filter",
+        "Name[ca@valencia]": "Filtre d'importació del MS Project per a Plan",
+        "Name[ca]": "Filtre d'importació del MS Project per al Plan",
+        "Name[en_GB]": "Plan MS Project Import Filter",
+        "Name[eo]": "Plan MS-Project Importfiltrilo",
+        "Name[es]": "Filtro de importación MS Project de Plan",
+        "Name[fi]": "Planin MS Project -tuontisuodatin",
+        "Name[fr]": "Filtre d'importation pour le logiciel de planning de « Microsoft »",
+        "Name[gl]": "Filtro para Plan de importación de MS Project.",
+        "Name[it]": "Filtro di importazione da MS Project di Plan",
+        "Name[ka]": "MS Project-დან გეგმის შემოტანის ფილტრი",
+        "Name[nl]": "Plan importfilter voor MS Project",
+        "Name[pl]": "Filtr importu projektów MS",
+        "Name[pt]": "Filtro de Importação do MS Project do Plan",
+        "Name[pt_BR]": "Filtro de importação do MS Project para Plan",
+        "Name[ru]": "Фильтр импорта файлов планировщика MS Project",
+        "Name[sl]": "Plan MS Project uvozni filter",
+        "Name[sv]": "Plan MS Project-importfilter",
+        "Name[tr]": "Plan MS Project İçe Aktarma Süzgeci",
+        "Name[uk]": "Фільтр імпортування даних MS Project для Plan",
+        "Name[x-test]": "xxPlan MS Project Import Filterxx",
+        "Name[zh_TW]": "Plan Microsoft 專案匯入過濾程式",
+        "ServiceTypes": [
+            "Plan/Filter"
+        ]
+    },
+    "X-KDE-Export": [
+        "application/x-vnd.kde.plan"
+    ],
+    "X-KDE-Import": [
+        "application/vnd.ms-project",
+        "application/x-ms-project-db",
+        "application/x-mspdi",
+        "application/x-project",
+        "application/x-project-template",
+        "application/x-fasttrack",
+        "application/x-phoenix",
+        "application/x-asta",
+        "application/x-primavera-pmxml",
+        "application/x-primavera-xer",
+        "application/x-ganttproject",
+        "application/x-projectlibre",
+        "application/x-conceptdraw-cdpx",
+        "application/x-conceptdraw-cdpz",
+        "application/x-conceptdraw-cdptz",
+        "application/x-syncroscheduler",
+        "application/x-ganttdesigner",
+        "application/x-projectcommander",
+        "application/x-turboproject",
+        "application/x-sdef"
+    ],
+    "X-KDE-Weight": 1
+}

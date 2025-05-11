@@ -180,21 +180,21 @@ target_link_libraries(calligraplanui
     PUBLIC
         calligraplanmain
         calligraplanmodels
-        KF5::TextWidgets
+        KF6::TextWidgets
     PRIVATE
-        KChart
-        KGantt
-        KF5::ItemViews
-        KF5::IconThemes
-        KF5::Archive
+        KChart6
+        KGantt6
+        KF6::ItemViews
+        KF6::IconThemes
+        KF6::Archive
 )
 
 if (PLAN_USE_KREPORT)
     target_link_libraries(calligraplanui PUBLIC KReport PRIVATE KPropertyWidgets)
 endif()
 
-if(KF5AkonadiContact_FOUND)
-    target_link_libraries(calligraplanui  PRIVATE KF5::AkonadiContactCore)
+if(KF6AkonadiContact_FOUND)
+    target_link_libraries(calligraplanui  PRIVATE KF6::AkonadiContactCore)
 endif()
 
 set_target_properties(calligraplanui PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
@@ -223,7 +223,7 @@ install( FILES
         TaskViewUi.rc
         TaskStatusViewUi.rc
         ResourceCoverageViewUi.rc
-    DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplan
+    DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/calligraplan
 )
 
 # reports files

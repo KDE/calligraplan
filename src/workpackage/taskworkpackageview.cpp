@@ -318,7 +318,7 @@ TaskWorkPackageView::TaskWorkPackageView(Part *part, QWidget *parent)
 {
     debugPlanWork<<"-------------------- creating TaskWorkPackageView -------------------";
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new TaskWorkPackageTreeView(part, this);
     l->addWidget(m_view);
     setupGui();
@@ -871,7 +871,7 @@ TaskWPGanttView::TaskWPGanttView(Part *part, QWidget *parent)
 {
     debugPlanWork<<"-------------------- creating TaskWPGanttView -------------------";
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new GanttView(part, this);
     l->addWidget(m_view);
 

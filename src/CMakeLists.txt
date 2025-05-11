@@ -74,7 +74,7 @@ set(PLAN_INCLUDES
 # For odf
 set(RNG_SOURCE_DIR ${PROJECT_SOURCE_DIR}/devtools/scripts)
 
-if(KF5Holidays_FOUND)
+if(KF6Holidays_FOUND)
     add_definitions(-DHAVE_KHOLIDAYS)
 endif()
 
@@ -82,7 +82,7 @@ endif()
 set (PLAN_PLUGIN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_PLUGINDIR}")
 
 
-if (KF5AkonadiContact_FOUND)
+if (KF6AkonadiContact_FOUND)
     # disable for now: there is a bug
     # it only works if you use kde contacts (of course) but many use other stuff, so gets disappointed
     add_definitions(-DPLAN_KDEPIMLIBS_FOUND)

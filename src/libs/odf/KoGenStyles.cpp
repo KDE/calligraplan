@@ -345,7 +345,7 @@ QString KoGenStyles::insert(const KoGenStyle& style, const QString& baseName, In
                 testStyle.m_type = parentStyle->m_type;
                 // Also it's ok to not have the display name of the parent style
                 // in the auto style
-                QMap<QString, QString>::const_iterator it = parentStyle->m_attributes.find(QStringLiteral("style:display-name"));
+                QMultiMap<QString, QString>::const_iterator it = parentStyle->m_attributes.find(QStringLiteral("style:display-name"));
                 if (it != parentStyle->m_attributes.end())
                     testStyle.addAttribute(QStringLiteral("style:display-name"), *it);
 

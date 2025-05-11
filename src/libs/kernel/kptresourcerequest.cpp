@@ -31,6 +31,7 @@
 
 #include <QLocale>
 #include <QDomElement>
+#include <QRegularExpression>
 
 using namespace KPlato;
 
@@ -527,7 +528,8 @@ QList<ResourceRequest*> ResourceRequestCollection::resourceRequests(bool resolve
 bool ResourceRequestCollection::contains(const QString &identity) const
 {
     QStringList lst = requestNameList();
-    return lst.indexOf(QRegExp(identity, Qt::CaseSensitive, QRegExp::FixedString)) != -1;
+    QRegularExpression pattern(QRegularExpression::escape(identity));
+    return lst.indexOf(QRegularExpression(pattern)) != -1;
 }
 
 // bool ResourceRequestCollection::load(KoXmlElement &element, Project &project) {

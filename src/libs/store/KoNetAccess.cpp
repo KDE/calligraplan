@@ -12,7 +12,7 @@
 
 #include <cstring>
 
-#include <QtCore/QCharRef>
+// #include <QtCore/QCharRef>
 #include <QApplication>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -28,6 +28,9 @@
 #include <KIO/MkdirJob>
 #include <KIO/CopyJob>
 #include <KIO/DeleteJob>
+#include <KIO/FileCopyJob>
+#include <KIO/StatJob>
+#include <KIO/MimetypeJob>
 
 namespace KIO
 {

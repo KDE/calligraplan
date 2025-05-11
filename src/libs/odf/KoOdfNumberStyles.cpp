@@ -448,7 +448,7 @@ QPair<QString, NumericStyleFormat> loadOdfNumberStyle(const KoXmlElement &parent
             for (i = 1; i <= leadingZ; ++i) {
                 format +=  QLatin1Char('0');
                 if ((i % 3 == 0) && thousandsSep)
-                    format = + ',' ;
+                    format += QLatin1Char(',');
             }
             if (precision > -1) {
                 format += QLatin1Char('.');

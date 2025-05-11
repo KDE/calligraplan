@@ -50,7 +50,7 @@ ScriptingScheduleListView::ScriptingScheduleListView(Scripting::Module* module, 
     }
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
     m_view = new QTreeView(this);
     m_view->setAlternatingRowColors(true);

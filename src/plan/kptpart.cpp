@@ -27,7 +27,6 @@
 #include <KXMLGUIFactory>
 #include <KConfigGroup>
 #include <KHelpClient>
-#include <KRun>
 #include <KDesktopFile>
 #include <KAboutData>
 #include <KActionCollection>

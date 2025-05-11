@@ -72,10 +72,10 @@ void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
     // Get the command line arguments which we have to parse
     const QStringList fileUrls = m_commandLineParser.positionalArguments();
     // TODO: remove once Qt has proper handling itself
-    const QRegExp withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
-    for(const QString &fileUrl : qAsConst(fileUrls)) {
+    const QRegularExpression withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
+    for(const QString &fileUrl : fileUrls) {
         // convert to an url
-        const bool startsWithProtocol = (withProtocolChecker.indexIn(fileUrl) == 0);
+        const bool startsWithProtocol = (withProtocolChecker.match(fileUrl).hasMatch() == 0);
         const QUrl url = startsWithProtocol ?
             QUrl::fromUserInput(fileUrl) :
             QUrl::fromLocalFile(workingDirectory.absoluteFilePath(fileUrl));

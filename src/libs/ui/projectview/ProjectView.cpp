@@ -27,7 +27,7 @@ ProjectView::ProjectView(KoPart *part, KoDocument *doc, QWidget *parent)
 {
     debugPlan<<"----------------- Create ProjectView ----------------------";
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new QTableView(this);
     l->addWidget(m_view);
     if (createConnection()) {

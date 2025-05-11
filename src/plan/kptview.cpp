@@ -146,7 +146,7 @@ View::View(KoPart *part, MainDocument *doc, QWidget *parent)
 
     m_sp = new QSplitter(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(m_sp);
 
     ViewListDocker *docker = nullptr;

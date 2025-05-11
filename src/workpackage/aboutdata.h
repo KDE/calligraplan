@@ -17,7 +17,7 @@
 namespace KPlatoWork
 {
 
-static const char PLANWORK_DESCRIPTION[] = I18N_NOOP("PlanWork - Work Package handler for the Plan Project Planning Tool");
+static const char PLANWORK_DESCRIPTION[] = "PlanWork - Work Package handler for the Plan Project Planning Tool";
 static const char PLANWORK_VERSION[] = PLAN_VERSION_STRING;
 
 KAboutData * newAboutData()

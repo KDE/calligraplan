@@ -269,12 +269,12 @@ void AccountsEditor::setupGui()
 {
     actionAddAccount  = new QAction(koIcon("document-new"), xi18nc("@action:inmenu", "Add Account"), this);
     actionCollection()->addAction(QStringLiteral("add_account"), actionAddAccount);
-    actionCollection()->setDefaultShortcut(actionAddAccount, Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddAccount, Qt::CTRL | Qt::Key_I);
     connect(actionAddAccount, &QAction::triggered, this, &AccountsEditor::slotAddAccount);
 
     actionAddSubAccount  = new QAction(koIcon("document-new"), xi18nc("@action:inmenu", "Add Subaccount"), this);
     actionCollection()->addAction(QStringLiteral("add_subaccount"), actionAddSubAccount);
-    actionCollection()->setDefaultShortcut(actionAddSubAccount, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddSubAccount, Qt::SHIFT | Qt::CTRL | Qt::Key_I);
     connect(actionAddSubAccount, &QAction::triggered, this, &AccountsEditor::slotAddSubAccount);
 
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action:inmenu", "Delete"), this);

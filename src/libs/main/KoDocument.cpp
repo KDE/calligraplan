@@ -46,6 +46,8 @@
 #include <MainDebug.h>
 #include <KConfigGroup>
 #include <KIO/Job>
+#include <KIO/FileCopyJob>
+#include <KIO/StatJob>
 #include <KDirNotify>
 #include <KBackup>
 
@@ -632,7 +634,6 @@ bool KoDocument::saveFile()
     if (ret) {
         KNotification *notify = new KNotification(QStringLiteral("DocumentSaved"));
         notify->setText(i18n("Document <i>%1</i> saved", url().url()));
-        notify->addContext(QStringLiteral("url"), url().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
     }
 
@@ -1536,7 +1537,6 @@ bool KoDocument::openFile()
 
         KNotification *notify = new KNotification(QStringLiteral("DocumentLoaded"));
         notify->setText(i18n("Document <i>%1</i> loaded", url().url()));
-        notify->addContext(QStringLiteral("url"), url().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
     }
 
@@ -1829,7 +1829,6 @@ bool KoDocument::loadNativeFormatFromStoreInternal(KoStore *store)
     if (oasis && store->hasFile("VersionList.xml")) {
         KNotification *notify = new KNotification(QStringLiteral("DocumentHasVersions"));
         notify->setText(i18n("Document <i>%1</i> contains several versions. Go to File->Versions to open an old version.", store->urlOfStore().url()));
-        notify->addContext(QStringLiteral("url"), store->urlOfStore().url());
         QTimer::singleShot(0, notify, &KNotification::sendEvent);
 
         KoXmlDocument versionInfo;
@@ -2240,11 +2239,11 @@ static const struct {
     const char *localName;
     const char *documentType;
 } TN2DTArray[] = {
-    { "text", I18N_NOOP("a word processing") },
-    { "spreadsheet", I18N_NOOP("a spreadsheet") },
-    { "presentation", I18N_NOOP("a presentation") },
-    { "chart", I18N_NOOP("a chart") },
-    { "drawing", I18N_NOOP("a drawing") }
+    { "text", "a word processing" },
+    { "spreadsheet", "a spreadsheet" },
+    { "presentation", "a presentation" },
+    { "chart", "a chart" },
+    { "drawing", "a drawing" }
 };
 static const unsigned int numTN2DT = sizeof(TN2DTArray) / sizeof(*TN2DTArray);
 

@@ -79,11 +79,11 @@ target_link_libraries(calligraplanprivate
         calligraplanui
     PRIVATE
         calligraplanplugin
-        KF5::IconThemes
-        #KF5::KHtml
+        KF6::IconThemes
+        #KF6::KHtml
 )
-if(KF5AkonadiContact_FOUND)
-    target_link_libraries(calligraplanprivate  PRIVATE KF5::AkonadiContactCore)
+if(KF6AkonadiContact_FOUND)
+    target_link_libraries(calligraplanprivate  PRIVATE KF6::AkonadiContactCore)
 endif()
 set_target_properties(calligraplanprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
 
@@ -96,12 +96,12 @@ set(calligraplanpart_PART_SRCS kptfactoryinit.cpp )
 add_library(calligraplanpart MODULE ${calligraplanpart_PART_SRCS})
 
 #calligraplan_part_desktop_to_json(calligraplanpart planpart.desktop)
-kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
+# kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
 #         SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_part.desktop
-)
+# )
 
 
-target_link_libraries(calligraplanpart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanprivate)
+target_link_libraries(calligraplanpart PUBLIC KF6::Parts KF6::CoreAddons PRIVATE calligraplanprivate)
 
 install(TARGETS calligraplanpart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/parts)
 
@@ -136,7 +136,7 @@ install(TARGETS calligraplan  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES calligraplan_shell.rc calligraplan.rc calligraplan_readonly.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplan)
+install( FILES calligraplan_shell.rc calligraplan.rc calligraplan_readonly.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/calligraplan)
 install( PROGRAMS  org.kde.calligraplan.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install( FILES  calligraplanrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES calligraplansettings.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})

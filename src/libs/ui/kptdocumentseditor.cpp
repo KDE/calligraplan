@@ -96,7 +96,7 @@ DocumentsEditor::DocumentsEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
     
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new DocumentTreeView(this);
     l->addWidget(m_view);
     

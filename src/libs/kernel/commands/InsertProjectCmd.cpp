@@ -326,8 +326,8 @@ void InsertProjectCmd::createCommands(Project &fromProject)
     debugPlanInsertProject<<"Existing resources:"<<existingResources;
     debugPlanInsertProject<<"Resource requests:"<<rreqs;
 
-    QHash<Node*, QPair<ResourceRequest*, Resource*> >::const_iterator i;
-    for (i = rreqs.constBegin(); i != rreqs.constEnd(); ++i) {
+    //QHash<Node*, QPair<ResourceRequest*, Resource*> >::const_iterator i;
+    for (auto i = rreqs.constBegin(); i != rreqs.constEnd(); ++i) {
         Node *n = i.key();
         ResourceRequest *rr = i.value().first;
         rr->setId(0);

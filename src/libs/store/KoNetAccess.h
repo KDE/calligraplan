@@ -14,9 +14,8 @@
 #include <QtCore/QString>
 #include <KIO/Global>
 #include <KIO/UDSEntry>
-#include <kio/jobclasses.h> // for KIO::JobFlags
+#include <KIO/Job>
 
-class QStringList;
 class QWidget;
 
 #include <kostore_export.h>

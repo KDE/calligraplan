@@ -13,7 +13,6 @@
 #include <kptdocuments.h>
 #include "kptdebug.h"
 
-#include <QTextCodec>
 #include <QByteArray>
 #include <QString>
 #include <QTextStream>

@@ -56,7 +56,7 @@ ResourceAllocationEditor::ResourceAllocationEditor(KoPart *part, KoDocument *doc
     : ViewBase(part, doc, parent)
 {
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new ResourceAllocationTreeView(this);
     l->addWidget(m_view);
     setupGui();

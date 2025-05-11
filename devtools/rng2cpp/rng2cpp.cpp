@@ -41,7 +41,7 @@ public:
     template<class T>
     fatal& operator<<(T s)
     {
-        msg += s;
+        msg += QStringLiteral("%1").arg(s);
         return *this;
     }
 };

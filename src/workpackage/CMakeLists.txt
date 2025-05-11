@@ -43,10 +43,10 @@ target_link_libraries(calligraplanworkprivate
         calligraplanui
         calligraplanprivate
         calligraplanmain
-        KGantt
-        KF5::Parts
+        KGantt6
+        KF6::Parts
     PRIVATE
-        KF5::IconThemes
+        KF6::IconThemes
 )
 
 set_target_properties(calligraplanworkprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )
@@ -84,17 +84,17 @@ target_link_libraries(
 
     calligraplanworkprivate
 
-    KF5::Parts
-    KF5::IconThemes
-    KF5::WindowSystem
-    KF5::DBusAddons
+    KF6::Parts
+    KF6::IconThemes
+    KF6::WindowSystem
+    KF6::DBusAddons
 )
 
 install(TARGETS calligraplanwork  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES  calligraplanwork.rc calligraplanwork_readonly.rc calligraplanworkui.rc DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplanwork)
+install( FILES  calligraplanwork.rc calligraplanwork_readonly.rc calligraplanworkui.rc DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/calligraplanwork)
 install( FILES  calligraplanworkrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install( PROGRAMS  org.kde.calligraplanwork.desktop  DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.calligraplanwork.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

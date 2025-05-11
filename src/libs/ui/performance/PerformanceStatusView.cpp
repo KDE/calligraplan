@@ -197,7 +197,7 @@ PerformanceStatusView::PerformanceStatusView(KoPart *part, KoDocument *doc, QWid
     setXMLFile(QStringLiteral("PerformanceStatusViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new PerformanceStatusTreeView(this);
     connect(this, &ViewBase::expandAll, m_view->treeView(), &TreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view->treeView(), &TreeViewBase::slotCollapse);

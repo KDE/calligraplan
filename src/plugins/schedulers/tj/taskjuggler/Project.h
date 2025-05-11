@@ -29,7 +29,6 @@
 // #include "QtReport.h"
 // #include "Journal.h"
 
-class QStringList;
 
 namespace TJ
 {

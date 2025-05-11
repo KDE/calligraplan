@@ -896,7 +896,7 @@ bool Accounts::removeId(const QString &id) {
 
 QString Accounts::uniqueId(const QString &seed) const
 {
-    QString s = seed.isEmpty() ? i18n("Account") + QStringLiteral(".%1") : seed + QStringLiteral(".%1");
+    QString s = seed.isEmpty() ? i18n("Account") + QStringLiteral(".%1") : QString(seed + QStringLiteral(".%1"));
     int i = 1;
     QString n = s.arg(i);
     while (findAccount(n)) {

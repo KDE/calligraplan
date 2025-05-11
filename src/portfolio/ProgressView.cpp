@@ -31,7 +31,7 @@ ProgressView::ProgressView(KoPart *part, KoDocument *doc, QWidget *parent)
     setXMLFile(QStringLiteral("Portfolio_ProgressViewUi.rc"));
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     QSplitter *sp = new QSplitter(this);
     layout->addWidget(sp);
     m_view = new QTreeView(sp);

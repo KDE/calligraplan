@@ -1,0 +1,43 @@
+{
+    "KPlugin": {
+        "Name": "Plan Planner Import Filter",
+        "Name[ca@valencia]": "Filtre d'importació de Planner de Plan",
+        "Name[ca]": "Filtre d'importació del Planner del Plan",
+        "Name[cs]": "Importní filtr plánovaní Planner",
+        "Name[de]": "Planner-Importfilter für Calligra Plan",
+        "Name[en_GB]": "Plan Planner Import Filter",
+        "Name[eo]": "Plan Planner-Importfiltrilo",
+        "Name[es]": "Filtro de importación Planner de Plan",
+        "Name[et]": "Plani Planneri impordifilter",
+        "Name[eu]": "Plan-en Planner-retik inportatzeko iragazkia",
+        "Name[fi]": "Planin Planner-tuontisuodatin",
+        "Name[fr]": "Filtre d'importation Planner de Plan",
+        "Name[gl]": "Filtro para Plan de importación de Planner",
+        "Name[id]": "Filter Impor Planner Plan",
+        "Name[it]": "Filtro di importazione da Planner di Plan",
+        "Name[ka]": "Planner-დან გეგმის შემოტანის ფილტრი",
+        "Name[nl]": "Plan importfilter voor Planner",
+        "Name[pl]": "Filtr importu Plannera do Plan",
+        "Name[pt]": "Filtro de Importação do Planner do Plan",
+        "Name[pt_BR]": "Filtro de importação do Planner para Plan",
+        "Name[ru]": "Фильтр импорта файлов планировщика Plan Planner",
+        "Name[sk]": "Importný filter Plan Planner",
+        "Name[sl]": "Plan uvozni filter za Planner",
+        "Name[sv]": "Plan planeringsimportfilter",
+        "Name[tr]": "Plan Planner İçe Aktarma Süzgeci",
+        "Name[uk]": "Фільтр імпортування даних Planner для Plan",
+        "Name[x-test]": "xxPlan Planner Import Filterxx",
+        "Name[zh_CN]": "Plan 计划工具导入过滤器",
+        "Name[zh_TW]": "Plan Planner 匯入過濾程式",
+        "ServiceTypes": [
+            "Plan/Filter"
+        ]
+    },
+    "X-KDE-Export": [
+        "application/x-vnd.kde.plan"
+    ],
+    "X-KDE-Import": [
+        "application/x-planner"
+    ],
+    "X-KDE-Weight": 1
+}

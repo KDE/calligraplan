@@ -32,6 +32,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsProxyWidget>
 #include <QMimeDatabase>
+#include <QRegularExpression>
 
 #ifndef QT_NO_DBUS
 #include <QDBusConnection>
@@ -248,7 +249,7 @@ bool KoPart::openTemplate(const QUrl &url)
     if (ok) {
         QString mimeType = QMimeDatabase().mimeTypeForUrl(url).name();
         // in case this is a open document template remove the -template from the end
-        mimeType.remove(QRegExp(QStringLiteral("-template$")));
+        mimeType.remove(QRegularExpression(QStringLiteral("-template$")));
         d->document->setMimeTypeAfterLoading(mimeType);
         d->document->resetURL();
         d->document->setEmpty();

@@ -340,7 +340,7 @@ void KoDialog::setMainWidget(QWidget *widget)
     d->mMainWidget = widget;
     if (d->mMainWidget && d->mMainWidget->layout()) {
         // Avoid double-margin problem
-        d->mMainWidget->layout()->setMargin(0);
+        d->mMainWidget->layout()->setContentsMargins(0, 0, 0, 0);
     }
     d->setupLayout();
 }
@@ -507,7 +507,7 @@ void KoDialog::resizeLayout(QLayout *layout, int margin, int spacing)   //static
     }
 
     if (layout->layout()) {
-        layout->layout()->setMargin(margin);
+        layout->layout()->setContentsMargins(margin, margin, margin, margin);
         layout->layout()->setSpacing(spacing);
     }
 }

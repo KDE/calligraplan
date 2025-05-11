@@ -2209,7 +2209,7 @@ DependencyEditor::DependencyEditor(KoPart *part, KoDocument *doc, QWidget *paren
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new DependencyView(this);
     l->addWidget(m_view);
 
@@ -2548,7 +2548,7 @@ void DependencyEditor::setupGui()
     connect(actionDeleteRelation, &QAction::triggered, this, &DependencyEditor::slotDeleteRelation);
 
     actionLinkTask  = new QAction(koIcon("link"), xi18nc("@action", "Link"), this);
-    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL + Qt::Key_L);
+    actionCollection()->setDefaultShortcut(actionLinkTask, Qt::CTRL | Qt::Key_L);
     actionCollection()->addAction(QStringLiteral("link_task"), actionLinkTask);
     connect(actionLinkTask, &QAction::triggered, this, &DependencyEditor::slotLinkTask);
 
@@ -2557,12 +2557,12 @@ void DependencyEditor::setupGui()
     connect(menuAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask);
 
     actionAddTask  = new QAction(i18n("Add Task..."), this);
-    actionAddTask->setShortcut(Qt::CTRL + Qt::Key_I);
+    actionAddTask->setShortcut(Qt::CTRL | Qt::Key_I);
     connect(actionAddTask, &QAction::triggered, this, &DependencyEditor::slotAddTask);
     menuAddTask->addAction(actionAddTask);
 
     actionAddMilestone  = new QAction(i18n("Add Milestone..."), this);
-    actionAddMilestone->setShortcut(Qt::CTRL + Qt::ALT + Qt::Key_I);
+    actionAddMilestone->setShortcut(Qt::CTRL | Qt::ALT | Qt::Key_I);
     connect(actionAddMilestone, &QAction::triggered, this, &DependencyEditor::slotAddMilestone);
     menuAddTask->addAction(actionAddMilestone);
 
@@ -2572,12 +2572,12 @@ void DependencyEditor::setupGui()
     connect(menuAddSubTask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask);
 
     actionAddSubtask  = new QAction(i18n("Add Sub-Task..."), this);
-    actionAddSubtask->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    actionAddSubtask->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_I);
     connect(actionAddSubtask, &QAction::triggered, this, &DependencyEditor::slotAddSubtask);
     menuAddSubTask->addAction(actionAddSubtask);
 
     actionAddSubMilestone = new QAction(i18n("Add Sub-Milestone..."), this);
-    actionAddSubMilestone->setShortcut(Qt::CTRL + Qt::SHIFT + Qt::ALT + Qt::Key_I);
+    actionAddSubMilestone->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::ALT | Qt::Key_I);
     connect(actionAddSubMilestone, &QAction::triggered, this, &DependencyEditor::slotAddSubMilestone);
     menuAddSubTask->addAction(actionAddSubMilestone);
 

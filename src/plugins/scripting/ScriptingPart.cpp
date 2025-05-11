@@ -26,7 +26,7 @@
 #include "ScriptingDebug.h"
 
 #include <QStandardPaths>
-// KF5
+// KF6
 #include <KPluginFactory>
 // kross
 #include <kross/core/manager.h>

@@ -28,7 +28,7 @@ GroupAllocationPanel::GroupAllocationPanel(QWidget *parent, Project &project, Ta
     m_model.setTask(&task);
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new QTreeView(this);
     m_view->setRootIsDecorated(false);
     m_view->setModel(&m_model);

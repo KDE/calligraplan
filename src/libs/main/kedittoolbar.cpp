@@ -40,8 +40,8 @@
 
 #include "ktoolbarhelper_p.h"
 
-static const char separatorstring[] = I18N_NOOP("--- separator ---");
-static const char spacerstring[] = I18N_NOOP("--- expanding spacer ---");
+static const char separatorstring[] = "--- separator ---";
+static const char spacerstring[] = "--- expanding spacer ---";
 
 #define SEPARATORSTRING i18n(separatorstring)
 #define SPACERSTRING i18n(spacerstring)

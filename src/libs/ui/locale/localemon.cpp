@@ -37,8 +37,8 @@ LocaleConfigMoney::LocaleConfigMoney(Locale *locale,
   setupUi(this);
 
   // Money
-  m_labMonCurSym->setObjectName(I18N_NOOP(QStringLiteral("Currency symbol:")));
-  m_labMonFraDig->setObjectName(I18N_NOOP(QStringLiteral("Fract digits:")));
+  m_labMonCurSym->setObjectName(QStringLiteral("Currency symbol:"));
+  m_labMonFraDig->setObjectName(QStringLiteral("Fract digits:"));
 
   connect(m_edMonCurSym,&QLineEdit::textChanged,this, &LocaleConfigMoney::slotMonCurSymChanged);
 

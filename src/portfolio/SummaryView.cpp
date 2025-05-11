@@ -47,7 +47,7 @@ SummaryView::SummaryView(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     m_view = new KPlato::TreeViewBase(this);
     m_view->setRootIsDecorated(false);
     layout->addWidget(m_view);

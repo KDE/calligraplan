@@ -95,7 +95,7 @@ public:
               m_connected(false),
               m_hidden(false) {}
 
-        bool operator==(const StatusBarItem& rhs) {
+        bool operator==(const StatusBarItem& rhs) const {
             return m_widget == rhs.m_widget;
         }
 
@@ -283,7 +283,7 @@ void KoView::dropEvent(QDropEvent *event)
     }
 
     if (!images.isEmpty()) {
-        addImages(images, event->pos());
+        addImages(images, event->position().toPoint());
     }
 }
 
@@ -356,7 +356,7 @@ QPrintDialog *KoView::createPrintDialog(KoPrintJob *printJob, QWidget *parent)
     QPrintDialog *printDialog = new QPrintDialog(&printJob->printer(), parent);
     printDialog->setOptionTabs(printJob->createOptionWidgets());
     printDialog->setMinMax(printJob->printer().fromPage(), printJob->printer().toPage());
-    printDialog->setEnabledOptions(printJob->printDialogOptions());
+    printDialog->setOptions(printJob->printDialogOptions());
     return printDialog;
 }
 

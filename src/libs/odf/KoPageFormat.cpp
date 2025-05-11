@@ -11,6 +11,7 @@
 #include "KoPageFormat.h"
 
 #include <KLocalizedString>
+#include <QLocale>
 #include <OdfDebug.h>
 
 // paper formats (mm)
@@ -51,35 +52,35 @@ struct PageFormatInfo {
 // - the comments "should be..." indicates the exact values if the inch sizes would be multiplied by 25.4 mm/inch
 
 const PageFormatInfo pageFormatInfo[] = {
-    { KoPageFormat::IsoA3Size,       QPageSize::A3,        "A3",        I18N_NOOP2("Page size", "ISO A3"),       297.0,  420.0 },
-    { KoPageFormat::IsoA4Size,       QPageSize::A4,        "A4",        I18N_NOOP2("Page size", "ISO A4"),       210.0,  297.0 },
-    { KoPageFormat::IsoA5Size,       QPageSize::A5,        "A5",        I18N_NOOP2("Page size", "ISO A5"),       148.0,  210.0 },
-    { KoPageFormat::UsLetterSize,    QPageSize::Letter,    "Letter",    I18N_NOOP2("Page size", "US Letter"),    215.9,  279.4 },
-    { KoPageFormat::UsLegalSize,     QPageSize::Legal,     "Legal",     I18N_NOOP2("Page size", "US Legal"),     215.9,  355.6 },
-    { KoPageFormat::ScreenSize,      QPageSize::A4,        "Screen",    I18N_NOOP2("Page size", "Screen"), PG_A4_HEIGHT, PG_A4_WIDTH }, // Custom, so fall back to A4
-    { KoPageFormat::CustomSize,      QPageSize::A4,        "Custom",    I18N_NOOP2("Page size", "Custom"), PG_A4_WIDTH, PG_A4_HEIGHT }, // Custom, so fall back to A4
-    { KoPageFormat::IsoB5Size,       QPageSize::B5,        "B5",        I18N_NOOP2("Page size", "ISO B5"),       182.0,  257.0 },
-    { KoPageFormat::UsExecutiveSize, QPageSize::Executive, "Executive", I18N_NOOP2("Page size", "US Executive"), 191.0,  254.0 }, // should be 190.5 mm x 254.0 mm
-    { KoPageFormat::IsoA0Size,       QPageSize::A0,        "A0",        I18N_NOOP2("Page size", "ISO A0"),       841.0, 1189.0 },
-    { KoPageFormat::IsoA1Size,       QPageSize::A1,        "A1",        I18N_NOOP2("Page size", "ISO A1"),       594.0,  841.0 },
-    { KoPageFormat::IsoA2Size,       QPageSize::A2,        "A2",        I18N_NOOP2("Page size", "ISO A2"),       420.0,  594.0 },
-    { KoPageFormat::IsoA6Size,       QPageSize::A6,        "A6",        I18N_NOOP2("Page size", "ISO A6"),       105.0,  148.0 },
-    { KoPageFormat::IsoA7Size,       QPageSize::A7,        "A7",        I18N_NOOP2("Page size", "ISO A7"),        74.0,  105.0 },
-    { KoPageFormat::IsoA8Size,       QPageSize::A8,        "A8",        I18N_NOOP2("Page size", "ISO A8"),        52.0,   74.0 },
-    { KoPageFormat::IsoA9Size,       QPageSize::A9,        "A9",        I18N_NOOP2("Page size", "ISO A9"),        37.0,   52.0 },
-    { KoPageFormat::IsoB0Size,       QPageSize::B0,        "B0",        I18N_NOOP2("Page size", "ISO B0"),      1030.0, 1456.0 },
-    { KoPageFormat::IsoB1Size,       QPageSize::B1,        "B1",        I18N_NOOP2("Page size", "ISO B1"),       728.0, 1030.0 },
-    { KoPageFormat::IsoB10Size,      QPageSize::B10,       "B10",       I18N_NOOP2("Page size", "ISO B10"),       32.0,   45.0 },
-    { KoPageFormat::IsoB2Size,       QPageSize::B2,        "B2",        I18N_NOOP2("Page size", "ISO B2"),       515.0,  728.0 },
-    { KoPageFormat::IsoB3Size,       QPageSize::B3,        "B3",        I18N_NOOP2("Page size", "ISO B3"),       364.0,  515.0 },
-    { KoPageFormat::IsoB4Size,       QPageSize::B4,        "B4",        I18N_NOOP2("Page size", "ISO B4"),       257.0,  364.0 },
-    { KoPageFormat::IsoB6Size,       QPageSize::B6,        "B6",        I18N_NOOP2("Page size", "ISO B6"),       128.0,  182.0 },
-    { KoPageFormat::IsoC5Size,       QPageSize::C5E,       "C5",        I18N_NOOP2("Page size", "ISO C5"),       163.0,  229.0 }, // Some sources tells: 162 mm x 228 mm
-    { KoPageFormat::UsComm10Size,    QPageSize::Comm10E,   "Comm10",    I18N_NOOP2("Page size", "US Common 10"), 105.0,  241.0 }, // should be 104.775 mm x 241.3 mm
-    { KoPageFormat::IsoDLSize,       QPageSize::DLE,       "DL",        I18N_NOOP2("Page size", "ISO DL"),       110.0,  220.0 },
-    { KoPageFormat::UsFolioSize,     QPageSize::Folio,     "Folio",     I18N_NOOP2("Page size", "US Folio"),     210.0,  330.0 }, // should be 209.54 mm x 330.2 mm
-    { KoPageFormat::UsLedgerSize,    QPageSize::Ledger,    "Ledger",    I18N_NOOP2("Page size", "US Ledger"),    432.0,  279.0 }, // should be 431.8 mm x 297.4 mm
-    { KoPageFormat::UsTabloidSize,   QPageSize::Tabloid,   "Tabloid",   I18N_NOOP2("Page size", "US Tabloid"),   279.0,  432.0 },  // should be 297.4 mm x 431.8 mm
+    { KoPageFormat::IsoA3Size,       QPageSize::A3,        "A3",        "ISO A3",       297.0,  420.0 },
+    { KoPageFormat::IsoA4Size,       QPageSize::A4,        "A4",        "ISO A4",       210.0,  297.0 },
+    { KoPageFormat::IsoA5Size,       QPageSize::A5,        "A5",        "ISO A5",       148.0,  210.0 },
+    { KoPageFormat::UsLetterSize,    QPageSize::Letter,    "Letter",    "US Letter",    215.9,  279.4 },
+    { KoPageFormat::UsLegalSize,     QPageSize::Legal,     "Legal",     "US Legal",     215.9,  355.6 },
+    { KoPageFormat::ScreenSize,      QPageSize::A4,        "Screen",    "Screen", PG_A4_HEIGHT, PG_A4_WIDTH }, // Custom, so fall back to A4
+    { KoPageFormat::CustomSize,      QPageSize::A4,        "Custom",    "Custom", PG_A4_WIDTH, PG_A4_HEIGHT }, // Custom, so fall back to A4
+    { KoPageFormat::IsoB5Size,       QPageSize::B5,        "B5",        "ISO B5",       182.0,  257.0 },
+    { KoPageFormat::UsExecutiveSize, QPageSize::Executive, "Executive", "US Executive", 191.0,  254.0 }, // should be 190.5 mm x 254.0 mm
+    { KoPageFormat::IsoA0Size,       QPageSize::A0,        "A0",        "ISO A0",       841.0, 1189.0 },
+    { KoPageFormat::IsoA1Size,       QPageSize::A1,        "A1",        "ISO A1",       594.0,  841.0 },
+    { KoPageFormat::IsoA2Size,       QPageSize::A2,        "A2",        "ISO A2",       420.0,  594.0 },
+    { KoPageFormat::IsoA6Size,       QPageSize::A6,        "A6",        "ISO A6",       105.0,  148.0 },
+    { KoPageFormat::IsoA7Size,       QPageSize::A7,        "A7",        "ISO A7",        74.0,  105.0 },
+    { KoPageFormat::IsoA8Size,       QPageSize::A8,        "A8",        "ISO A8",        52.0,   74.0 },
+    { KoPageFormat::IsoA9Size,       QPageSize::A9,        "A9",        "ISO A9",        37.0,   52.0 },
+    { KoPageFormat::IsoB0Size,       QPageSize::B0,        "B0",        "ISO B0",      1030.0, 1456.0 },
+    { KoPageFormat::IsoB1Size,       QPageSize::B1,        "B1",        "ISO B1",       728.0, 1030.0 },
+    { KoPageFormat::IsoB10Size,      QPageSize::B10,       "B10",       "ISO B10",       32.0,   45.0 },
+    { KoPageFormat::IsoB2Size,       QPageSize::B2,        "B2",        "ISO B2",       515.0,  728.0 },
+    { KoPageFormat::IsoB3Size,       QPageSize::B3,        "B3",        "ISO B3",       364.0,  515.0 },
+    { KoPageFormat::IsoB4Size,       QPageSize::B4,        "B4",        "ISO B4",       257.0,  364.0 },
+    { KoPageFormat::IsoB6Size,       QPageSize::B6,        "B6",        "ISO B6",       128.0,  182.0 },
+    { KoPageFormat::IsoC5Size,       QPageSize::C5E,       "C5",        "ISO C5",       163.0,  229.0 }, // Some sources tells: 162 mm x 228 mm
+    { KoPageFormat::UsComm10Size,    QPageSize::Comm10E,   "Comm10",    "US Common 10", 105.0,  241.0 }, // should be 104.775 mm x 241.3 mm
+    { KoPageFormat::IsoDLSize,       QPageSize::DLE,       "DL",        "ISO DL",       110.0,  220.0 },
+    { KoPageFormat::UsFolioSize,     QPageSize::Folio,     "Folio",     "US Folio",     210.0,  330.0 }, // should be 209.54 mm x 330.2 mm
+    { KoPageFormat::UsLedgerSize,    QPageSize::Ledger,    "Ledger",    "US Ledger",    432.0,  279.0 }, // should be 431.8 mm x 297.4 mm
+    { KoPageFormat::UsTabloidSize,   QPageSize::Tabloid,   "Tabloid",   "US Tabloid",   279.0,  432.0 },  // should be 297.4 mm x 431.8 mm
     {(KoPageFormat::Format) - 1, (QPageSize::PageSizeId) - 1,   "",   "",   -1,  -1 }
 };
 

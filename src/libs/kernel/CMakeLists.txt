@@ -72,12 +72,12 @@ target_link_libraries(calligraplankernel
         calligraplankundo2
         calligraplanstore
         calligraplanwidgetutils
-        Qt5::PrintSupport
+        Qt6::PrintSupport
 #         KF5::I18n
 #         KF5::CoreAddons
 )
-if(KF5Holidays_FOUND)
-    target_link_libraries(calligraplankernel PUBLIC KF5::Holidays)
+if(KF6Holidays_FOUND)
+    target_link_libraries(calligraplankernel PUBLIC KF6::Holidays)
 endif()
 
 set_target_properties(calligraplankernel PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )

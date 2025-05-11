@@ -133,7 +133,7 @@ ResourceAppointmentsView::ResourceAppointmentsView(KoPart *part, KoDocument *doc
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new ResourceAppointmentsTreeView(this);
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
     connect(this, &ViewBase::collapseAll, m_view, &DoubleTreeViewBase::slotCollapse);

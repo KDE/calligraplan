@@ -737,7 +737,7 @@ void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) cons
             cursor.insertText(indexes.at(i).data().toString());
             cursor.movePosition(QTextCursor::NextCell);
         }
-        m->setData(QStringLiteral("text/html"), doc.toHtml("utf-8").toUtf8());
+        m->setData(QStringLiteral("text/html"), doc.toHtml().toUtf8());
     }
     if (mimeTypes().contains(QStringLiteral("text/plain"))) {
         QVector<QStringList> text(rows+1);

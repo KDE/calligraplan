@@ -1,5 +1,5 @@
 
-if(KF5CalendarCore_FOUND)
+if(KF6CalendarCore_FOUND)
     add_subdirectory( icalendar )
 endif()
 

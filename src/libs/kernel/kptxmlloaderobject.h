@@ -17,7 +17,6 @@
 #include <KoUpdater.h>
 
 class QString;
-class QStringList;
 
 class KoXmlDocument;
 class KoXmlElement;

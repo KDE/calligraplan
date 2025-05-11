@@ -247,7 +247,7 @@ ReportsGeneratorView::ReportsGeneratorView(KoPart *part, KoDocument *doc, QWidge
     setXMLFile(QStringLiteral("ReportsGeneratorViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new QTreeView(this);
     QStandardItemModel *m = new QStandardItemModel(m_view);
     static const QMap<int, QString> headers = {
@@ -379,17 +379,17 @@ void ReportsGeneratorView::setupGui()
 
     actionAddReport = new QAction(koIcon("list-add"), i18n("Add Report"), this);
     coll->addAction(QStringLiteral("add_report"), actionAddReport);
-    coll->setDefaultShortcut(actionAddReport, Qt::CTRL + Qt::Key_I);
+    coll->setDefaultShortcut(actionAddReport, Qt::CTRL | Qt::Key_I);
     connect(actionAddReport, &QAction::triggered, this, &ReportsGeneratorView::slotAddReport);
 
     actionRemoveReport = new QAction(koIcon("list-remove"), i18n("Remove Report"), this);
     coll->addAction(QStringLiteral("remove_report"), actionRemoveReport);
-    coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL + Qt::Key_D);
+    coll->setDefaultShortcut(actionRemoveReport, Qt::CTRL | Qt::Key_D);
     connect(actionRemoveReport, &QAction::triggered, this, &ReportsGeneratorView::slotRemoveReport);
 
     actionGenerateReport = new QAction(koIcon("document-export"), i18n("Generate Report"), this);
     coll->addAction(QStringLiteral("generate_report"), actionGenerateReport);
-    coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL + Qt::Key_G);
+    coll->setDefaultShortcut(actionGenerateReport, Qt::CTRL | Qt::Key_G);
     connect(actionGenerateReport, &QAction::triggered, this, &ReportsGeneratorView::slotGenerateReport);
 
     auto a = new QAction(koIcon("document-open"), i18n("Open..."), this);
@@ -550,7 +550,7 @@ bool ReportsGeneratorView::loadContext(const KoXmlElement &context)
     KoXmlElement e = context.namedItem("sections").toElement();
     if (!e.isNull()) {
         QHeaderView *h = m_view->header();
-        QLatin1String s("section-%1");
+        QString s = QString::fromLatin1("section-%1");
         for (int i = 0; i < h->count(); ++i) {
             if (e.hasAttribute(s.arg(i))) {
                 int index = e.attribute(s.arg(i), QString::number(-1)).toInt();

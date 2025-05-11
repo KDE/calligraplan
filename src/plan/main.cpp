@@ -11,7 +11,7 @@
 #include "calligraplansettings.h"
 
 #include <KoApplication.h>
-#include <Calligra2Migration.h>
+//#include <Calligra2Migration.h>
 #include <Help.h>
 
 #include <QApplication>
@@ -36,10 +36,10 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("calligraplan"); // activate translations
 
     // Migrate data from kde4 to kf5 locations
-    Calligra2Migration m(QStringLiteral("calligraplan"), QStringLiteral("plan"));
-    m.setConfigFiles(QStringList() << QStringLiteral("planrc"));
-    m.setUiFiles(QStringList() << QStringLiteral("plan.rc") << QStringLiteral("plan_readonly.rc"));
-    m.migrate();
+    //Calligra2Migration m(QStringLiteral("calligraplan"), QStringLiteral("plan"));
+    //m.setConfigFiles(QStringList() << QStringLiteral("planrc"));
+    //m.setUiFiles(QStringList() << QStringLiteral("plan.rc") << QStringLiteral("plan_readonly.rc"));
+    //m.migrate();
 
     if (!app.start(KPlato::Factory::global())) {
         return 1;

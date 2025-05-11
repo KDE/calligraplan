@@ -59,7 +59,7 @@ int ResourceUsageModel::columnCount(const QModelIndex &parent) const
     }
     const auto dates = m_usage.keys();
     const auto tasks = m_usage.value(dates.at(0)).keys();
-    return std::max(tasks.count(), 1);
+    return std::max(tasks.count(), qsizetype(1));
 }
 
 

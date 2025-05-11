@@ -146,7 +146,7 @@ ResourceEditor::ResourceEditor(KoPart *part, KoDocument *doc, QWidget *parent)
                "</para>", QStringLiteral("plan:resource-editor")));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new ResourceTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
@@ -296,7 +296,7 @@ void ResourceEditor::setupGui()
 {
     actionAddResource  = new QAction(koIcon("list-add-user"), i18n("Add Resource"), this);
     actionCollection()->addAction(QStringLiteral("add_resource"), actionAddResource);
-    actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddResource, Qt::CTRL | Qt::Key_I);
     connect(actionAddResource, &QAction::triggered, this, &ResourceEditor::slotAddResource);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);

@@ -31,10 +31,9 @@ PortfolioFactory::~PortfolioFactory()
 }
 
 QObject* PortfolioFactory::create(const char* /*iface*/, QWidget* /*parentWidget*/, QObject *parent,
-                             const QVariantList& args, const QString& keyword)
+                             const QVariantList& args)
 {
     Q_UNUSED(args);
-    Q_UNUSED(keyword);
 
     Part *part = new Part(parent);
     MainDocument *doc = new MainDocument(part);

@@ -912,7 +912,7 @@ date2time(const QString& date)
 QString
 formatTime(time_t t)
 {
-    return QLocale().toString(QDateTime::fromTime_t(t), QLocale::ShortFormat);
+    return QLocale().toString(QDateTime::fromSecsSinceEpoch(t), QLocale::ShortFormat);
 }
 
 QDate

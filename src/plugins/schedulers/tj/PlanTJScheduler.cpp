@@ -238,9 +238,9 @@ bool PlanTJScheduler::kplatoToTJ()
     m_tjProject->setScheduleGranularity(m_granularity / 1000);
     m_tjProject->getScenario(0)->setMinSlackRate(0.0); // Do not calculate critical path
 
-    m_tjProject->setNow(m_project->constraintStartTime().toTime_t());
-    m_tjProject->setStart(m_project->constraintStartTime().toTime_t());
-    m_tjProject->setEnd(m_project->constraintEndTime().toTime_t());
+    m_tjProject->setNow(m_project->constraintStartTime().toSecsSinceEpoch());
+    m_tjProject->setStart(m_project->constraintStartTime().toSecsSinceEpoch());
+    m_tjProject->setEnd(m_project->constraintEndTime().toSecsSinceEpoch());
 
     m_tjProject->setDailyWorkingHours(m_project->standardWorktime()->day());
 
@@ -347,14 +347,14 @@ int PlanTJScheduler::toTJDayOfWeek(int day)
 
 // static
 DateTime PlanTJScheduler::fromTime_t(time_t t, const QTimeZone &tz) {
-    return DateTime (QDateTime::fromTime_t(t).toTimeZone(tz));
+    return DateTime (QDateTime::fromSecsSinceEpoch(t).toTimeZone(tz));
 }
 
 time_t PlanTJScheduler::toTJTime_t(const QDateTime &dt, ulong granularity)
 {
     int secs = QTime(0, 0, 0).secsTo(dt.time());
     secs -= secs % granularity;
-    return QDateTime(dt.date(), QTime(0, 0, 0).addSecs(secs), dt.timeZone()).toTime_t();
+    return QDateTime(dt.date(), QTime(0, 0, 0).addSecs(secs), dt.timeZone()).toSecsSinceEpoch();
 }
 
 // static
@@ -371,7 +371,7 @@ TJ::Interval PlanTJScheduler::toTJInterval(const QDateTime &start, const QDateTi
     secs = QTime(0, 0, 0).secsTo(end.time());
     secs -= secs % granularity;
     QDateTime e(end.date(), QTime(0, 0, 0).addSecs(secs), end.timeZone());
-    TJ::Interval ti(s.toTime_t(), e.addSecs(-1).toTime_t());
+    TJ::Interval ti(s.toSecsSinceEpoch(), e.addSecs(-1).toSecsSinceEpoch());
     return ti;
 }
 
@@ -715,9 +715,9 @@ TJ::Task *PlanTJScheduler::addTask(const KPlato::Node *node, TJ::Task *parent)
         m_taskmap[t] = const_cast<KPlato::Task*>(static_cast<const KPlato::Task*>(node));
     } else if (node->type() == KPlato::Node::Type_Project) {
         if (node->constraint() == Node::MustStartOn) {
-            t->setSpecifiedStart(0, node->constraintStartTime().toTime_t());
+            t->setSpecifiedStart(0, node->constraintStartTime().toSecsSinceEpoch());
         } else {
-            t->setSpecifiedEnd(0, node->constraintEndTime().toTime_t());
+            t->setSpecifiedEnd(0, node->constraintEndTime().toSecsSinceEpoch());
         }
     }
     return t;
@@ -867,8 +867,8 @@ void PlanTJScheduler::setConstraint(TJ::Task *job, KPlato::Node *task)
         case Node::MustStartOn:
             if (task->constraintStartTime() >= m_project->constraintStartTime()) {
                 job->setPriority(600);
-                job->setSpecifiedStart(0, task->constraintStartTime().toTime_t());
-                logDebug(task, nullptr, QString("MSO: set specified start: %1").arg(TJ::time2ISO(task->constraintStartTime().toTime_t())));
+                job->setSpecifiedStart(0, task->constraintStartTime().toSecsSinceEpoch());
+                logDebug(task, nullptr, QString("MSO: set specified start: %1").arg(TJ::time2ISO(task->constraintStartTime().toSecsSinceEpoch())));
             } else {
                 logWarning(task, nullptr, xi18nc("@info/plain", "%1: Invalid start constraint", task->constraintToString(true)));
             }
@@ -880,8 +880,8 @@ void PlanTJScheduler::setConstraint(TJ::Task *job, KPlato::Node *task)
             if (task->constraintEndTime() <= m_project->constraintEndTime()) {
                 job->setPriority(600);
                 job->setScheduling(TJ::Task::ALAP);
-                job->setSpecifiedEnd(0, task->constraintEndTime().toTime_t() - 1);
-                logDebug(task, nullptr, QString("MFO: set specified end: %1").arg(TJ::time2ISO(task->constraintEndTime().toTime_t())));
+                job->setSpecifiedEnd(0, task->constraintEndTime().toSecsSinceEpoch() - 1);
+                logDebug(task, nullptr, QString("MFO: set specified end: %1").arg(TJ::time2ISO(task->constraintEndTime().toSecsSinceEpoch())));
             } else {
                 logWarning(task, nullptr, xi18nc("@info/plain", "%1: Invalid end constraint", task->constraintToString(true)));
             }
@@ -898,8 +898,8 @@ void PlanTJScheduler::setConstraint(TJ::Task *job, KPlato::Node *task)
             job->setLength(0, 0.0);
             job->setEffort(0, 0.0);
             logDebug(task, nullptr, QString("FI: set specified: %1 - %2 -> %3 - %4 (%5)")
-                      .arg(TJ::time2ISO(task->constraintStartTime().toTime_t()))
-                      .arg(TJ::time2ISO(task->constraintEndTime().toTime_t()))
+                      .arg(TJ::time2ISO(task->constraintStartTime().toSecsSinceEpoch()))
+                      .arg(TJ::time2ISO(task->constraintEndTime().toSecsSinceEpoch()))
                       .arg(TJ::time2ISO(i.getStart()))
                       .arg(TJ::time2ISO(i.getEnd()))
                       .arg(tjGranularity()));
@@ -1109,8 +1109,8 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
         insertProject(it.value(), it.key(), context);
     }
     logInfo(m_project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
-                                     QDateTime::fromTime_t(m_tjProject->getStart()).toString(Qt::ISODate),
-                                     QDateTime::fromTime_t(m_tjProject->getEnd()).toString(Qt::ISODate),
+                                     QDateTime::fromSecsSinceEpoch(m_tjProject->getStart()).toString(Qt::ISODate),
+                                     QDateTime::fromSecsSinceEpoch(m_tjProject->getEnd()).toString(Qt::ISODate),
                                      (double)m_tjProject->getScheduleGranularity()/60));
     if (m_tjProject->getStart() > m_tjProject->getEnd()) {
         logError(m_project, nullptr, i18n("Invalid project, start > end"));
@@ -1143,7 +1143,7 @@ void PlanTJScheduler::calculateParallel(KPlato::SchedulingContext &context)
 
 void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
 {
-    QMapIterator<int, KoDocument*> it(context.projects);
+    QMultiMapIterator<int, KoDocument*> it(context.projects);
     for (it.toBack(); it.hasPrevious();) {
         if (context.cancelScheduling) {
             break;
@@ -1153,8 +1153,8 @@ void PlanTJScheduler::calculateSequential(KPlato::SchedulingContext &context)
         logInfo(project, nullptr, QString("Inserting project")); // TODO i18n
         insertProject(it.value(), it.key(), context);
         logInfo(project, nullptr, i18n("Scheduling interval: %1 - %2, granularity: %3 minutes",
-                                     QDateTime::fromTime_t(m_tjProject->getStart()).toString(Qt::ISODate),
-                                     QDateTime::fromTime_t(m_tjProject->getEnd()).toString(Qt::ISODate),
+                                     QDateTime::fromSecsSinceEpoch(m_tjProject->getStart()).toString(Qt::ISODate),
+                                     QDateTime::fromSecsSinceEpoch(m_tjProject->getEnd()).toString(Qt::ISODate),
                                      (double)m_tjProject->getScheduleGranularity()/60.));
 
         if (m_tjProject->getStart() > m_tjProject->getEnd()) {
@@ -1254,16 +1254,16 @@ void PlanTJScheduler::insertProject(KoDocument *doc, int priority, KPlato::Sched
         sm->setRecalculate(true);
         sm->setRecalculateFrom(context.calculateFrom);
     }
-    time_t time = project->constraintStartTime().toTime_t();
+    time_t time = project->constraintStartTime().toSecsSinceEpoch();
     if (m_tjProject->getStart() == 0 || m_tjProject->getStart() > time) {
         m_tjProject->setStart(time);
     }
-    time = project->constraintEndTime().toTime_t();
+    time = project->constraintEndTime().toSecsSinceEpoch();
     if (m_tjProject->getEnd() < time) {
         m_tjProject->setEnd(time);
     }
-    m_project->setConstraintStartTime(QDateTime::fromTime_t(m_tjProject->getStart()));
-    m_project->setConstraintEndTime(QDateTime::fromTime_t(m_tjProject->getEnd()));
+    m_project->setConstraintStartTime(QDateTime::fromSecsSinceEpoch(m_tjProject->getStart()));
+    m_project->setConstraintEndTime(QDateTime::fromSecsSinceEpoch(m_tjProject->getEnd()));
     m_tjProject->setDailyWorkingHours(const_cast<KPlato::Project*>(project)->standardWorktime()->day());
 
     // Set working days for the project, it is used for tasks with a length specification

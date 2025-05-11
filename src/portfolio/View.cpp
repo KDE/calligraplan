@@ -49,7 +49,7 @@ View::View(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     m_views = new KPageWidget(this);
     m_views->setFaceType (KPageView::Tree);
     layout->addWidget(m_views);

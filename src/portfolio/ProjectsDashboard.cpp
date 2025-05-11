@@ -45,7 +45,7 @@ ProjectsDashboard::ProjectsDashboard(KoPart *part, KoDocument *doc, QWidget *par
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     auto sp1 = new QSplitter(Qt::Vertical, this);
     layout->addWidget(sp1);

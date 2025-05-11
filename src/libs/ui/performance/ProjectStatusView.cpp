@@ -40,7 +40,7 @@ ProjectStatusView::ProjectStatusView(KoPart *part, KoDocument *doc, QWidget *par
     setXMLFile(QStringLiteral("ProjectStatusViewUi.rc"));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new PerformanceStatusBase(this);
     l->addWidget(m_view);
 

@@ -12,7 +12,7 @@ if(BUILD_TESTING)
     add_subdirectory( tests )
 endif()
 
-if (KF5Contacts_FOUND)
+if (KF6Contacts_FOUND)
     add_definitions(-DPLAN_KCONTACTS_FOUND)
 endif ()
 
@@ -71,18 +71,18 @@ target_link_libraries(calligraplanmodels
     PUBLIC
         calligraplankernel
         calligraplanodf
-        KChart
-        KGantt
-        KF5::KIOWidgets
-        KF5::ItemModels
+        KChart6
+        KGantt6
+        KF6::KIOWidgets
+        KF6::ItemModels
     PRIVATE
-        Qt5::Gui
-        KF5::Notifications
-        KF5::TextWidgets
+        Qt6::Gui
+        KF6::Notifications
+        KF6::TextWidgets
         calligraplanwidgets
 )
-if(KF5Contacts_FOUND)
-    target_link_libraries(calligraplanmodels  PRIVATE KF5::Contacts)
+if(KF6Contacts_FOUND)
+    target_link_libraries(calligraplanmodels  PRIVATE KF6::Contacts)
 endif()
 
 set_target_properties(calligraplanmodels PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION} )

@@ -71,7 +71,7 @@ public:
         return QList<QWidget*>() << page;
     }
 
-    void updateItemWidgets(const QList<QWidget*> widgets,
+    void updateItemWidgets(const QList<QWidget*>& widgets,
                            const QStyleOptionViewItem &option,
                            const QPersistentModelIndex &index) const override
     {

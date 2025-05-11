@@ -7,9 +7,9 @@ endif()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 
-macro_optional_find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET COMPONENTS DocTools)
+macro_optional_find_package(KF6 ${KF_MIN_VERSION} QUIET COMPONENTS DocTools)
 
-if(KF5_FOUND)
+if(KF6_FOUND)
   add_subdirectory(plan)
   add_subdirectory(portfolio)
 endif()

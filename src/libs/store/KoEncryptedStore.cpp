@@ -22,8 +22,7 @@
 #include <KNewPasswordDialog>
 #include <KWallet>
 #include <KLocalizedString>
-#include <KFilterDev>
-#include <KMessage>
+#include <KCompressionDevice>
 #include <KMessageBox>
 #include <KZip>
 #include <KoNetAccess.h>
@@ -602,13 +601,13 @@ bool KoEncryptedStore::openRead(const QString& name)
 
         QByteArray *resultArray = new QByteArray(decrypted.toByteArray());
         KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
-        QIODevice *resultDevice = new KCompressionDevice(new QBuffer(resultArray, nullptr), false, type);
+        KCompressionDevice *resultDevice = new KCompressionDevice(new QBuffer(resultArray, nullptr), false, type);
 
         if (!resultDevice) {
             delete resultArray;
             return false;
         }
-        static_cast<KFilterDev*>(resultDevice)->setSkipHeaders();
+        resultDevice->setSkipHeaders();
         d->stream = resultDevice;
         d->size = encData.filesize;
     }
@@ -788,12 +787,12 @@ bool KoEncryptedStore::closeWrite()
         // Compress the data
         QBuffer compressedData;
         KCompressionDevice::CompressionType type = KCompressionDevice::compressionTypeForMimeType(QStringLiteral("application/x-gzip"));
-        QIODevice *compressDevice = new KCompressionDevice(&compressedData, false, type);
+        KCompressionDevice *compressDevice = new KCompressionDevice(&compressedData, false, type);
 
         if (!compressDevice) {
             return false;
         }
-        static_cast<KFilterDev*>(compressDevice)->setSkipHeaders();
+        compressDevice->setSkipHeaders();
         if (!compressDevice->open(QIODevice::WriteOnly)) {
             delete compressDevice;
             return false;

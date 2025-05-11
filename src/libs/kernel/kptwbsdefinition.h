@@ -16,7 +16,6 @@
 #include <QPair>
 #include <QList>
 
-class QStringList;
 class QDomElement;
 
 

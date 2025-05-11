@@ -3,7 +3,7 @@ include_directories( ${PLANMAIN_INCLUDES}  ${PLANWIDGETS_INCLUDES})
 add_definitions(-DFILES_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data/")
 add_definitions(-DFILES_OUTPUT_DIR="${CMAKE_CURRENT_BINARY_DIR}")
 
-find_package(KF5ThreadWeaver ${REQUIRED_KF5_VERSION} REQUIRED)
+find_package(KF6ThreadWeaver ${KF_MIN_VERSION} REQUIRED)
 
 # call: planwidgets_add_unit_test(<test-name> <sources> LINK_LIBRARIES <library> [<library> [...]] [GUI])
 macro(PLANWIDGETS_ADD_UNIT_TEST _TEST_NAME)
@@ -15,6 +15,6 @@ endmacro()
 
 ########### next target ###############
 
-planwidgets_add_unit_test(KoProgressUpdaterTest KoProgressUpdater_test.cpp  LINK_LIBRARIES calligraplanwidgets KF5::ThreadWeaver Qt5::Test)
+planwidgets_add_unit_test(KoProgressUpdaterTest KoProgressUpdater_test.cpp  LINK_LIBRARIES calligraplanwidgets KF6::ThreadWeaver Qt6::Test)
 
 ########### end ###############

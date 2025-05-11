@@ -47,10 +47,10 @@
 #include <KMessageBox>
 #include <KParts/PartManager>
 #include <KOpenWithDialog>
-#include <KMimeTypeTrader>
-//#include <KServiceOffer>
 #include <KIO/DesktopExecParser>
-#include <KRun>
+#include <KIO/OpenUrlJob>
+#include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 #include <KProcess>
 #include <KActionCollection>
 #include <KApplicationTrader>
@@ -781,8 +781,11 @@ bool Part::viewDocument(const QUrl &filename)
         //KMessageBox::error(0, i18n("Cannot open document. Invalid url: %1", filename.pathOrUrl()));
         return false;
     }
-    KRun *run = new KRun(filename, nullptr);
-    Q_UNUSED(run); // KRun auto-deletes by default so no need to delete it
+
+    auto *job = new KIO::OpenUrlJob(filename);
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
+    job->start();
+    Q_UNUSED(job); // auto-deletes by default so no need to delete it
     return true; //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 

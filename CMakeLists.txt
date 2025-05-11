@@ -88,17 +88,19 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 
 ##########################
 ###########################
-## Look for ECM, Qt, KF5 ##
+## Look for ECM, Qt, KF6 ##
 ###########################
 ##########################
 
-set(REQUIRED_QT_VERSION "5.15.2")
-set(REQUIRED_KF5_VERSION "5.100.0")
+set(QT_REQUIRED_VERSION "6.5.0")
+set(KF_MIN_VERSION "6.3.0")
+set(KF_MAJOR_VERSION "6")
 
-find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 # ECM KDE macros (include first, to have their policies and settings effect all other macros)
+set(KDE_COMPILERSETTINGS_LEVEL 5.84)
 include(KDEInstallDirs)
 include(KDECMakeSettings NO_POLICY_SCOPE)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -119,12 +121,13 @@ include(ECMAddTests)
 include(ECMMarkAsTest)
 include(ECMMarkNonGuiExecutable)
 include(ECMGenerateHeaders)
+
 # Own macros
 # This macro is a copy from calligra so only needs to be included when plan is build stand alone
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 include(MacroOptionalFindPackage)
 
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     COMPONENTS
         Archive
 #             Codecs
@@ -151,14 +154,14 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
 #         Kross
 )
 
-find_package(KF5Activities)
+find_package(PlasmaActivities)
 
-set_package_properties(KF5Activities PROPERTIES
+set_package_properties(PlasmaActivities PROPERTIES
     DESCRIPTION "Library for Activities"
     PURPOSE "Required for activities support (optional)"
     TYPE OPTIONAL
 )
-if(KF5Activities_FOUND)
+if(PlasmaActivities_FOUND)
     set(HAVE_KACTIVITIES TRUE)
 endif()
 
@@ -168,14 +171,14 @@ endif()
     #TYPE REQUIRED
 #)
 
-find_package(KF5Holidays)
-set_package_properties(KF5Holidays PROPERTIES
+find_package(KF6Holidays)
+set_package_properties(KF6Holidays PROPERTIES
     DESCRIPTION "Library for generation of public holidays"
     PURPOSE "Required for holidays support (optional)"
     TYPE RECOMMENDED
 )
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED
     COMPONENTS
         Core
         Gui
@@ -184,7 +187,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
         Widgets
         Xml
 )
-find_package(Qt5DBus ${REQUIRED_QT_VERSION} QUIET)
+find_package(Qt6DBus ${REQUIRED_QT_VERSION} QUIET)
 set_package_properties(Qt5DBus PROPERTIES
     DESCRIPTION "Library for dbus access"
     PURPOSE "Required for dbus support (optional)"
@@ -193,14 +196,14 @@ set_package_properties(Qt5DBus PROPERTIES
 
 find_package(X11)
 if(X11_FOUND)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED
-        COMPONENTS
-            X11Extras
-    )
-    set(HAVE_X11 TRUE)
-    add_definitions(-DHAVE_X11)
+#     find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED
+#         COMPONENTS
+#             X11Extras
+#     )
+     set(HAVE_X11 TRUE)
+#     add_definitions(-DHAVE_X11)
 else()
-    set(HAVE_X11 FALSE)
+     set(HAVE_X11 FALSE)
 endif()
 
 ##
@@ -243,13 +246,13 @@ endif()
 ############################
 ###########################
 
-set(REQUIRED_KDIAGRAM_VERSION 2.8)
+set(REQUIRED_KDIAGRAM_VERSION 3.0.1)
 
 ##
 ## Test for KGantt
 ##
-macro_optional_find_package(KGantt ${REQUIRED_KDIAGRAM_VERSION} QUIET)
-set_package_properties(KGantt PROPERTIES
+macro_optional_find_package(KGantt6 ${REQUIRED_KDIAGRAM_VERSION} QUIET)
+set_package_properties(KGantt6 PROPERTIES
     DESCRIPTION "Library for creating Gantt diagrams (part of KDiagram)"
     URL "https://www.kde.org/"
     TYPE REQUIRED
@@ -263,8 +266,8 @@ endif()
 ##
 ## Test for KChart
 ##
-macro_optional_find_package(KChart ${REQUIRED_KDIAGRAM_VERSION} QUIET)
-set_package_properties(KChart PROPERTIES
+macro_optional_find_package(KChart6 ${REQUIRED_KDIAGRAM_VERSION} QUIET)
+set_package_properties(KChart6 PROPERTIES
     DESCRIPTION "Library for creating business charts (part of KDiagram)"
     URL "https://www.kde.org/"
     TYPE REQUIRED
@@ -273,17 +276,17 @@ set_package_properties(KChart PROPERTIES
 ##
 ## Test for QCA2
 ##
-macro_optional_find_package(Qca-qt5 2.1.0 QUIET)
-set_package_properties(Qca-qt5 PROPERTIES
+macro_optional_find_package(Qca-qt6 2.1.0 QUIET)
+set_package_properties(Qca-qt6 PROPERTIES
     DESCRIPTION "Qt Cryptographic Architecture"
-    URL "https:/download.kde.org/stable/qca-qt5"
+    URL "https:/download.kde.org/stable/qca-qt6"
     PURPOSE "Required for encrypted OpenDocument files and encrypted xls files support"
     TYPE OPTIONAL
 )
 
-find_package(KF5Wallet ${REQUIRED_KF5_VERSION})
+find_package(KF6Wallet ${KF_MIN_VERSION})
 
-if(Qca-qt5_FOUND AND KF5Wallet_FOUND)
+if(Qca-qt6_FOUND AND KF6Wallet_FOUND)
     add_definitions( -DQCA2 )
 endif()
 
@@ -311,8 +314,8 @@ find_package(Perl REQUIRED)
 ##
 ## Test for KF5CalendarCore
 ##
-find_package(KF5CalendarCore CONFIG QUIET)
-set_package_properties(KF5CalendarCore PROPERTIES
+find_package(KF6CalendarCore CONFIG QUIET)
+set_package_properties(KF6CalendarCore PROPERTIES
     DESCRIPTION "KDE Calendar Library"
     URL "https://www.kde.org/"
     PURPOSE "Used by calendar export"
@@ -365,7 +368,7 @@ add_subdirectory(doc)
 add_subdirectory(data)
 
 ki18n_install(po)
-if(KF5DocTools_FOUND)
+if(KF6DocTools_FOUND)
     kdoctools_install(po)
 endif()
 

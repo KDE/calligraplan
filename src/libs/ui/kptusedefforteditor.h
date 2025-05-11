@@ -68,7 +68,7 @@ private:
     QList<QDate> m_dates;
     QStringList m_headers;
     QList<const Resource*> m_resourcelist;
-    QMap<QString, const Resource*> m_editlist;
+    QMultiMap<QString, const Resource*> m_editlist;
     bool m_readonly;
 };
 

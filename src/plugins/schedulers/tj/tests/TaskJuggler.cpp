@@ -45,8 +45,8 @@ void TaskJuggler::initTestCase()
     project->setScheduleGranularity(TJ::ONEHOUR); // seconds
 
     QDateTime dt = QDateTime::fromString("2011-07-01 08:00:00", Qt::ISODate);
-    project->setStart(dt.toTime_t());
-    project->setEnd(dt.addDays(7).addSecs(-1).toTime_t());
+    project->setStart(dt.toSecsSinceEpoch());
+    project->setEnd(dt.addDays(7).addSecs(-1).toSecsSinceEpoch());
 
     qDebug()<<project->getStart()<<project->getEnd();
 
@@ -214,7 +214,7 @@ void TaskJuggler::scheduleResource()
 
     QVERIFY(project->scheduleAllScenarios());
 
-    qDebug()<<QDateTime::fromTime_t(t->getStart(0))<<QDateTime::fromTime_t(t->getEnd(0));
+    qDebug()<<QDateTime::fromSecsSinceEpoch(t->getStart(0))<<QDateTime::fromSecsSinceEpoch(t->getEnd(0));
     
 }
 
@@ -229,8 +229,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
@@ -240,8 +240,8 @@ void TaskJuggler::scheduleDependencies()
         QVERIFY(proj->pass2(true)); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
         QVERIFY(proj->scheduleAllScenarios());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
         QCOMPARE(mstart, pend);
         QCOMPARE(mend, pend.addSecs(-1));
 
@@ -253,8 +253,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Task *m = new TJ::Task(proj, "M1", "M1", nullptr, QString(), 0);
         m->setMilestone(true);
@@ -268,13 +268,13 @@ void TaskJuggler::scheduleDependencies()
         QVERIFY(proj->pass2(true)); //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
         QVERIFY(proj->scheduleAllScenarios());
 
-        QDateTime tstart = QDateTime::fromTime_t(t->getStart(0));
-        QDateTime tend = QDateTime::fromTime_t(t->getEnd(0));
+        QDateTime tstart = QDateTime::fromSecsSinceEpoch(t->getStart(0));
+        QDateTime tend = QDateTime::fromSecsSinceEpoch(t->getEnd(0));
         QCOMPARE(tstart, pstart);
         QCOMPARE(tend, pstart.addSecs(TJ::ONEHOUR - 1));
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
         QCOMPARE(mstart, pend);
         QCOMPARE(mend, pend.addSecs(-1));
 
@@ -286,8 +286,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(300); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Task *t1 = new TJ::Task(proj, "T1", "T1", nullptr, QString(), 0);
         t1->setScheduling(TJ::Task::ASAP);
@@ -325,14 +325,14 @@ void TaskJuggler::scheduleDependencies()
         QVERIFY(proj->pass2(true));
         QVERIFY(proj->scheduleAllScenarios());
 
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t3start = QDateTime::fromTime_t(t3->getStart(0));
-        QDateTime t3end = QDateTime::fromTime_t(t3->getEnd(0));
-        QDateTime t4end = QDateTime::fromTime_t(t4->getEnd(0));
-        QDateTime m1end = QDateTime::fromTime_t(m1->getEnd(0));
-        QDateTime m2start = QDateTime::fromTime_t(m2->getStart(0));
-        QDateTime m2end = QDateTime::fromTime_t(m2->getEnd(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t3start = QDateTime::fromSecsSinceEpoch(t3->getStart(0));
+        QDateTime t3end = QDateTime::fromSecsSinceEpoch(t3->getEnd(0));
+        QDateTime t4end = QDateTime::fromSecsSinceEpoch(t4->getEnd(0));
+        QDateTime m1end = QDateTime::fromSecsSinceEpoch(m1->getEnd(0));
+        QDateTime m2start = QDateTime::fromSecsSinceEpoch(m2->getStart(0));
+        QDateTime m2end = QDateTime::fromSecsSinceEpoch(m2->getEnd(0));
 
         QCOMPARE(m1end, t1end);
         QCOMPARE(m2start, t2start);
@@ -349,8 +349,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(300); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         // First milestone on project start
         TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
@@ -405,22 +405,22 @@ void TaskJuggler::scheduleDependencies()
         qDebug()<<m1<<"->"<<m4<<"->"<<m5<<"->"<<m8<<"->"<<m6;
 
 
-        QDateTime m1start = QDateTime::fromTime_t(m1->getStart(0));
-        QDateTime m1end = QDateTime::fromTime_t(m1->getEnd(0));
-        QDateTime m2start = QDateTime::fromTime_t(m2->getStart(0));
-        QDateTime m2end = QDateTime::fromTime_t(m2->getEnd(0));
-        QDateTime m3start = QDateTime::fromTime_t(m3->getStart(0));
-        QDateTime m3end = QDateTime::fromTime_t(m3->getEnd(0));
-        QDateTime m4start = QDateTime::fromTime_t(m4->getStart(0));
-        QDateTime m4end = QDateTime::fromTime_t(m4->getEnd(0));
-        QDateTime m5start = QDateTime::fromTime_t(m5->getStart(0));
-        QDateTime m5end = QDateTime::fromTime_t(m5->getEnd(0));
-        QDateTime m6start = QDateTime::fromTime_t(m6->getStart(0));
-        QDateTime m6end = QDateTime::fromTime_t(m6->getEnd(0));
-        QDateTime m7start = QDateTime::fromTime_t(m7->getStart(0));
-        QDateTime m7end = QDateTime::fromTime_t(m7->getEnd(0));
-        QDateTime m8start = QDateTime::fromTime_t(m8->getStart(0));
-        QDateTime m8end = QDateTime::fromTime_t(m8->getEnd(0));
+        QDateTime m1start = QDateTime::fromSecsSinceEpoch(m1->getStart(0));
+        QDateTime m1end = QDateTime::fromSecsSinceEpoch(m1->getEnd(0));
+        QDateTime m2start = QDateTime::fromSecsSinceEpoch(m2->getStart(0));
+        QDateTime m2end = QDateTime::fromSecsSinceEpoch(m2->getEnd(0));
+        QDateTime m3start = QDateTime::fromSecsSinceEpoch(m3->getStart(0));
+        QDateTime m3end = QDateTime::fromSecsSinceEpoch(m3->getEnd(0));
+        QDateTime m4start = QDateTime::fromSecsSinceEpoch(m4->getStart(0));
+        QDateTime m4end = QDateTime::fromSecsSinceEpoch(m4->getEnd(0));
+        QDateTime m5start = QDateTime::fromSecsSinceEpoch(m5->getStart(0));
+        QDateTime m5end = QDateTime::fromSecsSinceEpoch(m5->getEnd(0));
+        QDateTime m6start = QDateTime::fromSecsSinceEpoch(m6->getStart(0));
+        QDateTime m6end = QDateTime::fromSecsSinceEpoch(m6->getEnd(0));
+        QDateTime m7start = QDateTime::fromSecsSinceEpoch(m7->getStart(0));
+        QDateTime m7end = QDateTime::fromSecsSinceEpoch(m7->getEnd(0));
+        QDateTime m8start = QDateTime::fromSecsSinceEpoch(m8->getStart(0));
+        QDateTime m8end = QDateTime::fromSecsSinceEpoch(m8->getEnd(0));
 
         QCOMPARE(m1start, pstart);
         QCOMPARE(m2start, m1start);
@@ -441,8 +441,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(300); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         // First milestone on project start
         TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
@@ -494,19 +494,19 @@ void TaskJuggler::scheduleDependencies()
         qDebug()<<m1->getId()<<"->"<<m2->getId()<<"->"<<t2->getId()<<"->"<<m4->getId();
         qDebug()<<m1->getId()<<"->"<<m3->getId()<<"->"<<t1->getId()<<"->"<<m4->getId();
 
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
 
-        QDateTime m1start = QDateTime::fromTime_t(m1->getStart(0));
-        QDateTime m1end = QDateTime::fromTime_t(m1->getEnd(0));
-        QDateTime m2start = QDateTime::fromTime_t(m2->getStart(0));
-        QDateTime m2end = QDateTime::fromTime_t(m2->getEnd(0));
-        QDateTime m3start = QDateTime::fromTime_t(m3->getStart(0));
-        QDateTime m3end = QDateTime::fromTime_t(m3->getEnd(0));
-        QDateTime m4start = QDateTime::fromTime_t(m4->getStart(0));
-        QDateTime m4end = QDateTime::fromTime_t(m4->getEnd(0));
+        QDateTime m1start = QDateTime::fromSecsSinceEpoch(m1->getStart(0));
+        QDateTime m1end = QDateTime::fromSecsSinceEpoch(m1->getEnd(0));
+        QDateTime m2start = QDateTime::fromSecsSinceEpoch(m2->getStart(0));
+        QDateTime m2end = QDateTime::fromSecsSinceEpoch(m2->getEnd(0));
+        QDateTime m3start = QDateTime::fromSecsSinceEpoch(m3->getStart(0));
+        QDateTime m3end = QDateTime::fromSecsSinceEpoch(m3->getEnd(0));
+        QDateTime m4start = QDateTime::fromSecsSinceEpoch(m4->getStart(0));
+        QDateTime m4end = QDateTime::fromSecsSinceEpoch(m4->getEnd(0));
 
         QCOMPARE(m1start, pstart);
         QCOMPARE(m2start, m1start);
@@ -524,8 +524,8 @@ void TaskJuggler::scheduleDependencies()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(300); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         // First an ASAP milestone on project start to precede m2
         TJ::Task *m1 = new TJ::Task(proj, "Start", "Start", nullptr, QString(), 0);
@@ -571,19 +571,19 @@ void TaskJuggler::scheduleDependencies()
 
         qDebug()<<m1<<"->"<<m2<<"->"<<m3<<"->"<<t1<<"->"<<t2<<"->"<<m4;
 
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
 
-        QDateTime m1start = QDateTime::fromTime_t(m1->getStart(0));
-        QDateTime m1end = QDateTime::fromTime_t(m1->getEnd(0));
-        QDateTime m2start = QDateTime::fromTime_t(m2->getStart(0));
-        QDateTime m2end = QDateTime::fromTime_t(m2->getEnd(0));
-        QDateTime m3start = QDateTime::fromTime_t(m3->getStart(0));
-        QDateTime m3end = QDateTime::fromTime_t(m3->getEnd(0));
-        QDateTime m4start = QDateTime::fromTime_t(m4->getStart(0));
-        QDateTime m4end = QDateTime::fromTime_t(m4->getEnd(0));
+        QDateTime m1start = QDateTime::fromSecsSinceEpoch(m1->getStart(0));
+        QDateTime m1end = QDateTime::fromSecsSinceEpoch(m1->getEnd(0));
+        QDateTime m2start = QDateTime::fromSecsSinceEpoch(m2->getStart(0));
+        QDateTime m2end = QDateTime::fromSecsSinceEpoch(m2->getEnd(0));
+        QDateTime m3start = QDateTime::fromSecsSinceEpoch(m3->getStart(0));
+        QDateTime m3end = QDateTime::fromSecsSinceEpoch(m3->getEnd(0));
+        QDateTime m4start = QDateTime::fromSecsSinceEpoch(m4->getStart(0));
+        QDateTime m4end = QDateTime::fromSecsSinceEpoch(m4->getEnd(0));
 
         QCOMPARE(m1start, pstart);
         QCOMPARE(m2start, m3start);
@@ -609,8 +609,8 @@ void TaskJuggler::scheduleConstraints()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 2);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -633,10 +633,10 @@ void TaskJuggler::scheduleConstraints()
         QVERIFY(proj->pass2(true));
         QVERIFY(proj->scheduleAllScenarios());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart.addSecs(TJ::ONEHOUR));
 
@@ -648,8 +648,8 @@ void TaskJuggler::scheduleConstraints()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 2);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -686,12 +686,12 @@ void TaskJuggler::scheduleConstraints()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart.addSecs(TJ::ONEHOUR));
         QCOMPARE(t2start, t1end.addSecs(1));
@@ -704,8 +704,8 @@ void TaskJuggler::scheduleConstraints()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 4);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -742,12 +742,12 @@ void TaskJuggler::scheduleConstraints()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart.addSecs(TJ::ONEHOUR));
         QCOMPARE(t2start, mstart.addSecs(TJ::ONEHOUR / 2));
@@ -761,8 +761,8 @@ void TaskJuggler::scheduleConstraints()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 4);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -799,12 +799,12 @@ void TaskJuggler::scheduleConstraints()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart.addSecs(TJ::ONEHOUR));
         QCOMPARE(t2start, mstart.addSecs(TJ::ONEHOUR));
@@ -827,10 +827,10 @@ void TaskJuggler::resourceConflict()
         QScopedPointer<TJ::Project> proj(new TJ::Project());
         proj->setScheduleGranularity(TJ::ONEHOUR); // seconds
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
-        QCOMPARE(QDateTime::fromTime_t(proj.get()->getStart()), pstart);
+        QCOMPARE(QDateTime::fromSecsSinceEpoch(proj.get()->getStart()), pstart);
 
         TJ::Resource *r = new TJ::Resource(proj.get(), "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -865,12 +865,12 @@ void TaskJuggler::resourceConflict()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime mstart = QDateTime::fromTime_t(m->getStart(0));
-        QDateTime mend = QDateTime::fromTime_t(m->getEnd(0));
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
-        QDateTime t2start = QDateTime::fromTime_t(t2->getStart(0));
-        QDateTime t2end = QDateTime::fromTime_t(t2->getEnd(0));
+        QDateTime mstart = QDateTime::fromSecsSinceEpoch(m->getStart(0));
+        QDateTime mend = QDateTime::fromSecsSinceEpoch(m->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
+        QDateTime t2start = QDateTime::fromSecsSinceEpoch(t2->getStart(0));
+        QDateTime t2end = QDateTime::fromSecsSinceEpoch(t2->getEnd(0));
         QCOMPARE(mstart, pstart);
         QCOMPARE(t1start, mstart);
         QCOMPARE(t2start, t1end.addSecs(1));
@@ -891,10 +891,10 @@ void TaskJuggler::units()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
-        QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
+        QCOMPARE(QDateTime::fromSecsSinceEpoch(proj->getStart()), pstart);
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         TJ::UsageLimits *l = new TJ::UsageLimits();
@@ -915,8 +915,8 @@ void TaskJuggler::units()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
 
         // working hours: 09:00 - 12:00, 13:00 - 18:00
         QCOMPARE(t1start, pstart);
@@ -930,10 +930,10 @@ void TaskJuggler::units()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 2);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
-        QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
+        QCOMPARE(QDateTime::fromSecsSinceEpoch(proj->getStart()), pstart);
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(0.5);
@@ -951,8 +951,8 @@ void TaskJuggler::units()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
 
         // working hours: 09:00 - 12:00, 13:00 - 18:00
         QCOMPARE(t1start, pstart);
@@ -966,10 +966,10 @@ void TaskJuggler::units()
         TJ::Project *proj = new TJ::Project();
         proj->setScheduleGranularity(TJ::ONEHOUR / 2);
 
-        proj->setStart(pstart.toTime_t());
-        proj->setEnd(pend.toTime_t());
+        proj->setStart(pstart.toSecsSinceEpoch());
+        proj->setEnd(pend.toSecsSinceEpoch());
 
-        QCOMPARE(QDateTime::fromTime_t(proj->getStart()), pstart);
+        QCOMPARE(QDateTime::fromSecsSinceEpoch(proj->getStart()), pstart);
 
         TJ::Resource *r = new TJ::Resource(proj, "R1", "R1", nullptr);
         r->setEfficiency(1.0);
@@ -990,8 +990,8 @@ void TaskJuggler::units()
         QVERIFY2(proj->pass2(true), s.toLatin1());
         QVERIFY2(proj->scheduleAllScenarios(), s.toLatin1());
 
-        QDateTime t1start = QDateTime::fromTime_t(t1->getStart(0));
-        QDateTime t1end = QDateTime::fromTime_t(t1->getEnd(0));
+        QDateTime t1start = QDateTime::fromSecsSinceEpoch(t1->getStart(0));
+        QDateTime t1end = QDateTime::fromSecsSinceEpoch(t1->getEnd(0));
 
         // working hours: 09:00 - 12:00, 13:00 - 18:00
         QCOMPARE(t1start, pstart);

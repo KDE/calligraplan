@@ -147,7 +147,7 @@ ResourceGroupEditor::ResourceGroupEditor(KoPart *part, KoDocument *doc, QWidget 
                "</para>", QStringLiteral("plan:resource-breakdown-structure")));
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_view = new ResourceGroupTreeView(this);
     m_doubleTreeView = m_view;
     connect(this, &ViewBase::expandAll, m_view, &DoubleTreeViewBase::slotExpand);
@@ -280,12 +280,12 @@ void ResourceGroupEditor::setupGui()
 {
     actionAddGroup = new QAction(koIcon("resource-group-new"), i18n("Add Resource Group"), this);
     actionCollection()->addAction(QStringLiteral("add_group"), actionAddGroup);
-    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddGroup, Qt::CTRL | Qt::Key_I);
     connect(actionAddGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddGroup);
 
     actionAddSubGroup = new QAction(koIcon("resource-group-new"), i18n("Add Child Resource Group"), this);
     actionCollection()->addAction(QStringLiteral("add_subgroup"), actionAddSubGroup);
-    actionCollection()->setDefaultShortcut(actionAddSubGroup, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddSubGroup, Qt::SHIFT | Qt::CTRL | Qt::Key_I);
     connect(actionAddSubGroup, &QAction::triggered, this, &ResourceGroupEditor::slotAddSubGroup);
     
     actionDeleteSelection  = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);

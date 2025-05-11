@@ -47,6 +47,7 @@
 #include <QMenu>
 #include <QPushButton>
 #include <QLineEdit>
+#include <QActionGroup>
 
 #include <KToggleAction>
 #include <KActionCollection>
@@ -222,7 +223,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent, bool readWr
     m_filterOptions->hide();
 
     auto l = new QHBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     l->addWidget(m_filterOptions);
     l->addWidget(m_gantt);
 
@@ -466,7 +467,7 @@ void GanttView::setupGui()
     auto filterWidget = new FilterWidget(this);
     filter->setDefaultWidget(filterWidget);
     actionCollection()->addAction(filter->objectName(), filter);
-    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegExp));
+    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegularExpression));
     connect(filterWidget->extendedOptions, &QToolButton::clicked, this, &GanttView::slotFilterOptions);
 }
 

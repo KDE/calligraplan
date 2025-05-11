@@ -591,7 +591,7 @@ QMimeData *CalendarItemModel::mimeData(const QModelIndexList & indexes) const
 {
     QMimeData *m = new QMimeData();
     QByteArray encodedData;
-    QDataStream stream(&encodedData, QIODevice::WriteOnly);
+    QDataStream stream(&encodedData, QIODeviceBase::WriteOnly);
     QList<int> rows;
     for (const QModelIndex &index : indexes) {
         if (index.isValid() && !rows.contains(index.row())) {
@@ -619,7 +619,7 @@ bool CalendarItemModel::dropMimeData(const QMimeData *data, Qt::DropAction actio
         debugPlan<<"MoveAction";
 
         QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"));
-        QDataStream stream(&encodedData, QIODevice::ReadOnly);
+        QDataStream stream(&encodedData, QIODeviceBase::ReadOnly);
         Calendar *par = nullptr;
         if (parent.isValid()) {
             par = calendar(parent);
@@ -668,7 +668,7 @@ bool CalendarItemModel::dropAllowed(Calendar *on, const QMimeData *data)
         return false;
     }
     QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.calendarid.internal"));
-    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+    QDataStream stream(&encodedData, QIODeviceBase::ReadOnly);
     const QList<Calendar*> lst = calendarList(stream);
     for (Calendar *c : lst) {
         if ((flags(index(c)) & (int)Qt::ItemIsDropEnabled) == 0) {

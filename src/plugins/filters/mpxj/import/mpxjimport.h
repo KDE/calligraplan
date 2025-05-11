@@ -17,7 +17,6 @@
 
 class QFile;
 class QByteArray;
-class QStringList;
 
 
 class MpxjImport : public KoFilter

@@ -38,26 +38,26 @@ target_link_libraries(calligraplanwidgets
     PUBLIC
         calligraplanodf
         calligraplanwidgetutils
-        KF5::KIOWidgets
-        KF5::ConfigWidgets
-        Qt5::PrintSupport
-        KF5::XmlGui
+        KF6::KIOWidgets
+        KF6::ConfigWidgets
+        Qt6::PrintSupport
+        KF6::XmlGui
     PRIVATE
-        KF5::GuiAddons
-        KF5::WidgetsAddons
-        KF5::ConfigCore
-#         KF5::Codecs
-#         KF5::Completion
-        KF5::IconThemes
-        KF5::I18n
+        KF6::GuiAddons
+        KF6::WidgetsAddons
+        KF6::ConfigCore
+#         KF6::Codecs
+#         KF6::Completion
+        KF6::IconThemes
+        KF6::I18n
 )
 
 if(GHNS)
-    target_link_libraries(calligraplanwidgets PRIVATE KF5::NewStuff)
+    target_link_libraries(calligraplanwidgets PRIVATE KF6::NewStuff)
 endif ()
 
 if(X11_FOUND)
-    target_link_libraries(calligraplanwidgets PRIVATE Qt5::X11Extras ${X11_LIBRARIES})
+    target_link_libraries(calligraplanwidgets PRIVATE ${X11_LIBRARIES})
 endif()
 
 set_target_properties(calligraplanwidgets PROPERTIES

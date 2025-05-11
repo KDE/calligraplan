@@ -55,11 +55,11 @@ target_link_libraries(calligraplanportfolioprivate
         calligraplanstore
     PRIVATE
         calligraplanplugin
-        KF5::ItemModels
-        KF5::ItemViews
-        KChart
-        #KF5::IconThemes
-        #KF5::KHtml
+        KF6::ItemModels
+        KF6::ItemViews
+        KChart6
+        #KF6::IconThemes
+        #KF6::KHtml
 )
 
 set_target_properties(calligraplanportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION})
@@ -72,10 +72,10 @@ set(calligraplanportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
 
 add_library(calligraplanportfoliopart MODULE ${calligraplanportfoliopart_PART_SRCS})
 
-kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.desktop)
+# kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.desktop)
 
 
-target_link_libraries(calligraplanportfoliopart PUBLIC KF5::Parts KF5::CoreAddons PRIVATE calligraplanportfolioprivate)
+target_link_libraries(calligraplanportfoliopart PUBLIC KF6::Parts KF6::CoreAddons PRIVATE calligraplanportfolioprivate)
 
 install(TARGETS calligraplanportfoliopart DESTINATION ${KDE_INSTALL_PLUGINDIR}/calligraplan/parts)
 
@@ -121,7 +121,7 @@ install( FILES
         Portfolio_PerformanceViewUi.rc
         ../libs/ui/TaskStatusViewUi.rc
         ../libs/ui/GanttViewUi.rc
-    DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/calligraplanportfolio
+    DESTINATION ${KDE_INSTALL_KXMLGUIDIR}/calligraplanportfolio
 )
 
 if (SharedMimeInfo_FOUND)

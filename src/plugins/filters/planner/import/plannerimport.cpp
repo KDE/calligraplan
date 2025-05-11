@@ -17,12 +17,10 @@
 #include <kptcalendar.h>
 #include <kptappointment.h>
 
-#include <QTextCodec>
 #include <QByteArray>
 #include <QString>
 #include <QTextStream>
 #include <QFile>
-#include <QXmlInputSource>
 #include <QDomElement>
 #include <QDebug>
 

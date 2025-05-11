@@ -12,7 +12,7 @@ include_directories(${PLANMAIN_INCLUDES} ${PLANPLUGIN_INCLUDES})
 
 ########### next target ###############
 
-if( Qca-qt5_FOUND )
+if( Qca-qt6_FOUND )
    add_definitions( -DQCA2 )
 endif()
 
@@ -53,10 +53,10 @@ set(komain_LIB_SRCS
     KoPart.cpp
 
     MainDebug.cpp
-    Calligra2Migration.cpp
+   # Calligra2Migration.cpp
 )
 
-if( Qt5DBus_FOUND )
+if( Qt6DBus_FOUND )
     set(komain_LIB_SRCS ${komain_LIB_SRCS}
         KoApplicationAdaptor.cpp
         KoViewAdaptor.cpp
@@ -78,18 +78,19 @@ target_link_libraries(calligraplanmain
     PUBLIC
         calligraplanwidgets
         calligraplankundo2
-        KF5::CoreAddons
+        KF6::CoreAddons
     PRIVATE
         calligraplanplugin
-        KF5::Notifications
-        KF5::ItemViews
-        KF5::KIOFileWidgets
-        KF5::IconThemes
-        KF5::DBusAddons
+        KF6::Notifications
+        KF6::ItemViews
+        KF6::KIOFileWidgets
+        KF6::IconThemes
+        KF6::IconWidgets
+        KF6::DBusAddons
 )
 
-if( KF5Activities_FOUND )
-    target_link_libraries(calligraplanmain PRIVATE KF5::Activities)
+if( PlasmaActivities_FOUND )
+    target_link_libraries(calligraplanmain PRIVATE Plasma::Activities)
 endif()
 
 if (APPLE)

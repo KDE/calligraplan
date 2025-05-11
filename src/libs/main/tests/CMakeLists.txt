@@ -15,7 +15,7 @@ endmacro()
 ########### next target ###############
 
 set(priorityqueue_test_SRCS priorityqueue_test.cpp ../MainDebug.cpp)
-planmain_add_unit_test(priorityQueueTest ${priorityqueue_test_SRCS}  LINK_LIBRARIES KF5::I18n Qt5::Test)
+planmain_add_unit_test(priorityQueueTest ${priorityqueue_test_SRCS}  LINK_LIBRARIES KF6::I18n Qt6::Test)
 
 ########### next target ###############
 

@@ -62,8 +62,6 @@
 #endif
 
 
-#include <QDesktopWidget>
-
 KoApplication* KoApplication::KoApp = nullptr;
 
 namespace {
@@ -311,11 +309,11 @@ bool KoApplication::start(const KoComponentData &componentData)
 
         short int numberOfOpenDocuments = 0; // number of documents open
         // TODO: remove once Qt has proper handling itself
-        const QRegExp withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
+        const QRegularExpression withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
         for (int argNumber = 0; argNumber < fileUrls.size(); ++argNumber) {
             const QString fileUrl = fileUrls.at(argNumber);
             // convert to an url
-            const bool startsWithProtocol = (withProtocolChecker.indexIn(fileUrl) == 0);
+            const bool startsWithProtocol = withProtocolChecker.match(fileUrl).hasMatch();
             const QUrl url = startsWithProtocol ?
             QUrl::fromUserInput(fileUrl) :
             QUrl::fromLocalFile(QDir::current().absoluteFilePath(fileUrl));

@@ -15,5 +15,5 @@ ecm_add_test(
         calligraplanprivate
         calligraplankernel
         calligraplankross
-        Qt5::Test
+        Qt6::Test
 )

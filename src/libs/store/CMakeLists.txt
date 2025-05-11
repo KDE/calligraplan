@@ -17,7 +17,7 @@ set(calligraplanstore_LIB_SRCS
     StoreDebug.cpp
     KoNetAccess.cpp # temporary while porting
 )
-if( Qca-qt5_FOUND )
+if( Qca-qt6_FOUND )
     set(calligraplanstore_LIB_SRCS ${calligraplanstore_LIB_SRCS}
         KoEncryptedStore.cpp
         KoEncryptionChecker.cpp
@@ -29,17 +29,17 @@ generate_export_header(calligraplanstore BASE_NAME kostore)
 
 target_link_libraries(calligraplanstore
     PUBLIC
-        Qt5::Xml
-        Qt5::Core
-        KF5::KIOCore
+        Qt6::Xml
+        Qt6::Core
+        KF6::KIOCore
     PRIVATE
-        Qt5::Gui
-        KF5::Archive
-        KF5::KIOWidgets
-        KF5::I18n
+        Qt6::Gui
+        KF6::Archive
+        KF6::KIOWidgets
+        KF6::I18n
 )
-if( Qca-qt5_FOUND )
-    target_link_libraries(calligraplanstore PRIVATE qca-qt5 KF5::Wallet)
+if( Qca-qt6_FOUND )
+    target_link_libraries(calligraplanstore PRIVATE qca-qt6 KF6::Wallet)
 endif()
 
 set_target_properties(calligraplanstore PROPERTIES

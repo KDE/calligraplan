@@ -23,19 +23,19 @@ endmacro()
 
 planschedulers_tj_add_unit_test(TaskJugglerTester
     TaskJuggler.cpp
-    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate Qt5::Test
+    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate Qt6::Test
 )
 
 ########### next target ###############
 
 planschedulers_tj_add_unit_test(TJTester
     SchedulerTester.cpp
-    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate Qt5::Test
+    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate Qt6::Test
 )
 
 ########### next target ###############
 
 planschedulers_tj_add_unit_test(TJSchedulerTester
     TJSchedulerTester.cpp
-    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate calligraplanmain Qt5::Test
+    LINK_LIBRARIES calligraplantjscheduler calligraplanprivate calligraplanmain Qt6::Test
 )

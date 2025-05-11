@@ -13,7 +13,7 @@ SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include <MainDebug.h>
 #include <KoPluginLoader.h>
-
+#include <QPluginLoader>
 #include <KPluginFactory>
 #include <QFile>
 
@@ -63,7 +63,7 @@ QList<KoFilterEntry::Ptr> KoFilterEntry::query()
 
 KoFilter* KoFilterEntry::createFilter(KoFilterChain* chain, QObject* parent)
 {
-    KLibFactory *factory = qobject_cast<KLibFactory *>(m_loader->instance());
+    KPluginFactory *factory = qobject_cast<KPluginFactory *>(m_loader->instance());
 
     if (!factory) {
         warnMain << m_loader->errorString();

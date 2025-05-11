@@ -142,7 +142,7 @@ void CalendarTreeView::dragMoveEvent(QDragMoveEvent *event)
     }
     // QTreeView thinks it's ok to drop, but it might not be...
     event->ignore();
-    QModelIndex index = indexAt(event->pos());
+    QModelIndex index = indexAt(event->position().toPoint());
     if (! index.isValid()) {
         if (model()->dropAllowed(nullptr, event->mimeData())) {
             event->accept();
@@ -219,7 +219,7 @@ void CalendarDayView::slotSetWork()
         return;
     }
     QList<CalendarDay*> days;
-    for (const QModelIndex &i : qAsConst(lst)) {
+    for (const QModelIndex &i : std::as_const(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr) {
             continue;
@@ -261,7 +261,7 @@ void CalendarDayView::slotSetVacation()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
-    for (const QModelIndex &i : qAsConst(lst)) {
+    for (const QModelIndex &i : std::as_const(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr || day->state() == CalendarDay::NonWorking) {
             continue;
@@ -291,7 +291,7 @@ void CalendarDayView::slotSetUndefined()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Weekday State"));
-    for (const QModelIndex &i : qAsConst(lst)) {
+    for (const QModelIndex &i : std::as_const(lst)) {
         CalendarDay *day = model()->day(i);
         if (day == nullptr || day->state() == CalendarDay::Undefined) {
             continue;
@@ -392,7 +392,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     QSplitter *sp = new QSplitter(this);
     l->addWidget(sp);
 
@@ -402,7 +402,7 @@ CalendarEditor::CalendarEditor(KoPart *part, KoDocument *doc, QWidget *parent)
 
     QFrame *f = new QFrame(sp);
     l = new QVBoxLayout(f);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
 
     m_dayview = new CalendarDayView(f);
     l->addWidget(m_dayview);
@@ -584,12 +584,12 @@ void CalendarEditor::setupGui()
 
     actionAddCalendar = new QAction(koIcon("resource-calendar-insert"), i18n("Add Calendar"), this);
     coll->addAction(QStringLiteral("add_calendar"), actionAddCalendar);
-    coll->setDefaultShortcut(actionAddCalendar, Qt::CTRL + Qt::Key_I);
+    coll->setDefaultShortcut(actionAddCalendar, Qt::CTRL | Qt::Key_I);
     connect(actionAddCalendar , &QAction::triggered, this, &CalendarEditor::slotAddCalendar);
 
     actionAddSubCalendar = new QAction(koIcon("resource-calendar-child-insert"), i18n("Add Subcalendar"), this);
     coll->addAction(QStringLiteral("add_subcalendar"), actionAddSubCalendar);
-    coll->setDefaultShortcut(actionAddSubCalendar, Qt::SHIFT + Qt::CTRL + Qt::Key_I);
+    coll->setDefaultShortcut(actionAddSubCalendar, Qt::SHIFT | Qt::CTRL | Qt::Key_I);
     connect(actionAddSubCalendar , &QAction::triggered, this, &CalendarEditor::slotAddSubCalendar);
 
     actionDeleteSelection = new QAction(koIcon("edit-delete"), xi18nc("@action", "Delete"), this);
@@ -751,7 +751,7 @@ void CalendarEditor::slotSetVacation()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
-    for (const QDate &date : qAsConst(m_currentMenuDateList)) {
+    for (const QDate &date : std::as_const(m_currentMenuDateList)) {
         debugPlan<<"handle:"<<date;
         CalendarDay *day = currentCalendar()->findDay(date);
         if (day == nullptr) {
@@ -785,7 +785,7 @@ void CalendarEditor::slotSetUndefined()
     }
     bool mod = false;
     MacroCommand *m = new MacroCommand(kundo2_i18n("Modify Calendar"));
-    for (const QDate &date : qAsConst(m_currentMenuDateList)) {
+    for (const QDate &date : std::as_const(m_currentMenuDateList)) {
         CalendarDay *day = currentCalendar()->findDay(date);
         if (day && day->state() != CalendarDay::Undefined) {
             mod = true;

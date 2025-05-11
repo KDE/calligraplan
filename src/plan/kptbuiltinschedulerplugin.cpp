@@ -231,7 +231,7 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
         return;
     }
     QHash<KoDocument*, KoDocument*> projectMap;
-    QMapIterator<int, KoDocument*> it(context.projects);
+    QMultiMapIterator<int, KoDocument*> it(context.projects);
     for (it.toBack(); it.hasPrevious();) {
         context.calculatedDocuments << copyDocument(it.previous().value());
         projectMap.insert(context.calculatedDocuments.last(), it.value());

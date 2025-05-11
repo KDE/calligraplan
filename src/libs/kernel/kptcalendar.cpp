@@ -828,7 +828,12 @@ void Calendar::setId(const QString& id) {
 
 void Calendar::addCalendar(Calendar *calendar, int pos)
 {
-    pos == -1 ? m_calendars.append(calendar) : m_calendars.insert(pos, calendar);
+    if (pos == -1) {
+        m_calendars.append(calendar);
+    }
+    else {
+        m_calendars.insert(pos, calendar);
+    }
     calendar->setTimeZone(m_timeZone);
 }
 

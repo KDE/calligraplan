@@ -35,6 +35,7 @@
 
 #include <QHeaderView>
 #include <QMenu>
+#include <QActionGroup>
 
 using namespace KPlato;
 
@@ -300,7 +301,7 @@ MilestoneGanttView::MilestoneGanttView(KoPart *part, KoDocument *doc, QWidget *p
     setXMLFile(QStringLiteral("MilestoneGanttViewUi.rc"));
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_splitter = new QSplitter(this);
     l->addWidget(m_splitter);
     m_splitter->setOrientation(Qt::Vertical);
@@ -476,7 +477,7 @@ void MilestoneGanttView::setupGui()
     auto filterWidget = new FilterWidget(false, this);
     filter->setDefaultWidget(filterWidget);
     actionCollection()->addAction(filter->objectName(), filter);
-    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegExp));
+    connect(filterWidget->lineedit, &QLineEdit::textChanged, m_gantt->sfModel(), qOverload<const QString&>(&NodeSortFilterProxyModel::setFilterRegularExpression));
 }
 
 void MilestoneGanttView::slotSelectionChanged()

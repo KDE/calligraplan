@@ -118,7 +118,7 @@ ScheduleEditor::ScheduleEditor(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout * l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     m_schedulingRange = new SchedulingRange(doc, this);
     l->addWidget(m_schedulingRange);
     m_view = new ScheduleTreeView(this);
@@ -299,12 +299,12 @@ void ScheduleEditor::slotEnableActions()
 void ScheduleEditor::setupGui()
 {
     actionAddSchedule  = new QAction(koIcon("view-time-schedule-insert"), i18n("Add Schedule"), this);
-    actionCollection()->setDefaultShortcut(actionAddSchedule, Qt::CTRL + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddSchedule, Qt::CTRL | Qt::Key_I);
     actionCollection()->addAction(QStringLiteral("add_schedule"), actionAddSchedule);
     connect(actionAddSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSchedule);
 
     actionAddSubSchedule  = new QAction(koIcon("view-time-schedule-child-insert"), i18n("Add Sub-schedule"), this);
-    actionCollection()->setDefaultShortcut(actionAddSubSchedule, Qt::CTRL + Qt::SHIFT + Qt::Key_I);
+    actionCollection()->setDefaultShortcut(actionAddSubSchedule, Qt::CTRL | Qt::SHIFT | Qt::Key_I);
     actionCollection()->addAction(QStringLiteral("add_subschedule"), actionAddSubSchedule);
     connect(actionAddSubSchedule, &QAction::triggered, this, &ScheduleEditor::slotAddSubSchedule);
 
@@ -559,9 +559,9 @@ void ScheduleLogTreeView::setFilterWildcard(const QString &filter)
     m_model->setFilterWildcard(filter);
 }
 
-QRegExp ScheduleLogTreeView::filterRegExp() const
+QRegularExpression ScheduleLogTreeView::filterRegExp() const
 {
-    return m_model->filterRegExp();
+    return m_model->filterRegularExpression();
 }
 
 void ScheduleLogTreeView::slotShowDebug(bool on)

@@ -147,7 +147,7 @@ public:
     void setScheduleManager(ScheduleManager *manager) { logModel()->setManager(manager); }
 
     void setFilterWildcard(const QString &filter);
-    QRegExp filterRegExp() const;
+    QRegularExpression filterRegExp() const;
 
 Q_SIGNALS:
     void currentIndexChanged(const QModelIndex&);

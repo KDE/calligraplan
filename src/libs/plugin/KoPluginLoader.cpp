@@ -13,7 +13,7 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KPluginFactory>
-#include <KPluginLoader>
+#include <KPluginMetaData>
 
 #include <QCoreApplication>
 #include <QJsonObject>
@@ -90,7 +90,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     }
 
     QMap<QString, QPluginLoader *> serviceNames;
-    for (QPluginLoader *loader : qAsConst(plugins)) {
+    for (QPluginLoader *loader : std::as_const(plugins)) {
         if (serviceNames.contains(loader->fileName())) { // duplicate
             QJsonObject json2 = loader->metaData().value(QStringLiteral("MetaData")).toObject();
             QVariant pluginVersion2 = json2.value(QStringLiteral("X-Flake-PluginVersion")).toVariant();

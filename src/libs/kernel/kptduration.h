@@ -13,7 +13,6 @@
 #include <QtGlobal>
 
 class QString;
-class QStringList;
 
 /// The main namespace.
 namespace KPlato

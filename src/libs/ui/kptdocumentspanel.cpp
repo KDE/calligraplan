@@ -22,7 +22,9 @@
 #include <KLocalizedString>
 #include <KUrlRequesterDialog>
 #include <KMessageBox>
-#include <KRun>
+#include <KIO/OpenUrlJob>
+#include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
 
 using namespace KPlato;
 
@@ -35,7 +37,7 @@ DocumentsPanel::DocumentsPanel(Node &node, QWidget *parent)
     widget.nodeNameHolder->hide();
     QVBoxLayout *l = new QVBoxLayout(widget.itemViewHolder);
     m_view = new DocumentTreeView(widget.itemViewHolder);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     l->addWidget(m_view);
     m_view->setDocuments(&m_docs);
     m_view->setReadWrite(true);
@@ -183,8 +185,11 @@ void DocumentsPanel::slotViewUrl()
         //KMessageBox::error(0, i18n("Cannot open document. Invalid url: %1", filename.pathOrUrl()));
         return;
     }
-    KRun *run = new KRun(doc->url(), nullptr);
-    Q_UNUSED(run); // KRun auto-deletes by default so no need to delete it
+
+    auto *job = new KIO::OpenUrlJob(doc->url());
+    job->setUiDelegate(KIO::createDefaultJobUiDelegate());
+    job->start();
+
     return; //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 

@@ -37,10 +37,9 @@ Factory::~Factory()
 }
 
 QObject* Factory::create(const char* iface, QWidget* parentWidget, QObject *parent,
-                             const QVariantList& args, const QString& keyword)
+                             const QVariantList& args)
 {
     Q_UNUSED(args);
-    Q_UNUSED(keyword);
     Q_UNUSED(iface);
     Part *part = new Part(parentWidget, parent);
     return part;

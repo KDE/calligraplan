@@ -14,7 +14,7 @@
 #include <KLocalizedString>
 
 #include <QLocale>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStringList>
 
 
@@ -240,28 +240,27 @@ QString Duration::toString(Format format) const {
 
 Duration Duration::fromString(const QString &s, Format format, bool *ok) {
     if (ok) *ok = false;
-    QRegExp matcher;
     Duration tmp;
     switch (format) {
         case Format_Hour: {
-            matcher.setPattern(QStringLiteral("^(\\d*)h(\\d*)m$"));
-            int pos = matcher.indexIn(s);
-            if (pos > -1) {
-                tmp.addHours(matcher.cap(1).toUInt());
-                tmp.addMinutes(matcher.cap(2).toUInt());
+            QRegularExpression matcher(QStringLiteral("^(\\d*)h(\\d*)m$"));
+            QRegularExpressionMatch match = matcher.match(s);
+            if (match.hasMatch()) {
+                tmp.addHours(match.captured(1).toUInt());
+                tmp.addMinutes(match.captured(2).toUInt());
                 if (ok) *ok = true;
             }
             break;
         }
         case Format_DayTime: {
-            matcher.setPattern(QStringLiteral("^(\\d*) (\\d*):(\\d*):(\\d*)\\.(\\d*)$"));
-            int pos = matcher.indexIn(s);
-            if (pos > -1) {
-                tmp.addDays(matcher.cap(1).toUInt());
-                tmp.addHours(matcher.cap(2).toUInt());
-                tmp.addMinutes(matcher.cap(3).toUInt());
-                tmp.addSeconds(matcher.cap(4).toUInt());
-                tmp.addMilliseconds(matcher.cap(5).toUInt());
+            QRegularExpression matcher(QStringLiteral("^(\\d*) (\\d*):(\\d*):(\\d*)\\.(\\d*)$"));
+            QRegularExpressionMatch match = matcher.match(s);
+            if (match.hasMatch()) {
+                tmp.addDays(match.captured(1).toUInt());
+                tmp.addHours(match.captured(2).toUInt());
+                tmp.addMinutes(match.captured(3).toUInt());
+                tmp.addSeconds(match.captured(4).toUInt());
+                tmp.addMilliseconds(match.captured(5).toUInt());
                 if (ok) *ok = true;
             }
             break;

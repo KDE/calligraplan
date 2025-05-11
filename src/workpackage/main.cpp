@@ -43,10 +43,10 @@ int main(int argc, char **argv)
                                      "calligra.plan*.warning=true"));
 
     // Migrate data from kde4 to kf5 locations
-    Calligra2Migration m(QStringLiteral("calligraplanwork"), QStringLiteral("planwork"));
-    m.setConfigFiles(QStringList() << QStringLiteral("planworkrc"));
-    m.setUiFiles(QStringList() << QStringLiteral("planwork.rc") << QStringLiteral("planwork_readonly.rc") << QStringLiteral("planworkui.rc"));
-    m.migrate();
+    // Calligra2Migration m(QStringLiteral("calligraplanwork"), QStringLiteral("planwork"));
+    // m.setConfigFiles(QStringList() << QStringLiteral("planworkrc"));
+    // m.setUiFiles(QStringList() << QStringLiteral("planwork.rc") << QStringLiteral("planwork_readonly.rc") << QStringLiteral("planworkui.rc"));
+    // m.migrate();
 
     CommandLineParser cmd;
     QObject::connect(&service, &KDBusService::activateRequested, &cmd, &CommandLineParser::handleActivateRequest);

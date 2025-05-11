@@ -46,7 +46,7 @@ GanttView::GanttView(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     m_view = new KPlato::GanttViewBase(this);
     auto tv = new KPlato::GanttTreeView(m_view);
     tv->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);

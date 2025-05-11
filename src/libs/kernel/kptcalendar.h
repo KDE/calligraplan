@@ -29,7 +29,6 @@ namespace KHolidays {
 class KUndo2Command;
 
 class QDomElement;
-class QStringList;
 
 
 /// The main namespace.

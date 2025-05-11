@@ -15,10 +15,10 @@
 
 #include <KoPluginLoader.h>
 
-#include <KServiceType>
 #include <KPluginFactory>
 
 #include <QCoreApplication>
+#include <QMimeDatabase>
 
 #include <limits.h> // UINT_MAX
 
@@ -110,7 +110,9 @@ KoDocumentEntry KoDocumentEntry::queryByMimeType(const QString & mimetype)
         if (vec.isEmpty()) {
             // Still no match. Either the mimetype itself is unknown, or we have no service for it.
             // Help the user debugging stuff by providing some more diagnostics
-            if (!KServiceType::serviceType(mimetype)) {
+            QMimeDatabase db;
+            QMimeType mime = db.mimeTypeForName(mimetype);
+            if (!mime.isValid()) {
                 errorMain << "Unknown Calligra Plan MimeType " << mimetype << "." << '\n';
             } else {
                 errorMain << "Found no Calligra part able to handle " << mimetype << "!" << '\n';

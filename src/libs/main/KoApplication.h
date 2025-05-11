@@ -17,7 +17,6 @@ class KoApplicationPrivate;
 class KAboutData;
 
 class QWidget;
-class QStringList;
 class QDir;
 
 #include <KoFilterManager.h>

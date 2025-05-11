@@ -363,7 +363,7 @@ ViewListWidget::ViewListWidget(MainDocument *part, QWidget *parent)//QString nam
     
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     l->addWidget(m_viewlist);
     l->addWidget(m_currentSchedule);
 

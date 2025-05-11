@@ -14,14 +14,14 @@ generate_export_header(calligraplanwidgetutils BASE_NAME kowidgetutils)
 
 target_link_libraries(calligraplanwidgetutils
     PUBLIC
-        Qt5::Widgets
-        Qt5::Gui
-        Qt5::Xml
-        Qt5::Core
+        Qt6::Widgets
+        Qt6::Gui
+        Qt6::Xml
+        Qt6::Core
     PRIVATE
-        KF5::I18n
-        KF5::ConfigCore
-        KF5::ConfigWidgets
+        KF6::I18n
+        KF6::ConfigCore
+        KF6::ConfigWidgets
 )
 
 set_target_properties(calligraplanwidgetutils

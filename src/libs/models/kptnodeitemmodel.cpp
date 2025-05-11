@@ -3595,7 +3595,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
             QStringList res = m_project->resourceNameList();
             const QStringList req = node->requestNameList();
             QStringList alloc;
-            const QStringList allocations = value.toString().split(QRegExp(QStringLiteral(" *, *")), Qt::SkipEmptyParts);
+            const QStringList allocations = value.toString().split(QRegularExpression(QStringLiteral(" *, *")), Qt::SkipEmptyParts);
             for (const QString &s : allocations) {
                 alloc << s.trimmed();
             }

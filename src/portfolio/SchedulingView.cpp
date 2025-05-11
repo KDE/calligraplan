@@ -51,7 +51,7 @@ SchedulingView::SchedulingView(KoPart *part, KoDocument *doc, QWidget *parent)
     setupGui();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     QSplitter *sp = new QSplitter(this);
     sp->setContextMenuPolicy(Qt::CustomContextMenu);
     sp->setOrientation(Qt::Vertical);
@@ -472,7 +472,7 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
     scheduler->schedule(m_schedulingContext);
     m_logModel.setLog(m_schedulingContext.log);
 
-    for (QMap<int, KoDocument*>::const_iterator it = m_schedulingContext.projects.constBegin(); it != m_schedulingContext.projects.constEnd(); ++it) {
+    for (auto it = m_schedulingContext.projects.constBegin(); it != m_schedulingContext.projects.constEnd(); ++it) {
         portfolio->emitDocumentChanged(it.value());
         Q_EMIT projectCalculated(it.value()->project(), it.value()->project()->findScheduleManagerByName(it.value()->property(SCHEDULEMANAGERNAME).toString()));
     }

@@ -34,7 +34,7 @@ public:
             type == QStringLiteral("config") ?  QStandardPaths::GenericConfigLocation :
             type == QStringLiteral("cache") ?   QStandardPaths::CacheLocation :
             type == QStringLiteral("tmp") ?     QStandardPaths::TempLocation :
-            type == QStringLiteral("appdata") ? QStandardPaths::DataLocation :
+            type == QStringLiteral("appdata") ? QStandardPaths::AppLocalDataLocation :
             type == QStringLiteral("locale") ?  QStandardPaths::GenericDataLocation :
             /* default */                      QStandardPaths::GenericDataLocation;
     }

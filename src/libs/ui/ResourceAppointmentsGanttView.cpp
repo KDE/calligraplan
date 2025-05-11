@@ -50,6 +50,7 @@
 #include <QTabWidget>
 #include <QPushButton>
 #include <QAction>
+#include <QActionGroup>
 #include <QMenu>
 
 #include <KToggleAction>
@@ -212,7 +213,7 @@ ResourceAppointmentsGanttView::ResourceAppointmentsGanttView(KoPart *part, KoDoc
     m_gantt->setModel(m_model);
 
     QVBoxLayout *l = new QVBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     l->addWidget(m_gantt);
 
     setupGui();
