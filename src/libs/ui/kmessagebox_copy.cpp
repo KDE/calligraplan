@@ -37,7 +37,24 @@ static QIcon themedMessageBoxIcon(QMessageBox::Icon icon)
    QIcon ret = KIconLoader::global()->loadIcon(QLatin1String(icon_name), KIconLoader::NoGroup, KIconLoader::SizeHuge, KIconLoader::DefaultState, QStringList(), nullptr, true);
 
    if (ret.isNull()) {
-       return QMessageBox::standardIcon(icon);
+        QStyle::StandardPixmap spIcon = QStyle::SP_MessageBoxInformation;
+        switch (icon) {
+        case QMessageBox::Information:
+            spIcon = QStyle::SP_MessageBoxInformation;
+            break;
+        case QMessageBox::Warning:
+            spIcon = QStyle::SP_MessageBoxWarning;
+            break;
+        case QMessageBox::Critical:
+            spIcon = QStyle::SP_MessageBoxCritical;
+            break;
+        case QMessageBox::Question:
+            spIcon = QStyle::SP_MessageBoxQuestion;
+            break;
+        default:
+            return QIcon();
+        }
+        return qApp->style()->standardIcon(spIcon);
    } else {
        return ret;
    }
