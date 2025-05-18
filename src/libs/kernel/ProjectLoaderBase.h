@@ -79,7 +79,7 @@ public:
     virtual bool load(Documents &documents, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(documents) Q_UNUSED(element) Q_UNUSED(status) return false; }
     virtual bool load(Document *document, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(document) Q_UNUSED(element) Q_UNUSED(status) return false; }
     virtual bool load(Estimate *estimate, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(estimate) Q_UNUSED(element) Q_UNUSED(status) return false; }
-    virtual bool load(ResourceGroupRequest *gr, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(gr) Q_UNUSED(element) Q_UNUSED(status) return false; }
+   // virtual bool load(ResourceGroupRequest *gr, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(gr) Q_UNUSED(element) Q_UNUSED(status) return false; }
     virtual bool load(ResourceRequest *rr, const KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(rr) Q_UNUSED(element) Q_UNUSED(status) return false; }
     virtual bool load(WorkPackage& wp, const KoXmlElement& element, XMLLoaderObject& status) { Q_UNUSED(wp) Q_UNUSED(element) Q_UNUSED(status) return false; }
     virtual bool loadWpLog(WorkPackage* wp, KoXmlElement &element, XMLLoaderObject &status) { Q_UNUSED(wp) Q_UNUSED(element) Q_UNUSED(status) return false; }
