@@ -29,11 +29,11 @@ public:
     /**
      * Sets the locale used to get the currency symbol.
      */
-    void setCurrencyLocale(QLocale::Language language, QLocale::Country country);
+    void setCurrencyLocale(QLocale::Language language, QLocale::Territory territory);
     /// Return the language used when getting the currency symbol
     QLocale::Language currencyLanguage() const;
     /// Return the country used when getting the currency symbol
-    QLocale::Country currencyCountry() const;
+    QLocale::Territory currencyTerritory() const;
 
 
     /**
@@ -111,7 +111,7 @@ private:
     int m_decimalPlaces;
     // to keep track of currency
     QLocale::Language m_language;
-    QLocale::Country m_country;
+    QLocale::Territory m_territory;
 };
 
 }  //KPlato namespace

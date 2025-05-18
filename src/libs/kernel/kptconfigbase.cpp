@@ -141,7 +141,8 @@ Locale *ConfigBase::locale()
 //static
 QBrush ConfigBase::gradientBrush(const QColor &c)
 {
-    QLinearGradient b(0., 0., 0., QApplication::fontMetrics().height());
+    QFontMetricsF metrics(QApplication::font());
+    QLinearGradient b(0., 0., 0., metrics.height());
     b.setColorAt(0., c);
     b.setColorAt(1., c.darker());
     return QBrush(b);
