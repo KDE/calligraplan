@@ -92,7 +92,7 @@ void RequieredResourceDelegate::setModelData(QWidget *editor, QAbstractItemModel
     ResourceItemModel *rm = qobject_cast<ResourceItemModel*>(pm->sourceModel());
     QList<Resource*> lst;
     const QList<QPersistentModelIndex> indexes = box->currentIndexes();
-    for (const QModelIndex &i : indexes) {
+    for (const QModelIndex i : indexes) {
         lst << rm->resource(pm->mapToSource(i));
     }
     ResourceAllocationItemModel *mdl = qobject_cast<ResourceAllocationItemModel*>(static_cast<QAbstractProxyModel*>(model)->sourceModel());

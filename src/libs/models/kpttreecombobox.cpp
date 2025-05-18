@@ -82,7 +82,7 @@ void TreeComboBox::showPopup()
     sm->clearSelection();
     view()->setSelectionMode(m_selectionmode);
     view()->setSelectionBehavior(QAbstractItemView::SelectRows);
-    for (const QModelIndex &i : std::as_const(m_currentIndexes)) {
+    for (const QModelIndex i : std::as_const(m_currentIndexes)) {
         if (i.isValid()) {
             sm->select(i, QItemSelectionModel::Select | QItemSelectionModel::Rows);
         }

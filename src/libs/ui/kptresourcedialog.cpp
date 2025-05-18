@@ -351,7 +351,7 @@ void ResourceDialog::slotOk()
     ResourceItemSFModel *m = static_cast<ResourceItemSFModel*>(dia->required->model());
     QStringList lst;
     const auto indexes = dia->required->currentIndexes();
-    for (const QModelIndex &i : indexes) {
+    for (const QModelIndex i : indexes) {
         Resource *r = m->resource(i);
         if (r) lst << r->id();
     }
