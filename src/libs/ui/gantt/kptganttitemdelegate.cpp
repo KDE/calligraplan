@@ -55,12 +55,13 @@ GanttItemDelegate::GanttItemDelegate(QObject *parent)
     showSchedulingError(false),
     m_constraintXOffset(0.0)
 {
-    QLinearGradient b(0., 0., 0., QApplication::fontMetrics().height());
+    QFontMetricsF metrics(QApplication::font());
+    QLinearGradient b(0., 0., 0., metrics.height());
     b.setColorAt(0., Qt::red);
     b.setColorAt(1., Qt::darkRed);
     m_criticalBrush = QBrush(b);
 
-    QLinearGradient sb(0., 0., 0., QApplication::fontMetrics().height());
+    QLinearGradient sb(0., 0., 0., metrics.height());
     sb.setColorAt(0., Qt::yellow);
     sb.setColorAt(1., Qt::darkYellow);
     m_schedulingErrorBrush = QBrush(sb);
@@ -496,7 +497,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
                     << NodeModel::NodeConstraintsError
                     << NodeModel::NodeEffortNotMet
                     << NodeModel::NodeSchedulingError;
-                for (int i : qAsConst(lst)) {
+                for (int i : std::as_const(lst)) {
                     QVariant v = data(idx, i, Qt::EditRole);
                     //debugPlan<<idx.data(NodeModel::NodeName).toString()<<": showSchedulingError"<<i<<v;
                     if (v.toBool()) {
@@ -632,7 +633,7 @@ void GanttItemDelegate::paintGanttItem(QPainter* painter, const KGantt::StyleOpt
                     << NodeModel::NodeConstraintsError
                     << NodeModel::NodeEffortNotMet
                     << NodeModel::NodeSchedulingError;
-                for (int i : qAsConst(lst)) {
+                for (int i : std::as_const(lst)) {
                     QVariant v = data(idx, i, Qt::EditRole);
                     //debugPlan<<idx.data(NodeModel::NodeName).toString()<<": showSchedulingError"<<i<<v;
                     if (v.toBool()) {
@@ -858,7 +859,8 @@ void GanttItemDelegate::paintConstraintItem(QPainter* painter, const  QStyleOpti
 ResourceGanttItemDelegate::ResourceGanttItemDelegate(QObject *parent)
     : KGantt::ItemDelegate(parent)
 {
-    QLinearGradient b(0., 0., 0., QApplication::fontMetrics().height());
+    QFontMetricsF metrics(QApplication::font());
+    QLinearGradient b(0., 0., 0., metrics.height());
     b.setColorAt(0., Qt::red);
     b.setColorAt(1., Qt::darkRed);
     m_overloadBrush = QBrush(b);
