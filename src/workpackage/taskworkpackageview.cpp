@@ -462,7 +462,8 @@ GanttItemDelegate::GanttItemDelegate(QObject *parent)
     showSchedulingError = false;
     showStatus = true;
 
-    QLinearGradient b(0., 0., 0., QApplication::fontMetrics().height());
+    QFontMetricsF metrics(QApplication::font());
+    QLinearGradient b(0., 0., 0., metrics.height());
     b.setColorAt(0., Qt::green);
     b.setColorAt(1., Qt::darkGreen);
     m_brushes.insert(Brush_Normal, QBrush(b));

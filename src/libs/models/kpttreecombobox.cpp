@@ -82,7 +82,7 @@ void TreeComboBox::showPopup()
     sm->clearSelection();
     view()->setSelectionMode(m_selectionmode);
     view()->setSelectionBehavior(QAbstractItemView::SelectRows);
-    for (const QModelIndex &i : qAsConst(m_currentIndexes)) {
+    for (const QModelIndex &i : std::as_const(m_currentIndexes)) {
         if (i.isValid()) {
             sm->select(i, QItemSelectionModel::Select | QItemSelectionModel::Rows);
         }
@@ -102,7 +102,7 @@ void TreeComboBox::paintEvent(QPaintEvent *event)
     QStyleOptionComboBox opt;
     initStyleOption(&opt);
     QStringList lst;
-    for (const QPersistentModelIndex &idx : qAsConst(m_currentIndexes)) {
+    for (const QPersistentModelIndex &idx : std::as_const(m_currentIndexes)) {
         if (idx.isValid()) {
             lst << idx.data().toString();
         }

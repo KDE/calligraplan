@@ -406,7 +406,7 @@ bool SchedulingView::calculateSchedule(KPlato::SchedulerPlugin *scheduler)
         m_logView->resizeColumnToContents(0);
         return false;
     }
-    for (KoDocument *doc : qAsConst(docs)) {
+    for (KoDocument *doc : std::as_const(docs)) {
         int prio = doc->property(SCHEDULINGPRIORITY).isValid() ? doc->property(SCHEDULINGPRIORITY).toInt() : -1;
         if (doc->property(SCHEDULINGCONTROL).toString() == QStringLiteral("Schedule")) {
             m_schedulingContext.addProject(doc, prio);

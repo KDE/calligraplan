@@ -51,7 +51,7 @@ const Edge* Vertex::findEdge(const Vertex* vertex) const
     if (!vertex)
         return nullptr;
     const Edge* edge = nullptr;
-    for (Edge* e : qAsConst(m_edges)) {
+    for (Edge* e : std::as_const(m_edges)) {
         if (e->vertex() == vertex &&
             (!edge || e->weight() < edge->weight())) {
             edge = e;
@@ -62,7 +62,7 @@ const Edge* Vertex::findEdge(const Vertex* vertex) const
 
 void Vertex::relaxVertices(PriorityQueue<Vertex>& queue)
 {
-    for (Edge* e : qAsConst(m_edges)) {
+    for (Edge* e : std::as_const(m_edges)) {
         e->relax(this, queue);
     }
 }
@@ -74,7 +74,7 @@ void Vertex::dump(const QByteArray& indent) const
 #else
     debugFilter << indent << "Vertex:" << m_mimeType << " (" << m_weight << "):";
     const QByteArray i(indent + "   ");
-    for (Edge* edge : qAsConst(m_edges)) {
+    for (Edge* edge : std::as_const(m_edges)) {
         edge->dump(i);
     }
 #endif

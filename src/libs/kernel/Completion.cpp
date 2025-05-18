@@ -204,7 +204,7 @@ Duration Completion::actualEffort() const
 {
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
+        for (const UsedEffort *ue : std::as_const(m_usedEffort)) {
             const QMap<QDate, UsedEffort::ActualEffort> map = ue->actualEffortMap();
             QMap<QDate, UsedEffort::ActualEffort>::const_iterator it;
             for (it = map.constBegin(); it != map.constEnd(); ++it) {
@@ -231,7 +231,7 @@ Duration Completion::actualEffort(QDate date) const
 {
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
+        for (const UsedEffort *ue : std::as_const(m_usedEffort)) {
             if (ue && ue->actualEffortMap().contains(date)) {
                 eff += ue->actualEffortMap().value(date).effort();
             }
@@ -250,7 +250,7 @@ Duration Completion::actualEffortTo(QDate date) const
     //debugPlan<<date;
     Duration eff;
     if (m_entrymode == EnterEffortPerResource) {
-        for (const UsedEffort *ue : qAsConst(m_usedEffort)) {
+        for (const UsedEffort *ue : std::as_const(m_usedEffort)) {
             eff += ue->effortTo(date);
         }
     } else {
@@ -286,7 +286,7 @@ double Completion::averageCostPrHour(QDate date, long id) const
     if (eff > 0.0) {
         cost /= eff;
     } else {
-        for (double c : qAsConst(cl)) {
+        for (double c : std::as_const(cl)) {
             cost += c;
         }
         cost /= cl.count();
@@ -766,7 +766,7 @@ Duration Completion::UsedEffort::effortTo(QDate date) const
 Duration Completion::UsedEffort::effort() const
 {
     Duration eff;
-    for (const ActualEffort &e : qAsConst(m_actual)) {
+    for (const ActualEffort &e : std::as_const(m_actual)) {
         eff += e.effort();
     }
     return eff;
@@ -869,7 +869,7 @@ QHash<Resource*, Appointment> Completion::createAppointmentsPerTask() const
             day -= start.time().msecsSinceStartOfDay();
         }
         qreal factor = workDay / day;
-        for (Resource *r : qAsConst(resources)) {
+        for (Resource *r : std::as_const(resources)) {
             const qreal actualEffort = this->actualEffort(date).milliseconds() / resources.count();
             const int load = 100 * factor * actualEffort / workDay;
             apps[r].addInterval(start, DateTime(date.addDays(1), QTime(), project->timeZone()), load);

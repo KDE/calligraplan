@@ -753,7 +753,7 @@ void ItemModelBase::writeText(QMimeData *m, const QModelIndexList &indexes) cons
         }
         if (mimeTypes().contains(QStringLiteral("text/plain"))) {
             QString s;
-            for (const auto &t : qAsConst(text)) {
+            for (const auto &t : std::as_const(text)) {
                 s += t.join(QLatin1Char('\t'));
                 s += QLatin1Char('\n');
             }

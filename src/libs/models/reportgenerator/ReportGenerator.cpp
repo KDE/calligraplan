@@ -256,7 +256,7 @@ bool ReportGenerator::initiate()
         return false;
     }
 
-    for (ItemModelBase *m : qAsConst(m_basemodels)) {
+    for (ItemModelBase *m : std::as_const(m_basemodels)) {
         m->setProject(m_project);
         m->setScheduleManager(m_manager);
         if (qobject_cast<ChartItemModel*>(m)) {

@@ -51,7 +51,7 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
     context.project->setConstraintStartTime(DateTime());
     context.project->setConstraintEndTime(DateTime());
     int prio = projects.count();
-    for (const auto part : qAsConst(projects)) {
+    for (const auto part : std::as_const(projects)) {
         auto doc = part->document();
         auto project = doc->project();
         ScheduleManager *sm = nullptr;
@@ -176,7 +176,7 @@ void TJSchedulerTester::testSingleProjectWithBookings()
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     auto project = context.projects.first()->project();
     // Debug::print(project, "--", true);
-    for (auto &log : qAsConst(context.log)) {
+    for (auto &log : std::as_const(context.log)) {
         qInfo()<<log.formatMsg();
     }
     Debug::print(project, "", true);
@@ -198,7 +198,7 @@ void TJSchedulerTester::testMultiple()
     context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Multiple Project", projects);
     m_scheduler->schedule(context);
-    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     auto project = projects.value(0)->document()->project();
     QCOMPARE(project->childNode(0)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 8));
     QCOMPARE(project->childNode(1)->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 9));
@@ -225,7 +225,7 @@ void TJSchedulerTester::testMultipleWithBookingsParalell()
     context.scheduleInParallel = true;
     populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
-    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     // Booking 2: R1 booked 2021-04-12, 2021-04-13
     auto project = projects.value(0)->document()->project();
@@ -255,7 +255,7 @@ void TJSchedulerTester::testMultipleWithBookingsSequential()
     context.scheduleInParallel = false;
     populateSchedulingContext(context, "Test Multiple Project With Bookings", projects, bookings);
     m_scheduler->schedule(context);
-    // for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    // for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     // Booking 1: R1 booked 2021-04-08, 2021-04-09
     // Booking 2: R1 booked 2021-04-12, 2021-04-13
     auto project = projects.value(0)->document()->project();
@@ -282,7 +282,7 @@ void TJSchedulerTester::testRecalculate()
     QVERIFY(projects.value(0)->document()->project()->childNode(0)->schedule()->parent());
     context.calculateFrom = QDate(2021, 4, 26).startOfDay();
     m_scheduler->schedule(context);
-    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     // T1 Recalculate 1: Two first days has been completed, 3 last days moved
     auto project = projects.value(0)->document()->project();
     auto T1 = static_cast<Task*>(project->childNode(0));
@@ -316,7 +316,7 @@ void TJSchedulerTester::testRecalculateMultiple()
 
     context.calculateFrom = QDateTime(QDate(2021, 4, 26), QTime());
     m_scheduler->schedule(context);
-    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     //qDebug()<<"Check project"<<project;
     QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
     QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
@@ -358,7 +358,7 @@ void TJSchedulerTester::testRecalculateMultipleSeq()
 
     context.calculateFrom = QDateTime(QDate(2021, 4, 26), QTime());
     m_scheduler->schedule(context);
-    //for (const Schedule::Log &l : qAsConst(context.log)) qDebug()<<l;
+    //for (const Schedule::Log &l : std::as_const(context.log)) qDebug()<<l;
     //qDebug()<<"Check project"<<project;
     QCOMPARE(T1->startTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));
     QCOMPARE(T1->endTime().toTimeZone(project->timeZone()).date(), QDate(2021, 4, 26));

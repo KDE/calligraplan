@@ -163,7 +163,7 @@ void CalendarDay::save(QDomElement &element) const {
     if (m_timeIntervals.count() == 0)
         return;
 
-    for (TimeInterval *i : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *i : std::as_const(m_timeIntervals)) {
         QDomElement me = element.ownerDocument().createElement(QStringLiteral("time-interval"));
         element.appendChild(me);
         me.setAttribute(QStringLiteral("length"), QString::number(i->second));
@@ -213,7 +213,7 @@ bool CalendarDay::operator==(const CalendarDay &day) const {
         //debugPlan<<m_timeIntervals.count()<<" !="<<day.timeIntervals().count();
         return false;
     }
-    for (TimeInterval *a : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *a : std::as_const(m_timeIntervals)) {
         bool res = false;
         const auto intervals = day.timeIntervals();
         for (TimeInterval *b : intervals) {
@@ -253,7 +253,7 @@ Duration CalendarDay::effort(QDate date, QTime start, int length, const QTimeZon
         return eff;
     }
     int l = 0;
-    for (TimeInterval *i : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *i : std::as_const(m_timeIntervals)) {
         if (! i->endsMidnight() && start >= i->endTime()) {
             //debugPlan<<"Skip:"<<start<<">="<<i->first.addMSecs(i->second);
             continue;
@@ -294,7 +294,7 @@ Duration CalendarDay::workDuration() const
         //debugPlan<<"Non working day";
         return d;
     }
-    for (TimeInterval *i : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *i : std::as_const(m_timeIntervals)) {
         //debugPlan<<"Interval:"<<i->first<<" -"<<i->second;
         d += Duration((qint64)i->second);
     }
@@ -317,7 +317,7 @@ TimeInterval CalendarDay::interval(QDate date, QTime start, int length, const QT
     if (! hasInterval()) {
         return TimeInterval();
     }
-    for (TimeInterval *i : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *i : std::as_const(m_timeIntervals)) {
         //debugPlan<<"Interval:"<<i->first<<i->second<<i->first.addMSecs(i->second);
         if (! i->endsMidnight() && start >= i->endTime()) {
             //debugPlan<<"Skip:"<<start<<">="<<i->first.addMSecs(i->second);
@@ -382,7 +382,7 @@ bool CalendarDay::hasInterval(QDate date, QTime start, int length, const QTimeZo
 
 Duration CalendarDay::duration() const {
     Duration dur;
-    for (TimeInterval *i : qAsConst(m_timeIntervals)) {
+    for (TimeInterval *i : std::as_const(m_timeIntervals)) {
         dur += Duration((qint64)i->second);
     }
     return dur;
@@ -603,7 +603,7 @@ bool CalendarWeekdays::hasInterval(QDate date, QTime start, int length, const QT
 bool CalendarWeekdays::hasInterval() const
 {
     //debugPlan;
-    for (CalendarDay *d : qAsConst(m_weekdays)) {
+    for (CalendarDay *d : std::as_const(m_weekdays)) {
         if (d->hasInterval())
             return true;
     }
@@ -630,7 +630,7 @@ int CalendarWeekdays::dayOfWeek(const QString& name)
 
 Duration CalendarWeekdays::duration() const {
     Duration dur;
-    for (CalendarDay *d : qAsConst(m_weekdays)) {
+    for (CalendarDay *d : std::as_const(m_weekdays)) {
         dur += d->duration();
     }
     return dur;
@@ -944,7 +944,7 @@ void Calendar::save(QDomElement &element) const {
     }
     me.setAttribute(QStringLiteral("timezone"), m_timeZone.isValid() ? QString::fromLatin1(m_timeZone.id()) : QString());
     m_weekdays->save(me);
-    for (CalendarDay *d : qAsConst(m_days)) {
+    for (CalendarDay *d : std::as_const(m_days)) {
         QDomElement e = me.ownerDocument().createElement(QStringLiteral("day"));
         me.appendChild(e);
         d->save(e);
@@ -981,7 +981,7 @@ int Calendar::state(QDate date) const
 
 CalendarDay *Calendar::findDay(QDate date, bool skipUndefined) const {
     //debugPlan<<date.toString();
-    for (CalendarDay *d : qAsConst(m_days)) {
+    for (CalendarDay *d : std::as_const(m_days)) {
         if (d->date() == date) {
             if (skipUndefined  && d->state() == CalendarDay::Undefined) {
                 continue; // hmmm, break?
@@ -1036,7 +1036,7 @@ void Calendar::setDate(CalendarDay *day, QDate date)
 
 CalendarDay *Calendar::day(QDate date) const
 {
-    for (CalendarDay *d : qAsConst(m_days)) {
+    for (CalendarDay *d : std::as_const(m_days)) {
         if (d->date() == date) {
             return d;
         }
@@ -1491,7 +1491,7 @@ QList<std::pair<CalendarDay*, CalendarDay*> > Calendar::consecutiveVacationDays(
 {
     QList<std::pair<CalendarDay*, CalendarDay*> > lst;
     std::pair<CalendarDay*, CalendarDay*> interval(nullptr, nullptr);
-    for (CalendarDay* day : qAsConst(m_days)) {
+    for (CalendarDay* day : std::as_const(m_days)) {
         if (day->state() == CalendarDay::NonWorking) {
             if (interval.first == nullptr) {
                 interval.first = day;
@@ -1510,7 +1510,7 @@ QList<std::pair<CalendarDay*, CalendarDay*> > Calendar::consecutiveVacationDays(
 QList<CalendarDay*> Calendar::workingDays() const
 {
     QList<CalendarDay*> lst;
-    for (CalendarDay* day : qAsConst(m_days)) {
+    for (CalendarDay* day : std::as_const(m_days)) {
         if (day->state() == CalendarDay::Working) {
             lst << day;
         }

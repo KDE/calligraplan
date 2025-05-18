@@ -36,7 +36,7 @@ Graph::Graph(const QByteArray& from)
 
 Graph::~Graph()
 {
-    for (Vertex* vertex : qAsConst(m_vertices)) {
+    for (Vertex* vertex : std::as_const(m_vertices)) {
         delete vertex;
     }
     m_vertices.clear();
@@ -50,7 +50,7 @@ void Graph::setSourceMimeType(const QByteArray& from)
     m_graphValid = false;
 
     // Initialize with "infinity" ...
-    for (Vertex* vertex : qAsConst(m_vertices)) {
+    for (Vertex* vertex : std::as_const(m_vertices)) {
         vertex->reset();
     }
     // ...and re-run the shortest path search for the new source mime
@@ -91,7 +91,7 @@ void Graph::dump() const
 #ifndef NDEBUG
     debugFilter << "+++++++++ Graph::dump +++++++++";
     debugFilter << "From:" << m_from;
-    for (Vertex *vertex : qAsConst(m_vertices)) {
+    for (Vertex *vertex : std::as_const(m_vertices)) {
         vertex->dump("   ");
     }
     debugFilter << "+++++++++ Graph::dump (done) +++++++++";
@@ -111,7 +111,7 @@ void Graph::buildGraph()
         QStringList nativeMimeTypes = metaData.value(QString::fromLatin1("X-KDE-ExtraNativeMimeTypes")).toVariant().toStringList();
         nativeMimeTypes += metaData.value(QString::fromLatin1("X-KDE-NativeMimeType")).toString();
 
-        for (const QString& nativeMimeType : qAsConst(nativeMimeTypes)) {
+        for (const QString& nativeMimeType : std::as_const(nativeMimeTypes)) {
             const QByteArray key = nativeMimeType.toLatin1();
             if (!m_vertices.contains(key))
                 m_vertices[key] = new Vertex(key);
@@ -124,7 +124,7 @@ void Graph::buildGraph()
     for (KoFilterEntry::Ptr filter : filters) {
 
         // First add the "starting points" to the dict
-        for (const QString& import_ : qAsConst(filter->import_)) {
+        for (const QString& import_ : std::as_const(filter->import_)) {
             const QByteArray key = import_.toLatin1();    // latin1 is okay here (werner)
             // already there?
             if (!m_vertices.contains(key))
@@ -134,7 +134,7 @@ void Graph::buildGraph()
         // Are we allowed to use this filter at all?
         if (KoFilterManager::filterAvailable(filter)) {
 
-            for (const QString& exportIt : qAsConst(filter->export_)) {
+            for (const QString& exportIt : std::as_const(filter->export_)) {
 
                 // First make sure the export vertex is in place
                 const QByteArray key = exportIt.toLatin1();    // latin1 is okay here
@@ -144,7 +144,7 @@ void Graph::buildGraph()
                     m_vertices.insert(key, exp);
                 }
                 // Then create the appropriate edges
-                for (const QString& import_ : qAsConst(filter->import_)) {
+                for (const QString& import_ : std::as_const(filter->import_)) {
                     m_vertices[import_.toLatin1()]->addEdge(new Edge(exp, filter));
                 }
             }

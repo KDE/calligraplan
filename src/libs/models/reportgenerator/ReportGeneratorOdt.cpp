@@ -86,7 +86,7 @@ ReportGeneratorOdt::ReportGeneratorOdt()
 
 ReportGeneratorOdt::~ReportGeneratorOdt()
 {
-    for (QAbstractItemModel *m : qAsConst(m_datamodels)) {
+    for (QAbstractItemModel *m : std::as_const(m_datamodels)) {
         if (!m_basemodels.contains(qobject_cast<ItemModelBase*>(m))) {
             delete m;
         }
@@ -454,7 +454,7 @@ void ReportGeneratorOdt::handleUserFieldDecls(KoXmlWriter &writer, const KoXmlEl
             field->setModel(dataModel(field->dataName), m_headerrole[field->dataName]);
             dbgRGVariable<<"    added variable"<<field->name<<field->columns<<field->properties;
         } else {
-            for (const QString &k : qAsConst(m_keys)) {
+            for (const QString &k : std::as_const(m_keys)) {
                 const QString vname = tags.first();
                 if (!vname.startsWith(k)) {
                     continue;
@@ -754,12 +754,12 @@ void ReportGeneratorOdt::treatChart(KoOdfReadStore &reader, KoStore &outStore, c
         }
         if (field->properties.isEmpty()) {
             // default: take all
-            for (const QString &c : qAsConst(field->headerNames)) {
+            for (const QString &c : std::as_const(field->headerNames)) {
                 field->columns << c;
             }
         } else {
             QStringList values;
-            for (const QString &p : qAsConst(field->properties)) {
+            for (const QString &p : std::as_const(field->properties)) {
                 if (p.startsWith(QStringLiteral("values"))) {
                     QStringList vl = p.split(QStringLiteral("="));
                     Q_ASSERT(vl.count() > 1);
@@ -905,7 +905,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
             writer.endElement();
             // write legends
             UserField *field = m_userfields[m_activefields.last()];
-            for (const QString &name : qAsConst(field->columns)) {
+            for (const QString &name : std::as_const(field->columns)) {
                 QString value = field->headerData(name);
                 writer.startElement("table:table-cell");
                 writer.addAttribute("office:value-type", "string");
@@ -936,7 +936,7 @@ void ReportGeneratorOdt::writeChartElements(KoXmlWriter &writer, const KoXmlElem
                     writer.endElement();
                     writer.endElement();
                     // then the data
-                    for (const QString &name : qAsConst(field->columns)) {
+                    for (const QString &name : std::as_const(field->columns)) {
                         QVariant value = field->model.index(r, field->column(name)).data();
                         writer.startElement("table:table-cell");
                         writer.addAttribute("office:value-type", "float");

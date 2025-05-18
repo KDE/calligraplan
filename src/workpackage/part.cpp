@@ -691,7 +691,7 @@ int Part::docType(const KPlato::Document *doc) const
 
 DocumentChild *Part::findChild(const KPlato::Document *doc) const
 {
-    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (const WorkPackage *wp : std::as_const(m_packageMap)) {
         DocumentChild *c = wp->findChild(doc);
         if (c) {
             return c;
@@ -702,7 +702,7 @@ DocumentChild *Part::findChild(const KPlato::Document *doc) const
 
 WorkPackage *Part::findWorkPackage(const KPlato::Document *doc) const
 {
-    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (const WorkPackage *wp : std::as_const(m_packageMap)) {
         if (wp->contains(doc)) {
             return const_cast<WorkPackage*>(wp);
         }
@@ -712,7 +712,7 @@ WorkPackage *Part::findWorkPackage(const KPlato::Document *doc) const
 
 WorkPackage *Part::findWorkPackage(const DocumentChild *child) const
 {
-    for (const WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (const WorkPackage *wp : std::as_const(m_packageMap)) {
         if (wp->contains(child)) {
             return const_cast<WorkPackage*>(wp);
         }
@@ -812,7 +812,7 @@ bool Part::saveAs(const QUrl &/*url*/)
 
 void Part::saveModifiedWorkPackages()
 {
-    for (WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (WorkPackage *wp : std::as_const(m_packageMap)) {
         if (wp->isModified()) {
             saveWorkPackage(wp);
         }
@@ -828,7 +828,7 @@ void Part::saveWorkPackage(WorkPackage *wp)
 bool Part::saveWorkPackages(bool silent)
 {
     debugPlanWork<<silent;
-    for (WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (WorkPackage *wp : std::as_const(m_packageMap)) {
         wp->saveToProjects(this);
     }
     m_undostack->setClean();
@@ -851,7 +851,7 @@ bool Part::queryClose()
 {
     debugPlanWork;
     QList<WorkPackage*> modifiedList;
-    for (WorkPackage *wp : qAsConst(m_packageMap)) {
+    for (WorkPackage *wp : std::as_const(m_packageMap)) {
         switch (wp->queryClose(this)) {
             case KMessageBox::SecondaryAction:
                 modifiedList << wp;
@@ -862,7 +862,7 @@ bool Part::queryClose()
         }
     }
     // closeEvent calls queryClose so modified must be reset or else wps are queried all over again
-    for (WorkPackage *wp : qAsConst(modifiedList)) {
+    for (WorkPackage *wp : std::as_const(modifiedList)) {
         wp->setModified(false);
     }
     setModified(false);
@@ -883,7 +883,7 @@ bool Part::saveFile()
 void Part::setNoGui(bool nogui)
 {
     m_nogui = nogui;
-    for (auto wp : qAsConst(m_packageMap)) {
+    for (auto wp : std::as_const(m_packageMap)) {
         wp->setNoGui(nogui);
     }
 }

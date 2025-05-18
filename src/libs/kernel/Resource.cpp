@@ -79,20 +79,20 @@ Resource::~Resource() {
         removeId(); // only remove myself (I may be just a working copy)
     }
     removeRequests();
-    for (Schedule *s : qAsConst(m_schedules)) {
+    for (Schedule *s : std::as_const(m_schedules)) {
         delete s;
     }
     clearExternalAppointments();
     if (m_cost.account) {
         m_cost.account->removeRunning(*this);
     }
-    for (ResourceGroup *g : qAsConst(m_parents)) {
+    for (ResourceGroup *g : std::as_const(m_parents)) {
         g->takeResource(this);
     }
 }
 
 void Resource::removeRequests() {
-    for (ResourceRequest *r : qAsConst(m_requests)) {
+    for (ResourceRequest *r : std::as_const(m_requests)) {
         r->setResource(nullptr); // avoid the request to mess with my list
         delete r;
     }
@@ -319,7 +319,7 @@ QList<Resource*> Resource::requiredResources() const
 {
     if (m_requiredResources.count() != m_requiredIds.count()) {
         const_cast<Resource*>(this)->m_requiredResources.clear();
-        for (const QString &s : qAsConst(m_requiredIds)) {
+        for (const QString &s : std::as_const(m_requiredIds)) {
             Resource *r = findId(s);
             if (r) {
                 const_cast<Resource*>(this)->m_requiredResources << r;
@@ -348,7 +348,7 @@ void Resource::addRequiredId(const QString &id)
 void Resource::refreshRequiredIds()
 {
     m_requiredIds.clear();
-    for (const auto r : qAsConst(m_requiredResources)) {
+    for (const auto r : std::as_const(m_requiredResources)) {
         m_requiredIds << r->id();
     }
 }
@@ -472,14 +472,14 @@ Schedule *Resource::findSchedule(long id) const
         return m_currentSchedule;
     }
     if (id == BASELINESCHEDULE || id == ANYSCHEDULED) {
-        for (Schedule *s : qAsConst(m_schedules)) {
+        for (Schedule *s : std::as_const(m_schedules)) {
             if (s->isBaselined()) {
                 return s;
             }
         }
     }
     if (id == ANYSCHEDULED) {
-        for (Schedule *s : qAsConst(m_schedules)) {
+        for (Schedule *s : std::as_const(m_schedules)) {
             if (s->isScheduled()) {
                 return s;
             }
@@ -490,7 +490,7 @@ Schedule *Resource::findSchedule(long id) const
 
 bool Resource::isScheduled() const
 {
-    for (Schedule *s : qAsConst(m_schedules)) {
+    for (Schedule *s : std::as_const(m_schedules)) {
         if (s->isScheduled()) {
             return true;
         }
@@ -698,7 +698,7 @@ AppointmentIntervalList Resource::workIntervals(const DateTime &from, const Date
         for (const Appointment *a : appointments) {
             work -= a->intervals();
         }
-        for (const Appointment *a : qAsConst(m_externalAppointments)) {
+        for (const Appointment *a : std::as_const(m_externalAppointments)) {
             work -= a->intervals();
         }
     }
@@ -1197,7 +1197,7 @@ AppointmentIntervalList Resource::externalAppointments(const DateTimeInterval &i
 {
     //debugPlan<<m_externalAppointments;
     Appointment app;
-    for (Appointment *a : qAsConst(m_externalAppointments)) {
+    for (Appointment *a : std::as_const(m_externalAppointments)) {
         app += interval.isValid() ? a->extractIntervals(interval) : *a;
     }
     return app.intervals();
@@ -1269,7 +1269,7 @@ void Resource::updateCache() const
 {
     if (m_teamMembers.count() != m_teamMemberIds.count()) {
         const_cast<Resource*>(this)->m_teamMembers.clear();
-        for (const QString &s : qAsConst(m_teamMemberIds)) {
+        for (const QString &s : std::as_const(m_teamMemberIds)) {
             Resource *r = findId(s);
             if (r) {
                 const_cast<Resource*>(this)->m_teamMembers << r;
@@ -1334,11 +1334,11 @@ void Resource::removeTeamMemberId(const QString &id)
 #ifndef NDEBUG
         Q_ASSERT(m_teamMemberIds.count() == m_teamMembers.count());
         QStringList ids;
-        for (const auto r : qAsConst(m_teamMembers)) {
+        for (const auto r : std::as_const(m_teamMembers)) {
             ids << r->id();
         }
         Q_ASSERT(ids == m_teamMemberIds);
-        for (const auto r : qAsConst(m_teamMembers)) {
+        for (const auto r : std::as_const(m_teamMembers)) {
             Q_ASSERT(r == findId(r->id()));
         }
 #endif
@@ -1361,7 +1361,7 @@ void Resource::setTeamMemberIds(const QStringList &ids)
 void Resource::refreshTeamMemberIds()
 {
     m_teamMemberIds.clear();
-    for (const auto r : qAsConst(m_teamMembers)) {
+    for (const auto r : std::as_const(m_teamMembers)) {
         m_teamMemberIds << r->id();
     }
 }

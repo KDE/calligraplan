@@ -226,7 +226,7 @@ void PortfolioView::slotRemoveSelected()
             docs << doc;
         }
     }
-    for (KoDocument *doc : qAsConst(docs)) {
+    for (KoDocument *doc : std::as_const(docs)) {
         m->portfolio()->removeDocument(doc);
     }
 }

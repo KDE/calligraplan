@@ -112,7 +112,7 @@ Project::Project() :
     new Scenario(this, "plan", "Plan", nullptr);
     scenarioList.createIndex(true);
     scenarioList.createIndex(false);
-//     for (CoreAttributes *s : qAsConst(scenarioList)) {
+//     for (CoreAttributes *s : std::as_const(scenarioList)) {
 //         qDebug()<<"Project:"<<static_cast<CoreAttributes*>(s)<<static_cast<CoreAttributes*>(s)->getName()<<static_cast<CoreAttributes*>(s)->getSequenceNo();
 //     }
     setNow(time(nullptr));
@@ -492,7 +492,7 @@ Project::pass2(bool noDepCheck)
         return false;
     }
 //     qDebug()<<"pass2 task info:";
-//     for (CoreAttributes *a : qAsConst(taskList)) {
+//     for (CoreAttributes *a : std::as_const(taskList)) {
 //         Task *t = static_cast<Task*>(a);
 //         qDebug()<<t->getName()<<t->getDuration(0)<<t->getPrecedes()<<t->getDepends();
 //     }
@@ -512,15 +512,15 @@ Project::pass2(bool noDepCheck)
     srand((int) start);
 
     // Create hash to map task IDs to pointers.
-    for (CoreAttributes *t : qAsConst(taskList))
+    for (CoreAttributes *t : std::as_const(taskList))
     {
         idHash.insert(static_cast<Task*>(t)->getId(), static_cast<Task*>(t));
     }
     // Create cross links from dependency lists.
-    for (CoreAttributes *t : qAsConst(taskList))
+    for (CoreAttributes *t : std::as_const(taskList))
         static_cast<Task*>(t)->xRef(idHash);
 
-    for (CoreAttributes *t : qAsConst(taskList))
+    for (CoreAttributes *t : std::as_const(taskList))
     {
         // Set dates according to implicit dependencies
         static_cast<Task*>(t)->implicitXRef();
@@ -533,7 +533,7 @@ Project::pass2(bool noDepCheck)
     }
 
     // Save a copy of all manually booked resources.
-    for (CoreAttributes *r : qAsConst(resourceList))
+    for (CoreAttributes *r : std::as_const(resourceList))
         static_cast<Resource*>(r)->saveSpecifiedBookings();
 
     /* Now we can copy the missing values from the plan scenario to the other
@@ -549,8 +549,8 @@ Project::pass2(bool noDepCheck)
     // Now check that all tasks have sufficient data to be scheduled.
     setProgressInfo(QString("Checking scheduling data..."));
     bool error = false;
-    for (CoreAttributes *s : qAsConst(scenarioList)) {
-        for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *s : std::as_const(scenarioList)) {
+        for (CoreAttributes *t : std::as_const(taskList)) {
             if (!static_cast<Task*>(t)->preScheduleOk(static_cast<Scenario*>(s)->getSequenceNo() - 1))
             {
                 error = true;
@@ -567,7 +567,7 @@ Project::pass2(bool noDepCheck)
             tjDebug("Searching for dependency loops ...");
         // Check all tasks for dependency loops.
         LDIList chkedTaskList;
-        for (CoreAttributes *t : qAsConst(taskList)) {
+        for (CoreAttributes *t : std::as_const(taskList)) {
             if (static_cast<Task*>(t)->loopDetector(chkedTaskList))
                 return false;
         }
@@ -575,8 +575,8 @@ Project::pass2(bool noDepCheck)
         setProgressInfo(QString("Searching for underspecified tasks ..."));
         if (DEBUGPS(1))
             tjDebug("Searching for underspecified tasks ...");
-        for (CoreAttributes *s : qAsConst(scenarioList)) {
-            for (CoreAttributes *t : qAsConst(taskList)) {
+        for (CoreAttributes *s : std::as_const(scenarioList)) {
+            for (CoreAttributes *t : std::as_const(taskList)) {
                 if (!static_cast<Task*>(t)->checkDetermination(static_cast<Scenario*>(s)->getSequenceNo() - 1))
                     error = true;
             }
@@ -588,7 +588,7 @@ Project::pass2(bool noDepCheck)
     TJ::TaskList starts;
     TJ::TaskList ends;
     QStringList tl;
-    for (TJ::CoreAttributes *t : qAsConst(taskList)) {
+    for (TJ::CoreAttributes *t : std::as_const(taskList)) {
         tl << t->getName();
         if (! static_cast<TJ::Task*>(t)->hasPrevious()) {
             starts << static_cast<TJ::Task*>(t);
@@ -600,7 +600,7 @@ Project::pass2(bool noDepCheck)
         }
     }
     tl.clear();
-    for (TJ::CoreAttributes *t : qAsConst(taskList)) {
+    for (TJ::CoreAttributes *t : std::as_const(taskList)) {
         tl << t->getName();
         if (! static_cast<TJ::Task*>(t)->hasPrevious()) {
             starts << static_cast<TJ::Task*>(t);
@@ -615,7 +615,7 @@ Project::pass2(bool noDepCheck)
         qDebug()<<"Tasks:"<<tl;
         qDebug()<<"Depends/precedes: -------------------";
         tl.clear();
-        for (TJ::CoreAttributes *t : qAsConst(taskList)) {
+        for (TJ::CoreAttributes *t : std::as_const(taskList)) {
             tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " depends: ";
             for (QListIterator<TJ::TaskDependency*> it = static_cast<TJ::Task*>(t)->getDependsIterator(); it.hasNext();) {
                 const TJ::Task *a = it.next()->getTaskRef();
@@ -633,7 +633,7 @@ Project::pass2(bool noDepCheck)
         }
         qDebug()<<"Followers/previous: -------------------";
         tl.clear();
-        for (TJ::CoreAttributes *t : qAsConst(taskList)) {
+        for (TJ::CoreAttributes *t : std::as_const(taskList)) {
             tl << t->getName() + (static_cast<TJ::Task*>(t)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " followers: ";
             for (TJ::TaskListIterator it = static_cast<TJ::Task*>(t)->getFollowersIterator(); it.hasNext();) {
                 const TJ::Task *a = static_cast<TJ::Task*>(it.next());
@@ -651,7 +651,7 @@ Project::pass2(bool noDepCheck)
         }
         qDebug()<<"Successors/predecessors: -------------------";
         tl.clear();
-        for (TJ::CoreAttributes *c : qAsConst(taskList)) {
+        for (TJ::CoreAttributes *c : std::as_const(taskList)) {
             tl << c->getName() + (static_cast<TJ::Task*>(c)->getScheduling() == TJ::Task::ASAP ? " (ASAP)" : " (ALAP)") + " successors: ";
             const auto succs = static_cast<TJ::Task*>(c)->getSuccessors();
             for (TJ::CoreAttributes *t : succs) {
@@ -692,7 +692,7 @@ Project::scheduleScenario(Scenario* sc)
     }
     finishScenario(scIdx);
 
-    for (CoreAttributes *r : qAsConst(resourceList))
+    for (CoreAttributes *r : std::as_const(resourceList))
     {
         if (!static_cast<Resource*>(r)->bookingsOk(scIdx))
             break;
@@ -704,7 +704,7 @@ Project::scheduleScenario(Scenario* sc)
 void
 Project::completeBuffersAndIndices()
 {
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->computeBuffers();
     }
     /* Create indices for all lists according to their default sorting
@@ -719,7 +719,7 @@ bool
 Project::scheduleAllScenarios()
 {
     bool schedulingOk = true;
-    for (CoreAttributes *s : qAsConst(scenarioList)) {
+    for (CoreAttributes *s : std::as_const(scenarioList)) {
         if (static_cast<Scenario*>(s)->getEnabled())
         {
             if (DEBUGPS(1))
@@ -740,7 +740,7 @@ Project::scheduleAllScenarios()
 void
 Project::overlayScenario(int base, int sc)
 {
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->overlayScenario(base, sc);
     }
     const auto lst = scenarioList[sc]->getSubList();
@@ -752,39 +752,39 @@ Project::overlayScenario(int base, int sc)
 void
 Project::prepareScenario(int sc)
 {
-    for (CoreAttributes *r : qAsConst(resourceList)) {
+    for (CoreAttributes *r : std::as_const(resourceList)) {
         static_cast<Resource*>(r)->prepareScenario(sc);
     }
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->prepareScenario(sc);
     }
 
     /* First we compute the criticalness of the individual task without their
      * dependency context. */
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->computeCriticalness(sc);
     }
     /* Then we compute the path criticalness that represents the criticalness
      * of a task taking their dependency context into account. */
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->computePathCriticalness(sc);
     }
 
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->propagateInitialValues(sc);
     }
 
     if (DEBUGTS(4))
     {
         tjDebug("Allocation probabilities for the resources:");
-        for (CoreAttributes *r : qAsConst(resourceList)) {
+        for (CoreAttributes *r : std::as_const(resourceList)) {
             qDebug()<<QString("Resource %1: %2%")
                    .arg(static_cast<Resource*>(r)->getName())
                    .arg(static_cast<Resource*>(r)->getAllocationProbability(sc));
         }
         tjDebug("Criticalnesses of the tasks with respect to resource "
                "availability:");
-        for (CoreAttributes *t : qAsConst(taskList)) {
+        for (CoreAttributes *t : std::as_const(taskList)) {
             qDebug()<<QString("Task %1: %2 %3").arg(static_cast<Task*>(t)->getName())
                    .arg(static_cast<Task*>(t)->getCriticalness(sc))
                    .arg(static_cast<Task*>(t)->getPathCriticalness(sc));
@@ -801,16 +801,16 @@ Project::cancelScheduling()
 void
 Project::finishScenario(int sc)
 {
-    for (CoreAttributes *r : qAsConst(resourceList)) {
+    for (CoreAttributes *r : std::as_const(resourceList)) {
         static_cast<Resource*>(r)->finishScenario(sc);
     }
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->finishScenario(sc);
     }
 #if 0
     /* We need to have finished the scenario for all tasks before we can
      * calculate the completion degree. */
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         static_cast<Task*>(t)->calcCompletionDegree(sc);
     }
 #endif
@@ -822,11 +822,11 @@ Project::finishScenario(int sc)
         /* The critical path detector needs to know the end of the last task.
          * So we have to find this out first. */
         time_t maxEnd = 0;
-        for (CoreAttributes *t : qAsConst(taskList)) {
+        for (CoreAttributes *t : std::as_const(taskList)) {
             if (maxEnd < static_cast<Task*>(t)->getEnd(sc))
                 maxEnd = static_cast<Task*>(t)->getEnd(sc);
         }
-        for (CoreAttributes *t : qAsConst(taskList)) {
+        for (CoreAttributes *t : std::as_const(taskList)) {
             static_cast<Task*>(t)->checkAndMarkCriticalPath
                 (sc, getScenario(sc)->getMinSlackRate(), maxEnd);
         }
@@ -836,17 +836,17 @@ Project::finishScenario(int sc)
 TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
 {
     TaskList workItems;
-    for (CoreAttributes *t : qAsConst(allLeafTasks)) {
+    for (CoreAttributes *t : std::as_const(allLeafTasks)) {
         if (static_cast<Task*>(t)->isReadyForScheduling())
             workItems.append(static_cast<Task*>(t));
     }
     if (workItems.isEmpty()) {
-        for (CoreAttributes *t : qAsConst(allLeafTasks)) {
+        for (CoreAttributes *t : std::as_const(allLeafTasks)) {
             if (!static_cast<Task*>(t)->isSchedulingDone() && !static_cast<Task*>(t)->isReadyForScheduling()) {
                 TJMH.debugMessage("Not ready to be scheduled", t);
             }
         }
-        for (CoreAttributes *c : qAsConst(allLeafTasks)) {
+        for (CoreAttributes *c : std::as_const(allLeafTasks)) {
             Task *t = static_cast<Task*>(c);
             if (!t->isSchedulingDone() /*&& !t->isRunaway()*/) {
                 if (t->getScheduling() == Task::ASAP) {
@@ -873,7 +873,7 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
             }
             if (workItems.isEmpty()) {
                 TaskList lst;
-                for (CoreAttributes *c : qAsConst(allLeafTasks)) {
+                for (CoreAttributes *c : std::as_const(allLeafTasks)) {
                     Task *t = static_cast<Task*>(c);
                     if (!t->isSchedulingDone()) {
                         lst << t;
@@ -891,12 +891,12 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
         }
     }
 /*    if (workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ASAP) {
-        for (CoreAttributes *c : qAsConst(allLeafTasks)) {
+        for (CoreAttributes *c : std::as_const(allLeafTasks)) {
         }
     }                                                                                                                                                                                                                                                                                                                                                                                               */
     if (workItems.isEmpty() && getTask("TJ::StartJob")->getScheduling() == Task::ALAP) {
         qDebug()<<"tasksReadyToSchedule:"<<"backward, try really hard";
-        for (CoreAttributes *c : qAsConst(allLeafTasks)) {
+        for (CoreAttributes *c : std::as_const(allLeafTasks)) {
             Task *task = static_cast<Task*>(c);
             if (!task->isSchedulingDone()) {
                 continue;
@@ -905,13 +905,13 @@ TaskList Project::tasksReadyToBeScheduled(int sc, const TaskList& allLeafTasks)
             Task *predecessor = nullptr;
             long gapLength = 0;
             long gapDuration = 0;
-            for (CoreAttributes *c : qAsConst(task->previous)) {
+            for (CoreAttributes *c : std::as_const(task->previous)) {
                 Task *t = static_cast<Task*>(c);
                 if (t->isSchedulingDone()) {
                     continue;
                 }
                 // get the dependency/longest gap
-                for (TaskDependency *d : qAsConst(t->precedes)) {
+                for (TaskDependency *d : std::as_const(t->precedes)) {
                     if (d->getTaskRef() == task) {
                         predecessor = t;
                         gapLength = qMax(gapLength, d->getGapLength(sc));
@@ -953,7 +953,7 @@ Project::schedule(int sc)
     // are scheduled automatically when all their children are scheduled. So
     // we create a task list that only contains leaf tasks.
     TaskList allLeafTasks;
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         if (!static_cast<Task*>(t)->hasSubs()) {
             allLeafTasks.append(static_cast<Task*>(t));
 //             TJMH.debugMessage("Leaf task", t);
@@ -966,7 +966,7 @@ Project::schedule(int sc)
     allLeafTasks.sort();
     maxProgress = allLeafTasks.count();
     int sortedTasks = 0;
-    for (CoreAttributes *t : qAsConst(allLeafTasks)) {
+    for (CoreAttributes *t : std::as_const(allLeafTasks)) {
         if (static_cast<Task*>(t)->isSchedulingDone())
             sortedTasks++;
     }
@@ -1002,7 +1002,7 @@ Project::schedule(int sc)
          * task that can be scheduled. It the determines the time slot that
          * will be scheduled during this run for all subsequent tasks as well.
          */
-        for (CoreAttributes *t : qAsConst(workItems)) {
+        for (CoreAttributes *t : std::as_const(workItems)) {
             if (cancelSchedulingFlag) {
                 break;
             }
@@ -1079,7 +1079,7 @@ Project::schedule(int sc)
                 updateList = true;
                 int oldSortedTasks = sortedTasks;
                 sortedTasks = 0;
-                for (CoreAttributes *t : qAsConst(allLeafTasks)) {
+                for (CoreAttributes *t : std::as_const(allLeafTasks)) {
                     if (static_cast<Task*>(t)->isSchedulingDone())
                         sortedTasks++;
                 }
@@ -1112,7 +1112,7 @@ Project::schedule(int sc)
         return false;
     }
 //    if (runAwayFound) {
-//        for (CoreAttributes *t : qAsConst(taskList)) {
+//        for (CoreAttributes *t : std::as_const(taskList)) {
 //            if (static_cast<Task*>(t)->isRunaway()) {
 //                if (static_cast<Task*>(t)->getScheduling() == Task::ASAP) {
 //                    TJMH.errorMessage(xi18nc("@info/plain", "Cannot meet the projects target finish time. Try using a later project end date.", t->getName()), t);
@@ -1144,7 +1144,7 @@ bool
 Project::checkSchedule(int sc) const
 {
     int oldErrors = TJMH.getErrors();
-    for (CoreAttributes *t : qAsConst(taskList)) {
+    for (CoreAttributes *t : std::as_const(taskList)) {
         /* Only check top-level tasks, since they recursively check their sub
          * tasks. */
         if (static_cast<Task*>(t)->getParent() == nullptr)

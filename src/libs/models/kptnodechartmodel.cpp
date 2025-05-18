@@ -384,7 +384,7 @@ void ChartItemModel::slotNodeChanged(Node *node)
         endResetModel();
         return;
     }
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         if (node->isChildOf(n)) {
             beginResetModel();
             calculate();
@@ -431,9 +431,9 @@ void ChartItemModel::calculate()
     m_acwp.clear();
     if (m_manager) {
         if (m_project) {
-            for (Node *n : qAsConst(m_nodes)) {
+            for (Node *n : std::as_const(m_nodes)) {
                 bool skip = false;
-                for (Node *p : qAsConst(m_nodes)) {
+                for (Node *p : std::as_const(m_nodes)) {
                     if (n->isChildOf(p)) {
                         skip = true;
                         break;

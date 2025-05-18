@@ -200,7 +200,7 @@ void KoPrintingDialog::startPrinting(RemovePolicy removePolicy)
         PrintPalette p;
 
         d->resetValues();
-        for (int page : qAsConst(d->pages)) {
+        for (int page : std::as_const(d->pages)) {
             d->index++;
             d->updaters.append(d->progress->startSubtask()); // one per page
             d->preparePage(page);

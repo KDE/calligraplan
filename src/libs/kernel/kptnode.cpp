@@ -85,7 +85,7 @@ Node::~Node() {
     if (m_shutdownAccount)
         m_shutdownAccount->removeShutdown(*this);
 
-    for (Schedule *s : qAsConst(m_schedules)) {
+    for (Schedule *s : std::as_const(m_schedules)) {
         delete s;
     }
     m_schedules.clear();
@@ -416,7 +416,7 @@ bool Node::isSuccessorof(const Node *node, bool checkProxies, bool checkSummaryt
         return false;
     }
     //debugPlan<<this<<type()<<"checking against"<<node<<node->type();
-    for (const auto r : qAsConst(m_dependParentNodes)) {
+    for (const auto r : std::as_const(m_dependParentNodes)) {
         if (r->parent() == node) {
             //debugPlan<<"deps"<<r<<true;
             return true;
@@ -427,7 +427,7 @@ bool Node::isSuccessorof(const Node *node, bool checkProxies, bool checkSummaryt
         }
     }
     if (checkProxies) {
-        for (const auto r : qAsConst(m_parentProxyRelations)) {
+        for (const auto r : std::as_const(m_parentProxyRelations)) {
             if (r->parent() == node) {
                 //debugPlan<<"proxy"<<true<<r;
                 return true;
@@ -460,7 +460,7 @@ bool Node::isPredecessorof(const Node *node, bool checkProxies, bool checkSummar
         }
     }
     if (checkProxies) {
-        for (const auto r : qAsConst(m_childProxyRelations)) {
+        for (const auto r : std::as_const(m_childProxyRelations)) {
             if (r->child() == node) {
                 //debugPlan<<"proxy"<<true<<r;
                 return true;
@@ -501,7 +501,7 @@ bool Node::canMoveTo(const Node *newParent) const
         debugPlan<<"Can't move, node is dependent on new parent";
         return false;
     }
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         if (!n->canMoveTo(newParent)) {
             return false;
         }
@@ -704,7 +704,7 @@ bool Node::notScheduled(long id) const
 {
     if (type() == Type_Summarytask) {
         // i am scheduled if al least on child is scheduled
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             if (! n->notScheduled(id)) {
                 return false;
             }
@@ -1105,7 +1105,7 @@ Schedule *Node::schedule(long id) const
 {
     switch (id) {
         case ANYSCHEDULED: {
-            for (Schedule *s : qAsConst(m_schedules)) {
+            for (Schedule *s : std::as_const(m_schedules)) {
                 if (s->isScheduled()) {
                     return s;
                 }
@@ -1117,7 +1117,7 @@ Schedule *Node::schedule(long id) const
         case NOTSCHEDULED:
             return nullptr;
         case BASELINESCHEDULE: {
-            for (Schedule *s : qAsConst(m_schedules)) {
+            for (Schedule *s : std::as_const(m_schedules)) {
                 if (s->isBaselined()) {
                     return s;
                 }
@@ -1146,7 +1146,7 @@ Schedule *Node::findSchedule(const QString &name, const Schedule::Type type) {
 }
 
 Schedule *Node::findSchedule(const QString &name) {
-    for (Schedule *sch : qAsConst(m_schedules)) {
+    for (Schedule *sch : std::as_const(m_schedules)) {
         if (!sch->isDeleted() && sch->name() == name)
             return sch;
     }
@@ -1156,7 +1156,7 @@ Schedule *Node::findSchedule(const QString &name) {
 
 Schedule *Node::findSchedule(const Schedule::Type type) {
     //debugPlan<<m_name<<" find type="<<type<<" nr="<<m_schedules.count();
-    for (Schedule *sch : qAsConst(m_schedules)) {
+    for (Schedule *sch : std::as_const(m_schedules)) {
         if (!sch->isDeleted() && sch->type() == type) {
             return sch;
         }
@@ -1209,7 +1209,7 @@ bool Node::calcCriticalPath(bool fromEnd) {
 }
 
 void Node::calcFreeFloat() {
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         n->calcFreeFloat();
     }
     return;
@@ -1313,7 +1313,7 @@ void Node::changed(Node *node, int property) {
         case CompletionRemainingEffortProperty:
         case CompletionActualEffortProperty:
         case CompletionUsedEffortProperty:
-            for (Schedule *s : qAsConst(m_schedules)) {
+            for (Schedule *s : std::as_const(m_schedules)) {
                 s->clearPerformanceCache();
             }
         break;
@@ -1327,7 +1327,7 @@ void Node::changed(Node *node, int property) {
 Duration Node::plannedEffort(const Resource *resource, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         e += n->plannedEffort(resource, id, type);
     }
     return e;
@@ -1336,7 +1336,7 @@ Duration Node::plannedEffort(const Resource *resource, long id, EffortCostCalcul
 Duration Node::plannedEffort(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         e += n->plannedEffort(resource, date, id, type);
     }
     return e;
@@ -1345,7 +1345,7 @@ Duration Node::plannedEffort(const Resource *resource, QDate date, long id, Effo
 Duration Node::plannedEffortTo(const Resource *resource, QDate date, long id, EffortCostCalculationType type) const
 {
     Duration e;
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         e += n->plannedEffortTo(resource, date, id, type);
     }
     return e;
@@ -1354,7 +1354,7 @@ Duration Node::plannedEffortTo(const Resource *resource, QDate date, long id, Ef
 EffortCost Node::plannedCost(long id, EffortCostCalculationType type) const
 {
     EffortCost ec;
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         ec += n->plannedCost(id, type);
     }
     return ec;
@@ -1374,7 +1374,7 @@ EffortCostMap Node::bcwsPrDay(long int id, EffortCostCalculationType type)
     EffortCostCache &ec = s->bcwsPrDayCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             ec.effortcostmap += n->bcwsPrDay(id, type);
         }
         ec.cached = true;
@@ -1396,7 +1396,7 @@ EffortCostMap Node::bcwpPrDay(long int id, EffortCostCalculationType type)
     EffortCostCache &ec = s->bcwpPrDayCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             ec.effortcostmap += n->bcwpPrDay(id, type);
         }
         ec.cached = true;
@@ -1418,7 +1418,7 @@ EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
     EffortCostCache &ec = s->acwpCache(type);
     if (! ec.cached) {
         ec.effortcostmap = EffortCostMap();
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             ec.effortcostmap += n->acwp(id, type);
         }
         ec.cached = true;
@@ -1429,7 +1429,7 @@ EffortCostMap Node::acwp(long id, EffortCostCalculationType type)
 EffortCost Node::acwp(QDate date, long id) const
 {
     EffortCost ec;
-    for (Node *n : qAsConst(m_nodes)) {
+    for (Node *n : std::as_const(m_nodes)) {
         ec += n->acwp(date, id);
     }
     return ec;

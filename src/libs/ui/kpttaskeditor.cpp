@@ -1103,8 +1103,8 @@ void TaskEditor::slotDeleteTask()
     while (true) {
         // remove children of selected tasks, as parents delete their children
         Node *ch = nullptr;
-        for (Node *n1 : qAsConst(lst)) {
-            for (Node *n2 : qAsConst(lst)) {
+        for (Node *n1 : std::as_const(lst)) {
+            for (Node *n2 : std::as_const(lst)) {
                 if (n2->isChildOf(n1)) {
                     ch = n2;
                     break;
@@ -1131,7 +1131,7 @@ void TaskEditor::slotDeleteTask()
 void TaskEditor::deleteTaskList(QList<Node*> lst)
 {
     //debugPlan;
-    for (Node *n : qAsConst(lst)) {
+    for (Node *n : std::as_const(lst)) {
         if (n->isScheduled()) {
             KMessageBox::ButtonCode res = KMessageBox::warningContinueCancel(this, i18n("A task that has been scheduled will be deleted. This will invalidate the schedule."));
             if (res == KMessageBox::Cancel) {
@@ -1153,7 +1153,7 @@ void TaskEditor::deleteTaskList(QList<Node*> lst)
             continue;
         }
         bool del = true;
-        for (Node *n : qAsConst(lst)) {
+        for (Node *n : std::as_const(lst)) {
             if (node->isChildOf(n)) {
                 del = false; // node is going to be deleted when we delete n
                 break;
@@ -1592,7 +1592,7 @@ TaskView::TaskView(KoPart *part, KoDocument *doc, QWidget *parent)
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-    for (int c : qAsConst(readonly)) {
+    for (int c : std::as_const(readonly)) {
         m_view->baseModel()->setReadOnly(c, true);
     }
 
@@ -2218,7 +2218,7 @@ TaskWorkPackageView::TaskWorkPackageView(KoPart *part, KoDocument *doc, QWidget 
             << NodeModel::NodeShutdownAccount
             << NodeModel::NodeShutdownCost
             << NodeModel::NodeDescription;
-        for (int c : qAsConst(readonly)) {
+        for (int c : std::as_const(readonly)) {
         m_view->baseModel()->setReadOnly(c, true);
     }
 

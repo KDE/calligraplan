@@ -752,7 +752,7 @@ bool ProjectLoader_v0::load(Task *task, const KoXmlElement &element, XMLLoaderOb
                         }
                     }
                 }
-                for (ResourceRequest *rr : qAsConst(groupRequests)) {
+                for (ResourceRequest *rr : std::as_const(groupRequests)) {
                     const auto resources = group->resources();
                     for (Resource *r : resources) {
                         if (!task->requests().find(r)) {

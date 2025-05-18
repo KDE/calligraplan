@@ -64,20 +64,20 @@ KoOdfStylesReader::KoOdfStylesReader()
 KoOdfStylesReader::~KoOdfStylesReader()
 {
     typedef QHash<QString, KoXmlElement*> AutoStylesMap;
-    for (const AutoStylesMap& map : qAsConst(d->customStyles))
+    for (const AutoStylesMap& map : std::as_const(d->customStyles))
         qDeleteAll(map);
-    for (const AutoStylesMap& map : qAsConst(d->contentAutoStyles))
+    for (const AutoStylesMap& map : std::as_const(d->contentAutoStyles))
         qDeleteAll(map);
-    for (const AutoStylesMap& map : qAsConst(d->stylesAutoStyles))
+    for (const AutoStylesMap& map : std::as_const(d->stylesAutoStyles))
         qDeleteAll(map);
-    for (const DataFormatsMap::mapped_type& dataFormat : qAsConst(d->dataFormats))
+    for (const DataFormatsMap::mapped_type& dataFormat : std::as_const(d->dataFormats))
         delete dataFormat.second;
     qDeleteAll(d->defaultStyles);
     qDeleteAll(d->styles);
     qDeleteAll(d->masterPages);
     qDeleteAll(d->presentationPageLayouts);
     qDeleteAll(d->tableTemplates);
-    for (const AutoStylesMap& map : qAsConst(d->drawStyles)) {
+    for (const AutoStylesMap& map : std::as_const(d->drawStyles)) {
         qDeleteAll(map);
     }
     delete d;

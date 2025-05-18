@@ -209,7 +209,7 @@ QWidget *Part::createWelcomeView(KoMainWindow *parent) const
 void Part::addRecentURLToAllMainWindows()
 {
     // Add to recent actions list in our mainWindows
-    for (KoMainWindow *mainWindow : qAsConst(mainWindows())) {
+    for (KoMainWindow *mainWindow : std::as_const(mainWindows())) {
         mainWindow->addRecentURL(document()->project()->name(), document()->url());
     }
 }

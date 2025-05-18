@@ -20,7 +20,7 @@ Locale::Locale()
 {
     QLocale locale;
     m_language = locale.language();
-    m_country = locale.country();
+    m_territory = locale.territory();
     m_decimalPlaces = 2;
 }
 
@@ -28,10 +28,10 @@ Locale::~Locale()
 {
 }
 
-void Locale::setCurrencyLocale(QLocale::Language language, QLocale::Country country)
+void Locale::setCurrencyLocale(QLocale::Language language, QLocale::Territory territory)
 {
     m_language = language;
-    m_country = country;
+    m_territory = territory;
 }
 
 void Locale::setCurrencySymbol(const QString &symbol)
@@ -43,7 +43,7 @@ QString Locale::currencySymbol() const
 {
     QString s = m_currencySymbol;
     if (s.isEmpty()) {
-        QLocale locale(m_language, m_country);
+        QLocale locale(m_language, m_territory);
         s = locale.currencySymbol(QLocale::CurrencySymbol);
     }
     return s;
@@ -100,9 +100,9 @@ QLocale::Language Locale::currencyLanguage() const
     return m_language;
 }
 
-QLocale::Country Locale::currencyCountry() const
+QLocale::Country Locale::currencyTerritory() const
 {
-    return m_country;
+    return m_territory;
 }
 
 }  //KPlato namespace

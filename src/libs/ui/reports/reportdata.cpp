@@ -72,9 +72,9 @@ PLANUI_EXPORT QList<ReportData*> Report::createBaseReportDataModels(QObject *par
     data = new ProjectReportData(parent);
     lst << data;
 
-    for (ReportData *r : qAsConst(lst)) {
+    for (ReportData *r : std::as_const(lst)) {
         QList<ReportData*> sub;
-        for (ReportData *d : qAsConst(lst)) {
+        for (ReportData *d : std::as_const(lst)) {
             if (d->isSubDataSource()) {
                 sub << d;
             }
@@ -139,7 +139,7 @@ bool ReportData::open()
 
     if (! m_sortlist.isEmpty()) {
         QAbstractItemModel *sourcemodel = m_model.sourceModel();
-        for (const SortedField &sort : qAsConst(m_sortlist)) {
+        for (const SortedField &sort : std::as_const(m_sortlist)) {
             int col = fieldNumber(sort.field);
             QSortFilterProxyModel *sf = new QSortFilterProxyModel(&m_model);
             sf->setSourceModel(sourcemodel);
@@ -287,7 +287,7 @@ qint64 ReportData::recordCount() const {
 QStringList ReportData::dataSources() const
 {
      QStringList lst;
-     for (ReportData *r : qAsConst(m_subdatasources)) {
+     for (ReportData *r : std::as_const(m_subdatasources)) {
          if (r->isSubDataSource()) {
              lst << r->objectName();
          }
@@ -298,7 +298,7 @@ QStringList ReportData::dataSources() const
 QStringList ReportData::dataSourceNames() const
 {
     QStringList lst;
-    for (ReportData *r : qAsConst(m_subdatasources)) {
+    for (ReportData *r : std::as_const(m_subdatasources)) {
         if (r->isSubDataSource()) {
             lst << r->sourceName();
         }

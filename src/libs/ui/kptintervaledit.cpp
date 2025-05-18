@@ -207,7 +207,7 @@ void IntervalEditDialog::slotChanged()
 MacroCommand *IntervalEditDialog::buildCommand()
 {
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Modify Work Interval"));
-    for (const QDate &d : qAsConst(m_dates)) {
+    for (const QDate &d : std::as_const(m_dates)) {
         // these are dates, weekdays don't have date
         CalendarDay *day = m_calendar->findDay(d);
         if (day == nullptr) {
@@ -222,7 +222,7 @@ MacroCommand *IntervalEditDialog::buildCommand()
     }
     if (m_dates.isEmpty()) {
         // weekdays
-        for (CalendarDay *day : qAsConst(m_days)) {
+        for (CalendarDay *day : std::as_const(m_days)) {
             MacroCommand *c = buildCommand(m_calendar, day);
             if (c) {
                 cmd->addCommand(c);

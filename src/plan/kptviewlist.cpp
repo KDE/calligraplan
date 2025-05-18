@@ -804,7 +804,7 @@ void ViewListWidget::contextMenuEvent (QContextMenuEvent *event)
     }
     if (! lst.isEmpty()) {
         //menu.addTitle(i18n("Edit"));
-        for (QAction *a : qAsConst(lst)) {
+        for (QAction *a : std::as_const(lst)) {
             menu.addAction(a);
         }
     }

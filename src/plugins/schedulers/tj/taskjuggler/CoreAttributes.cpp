@@ -91,7 +91,7 @@ CoreAttributes::setHierarchNo(uint no)
 {
     hierarchNo = no;
     uint hNo = 1;
-    for (CoreAttributes *a : qAsConst(*sub)) {
+    for (CoreAttributes *a : std::as_const(*sub)) {
         a->setHierarchNo(hNo++);
     }
 }

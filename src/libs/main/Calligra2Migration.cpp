@@ -60,7 +60,7 @@ void Calligra2Migration::migrate()
     if (cm.migrate() && !m_oldAppName.isEmpty()) {
         // rename config files to new names
         qCDebug(CALLIGRA2MIGRATION)<<"rename config files to new names"<<m_configFiles;
-        for (const QString &oldname : qAsConst(m_configFiles)) {
+        for (const QString &oldname : std::as_const(m_configFiles)) {
             QString newname = oldname;
             newname.replace(m_oldAppName, m_newAppName);
             if (oldname == newname) {
@@ -90,7 +90,7 @@ void Calligra2Migration::migrate()
             qCDebug(CALLIGRA2MIGRATION)<<"renamed ui dir:"<<newui;
         }
         qCDebug(CALLIGRA2MIGRATION)<<"rename ui files to new names"<<m_uiFiles;
-        for (const QString &oldname : qAsConst(m_uiFiles)) {
+        for (const QString &oldname : std::as_const(m_uiFiles)) {
             QString newname = oldname;
             newname.replace(m_oldAppName, m_newAppName);
             if (oldname == newname) {

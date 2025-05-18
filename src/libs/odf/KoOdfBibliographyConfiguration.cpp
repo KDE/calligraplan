@@ -120,7 +120,7 @@ void KoOdfBibliographyConfiguration::saveOdf(KoXmlWriter *writer) const
     writer->addAttribute("text:numbered-entries", d->numberedEntries ? "true" : "false");
     writer->addAttribute("text:sort-by-position", d->sortByPosition ? "true" : "false");
 
-    for (const SortKeyPair &key : qAsConst(d->sortKeys)) {
+    for (const SortKeyPair &key : std::as_const(d->sortKeys)) {
             writer->startElement("text:sort-key");
             writer->addAttribute("text:key", key.first);
             writer->addAttribute("text:sort-ascending",key.second);

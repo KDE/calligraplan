@@ -1278,7 +1278,7 @@ void ScheduleLogItemModel::addLogEntry(const Schedule::Log &log, int /*row*/)
     item->setData(log.severity, SeverityRole);
     lst.append(item);
     lst.append(new QStandardItem(log.message));
-    for (QStandardItem *itm : qAsConst(lst)) {
+    for (QStandardItem *itm : std::as_const(lst)) {
             if (log.resource) {
                 itm->setData(log.resource->id(), IdentityRole);
             } else if (log.node) {

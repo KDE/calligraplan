@@ -250,7 +250,7 @@ void KoColumns::saveOdf(KoGenStyle &style) const
             writer.endElement(); // style:column-sep
         }
 
-        for(const ColumnDatum &cd : qAsConst(columnData)) {
+        for(const ColumnDatum &cd : std::as_const(columnData)) {
             writer.startElement("style:column");
             writer.addAttributePt("fo:start-indent", cd.leftMargin);
             writer.addAttributePt("fo:end-indent", cd.rightMargin);

@@ -63,7 +63,7 @@ bool KoShadowStyle::operator==(const KoShadowStyle &other) const
     if (shadowCount() != other.shadowCount())
         return false;
 
-    for (const ShadowData &data : qAsConst(d->shadows))
+    for (const ShadowData &data : std::as_const(d->shadows))
     {
         if (!other.d->shadows.contains(data))
             return false;
@@ -136,7 +136,7 @@ QString KoShadowStyle::saveOdf() const
 
     QStringList parts;
     const QString pt = QStringLiteral("%1pt");
-    for (const ShadowData &data : qAsConst(d->shadows)) {
+    for (const ShadowData &data : std::as_const(d->shadows)) {
         QStringList elements;
         if (data.color.isValid()) {
             elements << data.color.name();

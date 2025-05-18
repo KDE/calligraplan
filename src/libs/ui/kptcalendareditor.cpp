@@ -90,7 +90,7 @@ void CalendarTreeView::focusOutEvent (QFocusEvent * event)
 void CalendarTreeView::selectionChanged(const QItemSelection &sel, const QItemSelection &desel)
 {
     //debugPlan<<sel.indexes().count();
-    //for (const QModelIndex &i : qAsConst(selectionModel()->selectedIndexes())) { debugPlan<<i.row()<<","<<i.column(); }
+    //for (const QModelIndex &i : std::as_const(selectionModel()->selectedIndexes())) { debugPlan<<i.row()<<","<<i.column(); }
     TreeViewBase::selectionChanged(sel, desel);
     Q_EMIT selectedIndexesChanged(selectionModel()->selectedIndexes());
 }

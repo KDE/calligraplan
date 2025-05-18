@@ -58,19 +58,19 @@ int main(int /*argc*/, char ** /*argv*/)
 
     qDebug() << "Checking mimeFilter() for Import:";
     QStringList list = KoFilterManager::mimeFilter("application/vnd.oasis.opendocument.text",  KoFilterManager::Import);
-    for (const QString& it : qAsConst(list))
+    for (const QString& it : std::as_const(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 
     qDebug() << "Checking mimeFilter() for Export:";
     list = KoFilterManager::mimeFilter("application/vnd.oasis.opendocument.text",  KoFilterManager::Export);
-    for (const QString& it : qAsConst(list))
+    for (const QString& it : std::as_const(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 
     qDebug() << "Checking KoShell's mimeFilter():";
     list = KoFilterManager::mimeFilter();
-    for (const QString& it : qAsConst(list))
+    for (const QString& it : std::as_const(list))
         qDebug() << "" << it;
     qDebug() << "" << list.count() << " entries.";
 

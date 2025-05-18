@@ -167,7 +167,7 @@ void TaskStatusItemModel::setScheduleManager(ScheduleManager *sm)
 
 void TaskStatusItemModel::clear()
 {
-    for (NodeMap *l : qAsConst(m_top)) {
+    for (NodeMap *l : std::as_const(m_top)) {
         int c = l->count();
         if (c > 0) {
             //FIXME: gives error msg:
@@ -225,7 +225,7 @@ void TaskStatusItemModel::refresh()
             m_top.at(status)->insert(task->wbsCode(), task);
         }
     }
-    for (NodeMap *l : qAsConst(m_top)) {
+    for (NodeMap *l : std::as_const(m_top)) {
         int c = l->count();
         if (c > 0) {
             debugPlan<<index(l)<<0<<c-1;
@@ -296,7 +296,7 @@ QModelIndex TaskStatusItemModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
     NodeMap *lst = nullptr;
-    for (NodeMap *l : qAsConst(m_top)) {
+    for (NodeMap *l : std::as_const(m_top)) {
         if (CONTAINS((*l), n)) {
             lst = l;
             break;
@@ -339,7 +339,7 @@ QModelIndex TaskStatusItemModel::index(const Node *node) const
     if (m_project == nullptr || node == nullptr) {
         return QModelIndex();
     }
-    for(NodeMap *l : qAsConst(m_top)) {
+    for(NodeMap *l : std::as_const(m_top)) {
         const QList<Node*> &nodes = l->values();
         int row = nodes.indexOf(const_cast<Node*>(node));
         if (row != -1) {
@@ -673,7 +673,7 @@ NodeMap *TaskStatusItemModel::list(const QModelIndex &index) const
 Node *TaskStatusItemModel::node(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        for (NodeMap *l : qAsConst(m_top)) {
+        for (NodeMap *l : std::as_const(m_top)) {
             const QList<Node*> &nodes = l->values();
             int row = nodes.indexOf(static_cast<Node*>(index.internalPointer()));
             if (row != -1) {
@@ -743,7 +743,7 @@ void TaskStatusItemModel::slotNodeChanged(Node *node)
 void TaskStatusItemModel::slotWbsDefinitionChanged()
 {
     debugPlan;
-    for (NodeMap *l : qAsConst(m_top)) {
+    for (NodeMap *l : std::as_const(m_top)) {
         for (int row = 0; row < l->count(); ++row) {
             const QList<Node*> &nodes = l->values();
             Q_EMIT dataChanged(createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)), createIndex(row, NodeModel::NodeWBSCode, nodes.value(row)));

@@ -3615,7 +3615,7 @@ bool NodeItemModel::setAllocation(Node *node, const QVariant &value, int role)
                 }
             }
             // Handle new requests
-            for (const QString &s : qAsConst(alloc)) {
+            for (const QString &s : std::as_const(alloc)) {
                 // if an allocation is not in req, it must be added
                 if (!req.contains(s)) {
                     Resource *r = m_project->resourceByName(s);
@@ -3953,13 +3953,13 @@ bool NodeItemModel::dropAllowed(Node *on, const QMimeData *data)
         QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
         QDataStream stream(&encodedData, QIODevice::ReadOnly);
         QList<Node*> lst = nodeList(stream);
-        for (Node *n : qAsConst(lst)) {
+        for (Node *n : std::as_const(lst)) {
             if (n->type() == Node::Type_Project || on == n || on->isChildOf(n)) {
                 return false;
             }
         }
         lst = removeChildNodes(lst);
-        for (Node *n : qAsConst(lst)) {
+        for (Node *n : std::as_const(lst)) {
             if (! m_project->canMoveTask(n, on)) {
                 return false;
             }
@@ -4566,7 +4566,7 @@ MilestoneItemModel::~MilestoneItemModel()
 QList<Node*> MilestoneItemModel::mileStones() const
 {
     QList<Node*> lst;
-    for (Node* n : qAsConst(m_nodemap)) {
+    for (Node* n : std::as_const(m_nodemap)) {
         if (n->type() == Node::Type_Milestone) {
             lst << n;
         }
@@ -4978,13 +4978,13 @@ bool MilestoneItemModel::dropAllowed(Node *on, const QMimeData *data)
     QByteArray encodedData = data->data(QStringLiteral("application/x-vnd.kde.plan.nodeitemmodel.internal"));
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     QList<Node*> lst = nodeList(stream);
-    for (Node *n : qAsConst(lst)) {
+    for (Node *n : std::as_const(lst)) {
         if (on == n || on->isChildOf(n)) {
             return false;
         }
     }
     lst = removeChildNodes(lst);
-    for (Node *n : qAsConst(lst)) {
+    for (Node *n : std::as_const(lst)) {
         if (! m_project->canMoveTask(n, on)) {
             return false;
         }

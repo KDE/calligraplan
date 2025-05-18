@@ -218,7 +218,7 @@ KoAutoSaveRecoveryDialog::KoAutoSaveRecoveryDialog(const QStringList &filenames,
 QStringList KoAutoSaveRecoveryDialog::recoverableFiles()
 {
     QStringList files;
-    for (FileItem* fileItem : qAsConst(m_model->m_fileItems)) {
+    for (FileItem* fileItem : std::as_const(m_model->m_fileItems)) {
         if (fileItem->checked) {
             files << fileItem->name;
         }

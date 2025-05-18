@@ -34,7 +34,7 @@ void Chart::mousePressEvent(QMouseEvent *event)
         }
     }
     if (event->button() == Qt::RightButton) {
-        Q_EMIT customContextMenuRequested(event->globalPos());
+        Q_EMIT customContextMenuRequested(event->globalPosition().toPoint());
     } else {
         event->ignore();
     }

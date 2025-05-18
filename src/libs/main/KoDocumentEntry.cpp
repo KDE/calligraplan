@@ -138,13 +138,13 @@ QList<KoDocumentEntry> KoDocumentEntry::query(const QString & mimetype)
     // Query the trader
     const QList<QPluginLoader *> offers = KoPluginLoader::pluginLoaders(QStringLiteral("calligraplan/parts"), mimetype);
 
-    for (QPluginLoader *pluginLoader : qAsConst(offers)) {
+    for (QPluginLoader *pluginLoader : std::as_const(offers)) {
         lst.append(KoDocumentEntry(pluginLoader));
     }
 
     if (lst.count() > 1 && !mimetype.isEmpty()) {
         warnMain << "KoDocumentEntry::query " << mimetype << " got " << lst.count() << " offers!";
-        for (const KoDocumentEntry &entry : qAsConst(lst)) {
+        for (const KoDocumentEntry &entry : std::as_const(lst)) {
             warnMain << entry.name();
         }
     }

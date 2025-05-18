@@ -84,7 +84,6 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     : QApplication(argc, argv)
     , d(new KoApplicationPrivate())
 {
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     QScopedPointer<KAboutData> aboutData(aboutDataGenerator());
     KAboutData::setApplicationData(*aboutData);
@@ -235,7 +234,7 @@ bool KoApplication::start(const KoComponentData &componentData)
         // we want to offer a restore for every one. Including a nice thumbnail!
         QStringList autosaveFiles = autosaveDir.entryList(filters, QDir::Files | QDir::Hidden);
         // remove the autosave files that are saved for other, open instances of ourselves
-        for (const QString &autosaveFileName : qAsConst(autosaveFiles)) {
+        for (const QString &autosaveFileName : std::as_const(autosaveFiles)) {
             if (!QFile::exists(autosaveDir.absolutePath() + QDir::separator() + autosaveFileName)) {
                 autosaveFiles.removeAll(autosaveFileName);
                 continue;
@@ -254,7 +253,7 @@ bool KoApplication::start(const KoComponentData &componentData)
             KoAutoSaveRecoveryDialog dlg(autosaveFiles);
             if (dlg.exec() == QDialog::Accepted) {
                 QStringList filesToRecover = dlg.recoverableFiles();
-                for (const QString &autosaveFileName : qAsConst(autosaveFiles)) {
+                for (const QString &autosaveFileName : std::as_const(autosaveFiles)) {
                     if (!filesToRecover.contains(autosaveFileName)) {
                         // remove the files the user didn't want to recover
                         QFile::remove(autosaveDir.absolutePath() + QDir::separator() + autosaveFileName);
@@ -268,7 +267,7 @@ bool KoApplication::start(const KoComponentData &componentData)
         }
         if (!autosaveFiles.isEmpty()) {
             short int numberOfOpenDocuments = 0; // number of documents open
-            for (const QString &autosaveFile : qAsConst(autosaveFiles)) {
+            for (const QString &autosaveFile : std::as_const(autosaveFiles)) {
                 if (openAutosaveFile(autosaveDir, autosaveFile)) {
                     numberOfOpenDocuments++;
                 }
@@ -432,7 +431,7 @@ KoPart *KoApplication::getPart(const QString &appName, const QString &mimetype) 
     // Find the part component file corresponding to the application instance name
     KoDocumentEntry entry;
     QList<QPluginLoader*> pluginLoaders = KoPluginLoader::pluginLoaders("calligraplan/parts", mimetype);
-    for (QPluginLoader *loader : qAsConst(pluginLoaders)) {
+    for (QPluginLoader *loader : std::as_const(pluginLoaders)) {
         if (loader->fileName().contains(appName + QStringLiteral("part"))) {
             entry = KoDocumentEntry(loader);
             pluginLoaders.removeOne(loader);

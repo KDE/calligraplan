@@ -342,7 +342,7 @@ QTimeZone AppointmentIntervalList::timeZone() const
 AppointmentIntervalList &AppointmentIntervalList::toTimeZone(const QTimeZone &tz)
 {
     AppointmentIntervalList m;
-    for (const auto &interval : qAsConst(m_map)) {
+    for (const auto &interval : std::as_const(m_map)) {
         const AppointmentInterval i(interval.startTime().toTimeZone(tz), interval.endTime().toTimeZone(tz), interval.load());
         m.add(i);
     }
@@ -439,7 +439,7 @@ void AppointmentIntervalList::subtract(const AppointmentInterval &interval)
                 //if (! l.at(0).isValid()) { debugPlan<<vi<<interval<<l.at(0); qFatal("Invalid interval"); }
             }
         }
-        for (const AppointmentInterval &i : qAsConst(l)) {
+        for (const AppointmentInterval &i : std::as_const(l)) {
             //if (! i.isValid()) { debugPlan<<interval<<i; qFatal("Invalid interval"); }
             m_map.insert(date, i);
         }
@@ -519,7 +519,7 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
             Q_ASSERT_X(lst.last().isValid(), "Split", "Invalid interval");
         }
     }
-    for (AppointmentInterval li : qAsConst(lst)) {
+    for (AppointmentInterval li : std::as_const(lst)) {
         Q_ASSERT_X(lst.last().isValid(), "Add", "Invalid interval");
         date = li.startTime().date();
         if (! m_map.contains(date)) {
@@ -600,7 +600,7 @@ void AppointmentIntervalList::add(const AppointmentInterval &ai)
             //debugPlan<<"rest:"<<li;
             l.insert(0, li);
         }
-        for(const AppointmentInterval &i : qAsConst(l)) {
+        for(const AppointmentInterval &i : std::as_const(l)) {
             Q_ASSERT(i.isValid());
             m_map.insert(i.startTime().date(), i);
         }
@@ -1111,7 +1111,7 @@ void Appointment::merge(const Appointment &app) {
         }
     }
     m_intervals.clear();
-    for (const AppointmentInterval &i : qAsConst(result)) {
+    for (const AppointmentInterval &i : std::as_const(result)) {
         m_intervals.add(i);
     }
     //debugPlan<<this<<":"<<m_intervals.count();

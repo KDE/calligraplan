@@ -78,7 +78,7 @@ QVariant UsedEffortItemModel::data (const QModelIndex &index, int role) const
                 // Total
                 //debugPlan<<index.row()<<","<<index.column()<<" total"<<'\n';
                 double res = 0.0;
-                for (const QDate &d: qAsConst(m_dates)) {
+                for (const QDate &d: std::as_const(m_dates)) {
                     Completion::UsedEffort::ActualEffort e = ue->effort(d);
                     res += e.normalEffort().toDouble(Duration::Unit_h);
                 }

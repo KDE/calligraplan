@@ -21,6 +21,8 @@ MainProjectDialog::MainProjectDialog(Project &p, QWidget *parent, bool edit)
     : KoDialog(parent),
       project(p)
 {
+    Q_UNUSED(edit);
+
     setWindowTitle(i18n("Project Settings"));
     setButtons(Ok|Cancel);
     setDefaultButton(Ok);

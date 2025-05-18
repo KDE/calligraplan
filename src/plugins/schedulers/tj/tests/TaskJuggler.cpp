@@ -143,7 +143,7 @@ void TaskJuggler::list()
     lst.setSorting(TJ::CoreAttributesList::SequenceDown, 2);
     lst.sort();
 
-    QStringList s; for (TJ::CoreAttributes *a : qAsConst(lst)) s << a->getId();
+    QStringList s; for (TJ::CoreAttributes *a : std::as_const(lst)) s << a->getId();
     qDebug()<<s;
     QCOMPARE(lst.at(0)->getId(), QString("A3"));
     QCOMPARE(lst.at(1)->getId(), QString("A2"));

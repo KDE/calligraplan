@@ -39,7 +39,7 @@ MainDocument::MainDocument(KoPart *part)
 
 MainDocument::~MainDocument()
 {
-    for (KoDocument *doc : qAsConst(m_documents)) {
+    for (KoDocument *doc : std::as_const(m_documents)) {
         if (doc->documentPart()->mainwindowCount() > 0) {
             // The doc has been opened in a separate window
             for (KoMainWindow *mw : doc->documentPart()->mainWindows()) {
@@ -156,7 +156,7 @@ void MainDocument::slotProjectDocumentLoaded()
         disconnect(document, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
         disconnect(document, &KoDocument::canceled, this, &MainDocument::slotProjectDocumentCanceled);
         // remove if duplicate
-        for (const auto doc : qAsConst(m_documents)) {
+        for (const auto doc : std::as_const(m_documents)) {
             if (document == doc) {
                 continue;
             }
@@ -197,7 +197,7 @@ void MainDocument::slotProjectDocumentCanceled()
 bool MainDocument::completeLoading(KoStore *store)
 {
     setModified(false);
-    for (auto doc : qAsConst(m_documents)) {
+    for (auto doc : std::as_const(m_documents)) {
         connect(doc, &KoDocument::completed, this, &MainDocument::slotProjectDocumentLoaded);
         connect(doc, &KoDocument::canceled, this, &MainDocument::slotProjectDocumentCanceled);
         if (doc->property(SAVEEMBEDDED).toBool()) {
@@ -234,7 +234,7 @@ QDomDocument MainDocument::saveXML()
     QDomElement projects = document.createElement(QStringLiteral("projects"));
     portfolio.appendChild(projects);
     int count = 1;
-    for (KoDocument *doc : qAsConst(m_documents)) {
+    for (KoDocument *doc : std::as_const(m_documents)) {
         QDomElement p = document.createElement(QStringLiteral("project"));
         p.setAttribute(QStringLiteral(SCHEDULEMANAGERNAME), doc->property(SCHEDULEMANAGERNAME).toString());
         p.setAttribute(QStringLiteral(ISPORTFOLIO), doc->property(ISPORTFOLIO).toBool() ? 1 : 0);
@@ -256,7 +256,7 @@ QDomDocument MainDocument::saveXML()
 
 bool MainDocument::completeSaving(KoStore *store)
 {
-    for (KoDocument *doc : qAsConst(m_documents)) {
+    for (KoDocument *doc : std::as_const(m_documents)) {
         if (doc->property(SAVEEMBEDDED).toBool()) {
             doc->setAlwaysAllowSaving(true);
             saveDocumentToStore(store, doc);
@@ -275,7 +275,7 @@ bool MainDocument::isModified() const
     if (KoDocument::isModified()) {
         return true;
     }
-    for (const auto child : qAsConst(m_documents)) {
+    for (const auto child : std::as_const(m_documents)) {
         if (child->isModified() && child->property(SAVEEMBEDDED).toBool()) {
             return true;
         }
@@ -379,7 +379,7 @@ bool MainDocument::addDocument(KoDocument *newdoc)
     if (m_documents.contains(newdoc)) {
         return false;
     }
-    for (const auto doc : qAsConst(m_documents)) {
+    for (const auto doc : std::as_const(m_documents)) {
         if (doc->project()->id() == newdoc->project()->id()) {
             return false;
         }
@@ -417,7 +417,7 @@ void MainDocument::slotProjectChanged()
 {
     KPlato::Project *project = qobject_cast<KPlato::Project*>(sender());
     if (project) {
-        for (KoDocument *doc : qAsConst(m_documents)) {
+        for (KoDocument *doc : std::as_const(m_documents)) {
             if (doc->project() == project) {
                 Q_EMIT projectChanged(doc);
                 doc->setModified(true);
@@ -478,7 +478,7 @@ QMap<QString, KPlato::SchedulerPlugin*> MainDocument::schedulerPlugins() const
 
 bool MainDocument::isChildrenModified() const
 {
-    for (const auto doc : qAsConst(m_documents)) {
+    for (const auto doc : std::as_const(m_documents)) {
         if (doc->isModified()) {
             return true;
         }

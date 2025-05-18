@@ -412,13 +412,13 @@ bool PlanTJScheduler::kplatoFromTJ()
 
     adjustSummaryTasks(m_schedule->summaryTasks());
 
-    for (Node *task : qAsConst(m_taskmap)) {
+    for (Node *task : std::as_const(m_taskmap)) {
         calcPertValues(task);
     }
 
     m_project->calcCriticalPathList(m_schedule);
     // calculate positive float
-    for (Node* t : qAsConst(m_taskmap)) {
+    for (Node* t : std::as_const(m_taskmap)) {
         if (! t->inCriticalPath() && t->isStartNode()) {
             calcPositiveFloat(t);
         }
@@ -647,7 +647,7 @@ void PlanTJScheduler::calcPertValues(Node *t)
 
 bool PlanTJScheduler::exists(QList<CalendarDay*> &lst, CalendarDay *day)
 {
-    for (CalendarDay *d : qAsConst(lst)) {
+    for (CalendarDay *d : std::as_const(lst)) {
         if (d->date() == day->date() && day->state() != CalendarDay::Undefined && d->state() != CalendarDay::Undefined) {
             return true;
         }
@@ -840,7 +840,7 @@ void PlanTJScheduler::addDependencies(KPlato::Node *task)
 
 void PlanTJScheduler::addDependencies()
 {
-    for (Node *t : qAsConst(m_taskmap)) {
+    for (Node *t : std::as_const(m_taskmap)) {
         addDependencies(t);
     }
 }
@@ -1211,7 +1211,7 @@ void PlanTJScheduler::insertBookings(KPlato::SchedulingContext &context)
     // Collect appointments from all resource in all projects and
     // map them to tj resources
     QHash<TJ::Resource*, KPlato::Appointment> apps;
-    for (const auto doc : qAsConst(context.resourceBookings)) {
+    for (const auto doc : std::as_const(context.resourceBookings)) {
         const auto project = doc->project();
         const auto manager = project->findScheduleManagerByName(doc->property(SCHEDULEMANAGERNAME).toString());
         long sid = ANYSCHEDULED;

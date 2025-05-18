@@ -193,7 +193,7 @@ void Help::initiate()
     }
     const auto docIds = m_docs.keys();
     for (const auto &type : docIds) {
-        for (const auto &lang : qAsConst(languages)) {
+        for (const auto &lang : std::as_const(languages)) {
             auto page = m_onlineBaseUrl.arg(lang).append(type).append(QStringLiteral("/index.html"));
             QProcess process;
             process.setProgram(QStringLiteral("wget"));

@@ -143,7 +143,7 @@ void ResourceRequest::setCurrentSchedulePtr(Resource *resource, Schedule *ns)
             member->setCurrentSchedulePtr(resourceSchedule(ns, member));
         }
     }
-    for (Resource *r : qAsConst(m_required)) {
+    for (Resource *r : std::as_const(m_required)) {
         r->setCurrentSchedulePtr(resourceSchedule(ns, r));
     }
 }
@@ -168,7 +168,7 @@ Schedule *ResourceRequest::resourceSchedule(Schedule *ns, Resource *res)
 DateTime ResourceRequest::workTimeAfter(const DateTime &dt, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Work) {
         DateTime t = availableAfter(dt, ns);
-        for (Resource *r : qAsConst(m_required)) {
+        for (Resource *r : std::as_const(m_required)) {
             if (! t.isValid()) {
                 break;
             }
@@ -184,7 +184,7 @@ DateTime ResourceRequest::workTimeAfter(const DateTime &dt, Schedule *ns) {
 DateTime ResourceRequest::workTimeBefore(const DateTime &dt, Schedule *ns) {
     if (m_resource->type() == Resource::Type_Work) {
         DateTime t = availableBefore(dt, ns);
-        for (Resource *r : qAsConst(m_required)) {
+        for (Resource *r : std::as_const(m_required)) {
             if (! t.isValid()) {
                 break;
             }
@@ -336,7 +336,7 @@ QList<ResourceRequest*> ResourceRequest::alternativeRequests() const
 
 void ResourceRequest::setAlternativeRequests(const QList<ResourceRequest*> requests)
 {
-    for (ResourceRequest *r : qAsConst(m_alternativeRequests)) {
+    for (ResourceRequest *r : std::as_const(m_alternativeRequests)) {
         removeAlternativeRequest(r);
     }
     for (ResourceRequest *r : requests) {
@@ -400,7 +400,7 @@ ResourceRequestCollection::ResourceRequestCollection(Task *task)
 ResourceRequestCollection::~ResourceRequestCollection()
 {
     //debugPlan<<this;
-    for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+    for (ResourceRequest *r : std::as_const(m_resourceRequests)) {
         r->setCollection(nullptr);
     }
     qDeleteAll(m_resourceRequests); // removes themselves from possible group
@@ -554,7 +554,7 @@ Duration ResourceRequestCollection::duration(const DateTime &time, const Duratio
     initUsedResourceRequests(time, ns, backward);
     Duration dur = effort;
     QList<ResourceRequest*> lst;
-    for (const auto rr : qAsConst(m_usedResourceRequests)) {
+    for (const auto rr : std::as_const(m_usedResourceRequests)) {
         if (rr->resource()->type() != Resource::Type_Material) {
             lst << rr;
         }
@@ -676,7 +676,7 @@ void ResourceRequestCollection::makeAppointments(Schedule *schedule)
     //debugPlan;
     // TODO: ALAP ?
     const auto requests = initUsedResourceRequests(schedule->startTime, schedule, false);
-    for (ResourceRequest *r : qAsConst(requests)) {
+    for (ResourceRequest *r : std::as_const(requests)) {
         r->makeAppointment(schedule);
     }
 }
@@ -687,7 +687,7 @@ void ResourceRequestCollection::reserve(const DateTime &start, const Duration &d
     Q_UNUSED(duration)
     //debugPlan;
     // TODO: Alternatives
-//     for (ResourceRequest *r : qAsConst(m_resourceRequests)) {
+//     for (ResourceRequest *r : std::as_const(m_resourceRequests)) {
 //         r->reserve(start, duration); //FIXME
 //     }
 }
@@ -725,7 +725,7 @@ QList<ResourceRequest*> ResourceRequestCollection::initUsedResourceRequests(cons
         }
     }
     if (requests.isEmpty()) {
-        for (auto rr : qAsConst(m_resourceRequests)) {
+        for (auto rr : std::as_const(m_resourceRequests)) {
             const auto dt = backward ? rr->availableBefore(time, ns) : rr->availableAfter(time, ns);
             if (!dt.isValid()) {
                 continue;

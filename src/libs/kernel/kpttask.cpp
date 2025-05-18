@@ -132,7 +132,7 @@ void Task::makeAppointments() {
         m_requests.makeAppointments(m_currentSchedule);
         //debugPlan<<m_name<<":"<<m_currentSchedule->startTime<<","<<m_currentSchedule->endTime<<";"<<m_currentSchedule->duration.toString();
     } else if (type() == Node::Type_Summarytask) {
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             n->makeAppointments();
         }
     } else if (type() == Node::Type_Milestone) {
@@ -373,7 +373,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
         if (!m_schedules.isEmpty()) {
             QDomElement schs = me.ownerDocument().createElement(QStringLiteral("task-schedules"));
             me.appendChild(schs);
-            for (const Schedule *s : qAsConst(m_schedules)) {
+            for (const Schedule *s : std::as_const(m_schedules)) {
                 if (!s->isDeleted()) {
                     s->saveXML(schs);
                 }
@@ -386,7 +386,7 @@ void Task::save(QDomElement &element, const XmlSaveContext &context)  const
         if (!m_packageLog.isEmpty()) {
             QDomElement log = me.ownerDocument().createElement(QStringLiteral("workpackage-log"));
             me.appendChild(log);
-            for (const WorkPackage *wp : qAsConst(m_packageLog)) {
+            for (const WorkPackage *wp : std::as_const(m_packageLog)) {
                 wp->saveLoggedXML(log);
             }
         }
@@ -404,7 +404,7 @@ void Task::saveAppointments(QDomElement &element, long id) const {
     if (sch) {
         sch->saveAppointments(element);
     }
-    for (const Node *n : qAsConst(m_nodes)) {
+    for (const Node *n : std::as_const(m_nodes)) {
         n->saveAppointments(element, id);
     }
 }
@@ -528,7 +528,7 @@ Duration Task::plannedEffort(const Resource *resource, long id, EffortCostCalcul
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffort(resource, id, typ);
         }
         return eff;
@@ -545,7 +545,7 @@ Duration Task::plannedEffort(long id, EffortCostCalculationType typ) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffort(id, typ);
         }
         return eff;
@@ -562,7 +562,7 @@ Duration Task::plannedEffort(const Resource *resource, QDate date, long id, Effo
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffort(resource, date, id, typ);
         }
         return eff;
@@ -579,7 +579,7 @@ Duration Task::plannedEffort(QDate date, long id, EffortCostCalculationType typ)
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffort(date, id, typ);
         }
         return eff;
@@ -596,7 +596,7 @@ Duration Task::plannedEffortTo(QDate date, long id, EffortCostCalculationType ty
     //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffortTo(date, id, typ);
         }
         return eff;
@@ -613,7 +613,7 @@ Duration Task::plannedEffortTo(const Resource *resource, QDate date, long id, Ef
     //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->plannedEffortTo(resource, date, id, typ);
         }
         return eff;
@@ -630,7 +630,7 @@ Duration Task::actualEffort() const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->actualEffort();
         }
     }
@@ -642,7 +642,7 @@ Duration Task::actualEffort(QDate date) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->actualEffort(date);
         }
         return eff;
@@ -655,7 +655,7 @@ Duration Task::actualEffortTo(QDate date) const {
    //debugPlan;
     Duration eff;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             eff += n->actualEffortTo(date);
         }
         return eff;
@@ -680,7 +680,7 @@ double Task::plannedCostTo(QDate date, long id, EffortCostCalculationType typ) c
     //debugPlan;
     double c = 0;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             c += n->plannedCostTo(date, id, typ);
         }
         return c;
@@ -816,7 +816,7 @@ Duration Task::budgetedWorkPerformed(QDate date, long id) const
     //debugPlan;
     Duration e;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             e += n->budgetedWorkPerformed(date, id);
         }
         return e;
@@ -832,7 +832,7 @@ double Task::budgetedCostPerformed(QDate date, long id) const
     //debugPlan;
     double c = 0.0;
     if (type() == Node::Type_Summarytask) {
-        for (const Node *n : qAsConst(m_nodes)) {
+        for (const Node *n : std::as_const(m_nodes)) {
             c += n->budgetedCostPerformed(date, id);
         }
         return c;
@@ -982,7 +982,7 @@ void Task::initiateCalculationLists(MainSchedule &sch) {
     if (type() == Node::Type_Summarytask) {
         sch.insertSummaryTask(this);
         // propagate my relations to my children and dependent nodes
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             if (!dependParentNodes().isEmpty()) {
                 n->addParentProxyRelations(dependParentNodes());
             }
@@ -2340,7 +2340,7 @@ void Task::adjustSummarytask()
     if (type() == Type_Summarytask) {
         DateTime start = m_currentSchedule->lateFinish;
         DateTime end = m_currentSchedule->earlyStart;
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             n->adjustSummarytask();
             if (n->startTime() < start)
                 start = n->startTime();
@@ -2596,7 +2596,7 @@ void Task::addParentProxyRelations(const QList<Relation*> &list)
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             n->addParentProxyRelations(list);
             n->addParentProxyRelations(dependParentNodes());
         }
@@ -2616,7 +2616,7 @@ void Task::addChildProxyRelations(const QList<Relation*> &list) {
     if (type() == Type_Summarytask) {
         // propagate to my children
         //debugPlan<<m_name<<" is summary task";
-        for (Node *n : qAsConst(m_nodes)) {
+        for (Node *n : std::as_const(m_nodes)) {
             n->addChildProxyRelations(list);
             n->addChildProxyRelations(dependChildNodes());
         }
@@ -2635,7 +2635,7 @@ void Task::addParentProxyRelation(Node *node, const Relation *rel) {
     if (node->type() != Type_Summarytask) {
         if (type() == Type_Summarytask) {
             //debugPlan<<"Add parent proxy from my children"<<m_name<<" to"<<node->name();
-            for (Node *n : qAsConst(m_nodes)) {
+            for (Node *n : std::as_const(m_nodes)) {
                 n->addParentProxyRelation(node, rel);
             }
         } else {
@@ -2650,7 +2650,7 @@ void Task::addChildProxyRelation(Node *node, const Relation *rel) {
     if (node->type() != Type_Summarytask) {
         if (type() == Type_Summarytask) {
             //debugPlan<<"Add child proxy from my children"<<m_name<<" to"<<node->name();
-            for (Node *n : qAsConst(m_nodes)) {
+            for (Node *n : std::as_const(m_nodes)) {
                 n->addChildProxyRelation(node, rel);
             }
         } else {
@@ -2781,12 +2781,12 @@ bool Task::calcCriticalPath(bool fromEnd)
             //debugPlan<<m_name<<" end node";
             return true;
         }
-        for (Relation *r : qAsConst(m_childProxyRelations)) {
+        for (Relation *r : std::as_const(m_childProxyRelations)) {
             if (r->child()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
         }
-        for (Relation *r : qAsConst(m_dependChildNodes)) {
+        for (Relation *r : std::as_const(m_dependChildNodes)) {
             if (r->child()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
@@ -2797,12 +2797,12 @@ bool Task::calcCriticalPath(bool fromEnd)
             //debugPlan<<m_name<<" start node";
             return true;
         }
-        for (Relation *r : qAsConst(m_parentProxyRelations)) {
+        for (Relation *r : std::as_const(m_parentProxyRelations)) {
             if (r->parent()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
         }
-        for (Relation *r : qAsConst(m_dependParentNodes)) {
+        for (Relation *r : std::as_const(m_dependParentNodes)) {
             if (r->parent()->calcCriticalPath(fromEnd)) {
                 m_currentSchedule->inCriticalPath = true;
             }
@@ -2824,13 +2824,13 @@ void Task::calcFreeFloat()
         return;
     }
     DateTime t;
-    for (Relation *r : qAsConst(m_dependChildNodes)) {
+    for (Relation *r : std::as_const(m_dependChildNodes)) {
         DateTime c = r->child()->startTime();
         if (!t.isValid() || c < t) {
             t = c;
         }
     }
-    for (Relation *r : qAsConst(m_childProxyRelations)) {
+    for (Relation *r : std::as_const(m_childProxyRelations)) {
         DateTime c = r->child()->startTime();
         if (!t.isValid() || c < t) {
             t = c;
@@ -2898,7 +2898,7 @@ uint Task::state(long id) const
     }
     st |= State_ReadyToStart;
     //TODO: check proxy relations
-    for (const Relation *r : qAsConst(m_dependParentNodes)) {
+    for (const Relation *r : std::as_const(m_dependParentNodes)) {
         if (! static_cast<Task*>(r->parent())->completion().isFinished()) {
             st &= ~Node::State_ReadyToStart;
             st |= Node::State_NotReadyToStart;

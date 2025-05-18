@@ -287,7 +287,7 @@ void Ko3dScene::saveOdfAttributes(KoXmlWriter &writer) const
 void Ko3dScene::saveOdfChildren(KoXmlWriter &writer) const
 {
     // Write light sources.
-    for (const Lightsource &light : qAsConst(d->lights)) {
+    for (const Lightsource &light : std::as_const(d->lights)) {
         light.saveOdf(writer);
     }
 }

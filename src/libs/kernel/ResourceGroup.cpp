@@ -60,7 +60,7 @@ ResourceGroup::~ResourceGroup() {
     } else if (m_project) {
         m_project->takeResourceGroup(this); // also removes id
     }
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         r->removeParentGroup(this);
     }
     qDeleteAll(m_childGroups);
@@ -134,14 +134,14 @@ void ResourceGroup::setProject(Project *project)
         }
     }
     m_project = project;
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         r->setProject(project);
     }
 }
 
 bool ResourceGroup::isScheduled() const
 {
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         if (r->isScheduled()) {
             return true;
         }
@@ -152,7 +152,7 @@ bool ResourceGroup::isScheduled() const
 bool ResourceGroup::isBaselined(long id) const
 {
     Q_UNUSED(id);
-    for (const Resource *r : qAsConst(m_resources)) {
+    for (const Resource *r : std::as_const(m_resources)) {
         if (r->isBaselined()) {
             return true;
         }
@@ -321,7 +321,7 @@ void ResourceGroup::initiateCalculation(Schedule &sch) {
 
 int ResourceGroup::units() const {
     int u = 0;
-    for (const Resource *r : qAsConst(m_resources)) {
+    for (const Resource *r : std::as_const(m_resources)) {
         u += r->units();
     }
     return u;
@@ -351,7 +351,7 @@ void ResourceGroup::insertId(const QString &id) {
 
 Appointment ResourceGroup::appointmentIntervals() const {
     Appointment a;
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         a += r->appointmentIntervals();
     }
     return a;
@@ -360,7 +360,7 @@ Appointment ResourceGroup::appointmentIntervals() const {
 DateTime ResourceGroup::startTime(long id) const
 {
     DateTime dt;
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         DateTime t = r->startTime(id);
         if (! dt.isValid() || t < dt) {
             dt = t;
@@ -372,7 +372,7 @@ DateTime ResourceGroup::startTime(long id) const
 DateTime ResourceGroup::endTime(long id) const
 {
     DateTime dt;
-    for (Resource *r : qAsConst(m_resources)) {
+    for (Resource *r : std::as_const(m_resources)) {
         DateTime t = r->endTime(id);
         if (! dt.isValid() || t > dt) {
             dt = t;

@@ -214,7 +214,7 @@ Task::inheritValues()
 TaskDependency*
 Task::addDepends(const QString& rid)
 {
-    for (TaskDependency *d : qAsConst(depends)) {
+    for (TaskDependency *d : std::as_const(depends)) {
         if (rid == d->getTaskRefId()) {
             return d;
         }
@@ -227,7 +227,7 @@ Task::addDepends(const QString& rid)
 TaskDependency*
 Task::addPrecedes(const QString& rid)
 {
-    for (TaskDependency *d : qAsConst(precedes)) {
+    for (TaskDependency *d : std::as_const(precedes)) {
         if (rid == d->getTaskRefId()) {
             return d;
         }
@@ -486,7 +486,7 @@ Task::scheduleContainer(int sc)
 bool
 Task::hasAlapPredecessor() const
 {
-    for (const CoreAttributes *t : qAsConst(predecessors)) {
+    for (const CoreAttributes *t : std::as_const(predecessors)) {
         if (static_cast<const Task*>(t)->getScheduling() == TJ::Task::ALAP || static_cast<const Task*>(t)->hasAlapPredecessor()) {
             return true;
         }
@@ -738,7 +738,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                 bool found = false;
                 int maxAvailability = 0;
                 QList<Resource*> candidates = a->getCandidates();
-                for (Resource *r : qAsConst(candidates))
+                for (Resource *r : std::as_const(candidates))
                 {
                     /* If a resource group is marked mandatory, all members
                      * of the group must be available. */
@@ -800,13 +800,13 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
         {
             QList<Resource*> resources = a->getCandidates();
             QString resStr;
-            for (Resource *r : qAsConst(resources)) {
+            for (Resource *r : std::as_const(resources)) {
                 resStr += r->getId() + QLatin1Char(' ');
             }
             if (limits->getDailyUnits() > 0) {
                 uint bookedSlots = 0;
                 int workSlots = 0;
-                for (Resource *r : qAsConst(resources)) {
+                for (Resource *r : std::as_const(resources)) {
                     workSlots += r->getWorkSlots(date); // returns 0 if no bookings yet
                     bookedSlots += r->getCurrentDaySlots(date, this); // booked to this task
                 }
@@ -829,7 +829,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             else if (limits->getDailyMax() > 0)
             {
                 uint slotCount = 0;
-                for (Resource *r : qAsConst(resources))
+                for (Resource *r : std::as_const(resources))
                     slotCount += r->getCurrentDaySlots(date, this);
                 int freeSlots = limits->getDailyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -844,7 +844,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             if (limits->getWeeklyMax() > 0)
             {
                 uint slotCount = 0;
-                for (Resource *r : qAsConst(resources))
+                for (Resource *r : std::as_const(resources))
                     slotCount += r->getCurrentWeekSlots(date, this);
                 int freeSlots = limits->getWeeklyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -859,7 +859,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             if (limits->getMonthlyMax() > 0)
             {
                 uint slotCount = 0;
-                for (Resource *r : qAsConst(resources))
+                for (Resource *r : std::as_const(resources))
                     slotCount += r->getCurrentMonthSlots(date, this);
                 int freeSlots = limits->getMonthlyMax() - slotCount;
                 if (freeSlots <= 0)
@@ -901,7 +901,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
             QList<Resource*> cl = createCandidateList(sc, date, a);
 
             bool found = false;
-            for (Resource *r : qAsConst(cl))
+            for (Resource *r : std::as_const(cl))
                 if (bookResource(a, r, date, slotDuration, slotsToLimit,
                                  maxAvailability))
                 {
@@ -917,7 +917,7 @@ Task::bookResources(int sc, time_t date, time_t slotDuration)
                 {
                     QString candidates;
                     bool first = true;
-                    for (Resource *r : qAsConst(cl))
+                    for (Resource *r : std::as_const(cl))
                     {
                         if (first)
                             first = false;
@@ -1052,7 +1052,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
                  * append it to the candidate list. */
                 double minProbability = 0;
                 Resource* minProbResource = nullptr;
-                for (Resource *r : qAsConst(candidates))
+                for (Resource *r : std::as_const(candidates))
                 {
                     double probability = r->getAllocationProbability(sc);
                     if (minProbability == 0 || probability < minProbability)
@@ -1074,7 +1074,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             {
                 double minLoad = 0;
                 Resource* minLoaded = nullptr;
-                for (Resource *r : qAsConst(candidates))
+                for (Resource *r : std::as_const(candidates))
                 {
                     /* We calculate the load as a relative value to the daily
                      * max load. This way part time people will reach their
@@ -1107,7 +1107,7 @@ Task::createCandidateList(int sc, time_t date, Allocation* a)
             {
                 double maxLoad = 0;
                 Resource* maxLoaded = nullptr;
-                for (Resource *r : qAsConst(candidates))
+                for (Resource *r : std::as_const(candidates))
                 {
                     /* We calculate the load as a relative value to the daily
                      * max load. This way part time people will reach their

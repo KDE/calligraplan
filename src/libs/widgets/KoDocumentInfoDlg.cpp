@@ -154,7 +154,7 @@ KoDocumentInfoDlg::~KoDocumentInfoDlg()
 void KoDocumentInfoDlg::accept()
 {
     // check if any pages veto the close
-    for (KPageWidgetItem* item : qAsConst(d->pages)) {
+    for (KPageWidgetItem* item : std::as_const(d->pages)) {
         KoPageWidgetItemAdapter *page = dynamic_cast<KoPageWidgetItemAdapter*>(item);
         if (page) {
             if (page->shouldDialogCloseBeVetoed()) {
@@ -165,7 +165,7 @@ void KoDocumentInfoDlg::accept()
 
     // all fine, go and apply
     saveAboutData();
-    for (KPageWidgetItem* item : qAsConst(d->pages)) {
+    for (KPageWidgetItem* item : std::as_const(d->pages)) {
         KoPageWidgetItemAdapter *page = dynamic_cast<KoPageWidgetItemAdapter*>(item);
         if (page) {
             page->apply();
@@ -512,7 +512,7 @@ void KoDocumentInfoDlg::setReadOnly(bool ro)
 {
     d->aboutUi->meComments->setReadOnly(ro);
 
-    for (KPageWidgetItem* page : qAsConst(d->pages)) {
+    for (KPageWidgetItem* page : std::as_const(d->pages)) {
         const QList<QLineEdit*> lineEdits = page->widget()->findChildren<QLineEdit *>();
         for (QLineEdit* le : lineEdits) {
             le->setReadOnly(ro);

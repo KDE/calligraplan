@@ -48,7 +48,7 @@ SchedulerPlugin::SchedulerPlugin(QObject *parent)
 
 SchedulerPlugin::~SchedulerPlugin()
 {
-    for (SchedulerThread *s : qAsConst(m_jobs)) {
+    for (SchedulerThread *s : std::as_const(m_jobs)) {
         s->mainManager()->setScheduling(false);
         s->haltScheduling();
         s->wait();
@@ -83,7 +83,7 @@ int SchedulerPlugin::capabilities() const
 
 void SchedulerPlugin::stopCalculation(ScheduleManager *sm)
 {
-    for (SchedulerThread *j : qAsConst(m_jobs)) {
+    for (SchedulerThread *j : std::as_const(m_jobs)) {
         if (sm == j->mainManager()) {
             j->stopScheduling();
         }
@@ -93,7 +93,7 @@ void SchedulerPlugin::stopCalculation(ScheduleManager *sm)
 void SchedulerPlugin::haltCalculation(ScheduleManager *sm)
 {
     debugPlan<<sm;
-    for (SchedulerThread *j : qAsConst(m_jobs)) {
+    for (SchedulerThread *j : std::as_const(m_jobs)) {
         if (sm == j->mainManager()) {
             haltCalculation(j);
             break;
@@ -121,7 +121,7 @@ void SchedulerPlugin::haltCalculation(SchedulerThread *job)
 
 void SchedulerPlugin::cancelScheduling(SchedulingContext &context)
 {
-    for (SchedulerThread *j : qAsConst(m_jobs)) {
+    for (SchedulerThread *j : std::as_const(m_jobs)) {
        j->cancelScheduling(context);
     }
 }
@@ -164,7 +164,7 @@ bool SchedulerPlugin::scheduleInParallel() const
 
 void SchedulerPlugin::updateProgress()
 {
-    for (SchedulerThread *j : qAsConst(m_jobs)) {
+    for (SchedulerThread *j : std::as_const(m_jobs)) {
         ScheduleManager *sm = j->mainManager();
         if (sm->maxProgress() != j->maxProgress()) {
             sm->setMaxProgress(j->maxProgress());
@@ -175,7 +175,7 @@ void SchedulerPlugin::updateProgress()
 
 void SchedulerPlugin::updateLog()
 {
-    for (SchedulerThread *j : qAsConst(m_jobs)) {
+    for (SchedulerThread *j : std::as_const(m_jobs)) {
         updateLog(j);
     }
 }
@@ -386,6 +386,7 @@ void SchedulerThread::haltScheduling()
 
 void SchedulerThread::cancelScheduling(SchedulingContext &context)
 {
+    Q_UNUSED(context);
     haltScheduling();
 }
 

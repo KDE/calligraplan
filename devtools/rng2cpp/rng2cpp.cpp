@@ -297,12 +297,12 @@ void merge(RNGItemPtr& a, const RNGItemPtr& b)
     }
     x_assert(a->allowedItems.contains(b), "");
     if (a->requiredItems.contains(b)) {
-        for(RNGItemPtr i : qAsConst(b->requiredItems)) {
+        for(RNGItemPtr i : std::as_const(b->requiredItems)) {
             a->requiredItems.insert(i);
         }
         a->requiredItems.remove(b);
     }
-    for (RNGItemPtr i : qAsConst(b->allowedItems)) {
+    for (RNGItemPtr i : std::as_const(b->allowedItems)) {
         a->allowedItems.insert(i);
     }
     a->allowedItems.remove(b);
@@ -621,13 +621,13 @@ bool RNGItem::operator==(const RNGItem& a) const
     if (unequal) {
         return false;
     }
-    for (const RNGItemPtr& i : qAsConst(allowedItems)) {
+    for (const RNGItemPtr& i : std::as_const(allowedItems)) {
         RNGItemPtr j = findEqualItem(i, a.allowedItems);
         if (!j) {
             return false;
         }
     }
-    for (const RNGItemPtr& i : qAsConst(requiredItems)) {
+    for (const RNGItemPtr& i : std::as_const(requiredItems)) {
         RNGItemPtr j = findEqualItem(i, a.requiredItems);
         if (!j) {
             return false;
@@ -644,7 +644,7 @@ void collect(RNGItem& item, RNGItems& collected)
 {
     typedef QPair<RNGItemPtr,RNGItemPtr> Pair;
     QList<Pair> toSwap;
-    for (const RNGItemPtr& i : qAsConst(item.allowedItems)) {
+    for (const RNGItemPtr& i : std::as_const(item.allowedItems)) {
         RNGItemPtr j = findEqualItem(i, collected);
         if (!j) {
             collected.insert(i);
@@ -653,7 +653,7 @@ void collect(RNGItem& item, RNGItems& collected)
             toSwap.append(qMakePair(i, j));
         }
     }
-    for (const Pair& i : qAsConst(toSwap)) {
+    for (const Pair& i : std::as_const(toSwap)) {
         RNGItemPtr toRemove = i.first;
         RNGItemPtr toAdd = i.second;
         if (item.requiredItems.contains(toRemove)) {
@@ -681,7 +681,7 @@ void collect(const RNGItems& items, RNGItems& collected)
  */
 void countUsage(RNGItem& item, QHash<RNGItemPtr,int>& usageCount)
 {
-    for (const RNGItemPtr& i : qAsConst(item.allowedItems)) {
+    for (const RNGItemPtr& i : std::as_const(item.allowedItems)) {
         if (usageCount.contains(i)) {
             usageCount[i]++;
         } else {
@@ -698,14 +698,14 @@ void countUsage(RNGItem& item, QHash<RNGItemPtr,int>& usageCount)
 int reduce(RNGItems& items)
 {
     QHash<RNGItemPtr,int> usageCount;
-    for (const RNGItemPtr& item : qAsConst(items)) {
+    for (const RNGItemPtr& item : std::as_const(items)) {
         countUsage(*item, usageCount);
     }
     RNGItems toRemove;
-    for (RNGItemPtr item : qAsConst(items)) {
+    for (RNGItemPtr item : std::as_const(items)) {
         if (usageCount[item] <= 1 && !item->isStart() && item->isDefine()) {
             RNGItemPtr user = RNGItemPtr(nullptr);
-            for (const RNGItemPtr& i : qAsConst(items)) {
+            for (const RNGItemPtr& i : std::as_const(items)) {
                 if (i->allowedItems.contains(item)) {
                     x_assert(!user, "");
                     user = i;
@@ -718,7 +718,7 @@ int reduce(RNGItems& items)
             break;
         }
     }
-    for (const RNGItemPtr& item : qAsConst(toRemove)) {
+    for (const RNGItemPtr& item : std::as_const(toRemove)) {
         items.remove(item);
     }
     return toRemove.size();
@@ -733,14 +733,14 @@ int reduce(RNGItems& items)
 int expand(RNGItems& items)
 {
     RNGItems toAdd;
-    for (RNGItemPtr item : qAsConst(items)) {
-        for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
+    for (RNGItemPtr item : std::as_const(items)) {
+        for (const RNGItemPtr& i : std::as_const(item->allowedItems)) {
             if (!items.contains(i)) {
                 toAdd.insert(i);
             }
         }
     }
-    for (RNGItemPtr item : qAsConst(toAdd)) {
+    for (RNGItemPtr item : std::as_const(toAdd)) {
         items.insert(item);
     }
     return toAdd.size();
@@ -773,7 +773,7 @@ void resolveDefines(RNGItemPtr start, const RNGItems& items, RNGItems& resolved)
         return;
     }
     resolved.insert(start);
-    for (const QString& name : qAsConst(start->referencedDeclares)) {
+    for (const QString& name : std::as_const(start->referencedDeclares)) {
         RNGItemPtr i = getDefine(name, items);
         if (start->requiredReferencedDeclares.contains(name)) {
             start->requiredItems.insert(i);
@@ -783,7 +783,7 @@ void resolveDefines(RNGItemPtr start, const RNGItems& items, RNGItems& resolved)
     start->referencedDeclares.clear();
     start->requiredReferencedDeclares.clear();
 
-    for (RNGItemPtr item : qAsConst(start->allowedItems)) {
+    for (RNGItemPtr item : std::as_const(start->allowedItems)) {
         resolveDefines(item, items, resolved);
     }
 }
@@ -827,19 +827,19 @@ void makeCppNames(RNGItemList& items)
 {
     QSet<QString> cppnames;
     // handle elements first so they have the nicest names
-    for (RNGItemPtr item : qAsConst(items)) {
+    for (RNGItemPtr item : std::as_const(items)) {
         if (item->isElement()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
     }
     // next handle the attributes
-    for (RNGItemPtr item : qAsConst(items)) {
+    for (RNGItemPtr item : std::as_const(items)) {
         if (item->isAttribute()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
     }
     // give the remaining declares names
-    for (RNGItemPtr item : qAsConst(items)) {
+    for (RNGItemPtr item : std::as_const(items)) {
         if (item->isDefine()) {
             item->cppName = makeUniqueCppName(item, cppnames);
         }
@@ -854,7 +854,7 @@ bool hasElementOrAttribute(const RNGItemPtr& item, RNGItems& items)
     if (items.contains(item)) {
         return false;
     }
-    for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
+    for (const RNGItemPtr& i : std::as_const(item->allowedItems)) {
         if (!i->isDefine() || hasElementOrAttribute(i, items)) {
             return true;
         }
@@ -887,10 +887,10 @@ RNGItemList getBasesList(RNGItemPtr item)
 {
     RNGItems list;
     RNGItems antilist;
-    for (RNGItemPtr i : qAsConst(item->allowedItems)) {
+    for (RNGItemPtr i : std::as_const(item->allowedItems)) {
         if (i->isDefine() && hasElementOrAttribute(i)) {
             list.insert(i);
-            for (RNGItemPtr j : qAsConst(i->allowedItems)) {
+            for (RNGItemPtr j : std::as_const(i->allowedItems)) {
                 if (j->isDefine() && j != i) {
                     antilist.insert(j);
                 }
@@ -920,7 +920,7 @@ RNGItemList list(const RNGItems& items)
 void resolveType(const RNGItemPtr& item, QSet<Datatype>& type)
 {
     type.unite(item->datatype);
-    for (const RNGItemPtr& i : qAsConst(item->allowedItems)) {
+    for (const RNGItemPtr& i : std::as_const(item->allowedItems)) {
         resolveType(i, type);
     }
 }
@@ -1018,7 +1018,7 @@ RNGItemList getAllRequiredAttributes(const RNGItemPtr& item, RNGItemList& list, 
     if (depth > 10) {
         return list;
     }
-    for (RNGItemPtr i : qAsConst(item->allowedItems)) {
+    for (RNGItemPtr i : std::as_const(item->allowedItems)) {
         if (item->requiredItems.contains(i)) {
             if (i->isAttribute() && i->singleConstant().isNull()) {
                 list.append(i);
@@ -1040,7 +1040,7 @@ RequiredArgsList makeFullRequiredArgsList(const RNGItemPtr& item)
     RNGItemList list;
     getAllRequiredAttributes(item, list);
     std::stable_sort(list.begin(), list.end(), rngItemPtrLessThan);
-    for (RNGItemPtr i : qAsConst(list)) {
+    for (RNGItemPtr i : std::as_const(list)) {
         QString name = makeCppName(i);
         QString type = i->singleType();
         if (type.isNull()) {
@@ -1176,7 +1176,7 @@ void defineGroup(QTextStream& out, const RNGItemPtr& item)
         r.args = ", " + r.args;
     }
     out << "    " << item->cppName << "(OdfWriter& x" + r.args + ") :";
-    for (const RNGItemPtr& i : qAsConst(bases)) {
+    for (const RNGItemPtr& i : std::as_const(bases)) {
         RequiredArgsList r;
         if (item->requiredItems.contains(i)) {
             r = makeFullRequiredArgsList(i);
@@ -1188,7 +1188,7 @@ void defineGroup(QTextStream& out, const RNGItemPtr& item)
     out << "    }\n";
     if (r.length) {
         out << "    " << item->cppName << "(OdfWriter& x) :";
-        for (const RNGItemPtr& i : qAsConst(bases)) {
+        for (const RNGItemPtr& i : std::as_const(bases)) {
             out << i->cppName << "(x), ";
         }
         out << "xml(x) {}\n";
@@ -1368,12 +1368,12 @@ void write(const RNGItemList& items, const QString &outdir)
     RNGItemList defined;
     addInOrder(undefined, defined);
     // declare all classes
-    for (RNGItemPtr item : qAsConst(defined)) {
+    for (RNGItemPtr item : std::as_const(defined)) {
         if (item->isElement() || (item->isDefine() && hasElementOrAttribute(item))) {
             out << "class " << item->cppName << ";\n";
         }
     }
-    for (RNGItemPtr item : qAsConst(defined)) {
+    for (RNGItemPtr item : std::as_const(defined)) {
         if (item->isElement()) {
             defineElement(files.getFile(item->name()), item);
         } else if (item->isDefine()) {

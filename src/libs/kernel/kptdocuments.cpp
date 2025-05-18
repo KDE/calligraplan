@@ -290,7 +290,7 @@ void Documents::save(QDomElement &element) const
     }
     QDomElement e = element.ownerDocument().createElement(QStringLiteral("documents"));
     element.appendChild(e);
-    for (Document *d : qAsConst(m_docs)) {
+    for (Document *d : std::as_const(m_docs)) {
         QDomElement me = element.ownerDocument().createElement(QStringLiteral("document"));
         e.appendChild(me);
         d->save(me);
@@ -299,7 +299,7 @@ void Documents::save(QDomElement &element) const
 
 void Documents::saveToStore(KoStore *store) const
 {
-    for (Document *doc : qAsConst(m_docs)) {
+    for (Document *doc : std::as_const(m_docs)) {
         if (doc->sendAs() == Document::SendAs_Copy) {
             QString path = doc->url().url();
             if (doc->url().isLocalFile()) {

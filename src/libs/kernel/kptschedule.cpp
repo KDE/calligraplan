@@ -268,7 +268,7 @@ void Schedule::initiateCalculation()
 void Schedule::calcResourceOverbooked()
 {
     resourceOverbooked = false;
-    for (Appointment *a : qAsConst(m_appointments)) {
+    for (Appointment *a : std::as_const(m_appointments)) {
         if (a->resource() ->isOverbooked(a->startTime(), a->endTime())) {
             resourceOverbooked = true;
             break;
@@ -284,7 +284,7 @@ DateTimeInterval Schedule::firstBookedInterval(const DateTimeInterval &interval,
         case CalculateBackward: lst = m_backward; break;
         default: break;
     }
-    for (Appointment *a : qAsConst(lst)) {
+    for (Appointment *a : std::as_const(lst)) {
         if (a->node() == node) {
             AppointmentIntervalList i = a->intervals(interval.first, interval.second);
             if (i.isEmpty()) {
@@ -299,7 +299,7 @@ DateTimeInterval Schedule::firstBookedInterval(const DateTimeInterval &interval,
 QStringList Schedule::overbookedResources() const
 {
     QStringList rl;
-    for (Appointment *a : qAsConst(m_appointments)) {
+    for (Appointment *a : std::as_const(m_appointments)) {
         if (a->resource() ->isOverbooked(a->startTime(), a->endTime())) {
             rl += a->resource() ->resource() ->name();
         }
@@ -427,20 +427,20 @@ Appointment *Schedule::findAppointment(Schedule *resource, Schedule *node, int m
 {
     //debugPlan<<this<<" ("<<resourceError<<","<<node<<")"<<mode;
     if (mode == Scheduling) {
-        for (Appointment *a : qAsConst(m_appointments)) {
+        for (Appointment *a : std::as_const(m_appointments)) {
             if (a->node() == node && a->resource() == resource) {
                 return a;
             }
         }
         return nullptr;
     } else if (mode == CalculateForward) {
-        for (Appointment *a : qAsConst(m_forward)) {
+        for (Appointment *a : std::as_const(m_forward)) {
             if (a->node() == node && a->resource() == resource) {
                 return a;
             }
         }
     } else if (mode == CalculateBackward) {
-        for (Appointment *a : qAsConst(m_backward)) {
+        for (Appointment *a : std::as_const(m_backward)) {
             if (a->node() == node && a->resource() == resource) {
                 Q_ASSERT(mode == CalculateBackward);
                 return a;
@@ -455,7 +455,7 @@ Appointment *Schedule::findAppointment(Schedule *resource, Schedule *node, int m
 DateTime Schedule::appointmentStartTime() const
 {
     DateTime dt;
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         if (! dt.isValid() || dt > a->startTime()) {
             dt = a->startTime();
         }
@@ -465,7 +465,7 @@ DateTime Schedule::appointmentStartTime() const
 DateTime Schedule::appointmentEndTime() const
 {
     DateTime dt;
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         if (! dt.isValid() || dt > a->endTime()) {
             dt = a->endTime();
         }
@@ -498,19 +498,19 @@ Appointment Schedule::appointmentIntervals(int which, const DateTimeInterval &in
     Appointment app;
     if (which == Schedule::CalculateForward) {
         //debugPlan<<"list == CalculateForward";
-        for (const Appointment *a : qAsConst(m_forward)) {
+        for (const Appointment *a : std::as_const(m_forward)) {
             app += interval.isValid() ? a->extractIntervals(interval) : *a;
         }
         return app;
     } else if (which == Schedule::CalculateBackward) {
         //debugPlan<<"list == CalculateBackward";
-        for (const Appointment *a : qAsConst(m_backward)) {
+        for (const Appointment *a : std::as_const(m_backward)) {
             app += interval.isValid() ? a->extractIntervals(interval) : *a;
         }
         //debugPlan<<"list == CalculateBackward:"<<m_backward.count();
         return app;
     }
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         app += interval.isValid() ? a->extractIntervals(interval) : *a;
     }
     return app;
@@ -547,7 +547,7 @@ EffortCostMap Schedule::bcwsPrDay(EffortCostCalculationType type)
     //debugPlan<<m_name<<m_appointments;
     EffortCostCache &ec = m_bcwsPrDay[ (int)type ];
     if (! ec.cached) {
-        for (const Appointment *a : qAsConst(m_appointments)) {
+        for (const Appointment *a : std::as_const(m_appointments)) {
             ec.effortcostmap += a->plannedPrDay(a->startTime().date(), a->endTime().date(), type);
         }
     }
@@ -570,7 +570,7 @@ EffortCostMap Schedule::plannedEffortCostPrDay(const Resource *resource, const Q
 {
     //debugPlan<<m_name<<m_appointments;
     EffortCostMap ec;
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         if (a->resource() && a->resource()->resource() == resource) {
             ec += a->plannedPrDay(start, end, type);
             break;
@@ -862,7 +862,7 @@ void NodeSchedule::takeAppointment(Appointment *appointment, int mode)
 QList<Resource*> NodeSchedule::resources() const
 {
     QList<Resource*> rl;
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         rl += a->resource() ->resource();
     }
     return rl;
@@ -871,7 +871,7 @@ QList<Resource*> NodeSchedule::resources() const
 QStringList NodeSchedule::resourceNameList() const
 {
     QStringList rl;
-    for (const Appointment *a : qAsConst(m_appointments)) {
+    for (const Appointment *a : std::as_const(m_appointments)) {
         rl += a->resource() ->resource() ->name();
     }
     return rl;
@@ -1319,13 +1319,13 @@ void MainSchedule::saveXML(QDomElement &element) const
     if (! m_pathlists.isEmpty()) {
         QDomElement lists = element.ownerDocument().createElement(QStringLiteral("criticalpath-list"));
         element.appendChild(lists);
-        for (const QList<Node*> &l : qAsConst(m_pathlists)) {
+        for (const QList<Node*> &l : std::as_const(m_pathlists)) {
             if (l.isEmpty()) {
                 continue;
             }
             QDomElement list = lists.ownerDocument().createElement(QStringLiteral("criticalpath"));
             lists.appendChild(list);
-            for (Node *n : qAsConst(l)) {
+            for (Node *n : std::as_const(l)) {
                 QDomElement el = list.ownerDocument().createElement(QStringLiteral("node"));
                 list.appendChild(el);
                 el.setAttribute(QStringLiteral("id"), n->id());
@@ -1337,7 +1337,7 @@ void MainSchedule::saveXML(QDomElement &element) const
 DateTime MainSchedule::calculateForward(int use)
 {
     DateTime late;
-    for (Node *n : qAsConst(m_backwardnodes)) {
+    for (Node *n : std::as_const(m_backwardnodes)) {
         DateTime t = n->calculateForward(use);
         if (!late.isValid() || late < t) {
             late = t;
@@ -1349,7 +1349,7 @@ DateTime MainSchedule::calculateForward(int use)
 DateTime MainSchedule::calculateBackward(int use)
 {
     DateTime early;
-    for (Node *n : qAsConst(m_forwardnodes)) {
+    for (Node *n : std::as_const(m_forwardnodes)) {
         DateTime t = n->calculateBackward(use);
         if (!early.isValid() || early > t) {
             early = t;
@@ -1361,7 +1361,7 @@ DateTime MainSchedule::calculateBackward(int use)
 DateTime MainSchedule::scheduleForward(const DateTime &earliest, int use)
 {
     DateTime end;
-    for (Node *n : qAsConst(m_forwardnodes)) {
+    for (Node *n : std::as_const(m_forwardnodes)) {
         DateTime t = n->scheduleForward(earliest, use);
         if (!end.isValid() || end < t) {
             end = t;
@@ -1373,7 +1373,7 @@ DateTime MainSchedule::scheduleForward(const DateTime &earliest, int use)
 DateTime MainSchedule::scheduleBackward(const DateTime &latest, int use)
 {
     DateTime start;
-    for (Node *n : qAsConst(m_backwardnodes)) {
+    for (Node *n : std::as_const(m_backwardnodes)) {
         DateTime t = n->scheduleBackward(latest, use);
         if (!start.isValid() || start > t) {
             start = t;
@@ -1469,7 +1469,7 @@ QString MainSchedule::logSeverity(int severity)
 QStringList MainSchedule::logMessages() const
 {
     QStringList lst;
-    for (const Schedule::Log &l : qAsConst(m_log)) {
+    for (const Schedule::Log &l : std::as_const(m_log)) {
         lst << l.formatMsg();
     }
     return lst;
@@ -1549,7 +1549,7 @@ ScheduleManager *ScheduleManager::findManager(const QString& name) const
     if (m_name == name) {
         return const_cast<ScheduleManager*>(this);
     }
-    for (ScheduleManager *sm : qAsConst(m_children)) {
+    for (ScheduleManager *sm : std::as_const(m_children)) {
         ScheduleManager *m = sm->findManager(name);
         if (m) {
             return m;
@@ -1561,7 +1561,7 @@ ScheduleManager *ScheduleManager::findManager(const QString& name) const
 QList<ScheduleManager*> ScheduleManager::allChildren() const
 {
     QList<ScheduleManager*> lst;
-    for (ScheduleManager *sm : qAsConst(m_children)) {
+    for (ScheduleManager *sm : std::as_const(m_children)) {
         lst << sm;
         lst << sm->allChildren();
     }
@@ -1573,7 +1573,7 @@ bool ScheduleManager::isParentOf(const ScheduleManager *sm) const
     if (indexOf(sm) >= 0) {
         return true;
     }
-    for (ScheduleManager *p : qAsConst(m_children)) {
+    for (ScheduleManager *p : std::as_const(m_children)) {
         if (p->isParentOf(sm)) {
             return true;
         }
@@ -1597,7 +1597,7 @@ void ScheduleManager::setName(const QString& name)
 bool ScheduleManager::isChildBaselined() const
 {
     //debugPlan<<on;
-    for (ScheduleManager *sm : qAsConst(m_children)) {
+    for (ScheduleManager *sm : std::as_const(m_children)) {
         if (sm->isBaselined() || sm->isChildBaselined()) {
             return true;
         }
@@ -1921,7 +1921,7 @@ void ScheduleManager::saveXML(QDomElement &element) const
         m_expected->saveXML(schs);
         m_project.saveAppointments(schs, m_expected->id());
     }
-    for (ScheduleManager *sm : qAsConst(m_children)) {
+    for (ScheduleManager *sm : std::as_const(m_children)) {
         sm->saveXML(el);
     }
 

@@ -568,13 +568,13 @@ bool ResourceItemModel::setAccount(Resource *res, const QVariant &value, int rol
     switch (role) {
         case Qt::EditRole: {
             Account *a = nullptr;
-            if (value.type() == QVariant::Int) {
+            if (value.typeId() == QMetaType::Int) {
                 QStringList lst = m_resourceModel.account(res, Role::EnumList).toStringList();
                 if (value.toInt() >= lst.count()) {
                     return false;
                 }
                 a = m_project->accounts().findAccount(lst.at(value.toInt()));
-            } else if (value.type() == QVariant::String) {
+            } else if (value.typeId() == QMetaType::QString) {
                 a = m_project->accounts().findAccount(value.toString());
             }
             Account *old = res->account();
@@ -858,6 +858,7 @@ void ResourceItemModel::slotDataArrived(KIO::Job *job, const QByteArray &data)
 
 void ResourceItemModel::slotJobFinished(KJob *job)
 {
+    Q_UNUSED(job);
 //     if (job->error() || ! m_dropDataMap.contains(job)) {
 //         debugPlan<<(job->error() ? "Job error":"Error: no such job");
 //     } else if (QMimeDatabase().mimeTypeForData(m_dropDataMap[ job ].data).inherits(QStringLiteral("text/x-vcard"))) {
@@ -911,6 +912,11 @@ bool ResourceItemModel::createResources(ResourceGroup *group, const QByteArray &
 
 bool ResourceItemModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
+    Q_UNUSED(data);
+    Q_UNUSED(action);
+    Q_UNUSED(row);
+    Q_UNUSED(column);
+    Q_UNUSED(parent);
 #if 0
     debugPlan<<row<<column<<parent;
     if (action == Qt::IgnoreAction) {

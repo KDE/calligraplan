@@ -226,8 +226,8 @@ void InsertProjectCmd::createCommands(Project &fromProject)
             allResources << toResource;
         }
     }
-    for (auto r1 : qAsConst(allResources)) {
-        for (auto r2 : qAsConst(allResources)) {
+    for (auto r1 : std::as_const(allResources)) {
+        for (auto r2 : std::as_const(allResources)) {
             if (r1 != r2 && r1->name() == r2->name()) {
                 warnPlanInsertProject<<"Two resources with same name!"<<r1<<r2;
             }
@@ -261,13 +261,13 @@ void InsertProjectCmd::createCommands(Project &fromProject)
         allGroups << gr;
     }
     debugPlanInsertProject<<"New resource groups:"<<newGroups;
-    for (auto g : qAsConst(newGroups)) {
+    for (auto g : std::as_const(newGroups)) {
         auto parent = newGroupsWithParent.value(g); // if nullptr it is a top level group
         debugPlanInsertProject<<"AddResourceGroupCmd:"<<'f'<<&fromProject<<'t'<<m_project<<g<<parent<<g->resources();
         addCommand(new AddResourceGroupCmd(m_project, parent, g, kundo2_noi18n(QStringLiteral("ResourceGroup"))));
     }
     // Add new resources
-    for (Resource *r : qAsConst(newResources)) {
+    for (Resource *r : std::as_const(newResources)) {
         addCommand(new AddResourceCmd(m_project, r, kundo2_noi18n(QStringLiteral("Resource"))));
         // add any moved parent groups
         auto cmds = resourceparentgroupcmds.take(r);
@@ -467,7 +467,7 @@ void InsertProjectCmd::createCommands(Project &fromProject)
     qDeleteAll(existingResources); // deletes unused resources
     debugPlanInsertProject<<"Delete unused groups:"<<existingGroups.count()<<existingGroups;
     // avoid double delete
-    for (auto g : qAsConst(existingGroups)) {
+    for (auto g : std::as_const(existingGroups)) {
         while (g->numChildGroups() > 0) {
             g->removeChildGroup(g->childGroupAt(0));
         }

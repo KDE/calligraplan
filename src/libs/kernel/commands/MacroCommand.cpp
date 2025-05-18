@@ -30,7 +30,7 @@ void MacroCommand::execute()
     if (m_busyCursorEnabled) {
         QApplication::setOverrideCursor(Qt::BusyCursor);
     }
-    for (KUndo2Command *c : qAsConst(cmds)) {
+    for (KUndo2Command *c : std::as_const(cmds)) {
         c->redo();
     }
     if (m_busyCursorEnabled) {

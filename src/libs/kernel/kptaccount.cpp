@@ -90,7 +90,7 @@ void Account::insert(Account *account, int index) {
 }
 
 void Account::insertChildren() {
-    for (Account *a : qAsConst(m_accountList)) {
+    for (Account *a : std::as_const(m_accountList)) {
         a->setList(m_list);
         a->setParent(this);
         insertId(a);
@@ -136,7 +136,7 @@ bool Account::isChildOf(const Account *account) const
 
 bool Account::isBaselined(long id) const
 {
-    for (CostPlace *p : qAsConst(m_costPlaces)) {
+    for (CostPlace *p : std::as_const(m_costPlaces)) {
         if (p->isBaselined(id)) {
             return true;
         }
@@ -179,17 +179,17 @@ void Account::save(QDomElement &element) const {
     element.appendChild(me);
     me.setAttribute(QStringLiteral("name"), m_name);
     me.setAttribute(QStringLiteral("description"), m_description);
-    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
+    for (Account::CostPlace *cp : std::as_const(m_costPlaces)) {
         cp->save(me);
     }
-    for (Account *a : qAsConst(m_accountList)) {
+    for (Account *a : std::as_const(m_accountList)) {
         a->save(me);
     }
 }
 
 Account::CostPlace *Account::findCostPlace(const Resource &resource) const
 {
-    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
+    for (Account::CostPlace *cp : std::as_const(m_costPlaces)) {
         if (&resource == cp->resource()) {
             return cp;
         }
@@ -198,7 +198,7 @@ Account::CostPlace *Account::findCostPlace(const Resource &resource) const
 }
 
 Account::CostPlace *Account::findRunning(const Resource &resource) const {
-    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
+    for (Account::CostPlace *cp : std::as_const(m_costPlaces)) {
         if (&resource == cp->resource() && cp->running()) {
             return cp;
         }
@@ -230,7 +230,7 @@ void Account::addRunning(Resource &resource) {
 
 Account::CostPlace *Account::findCostPlace(const Node &node) const
 {
-    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
+    for (Account::CostPlace *cp : std::as_const(m_costPlaces)) {
         if (&node == cp->node()) {
             return cp;
         }
@@ -370,11 +370,11 @@ EffortCostMap Account::plannedCost(long id) const
 EffortCostMap Account::plannedCost(const QDate &start, const QDate &end, long id) const {
     EffortCostMap ec;
     if (! isElement()) {
-        for (Account *a : qAsConst(m_accountList)) {
+        for (Account *a : std::as_const(m_accountList)) {
             ec += a->plannedCost(start, end, id);
         }
     }
-    for (Account::CostPlace *cp : qAsConst(m_costPlaces)) {
+    for (Account::CostPlace *cp : std::as_const(m_costPlaces)) {
         ec += plannedCost(*cp, start, end, id);
     }
     if (isDefaultAccount()) {
@@ -441,7 +441,7 @@ EffortCostMap Account::actualCost(const QDate &start, const QDate &end, long id)
 {
     EffortCostMap ec;
     if (! isElement()) {
-        for (Account *a : qAsConst(m_accountList)) {
+        for (Account *a : std::as_const(m_accountList)) {
             ec += a->actualCost(start, end, id);
         }
     }
@@ -809,7 +809,7 @@ void Accounts::save(QDomElement &element) const {
     if (m_defaultAccount) {
         me.setAttribute(QStringLiteral("default-account"), m_defaultAccount->name());
     }
-    for (Account *a : qAsConst(m_accountList)) {
+    for (Account *a : std::as_const(m_accountList)) {
         a->save(me);
     }
 }
@@ -940,13 +940,13 @@ QList<Node*> Accounts::allNodes() const
 #ifndef NDEBUG
 void Accounts::printDebug(const QString& indent) {
     debugPlan<<indent<<"Accounts:"<<this<<m_accountList.count()<<" children";
-    for(Account *a : qAsConst(m_accountList)) {
+    for(Account *a : std::as_const(m_accountList)) {
         a->printDebug(indent + QStringLiteral("    !"));
     }
 }
 void Account::printDebug(const QString& indent) {
     debugPlan<<indent<<"--- Account:"<<this<<m_name<<":"<<m_accountList.count()<<" children";
-    for(Account *a : qAsConst(m_accountList)) {
+    for(Account *a : std::as_const(m_accountList)) {
         a->printDebug(indent + QStringLiteral("    !"));
     }
 }

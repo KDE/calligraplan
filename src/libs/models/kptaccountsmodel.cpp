@@ -438,7 +438,7 @@ void AccountItemModel::removeAccounts(QList<Account*> lst)
     while (! lst.isEmpty()) {
         bool del = true;
         Account *acc = lst.takeFirst();
-        for (Account *a : qAsConst(lst)) {
+        for (Account *a : std::as_const(lst)) {
             if (acc->isChildOf(a)) {
                 del = false; // acc will be deleted when a is deleted
                 break;

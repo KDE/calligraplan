@@ -318,14 +318,14 @@ void buildGraph(QHash<QByteArray, Vertex*>& vertices, KoFilterManager::Direction
             // Now we have to exclude the "stop" mimetypes (in the right direction!)
             if (direction == KoFilterManager::Import) {
                 // Import: "stop" mime type should not appear in export
-                for (const QString & testIt : qAsConst((*it)->export_)) {
+                for (const QString & testIt : std::as_const((*it)->export_)) {
                     if (!stopList.contains(testIt))
                         expList.append(testIt);
                 }
                 impList = (*it)->import_;
             } else {
                 // Export: "stop" mime type should not appear in import
-                for (const QString & testIt : qAsConst((*it)->import_)) {
+                for (const QString & testIt : std::as_const((*it)->import_)) {
                     if (!stopList.contains(testIt))
                         impList.append(testIt);
                 }
@@ -436,7 +436,7 @@ QStringList KoFilterManager::mimeFilter(const QByteArray &mimetype, Direction di
     QStringList lst = nativeMimeTypes;
 
     // Now look for filters which output each of those natives mimetypes
-    for (const QString &natit : qAsConst(nativeMimeTypes)) {
+    for (const QString &natit : std::as_const(nativeMimeTypes)) {
         const QStringList outMimes = connected(vertices, natit.toLatin1());
         debugFilter <<"output formats connected to mime" << natit <<" :" << outMimes;
         for (const QString &mit : outMimes) {

@@ -1032,7 +1032,7 @@ bool MainDocument::completeSaving(KoStore *store)
         }
         return false;
     }
-    for (View *view : qAsConst(m_views)) {
+    for (View *view : std::as_const(m_views)) {
         if (view) {
             if (store->open("context.xml")) {
                 if (m_context == nullptr) m_context = new Context();
@@ -1458,7 +1458,7 @@ bool MainDocument::mergeResources(Project &project)
         }
     }
     removedCalendars = sortedRemoveCalendars(project, m_project->calendars());
-    for (Calendar *c : qAsConst(removedCalendars)) {
+    for (Calendar *c : std::as_const(removedCalendars)) {
         removed << i18n("Calendar: %1", c->name());
     }
     MacroCommand *cmd = new MacroCommand(kundo2_i18n("Update Shared Resources"));

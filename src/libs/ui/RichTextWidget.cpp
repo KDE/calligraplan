@@ -24,7 +24,7 @@ QList<QAction*> RichTextWidget::createActions()
     QList<QAction*> lst = KRichTextWidget::createActions();
     if (richTextSupport() & RichTextWidget::SupportHyperlinks) {
         openLink = new QAction(QIcon::fromTheme(QStringLiteral("link")), xi18nc("@action:intoolbar", "Open Link"));
-        openLink->setShortcut(Qt::CTRL + Qt::Key_O);
+        openLink->setShortcut(Qt::CTRL | Qt::Key_O);
         openLink->setObjectName(QStringLiteral("open_link"));
         connect(openLink, &QAction::triggered, this, &RichTextWidget::slotOpenLink);
         lst.append(openLink);

@@ -84,7 +84,7 @@ void SchedulingLogModel::addLogEntry(const KPlato::Schedule::Log &log)
     item->setEditable(false);
     lst.append(item);
     lst.append(new QStandardItem(log.message));
-    for (QStandardItem *itm : qAsConst(lst)) {
+    for (QStandardItem *itm : std::as_const(lst)) {
             if (log.resource) {
                 itm->setData(log.resource->id(), IdentityRole);
             } else if (log.node) {

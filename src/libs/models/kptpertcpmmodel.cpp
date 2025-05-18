@@ -177,7 +177,7 @@ QVariant CriticalPathItemModel::variance(int role) const
         case Qt::DisplayRole:
         case Qt::ToolTipRole: {
             double v = 0.0;
-            for (Node *n : qAsConst(m_path)) {
+            for (Node *n : std::as_const(m_path)) {
                 long id = m_manager->scheduleId();
                 v += n->variance(id, presentationUnit(m_project->duration(id)));
             }
@@ -186,7 +186,7 @@ QVariant CriticalPathItemModel::variance(int role) const
         }
         case Qt::EditRole: {
             double v = 0.0;
-            for (Node *n : qAsConst(m_path)) {
+            for (Node *n : std::as_const(m_path)) {
                 v += n->variance(m_manager->scheduleId());
             }
             return v;
@@ -386,7 +386,7 @@ void PertResultItemModel::setManager(ScheduleManager *sm)
 void PertResultItemModel::clear()
 {
     debugPlan<<this;
-    for (NodeList *l : qAsConst(m_top)) {
+    for (NodeList *l : std::as_const(m_top)) {
         int c = l->count();
         if (c > 0) {
             // FIXME: gives error msg:
@@ -456,7 +456,7 @@ void PertResultItemModel::refresh()
         beginInsertRows(QModelIndex(), 0, m_top.count() -1);
         endInsertRows();
         
-        for (NodeList *l : qAsConst(m_top)) {
+        for (NodeList *l : std::as_const(m_top)) {
             int c = l->count();
             if (c > 0) {
                 beginInsertRows(index(l), 0, c-1);

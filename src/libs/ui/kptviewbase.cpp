@@ -796,12 +796,12 @@ void ViewBase::openContextMenu(const QString& menuname, const QPoint & pos)
         debugPlan<<lst;
         if (!lst.isEmpty()) {
             menu->addSeparator();
-            for (QAction *a : qAsConst(lst)) {
+            for (QAction *a : std::as_const(lst)) {
                 menu->addAction(a);
             }
         }
         menu->exec(pos);
-        for (QAction *a : qAsConst(lst)) {
+        for (QAction *a : std::as_const(lst)) {
             menu->removeAction(a);
         }
     } else {
@@ -855,7 +855,7 @@ void ViewBase::saveContext(QDomElement &context) const
     if (! m_dockers.isEmpty()) {
         QDomElement e = context.ownerDocument().createElement(QStringLiteral("dockers"));
         context.appendChild(e);
-        for (const DockWidget *ds : qAsConst(m_dockers)) {
+        for (const DockWidget *ds : std::as_const(m_dockers)) {
             ds->saveXml(e);
         }
     }
@@ -874,7 +874,7 @@ QList<DockWidget*> ViewBase::dockers() const
 
 DockWidget* ViewBase::findDocker(const QString &id) const
 {
-    for (DockWidget *ds : qAsConst(m_dockers)) {
+    for (DockWidget *ds : std::as_const(m_dockers)) {
         if (ds->id == id) {
             return ds;
         }
@@ -1647,7 +1647,7 @@ void TreeViewBase::dragMoveEvent(QDragMoveEvent *event)
         }
         debugPlan<<"On viewport:"<<event->isAccepted();
     } else {
-        QModelIndex index = indexAt(event->pos());
+        QModelIndex index = indexAt(event->position().toPoint());
         if (index.isValid() && m_readWrite) {
             Q_EMIT dropAllowed(index, dropIndicatorPosition(), event);
         } else {

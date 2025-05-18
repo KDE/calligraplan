@@ -467,9 +467,9 @@ void PerformanceStatusBase::setupChart(ChartContents &cc)
         }
     }
 
-    for (AbstractCoordinatePlane *p : qAsConst(ui_chart->coordinatePlanes())) {
+    for (AbstractCoordinatePlane *p : std::as_const(ui_chart->coordinatePlanes())) {
         debugPlan<<p<<"references:"<<p->referenceCoordinatePlane();
-        for (AbstractDiagram *d : qAsConst(p->diagrams())) {
+        for (AbstractDiagram *d : std::as_const(p->diagrams())) {
             debugPlan<<p<<"diagram:"<<d;
         }
     }

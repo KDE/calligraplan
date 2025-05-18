@@ -16,6 +16,6 @@
 
 #define CONNECT(sender, signal, context, functor) ObjectConnections << connect(sender, signal, context, functor, Qt::AutoConnection)
 
-#define DISCONNECT for (const QMetaObject::Connection &c : qAsConst(ObjectConnections)) { disconnect(c); }
+#define DISCONNECT for (const QMetaObject::Connection &c : std::as_const(ObjectConnections)) { disconnect(c); }
 
 #endif

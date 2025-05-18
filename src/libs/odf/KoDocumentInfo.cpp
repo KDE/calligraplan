@@ -198,7 +198,7 @@ QString KoDocumentInfo::aboutInfo(const char *info) const
 
 bool KoDocumentInfo::saveOasisAuthorInfo(KoXmlWriter &xmlWriter)
 {
-    for (const QString & tag : qAsConst(m_authorTags)) {
+    for (const QString & tag : std::as_const(m_authorTags)) {
         if (!authorInfo(tag).isEmpty() && tag == QStringLiteral("creator")) {
             xmlWriter.startElement("dc:creator");
             xmlWriter.addTextNode(authorInfo("creator"));
@@ -259,7 +259,7 @@ QDomElement KoDocumentInfo::saveAuthorInfo(QDomDocument &doc)
     QDomElement e = doc.createElement(QStringLiteral("author"));
     QDomElement t;
 
-    for (const QString &tag : qAsConst(m_authorTags)) {
+    for (const QString &tag : std::as_const(m_authorTags)) {
         if (tag == QStringLiteral("creator"))
             t = doc.createElement(QStringLiteral("full-name"));
         else
@@ -274,7 +274,7 @@ QDomElement KoDocumentInfo::saveAuthorInfo(QDomDocument &doc)
 
 bool KoDocumentInfo::saveOasisAboutInfo(KoXmlWriter &xmlWriter)
 {
-    for (const QString &tag : qAsConst(m_aboutTags)) {
+    for (const QString &tag : std::as_const(m_aboutTags)) {
         if (!aboutInfo(tag).isEmpty() || tag == QStringLiteral("title")) {
             if (tag == QStringLiteral("keyword")) {
                 const QList<QString> keys = aboutInfo("keyword").split(m_keywordSeparator);
@@ -371,7 +371,7 @@ QDomElement KoDocumentInfo::saveAboutInfo(QDomDocument &doc)
     QDomElement e = doc.createElement(QStringLiteral("about"));
     QDomElement t;
 
-    for (const QString &tag : qAsConst(m_aboutTags)) {
+    for (const QString &tag : std::as_const(m_aboutTags)) {
         if (tag == QStringLiteral("comments")) {
             t = doc.createElement(QStringLiteral("abstract"));
             e.appendChild(t);
@@ -456,7 +456,7 @@ void KoDocumentInfo::updateParameters()
     }
 
     //allow author info set programmatically to override info from author profile
-    for (const QString &tag : qAsConst(m_authorTags)) {
+    for (const QString &tag : std::as_const(m_authorTags)) {
         if (m_authorInfoOverride.contains(tag)) {
             setActiveAuthorInfo(tag, m_authorInfoOverride.value(tag));
         }

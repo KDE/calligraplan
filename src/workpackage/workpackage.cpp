@@ -150,7 +150,7 @@ bool WorkPackage::contains(const KPlato::Document *doc) const
 
 DocumentChild *WorkPackage::findChild(const KPlato::Document *doc) const
 {
-    for (DocumentChild *c : qAsConst(m_childdocs)) {
+    for (DocumentChild *c : std::as_const(m_childdocs)) {
         if (c->doc() == doc) {
             return c;
         }
@@ -344,7 +344,7 @@ bool WorkPackage::completeSaving(KoStore *store)
 
     // First get all open documents
     debugPlanWork<<m_childdocs.count();
-    for (DocumentChild *cd : qAsConst(m_childdocs)) {
+    for (DocumentChild *cd : std::as_const(m_childdocs)) {
         if (! cd->saveToStore(store)) {
         }
     }
@@ -420,7 +420,7 @@ bool WorkPackage::isModified() const
     if (m_modified) {
         return true;
     }
-    for (DocumentChild *ch : qAsConst(m_childdocs)) {
+    for (DocumentChild *ch : std::as_const(m_childdocs)) {
         if (ch->isModified() || ch->isFileModified()) {
             return true;
         }
@@ -624,7 +624,7 @@ int WorkPackage::queryClose(Part *part)
     QString name = node()->name();
     QStringList lst;
     if (! m_childdocs.isEmpty()) {
-        for (DocumentChild *ch : qAsConst(m_childdocs)) {
+        for (DocumentChild *ch : std::as_const(m_childdocs)) {
             if (ch->isOpen() && ch->doc()->sendAs() == KPlato::Document::SendAs_Copy) {
                 lst << ch->doc()->url().fileName();
             }

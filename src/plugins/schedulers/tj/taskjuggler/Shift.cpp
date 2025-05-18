@@ -102,7 +102,7 @@ Shift::isOnShift(const Interval& iv) const
         if (iv.getStart() >= workingIntervals.last().getEnd()) {
             return false;
         }
-        for (const Interval &i : qAsConst(workingIntervals)) {
+        for (const Interval &i : std::as_const(workingIntervals)) {
             if (iv.getEnd() <= i.getStart()) {
                 return false;
             }

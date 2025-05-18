@@ -153,7 +153,7 @@ void KPlatoScheduler::stopScheduling()
 void KPlatoScheduler::cancelScheduling(SchedulingContext &context)
 {
     context.cancelScheduling = true;
-    for (const auto doc : qAsConst(context.calculatedDocuments)) {
+    for (const auto doc : std::as_const(context.calculatedDocuments)) {
         doc->project()->stopcalculation = true;
         if (doc->project()->currentScheduleManager()) {
             doc->project()->currentScheduleManager()->setCalculationResult(KPlato::ScheduleManager::CalculationCanceled);
@@ -238,7 +238,7 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
     }
 
     int taskCount = 0;
-    for (const auto doc : qAsConst(context.calculatedDocuments)) {
+    for (const auto doc : std::as_const(context.calculatedDocuments)) {
         auto p = doc->project();
         connect(p, &KPlato::Project::sigProgress, this, &KPlato::KPlatoScheduler::slotProgress);
         taskCount += p->leafNodes().count();
@@ -254,7 +254,7 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
     }
 
     auto includes = context.resourceBookings;
-    for (auto doc : qAsConst(context.calculatedDocuments)) {
+    for (auto doc : std::as_const(context.calculatedDocuments)) {
         calculateProject(context, doc, includes);
         if (!context.cancelScheduling) {
             includes << doc;
@@ -264,7 +264,7 @@ void KPlatoScheduler::schedule(SchedulingContext &context)
         takeLog();
         logWarning(context.project, nullptr, i18n("Scheduling canceled"));
     } else {
-        for (auto doc : qAsConst(context.calculatedDocuments)) {
+        for (auto doc : std::as_const(context.calculatedDocuments)) {
             mergeProject(doc->project(), projectMap.value(doc)->project());
             projectMap.value(doc)->setProperty(SCHEDULEMANAGERNAME, doc->property(SCHEDULEMANAGERNAME));
         }

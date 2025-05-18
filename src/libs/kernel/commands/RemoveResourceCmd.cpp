@@ -51,7 +51,7 @@ RemoveResourceCmd::RemoveResourceCmd(Resource *resource, const KUndo2MagicString
     if (resource->account()) {
         m_postCmd.addCommand(new ResourceModifyAccountCmd(*resource, resource->account(), nullptr));
     }
-    for (ResourceRequest *r : qAsConst(m_requests)) {
+    for (ResourceRequest *r : std::as_const(m_requests)) {
         m_preCmd.addCommand(new RemoveResourceRequestCmd(r));
         //debugPlan<<"Remove request for"<<r->resource()->name();
     }
