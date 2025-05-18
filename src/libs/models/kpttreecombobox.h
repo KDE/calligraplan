@@ -29,7 +29,7 @@ public:
     explicit TreeComboBox(QWidget *parent = nullptr);
 
     QTreeView *view() const;
-    void setModel(QAbstractItemModel *model);
+    void setModel(QAbstractItemModel *model) override;
     QAbstractItemModel *model() const;
 
     QList<QPersistentModelIndex> currentIndexes() const { return m_currentIndexes; }
