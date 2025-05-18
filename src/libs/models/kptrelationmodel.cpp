@@ -351,7 +351,7 @@ QVariant RelationItemModel::data(const QModelIndex &index, int role) const
         result = m_relationmodel.data(r, index.column(), role);
     }
     if (result.isValid()) {
-        if (role == Qt::DisplayRole && result.type() == QVariant::String && result.toString().isEmpty()) {
+        if (role == Qt::DisplayRole && result.typeId() == QMetaType::QString && result.toString().isEmpty()) {
             // HACK to show focus in empty cells
             result = ' ';
         }
