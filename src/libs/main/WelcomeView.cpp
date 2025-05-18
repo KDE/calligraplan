@@ -22,6 +22,7 @@
 
 #include <KConfigGroup>
 #include <KRecentFilesAction>
+#include <KUrlCompletion>
 
 #include <QAction>
 #include <QStringList>
@@ -219,11 +220,13 @@ KoMainWindow * WelcomeView::mainWindow() const
     return qobject_cast<KoMainWindow*>(parent());
 }
 
+
 void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
 {
     if (idx.isValid()) {
         QString file = idx.data(Qt::UserRole+1).toString();
-        QUrl url = QUrl::fromUserInput(file);
+        KUrlCompletion k;
+        QUrl url = QUrl::fromUserInput(k.replacedPath(file));
         debugWelcome<<file<<url;
         if (url.isValid()) {
             KoPart *part = this->part(QStringLiteral("calligraplan"), PLAN_MIME_TYPE);
