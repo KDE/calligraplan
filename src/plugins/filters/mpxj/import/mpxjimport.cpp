@@ -25,10 +25,11 @@
 #include <QDebug>
 
 
-#define MPXJIMPORT_LOG "calligra.plan.filter.mpxj.import"
-#define debugMpxjImport qCDebug(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
-#define warnMpxjImport qCWarning(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
-#define errorMpxjImport qCCritical(QLoggingCategory(MPXJIMPORT_LOG))<<Q_FUNC_INFO
+Q_LOGGING_CATEGORY(mpxjImportLog, "calligra.plan.filter.mpxj.import")
+
+#define debugMpxjImport qCDebug(mpxjImportLog)<<Q_FUNC_INFO
+#define warnMpxjImport qCWarning(mpxjImportLog)<<Q_FUNC_INFO
+#define errorMpxjImport qCCritical(mpxjImportLog)<<Q_FUNC_INFO
 
 K_PLUGIN_FACTORY_WITH_JSON(MpxjImportFactory, "plan_mpxj_import.json", registerPlugin<MpxjImport>();)
 
