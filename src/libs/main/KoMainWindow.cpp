@@ -463,7 +463,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
         // Hide all dockwidgets and remember their old state
         d->dockWidgetVisibilityMap.clear();
 
-        for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap)) {
+        for (QDockWidget* dockWidget : std::as_const(d->dockWidgetsMap)) {
             d->dockWidgetVisibilityMap.insert(dockWidget, dockWidget->isVisible());
             dockWidget->setVisible(false);
         }
@@ -537,7 +537,7 @@ void KoMainWindow::setRootDocument(KoDocument *doc, KoPart *part, bool deletePre
     }
 
     if (doc && !d->dockWidgetVisibilityMap.isEmpty()) {
-        for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap)) {
+        for (QDockWidget* dockWidget : std::as_const(d->dockWidgetsMap)) {
             dockWidget->setVisible(d->dockWidgetVisibilityMap.value(dockWidget));
         }
     }
@@ -1175,7 +1175,7 @@ void KoMainWindow::closeEvent(QCloseEvent *e)
             return;
         setRootDocument(nullptr);
         if (!d->dockWidgetVisibilityMap.isEmpty()) { // re-enable dockers for persistency
-            for (QDockWidget* dockWidget : qAsConst(d->dockWidgetsMap))
+            for (QDockWidget* dockWidget : std::as_const(d->dockWidgetsMap))
                 dockWidget->setVisible(d->dockWidgetVisibilityMap.value(dockWidget));
         }
     } else {
@@ -2007,7 +2007,7 @@ QList<QDockWidget*> KoMainWindow::dockWidgets() const
 
     QList<KoCanvasObserverBase*> observers;
 
-    for (QDockWidget *docker : qAsConst(dockWidgets())) {
+    for (QDockWidget *docker : std::as_const(dockWidgets())) {
         KoCanvasObserverBase *observer = dynamic_cast<KoCanvasObserverBase*>(docker);
         if (observer) {
             observers << observer;
@@ -2064,7 +2064,8 @@ void KoMainWindow::newView()
 void KoMainWindow::createMainwindowGUI()
 {
     if (isHelpMenuEnabled() && !d->m_helpMenu) {
-        d->m_helpMenu = new KHelpMenu(this, componentData().aboutData(), true);
+        d->m_helpMenu = new KHelpMenu(this, componentData().aboutData());
+        d->m_helpMenu->setShowWhatsThis(true);
 
         KActionCollection *actions = actionCollection();
         QAction *helpContentsAction = d->m_helpMenu->action(KHelpMenu::menuHelpContents);
@@ -2185,7 +2186,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
 
         KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
         const bool showDockerTitleBar = configGroupInterface.readEntry("ShowDockerTitleBars", true);
-        for (QDockWidget *wdg : qAsConst(d->dockWidgets)) {
+        for (QDockWidget *wdg : std::as_const(d->dockWidgets)) {
             if ((wdg->features() & QDockWidget::DockWidgetClosable) == 0) {
                 if (wdg->titleBarWidget()) {
                     wdg->titleBarWidget()->setVisible(showDockerTitleBar);
