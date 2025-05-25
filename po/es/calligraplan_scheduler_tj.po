@@ -1,16 +1,16 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for calligraplan_scheduler_tj.po package.
+# Copyright (C) 2011-2025 This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
 #
-# Sofia Priego <spriego@darksylvania.net>, %Y.
-# Raul Gonzalez <raulgf83@gmail.com>, 2011, 2013.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2018, 2021, 2022.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2011, 2013 Raul Gonzalez <raulgf83@gmail.com>
+# SPDX-FileCopyrightText: 2018, 2021, 2022 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2022, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: calligraplan_scheduler_tj\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2022-08-28 19:24+0100\n"
+"PO-Revision-Date: 2025-05-24 18:39+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -257,182 +257,3 @@ msgid ""
 msgstr ""
 "No se permiten citas con una carga (%1) inferior a las unidades de recursos "
 "(%2) disponibles"
-
-#, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
-#~| "version of the scheduler used in TaskJuggler. It has been enhanced to "
-#~| "handle resource units.</para><para>Scheduling backwards is simulated by "
-#~| "scheduling all tasks as late as possible.</para><para><note>Plan does "
-#~| "not utilize all of its functionality.</note></para>"
-#~ msgctxt "(qtundo-format) @info:whatsthis"
-#~ msgid ""
-#~ "<title>TaskJuggler Scheduler</title><para>This is a slightly modified "
-#~ "version of the scheduler used in TaskJuggler. It has been enhanced to "
-#~ "handle resource units.</para><para>Scheduling backwards is simulated by "
-#~ "scheduling all tasks as late as possible.</para><para><note>Plan does not "
-#~ "utilize all of its functionality.</note></para>"
-#~ msgstr ""
-#~ "<title>Planificador TaskJuggler</title><para>Es una versión ligeramente "
-#~ "modificada del planificador utilizado en TaskJuggler. Ha sido mejorado "
-#~ "para gestionar unidades de recursos.</para><para>La planificación hacia "
-#~ "atrás se simula mediante la planificación de todas las tareas tan tarde "
-#~ "como sea posible.</para><para><note>Plan no utiliza toda su funcionalidad."
-#~ "</note></para>"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Init"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Init"
-#~ msgstr "Inicio"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Re-calculate project from start time: %1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Re-calculate project from start time: %1"
-#~ msgstr "Volver a calcular el proyecto desde la fecha de inicio: %1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Schedule project from start time: %1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Schedule project from start time: %1"
-#~ msgstr "Planificar el proyecto desde la fecha de inicio: %1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Project target finish time: %1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Project target finish time: %1"
-#~ msgstr "Fecha de finalización prevista del proyecto: %1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Schedule project from end time: %1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Schedule project from end time: %1"
-#~ msgstr "Planificar el proyecto desde la fecha de finalización: %1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Schedule"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Schedule"
-#~ msgstr "Planificar"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Failed to schedule project"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Failed to schedule project"
-#~ msgstr "No se completó la planificación del proyecto"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Update"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Update"
-#~ msgstr "Actualizar"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Finish"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Finish"
-#~ msgstr "Finalizar"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Failed to find scenario to schedule"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Failed to find scenario to schedule"
-#~ msgstr "No se encontró un escenario para planificar"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Project scheduled to start at %1 and finish at %2"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Project scheduled to start at %1 and finish at %2"
-#~ msgstr "Proyecto planificado para iniciarse en %1 y finalizar en %2"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Invalid start time"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Invalid start time"
-#~ msgstr "Fecha de inicio inválida"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Invalid end time"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Invalid end time"
-#~ msgstr "Fecha de finalización inválida"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Scheduled milestone: %1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Scheduled milestone: %1"
-#~ msgstr "Hito planificado: %1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Scheduled task: %1 - %2"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Scheduled task: %1 - %2"
-#~ msgstr "Tarea planificada: %1 - %2"
-
-#, fuzzy
-#~| msgctxt "1=type of constraint"
-#~| msgid "%1: Failed to meet constraint. Negative float=%2"
-#~ msgctxt "(qtundo-format) 1=type of constraint"
-#~ msgid "%1: Failed to meet constraint. Negative float=%2"
-#~ msgstr "%1: No se la podido cumplir la restricción. Fluctuación negativa:%2"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Failed to meet dependency. Negative float=%1"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Failed to meet dependency. Negative float=%1"
-#~ msgstr "No se ha podido satisfacer la dependencia. Fluctuación negativa=%1"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Dependency type '%1' not handled. Using FinishStart."
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Dependency type '%1' not handled. Using FinishStart."
-#~ msgstr "Tipo de dependencia «%1» no gestionada. Utilizando FinishStart."
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "%1: Invalid start constraint"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "%1: Invalid start constraint"
-#~ msgstr "%1: Restricción de inicio no válida"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "%1: Invalid end constraint"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "%1: Invalid end constraint"
-#~ msgstr "%1: Restricción de finalización no válida"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Unhandled time constraint type"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Unhandled time constraint type"
-#~ msgstr "Tipo de restricción de tiempo no gestionada"
-
-#, fuzzy
-#~| msgctxt "@info/plain"
-#~| msgid "Could not use the correct calendar for calculation of task duration"
-#~ msgctxt "(qtundo-format) @info/plain"
-#~ msgid "Could not use the correct calendar for calculation of task duration"
-#~ msgstr ""
-#~ "No se puede utilizar el calendario correcto para el cálculo de la "
-#~ "duración de la tarea"

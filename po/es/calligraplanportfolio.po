@@ -1,18 +1,16 @@
-# POT_PART_NORMAL only
 # Spanish translations for calligraplanportfolio.po package.
-# Copyright (C) 2021 This file is copyright:
+# Copyright (C) 2021-2025 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-#
-# Sofia Priego <spriego@darksylvania.net>, %Y.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
 # Automatically generated, 2021.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2021, 2022, 2023.
+#
+# SPDX-FileCopyrightText: 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2023, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanportfolio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-03-31 22:14+0100\n"
+"PO-Revision-Date: 2025-05-24 18:41+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -189,7 +187,7 @@ msgstr ""
 "<title>Resumen de Gantt</title><para>Muestra un diagrama de Gantt de todos "
 "los proyectos de su portafolio.</para><para>Puede mostrar una vista de Gantt "
 "para un proyecto seleccionando <interface>Menú de contexto->Abrir proyecto</"
-"interface>.<nl/><link url='%1'>Más...</link></para>"
+"interface>.<nl/><link url='%1'>Más…</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -258,7 +256,7 @@ msgstr "Guardar documento"
 #: Part.cpp:61
 #, kde-format
 msgid "Configure Portfolio..."
-msgstr "Configurar Portfolio..."
+msgstr "Configurar Portfolio…"
 
 #: Part.cpp:69
 #, kde-kuit-format
@@ -448,16 +446,16 @@ msgid ""
 msgstr ""
 "<title>El editor de contenido de Portfolio</title><para>Este editor le "
 "permite configurar el contenido de su portafolio.</para><para>Seleccione "
-"<interface>Editar|Añadir</interface> o pulse <interface>Añadir...</"
-"interface> para añadir proyectos a su portafolio.<nl/>Seleccione "
-"<interface>Editar|Eliminar</interface> o pulse <interface>Eliminar</"
-"interface> para eliminar los proyectos seleccionados.</para><para>Añada los "
-"proyectos que está gestionando y defina <emphasis>Portfolio</emphasis> = "
-"<emphasis>Yes</emphasis>.</para><para><note>Si tiene recursos que se "
-"comparten entre múltiples proyectos y desea cambiar la planificación o "
-"inspeccionar el uso de recursos, debe añadir todos los proyectos relevantes "
-"y definir <emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> para "
-"estos proyectos.</note></para><para><link url='%1'>Más...</link></para>"
+"<interface>Editar|Añadir</interface> o pulse <interface>Añadir…</interface> "
+"para añadir proyectos a su portafolio.<nl/>Seleccione <interface>Editar|"
+"Eliminar</interface> o pulse <interface>Eliminar</interface> para eliminar "
+"los proyectos seleccionados.</para><para>Añada los proyectos que está "
+"gestionando y defina <emphasis>Portfolio</emphasis> = <emphasis>Yes</"
+"emphasis>.</para><para><note>Si tiene recursos que se comparten entre "
+"múltiples proyectos y desea cambiar la planificación o inspeccionar el uso "
+"de recursos, debe añadir todos los proyectos relevantes y definir "
+"<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> para estos "
+"proyectos.</note></para><para><link url='%1'>Más…</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -498,7 +496,7 @@ msgstr ""
 "la entrada del menú <interface>Ayuda->¿Qué es esto?</interface> o el acceso "
 "rápido de teclado <shortcut>Mayúsculas+F1</shortcut>.</para><para>En los "
 "diálogos puede usar el botón <interface>?</interface> que hay en la barra de "
-"título del diálogo.</para><para>Si encuentra <link url='%1'>Más...</link> en "
+"título del diálogo.</para><para>Si encuentra <link url='%1'>Más…</link> en "
 "el texto, puede pulsarlo para mostrar más información disponible en la "
 "documentación.</para>"
 
@@ -641,7 +639,7 @@ msgstr ""
 "item><item><emphasis>Siguiente periodo:</emphasis> tareas programadas para "
 "que se inicien en el siguiente periodo.</item></list>El periodo de tiempo se "
 "puede configurar.</para><para>Esta vista permite configuración e impresión "
-"mediante el menú de contexto.<nl/><link url='%1'>Más...</link></para>"
+"mediante el menú de contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -798,7 +796,7 @@ msgid ""
 "para>"
 msgstr ""
 "<title>Uso de recursos</title><para>Esta vista muestra las asignaciones de "
-"tareas de recursos para cada día.</para><para><nl/><link url='%1'>Más...</"
+"tareas de recursos para cada día.</para><para><nl/><link url='%1'>Más…</"
 "link></para>"
 
 #: ResourceUsageView.cpp:106
@@ -952,7 +950,7 @@ msgstr ""
 #: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
-msgstr "Programando..."
+msgstr "Programando…"
 
 #: SchedulingModel.cpp:192
 #, kde-format
@@ -1039,7 +1037,7 @@ msgstr ""
 "excluir el proyecto.</para><para><note>Si sus proyectos comparten recursos "
 "con otros proyectos que no forman parte de su portafolio, debe incluir "
 "dichos proyectos para que la nivelación de recursos funcione correctamente.</"
-"note></para><para><link url='%1'>Más...</link></para>"
+"note></para><para><link url='%1'>Más…</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
@@ -1052,7 +1050,7 @@ msgstr[1] "%1 minutos"
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr "Descripción..."
+msgstr "Descripción…"
 
 #: SchedulingView.cpp:397
 #, kde-format
@@ -1171,7 +1169,7 @@ msgstr ""
 "<title>Vista de resumen de proyectos</title><para>Esta vista resume los "
 "datos de desempeño de los proyectos de su portafolio.</para><para>Los "
 "índices de desempeño se muestran para los cálculos basados en el costo y "
-"para los basados en el esfuerzo.</para><para><nl/><link url='%1'>Más...</"
+"para los basados en el esfuerzo.</para><para><nl/><link url='%1'>Más…</"
 "link></para>"
 
 #: View.cpp:58
@@ -1208,83 +1206,3 @@ msgstr "Uso de recursos"
 #, kde-format
 msgid "Gantt Summary"
 msgstr "Resumen de Gantt"
-
-#~ msgid ""
-#~ "Project is baselined.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "El proyecto tiene punto de partida.\n"
-#~ "Se creará «%1» como subprogramación de «%2»."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El proyecto está iniciado.\n"
-#~ "La programación «%1» se volverá a programar."
-
-#~ msgid ""
-#~ "Project is started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El proyecto está iniciado.\n"
-#~ "La programación existente «%1» se volverá a programar."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New sub-schedule '%1'.\n"
-#~ "'%1' will be created as sub-schedule to '%2'."
-#~ msgstr ""
-#~ "El proyecto no está iniciado.\n"
-#~ "Nueva subprogramación «%1».\n"
-#~ "«%1» se creará como subprogramación de «%2»."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "New schedule '%1' will be created."
-#~ msgstr ""
-#~ "El proyecto no está iniciado.\n"
-#~ "Se creará la nueva programación «%1»."
-
-#~ msgid ""
-#~ "Project is not started.\n"
-#~ "Existing schedule '%1' will be re-scheduled."
-#~ msgstr ""
-#~ "El proyecto no está iniciado.\n"
-#~ "La programación existente «%1» se volverá a programar."
-
-#~ msgid "Scheduling running..."
-#~ msgstr "Ejecutando programación..."
-
-#~ msgid "All"
-#~ msgstr "Todo"
-
-#~ msgid "Form"
-#~ msgstr "Formulario"
-
-#~ msgid "Documentation"
-#~ msgstr "Documentación"
-
-#~ msgctxt "@info:title"
-#~ msgid "Portfolio"
-#~ msgstr "Portafolio"
-
-#~ msgctxt "@info:title"
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Barra de herramientas principal"
-
-#~ msgid "Update"
-#~ msgstr "Actualizar"
-
-#~ msgctxt "@info"
-#~ msgid "Cannot load projects.<nl/>The directory does not exist:<nl/>%1"
-#~ msgstr "No se pueden cargar proyectos.<nl/>El directorio no existe:<nl/>%1"
-
-#~ msgid "Details"
-#~ msgstr "Detalles"
-
-#~ msgid "Gantt"
-#~ msgstr "Gantt"

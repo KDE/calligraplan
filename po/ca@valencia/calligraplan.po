@@ -968,7 +968,7 @@ msgstr ""
 "\n"
 "Açò no està limitat a persones disponibles en un grup de recursos sinó que "
 "pot ser qualsevol. Podeu fins i tot accedir a la vostra llibreta d'adreces "
-"amb el botó Trieu."
+"amb el botó «Tria»."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/kptconfigtaskpanelbase.ui:45
@@ -1124,7 +1124,7 @@ msgstr "Inserix una persona des de la vostra llibreta d'adreces."
 #: config/kptconfigtaskpanelbase.ui:464
 #, kde-format
 msgid "Choose..."
-msgstr "Trieu…"
+msgstr "Tria…"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: config/kptconfigtaskpanelbase.ui:482

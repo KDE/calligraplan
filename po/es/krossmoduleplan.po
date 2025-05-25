@@ -1,20 +1,19 @@
-# Translation of krossmodulekplato.po to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for krossmoduleplan.po package.
+# Copyright (C) 2009-2025 This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
 #
-# Enrique Matias Sanchez <cronopios@gmail.com>, 2009.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2010.
-# Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>, 2011.
-# Raul Gonzalez <raulgf83@gmail.com>, 2011, 2013, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2015.
-# Sofia Priego <spriego@darksylvania.net>, 2015.
+# SPDX-FileCopyrightText: 2009, 2010 Enrique Matias Sanchez (Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2011 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2013, 2014 Raul Gonzalez <raulgf83@gmail.com>
+# SPDX-FileCopyrightText: 2015 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2015, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: krossmodulekplato\n"
+"Project-Id-Version: krossmoduleplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2015-09-14 13:53+0200\n"
-"Last-Translator: Sofia Priego <spriego@darksylvania.net>\n"
+"PO-Revision-Date: 2025-05-24 18:42+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -456,7 +455,7 @@ msgstr "Ejemplos para mostrar la programación en Plan"
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Print Project Information..."
-msgstr "Imprimir la información del proyecto..."
+msgstr "Imprimir la información del proyecto…"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:59
@@ -468,7 +467,7 @@ msgstr "Ejemplo de guion en Python que imprime la información del proyecto"
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr "Imprimir la información de ocupación de los recursos..."
+msgstr "Imprimir la información de ocupación de los recursos…"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
@@ -477,247 +476,3 @@ msgid "Example python script that print resource busy information"
 msgstr ""
 "Ejemplo de guion en Python que imprime la información de ocupación de lo "
 "recursos"
-
-#, fuzzy
-#~| msgid "Select from:"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Select from:"
-#~ msgstr "Seleccionar de:"
-
-#, fuzzy
-#~| msgid "Tasks"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Tasks"
-#~ msgstr "Tareas"
-
-#, fuzzy
-#~| msgid "Resources"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Resources"
-#~ msgstr "Recursos"
-
-#, fuzzy
-#~| msgid "Accounts"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Accounts"
-#~ msgstr "Cuentas"
-
-#, fuzzy
-#~| msgid "Include headers"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Include headers"
-#~ msgstr "Incluir las cabeceras"
-
-#, fuzzy
-#~| msgid "&Tools"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "&Tools"
-#~ msgstr "Herramien&tas"
-
-#, fuzzy
-#~| msgid "Resource Busy Information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Resource Busy Information"
-#~ msgstr "Información de ocupación de los recursos"
-
-#, fuzzy
-#~| msgid "Handle resource busy information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Handle resource busy information"
-#~ msgstr "Manejar la información de ocupación de los recursos"
-
-#, fuzzy
-#~| msgid "Export Resource Busy Information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Export Resource Busy Information"
-#~ msgstr "Exportar la información de ocupación de los recursos"
-
-#, fuzzy
-#~| msgid "Python script to export busy information to file"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Python script to export busy information to file"
-#~ msgstr ""
-#~ "Guion en Python para exportar la información de ocupación a un archivo"
-
-#, fuzzy
-#~| msgid "Import Resource Busy Information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Import Resource Busy Information"
-#~ msgstr "Importar la información de ocupación de los recursos"
-
-#, fuzzy
-#~| msgid "Python script to import busy information from file"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Python script to import busy information from file"
-#~ msgstr ""
-#~ "Guion en Python para importar la información de ocupación de un archivo"
-
-#, fuzzy
-#~| msgid "Clear Resource Busy Information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Clear Resource Busy Information"
-#~ msgstr "Limpiar la información de ocupación de los recursos"
-
-#, fuzzy
-#~| msgid "Python script to clear the imported resource busy information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Python script to clear the imported resource busy information"
-#~ msgstr ""
-#~ "Guion en Python para limpiar la información importada de ocupación de los "
-#~ "recursos"
-
-#, fuzzy
-#~| msgid "Import"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Import"
-#~ msgstr "Importar"
-
-#, fuzzy
-#~| msgid "Import content"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Import content"
-#~ msgstr "Importar el contenido"
-
-#, fuzzy
-#~| msgid "Resources from Plan File"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Resources from Plan File"
-#~ msgstr "Recursos a partir de un archivo de Plan"
-
-#, fuzzy
-#~| msgid "Python script to import resources from project file"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Python script to import resources from project file"
-#~ msgstr "Guion en Python para importar recursos de un archivo de proyecto"
-
-#, fuzzy
-#~| msgid "Export"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Export"
-#~ msgstr "Exportar"
-
-#, fuzzy
-#~| msgid "Export content"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Export content"
-#~ msgstr "Exportar el contenido"
-
-#, fuzzy
-#~| msgid "To csv"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "To csv"
-#~ msgstr "A csv"
-
-#, fuzzy
-#~| msgid "Export data as comma separated values"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Export data as comma separated values"
-#~ msgstr "Exportar los datos como valores separados por comas"
-
-#, fuzzy
-#~| msgid "To ods"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "To ods"
-#~ msgstr "A ods"
-
-#, fuzzy
-#~| msgid "Export data to Open Spreadsheet document"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Export data to Open Spreadsheet document"
-#~ msgstr "Exportar los datos a un documento Open Spreadsheet"
-
-#, fuzzy
-#~| msgid "Tools"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Tools"
-#~ msgstr "Herramientas"
-
-#, fuzzy
-#~| msgid "Miscellaneous scripts"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Miscellaneous scripts"
-#~ msgstr "Guiones diversos"
-
-#, fuzzy
-#~| msgid "Online Help"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Online Help"
-#~ msgstr "Ayuda en red"
-
-#, fuzzy
-#~| msgid ""
-#~| "Python script that uses the KHTML Part to display the Plan Scripting "
-#~| "online help"
-#~ msgctxt "(qtundo-format)"
-#~ msgid ""
-#~ "Python script that uses the KHTML Part to display the Plan Scripting "
-#~ "online help"
-#~ msgstr ""
-#~ "Guion en Python que usa la parte KHTML para mostrar la ayuda en línea "
-#~ "sobre la programación de Plan"
-
-#, fuzzy
-#~| msgid "Samples"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Samples"
-#~ msgstr "Muestras"
-
-#, fuzzy
-#~| msgid "Samples to demonstrate scripting with Plan"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Samples to demonstrate scripting with Plan"
-#~ msgstr "Ejemplos para mostrar la programación en Plan"
-
-#, fuzzy
-#~| msgid "Print Project Information..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Print Project Information..."
-#~ msgstr "Imprimir la información del proyecto..."
-
-#, fuzzy
-#~| msgid "Example python script that print project information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Example python script that print project information"
-#~ msgstr "Ejemplo de guion en Python que imprime la información del proyecto"
-
-#, fuzzy
-#~| msgid "Print Resource busy Information..."
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Print Resource busy Information..."
-#~ msgstr "Imprimir la información de ocupación de los recursos..."
-
-#, fuzzy
-#~| msgid "Example python script that print resource busy information"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Example python script that print resource busy information"
-#~ msgstr ""
-#~ "Ejemplo de guion en Python que imprime la información de ocupación de lo "
-#~ "recursos"
-
-#, fuzzy
-#~| msgid "Schedule Name"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Schedule Name"
-#~ msgstr "Nombre de la planificación"
-
-#~ msgctxt "(qtundo_format)"
-#~ msgid "Clear external appointments"
-#~ msgstr "Limpiar citas externas"
-
-#~ msgid "Export busy info"
-#~ msgstr "Exportar la información de ocupación"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Scripting command"
-#~ msgstr "Instrucción de script "
-
-#~ msgctxt "(qtundoformat)"
-#~ msgid "Import external appointments"
-#~ msgstr "Importar citas externas"
-
-#~ msgctxt "(qtundoformat)"
-#~ msgid "Add calendar"
-#~ msgstr "Añadir calendario"
-
-#~ msgid "Nodes"
-#~ msgstr "Nodos"
