@@ -591,7 +591,7 @@ msgstr ""
 "\n"
 "Açò no està limitat a persones disponibles en un grup de recursos sinó que "
 "pot ser qualsevol. Podeu fins i tot accedir a la vostra llibreta d'adreces "
-"amb el botó Trieu."
+"amb el botó «Tria»."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigDocumentationPanel.ui:43
@@ -2558,7 +2558,7 @@ msgstr ""
 "<title>Menú contextual</title><para>Hi ha ajuda disponible en molts llocs "
 "utilitzant <emphasis>Què és açò?</emphasis>.<nl/>S'activa utilitzant "
 "l'entrada del menú <interface>Ajuda->Què és açò?</interface> o amb la "
-"drecera del teclat <shortcut>Maj+F1</shortcut>.</para><para>En els diàlegs "
+"drecera del teclat <shortcut>Majús+F1</shortcut>.</para><para>En els diàlegs "
 "està disponible des del <interface>?</interface> de la barra de títol del "
 "diàleg.</para><para>Si veeu <link url='%1'>Més…</link> en el text, prement-"
 "ho mostrarà més informació al navegador des de recursos en línia.</para>"
@@ -2659,7 +2659,7 @@ msgstr ""
 "span></p><p>Moltes funcions tenen ajuda i consells que es poden mostrar amb "
 "<span style=\" font-style:italic;\">Què és açò?</span>.</p><p>Activeu-la "
 "seleccionant <span style=\" font-style:italic;\">Ajuda-&gt;Què és açò?</"
-"span> o <span style=\" font-style:italic;\">Maj+F1</span>.</p><p>Proveu-ho "
+"span> o <span style=\" font-style:italic;\">Majús+F1</span>.</p><p>Proveu-ho "
 "en este text!</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_5)

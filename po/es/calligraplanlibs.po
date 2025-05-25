@@ -1,18 +1,18 @@
-# translation of kplatolibs.po to Spanish
-# Translation of kplato to Spanish
+# Spanish translations for calligraplanlibs.po package.
+# Copyright (C) 2006-2025 This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
 #
-# Sofía Priego <spriego@darksylvania.net>, %Y.
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2006.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007, 2009, 2010.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2008, 2015, 2016, 2017, 2018, 2019, 2021, 2022.
-# Raul Gonzalez <raulgf83@gmail.com>, 2011, 2012, 2013, 2014.
-# Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
+# SPDX-FileCopyrightText: 2006 Juan Manuel Garcia Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2007, 2009, 2010 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2015 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014 Raul Gonzalez <raulgf83@gmail.com>
+# SPDX-FileCopyrightText: 2015, 2016, 2017, 2022, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: kplatolibs\n"
+"Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-03-28 13:53+0000\n"
-"PO-Revision-Date: 2022-12-16 19:56+0100\n"
+"PO-Revision-Date: 2025-05-24 18:54+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -937,12 +937,12 @@ msgstr "Se pueden recuperar los siguientes archivos guardados automáticamente:"
 #: main/KoDocument.cpp:558
 #, kde-format
 msgid "Making backup..."
-msgstr "Haciendo copia de seguridad..."
+msgstr "Haciendo copia de seguridad…"
 
 #: main/KoDocument.cpp:573
 #, kde-format
 msgid "Saving..."
-msgstr "Guardando..."
+msgstr "Guardando…"
 
 #: main/KoDocument.cpp:601
 #, kde-format
@@ -980,7 +980,7 @@ msgstr ""
 #: main/KoDocument.cpp:723
 #, kde-format
 msgid "Autosaving..."
-msgstr "Guardando automáticamente..."
+msgstr "Guardando automáticamente…"
 
 #: main/KoDocument.cpp:735
 #, kde-format
@@ -1305,7 +1305,7 @@ msgstr "%1 documento sin guardar (%2)"
 #: main/KoMainWindow.cpp:282 ui/kptviewbase.cpp:764
 #, kde-format
 msgid "Print to PDF..."
-msgstr "Imprimir en PDF..."
+msgstr "Imprimir en PDF…"
 
 #: main/KoMainWindow.cpp:292
 #, kde-format
@@ -1315,12 +1315,12 @@ msgstr "Volver a cargar"
 #: main/KoMainWindow.cpp:296
 #, kde-format
 msgid "Import..."
-msgstr "Importar..."
+msgstr "Importar…"
 
 #: main/KoMainWindow.cpp:300
 #, kde-format
 msgid "E&xport..."
-msgstr "E&xportar..."
+msgstr "E&xportar…"
 
 #: main/KoMainWindow.cpp:306
 #, kde-format
@@ -1366,7 +1366,7 @@ msgstr "Paneles"
 #: main/KoMainWindow.cpp:369
 #, kde-format
 msgid "Configure Plan..."
-msgstr "Configurar Plan..."
+msgstr "Configurar Plan…"
 
 #: main/KoMainWindow.cpp:665
 #, kde-format
@@ -1393,7 +1393,7 @@ msgid ""
 msgstr ""
 "No se ha podido abrir un archivo de plantilla.<nl/>Si desea modificar la "
 "plantilla, cree un nuevo proyecto usando esta plantilla y guárdela usando "
-"<interface>Archivo->Crear plantilla de proyecto...</interface>."
+"<interface>Archivo->Crear plantilla de proyecto…</interface>."
 
 #: main/KoMainWindow.cpp:716
 #, kde-kuit-format
@@ -5333,7 +5333,7 @@ msgstr ""
 "recursos. Normalmente existirán dos cuentas superiores, una para añadir "
 "costes de las tareas y otra para añadir costes de los recursos.</"
 "para><para>Esta vista permite imprimir usando el menú de contexto.<nl/><link "
-"url='%1'>Más...</link></para>"
+"url='%1'>Más…</link></para>"
 
 #: ui/kptaccountseditor.cpp:291
 #, kde-kuit-format
@@ -5365,7 +5365,7 @@ msgstr ""
 "<title>Vista de desglose de costes</title><para>Muestra el coste total "
 "añadido así como la distribución de costes a lo largo del tiempo.</"
 "para><para>Esta  vista permite configuración e impresión mediante el menú de "
-"contexto.<nl/><link url='%1'>Más...</link></para>"
+"contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_general)
 #: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
@@ -5486,7 +5486,7 @@ msgstr "Fin del proyecto"
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
 msgid "Work..."
-msgstr "Trabajo..."
+msgstr "Trabajo…"
 
 #: ui/kptcalendareditor.cpp:276 ui/kptcalendareditor.cpp:306
 msgctxt "(qtundo-format)"
@@ -5525,7 +5525,7 @@ msgstr ""
 "tarea.</para><para>Un calendario puede ser definido como el "
 "<emphasis>Calendario predeterminado</emphasis>. El calendario predeterminado "
 "es utilizado por un recurso de trabajo, cuando el calendario de los recursos "
-"no está establecido explícitamente.<nl/><link url='%1'>Más...</link></para>"
+"no está establecido explícitamente.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kptcalendareditor.cpp:646
 #, kde-format
@@ -5581,7 +5581,7 @@ msgstr "Planificación del proyecto:"
 #: ui/reports/reportgroupsectionswidget.ui:43
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptcpmwidget.ui:71
@@ -5620,8 +5620,8 @@ msgstr ""
 "entre tareas. Puede añadir dependencias arrastrando un área de conexión "
 "(inicio o final ) de una tarea al área de conexión de otra tarea. Puede "
 "editar o borrar una dependencia usando el menú de contexto.</para><para>Esta "
-"vista permite imprimir usando el menú de contexto.<nl/><link url='%1'>Más..."
-"</link></para>"
+"vista permite imprimir usando el menú de contexto.<nl/><link url='%1'>Más…</"
+"link></para>"
 
 #: ui/kptdependencyeditor.cpp:2344 ui/kpttaskeditor.cpp:865
 #: ui/kpttaskeditor.cpp:869
@@ -5632,12 +5632,12 @@ msgstr "Añadir una tarea"
 #: ui/kptdependencyeditor.cpp:2348
 #, kde-format
 msgid "Add Task..."
-msgstr "Añadir una tarea..."
+msgstr "Añadir una tarea…"
 
 #: ui/kptdependencyeditor.cpp:2353
 #, kde-format
 msgid "Add Milestone..."
-msgstr "Añadir un hito..."
+msgstr "Añadir un hito…"
 
 #: ui/kptdependencyeditor.cpp:2359 ui/kpttaskeditor.cpp:880
 #: ui/kpttaskeditor.cpp:884
@@ -5648,12 +5648,12 @@ msgstr "Añadir una subtarea"
 #: ui/kptdependencyeditor.cpp:2363
 #, kde-format
 msgid "Add Sub-Task..."
-msgstr "Añadir una subtarea..."
+msgstr "Añadir una subtarea…"
 
 #: ui/kptdependencyeditor.cpp:2368
 #, kde-format
 msgid "Add Sub-Milestone..."
-msgstr "Añadir un subhito..."
+msgstr "Añadir un subhito…"
 
 #: ui/kptdependencyeditor.cpp:2378 ui/kpttaskeditor.cpp:899
 #, kde-kuit-format
@@ -5670,13 +5670,13 @@ msgstr "Documentos de la tarea"
 #: ui/kpttaskeditor.cpp:672
 #, kde-format
 msgid "Edit..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #: ui/kptdocumentseditor.cpp:225
 #, kde-kuit-format
 msgctxt "@action View a document"
 msgid "View..."
-msgstr "Ver..."
+msgstr "Ver…"
 
 #: ui/kptdocumentspanel.cpp:124
 #, kde-kuit-format
@@ -5757,7 +5757,7 @@ msgstr "Nombre:"
 #: ui/kptdocumentspanel.ui:54
 #, kde-format
 msgid "Add..."
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
 #: ui/kptdocumentspanel.ui:61
@@ -5769,7 +5769,7 @@ msgstr "Ctrl+I"
 #: ui/kptdocumentspanel.ui:68
 #, kde-format
 msgid "Change..."
-msgstr "Cambiar..."
+msgstr "Cambiar…"
 
 #. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
 #: ui/kptdocumentspanel.ui:75
@@ -6134,7 +6134,7 @@ msgstr ""
 "deslizador existente en la esquina superior izquierda de la escala de "
 "tiempos. <note>Debe situar el ratón sobre él para mostrarlo.</note></"
 "para><para>Esta vista permite configuración e impresión mediante el menú de "
-"contexto de la vista en árbol.<nl/><link url='%1'>Más...</link></para>"
+"contexto de la vista en árbol.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kptganttview.cpp:1109 ui/kpttaskeditor.cpp:921 ui/kpttaskeditor.cpp:1445
 #, kde-format
@@ -6204,7 +6204,7 @@ msgstr ""
 "mediante el deslizador existente en la esquina superior izquierda de la "
 "escala de tiempos. <note>Debe situar el ratón sobre él para mostrarlo.</"
 "note></para><para>Esta vista permite configuración e impresión mediante el "
-"menú de contexto.<nl/><link url='%1'>Más...</link></para>"
+"menú de contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kptganttview.cpp:1943
 #, kde-kuit-format
@@ -6223,7 +6223,7 @@ msgstr ""
 "esquina superior izquierda de la escala de tiempos. <note>Debe situar el "
 "ratón sobre él para mostrarlo.</note></para><para>Esta vista permite "
 "configuración e impresión mediante el menú de contexto.<nl/><link "
-"url='%1'>Más...</link></para>"
+"url='%1'>Más…</link></para>"
 
 #: ui/kptintervaledit.cpp:61
 #, kde-format
@@ -6469,7 +6469,7 @@ msgstr "Elija un líder para el proyecto de la libreta de direcciones."
 #: ui/kptmainprojectpanelbase.ui:135
 #, kde-format
 msgid "&Choose..."
-msgstr "&Elegir..."
+msgstr "&Elegir…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
 #: ui/kptmainprojectpanelbase.ui:144
@@ -6512,7 +6512,7 @@ msgstr "Archivo"
 #: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
 #, kde-format
 msgid "Browse..."
-msgstr "Explorar..."
+msgstr "Explorar…"
 
 #. i18n: ectx: property (text), widget (QLabel, projectsLabel)
 #: ui/kptmainprojectpanelbase.ui:255
@@ -6795,7 +6795,7 @@ msgstr ""
 "<title>Vista de asignaciones de recursos</title><para>Muestra las "
 "asignaciones de recurso-tarea planificadas.</para><para>Esta vista permite "
 "configuración e impresión mediante el menú de contexto.<nl/><link "
-"url='%1'>Más...</link></para>"
+"url='%1'>Más…</link></para>"
 
 #: ui/kptresourceassignmentview.cpp:242
 #, kde-format
@@ -6854,7 +6854,7 @@ msgstr ""
 "afectar a la duración de la tarea, mientras que un recurso de tipo "
 "<emphasis>Material</emphasis> no. Un recurso debe hacer referencia a un "
 "<emphasis>Calendario</emphasis> definido en el <emphasis>Editor de trabajo y "
-"vacaciones</emphasis>.<nl/><link url='%1'>Más...</link></para>"
+"vacaciones</emphasis>.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kptresourceeditor.cpp:294
 #, kde-format
@@ -6891,8 +6891,8 @@ msgstr ""
 "contener planificaciones anidadas. Una planificación anidada puede usar los "
 "datos de avance del proyecto para reprogramar solo las tareas que aún no han "
 "finalizado. La reprogramación usará en dicho caso, por ejemplo, los "
-"esfuerzos reales de inicio y restante de las tareas.<nl/><link "
-"url='%1'>Más...</link></para>"
+"esfuerzos reales de inicio y restante de las tareas.<nl/><link url='%1'>Más…"
+"</link></para>"
 
 #: ui/kptscheduleeditor.cpp:308
 #, kde-format
@@ -7057,7 +7057,7 @@ msgstr "Inserte una persona de la libreta de direcciones"
 #: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
 #, kde-format
 msgid "Choose..."
-msgstr "Elegir..."
+msgstr "Elegir…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
@@ -7212,7 +7212,7 @@ msgstr ""
 "editar y borrar tareas. Las tareas se organizan en una estructura de "
 "descomposición del trabajo (EDT) de la profundidad necesaria.</"
 "para><para>Esta vista permite configuración e impresión mediante el menú de "
-"contexto.<nl/><link url='%1'>Más...</link></para>"
+"contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kpttaskeditor.cpp:440
 #, kde-kuit-format
@@ -7266,8 +7266,8 @@ msgstr ""
 "tareas que se pueden volver a usar entre proyectos. Esto hace posible "
 "recurrir a experiencias anteriores y estandarizar operaciones similares.</"
 "para><para>Un módulo de tarea es un archivo de Plan normal que suele incluir "
-"tareas, estimaciones y dependencias.</para><para><link url='%1'>Más...</"
-"link></para>"
+"tareas, estimaciones y dependencias.</para><para><link url='%1'>Más…</link></"
+"para>"
 
 #: ui/kpttaskeditor.cpp:874
 #, kde-format
@@ -7327,18 +7327,18 @@ msgstr ""
 "<title>Vista de ejecución de la tarea</title><para>Esta vista se usa para "
 "editar e inspeccionar el avance de la tarea durante la ejecución del "
 "proyecto.</para><para>Esta vista permite configuración e impresión mediante "
-"el menú de contexto.<nl/><link url='%1'>Más...</link></para>"
+"el menú de contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
 #: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
-msgstr "Publicar..."
+msgstr "Publicar…"
 
 #: ui/kpttaskeditor.cpp:1772
 #, kde-format
 msgid "Work Packages..."
-msgstr "Paquetes de trabajo..."
+msgstr "Paquetes de trabajo…"
 
 #: ui/kpttaskeditor.cpp:1790
 msgctxt "(qtundo-format)"
@@ -7542,8 +7542,8 @@ msgstr ""
 "información. Cuando cambia el estado de finalización, se calculan "
 "automáticamente el esfuerzo usado y el restante, aunque también se pueden "
 "modificar a mano si es necesario.</item></list><note>Debe seleccionar el "
-"modo de edición que desee al empezar la tarea.</note><nl/><link "
-"url='%1'>Más...</link></para>"
+"modo de edición que desee al empezar la tarea.</note><nl/><link url='%1'>Más…"
+"</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:89
 msgctxt "(qtundo-format)"
@@ -7670,7 +7670,7 @@ msgstr ""
 "período.</item><item>Siguiente período \tTareas planificadas para que se "
 "inicien durante el siguiente período.</item></list>El período de tiempo se "
 "puede configurar.</para><para>Esta vista permite configuración e impresión "
-"mediante el menú de contexto.<nl/><link url='%1'>Más...</link></para>"
+"mediante el menú de contexto.<nl/><link url='%1'>Más…</link></para>"
 
 #: ui/kpttaskstatusview.cpp:441
 #, kde-format
@@ -7831,12 +7831,12 @@ msgstr "Contraer todo"
 #: ui/kptviewbase.cpp:770
 #, kde-format
 msgid "Print Options..."
-msgstr "Opciones de impresión..."
+msgstr "Opciones de impresión…"
 
 #: ui/kptviewbase.cpp:781
 #, kde-format
 msgid "Configure View..."
-msgstr "Configurar la vista..."
+msgstr "Configurar la vista…"
 
 #: ui/kptviewbase.cpp:2688
 #, kde-format
@@ -8147,7 +8147,7 @@ msgstr ""
 "<title>Vista de rendimiento de l tarea</title><para>Muestra datos de "
 "rendimiento añadidos al nivel de la tarea seleccionada.</para><para>Esta "
 "vista permite configuración e impresión mediante el menú de contexto.<nl/"
-"><link url='%1'>Más...</link></para>"
+"><link url='%1'>Más…</link></para>"
 
 #: ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:170
@@ -8259,7 +8259,7 @@ msgstr ""
 "<title>Vista de rendimiento del proyecto</title><para>Muestra datos de "
 "rendimiento añadidos al nivel del proyecto.</para><para>Esta vista permite "
 "configuración e impresión mediante el menú de contexto.<nl/><link "
-"url='%1'>Más...</link></para>"
+"url='%1'>Más…</link></para>"
 
 #: ui/projectview/ProjectView.cpp:52
 #, kde-format
@@ -8788,7 +8788,7 @@ msgstr ""
 "<title>Añadir y generar informes</title><para>Le permite añadir y generar "
 "informes basados en archivos Open Document (.odf).</para><para>Puede crear "
 "una plantilla de informe usando cualquier editor de texto Open Document.<nl/"
-"><link url='%1'>More...</link></para>"
+"><link url='%1'>More…</link></para>"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:340
 #, kde-format
@@ -9083,7 +9083,7 @@ msgstr "&Detalles"
 #: widgets/KoDialog.cpp:1022
 #, kde-format
 msgid "Get help..."
-msgstr "Obtener ayuda..."
+msgstr "Obtener ayuda…"
 
 #: widgets/KoDockWidgetTitleBar.cpp:66
 #, kde-format
@@ -9582,751 +9582,3 @@ msgstr "Sustitución"
 #, kde-format
 msgid "All supported formats"
 msgstr "Todos los formatos permitidos"
-
-#~ msgid "Time:"
-#~ msgstr "Hora:"
-
-#~ msgid "Print row labels"
-#~ msgstr "Imprimir las etiquetas de las filas"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<title>Create a new project</title><para>Creates a new project with "
-#~ "default values defined in <emphasis>Settings</emphasis>.<nl/>Opens the "
-#~ "<emphasis>project dialog</emphasis> so you can define project specific "
-#~ "properties like <resource>Project Name</resource>, <resource>Target "
-#~ "Start</resource> and <resource>- End</resource> times.<nl/><link "
-#~ "url='%1'>More...</link></para>"
-#~ msgstr ""
-#~ "<title>Crear un nuevo proyecto</title><para>Crea un nuevo proyecto con "
-#~ "los valores predeterminados que haya definido en las "
-#~ "<emphasis>Preferencias</emphasis>.<nl/>Abre el <emphasis>diálogo del "
-#~ "proyecto</emphasis> para que pueda definir las propiedades específicas "
-#~ "del proyecto, como el <resource>Nombre del proyecto</resource> o las "
-#~ "fechas de <resource>Inicio</resource> y <resource>Final</resource> "
-#~ "previstas.<nl/><link url='%1'>Más...</link></para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<title>Shared resources</title><para>Create a shared resources file.<nl/"
-#~ ">This enables you to only create your resources once, you just refer to "
-#~ "your resources file when you create a new project.<nl/>These resources "
-#~ "can then be shared between projects to avoid overbooking resources across "
-#~ "projects.<nl/>Shared resources must be defined in a separate file.<nl/"
-#~ "><link url='%1'>More...</link></para>"
-#~ msgstr ""
-#~ "<title>Recursos compartidos</title><para>Cree un archivo de recursos "
-#~ "compartidos.<nl/>Esto le permite crear sus recursos una sola vez; solo "
-#~ "tiene que referirse a su archivo de recursos cuando cree un nuevo "
-#~ "proyecto.<nl/>Estos recursos se pueden compartir entre proyectos para "
-#~ "evitar el exceso de recursos entre proyectos.<nl/>Los recursos "
-#~ "compartidos se deben definir en un archivo independiente.<nl/><link "
-#~ "url='%1'>Más...</link></para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<title>Recent Projects</title><para>A list of the 10 most recent project "
-#~ "files opened.</para><para><nl/>This enables you to quickly open projects "
-#~ "you have worked on recently.</para>"
-#~ msgstr ""
-#~ "<title>Proyectos recientes</title><para>Una lista de los 10 archivos de "
-#~ "proyecto abiertos más recientemente.</para><para><nl/>Esto le permite "
-#~ "abrir rápidamente proyectos con los que ha estado trabajando "
-#~ "recientemente.</para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<title>Introduction to <application>Plan</application></title><para>These "
-#~ "introductory pages gives you hints and tips on what you can use "
-#~ "<application>Plan</application> for, and how to use it.</para>"
-#~ msgstr ""
-#~ "<title>Introducción a <application>Plan</application></title><para>Estas "
-#~ "páginas de introducción le proporcionan ayuda y consejos sobre cómo usar "
-#~ "<application>Plan</application> y qué puede hacer con él.</para>"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<title>Context help</title><para>Help is available many places using "
-#~ "<emphasis>What's This</emphasis>.<nl/>It is activated using the menu "
-#~ "entry <interface>Help->What's this?</interface> or the keyboard shortcut "
-#~ "<shortcut>Shift+F1</shortcut>.</para><para>In dialogs it is available via "
-#~ "the <interface>?</interface> in the dialog title bar.</para><para>If you "
-#~ "see <link url='%1'>More...</link> in the text, pressing it will display "
-#~ "more information from online resources in your browser.</para>"
-#~ msgstr ""
-#~ "<title>Ayuda de contexto</title><para>Dispone de ayuda en muchos lugares "
-#~ "usando <emphasis>¿Qué es esto?</emphasis>.<nl/>Se activa mediante la "
-#~ "entrada del menú <interface>Ayuda->¿Qué es esto?</interface> o con el "
-#~ "acceso rápido de teclado <shortcut>Mayúsculas+F1</shortcut>.</"
-#~ "para><para>En los diálogos, está disponible usando el signo <interface>?</"
-#~ "interface> que hay en la barra de título del diálogo.</para><para>Si ve "
-#~ "la palabra <link url='%1'>Más...</link> en el texto, al pulsar sobre ella "
-#~ "se mostrará más información de recursos en línea en su navegador.</para>"
-
-#~ msgid "New project"
-#~ msgstr "Nuevo proyecto"
-
-#~ msgid "Create Shared Resources"
-#~ msgstr "Crear recursos compartidos"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</"
-#~ "span></p><p>Displays a file dialog enabling you to open an existing "
-#~ "project.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Abrir proyecto</"
-#~ "span></p><p>Muestra un diálogo de archivos que le permite abrir un "
-#~ "proyecto existente.</p></body></html>"
-
-#~ msgid "Open Project..."
-#~ msgstr "Abrir proyecto..."
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Recent projects:</span></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Proyectos recientes:</span></p></body></html>"
-
-#~ msgid "Introduction"
-#~ msgstr "Introducción"
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Context Help</"
-#~ "span></p><p>Many functions has help and hints that can be displayed with "
-#~ "<span style=\" font-style:italic;\">What's this</span>.</p><p>Activate it "
-#~ "by selecting <span style=\" font-style:italic;\">Help-&gt;What's this</"
-#~ "span> or <span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try "
-#~ "it on this text!</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Ayuda de "
-#~ "contexto</span></p><p>Muchas funciones disponen de ayuda y de consejos "
-#~ "que se pueden mostrar con <span style=\" font-style:italic;\">¿Qué es "
-#~ "esto?</span>.</p><p>Actívelos usando <span style=\" font-style:italic;"
-#~ "\">Ayuda-&gt;¿Qué es esto?</span> o con <span style=\" font-style:italic;"
-#~ "\">Mayúsculas+F1</span>.</p><p>Pruebelo con este texto.</p></body></html>"
-
-#~ msgid "https://userbase.kde.org/Plan"
-#~ msgstr "https://userbase.kde.org/Plan"
-
-#~ msgctxt "@action:button"
-#~ msgid ""
-#~ "<a href=\"https://userbase.kde.org/Plan\">Plan user documentation</a>"
-#~ msgstr ""
-#~ "<a href=\"https://userbase.kde.org/Plan\">Documentación del usuario de "
-#~ "Plan</a>"
-
-#~ msgid "https://forum.kde.org/viewforum.php?f=203"
-#~ msgstr "https://forum.kde.org/viewforum.php?f=203"
-
-#~ msgctxt "@action:button"
-#~ msgid ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
-#~ msgstr ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Foro de la "
-#~ "comunidad</a>"
-
-#~ msgid "https://calligra.org"
-#~ msgstr "https://calligra.org"
-
-#~ msgctxt "@action:button"
-#~ msgid "<a href=\"https://calligra.org\">Calligra</a>"
-#~ msgstr "<a href=\"https://calligra.org\">Calligra</a>"
-
-#~ msgctxt "@title"
-#~ msgid "Report Generation"
-#~ msgstr "Generación de informes"
-
-#~ msgid "Form"
-#~ msgstr "Formulario"
-
-#~ msgctxt "New task dependency"
-#~ msgid "New"
-#~ msgstr "Nueva"
-
-#~| msgid "Remove"
-#~ msgctxt "Remove selected dependencies"
-#~ msgid "Remove"
-#~ msgstr "Eliminar"
-
-#~ msgid "Report file generated: %1"
-#~ msgstr "Archivo de informe generado: %1"
-
-#~ msgid "Send..."
-#~ msgstr "Enviar..."
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"
-#~ msgstr "%1: <emphasis>%2</emphasis><para>%3</para>"
-
-#~ msgctxt "@info:tooltip 1=list of task names"
-#~ msgid "Cannot start, waiting for:<nl/>%1"
-#~ msgstr "No puede iniciar, esperando por:<nl/>%1"
-
-#~ msgid "Send To..."
-#~ msgstr "Enviar a..."
-
-#~ msgid "Per Resource"
-#~ msgstr "Por recurso"
-
-#~ msgid "Add Resource..."
-#~ msgstr "Añadir un recurso..."
-
-#~ msgid "copy"
-#~ msgstr "copiar"
-
-#~ msgctxt "(qtundo-format) 1=project or task name"
-#~ msgid "Insert %1"
-#~ msgstr "Insertar %1"
-
-#, fuzzy
-#~| msgid "Result"
-#~ msgid "Results:"
-#~ msgstr "Resultado"
-
-#, fuzzy
-#~| msgctxt "@title:column"
-#~| msgid "Estimate Type"
-#~ msgid "Filter Type"
-#~ msgstr "Tipo de estimación"
-
-#, fuzzy
-#~| msgid "Name"
-#~ msgid "Named"
-#~ msgstr "Nombre"
-
-#, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Select as default calendar"
-#~ msgid "Set default filter"
-#~ msgstr "Seleccionar como calendario predeterminado"
-
-#, fuzzy
-#~| msgid "Save To File"
-#~ msgid "Save File"
-#~ msgstr "Guardar a un archivo"
-
-#, fuzzy
-#~| msgid "Report File"
-#~ msgid "Import Files"
-#~ msgstr "Archivo de informe"
-
-#, fuzzy
-#~| msgid "Report File"
-#~ msgid "Import File"
-#~ msgstr "Archivo de informe"
-
-#, fuzzy
-#~| msgid "Directory"
-#~ msgid "Open Directory"
-#~ msgstr "Directorio"
-
-#, fuzzy
-#~| msgid "Directory"
-#~ msgid "Import Directory"
-#~ msgstr "Directorio"
-
-#, fuzzy
-#~| msgctxt "@info:whartsthis"
-#~| msgid ""
-#~| "<html><head/><body><p><span style=\" font-weight:600;\">Create a new "
-#~| "project</span></p><p>Creates a new project with default values defined "
-#~| "in <span style=\" font-style:italic;\">Settings.</span></p><p>Opens the "
-#~| "<span style=\" font-style:italic;\">project dialog </span>so you can "
-#~| "define project specific properties like Project Name and <span style=\" "
-#~| "font-style:italic;\">Target Start</span> and <span style=\" font-style:"
-#~| "italic;\">End</span> times.</p><p>You can change the default settings by "
-#~| "selecting <span style=\" font-style:italic;\">Settings-&gt;Configure "
-#~| "Plan</span>.</p></body></html>"
-#~ msgctxt "whatsthis"
-#~ msgid ""
-#~ "<html><head/><body><p><span style='font-weight:600;'>Create a new "
-#~ "project</span></p><p>Creates a new project with default values defined in "
-#~ "<span style='font-style:italic;'>Settings</span>.<br>Opens the <span "
-#~ "style='font-style:italic;'>project dialog</span> so you can define "
-#~ "project specific properties like <span style='font-style:italic;"
-#~ "whitespace:nobreak'>Project Name</span>, <span style='font-style:italic;"
-#~ "whitespace:nobreak'>Target Start</span> and <span style='font-style:"
-#~ "italic;whitespace:nobreak'>- End</span> times.<br><a href='https://"
-#~ "userbase.kde.org/Plan/Howto/'>More...</a></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Crear un nuevo "
-#~ "proyecto</span></p><p>Crea un nuevo proyecto con los valores "
-#~ "predeterminados definidos en las <span style=\" font-style:italic;"
-#~ "\">Preferencias.</span></p><p>Abre el <span style=\" font-style:italic;"
-#~ "\">diálogo del proyecto</span>, donde puede definir las propiedades "
-#~ "específicas del proyecto, como el nombre del proyecto y los tiempos de "
-#~ "<span style=\" font-style:italic;\">inicial</span> y <span style=\" font-"
-#~ "style:italic;\">final del objetivo</span> .</p><p>Puede cambiar los "
-#~ "ajustes predeterminados seleccionando <span style=\" font-style:italic;"
-#~ "\">Preferencias-&gt;Configurar Plan</span>.</p></body></html>"
-
-#, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</"
-#~| "span></p><p>Displays a file dialog enabling you to open an existing "
-#~| "project.</p></body></html>"
-#~ msgctxt "whatsthis"
-#~ msgid ""
-#~ "<html><head/><body><p><span style='font-weight:600;'>Other resources</"
-#~ "span></p><p>Here you find links to online resources. Information will be "
-#~ "opened in you browser.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Abrir proyecto</"
-#~ "span></p><p>Muestra un diálogo de archivos que le permite abrir un "
-#~ "proyecto existente.</p></body></html>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~| "\">Recent projects:</span></p></body></html>"
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Other resources</"
-#~ "span></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Proyectos recientes:</span></p></body></html>"
-
-#, fuzzy
-#~| msgid "Default Definition"
-#~ msgctxt "@info:tooltip"
-#~ msgid "Default region"
-#~ msgstr "Definición predeterminada"
-
-#, fuzzy
-#~| msgid "External project: %1"
-#~ msgid "Recent projects:"
-#~ msgstr "Proyecto externo: %1"
-
-#~ msgid "Critical Path (Task Id) :"
-#~ msgstr "Ruta crítica (ID de la tarea):"
-
-#~ msgid "Project Float :"
-#~ msgstr "Holgura del proyecto:"
-
-#~ msgid "Task details "
-#~ msgstr "Detalles de la tarea "
-
-#~ msgid "Id"
-#~ msgstr "Id"
-
-#~ msgid "Early start date"
-#~ msgstr "Fecha de comienzo temprana"
-
-#~ msgid "Early finish date"
-#~ msgstr "Fecha de finalización temprana"
-
-#~ msgid "Late start date"
-#~ msgstr "Fecha de comienzo tardía"
-
-#~ msgid "Late finish date"
-#~ msgstr "Fecha de finalización tardía"
-
-#~ msgid "Float"
-#~ msgstr "Holgura"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Export to file"
-#~ msgstr "Exportar a un archivo"
-
-#~ msgid "Text Document..."
-#~ msgstr "Documento de texto..."
-
-#~ msgid "Export the report as a text document (in OpenDocument Text format)"
-#~ msgstr ""
-#~ "Exportar el informe como documento de texto (en el formato de texto de "
-#~ "OpenDocument)"
-
-#~ msgid ""
-#~ "Export the report as a spreadsheet (in OpenDocument Spreadsheet format)"
-#~ msgstr ""
-#~ "Exportar el informe como hoja de cálculo (en el formato de hoja de "
-#~ "cálculo de OpenDocument)"
-
-#~ msgid "Web Page..."
-#~ msgstr "Página web..."
-
-#~ msgid "Export the report as a web page (in HTML format)"
-#~ msgstr "Exportar el informe como página web (en formato HTML)"
-
-#~ msgid "Save To View"
-#~ msgstr "Guardar a una vista"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "The report definition has been modified.<nl/><emphasis>If you continue, "
-#~ "the modifications will be lost.</emphasis>"
-#~ msgstr ""
-#~ "Se ha modificado la definición del informe.<nl/><emphasis>Si continúa, se "
-#~ "perderán las modificaciones.</emphasis>"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Modify report definition"
-#~ msgstr "Modificar la definición del informe"
-
-#~ msgid "Raise"
-#~ msgstr "Elevar"
-
-#~ msgid "Lower"
-#~ msgstr "Bajar"
-
-#~ msgid "Section Editor"
-#~ msgstr "Editor de secciones"
-
-#~| msgid "Project"
-#~ msgctxt "@info:list Report data source"
-#~ msgid "Project"
-#~ msgstr "Proyecto"
-
-#~ msgctxt "@title:window report group edit tools"
-#~ msgid "Tools"
-#~ msgstr "Herramientas"
-
-#, fuzzy
-#~| msgid "Chart"
-#~ msgctxt "@into:tooltip"
-#~ msgid "Chart"
-#~ msgstr "Gráfica"
-
-#~ msgctxt "@into:tooltip"
-#~ msgid "Rich text"
-#~ msgstr "Texto enriquecido"
-
-#~ msgid "Prefix currency symbol"
-#~ msgstr "Símbolo de la divisa como prefijo"
-
-#~ msgid "Sign position:"
-#~ msgstr "Posición del signo:"
-
-#~ msgid "Negative"
-#~ msgstr "Negativo"
-
-#~ msgid "Parentheses Around"
-#~ msgstr "Paréntesis alrededor"
-
-#~ msgid "Before Quantity Money"
-#~ msgstr "Antes de la cantidad de dinero"
-
-#~ msgid "After Quantity Money"
-#~ msgstr "Después de la cantidad de dinero"
-
-#~ msgid "Before Money"
-#~ msgstr "Antes del dinero"
-
-#~ msgid "After Money"
-#~ msgstr "Después del dinero"
-
-#~ msgid ""
-#~ "This determines the number of fract digits for monetary values, i.e. the "
-#~ "number of digits you find <em>behind</em> the decimal separator. Correct "
-#~ "value is 2 for almost all people."
-#~ msgstr ""
-#~ "Esto determina el número de dígitos fraccionarios de los valores "
-#~ "monetarios, es decir el número de dígitos que encontrará <em>después</em> "
-#~ "del separador decimal. El valor 2 es correcto para casi todo el mundo."
-
-#~ msgid ""
-#~ "If this option is checked, the currency sign will be prefixed (i.e. to "
-#~ "the left of the value) for all positive monetary values. If not, it will "
-#~ "be postfixed (i.e. to the right)."
-#~ msgstr ""
-#~ "Si está marcada esta opción, el símbolo de la divisa se pondrá como "
-#~ "prefijo (es decir, a la izquierda del valor) en todos los valores "
-#~ "monetarios positivos. Si no, se pondrá como postfijo (es decir, a la "
-#~ "derecha)."
-
-#~ msgid ""
-#~ "If this option is checked, the currency sign will be prefixed (i.e. to "
-#~ "the left of the value) for all negative monetary values. If not, it will "
-#~ "be postfixed (i.e. to the right)."
-#~ msgstr ""
-#~ "Si está marcada esta opción, el símbolo de la divisa se pondrá como "
-#~ "prefijo (es decir, a la izquierda del valor) en todos los valores "
-#~ "monetarios negativos. Si no, se pondrá como postfijo (es decir, a la "
-#~ "derecha)."
-
-#~ msgid ""
-#~ "Here you can select how a positive sign will be positioned. This only "
-#~ "affects monetary values."
-#~ msgstr ""
-#~ "Aquí puede seleccionar como se posicionará un signo positivo. Esto solo "
-#~ "afecta a los valores montarios."
-
-#~ msgid ""
-#~ "Here you can select how a negative sign will be positioned. This only "
-#~ "affects monetary values."
-#~ msgstr ""
-#~ "Aquí puede seleccionar como se posicionará un signo negativo. Esto solo "
-#~ "afecta a los valores montarios."
-
-#~ msgid "Cut"
-#~ msgstr "Cortar"
-
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgid "Paste"
-#~ msgstr "Pegar"
-
-#~ msgid "Open document text (table)"
-#~ msgstr "Abrir documento de texto (tabla)"
-
-#~ msgid "Open document text (frames)"
-#~ msgstr "Abrir documento de texto (marcos)"
-
-#~ msgid "Open document spreadsheet"
-#~ msgstr "Abrir una hoja de cálculo"
-
-#~ msgid "HTML"
-#~ msgstr "HTML"
-
-#~ msgid "XHTML"
-#~ msgstr "XHTML"
-
-#~ msgid "Select format:"
-#~ msgstr "Seleccione el formato:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Cannot export report. Invalid url:<br>file:<br><filename>%1</filename>"
-#~ msgstr ""
-#~ "No se puede exportar el informe. URL no válido:<br>archivo:<br><filename>"
-#~ "%1</filename>"
-
-#~ msgid "Cannot export report. Unknown file format"
-#~ msgstr "No se puede exportar el informe. Formato de archivo desconocido"
-
-#~ msgid "Export to XHTML failed"
-#~ msgstr "La exportación a XHTML ha fallado"
-
-#~ msgid "Can only save to a local file."
-#~ msgstr "Solo se puede guardar en un archivo local."
-
-#~ msgid "Modify task description"
-#~ msgstr "Modificar la descripción de la tarea"
-
-#~ msgid "Add sub-task"
-#~ msgstr "Añadir una subtarea"
-
-#~ msgid "Add task"
-#~ msgstr "Añadir una tarea"
-
-#~ msgctxt "(qtundo)"
-#~ msgid "Insert %1"
-#~ msgstr "Insertar %1"
-
-#~ msgid "<p align=\"right\">Email:</p>"
-#~ msgstr "<p align=\"right\">Correo electrónico:</p>"
-
-#~ msgid "<p align=\"right\">Calendar:</p>"
-#~ msgstr "<p align=\"right\">Calendario:</p>"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Working"
-#~ msgstr "Laborable"
-
-#~ msgid "BCWS"
-#~ msgstr "BCWS"
-
-#~ msgid "BCWP"
-#~ msgstr "BCWP"
-
-#~ msgid "ACWP"
-#~ msgstr "ACWP"
-
-#~ msgid "SPI"
-#~ msgstr "SPI"
-
-#~ msgctxt "@title:window"
-#~ msgid "Edit Report"
-#~ msgstr "Editar el informe"
-
-#~ msgctxt "@info:tootip"
-#~ msgid "Required Resources"
-#~ msgstr "Recursos necesarios"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Modify task Name"
-#~ msgstr "Modificar el nombre de la tarea"
-
-#~ msgid "Modify resource allocations"
-#~ msgstr "Modificar las asignaciones de los recursos"
-
-#~ msgid "Optimistic"
-#~ msgstr "Optimista"
-
-#~ msgid "Pessimistic"
-#~ msgstr "Pesimista"
-
-#~ msgid "All"
-#~ msgstr "Todo"
-
-#~ msgid "Expected only"
-#~ msgstr "Sólo lo esperado"
-
-#~ msgid "Running account: %1"
-#~ msgstr "Cuenta operativa: %1"
-
-#~ msgid "Startup account: %1"
-#~ msgstr "Cuenta inicial: %1"
-
-#~ msgid "Shutdown account: %1"
-#~ msgstr "Cuenta de finalización: %1"
-
-#~ msgid "Node level: %1"
-#~ msgstr "Nivel del nodo: %1"
-
-#~ msgctxt "@info:tooltip 1=resource name"
-#~ msgid "Allocated resource: %1"
-#~ msgstr "Recurso asignado: %1"
-
-#~ msgid "Modify Milestone Name"
-#~ msgstr "Modificar el nombre del hito"
-
-#~ msgid "Modify Summarytask Name"
-#~ msgstr "Modificar el nombre de la tarea resumen"
-
-#~ msgid "Modify Project Name"
-#~ msgstr "Modificar el nombre del proyecto"
-
-#~ msgid "Show task name"
-#~ msgstr "Mostrar el nombre de la tarea"
-
-#~ msgid "Show critical path"
-#~ msgstr "Mostrar la ruta crítica"
-
-#~ msgid "Show task completion"
-#~ msgstr "Mostrar la finalización de la tarea"
-
-#~ msgid "Show positive float"
-#~ msgstr "Mostrar la holgura positiva"
-
-#~ msgid "PI"
-#~ msgstr "PI"
-
-#~ msgid "SPI:"
-#~ msgstr "SPI:"
-
-#~ msgid "Delete Task"
-#~ msgstr "Borrar la tarea"
-
-#~ msgid "Delete Selected Calendar"
-#~ msgstr "Borrar el calendario seleccionado"
-
-#~ msgid "Delete Selected Accounts"
-#~ msgstr "Borrar las cuentas seleccionadas"
-
-#~ msgid "Delete Selection"
-#~ msgstr "Borrar la selección"
-
-#~ msgid "Delete Selected Items"
-#~ msgstr "Borrar los elementos seleccionados"
-
-#~ msgid "Make appointments: Invalid interval %1 to %2"
-#~ msgstr "Crear citas: Intervalo no válido %1 a %2"
-
-#~ msgid "Make appointments: Required resource not available"
-#~ msgstr "Crear citas: El recurso necesario no está disponible"
-
-#~ msgid "Not allocated"
-#~ msgstr "No asignado"
-
-#~ msgid "<p align=\"right\">From:</p>"
-#~ msgstr "<p align=\"right\">Desde:</p>"
-
-#~ msgid "<p align=\"right\">Until:</p>"
-#~ msgstr "<p align=\"right\">Hasta:</p>"
-
-#~ msgctxt "Budgeted Cost of Work Scheduled"
-#~ msgid "BCWS (Cost)"
-#~ msgstr "BCWS (Coste)"
-
-#~ msgctxt "Budgeted Cost of Work Performed"
-#~ msgid "BCWP (Cost)"
-#~ msgstr "BCWP (Coste)"
-
-#~ msgctxt "Actual Cost of Work Performed"
-#~ msgid "ACWP (Cost)"
-#~ msgstr "ACWP (Coste)"
-
-#~ msgctxt "Budgeted Cost of Work Scheduled"
-#~ msgid "BCWS (Effort)"
-#~ msgstr "BCWS (Esfuerzo)"
-
-#~ msgctxt "Budgeted Cost of Work Performed"
-#~ msgid "BCWP (Effort)"
-#~ msgstr "BCWP (Esfuerzo)"
-
-#~ msgctxt "Actual Cost of Work Performed"
-#~ msgid "ACWP (Effort)"
-#~ msgstr "ACWP (Esfuerzo)"
-
-#~ msgid "Maximum"
-#~ msgstr "Máximo"
-
-#~ msgid "Maximum amount of units or resources that can be allocated"
-#~ msgstr "Cantidad máxima de unidades o recursos que se pueden asignar"
-
-#, fuzzy
-#~| msgid "Overtime Rate"
-#~ msgid "Overwrite"
-#~ msgstr "Tarifa de las horas extraordinarias"
-
-#~ msgid "%1: Set to Working"
-#~ msgstr "%1: Establecer como laboral"
-
-#~ msgid "%1: Modify Work Interval"
-#~ msgstr "%1: Modificar el intervalo de trabajo"
-
-#~ msgid "Add Relationship"
-#~ msgstr "Añadir una relación"
-
-#~ msgid "Add Relation"
-#~ msgstr "Añadir una relación"
-
-#~ msgid "Edit Relationship"
-#~ msgstr "Editar la relación"
-
-#~ msgctxt "Budgeted Cost of Work Scheduled"
-#~ msgid "BCWS"
-#~ msgstr "BCWS"
-
-#~ msgctxt "Budgeted Cost of Work Performed"
-#~ msgid "BCWP"
-#~ msgstr "BCWP"
-
-#~ msgctxt "Actual Cost of Work Performed"
-#~ msgid "ACWP"
-#~ msgstr "ACWP"
-
-#~ msgid "Task 1"
-#~ msgstr "Tarea 1"
-
-#~ msgid "Task 2"
-#~ msgstr "Tarea 2"
-
-#~ msgid "Relationship Type"
-#~ msgstr "Tipo de relación"
-
-#~ msgid "Modify Document SendAs"
-#~ msgstr "Modificar el remitente del documento"
-
-#~ msgid "Modify % Completed"
-#~ msgstr "Modificar el % completado"
-
-#~ msgid "Modify Resource Allocations"
-#~ msgstr "Modificar las asignaciones de los recursos"
-
-#~ msgid "Add resource from addressbook"
-#~ msgid_plural "Add %1 resources from addressbook"
-#~ msgstr[0] "Añadir un recurso de la libreta de direcciones"
-#~ msgstr[1] "Añadir %1 recursos de la libreta de direcciones"
-
-#~ msgid ""
-#~ "Risk controles the PERT distribution used when calculating the actual "
-#~ "estimate for this task."
-#~ msgstr ""
-#~ "El riesgo controla la distribución PERT usada al calcular la estimación "
-#~ "real de esta tarea."

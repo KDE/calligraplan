@@ -909,7 +909,7 @@ msgstr "S'ha trobat massa plantilles per a: %1"
 #: main/KoApplication.cpp:510 main/KoApplication.cpp:528
 #, kde-format
 msgid "Template %1 failed to load."
-msgstr "S'ha produït un error en carregar la plantilla %1."
+msgstr "S'ha produït un error mentre es carregava la plantilla %1."
 
 #: main/KoApplication.cpp:518
 #, kde-format
@@ -6450,7 +6450,7 @@ msgstr "&Gestor:"
 #: ui/kptmainprojectpanelbase.ui:132
 #, kde-format
 msgid "Choose a project leader from your address book."
-msgstr "Trieu un líder de projecte des de la vostra llibreta d'adreces."
+msgstr "Tria un líder de projecte des de la vostra llibreta d'adreces."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: ui/kptmainprojectpanelbase.ui:135
@@ -7022,7 +7022,7 @@ msgstr ""
 "\n"
 "Açò no està limitat a persones disponibles en un grup de recursos sinó que "
 "pot ser qualsevol. Podeu fins i tot accedir a la vostra llibreta d'adreces "
-"amb el botó Trieu."
+"amb el botó «Tria»."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: ui/kptsummarytaskgeneralpanelbase.ui:98
@@ -7043,7 +7043,7 @@ msgstr "Inserix una persona des de la vostra llibreta d'adreces"
 #: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
 #, kde-format
 msgid "Choose..."
-msgstr "Trieu…"
+msgstr "Tria…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133

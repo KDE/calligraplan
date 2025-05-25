@@ -1,18 +1,19 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for calligraplan_scheduler_rcps.po package.
+# Copyright (C) 2010-2025 This file is copyright:
+# This file is distributed under the same license as the calligraplan package.
 #
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2010.
-# Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>, 2011.
-# Raul Gonzalez <raulgf83@gmail.com>, 2011.
-# Eloy <ecuadra@eloihr.net>, 2017.
-# Sofia Priego <spriego@darksylvania.net>, 2017.
+# SPDX-FileCopyrightText: 2010 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2011 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
+# SPDX-FileCopyrightText: 2011 Raul Gonzalez <raulgf83@gmail.com>
+# SPDX-FileCopyrightText: 2017 Eloy <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2017, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: calligraplan_scheduler_rcps\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2017-03-15 15:34+0100\n"
-"Last-Translator: Sofia Priego <spriego@darksylvania.net>\n"
+"PO-Revision-Date: 2025-05-24 18:53+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -116,177 +117,3 @@ msgstr "PERT"
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
 msgstr "%1: No se ha podido cumplir la restricción. Flotante negativo=%2"
-
-#, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
-#~| "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
-#~| "resources. It still respects task dependencies and also tries to "
-#~| "fullfill time constraints. However, time constraints can make it very "
-#~| "difficult to find a good solution, so it may be preferable to use a "
-#~| "different scheduler in these cases.</para>"
-#~ msgctxt "(qtundo-format) @info:whatsthis"
-#~ msgid ""
-#~ "<title>RCPS Scheduler</title><para>The Resource Constrained Project "
-#~ "Scheduler (RCPS) focuses on scheduling the project to avoid overbooking "
-#~ "resources. It still respects task dependencies and also tries to fullfill "
-#~ "time constraints. However, time constraints can make it very difficult to "
-#~ "find a good solution, so it may be preferable to use a different "
-#~ "scheduler in these cases.</para>"
-#~ msgstr ""
-#~ "<title>Planificador RCPS</title><para>El planificador de proyectos "
-#~ "limitados por los recursos (RCPS - Resource Constrained Project "
-#~ "Scheduler) se centra en la planificación del proyecto para evitar el "
-#~ "exceso de reserva de recursos. Respeta las dependencias de las tareas e "
-#~ "intenta cumplir las restricciones temporales. Sin embargo, las "
-#~ "restricciones temporales pueden dificultar encontrar una buena solución, "
-#~ "por lo que puede ser preferible utilizar un planificador diferente en "
-#~ "estos casos.</para>"
-
-#, fuzzy
-#~| msgid "Scheduling halted after %1 generations"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Scheduling halted after %1 generations"
-#~ msgstr "La planificación se detuvo tras %1 generaciones"
-
-#, fuzzy
-#~| msgid "Init"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Init"
-#~ msgstr "Inicial"
-
-#, fuzzy
-#~| msgid "Re-calculate project from start time: %1"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Re-calculate project from start time: %1"
-#~ msgstr "Recalcular el proyecto desde la hora inicial: %1"
-
-#, fuzzy
-#~| msgid "Schedule project from start time: %1"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Schedule project from start time: %1"
-#~ msgstr "Planificar el proyecto desde la hora inicial: %1"
-
-#, fuzzy
-#~| msgid "Schedule project from end time: %1"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Schedule project from end time: %1"
-#~ msgstr "Planificar el proyecto desde la hora final: %1"
-
-#, fuzzy
-#~| msgid "Failed to build a valid RCPS project"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Failed to build a valid RCPS project"
-#~ msgstr "No se pudo generar un proyecto RCPS válido"
-
-#, fuzzy
-#~| msgid "Schedule"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Schedule"
-#~ msgstr "Planificar"
-
-#, fuzzy
-#~| msgid "Invalid scheduling solution. Result: %1"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Invalid scheduling solution. Result: %1"
-#~ msgstr "Solución de planificación no válida. Resultado: %1"
-
-#, fuzzy
-#~| msgid "No resource request is registered"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "No resource request is registered"
-#~ msgstr "No hay registrado ninguna solicitud de recursos"
-
-#, fuzzy
-#~| msgid "No resource has been allocated"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "No resource has been allocated"
-#~ msgstr "No se ha reservado ningún recurso"
-
-#, fuzzy
-#~| msgid "Scheduled task to start at %1 and finish at %2"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Scheduled task to start at %1 and finish at %2"
-#~ msgstr "Se ha planificado la tarea para iniciarla en %1 y finalizarla en %2"
-
-#, fuzzy
-#~| msgid "Project scheduled to start at %1 and finish at %2"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Project scheduled to start at %1 and finish at %2"
-#~ msgstr ""
-#~ "Se ha planificado el proyecto para iniciarlo en %1 y finalizarlo en %2"
-
-#, fuzzy
-#~| msgid "Must start project early in order to finish in time: %1"
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Must start project early in order to finish in time: %1"
-#~ msgstr "Deber iniciar el proyecto pronto para terminar a tiempo: %1"
-
-#, fuzzy
-#~| msgctxt "Project Evaluation and Review Technique"
-#~| msgid "PERT"
-#~ msgctxt "(qtundo-format) Project Evaluation and Review Technique"
-#~ msgid "PERT"
-#~ msgstr "PERT"
-
-#, fuzzy
-#~| msgctxt "1=type of constraint"
-#~| msgid "%1: Failed to meet constraint. Negative float=%2"
-#~ msgctxt "(qtundo-format) 1=type of constraint"
-#~ msgid "%1: Failed to meet constraint. Negative float=%2"
-#~ msgstr "%1: No se ha podido cumplir la restricción. Flotante negativo=%2"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Scheduling backwards from target end time is not supported."
-#~ msgstr ""
-#~ "No se acepta la planificación hacia atrás a partir de la hora final "
-#~ "objetivo."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "The project will be scheduled forward from target start time."
-#~ msgstr ""
-#~ "El proyecto se planificará hacia adelante a partir de la hora inicial "
-#~ "objetivo."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<b>This scheduler does not support all the requested scheduling "
-#~ "functionality.</b>"
-#~ msgstr ""
-#~ "<b>Este planificador no acepta todas las funciones de planificación "
-#~ "solicitadas.</b>"
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Scheduling tasks with time constraints is not supported."
-#~ msgstr ""
-#~ "No se acepta la planificación de tareas con restricciones de tiempo."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Tasks will be scheduled As Soon As Possible (ASAP)."
-#~ msgstr "Las tareas se planificarán Tan pronto como sea posible."
-
-#~ msgctxt "@item:inlistbox"
-#~ msgid "Scheduling tasks As Late As Possible (ALAP) is not supported."
-#~ msgstr "No se acepta la planificación de tareas Tan tarde como sea posible."
-
-#~ msgid "Task '%1' estimate: %2"
-#~ msgstr "Estimación de la tarea «%1»: %2"
-
-#~ msgid "Task '%1' duration called %2 times, cached values: %3"
-#~ msgstr "Duración de la tarea «%1» llamada %2 veces, valores en caché: %3"
-
-#~ msgid "Task '%1' start: %2, duration: %3 (%4, %5 hours)"
-#~ msgstr "Inicio de la tarea «%1»: %2, duración: %3 (%4, %5 horas)"
-
-#~ msgid "Task '%1' start=%2, duration=%3: %4 - %5"
-#~ msgstr "Inicio de la tarea «%1»=%2, duración: %3: %4 - %5"
-
-#~ msgid "Job %1: resource %2 is %3 available"
-#~ msgstr "Trabajo %1: el recurso %2 está %3 disponible"
-
-#~ msgid "Project scheduling finished at %1"
-#~ msgstr "Se ha finalizado la planificación del proyecto en %1"
-
-#~ msgid "Schedule project using RCPS Scheduler, starting at %1"
-#~ msgstr "Planificar el proyecto usando el planificador RCPS, empezando en %1"
