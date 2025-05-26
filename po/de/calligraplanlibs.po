@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023, 2025 Alois Spitzbart <spitz234@hotmail.com>
 # Thomas Diehl <thd@kde.org>, 2002, 2003.
 # Burkhard Lück <lueck@hube-lueck.de>, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # Oliver Dörr <digikam-de@doerr-privat.de>, 2006.
@@ -8,15 +9,15 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-04-16 14:20+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2025-05-03 12:57+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -497,7 +498,7 @@ msgstr "Planmäßiger Beginn: %1, Vorgabezeit: %2"
 #, kde-format
 msgid "Must start project early in order to finish in time: %1"
 msgstr ""
-"Projekt muss vorzeitig beginnen, um pünktlich abgeschlossen zu werden : %1"
+"Projekt muss vorzeitig beginnen, um pünktlich abgeschlossen zu werden: %1"
 
 #: kernel/kptproject.cpp:459
 #, kde-format
@@ -634,10 +635,9 @@ msgid "Scheduling"
 msgstr "Zeitplanung"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
-#| msgid "New Portfolio"
+#, kde-format
 msgid "Portfolio"
-msgstr "Neues Portfolio"
+msgstr "Portfolio"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
@@ -937,7 +937,7 @@ msgstr "Dokumentation:"
 #: main/config/ConfigDocumentationPanel.ui:79
 #, kde-format
 msgid "Context help:"
-msgstr ""
+msgstr "Kontexthilfe:"
 
 #. i18n: ectx: property (text), widget (QLabel, languageLabel)
 #: main/config/ConfigDocumentationPanel.ui:95
@@ -948,63 +948,60 @@ msgstr ""
 #: main/config/KoConfigDocumentPage.cpp:60
 #, kde-format
 msgid "No autosave"
-msgstr ""
+msgstr "Kein automatisches Speichern"
 
 #: main/config/KoConfigDocumentPage.cpp:61
 #, kde-format
 msgctxt "unit symbol for minutes, leading space as separator"
 msgid " min"
-msgstr ""
+msgstr " Min."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: main/config/KoConfigDocumentPage.ui:45
 #, kde-format
 msgid "Autosave interval:"
-msgstr ""
+msgstr "Intervall für automatisches Speichern:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: main/config/KoConfigDocumentPage.ui:52
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Create sub-schedule"
+#, kde-format
 msgid "Create backup file:"
-msgstr "Unterzeitplan erstellen"
+msgstr "Sicherungsdatei erstellen:"
 
 #: main/kedittoolbar.cpp:43
-#, fuzzy, kde-format
-#| msgid "Separator"
+#, kde-format
 msgid "--- separator ---"
-msgstr "Trennzeichen"
+msgstr "--- Trenner ---"
 
 #: main/kedittoolbar.cpp:44
 #, kde-format
 msgid "--- expanding spacer ---"
-msgstr ""
+msgstr "--- sich ausdehnender Abstandshalter ---"
 
 #: main/kedittoolbar.cpp:337
-#, fuzzy, kde-format
-#| msgid "Change"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change Text"
-msgstr "Ändern"
+msgstr "Text ändern"
 
 #: main/kedittoolbar.cpp:347
 #, kde-format
 msgid "Icon te&xt:"
-msgstr ""
+msgstr "&Symboltext:"
 
 #: main/kedittoolbar.cpp:352
 #, kde-format
 msgctxt "@option:check"
 msgid "&Hide text when toolbar shows text alongside icons"
 msgstr ""
+"&Text ausblenden, wenn dieser in der Werkzeugleiste neben den Symbolen "
+"angezeigt wird."
 
 #: main/kedittoolbar.cpp:601
-#, fuzzy, kde-format
-#| msgid "Configure KPlato"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Toolbars"
-msgstr "KPlato einrichten"
+msgstr "Werkzeugleisten einrichten"
 
 #: main/kedittoolbar.cpp:664
 #, kde-format
@@ -1012,23 +1009,23 @@ msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr ""
+"Möchten Sie wirklich alle Werkzeugleisten dieser Anwendung auf ihre "
+"Voreinstellungen zurücksetzen? Die Änderung wird sofort wirksam."
 
 #: main/kedittoolbar.cpp:665
-#, fuzzy, kde-format
-#| msgid "Hide %1 Toolbar"
+#, kde-format
 msgid "Reset Toolbars"
-msgstr "Werkzeugleiste %1 ausblenden"
+msgstr "Werkzeugleisten zurücksetzen"
 
 #: main/kedittoolbar.cpp:666
-#, fuzzy, kde-format
-#| msgid "&Reset"
+#, kde-format
 msgid "Reset"
-msgstr "&Zurücksetzen"
+msgstr "Zurücksetzen"
 
 #: main/kedittoolbar.cpp:997
 #, kde-format
 msgid "&Toolbar:"
-msgstr ""
+msgstr "&Werkzeugleiste:"
 
 #. i18n("&New"), this);
 #. new_toolbar->setPixmap(BarIcon("document-new", KIconLoader::SizeSmall));
@@ -1038,52 +1035,46 @@ msgstr ""
 #. del_toolbar->setEnabled(false); // disabled until implemented
 #. our list of inactive actions
 #: main/kedittoolbar.cpp:1013
-#, fuzzy, kde-format
-#| msgid "Available Until"
+#, kde-format
 msgid "A&vailable actions:"
-msgstr "Verfügbar bis"
+msgstr "Ver&fügbare Aktionen:"
 
 #: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
 #: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Estimate Type"
+#, kde-format
 msgid "Filter"
-msgstr "Art der Schätzung"
+msgstr "Filter"
 
 #: main/kedittoolbar.cpp:1037
-#, fuzzy, kde-format
-#| msgid "Current date"
+#, kde-format
 msgid "Curr&ent actions:"
-msgstr "Aktuelles Datum"
+msgstr "&Angezeigte Aktionen:"
 
 #: main/kedittoolbar.cpp:1062
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
-msgstr "Ändern ..."
+msgstr "S&ymbol ändern ..."
 
 #: main/kedittoolbar.cpp:1071
-#, fuzzy, kde-format
-#| msgid "Change..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
-msgstr "Ändern ..."
+msgstr "Te&xt ändern ..."
 
 #: main/kedittoolbar.cpp:1233
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "@item:intable Action name in toolbar editor"
 msgid "%1"
-msgstr "%1 Std."
+msgstr "%1"
 
 #: main/kedittoolbar.cpp:1261
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
 msgstr ""
+"Dieses Element wird durch alle Elemente einer eingebetteten Komponente "
+"ersetzt."
 
 #: main/kedittoolbar.cpp:1263
 #, fuzzy, kde-format
@@ -1103,26 +1094,24 @@ msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
 "will not be able to re-add it."
 msgstr ""
+"Dies ist eine dynamische Liste von Aktionen. Sie können sie verschieben, "
+"aber wenn Sie sie entfernen, können Sie sie nicht erneut hinzufügen."
 
 #: main/kedittoolbar.cpp:1276
-#, fuzzy, kde-format
-#| msgid "Account: %1"
+#, kde-format
 msgid "ActionList: %1"
-msgstr "Konto: %1"
+msgstr "Aktionenliste: %1"
 
 #: main/kedittoolbar.cpp:1377 main/kedittoolbar.cpp:1402
-#, fuzzy, kde-format
-#| msgctxt "<hours>h:<minutes>m"
-#| msgid "%1h"
+#, kde-format
 msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
-msgstr "%1 Std."
+msgstr "%1"
 
 #: main/kedittoolbar.cpp:1630
-#, fuzzy, kde-format
-#| msgid "Change"
+#, kde-format
 msgid "Change Icon"
-msgstr "Ändern"
+msgstr "Symbol ändern"
 
 #: main/KoApplication.cpp:192
 #, kde-format
@@ -1274,10 +1263,9 @@ msgstr ""
 "Möchten Sie diese stattdessen öffnen?"
 
 #: main/KoDocument.cpp:1198
-#, fuzzy, kde-format
-#| msgid "Autosaving..."
+#, kde-format
 msgid "Autosave"
-msgstr "Automatisches Speichern läuft ..."
+msgstr "Automatisches Speichern"
 
 #: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
 #, kde-format
@@ -1458,7 +1446,7 @@ msgstr "Keine gültige Calligra-Plan-Datei: %1."
 #: main/KoDocument.cpp:1734 main/KoDocument.cpp:1765
 #, kde-format
 msgid "Invalid password"
-msgstr ""
+msgstr "Ungültiges Passwort"
 
 #: main/KoDocument.cpp:1805
 #, kde-format
@@ -1883,6 +1871,9 @@ msgid ""
 "files opened.</para><para><nl/>This enables you to quickly open projects you "
 "have worked on recently.</para>"
 msgstr ""
+"<title>Zuletzt geöffnete Projekte</title><para>Eine Liste der 10 zuletzt "
+"geöffneten Projektdateien.</para><para><nl/>So können Sie schnell Projekte "
+"öffnen, an denen Sie kürzlich gearbeitet haben.</para>"
 
 #: main/WelcomeView.cpp:168
 #, kde-kuit-format
@@ -2276,7 +2267,7 @@ msgstr "Tatsächlich"
 #, kde-format
 msgctxt "@title:column week-year"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1-%2"
 
 #: models/kptaccountsmodel.cpp:1123
 #, kde-format
@@ -2286,11 +2277,10 @@ msgstr ""
 "Kosten ]"
 
 #: models/kptaccountsmodel.cpp:1136
-#, fuzzy, kde-format
-#| msgid "Week %1"
+#, kde-format
 msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
-msgstr "Woche %1"
+msgstr "Woche %1-%2"
 
 #: models/kptcalendarmodel.cpp:291
 #, kde-kuit-format
@@ -2380,7 +2370,7 @@ msgstr "Name"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Origin"
-msgstr ""
+msgstr "Herkunft"
 
 #: models/kptcalendarmodel.cpp:536
 #, kde-kuit-format
@@ -4073,20 +4063,16 @@ msgid "Estimate"
 msgstr "Schätzung"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Optimistisch (Dauer)"
+msgstr "Optimistisch (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Pessimistisch (Dauer)"
+msgstr "Pessimistisch (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
@@ -4789,12 +4775,10 @@ msgstr ""
 "Die Gesamtbuchung am %1, zusammen mit den maximalen Stunden für die Ressource"
 
 #: models/kptresourceappointmentsmodel.cpp:622
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "%1: %2<nl/>%3: %4<nl/>Assigned: %5<nl/>Available: %6"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6"
-msgstr "%1: %2<nl/>%3: %4<nl/>Zugewiesen: %5<nl/>Verfügbar: %6"
+msgstr "%1: %2<nl/>%3: %4<nl/>Zeitzone: %5<nl/>Verfügbar: %6"
 
 #: models/kptresourceappointmentsmodel.cpp:673
 #, kde-format
@@ -4812,12 +4796,10 @@ msgid "Bookings on %1"
 msgstr "Buchung am %1"
 
 #: models/kptresourceappointmentsmodel.cpp:919
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "%1: %2<nl/>%3: %4<nl/>Assigned: %5<nl/>Available: %6"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5"
-msgstr "%1: %2<nl/>%3: %4<nl/>Zugewiesen: %5<nl/>Verfügbar: %6"
+msgstr "%1: %2<nl/>%3: %4<nl/>Zeitzone: %5"
 
 #: models/kptresourceappointmentsmodel.cpp:953
 #, kde-format
@@ -4825,12 +4807,11 @@ msgid "Interval"
 msgstr "Intervall"
 
 #: models/kptresourceappointmentsmodel.cpp:964
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "%1: %2<nl/>%3: %4<nl/>Assigned: %5<nl/>Available: %6"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7"
-msgstr "%1: %2<nl/>%3: %4<nl/>Zugewiesen: %5<nl/>Verfügbar: %6"
+msgstr ""
+"%1: %2<nl/>%3: %4<nl/>Zeitzone: %5<nl/>Zugewiesen: %6<nl/>Verfügbar: %7"
 
 #: models/kptresourceappointmentsmodel.cpp:1168
 #, kde-format
@@ -5503,9 +5484,7 @@ msgid "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4"
 msgstr "Name: %1<nl/>Geplant: %2<nl/>Status: %3<nl/>Zeitplanung:%4"
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Manual"
+#, kde-format
 msgid "Manual"
 msgstr "Manuell"
 
@@ -5544,18 +5523,16 @@ msgid "Team: No team members"
 msgstr "Teammitglieder auswählen"
 
 #: models/ResourceModel.cpp:142
-#, fuzzy, kde-format
-#| msgid "Task: %1"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team: %1"
-msgstr "Aufgabe: %1"
+msgstr "Team: %1"
 
 #: models/ResourceModel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Required"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Required: %1"
-msgstr "Erforderlich"
+msgstr "Erforderlich: %1"
 
 #: models/ResourceModel.cpp:216 models/ResourceModel.cpp:242
 #, kde-format
@@ -5946,17 +5923,15 @@ msgstr ""
 "damit Ihre Arbeit nicht verloren geht."
 
 #: store/KoEncryptedStore.cpp:530
-#, fuzzy, kde-format
-#| msgid "Internal error"
+#, kde-format
 msgid "Read error"
-msgstr "Interner Fehler"
+msgstr "Lesefehler"
 
 #: store/KoEncryptedStore.cpp:555
-#, fuzzy, kde-kuit-format
-#| msgid "Please enter the password to open this file."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
-msgstr "Bitte geben Sie das Passwort ein, um diese Datei zu öffnen."
+msgstr "Bitte geben Sie das Passwort ein, um diese Datei zu öffnen:<nl/> %1"
 
 #: store/KoEncryptedStore.cpp:575
 #, kde-format
@@ -5976,11 +5951,10 @@ msgid "Do you want to save the password?"
 msgstr "Möchten Sie das Passwort speichern?"
 
 #: store/KoEncryptedStore.cpp:758
-#, fuzzy, kde-format
-#| msgid "Save as %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
-msgstr "Speichern als %1"
+msgstr "Passwort speichern"
 
 #: store/KoNetAccess.cpp:85
 #, kde-format
@@ -6035,8 +6009,7 @@ msgstr "Druckoptionen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
 msgstr "Projekt anzeigen"
 
@@ -6057,10 +6030,9 @@ msgstr "Aufgaben"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Meilenstein"
+msgstr "Meilensteine"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
@@ -6108,10 +6080,9 @@ msgstr "Von aktuellem Zeitpunkt neu berechnen"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Periodisch"
+msgstr "Periode:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
@@ -6790,18 +6761,14 @@ msgid ""
 msgstr ""
 
 #: ui/kptdependencyeditor.cpp:2542
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Edit Dependency"
+#, kde-format
 msgid "Edit Dependency..."
-msgstr "Abhängigkeit bearbeiten "
+msgstr "Abhängigkeit bearbeiten …"
 
 #: ui/kptdependencyeditor.cpp:2546
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task dependency"
+#, kde-format
 msgid "Delete Dependency"
-msgstr "Aufgabenabhängigkeit löschen"
+msgstr "Abhängigkeit löschen"
 
 #: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
@@ -6849,7 +6816,7 @@ msgstr "Untergeordneten Meilenstein hinzufügen ..."
 #: ui/ResourceAppointmentsGanttView.cpp:363
 #, kde-format
 msgid "Edit..."
-msgstr "Bearbeiten ..."
+msgstr "Bearbeiten …"
 
 #: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
@@ -6857,9 +6824,9 @@ msgstr "Bearbeiten ..."
 #: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:461
 #: ui/performance/PerformanceStatusView.cpp:333
 #: ui/ResourceAppointmentsGanttView.cpp:367
-#, fuzzy, kde-format
+#, kde-format
 msgid "Progress..."
-msgstr "Fortschritt ..."
+msgstr "Fortschritt …"
 
 #: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
@@ -6867,10 +6834,9 @@ msgstr "Fortschritt ..."
 #: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:465
 #: ui/performance/PerformanceStatusView.cpp:337
 #: ui/ResourceAppointmentsGanttView.cpp:371
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Description..."
-msgstr "Beschreibung"
+msgstr "Beschreibung …"
 
 #: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
@@ -6878,10 +6844,9 @@ msgstr "Beschreibung"
 #: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:469
 #: ui/performance/PerformanceStatusView.cpp:341
 #: ui/ResourceAppointmentsGanttView.cpp:375
-#, fuzzy, kde-format
-#| msgid "Documents"
+#, kde-format
 msgid "Documents..."
-msgstr "Dokumente"
+msgstr "Dokumente …"
 
 #: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
@@ -6894,31 +6859,24 @@ msgid "Delete task dependency"
 msgstr "Aufgabenabhängigkeit löschen"
 
 #: ui/kptdependencyeditor.cpp:2743
-#, fuzzy
-#| msgid "Add Milestone"
 msgctxt "(qtundo-format)"
 msgid "Add milestone"
 msgstr "Meilenstein hinzufügen"
 
 #: ui/kptdependencyeditor.cpp:2788
-#, fuzzy
-#| msgid "Add Sub-Milestone"
 msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
-msgstr "Unter-Meilenstein hinzufügen"
+msgstr "Untergeordneten Meilenstein hinzufügen"
 
 #: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
-#, fuzzy
-#| msgid "Delete Task"
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
 msgstr "Aufgabe löschen"
 
 #: ui/kptdocumentsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "&Documents"
+#, kde-format
 msgid "Task Documents"
-msgstr "Doku&mente"
+msgstr "Aufgabendokumente"
 
 #: ui/kptdocumentseditor.cpp:209
 #, kde-kuit-format
@@ -7110,10 +7068,9 @@ msgid "Show Project"
 msgstr "Projekt anzeigen"
 
 #: ui/kptganttview.cpp:318
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Druckeinstellungen ..."
+msgstr "Filtereinstellungen …"
 
 #: ui/kptganttview.cpp:330
 #, kde-format
@@ -7121,16 +7078,14 @@ msgid "Show Unscheduled Tasks"
 msgstr "Nicht durchgeplant Aufgaben anzeigen"
 
 #: ui/kptganttview.cpp:337
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Aufgaben"
+msgstr "Aufgaben anzeigen"
 
 #: ui/kptganttview.cpp:345
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Meilenstein"
+msgstr "Meilensteine anzeigen"
 
 #: ui/kptganttview.cpp:354
 #, kde-kuit-format
@@ -7775,34 +7730,27 @@ msgid "Add Resource"
 msgstr "Ressource hinzufügen"
 
 #: ui/kptresourceeditor.cpp:307
-#, fuzzy, kde-format
-#| msgid "Edit Resources..."
+#, kde-format
 msgid "Edit Resource..."
-msgstr "Ressourcen bearbeiten ..."
+msgstr "Ressource bearbeiten …"
 
 #: ui/kptresourceeditor.cpp:311
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Resource Groups"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Resource Groups"
-msgstr "Ressourcengruppen"
+msgstr "Ressourcengruppen anzeigen"
 
 #: ui/kptresourceeditor.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "title:column"
-#| msgid "Select team members"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Team Members"
-msgstr "Teammitglieder auswählen"
+msgstr "Teammitglieder anzeigen"
 
 #: ui/kptresourceeditor.cpp:325
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Required Resources"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Required Resources"
-msgstr "Benötigte Ressourcen"
+msgstr "Benötigte Ressourcen anzeigen"
 
 #: ui/kptresourceeditor.cpp:396
 #, kde-format
@@ -7810,22 +7758,20 @@ msgid ""
 "A resource that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
+"Eine Ressource, die Teil eines Zeitplans ist, wird gelöscht. Dies macht den "
+"Zeitplan ungültig."
 
 #: ui/kptresourceeditor.cpp:416
-#, fuzzy
-#| msgid "Per resource"
 msgctxt "(qtundo-format)"
 msgid "Delete resource"
 msgid_plural "Delete resources"
-msgstr[0] "Pro Ressource"
-msgstr[1] "Pro Ressource"
+msgstr[0] "Ressource löschen"
+msgstr[1] "Ressourcen löschen"
 
 #: ui/kptresourceeditor.cpp:423
-#, fuzzy
-#| msgid "Per resource"
 msgctxt "(qtundo-format) @action"
 msgid "Delete resource"
-msgstr "Pro Ressource"
+msgstr "Ressource löschen"
 
 #: ui/kptresourceeditor.cpp:486
 #, kde-kuit-format
@@ -7903,11 +7849,10 @@ msgid ""
 msgstr ""
 
 #: ui/kptscheduleeditor.cpp:388
-#, fuzzy, kde-format
-#| msgid "Calculate"
+#, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
-msgstr "Berechnen"
+msgstr "%1 berechnen"
 
 #: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 msgctxt "(qtundo-format)"
@@ -7924,40 +7869,38 @@ msgstr "Zeitplan %1 hinzufügen"
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
 msgstr ""
+"Es kann kein Basisplan erstellt werden. Das Projekt hat bereits einen "
+"Basisplan."
 
 #: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
 msgstr ""
+"Das Projekt hat bereits einen Basisplan. Möchten Sie den Basisplan entfernen?"
 
 #: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
-msgstr ""
+msgstr "Basisplan %1 zurücksetzen"
 
 #: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
-#, fuzzy, kde-format
-#| msgid "Baseline"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
-msgstr "Basisplan"
+msgstr "Basisplan %1"
 
 #: ui/kptscheduleeditor.cpp:485
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
-msgstr "Zeitplan %1 hinzufügen"
+msgstr "Zeitplan %1 löschen"
 
 #: ui/kptscheduleeditor.cpp:501
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
-msgstr "Zeitplan %1 hinzufügen"
+msgstr "Zeitplan %1 verschieben"
 
 #: ui/kptscheduleeditor.cpp:510
 #, fuzzy, kde-format
@@ -8306,10 +8249,9 @@ msgid "Move Down"
 msgstr "Nach unten"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
-msgstr "Ansicht teilen"
+msgstr "Teilen"
 
 #: ui/kpttaskeditor.cpp:1136
 #, kde-format
@@ -8317,19 +8259,17 @@ msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
+"Eine Aufgabe, die Teil eines Zeitplans ist, wird gelöscht. Dies macht den "
+"Zeitplan ungültig."
 
 #: ui/kpttaskeditor.cpp:1148
-#, fuzzy
-#| msgid "Delete Task"
 msgctxt "(qtundo-format)"
 msgid "Delete task"
 msgid_plural "Delete tasks"
 msgstr[0] "Aufgabe löschen"
-msgstr[1] "Aufgabe löschen"
+msgstr[1] "Aufgaben löschen"
 
 #: ui/kpttaskeditor.cpp:1164
-#, fuzzy
-#| msgid "Delete Task"
 msgctxt "(qtundo-format) @action"
 msgid "Delete task"
 msgstr "Aufgabe löschen"
@@ -8343,10 +8283,6 @@ msgstr[0] "Aufgabe einrücken"
 msgstr[1] "%1 Aufgaben einrücken"
 
 #: ui/kpttaskeditor.cpp:1217
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Unindent task"
-#| msgid_plural "Unindent %1 tasks"
 msgctxt "(qtundo-format) For a single task"
 msgid "Unindent task"
 msgstr "Aufgabe nicht einrücken"
@@ -8360,16 +8296,11 @@ msgstr[0] "Aufgabe nicht einrücken"
 msgstr[1] "%1 Aufgaben nicht einrücken"
 
 #: ui/kpttaskeditor.cpp:1240
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Move tasks"
 msgctxt "(qtundo-format)"
 msgid "Move task up"
-msgstr "Aufgaben verschieben"
+msgstr "Aufgabe nach oben verschieben"
 
 #: ui/kpttaskeditor.cpp:1255
-#, fuzzy
-#| msgid "Move Task Down"
 msgctxt "(qtundo-format)"
 msgid "Move task down"
 msgstr "Aufgabe nach unten verschieben"
@@ -9769,22 +9700,19 @@ msgid "Nothing"
 msgstr "Nichts"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
-#, fuzzy, kde-format
-#| msgid "Report Template"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Berichtsvorlage"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Hinzufügen"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:257
-#, fuzzy, kde-format
-#| msgid "Report File"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Berichtsdatei"
@@ -9839,10 +9767,9 @@ msgid "Generate Report"
 msgstr "Bericht erstellen"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:395
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open..."
-msgstr "Öffnen"
+msgstr "Öffnen …"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
@@ -9858,34 +9785,21 @@ msgid "Generate Report"
 msgstr "Bericht erstellen"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:473
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Template file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
-msgstr ""
-"%1 kann nicht generiert werden.\n"
-"Der Name der Vorlagendatei ist leer."
+msgstr "%1 kann nicht generiert werden.<nl/>Vorlagendatei existiert nicht."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Template file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr ""
-"%1 kann nicht generiert werden.\n"
-"Der Name der Vorlagendatei ist leer."
+"%1 kann nicht generiert werden.<nl/>Vorlagendatei existiert nicht:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Report file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
 msgstr ""
-"%1 kann nicht generiert werden.\n"
-"Der Name der Berichtdatei ist leer."
+"%1 kann nicht generiert werden.<nl/>Der Name der Berichtdatei ist leer."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, fuzzy, kde-kuit-format
@@ -9951,7 +9865,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "<title>%1</title><para>Available: %2<nl/>Booked: %3</para>"
-msgstr ""
+msgstr "<title>%1</title><para>Verfügbar: %2<nl/>Gebucht: %3</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
 #. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
@@ -10062,22 +9976,16 @@ msgid "Add Child Resource Group"
 msgstr "Ressourcengruppe hinzufügen"
 
 #: ui/ResourceGroupEditor.cpp:352
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Add resource group"
 msgctxt "(qtundo-format) @action"
 msgid "Delete resourcegroup"
-msgstr "Ressourcengruppe hinzufügen"
+msgstr "Ressourcengruppe löschen"
 
 #: ui/ResourceGroupEditor.cpp:374
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Add resource group"
 msgctxt "(qtundo-format)"
 msgid "Delete resourcegroup"
 msgid_plural "Delete resourcegroups"
-msgstr[0] "Ressourcengruppe hinzufügen"
-msgstr[1] "Ressourcengruppe hinzufügen"
+msgstr[0] "Ressourcengruppe löschen"
+msgstr[1] "Ressourcengruppen hinzufügen"
 
 #: ui/RichTextWidget.cpp:26 ui/RichTextWidget.cpp:39
 #, kde-kuit-format
@@ -10090,7 +9998,7 @@ msgstr "Verknüpfung öffnen"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
@@ -10207,17 +10115,15 @@ msgid "Pessimistic:"
 msgstr "Pessimistisch:"
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgid "Delete Task"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr "Aufgabe löschen"
+msgstr "Aufgabe teilen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Anzahl der Aufgaben:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64

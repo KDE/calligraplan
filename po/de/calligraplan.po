@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # Thomas Diehl <thd@kde.org>, 2002, 2003.
 # Burkhard Lück <lueck@hube-lueck.de>, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
 # Oliver Dörr <digikam-de@doerr-privat.de>, 2006.
@@ -8,15 +9,15 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-04-16 14:20+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2025-05-03 12:42+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -527,10 +528,9 @@ msgstr "Liste von Pfaden zu Aufgabenmodulen"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
-msgstr "Liste von Pfaden zu Projektvorlagen"
+msgstr "Liste von Pfaden zu Berichtsvorlagen"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
@@ -586,10 +586,9 @@ msgid "Project Templates"
 msgstr "Projektvorlagen"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Projektvorlagen"
+msgstr "Berichtsvorlagen"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1113,29 +1112,25 @@ msgstr "Planungsvorgabe:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptconfigtaskpanelbase.ui:498
-#, fuzzy, kde-format
-#| msgid "Risk:"
+#, kde-format
 msgid "Risk:"
 msgstr "Risiko:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgid "None"
-msgstr "Keine(r/s)"
+msgstr "Kein"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
-#, fuzzy, kde-format
-#| msgid "Low"
+#, kde-format
 msgid "Low"
 msgstr "Niedrig"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
-#, fuzzy, kde-format
-#| msgid "High"
+#, kde-format
 msgid "High"
 msgstr "Hoch"
 
@@ -1197,7 +1192,7 @@ msgstr "Veröffentlichen:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialog"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
@@ -1208,11 +1203,9 @@ msgstr "Schätzung:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Umbenennen"
+msgstr "Dateiname:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
@@ -1361,10 +1354,9 @@ msgstr ""
 "Vermeidung von Konflikten einfügen.</note></para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "Planungsvorgabe:"
+msgstr "Planung gestartet: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
@@ -1534,11 +1526,9 @@ msgid "Calendar: %1"
 msgstr "Kalender: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Create Shared Resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "Geteilte Ressourcen erstellen"
+msgstr "Geteilte Ressourcen aktualisieren"
 
 #: kptmaindocument.cpp:1481
 #, kde-format
@@ -1608,10 +1598,9 @@ msgid "Insert Project File..."
 msgstr "Projektdatei einfügen ..."
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgid "Create Shared Resources"
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "Geteilte Ressourcen erstellen"
+msgstr "Geteilte Ressourcen aktualisieren"
 
 #: kptview.cpp:239
 #, kde-format
@@ -1619,10 +1608,9 @@ msgid "Open Report Definition File..."
 msgstr "Berichtdefinitionsdatei öffnen ..."
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Projektvorlage erstellen ..."
+msgstr "Reportvorlage erstellen …"
 
 #: kptview.cpp:260
 #, kde-format
@@ -1931,16 +1919,13 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Projektvorlagen"
+msgstr "Reportvorlagen"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Geteilte Ressourcen"
