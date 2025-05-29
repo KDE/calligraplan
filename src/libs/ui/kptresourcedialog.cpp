@@ -305,7 +305,7 @@ ResourceDialog::ResourceDialog(Project &project, Resource *resource, QWidget *pa
     connect(dia, &ResourceDialogImpl::calculate, this, &ResourceDialog::slotCalculationNeeded);
     connect(dia->calendarList, SIGNAL(activated(int)), SLOT(slotCalendarChanged(int)));
     connect(dia->required, SIGNAL(changed()), SLOT(enableButtonOk()));
-    connect(dia->account, SIGNAL(currentIndexChanged(QString)), SLOT(slotAccountChanged(QString)));
+    connect(dia->account, SIGNAL(currentTextChanged(QString)), SLOT(slotAccountChanged(QString)));
     
     connect(&project, &Project::resourceToBeRemoved, this, &ResourceDialog::slotResourceRemoved);
 }
