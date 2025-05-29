@@ -193,7 +193,7 @@ msgstr "Recalcula, inici més prompte: %1"
 #: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
-msgstr "La tasca ha començat. Esforç restant: %1d"
+msgstr "La tasca ha començat. Esforç restant: %1 d"
 
 #: PlanTJScheduler.cpp:1018
 #, kde-format
