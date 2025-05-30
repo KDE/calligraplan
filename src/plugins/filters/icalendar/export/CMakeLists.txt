@@ -19,9 +19,9 @@ ki18n_wrap_ui(icalendarexport_SRCS
 
 add_library(calligraplanicalexport MODULE ${icalendarexport_SRCS})
 #calligraplan_filter_desktop_to_json(planicalexport plan_icalendar_export.desktop)
-kcoreaddons_desktop_to_json(calligraplanicalexport plan_icalendar_export.desktop
-    SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
-)
+#kcoreaddons_desktop_to_json(calligraplanicalexport plan_icalendar_export.desktop
+#    SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_filter.desktop
+#)
 
 target_link_libraries(calligraplanicalexport calligraplanprivate calligraplankernel calligraplanmain)
 

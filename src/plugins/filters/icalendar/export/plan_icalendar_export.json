@@ -1,0 +1,43 @@
+{
+    "KPlugin": {
+        "Icon": "",
+        "Name": "Plan iCalendar Export Filter",
+        "Name[ca@valencia]": "Filtre d'exportaci├│ iCalendar de Plan",
+        "Name[ca]": "Filtre d'exportaci├│ iCalendar del Plan",
+        "Name[de]": "iCalendar-Exportfilter f├╝r Plan",
+        "Name[en_GB]": "Plan iCalendar Export Filter",
+        "Name[eo]": "Plan iCalendar-Eksporta Filtrilo",
+        "Name[es]": "Filtro de exportaci├│n iCalendar de Plan",
+        "Name[et]": "Plani iCalendari ekspordifilter",
+        "Name[eu]": "Plan-en iCalendar esportatzeko iragazkia",
+        "Name[fi]": "Planin iCalendar-vientisuodatin",
+        "Name[fr]": "Filtre d'exportation iCalendar de Plan",
+        "Name[gl]": "Filtro para Plan de exportaci├│n de iCalendar",
+        "Name[id]": "Filter Ekspor iCalendar Plan",
+        "Name[it]": "Filtro di esportazione iCalendar di Plan",
+        "Name[ka]": "ßâùßâÑßâòßâößâ£ßâÿ ßâÆßâößâÆßâøßâÿßâí iCalender-ßâÿßâí ßâñßâÉßâÿßâÜßâ¿ßâÿ ßâÆßâÉßâóßâÉßâ£ßâÉ",
+        "Name[nl]": "Plan iCalendar-exportfilter",
+        "Name[pl]": "Filtr eksportu iCalendar z Plan",
+        "Name[pt]": "Filtro de Exporta├º├úo para iCalendar do Plan",
+        "Name[pt_BR]": "Filtro de exporta├º├úo de iCalendar para Plan",
+        "Name[ru]": "ðñð©ð╗ÐîÐéÐÇ Ðìð║Ðüð┐ð¥ÐÇÐéð░ Ðäð░ð╣ð╗ð¥ð▓ ð┐ð╗ð░ð¢ð©ÐÇð¥ð▓Ðëð©ð║ð░ ð▓ iCalendar",
+        "Name[sk]": "Exportn├¢ filter Plan iCalendar",
+        "Name[sl]": "Planov izvozni filter za iCalendar",
+        "Name[sv]": "Plan iCalendar exportfilter",
+        "Name[tr]": "Plan iCalendar D─▒┼ƒa Aktarma S├╝zgeci",
+        "Name[uk]": "ðñÐûð╗ÐîÐéÐÇ ðÁð║Ðüð┐ð¥ÐÇÐéÐâ ð┤ð¥ iCalendar Plan",
+        "Name[x-test]": "xxPlan iCalendar Export Filterxx",
+        "Name[zh_CN]": "Plan iCalendar Õ»╝Õç║Þ┐çµ╗ñÕÖ¿",
+        "Name[zh_TW]": "Plan iCalendar Õî»Õç║ÚüÄµ┐¥þ¿ïÕ╝Å",
+        "ServiceTypes": [
+            "Plan/Filter"
+        ]
+    },
+    "X-KDE-Export": [
+        "text/calendar"
+    ],
+    "X-KDE-Import": [
+        "application/x-vnd.kde.plan"
+    ],
+    "X-KDE-Weight": 1
+}

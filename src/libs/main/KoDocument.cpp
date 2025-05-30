@@ -48,7 +48,10 @@
 #include <KIO/Job>
 #include <KIO/FileCopyJob>
 #include <KIO/StatJob>
+#define HAVE_KDIRNOTIFY __has_include(<KDirNotify>)
+#if HAVE_KDIRNOTIFY
 #include <KDirNotify>
+#endif
 #include <KBackup>
 
 #include <QMimeDatabase>
@@ -412,7 +415,9 @@ public:
         }
         else
         {
+#if HAVE_KDIRNOTIFY
             ::org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(m_url.adjusted(QUrl::RemoveFilename|QUrl::StripTrailingSlash).path()));
+#endif
 
             m_uploadJob = nullptr;
             document->setModified(false);

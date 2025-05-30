@@ -11,10 +11,10 @@
 
 #include <KoFilter.h>
 
-#define USE_KCALCORE
+#define USE_KCalendarCore
 
-#ifdef USE_KCALCORE
-#include <kcalcore/calendar.h>
+#ifdef USE_KCalendarCore
+#include <KCalendarCore/Calendar>
 #endif
 
 #include <QObject>
@@ -43,8 +43,8 @@ public:
 
 protected:
     KoFilter::ConversionStatus convert(const KPlato::Project &project, QFile &file);
-#ifdef USE_KCALCORE
-    void createTodos(KCalCore::Calendar::Ptr cal, const KPlato::Node *node, long id, KCalCore::Todo::Ptr parent = KCalCore::Todo::Ptr());
+#ifdef USE_KCalendarCore
+    void createTodos(KCalendarCore::Calendar::Ptr cal, const KPlato::Node *node, long id, KCalendarCore::Todo::Ptr parent = KCalendarCore::Todo::Ptr());
 #endif
 
 private:

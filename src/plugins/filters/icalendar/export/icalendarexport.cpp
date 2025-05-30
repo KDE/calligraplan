@@ -17,15 +17,14 @@
 #include <kptdocuments.h>
 #include "kptdebug.h"
 
-#ifdef USE_KCALCORE
-#include <kcalcore/attendee.h>
-#include <kcalcore/attachment.h>
-#include <kcalcore/icalformat.h>
-#include <kcalcore/memorycalendar.h>
-#include <kcalcore_version.h>
+#ifdef USE_KCalendarCore
+#include <KCalendarCore/Attendee>
+#include <KCalendarCore/Attachment>
+#include <KCalendarCore/Calformat>
+#include <KCalendarCore/MemoryCalendar.h>
+#include <kcalendarcore_version.h>
 #endif
 
-#include <QTextCodec>
 #include <QByteArray>
 #include <QString>
 #include <QFile>
@@ -301,7 +300,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
 #else
 KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
 {
-    KCalCore::Calendar::Ptr cal(new KCalCore::MemoryCalendar("UTC"));
+    KCalendarCore::Calendar::Ptr cal(new KCalendarCore::MemoryCalendar("UTC"));
 
     //TODO: schedule selection dialog
     long id = ANYSCHEDULED;
@@ -322,7 +321,7 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     //debugPlanICalExport<<id;
     createTodos(cal, &project, id);
 
-    KCalCore::ICalFormat format;
+    KCalendarCore::ICalFormat format;
     qint64 n = file.write(format.toString(cal).toUtf8());
     if (n < 0) {
         return KoFilter::InternalError;
@@ -330,9 +329,9 @@ KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFil
     return KoFilter::OK;
 }
 
-void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node, long id, KCalCore::Todo::Ptr parent)
+void ICalendarExport::createTodos(KCalendarCore::Calendar::Ptr cal, const Node *node, long id, KCalendarCore::Todo::Ptr parent)
 {
-    KCalCore::Todo::Ptr todo(new KCalCore::Todo());
+    KCalendarCore::Todo::Ptr todo(new KCalendarCore::Todo());
     todo->setUid(node->id());
     todo->setSummary(node->name());
     todo->setDescription(node->description());
@@ -342,13 +341,13 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
     }
     if (node->type() != Node::Type_Project && ! node->leader().isEmpty()) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
-        KCalCore::Person p = KCalCore::Person::fromFullName(node->leader());
-        KCalCore::Attendee a(p.name(), p.email());
-        a.setRole(KCalCore::Attendee::NonParticipant);
+        KCalendarCore::Person p = KCalendarCore::Person::fromFullName(node->leader());
+        KCalendarCore::Attendee a(p.name(), p.email());
+        a.setRole(KCalendarCore::Attendee::NonParticipant);
 #else
-        KCalCore::Person::Ptr p = KCalCore::Person::fromFullName(node->leader());
-        KCalCore::Attendee::Ptr a(new KCalCore::Attendee(p->name(), p->email()));
-        a->setRole(KCalCore::Attendee::NonParticipant);
+        KCalendarCore::Person::Ptr p = KCalendarCore::Person::fromFullName(node->leader());
+        KCalendarCore::Attendee::Ptr a(new KCalendarCore::Attendee(p->name(), p->email()));
+        a->setRole(KCalendarCore::Attendee::NonParticipant);
 #endif
         todo->addAttendee(a);
     }
@@ -369,9 +368,9 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
             for (const Resource *r : lst) {
                 if (r->type() == Resource::Type_Work) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
-                    todo->addAttendee(KCalCore::Attendee(r->name(), r->email()));
+                    todo->addAttendee(KCalendarCore::Attendee(r->name(), r->email()));
 #else
-                    todo->addAttendee(KCalCore::Attendee::Ptr(new KCalCore::Attendee(r->name(), r->email())));
+                    todo->addAttendee(KCalendarCore::Attendee::Ptr(new KCalendarCore::Attendee(r->name(), r->email())));
 #endif
                 }
             }
@@ -380,9 +379,9 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
             for (const Resource *r : resources) {
                 if (r->type() == Resource::Type_Work) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
-                    todo->addAttendee(KCalCore::Attendee(r->name(), r->email()));
+                    todo->addAttendee(KCalendarCore::Attendee(r->name(), r->email()));
 #else
-                    todo->addAttendee(KCalCore::Attendee::Ptr(new KCalCore::Attendee(r->name(), r->email())));
+                    todo->addAttendee(KCalendarCore::Attendee::Ptr(new KCalendarCore::Attendee(r->name(), r->email())));
 #endif
                 }
             }
@@ -396,13 +395,13 @@ void ICalendarExport::createTodos(KCalCore::Calendar::Ptr cal, const Node *node,
     const auto documents = node->documents().documents();
     for (const Document *doc : documents) {
 #if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
-        todo->addAttachment(KCalCore::Attachment(doc->url().url()));
+        todo->addAttachment(KCalendarCore::Attachment(doc->url().url()));
 #else
-        todo->addAttachment(KCalCore::Attachment::Ptr(new KCalCore::Attachment(doc->url().url())));
+        todo->addAttachment(KCalendarCore::Attachment::Ptr(new KCalendarCore::Attachment(doc->url().url())));
 #endif
     }
     if (! parent.isNull()) {
-        todo->setRelatedTo(parent->uid(), KCalCore::Incidence::RelTypeParent);
+        todo->setRelatedTo(parent->uid(), KCalendarCore::Incidence::RelTypeParent);
     }
     cal->addTodo(todo);
     const auto nodes = node->childNodeIterator();
