@@ -1,18 +1,20 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2011.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2018, 2021.
+# Alois Spitzbart <spitz234@hotmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan_scheduler_tj\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2018-02-19 16:34+0100\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2023-06-29 00:11+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: PlanTJPlugin.cpp:57
 #, kde-kuit-format
@@ -137,7 +139,7 @@ msgstr "Die Abhängigkeit wurde nicht erfüllt. Negativer Puffer=%1"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
-msgstr "Abhängigkeitstyp „%1“ nicht behandelt.  Ende-Beginn wird verwendet."
+msgstr "Abhängigkeitstyp „%1“ nicht behandelt. Ende-Beginn wird verwendet."
 
 #: PlanTJScheduler.cpp:782
 #, kde-kuit-format
