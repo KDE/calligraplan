@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2019-12-03 11:43+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -229,6 +229,7 @@ msgstr "Esforço não cumprido"
 msgid "Scheduling error"
 msgstr "Erro de escalonamento"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -242,8 +243,9 @@ msgstr "Erro de escalonamento"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
-#: ui/TasksGeneralPanel.cpp:68
+#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
+#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
+#: ui/TasksGeneralPanel.ui:338
 #, kde-format
 msgid "None"
 msgstr "Nenhuma"
@@ -266,7 +268,9 @@ msgstr "Sub-Projecto"
 msgid "Task"
 msgstr "Tarefa"
 
-#: kernel/kptnode.cpp:158
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
+#: ui/TasksGeneralPanel.ui:424
 #, kde-format
 msgid "Milestone"
 msgstr "Marco"
@@ -291,12 +295,16 @@ msgstr "O Mais Cedo Possível"
 msgid "As Late As Possible"
 msgstr "O Mais Tarde Possível"
 
-#: kernel/kptnode.cpp:731
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
+#: ui/TasksGeneralPanel.ui:179
 #, kde-format
 msgid "Must Start On"
 msgstr "Tem Que Começar Em"
 
-#: kernel/kptnode.cpp:732
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
+#: ui/TasksGeneralPanel.ui:184
 #, kde-format
 msgid "Must Finish On"
 msgstr "Deve Terminar Em"
@@ -311,27 +319,39 @@ msgstr "Iniciar Não Antes De"
 msgid "Finish Not Later"
 msgstr "Terminar Não Depois De"
 
-#: kernel/kptnode.cpp:735
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
+#: ui/TasksGeneralPanel.ui:199
 #, kde-format
 msgid "Fixed Interval"
 msgstr "Intervalo Fixo"
 
-#: kernel/kptnode.cpp:1625
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
+#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
+#: ui/TasksGeneralPanel.ui:414
 #, kde-format
 msgid "Effort"
 msgstr "Esforço"
 
-#: kernel/kptnode.cpp:1626
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
+#: ui/TasksGeneralPanel.ui:419
 #, kde-format
 msgid "Duration"
 msgstr "Duração"
 
-#: kernel/kptnode.cpp:1659
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
+#: ui/TasksGeneralPanel.ui:343
 #, kde-format
 msgid "Low"
 msgstr "Baixo"
 
-#: kernel/kptnode.cpp:1660
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
+#: ui/TasksGeneralPanel.ui:348
 #, kde-format
 msgid "High"
 msgstr "Alto"
@@ -512,27 +532,34 @@ msgstr "Terminou o escalonamento para trás: %1 ms"
 msgid "Plan"
 msgstr "Plano"
 
-#: kernel/kptrelation.cpp:92
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
+#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
 #, kde-format
 msgid "Finish-Start"
 msgstr "Terminar-Iniciar"
 
-#: kernel/kptrelation.cpp:93
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
+#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
 #, kde-format
 msgid "Finish-Finish"
 msgstr "Terminar-Terminar"
 
-#: kernel/kptrelation.cpp:94
+#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
+#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
 #, kde-format
 msgid "Start-Start"
 msgstr "Iniciar-Iniciar"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
+#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "Trabalho"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
+#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "Material"
@@ -1576,6 +1603,7 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "%1 (Conta predefinida)"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1583,13 +1611,15 @@ msgstr "%1 (Conta predefinida)"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/projectview/ProjectView.cpp:53
+#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Nome"
 
+#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
+#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "Descrição"
@@ -2590,9 +2620,11 @@ msgstr "Remover o documento"
 msgid "Url"
 msgstr "URL"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
+#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "Tipo"
@@ -3027,8 +3059,11 @@ msgstr "Terminado posteriormente"
 msgid "Finished early"
 msgstr "Terminado anteriormente"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
+#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
+#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
 #, kde-format
 msgid "Finished"
 msgstr "Terminado"
@@ -3038,7 +3073,9 @@ msgstr "Terminado"
 msgid "Running late"
 msgstr "Atrasado"
 
+#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
+#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "Em execução"
@@ -3053,8 +3090,9 @@ msgstr "Iniciou posteriormente"
 msgid "Started early"
 msgstr "Iniciou anteriormente"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333
+#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
 msgstr "Iniciado"
@@ -5332,9 +5370,10 @@ msgstr ""
 "para><para>Esta área suporta a configuração e a impressão através do menu de "
 "contexto.<nl/><link url='%1'>Mais...</link></para>"
 
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
-#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
-#: widgets/KoDocumentInfoDlg.cpp:125
+#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
+#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
+#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "Geral"
@@ -5344,6 +5383,108 @@ msgstr "Geral"
 #, kde-format
 msgid "View Settings"
 msgstr "Configuração da Janela"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptaccountsviewconfigurepanelbase.ui:26
+#, kde-format
+msgid "Show:"
+msgstr "Mostrar:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:33
+#, kde-format
+msgid "Periodicity:"
+msgstr "Periodicidade:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:44
+#, kde-format
+msgid "Day"
+msgstr "Dia"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:49
+#, kde-format
+msgid "Week"
+msgstr "Semana"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:54
+#, kde-format
+msgid "Month"
+msgstr "Mês"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
+#: ui/kptaccountsviewconfigurepanelbase.ui:62
+#, kde-format
+msgid "Cumulative"
+msgstr "Acumulada"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:70
+#, kde-format
+msgid "Actual cost"
+msgstr "Custo actual"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:75
+#, kde-format
+msgid "Planned cost"
+msgstr "Custo planeado"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:80
+#, kde-format
+msgid "Actual and planned"
+msgstr "Actual e planeado"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:85
+#, kde-format
+msgid "Deviation"
+msgstr "Desvio"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:101
+#, kde-format
+msgid "Start date"
+msgstr "Data inicial"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:107
+#, kde-format
+msgid "Project start"
+msgstr "Início do projecto"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:114
+#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
+#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:131
+#, kde-format
+msgid "End date"
+msgstr "Data final"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:137
+#, kde-format
+msgid "Current date"
+msgstr "Data actual"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:158
+#, kde-format
+msgid "Project end"
+msgstr "Fim do projecto"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5423,6 +5564,50 @@ msgstr "%1: Mudar para Férias"
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "Mudar o %1 para Indefinido"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
+#, kde-format
+msgid "Project Schedule:"
+msgstr "Escalonamento do Projecto:"
+
+#. i18n: ectx: property (text), widget (QLabel, scheduleName)
+#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
+#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
+#. i18n: ectx: property (text), widget (QLabel, totalFloat)
+#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
+#: ui/reports/reportgroupsectionswidget.ui:22
+#: ui/reports/reportgroupsectionswidget.ui:29
+#: ui/reports/reportgroupsectionswidget.ui:36
+#: ui/reports/reportgroupsectionswidget.ui:43
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptcpmwidget.ui:71
+#, kde-format
+msgid "Probability of finishing before"
+msgstr "A probabilidade de terminar antes"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptcpmwidget.ui:91
+#, kde-format
+msgid "is"
+msgstr "é"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
+#. i18n: ectx: property (suffix), widget (QSpinBox, units)
+#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
+#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
+#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -5560,6 +5745,225 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Adicionar um documento"
 
+#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
+#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
+#: widgets/koDocumentInfoAuthorWidget.ui:20
+#, kde-format
+msgid "Name:"
+msgstr "Nome:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:54
+#, kde-format
+msgid "Add..."
+msgstr "Adicionar..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:61
+#, kde-format
+msgid "Ctrl+I"
+msgstr "Ctrl+I"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:68
+#, kde-format
+msgid "Change..."
+msgstr "Modificar..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:75
+#, kde-format
+msgid "Ctrl+M"
+msgstr "Ctrl+M"
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
+#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
+#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
+#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
+#, kde-format
+msgid "Remove"
+msgstr "Remover"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:89
+#, kde-format
+msgid "Del"
+msgstr "Del"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:96
+#, kde-format
+msgid "Open"
+msgstr "Abrir"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:103
+#, kde-format
+msgid "Ctrl+O"
+msgstr "Ctrl+O"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttchartdisplayoptions.ui:20
+#, kde-format
+msgid "Timeline"
+msgstr "Linha Temporal"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:28
+#, kde-format
+msgid "Do not show the timeline"
+msgstr "Não mostrar a linha temporal"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:31
+#, kde-format
+msgid "Hide"
+msgstr "Esconder"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:38
+#, kde-format
+msgid "Show timeline in the foreground"
+msgstr "Mostrar a linha temporal em primeiro plano"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:41
+#, kde-format
+msgid "Foreground"
+msgstr "Principal"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:48
+#, kde-format
+msgid "Show timeline in the background"
+msgstr "Mostrar a linha temporal em segundo plano"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:51
+#, kde-format
+msgid "Background"
+msgstr "Fundo"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:60
+#, kde-format
+msgid "Update interval in minutes, 0 disables update"
+msgstr "Intervalo de actualização em minutos; o 0 desactiva a actualização"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:63
+#, kde-format
+msgid "Interval:"
+msgstr "Intervalo:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
+#: ui/kptganttchartdisplayoptions.ui:93
+#, kde-format
+msgid "Use custom line"
+msgstr "Usar uma linha personalizada"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:102
+#, kde-format
+msgid "Line width"
+msgstr "Espessura da linha"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:105
+#, kde-format
+msgid "Stroke:"
+msgstr "Traço:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:126
+#, kde-format
+msgid "Line color"
+msgstr "Gráfico de linhas"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:129
+#, kde-format
+msgid "Color:"
+msgstr "Cor:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptganttchartdisplayoptions.ui:153
+#, kde-format
+msgid "Additional text information"
+msgstr "Informação de texto adicional"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
+#: ui/kptganttchartdisplayoptions.ui:159
+#, kde-format
+msgid "Task name"
+msgstr "Nome da tarefa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
+#: ui/kptganttchartdisplayoptions.ui:166
+#, kde-format
+msgid "Resource names"
+msgstr "Nomes dos recursos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttchartdisplayoptions.ui:176
+#, kde-format
+msgid "Additional graphics information"
+msgstr "Informação gráfica adicional"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
+#: ui/kptganttchartdisplayoptions.ui:185
+#, kde-format
+msgid "Task dependencies"
+msgstr "Dependências das tarefas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
+#: ui/kptganttchartdisplayoptions.ui:192
+#, kde-format
+msgid "Task completion"
+msgstr "Completação da tarefa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
+#: ui/kptganttchartdisplayoptions.ui:199
+#, kde-format
+msgid "Time constraints"
+msgstr "Restrições de tempo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
+#: ui/kptganttchartdisplayoptions.ui:219
+#, kde-format
+msgid "Positive float"
+msgstr "Folga positiva"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
+#: ui/kptganttchartdisplayoptions.ui:226
+#, kde-format
+msgid "Negative float"
+msgstr "Folga negativa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
+#: ui/kptganttchartdisplayoptions.ui:233
+#, kde-format
+msgid "Critical path"
+msgstr "Caminho crítico"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
+#: ui/kptganttchartdisplayoptions.ui:240
+#, kde-format
+msgid "Critical tasks"
+msgstr "Tarefas críticas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
+#: ui/kptganttchartdisplayoptions.ui:247
+#, kde-format
+msgid "Scheduling errors"
+msgstr "Erros de escalonamento"
+
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -5613,6 +6017,104 @@ msgstr "Nome: %1<nl/>Planeado: %2<nl/>Estado: %3<nl/>Escalonamento: %4"
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
 msgstr "Nome: %1<nl/>Planeado: %2 - %3"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttprintingoptions.ui:17
+#, fuzzy, kde-format
+#| msgid "Header"
+msgctxt "@title:group"
+msgid "Headers"
+msgstr "Cabeçalho"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
+#: ui/kptganttprintingoptions.ui:23
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Modify task name"
+msgctxt "@option:check"
+msgid "Print task names"
+msgstr "Modificar o nome da tarefa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
+#: ui/kptganttprintingoptions.ui:30
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Modify task name"
+msgctxt "@option:check"
+msgid "Print time scale"
+msgstr "Modificar o nome da tarefa"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttprintingoptions.ui:40
+#, fuzzy, kde-format
+#| msgid "Scheduling"
+msgctxt "@title:group"
+msgid "Scaling"
+msgstr "Escalonamento"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
+#: ui/kptganttprintingoptions.ui:46
+#, fuzzy, kde-format
+#| msgid "Divide chart on multiple pages"
+msgctxt "@option:radio"
+msgid "Divide chart on multiple pages"
+msgstr "Dividir o gráfico em várias páginas"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
+#: ui/kptganttprintingoptions.ui:53
+#, fuzzy, kde-format
+#| msgid "Print chart on a single page"
+msgctxt "@option:radio"
+msgid "Fit chart to page height"
+msgstr "Imprimir o gráfico numa única página"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
+#: ui/kptganttprintingoptions.ui:60
+#, fuzzy, kde-format
+#| msgid "Print chart on a single page"
+msgctxt "@option:radio"
+msgid "Fit chart to a single page"
+msgstr "Imprimir o gráfico numa única página"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#: ui/kptganttprintingoptions.ui:73
+#, fuzzy, kde-format
+#| msgid "Change"
+msgctxt "@title:group"
+msgid "Range"
+msgstr "Modificação"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
+#: ui/kptganttprintingoptions.ui:88
+#, fuzzy, kde-format
+#| msgid "Can start"
+msgctxt "@option:radio"
+msgid "Chart start:"
+msgstr "Pode iniciar"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
+#: ui/kptganttprintingoptions.ui:105
+#, fuzzy, kde-format
+#| msgctxt "Interval start time"
+#| msgid "Start"
+msgctxt "@option:radio"
+msgid "Start:"
+msgstr "Início"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
+#: ui/kptganttprintingoptions.ui:137
+#, fuzzy, kde-format
+#| msgid "Chart type"
+msgctxt "@option:radio"
+msgid "Chart end:"
+msgstr "Tipo de gráfico"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
+#: ui/kptganttprintingoptions.ui:154
+#, kde-format
+msgctxt "@option:radio"
+msgid "End:"
+msgstr ""
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:169
@@ -5760,6 +6262,63 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "Modificar o Intervalo de Trabalho"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
+#: ui/kptintervaleditbase.ui:21
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptintervaleditbase.ui:31
+#, kde-format
+msgctxt "Start time"
+msgid "From:"
+msgstr "De:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptintervaleditbase.ui:47
+#, kde-format
+msgid "Length"
+msgstr "Tamanho"
+
+#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
+#: ui/kptintervaleditbase.ui:70
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, kde-format
+msgid "Add"
+msgstr "Adicionar"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bClear)
+#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
+#, kde-format
+msgid "Clear"
+msgstr "Limpar"
+
+#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
+#: ui/kptitemviewsettings.ui:28
+#, kde-format
+msgid "Stretch last section"
+msgstr "Ajustar a última secção"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptitemviewsettings.ui:35
+#, kde-format
+msgid "Select columns to be shown:"
+msgstr "Seleccionar as colunas a apresentar:"
+
+#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:56
+#, kde-format
+msgid "&Hidden columns:"
+msgstr "Colunas &escondidas:"
+
+#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:59
+#, kde-format
+msgid "&Visible columns:"
+msgstr "Colunas &visíveis:"
+
 #: ui/kptitemviewsettup.cpp:148
 #, kde-format
 msgid "Tree View"
@@ -5882,6 +6441,204 @@ msgstr "Limpar as atribuições de recursos partilhados"
 msgid "Task Modules Path"
 msgstr "Localização dos Módulos de Tarefas"
 
+#. i18n: ectx: property (text), widget (QLabel, wbslabel)
+#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
+#: ui/kpttaskgeneralpanelbase.ui:23
+#, kde-format
+msgid "WBS:"
+msgstr "WBS:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
+#, kde-format
+msgid "The project name."
+msgstr "O nome do projecto."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptmainprojectpanelbase.ui:71
+#, kde-format
+msgid "&Name:"
+msgstr "&Nome:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
+#, kde-format
+msgid "The project leader."
+msgstr "O chefe de projecto."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptmainprojectpanelbase.ui:103
+#, kde-format
+msgid "&Manager:"
+msgstr "&Gestor:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:132
+#, kde-format
+msgid "Choose a project leader from your address book."
+msgstr "Escolha o gestor do projecto a partir do seu livro de endereços."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:135
+#, kde-format
+msgid "&Choose..."
+msgstr "Es&colher..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kptmainprojectpanelbase.ui:144
+#, kde-format
+msgid "Scheduling Range"
+msgstr "Intervalo de Escalonamento"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptmainprojectpanelbase.ui:152
+#, kde-format
+msgid "Earliest start:"
+msgstr "Início anterior:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptmainprojectpanelbase.ui:172
+#, kde-format
+msgid "Latest finish:"
+msgstr "Fim posterior:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
+#: ui/kptmainprojectpanelbase.ui:210
+#, kde-format
+msgid "&Use shared resources"
+msgstr "&Usar os recursos partilhados"
+
+#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
+#: ui/kptmainprojectpanelbase.ui:225
+#, kde-format
+msgid "Resources:"
+msgstr "Recursos:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
+#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
+#, kde-format
+msgid "File"
+msgstr "Ficheiro"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
+#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
+#, kde-format
+msgid "Browse..."
+msgstr "Escolher..."
+
+#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
+#: ui/kptmainprojectpanelbase.ui:255
+#, kde-format
+msgid "Projects:"
+msgstr "Projectos:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
+#: ui/kptmainprojectpanelbase.ui:263
+#, kde-format
+msgid "Directory"
+msgstr "Pasta"
+
+#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
+#: ui/kptmainprojectpanelbase.ui:287
+#, kde-format
+msgid "Load resource assignments at startup"
+msgstr "Carregar as atribuições de recursos no arranque"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
+#: ui/kptmainprojectpanelbase.ui:294
+#, kde-format
+msgid "Load"
+msgstr "Carregar"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
+#: ui/kptworkpackagemergepanel.ui:192
+#, kde-format
+msgid "Documents"
+msgstr "Documentos"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
+#: ui/kptmainprojectpanelbase.ui:371
+#, kde-format
+msgid "Work Package"
+msgstr "Pacote de Trabalho"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: ui/kptmainprojectpanelbase.ui:377
+#, kde-format
+msgid "Publish"
+msgstr "Publicar"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/kptmainprojectpanelbase.ui:385
+#, kde-format
+msgid "Publish:"
+msgstr "Publicar:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptmainprojectpanelbase.ui:400
+#, kde-format
+msgid "Retrieve"
+msgstr "Obter"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
+#: ui/kptmainprojectpanelbase.ui:406
+#, kde-format
+msgid "Check for work packages"
+msgstr "Procurar por pacotes de trabalho"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptmainprojectpanelbase.ui:415
+#, kde-format
+msgid "Retrieve:"
+msgstr "Obter:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptmainprojectpanelbase.ui:430
+#, kde-format
+msgid "Archive"
+msgstr "Arquivo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
+#: ui/kptmainprojectpanelbase.ui:436
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Apagar o ficheiro após a sua transferência"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
+#: ui/kptmainprojectpanelbase.ui:443
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Arquivar o ficheiro após a sua transferência"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptmainprojectpanelbase.ui:452
+#, kde-format
+msgid "Archive:"
+msgstr "Arquivo:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
+#: ui/kptmainprojectpanelbase.ui:481
+#, kde-format
+msgid "Task Modules"
+msgstr "Módulos de Tarefas"
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
+#: ui/kptmainprojectpanelbase.ui:526
+#, kde-format
+msgid "Insert"
+msgstr "Inserir"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
+#: ui/kptmainprojectpanelbase.ui:550
+#, kde-format
+msgid "Use local task modules"
+msgstr "Usar os módulos de tarefas locais"
+
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, kde-format
 msgid "Milestone Progress"
@@ -5897,10 +6654,87 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "Remover a dependência da tarefa"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
+#: ui/reports/reportdata.cpp:383
+#, kde-format
+msgid "Tasks"
+msgstr "Tarefas"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, available)
+#: ui/kptperteditor.ui:29
+#, kde-format
+msgid "Available tasks"
+msgstr "Tarefas disponíveis"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
+#: ui/kptperteditor.ui:64
+#, kde-format
+msgid "Add required task"
+msgstr "Adicionar uma tarefa obrigatória"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
+#: ui/kptperteditor.ui:80
+#, kde-format
+msgid "Remove required task"
+msgstr "Remover a tarefa obrigatória"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptpertresult.ui:90
+#, kde-format
+msgid "Total Float:"
+msgstr "Folga Total:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
+#: ui/kptprintingheaderfooter.ui:16
+#, kde-format
+msgid "Header"
+msgstr "Cabeçalho"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
+#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
+#, kde-format
+msgid "Project name"
+msgstr "Nome do projecto"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
+#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
+#, kde-format
+msgid "Page number"
+msgstr "Número de página"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
+#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
+#, kde-format
+msgid "Project manager"
+msgstr "Gestor do projecto"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
+#: ui/kptprintingheaderfooter.ui:56
+#, kde-format
+msgid "Footer"
+msgstr "Rodapé"
+
 #: ui/kptrecalculatedialog.cpp:47
 #, kde-format
 msgid "Re-calculate Schedule"
 msgstr "Escalonar de Novo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
+#: ui/kptrecalculatedialog.ui:26
+#, kde-format
+msgid "Re-calculate from current date/time"
+msgstr "Calcular de novo a partir da data/hora actuais"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
+#: ui/kptrecalculatedialog.ui:33
+#, kde-format
+msgid "Re-calculate from:"
+msgstr "Calcular de novo de:"
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -5949,6 +6783,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "Modificar a dependência da tarefa"
 
+#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:16
+#, kde-format
+msgid "Show internal appointments"
+msgstr "Mostrar os compromissos internos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:23
+#, kde-format
+msgid "Show external appointments"
+msgstr "Mostrar os compromissos externos"
+
 #: ui/kptresourceappointmentsview.cpp:92
 #, kde-format
 msgid "Resource Assignments View Settings"
@@ -5976,6 +6822,12 @@ msgstr "Sem tarefas atribuídas"
 #, kde-format
 msgid "No resource attributed"
 msgstr "Sem recursos atribuídos"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptresourceassignmentview.ui:38
+#, kde-format
+msgid "Advance"
+msgstr "Avançar"
 
 #: ui/kptresourcedialog.cpp:65
 #, kde-kuit-format
@@ -6120,6 +6972,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Modificar a data-alvo final do projecto"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptscheduleeditor.ui:35
+#, kde-format
+msgid "Scheduling range:"
+msgstr "Intervalo de escalonamento:"
+
 #: ui/kptstandardworktimedialog.cpp:86
 #, kde-format
 msgid "Estimate Conversions"
@@ -6162,10 +7020,102 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "Modificar a tarefa"
 
+#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
+#, kde-format
+msgid "Work Breakdown Structure"
+msgstr "Estrutura de Repartição do Trabalho"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:58
+#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
+#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
+#: ui/kpttaskgeneralpanelbase.ui:71
+#, kde-format
+msgid "The name of the Task."
+msgstr "O nome da tarefa."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:95
+#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
+#: ui/TasksGeneralPanel.ui:57
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"A pessoa responsável por esta tarefa.\n"
+"\n"
+"Isto não está limitado às pessoas disponíveis num grupo de recursos, podendo "
+"ser qualquer pessoas. Poderá até aceder directamente ao seu livro de "
+"endereços com a botão Escolher."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:98
+#, kde-format
+msgid "Responsible:"
+msgstr "Responsável:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
+#: ui/TasksGeneralPanel.ui:64
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Indique uma pessoa do seu livro de endereços"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
+#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
+#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
+#, kde-format
+msgid "Choose..."
+msgstr "Escolher..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
+#: ui/TasksGeneralPanel.ui:82
+#, kde-format
+msgid "Priority:"
+msgstr "Prioridade:"
+
 #: ui/kpttaskcostpanel.cpp:101
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "Modificar o Custo da Tarefa"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
+#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
+#, kde-format
+msgid "Account:"
+msgstr "Conta:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
+#: ui/kpttaskcostpanelbase.ui:72
+#, kde-format
+msgid "Startup"
+msgstr "Arranque"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
+#, kde-format
+msgid "Cost:"
+msgstr "Custo:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
+#: ui/kpttaskcostpanelbase.ui:142
+#, kde-format
+msgid "Shutdown"
+msgstr "Desligar"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 msgctxt "(qtundo-format)"
@@ -6396,7 +7346,8 @@ msgstr ""
 "para><para>Esta área suporta a configuração e a impressão através do menu de "
 "contexto.<nl/><link url='%1'>Mais...</link></para>"
 
-#: ui/kpttaskeditor.cpp:1768
+#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
+#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr "Publicar..."
@@ -6415,6 +7366,162 @@ msgstr "Registar o Envio dos Pacotes de Trabalho"
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "Modificar a Tarefa"
+
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#: ui/kpttaskgeneralpanelbase.ui:55
+#, kde-format
+msgid "N&ame:"
+msgstr "&Nome:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:79
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"        "
+msgstr ""
+"A pessoa responsável por esta tarefa.\n"
+"  "
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:82
+#, kde-format
+msgid "Responsi&ble:"
+msgstr "Responsá&vel:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Escolha uma pessoa do seu livro de endereços."
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
+#, kde-format
+msgid ""
+"Scheduling Configuration. These settings affect the actual scheduling of the "
+"task.\n"
+"\n"
+"The estimation can be either effort based or duration based. If it is effort "
+"based, the final duration will depend on the resources assigned to the task. "
+"For duration based estimation, the assigned resources do not affect the "
+"fixed duration of the task, but only the costs."
+msgstr ""
+"Configuração do Escalonamento. Estas opções afectam a calendarização actual "
+"da tarefa.\n"
+"\n"
+"A estimativa poderá ser feita com base no esforço ou na duração. Se for "
+"baseada no esforço, a duração final irá depender dos recursos atribuídos à "
+"tarefa. No caso das baseadas na duração, os recursos atribuídos não irão "
+"afectar a duração fixa da tarefa, mas sim os custos."
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
+#, kde-format
+msgid "Timing"
+msgstr "Temporização"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/kpttaskgeneralpanelbase.ui:194
+#, kde-format
+msgid "&Schedule:"
+msgstr "E&scalonar:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "O Mais Cedo Possível"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
+#, kde-format
+msgid "As Late as Possible"
+msgstr "O Mais Tarde Possível"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Iniciar Não Antes De"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Terminar Não Depois De"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/kpttaskgeneralpanelbase.ui:300
+#, kde-format
+msgid "Esti&mate:"
+msgstr "Esti&mar:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
+#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
+#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
+#, kde-format
+msgid ""
+"Risk controls the PERT distribution used when calculating the actual "
+"estimate for this task."
+msgstr ""
+"O risco controla a distribuição PERT usada ao calcular as estimativas "
+"actuais para esta tarefa."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
+#, kde-format
+msgid ""
+"<p>Risk controls the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+"<p>O risco controla a distribuição de PERT usada ao calcular a estimativa "
+"actual para a tarefa.\n"
+"<b>Nenhum</b> significa que a estimativa esperada é usada tal-e-qual.\n"
+"<b>Risco baixo</b> significa que é usada uma distribuição normal.\n"
+"<b>Risco elevado</b> significa que a estimativa será ligeiramente mais "
+"pessimista, em comparação com o Baixo Risco.</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:348
+#, kde-format
+msgid "Risk:"
+msgstr "Risco:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
+#, kde-format
+msgid ""
+"<p>Risk controles the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+"<p>O risco controla a distribuição de PERT usada ao calcular a estimativa "
+"actual para a tarefa.\n"
+"<b>Nenhum</b> significa que a estimativa esperada é usada tal-e-qual.\n"
+"<b>Risco baixo</b> significa que é usada uma distribuição normal.\n"
+"<b>Risco elevado</b> significa que a estimativa será ligeiramente mais "
+"pessimista, em comparação com o Baixo Risco.</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kpttaskgeneralpanelbase.ui:404
+#, kde-format
+msgid "Optimisti&c:"
+msgstr "&Optimista:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/kpttaskgeneralpanelbase.ui:433
+#, kde-format
+msgid "&Pessimistic:"
+msgstr "&Pessimista:"
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -6488,6 +7595,74 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "Semana %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
+#: ui/RelationEditorDialog.ui:58
+#, kde-format
+msgid "Task:"
+msgstr "Tarefa:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: ui/kpttaskprogresspanelbase.ui:45
+#, kde-format
+msgid "Started:"
+msgstr "Iniciado:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kpttaskprogresspanelbase.ui:62
+#, kde-format
+msgid "Finished:"
+msgstr "Terminado:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskprogresspanelbase.ui:117
+#, kde-format
+msgid "Edit mode:"
+msgstr "Modo de edição:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:125
+#, kde-format
+msgid "Per resource"
+msgstr "Por recurso"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:130
+#, kde-format
+msgid "Per task"
+msgstr "Por tarefa"
+
+#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:177
+#, kde-format
+msgid "Prev"
+msgstr "Anterior"
+
+#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "Seguinte"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kpttaskprogresspanelbase.ui:230
+#, kde-format
+msgid "Add resource:"
+msgstr "Adicionar um recurso:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:278
+#, kde-format
+msgid "Add Entry"
+msgstr "Adicionar um Item"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:289
+#, kde-format
+msgid "Remove Entry"
+msgstr "Remover o Item"
+
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6518,6 +7693,30 @@ msgstr ""
 msgid "General Settings"
 msgstr "Configuração Geral"
 
+#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
+#: ui/kpttaskstatusviewsettingspanel.ui:16
+#, kde-format
+msgid "Period Definition"
+msgstr "Definição do Período"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskstatusviewsettingspanel.ui:25
+#, kde-format
+msgid "Period length (days):"
+msgstr "Duração do período (dias):"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
+#: ui/kpttaskstatusviewsettingspanel.ui:48
+#, kde-format
+msgid "Use current date"
+msgstr "Usar a data actual"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
+#: ui/kpttaskstatusviewsettingspanel.ui:68
+#, kde-format
+msgid "Use weekday:"
+msgstr "Usar o dia da semana:"
+
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -6532,12 +7731,6 @@ msgstr "Esta Semana"
 #, kde-format
 msgid "Total effort this week"
 msgstr "Esforço total desta semana"
-
-#: ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "Data"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -6681,6 +7874,77 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "Modificar a Definição da WBS"
 
+#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
+#: ui/kptwbsdefinitionpanelbase.ui:21
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define WBS code for the project"
+msgstr "Definir o código WBS do projecto"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptwbsdefinitionpanelbase.ui:33
+#, kde-format
+msgid "Project Code Definition"
+msgstr "Definição do Código do Projecto"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
+#, kde-format
+msgid "Code:"
+msgstr "Código:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
+#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
+#, kde-format
+msgid "Separator:"
+msgstr "Separador:"
+
+#. i18n: ectx: property (toolTip), widget (QFrame, frame)
+#: ui/kptwbsdefinitionpanelbase.ui:86
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define default WBS code"
+msgstr "Definir o código WBS predefinido"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptwbsdefinitionpanelbase.ui:98
+#, kde-format
+msgid "Default Definition"
+msgstr "Definição por Omissão"
+
+#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:148
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define separate WBS codes for individual levels"
+msgstr "Definir códigos WBS separados para os níveis individuais"
+
+#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:151
+#, kde-format
+msgid "Use Levels Definition"
+msgstr "Usar a Definição por Níveis"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:167
+#, kde-format
+msgid "Code"
+msgstr "Código"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:172
+#, kde-format
+msgid "Separator"
+msgstr "Separador"
+
+#. i18n: ectx: property (text), widget (QPushButton, addBtn)
+#: ui/kptwbsdefinitionpanelbase.ui:187
+#, kde-format
+msgid "Add Level"
+msgstr "Adicionar um Nível"
+
 #: ui/kptworkpackagemergedialog.cpp:66
 #, kde-kuit-format
 msgctxt "@title"
@@ -6738,11 +8002,6 @@ msgstr "Rejeitar"
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr "Rejeitar este pacote e ir para o pacote seguinte"
-
-#: ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "Seguinte"
 
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
@@ -6802,11 +8061,6 @@ msgstr "Novo valor: %1<nl/>Valor actual: %2"
 msgid "No documents"
 msgstr "Sem documentos"
 
-#: ui/kptworkpackagemergedialog.cpp:241
-#, kde-format
-msgid "Documents"
-msgstr "Documentos"
-
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
@@ -6815,6 +8069,39 @@ msgid ""
 msgstr ""
 "O dono do pacote '%1' não é um recurso neste projecto. Tem de tratar disto "
 "manualmente."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptworkpackagemergepanel.ui:70
+#, kde-format
+msgid "Generated:"
+msgstr "Gerada:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptworkpackagemergepanel.ui:77
+#, kde-format
+msgid "From:"
+msgstr "De:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
+#: ui/kptworkpackagemergepanel.ui:96
+#, kde-format
+msgid "<package time>"
+msgstr "<tempo do pacote>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
+#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
+#: ui/kptworkpackagemergepanel.ui:198
+#, kde-format
+msgid "Update"
+msgstr "Actualizar"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptworkpackagemergepanel.ui:245
+#, kde-format
+msgid "No more data. Press Close to finish."
+msgstr "Não existem mais dados. Carregue em Fechar para terminar."
 
 #: ui/kptworkpackagesenddialog.cpp:34
 #, kde-kuit-format
@@ -6828,7 +8115,8 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "Recurso"
 
-#: ui/locale/localemon.cpp:52
+#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
+#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
 #, kde-format
 msgid "Currency symbol:"
 msgstr "Símbolo monetário:"
@@ -6842,6 +8130,12 @@ msgstr "Dígitos à direita:"
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr "Aqui poderá indicar o seu símbolo monetário normal, p.ex. $ ou €."
+
+#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
+#: ui/locale/localemon.ui:32
+#, kde-format
+msgid "Fractional digits:"
+msgstr "Casas decimais:"
 
 #: ui/performance/PerformanceStatusBase.cpp:535
 #: ui/performance/PerformanceStatusBase.cpp:538
@@ -6877,6 +8171,98 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "Configuração do Gráfico"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
+#, kde-format
+msgid "Chart type"
+msgstr "Tipo de gráfico"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
+#, kde-format
+msgid "Line chart"
+msgstr "Gráfico de linhas"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
+#, kde-format
+msgid "Bar chart"
+msgstr "Gráfico de barras"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
+#, kde-format
+msgid "Table"
+msgstr "Tabela"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
+#, kde-format
+msgid "Base values"
+msgstr "Valores-base"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
+#, kde-format
+msgid "Indices"
+msgstr "Índices"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
+#: ui/resourcedialogbase.ui:414
+#, kde-format
+msgid "Cost"
+msgstr "Custo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
+#, kde-format
+msgid "Show BCWS plot"
+msgstr "Mostrar o gráfico do BCWS"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
+#, kde-format
+msgid "Show BCWP plot"
+msgstr "Mostrar o gráfico do BCWP"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
+#, kde-format
+msgid "Show ACWP plot"
+msgstr "Mostrar o gráfico do ACWP"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
+#, kde-format
+msgid "SPI Cost"
+msgstr "Custo SPI"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
+#, kde-format
+msgid "SPI Effort"
+msgstr "Esforço SPI"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
+#, kde-format
+msgid "CPI Effort"
+msgstr "Esforço CPI"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
+#, kde-format
+msgid "CPI Cost"
+msgstr "Custo CPI"
+
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6895,11 +8281,6 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr "ID"
-
-#: ui/projectview/ProjectView.cpp:55
-#, kde-format
-msgid "File"
-msgstr "Ficheiro"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, kde-format
@@ -6947,10 +8328,31 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Modificar a dependência"
 
-#: ui/reports/reportdata.cpp:383
+#. i18n: ectx: property (text), widget (QToolButton, addBtn)
+#: ui/RelationEditorDialog.ui:131
 #, kde-format
-msgid "Tasks"
-msgstr "Tarefas"
+msgctxt "Insert task dependency"
+msgid "Insert"
+msgstr "Inserir"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
+#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
+#, kde-format
+msgid "From"
+msgstr "De"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/relationpanel.ui:63
+#, kde-format
+msgid "To"
+msgstr "Até"
+
+#. i18n: ectx: property (title), widget (QGroupBox, relationType)
+#: ui/relationpanel.ui:87
+#, kde-format
+msgid "Dependency Type"
+msgstr "Tipo de Dependência"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -6976,6 +8378,191 @@ msgstr "Performance do Esforço"
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Divisão dos Custos"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
+#, kde-format
+msgid "Page"
+msgstr "Página"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
+#: ui/reports/reportnavigator.ui:42
+#, kde-format
+msgid "Go to first page"
+msgstr "Ir para a primeira página"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
+#: ui/reports/reportnavigator.ui:64
+#, kde-format
+msgid "Go to previous page"
+msgstr "Ir para a página anterior"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
+#: ui/reports/reportnavigator.ui:77
+#, kde-format
+msgid "Show page"
+msgstr "Mostrar a página"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/reports/reportnavigator.ui:99
+#, kde-format
+msgid "of"
+msgstr "de"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
+#: ui/reports/reportnavigator.ui:149
+#, kde-format
+msgid "Go to next page"
+msgstr "Ir para a página seguinte"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
+#: ui/reports/reportnavigator.ui:171
+#, kde-format
+msgid "Go to last page"
+msgstr "Ir para a última página"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:28
+#, kde-format
+msgid "Enable report header"
+msgstr "Activar o cabeçalho do relatório"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:31
+#, kde-format
+msgid "Report Header"
+msgstr "Cabeçalho do Relatório"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:38
+#, kde-format
+msgid "Enable report footer"
+msgstr "Activar o rodapé do relatório"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:41
+#, kde-format
+msgid "Report Footer"
+msgstr "Rodapé do Relatório"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/reports/reportsectionswidget.ui:50
+#, kde-format
+msgid "Page Header"
+msgstr "Cabeçalho da Página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
+#: ui/reports/reportsectionswidget.ui:62
+#, kde-format
+msgid "Enable header on first page"
+msgstr "Activar o cabeçalho na primeira página"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
+#, kde-format
+msgid "First page"
+msgstr "Primeira página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
+#: ui/reports/reportsectionswidget.ui:72
+#, kde-format
+msgid "Enable header on last page"
+msgstr "Activar o cabeçalho na última página"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
+#, kde-format
+msgid "Last page"
+msgstr "Última página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
+#: ui/reports/reportsectionswidget.ui:82
+#, kde-format
+msgid "Enable header on odd pages"
+msgstr "Activar o rodapé na última página"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
+#, kde-format
+msgid "Odd pages"
+msgstr "Páginas ímpares"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
+#: ui/reports/reportsectionswidget.ui:92
+#, kde-format
+msgid "Enable header on even pages"
+msgstr "Activar o cabeçalho nas páginas pares"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
+#, kde-format
+msgid "Even pages"
+msgstr "Páginas pares"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
+#: ui/reports/reportsectionswidget.ui:102
+#, kde-format
+msgid "Enable header on all pages"
+msgstr "Activar o cabeçalho em todas as páginas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:105
+#: ui/reports/reportsectionswidget.ui:170
+#, kde-format
+msgid "All pages"
+msgstr "Todas as páginas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/reports/reportsectionswidget.ui:115
+#, kde-format
+msgid "Page Footer"
+msgstr "Rodapé da Página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:127
+#, kde-format
+msgid "Enable footer on first page"
+msgstr "Activar o rodapé na primeira página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:137
+#, kde-format
+msgid "Enable footer on odd pages"
+msgstr "Activar o rodapé nas páginas ímpares"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:147
+#, kde-format
+msgid "Enable footer on even pages"
+msgstr "Activar o rodapé nas páginas pares"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:157
+#, kde-format
+msgid "Enable footer on last page"
+msgstr "Activar o rodapé na última página"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:167
+#, kde-format
+msgid "Enable footer on all pages"
+msgstr "Activar o rodapé em todas as páginas"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -7173,11 +8760,6 @@ msgstr "Nada"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
-msgid "Add"
-msgstr "Adicionar"
-
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, kde-format
 msgid "Report File"
 msgstr "Ficheiro do Relatório"
 
@@ -7306,11 +8888,142 @@ msgstr "Ficheiro do relatório gerado:<nl/><filename>%1</filename>"
 msgid "Allocate"
 msgstr "Alocação"
 
+#. i18n: ectx: property (text), widget (QLabel, groupLabel)
+#: ui/resourcedialogbase.ui:23
+#, kde-format
+msgid "Group:"
+msgstr "Grupo:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
+#: ui/resourcedialogbase.ui:67
+#, kde-format
+msgid "Choose resource from address book"
+msgstr "Escolher um recurso do livro de endereços"
+
+#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
+#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
+#, kde-format
+msgid "Initials:"
+msgstr "Iniciais:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
+#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
+#, kde-format
+msgid "Email:"
+msgstr "E-mail:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: ui/resourcedialogbase.ui:161
+#, kde-format
+msgid "Resource type:"
+msgstr "Tipo de recurso:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
+#: ui/resourcedialogbase.ui:185
+#, kde-format
+msgid "Team"
+msgstr "Equipa"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
+#: ui/resourcedialogbase.ui:220
+#, kde-format
+msgid "Available:"
+msgstr "Disponível:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
+#: ui/resourcedialogbase.ui:255
+#, kde-format
+msgid "Calendar:"
+msgstr "Calendário:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
+#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
+#, kde-format
+msgid "Unlimited"
+msgstr "Sem Limite"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
+#: ui/resourcedialogbase.ui:317
+#, kde-format
+msgid "Until"
+msgstr "Até"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
+#: ui/resourcedialogbase.ui:389
+#, kde-format
+msgid "Required resources:"
+msgstr "Recursos necessários:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/resourcedialogbase.ui:420
+#, kde-format
+msgid "Hourly rate:"
+msgstr "Taxa horária:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: ui/resourcedialogbase.ui:443
+#, kde-format
+msgid "Overtime rate:"
+msgstr "Taxa de horas extraordinárias:"
+
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, kde-kuit-format
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "Abrir a Ligação"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
+#: ui/standardworktimedialogbase.ui:16
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"São usados estes valores se a sua estimativa não for em horas.\n"
+"Digamos que consome 8 horas por dia. Se estimar que uma tarefa necessita de "
+"um esforço de 3 dias para terminar, este é convertido para 24 horas quando a "
+"tarefa for agendada. A hora actual a que irá terminar será obviamente "
+"dependente da disponibilidade da pessoa (ou pessoas) que estiverem "
+"atribuídas à tarefa."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/standardworktimedialogbase.ui:25
+#, kde-format
+msgid "Hours per year:"
+msgstr "Horas por ano:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/standardworktimedialogbase.ui:54
+#, kde-format
+msgid "Hours per month:"
+msgstr "Horas por mês:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: ui/standardworktimedialogbase.ui:86
+#, kde-format
+msgid "Hours per week:"
+msgstr "Horas por semana:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:115
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"São usados estes valores ao estimar o esforço necessário para terminar uma "
+"tarefa."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:118
+#, kde-format
+msgid "Hours per day:"
+msgstr "Horas por dia:"
 
 #: ui/TasksEditDialog.cpp:46
 #, kde-format
@@ -7326,6 +9039,42 @@ msgstr "Modificar as tarefas"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "Modificar as Tarefas"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/TasksGeneralPanel.ui:25
+#, kde-format
+msgid "Responsib&le:"
+msgstr "Responsáve&l:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/TasksGeneralPanel.ui:146
+#, kde-format
+msgid "Sched&ule:"
+msgstr "Esc&alonar:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/TasksGeneralPanel.ui:252
+#, kde-format
+msgid "Es&timate:"
+msgstr "Es&timar:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/TasksGeneralPanel.ui:300
+#, kde-format
+msgid "Ris&k:"
+msgstr "Ris&co:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/TasksGeneralPanel.ui:356
+#, kde-format
+msgid "Optimistic:"
+msgstr "Optimista:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/TasksGeneralPanel.ui:385
+#, kde-format
+msgid "Pessimistic:"
+msgstr "Pessimista:"
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -7377,6 +9126,158 @@ msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr "Bloquear a Área Acoplável"
 
+#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
+#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
+#: widgets/KoDocumentInfoDlg.cpp:351
+#, kde-format
+msgid "&Encrypt"
+msgstr "&Encriptar"
+
+#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:64
+#, kde-format
+msgid "Keywords:"
+msgstr "Palavras-chave:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:111
+#, kde-format
+msgid "Subject:"
+msgstr "Assunto:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:124
+#, kde-format
+msgid "Last printed:"
+msgstr "Última impressão:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:141
+#, kde-format
+msgid "Type:"
+msgstr "Tipo:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:158
+#, kde-format
+msgid "Total editing time:"
+msgstr "Tempo total de edição:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:178
+#, kde-format
+msgid "Encryption:"
+msgstr "Encriptação:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:188
+#, kde-format
+msgctxt "Document title"
+msgid "Title:"
+msgstr "Título:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:201
+#, kde-format
+msgid "Revision number:"
+msgstr "Número de versão:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:211
+#, kde-format
+msgid "Modified:"
+msgstr "Modificado:"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:231
+#, kde-format
+msgid "Comments:"
+msgstr "Comentários:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:251
+#, kde-format
+msgid "Created:"
+msgstr "Criado:"
+
+#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
+#: widgets/koDocumentInfoAboutWidget.ui:261
+#, kde-format
+msgid "Path:"
+msgstr "Localização:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbReset)
+#: widgets/koDocumentInfoAboutWidget.ui:280
+#, kde-format
+msgid "&Reset"
+msgstr "&Reiniciar"
+
+#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:297
+#, kde-format
+msgid "Language:"
+msgstr "Língua:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:60
+#, kde-format
+msgid "Title:"
+msgstr "Título:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:77
+#, kde-format
+msgid "Position:"
+msgstr "Posição:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:94
+#, kde-format
+msgid "Company:"
+msgstr "Companhia:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
+#: widgets/koDocumentInfoAuthorWidget.ui:114
+#, kde-format
+msgid "Telephone (home):"
+msgstr "Telefone (casa):"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
+#: widgets/koDocumentInfoAuthorWidget.ui:124
+#, kde-format
+msgid "Telephone (work):"
+msgstr "Telefone (trabalho):"
+
+#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:134
+#, kde-format
+msgid "Fax:"
+msgstr "Fax:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:144
+#, kde-format
+msgid "Street:"
+msgstr "Rua:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:154
+#, kde-format
+msgid "Postal code:"
+msgstr "Código postal:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:164
+#, kde-format
+msgid "City:"
+msgstr "Cidade:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:174
+#, kde-format
+msgid "Country:"
+msgstr "País:"
+
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
 msgid "Author"
@@ -7426,11 +9327,6 @@ msgstr "Não encriptar"
 #, kde-format
 msgid "This document is not encrypted"
 msgstr "Este documento não está encriptado"
-
-#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
-#, kde-format
-msgid "&Encrypt"
-msgstr "&Encriptar"
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, kde-format
@@ -7528,11 +9424,6 @@ msgstr ""
 msgid "Page Layout"
 msgstr "Disposição da Página"
 
-#: widgets/KoPageLayoutDialog.cpp:51
-#, kde-format
-msgid "Page"
-msgstr "Página"
-
 #: widgets/KoPageLayoutDialog.cpp:109
 #, kde-format
 msgid "Apply to document"
@@ -7563,7 +9454,8 @@ msgstr "Extremo da Página:"
 msgid "Facing Pages:"
 msgstr "Páginas em Face:"
 
-#: widgets/KoPageLayoutWidget.cpp:291
+#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
+#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
 #, kde-format
 msgid "Facing pages"
 msgstr "Páginas em face"
@@ -7577,6 +9469,120 @@ msgstr "Disposição da Página:"
 #, kde-format
 msgid "Page spread"
 msgstr "Disposição da página"
+
+#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
+#: widgets/KoPageLayoutWidget.ui:25
+#, kde-format
+msgid "Unit:"
+msgstr "Unidade:"
+
+#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
+#: widgets/KoPageLayoutWidget.ui:45
+#, kde-format
+msgid "Follow style:"
+msgstr "Seguir o estilo:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/KoPageLayoutWidget.ui:61
+#, kde-format
+msgid "Size:"
+msgstr "Tamanho:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/KoPageLayoutWidget.ui:77
+#, kde-format
+msgid "Width:"
+msgstr "Largura:"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:104
+#, kde-format
+msgid "Height:"
+msgstr "Altura:"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:119
+#, kde-format
+msgid "Orientation:"
+msgstr "Orientação:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, portrait)
+#: widgets/KoPageLayoutWidget.ui:129
+#, kde-format
+msgid "Portrait"
+msgstr "Retrato"
+
+#. i18n: ectx: property (text), widget (QRadioButton, landscape)
+#: widgets/KoPageLayoutWidget.ui:136
+#, kde-format
+msgid "Landscape"
+msgstr "Paisagem"
+
+#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
+#: widgets/KoPageLayoutWidget.ui:143
+#, kde-format
+msgid "Facing pages:"
+msgstr "Páginas em face:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
+#: widgets/KoPageLayoutWidget.ui:153
+#, kde-format
+msgid "Single sided"
+msgstr "Lado único"
+
+#. i18n: ectx: property (text), widget (QLabel, directionLabel)
+#: widgets/KoPageLayoutWidget.ui:167
+#, kde-format
+msgid "Text direction:"
+msgstr "Direcção do texto:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:184
+#, kde-format
+msgid "Automatic"
+msgstr "Automática"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:189
+#, kde-format
+msgid "Left to right"
+msgstr "Esquerda para a direita"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:194
+#, kde-format
+msgid "Right to left"
+msgstr "Direita para a esquerda"
+
+#. i18n: ectx: property (title), widget (QGroupBox, margins)
+#: widgets/KoPageLayoutWidget.ui:204
+#, kde-format
+msgid "Margins"
+msgstr "Margens"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:210
+#, kde-format
+msgid "Top:"
+msgstr "Topo:"
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: widgets/KoPageLayoutWidget.ui:230
+#, kde-format
+msgid "Binding edge:"
+msgstr "Extremo de encadernação:"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: widgets/KoPageLayoutWidget.ui:250
+#, kde-format
+msgid "Page edge:"
+msgstr "Extremo da página:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: widgets/KoPageLayoutWidget.ui:270
+#, kde-format
+msgid "Bottom:"
+msgstr "Fundo:"
 
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
@@ -7594,996 +9600,6 @@ msgstr "Substituição"
 #, kde-format
 msgid "All supported formats"
 msgstr "Todos os formatos suportados"
-
-#~ msgid "Show:"
-#~ msgstr "Mostrar:"
-
-#~ msgid "Periodicity:"
-#~ msgstr "Periodicidade:"
-
-#~ msgid "Day"
-#~ msgstr "Dia"
-
-#~ msgid "Week"
-#~ msgstr "Semana"
-
-#~ msgid "Month"
-#~ msgstr "Mês"
-
-#~ msgid "Cumulative"
-#~ msgstr "Acumulada"
-
-#~ msgid "Actual cost"
-#~ msgstr "Custo actual"
-
-#~ msgid "Planned cost"
-#~ msgstr "Custo planeado"
-
-#~ msgid "Actual and planned"
-#~ msgstr "Actual e planeado"
-
-#~ msgid "Deviation"
-#~ msgstr "Desvio"
-
-#~ msgid "Start date"
-#~ msgstr "Data inicial"
-
-#~ msgid "Project start"
-#~ msgstr "Início do projecto"
-
-#~ msgid "End date"
-#~ msgstr "Data final"
-
-#~ msgid "Current date"
-#~ msgstr "Data actual"
-
-#~ msgid "Project end"
-#~ msgstr "Fim do projecto"
-
-#~ msgid "Project Schedule:"
-#~ msgstr "Escalonamento do Projecto:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Probability of finishing before"
-#~ msgstr "A probabilidade de terminar antes"
-
-#~ msgid "is"
-#~ msgstr "é"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Name:"
-#~ msgstr "Nome:"
-
-#~ msgid "Add..."
-#~ msgstr "Adicionar..."
-
-#~ msgid "Ctrl+I"
-#~ msgstr "Ctrl+I"
-
-#~ msgid "Change..."
-#~ msgstr "Modificar..."
-
-#~ msgid "Ctrl+M"
-#~ msgstr "Ctrl+M"
-
-#~ msgid "Remove"
-#~ msgstr "Remover"
-
-#~ msgid "Del"
-#~ msgstr "Del"
-
-#~ msgid "Open"
-#~ msgstr "Abrir"
-
-#~ msgid "Ctrl+O"
-#~ msgstr "Ctrl+O"
-
-#~ msgid "Timeline"
-#~ msgstr "Linha Temporal"
-
-#~ msgid "Do not show the timeline"
-#~ msgstr "Não mostrar a linha temporal"
-
-#~ msgid "Hide"
-#~ msgstr "Esconder"
-
-#~ msgid "Show timeline in the foreground"
-#~ msgstr "Mostrar a linha temporal em primeiro plano"
-
-#~ msgid "Foreground"
-#~ msgstr "Principal"
-
-#~ msgid "Show timeline in the background"
-#~ msgstr "Mostrar a linha temporal em segundo plano"
-
-#~ msgid "Background"
-#~ msgstr "Fundo"
-
-#~ msgid "Update interval in minutes, 0 disables update"
-#~ msgstr "Intervalo de actualização em minutos; o 0 desactiva a actualização"
-
-#~ msgid "Interval:"
-#~ msgstr "Intervalo:"
-
-#~ msgid "Use custom line"
-#~ msgstr "Usar uma linha personalizada"
-
-#~ msgid "Line width"
-#~ msgstr "Espessura da linha"
-
-#~ msgid "Stroke:"
-#~ msgstr "Traço:"
-
-#~ msgid "Line color"
-#~ msgstr "Gráfico de linhas"
-
-#~ msgid "Color:"
-#~ msgstr "Cor:"
-
-#~ msgid "Additional text information"
-#~ msgstr "Informação de texto adicional"
-
-#~ msgid "Task name"
-#~ msgstr "Nome da tarefa"
-
-#~ msgid "Resource names"
-#~ msgstr "Nomes dos recursos"
-
-#~ msgid "Additional graphics information"
-#~ msgstr "Informação gráfica adicional"
-
-#~ msgid "Task dependencies"
-#~ msgstr "Dependências das tarefas"
-
-#~ msgid "Task completion"
-#~ msgstr "Completação da tarefa"
-
-#~ msgid "Time constraints"
-#~ msgstr "Restrições de tempo"
-
-#~ msgid "Positive float"
-#~ msgstr "Folga positiva"
-
-#~ msgid "Negative float"
-#~ msgstr "Folga negativa"
-
-#~ msgid "Critical path"
-#~ msgstr "Caminho crítico"
-
-#~ msgid "Critical tasks"
-#~ msgstr "Tarefas críticas"
-
-#~ msgid "Scheduling errors"
-#~ msgstr "Erros de escalonamento"
-
-#, fuzzy
-#~| msgid "Header"
-#~ msgctxt "@title:group"
-#~ msgid "Headers"
-#~ msgstr "Cabeçalho"
-
-#, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Modify task name"
-#~ msgctxt "@option:check"
-#~ msgid "Print task names"
-#~ msgstr "Modificar o nome da tarefa"
-
-#, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Modify task name"
-#~ msgctxt "@option:check"
-#~ msgid "Print time scale"
-#~ msgstr "Modificar o nome da tarefa"
-
-#, fuzzy
-#~| msgid "Scheduling"
-#~ msgctxt "@title:group"
-#~ msgid "Scaling"
-#~ msgstr "Escalonamento"
-
-#, fuzzy
-#~| msgid "Divide chart on multiple pages"
-#~ msgctxt "@option:radio"
-#~ msgid "Divide chart on multiple pages"
-#~ msgstr "Dividir o gráfico em várias páginas"
-
-#, fuzzy
-#~| msgid "Print chart on a single page"
-#~ msgctxt "@option:radio"
-#~ msgid "Fit chart to page height"
-#~ msgstr "Imprimir o gráfico numa única página"
-
-#, fuzzy
-#~| msgid "Print chart on a single page"
-#~ msgctxt "@option:radio"
-#~ msgid "Fit chart to a single page"
-#~ msgstr "Imprimir o gráfico numa única página"
-
-#, fuzzy
-#~| msgid "Change"
-#~ msgctxt "@title:group"
-#~ msgid "Range"
-#~ msgstr "Modificação"
-
-#, fuzzy
-#~| msgid "Can start"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart start:"
-#~ msgstr "Pode iniciar"
-
-#, fuzzy
-#~| msgctxt "Interval start time"
-#~| msgid "Start"
-#~ msgctxt "@option:radio"
-#~ msgid "Start:"
-#~ msgstr "Início"
-
-#, fuzzy
-#~| msgid "Chart type"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart end:"
-#~ msgstr "Tipo de gráfico"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgctxt "Start time"
-#~ msgid "From:"
-#~ msgstr "De:"
-
-#~ msgid "Length"
-#~ msgstr "Tamanho"
-
-#~ msgid "Clear"
-#~ msgstr "Limpar"
-
-#~ msgid "Stretch last section"
-#~ msgstr "Ajustar a última secção"
-
-#~ msgid "Select columns to be shown:"
-#~ msgstr "Seleccionar as colunas a apresentar:"
-
-#~ msgid "&Hidden columns:"
-#~ msgstr "Colunas &escondidas:"
-
-#~ msgid "&Visible columns:"
-#~ msgstr "Colunas &visíveis:"
-
-#~ msgid "WBS:"
-#~ msgstr "WBS:"
-
-#~ msgid "The project name."
-#~ msgstr "O nome do projecto."
-
-#~ msgid "&Name:"
-#~ msgstr "&Nome:"
-
-#~ msgid "The project leader."
-#~ msgstr "O chefe de projecto."
-
-#~ msgid "&Manager:"
-#~ msgstr "&Gestor:"
-
-#~ msgid "Choose a project leader from your address book."
-#~ msgstr "Escolha o gestor do projecto a partir do seu livro de endereços."
-
-#~ msgid "&Choose..."
-#~ msgstr "Es&colher..."
-
-#~ msgid "Scheduling Range"
-#~ msgstr "Intervalo de Escalonamento"
-
-#~ msgid "Earliest start:"
-#~ msgstr "Início anterior:"
-
-#~ msgid "Latest finish:"
-#~ msgstr "Fim posterior:"
-
-#~ msgid "&Use shared resources"
-#~ msgstr "&Usar os recursos partilhados"
-
-#~ msgid "Resources:"
-#~ msgstr "Recursos:"
-
-#~ msgid "Browse..."
-#~ msgstr "Escolher..."
-
-#~ msgid "Projects:"
-#~ msgstr "Projectos:"
-
-#~ msgid "Directory"
-#~ msgstr "Pasta"
-
-#~ msgid "Load resource assignments at startup"
-#~ msgstr "Carregar as atribuições de recursos no arranque"
-
-#~ msgid "Load"
-#~ msgstr "Carregar"
-
-#~ msgid "Work Package"
-#~ msgstr "Pacote de Trabalho"
-
-#~ msgid "Publish"
-#~ msgstr "Publicar"
-
-#~ msgid "Publish:"
-#~ msgstr "Publicar:"
-
-#~ msgid "Retrieve"
-#~ msgstr "Obter"
-
-#~ msgid "Check for work packages"
-#~ msgstr "Procurar por pacotes de trabalho"
-
-#~ msgid "Retrieve:"
-#~ msgstr "Obter:"
-
-#~ msgid "Archive"
-#~ msgstr "Arquivo"
-
-#~ msgid "Delete file after it has been retrieved"
-#~ msgstr "Apagar o ficheiro após a sua transferência"
-
-#~ msgid "Archive file after it has been retrieved"
-#~ msgstr "Arquivar o ficheiro após a sua transferência"
-
-#~ msgid "Archive:"
-#~ msgstr "Arquivo:"
-
-#~ msgid "Task Modules"
-#~ msgstr "Módulos de Tarefas"
-
-#~ msgid "Insert"
-#~ msgstr "Inserir"
-
-#~ msgid "Use local task modules"
-#~ msgstr "Usar os módulos de tarefas locais"
-
-#~ msgid "Available tasks"
-#~ msgstr "Tarefas disponíveis"
-
-#~ msgid "Add required task"
-#~ msgstr "Adicionar uma tarefa obrigatória"
-
-#~ msgid "Remove required task"
-#~ msgstr "Remover a tarefa obrigatória"
-
-#~ msgid "Total Float:"
-#~ msgstr "Folga Total:"
-
-#~ msgid "Header"
-#~ msgstr "Cabeçalho"
-
-#~ msgid "Project name"
-#~ msgstr "Nome do projecto"
-
-#~ msgid "Page number"
-#~ msgstr "Número de página"
-
-#~ msgid "Project manager"
-#~ msgstr "Gestor do projecto"
-
-#~ msgid "Footer"
-#~ msgstr "Rodapé"
-
-#~ msgid "Re-calculate from current date/time"
-#~ msgstr "Calcular de novo a partir da data/hora actuais"
-
-#~ msgid "Re-calculate from:"
-#~ msgstr "Calcular de novo de:"
-
-#~ msgid "Show internal appointments"
-#~ msgstr "Mostrar os compromissos internos"
-
-#~ msgid "Show external appointments"
-#~ msgstr "Mostrar os compromissos externos"
-
-#~ msgid "Advance"
-#~ msgstr "Avançar"
-
-#~ msgid "Scheduling range:"
-#~ msgstr "Intervalo de escalonamento:"
-
-#~ msgid "Work Breakdown Structure"
-#~ msgstr "Estrutura de Repartição do Trabalho"
-
-#~ msgid "The name of the Task."
-#~ msgstr "O nome da tarefa."
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "\n"
-#~ "This is not limited to persons available in a resource group but can be "
-#~ "anyone. You can even directly access your address book with the Choose "
-#~ "button."
-#~ msgstr ""
-#~ "A pessoa responsável por esta tarefa.\n"
-#~ "\n"
-#~ "Isto não está limitado às pessoas disponíveis num grupo de recursos, "
-#~ "podendo ser qualquer pessoas. Poderá até aceder directamente ao seu livro "
-#~ "de endereços com a botão Escolher."
-
-#~ msgid "Responsible:"
-#~ msgstr "Responsável:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "Indique uma pessoa do seu livro de endereços"
-
-#~ msgid "Choose..."
-#~ msgstr "Escolher..."
-
-#~ msgid "Priority:"
-#~ msgstr "Prioridade:"
-
-#~ msgid "Account:"
-#~ msgstr "Conta:"
-
-#~ msgid "Startup"
-#~ msgstr "Arranque"
-
-#~ msgid "Cost:"
-#~ msgstr "Custo:"
-
-#~ msgid "Shutdown"
-#~ msgstr "Desligar"
-
-#~ msgid "N&ame:"
-#~ msgstr "&Nome:"
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "        "
-#~ msgstr ""
-#~ "A pessoa responsável por esta tarefa.\n"
-#~ "  "
-
-#~ msgid "Responsi&ble:"
-#~ msgstr "Responsá&vel:"
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "Escolha uma pessoa do seu livro de endereços."
-
-#~ msgid ""
-#~ "Scheduling Configuration. These settings affect the actual scheduling of "
-#~ "the task.\n"
-#~ "\n"
-#~ "The estimation can be either effort based or duration based. If it is "
-#~ "effort based, the final duration will depend on the resources assigned to "
-#~ "the task. For duration based estimation, the assigned resources do not "
-#~ "affect the fixed duration of the task, but only the costs."
-#~ msgstr ""
-#~ "Configuração do Escalonamento. Estas opções afectam a calendarização "
-#~ "actual da tarefa.\n"
-#~ "\n"
-#~ "A estimativa poderá ser feita com base no esforço ou na duração. Se for "
-#~ "baseada no esforço, a duração final irá depender dos recursos atribuídos "
-#~ "à tarefa. No caso das baseadas na duração, os recursos atribuídos não "
-#~ "irão afectar a duração fixa da tarefa, mas sim os custos."
-
-#~ msgid "Timing"
-#~ msgstr "Temporização"
-
-#~ msgid "&Schedule:"
-#~ msgstr "E&scalonar:"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "O Mais Cedo Possível"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "O Mais Tarde Possível"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "Iniciar Não Antes De"
-
-#~ msgid "Finish Not Later Than"
-#~ msgstr "Terminar Não Depois De"
-
-#~ msgid "Esti&mate:"
-#~ msgstr "Esti&mar:"
-
-#~ msgid ""
-#~ "Risk controls the PERT distribution used when calculating the actual "
-#~ "estimate for this task."
-#~ msgstr ""
-#~ "O risco controla a distribuição PERT usada ao calcular as estimativas "
-#~ "actuais para esta tarefa."
-
-#~ msgid ""
-#~ "<p>Risk controls the PERT distribution used when calculating the actual "
-#~ "estimate for the task.\n"
-#~ "<b>None</b> means the Expected estimate is used as is.\n"
-#~ "<b>Low risk</b> means that a normal distribution is used.\n"
-#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
-#~ "compared to Low risk.</p>"
-#~ msgstr ""
-#~ "<p>O risco controla a distribuição de PERT usada ao calcular a estimativa "
-#~ "actual para a tarefa.\n"
-#~ "<b>Nenhum</b> significa que a estimativa esperada é usada tal-e-qual.\n"
-#~ "<b>Risco baixo</b> significa que é usada uma distribuição normal.\n"
-#~ "<b>Risco elevado</b> significa que a estimativa será ligeiramente mais "
-#~ "pessimista, em comparação com o Baixo Risco.</p>"
-
-#~ msgid "Risk:"
-#~ msgstr "Risco:"
-
-#~ msgid ""
-#~ "<p>Risk controles the PERT distribution used when calculating the actual "
-#~ "estimate for the task.\n"
-#~ "<b>None</b> means the Expected estimate is used as is.\n"
-#~ "<b>Low risk</b> means that a normal distribution is used.\n"
-#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
-#~ "compared to Low risk.</p>"
-#~ msgstr ""
-#~ "<p>O risco controla a distribuição de PERT usada ao calcular a estimativa "
-#~ "actual para a tarefa.\n"
-#~ "<b>Nenhum</b> significa que a estimativa esperada é usada tal-e-qual.\n"
-#~ "<b>Risco baixo</b> significa que é usada uma distribuição normal.\n"
-#~ "<b>Risco elevado</b> significa que a estimativa será ligeiramente mais "
-#~ "pessimista, em comparação com o Baixo Risco.</p>"
-
-#~ msgid "Optimisti&c:"
-#~ msgstr "&Optimista:"
-
-#~ msgid "&Pessimistic:"
-#~ msgstr "&Pessimista:"
-
-#~ msgid "Task:"
-#~ msgstr "Tarefa:"
-
-#~ msgid "Started:"
-#~ msgstr "Iniciado:"
-
-#~ msgid "Finished:"
-#~ msgstr "Terminado:"
-
-#~ msgid "Edit mode:"
-#~ msgstr "Modo de edição:"
-
-#~ msgid "Per resource"
-#~ msgstr "Por recurso"
-
-#~ msgid "Per task"
-#~ msgstr "Por tarefa"
-
-#~ msgid "Prev"
-#~ msgstr "Anterior"
-
-#~ msgid "Add resource:"
-#~ msgstr "Adicionar um recurso:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Adicionar um Item"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Remover o Item"
-
-#~ msgid "Period Definition"
-#~ msgstr "Definição do Período"
-
-#~ msgid "Period length (days):"
-#~ msgstr "Duração do período (dias):"
-
-#~ msgid "Use current date"
-#~ msgstr "Usar a data actual"
-
-#~ msgid "Use weekday:"
-#~ msgstr "Usar o dia da semana:"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define WBS code for the project"
-#~ msgstr "Definir o código WBS do projecto"
-
-#~ msgid "Project Code Definition"
-#~ msgstr "Definição do Código do Projecto"
-
-#~ msgid "Code:"
-#~ msgstr "Código:"
-
-#~ msgid "Separator:"
-#~ msgstr "Separador:"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define default WBS code"
-#~ msgstr "Definir o código WBS predefinido"
-
-#~ msgid "Default Definition"
-#~ msgstr "Definição por Omissão"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define separate WBS codes for individual levels"
-#~ msgstr "Definir códigos WBS separados para os níveis individuais"
-
-#~ msgid "Use Levels Definition"
-#~ msgstr "Usar a Definição por Níveis"
-
-#~ msgid "Code"
-#~ msgstr "Código"
-
-#~ msgid "Separator"
-#~ msgstr "Separador"
-
-#~ msgid "Add Level"
-#~ msgstr "Adicionar um Nível"
-
-#~ msgid "Generated:"
-#~ msgstr "Gerada:"
-
-#~ msgid "From:"
-#~ msgstr "De:"
-
-#~ msgid "<package time>"
-#~ msgstr "<tempo do pacote>"
-
-#~ msgid "Update"
-#~ msgstr "Actualizar"
-
-#~ msgid "No more data. Press Close to finish."
-#~ msgstr "Não existem mais dados. Carregue em Fechar para terminar."
-
-#~ msgid "Fractional digits:"
-#~ msgstr "Casas decimais:"
-
-#~ msgid "Chart type"
-#~ msgstr "Tipo de gráfico"
-
-#~ msgid "Line chart"
-#~ msgstr "Gráfico de linhas"
-
-#~ msgid "Bar chart"
-#~ msgstr "Gráfico de barras"
-
-#~ msgid "Table"
-#~ msgstr "Tabela"
-
-#~ msgid "Base values"
-#~ msgstr "Valores-base"
-
-#~ msgid "Indices"
-#~ msgstr "Índices"
-
-#~ msgid "Cost"
-#~ msgstr "Custo"
-
-#~ msgid "Show BCWS plot"
-#~ msgstr "Mostrar o gráfico do BCWS"
-
-#~ msgid "Show BCWP plot"
-#~ msgstr "Mostrar o gráfico do BCWP"
-
-#~ msgid "Show ACWP plot"
-#~ msgstr "Mostrar o gráfico do ACWP"
-
-#~ msgid "SPI Cost"
-#~ msgstr "Custo SPI"
-
-#~ msgid "SPI Effort"
-#~ msgstr "Esforço SPI"
-
-#~ msgid "CPI Effort"
-#~ msgstr "Esforço CPI"
-
-#~ msgid "CPI Cost"
-#~ msgstr "Custo CPI"
-
-#~ msgctxt "Insert task dependency"
-#~ msgid "Insert"
-#~ msgstr "Inserir"
-
-#~ msgid "From"
-#~ msgstr "De"
-
-#~ msgid "To"
-#~ msgstr "Até"
-
-#~ msgid "Dependency Type"
-#~ msgstr "Tipo de Dependência"
-
-#~ msgid "Go to first page"
-#~ msgstr "Ir para a primeira página"
-
-#~ msgid "Go to previous page"
-#~ msgstr "Ir para a página anterior"
-
-#~ msgid "Show page"
-#~ msgstr "Mostrar a página"
-
-#~ msgid "of"
-#~ msgstr "de"
-
-#~ msgid "Go to next page"
-#~ msgstr "Ir para a página seguinte"
-
-#~ msgid "Go to last page"
-#~ msgstr "Ir para a última página"
-
-#~ msgid "Enable report header"
-#~ msgstr "Activar o cabeçalho do relatório"
-
-#~ msgid "Report Header"
-#~ msgstr "Cabeçalho do Relatório"
-
-#~ msgid "Enable report footer"
-#~ msgstr "Activar o rodapé do relatório"
-
-#~ msgid "Report Footer"
-#~ msgstr "Rodapé do Relatório"
-
-#~ msgid "Page Header"
-#~ msgstr "Cabeçalho da Página"
-
-#~ msgid "Enable header on first page"
-#~ msgstr "Activar o cabeçalho na primeira página"
-
-#~ msgid "First page"
-#~ msgstr "Primeira página"
-
-#~ msgid "Enable header on last page"
-#~ msgstr "Activar o cabeçalho na última página"
-
-#~ msgid "Last page"
-#~ msgstr "Última página"
-
-#~ msgid "Enable header on odd pages"
-#~ msgstr "Activar o rodapé na última página"
-
-#~ msgid "Odd pages"
-#~ msgstr "Páginas ímpares"
-
-#~ msgid "Enable header on even pages"
-#~ msgstr "Activar o cabeçalho nas páginas pares"
-
-#~ msgid "Even pages"
-#~ msgstr "Páginas pares"
-
-#~ msgid "Enable header on all pages"
-#~ msgstr "Activar o cabeçalho em todas as páginas"
-
-#~ msgid "All pages"
-#~ msgstr "Todas as páginas"
-
-#~ msgid "Page Footer"
-#~ msgstr "Rodapé da Página"
-
-#~ msgid "Enable footer on first page"
-#~ msgstr "Activar o rodapé na primeira página"
-
-#~ msgid "Enable footer on odd pages"
-#~ msgstr "Activar o rodapé nas páginas ímpares"
-
-#~ msgid "Enable footer on even pages"
-#~ msgstr "Activar o rodapé nas páginas pares"
-
-#~ msgid "Enable footer on last page"
-#~ msgstr "Activar o rodapé na última página"
-
-#~ msgid "Enable footer on all pages"
-#~ msgstr "Activar o rodapé em todas as páginas"
-
-#~ msgid "Group:"
-#~ msgstr "Grupo:"
-
-#~ msgid "Choose resource from address book"
-#~ msgstr "Escolher um recurso do livro de endereços"
-
-#~ msgid "Initials:"
-#~ msgstr "Iniciais:"
-
-#~ msgid "Email:"
-#~ msgstr "E-mail:"
-
-#~ msgid "Resource type:"
-#~ msgstr "Tipo de recurso:"
-
-#~ msgid "Team"
-#~ msgstr "Equipa"
-
-#~ msgid "Available:"
-#~ msgstr "Disponível:"
-
-#~ msgid "Calendar:"
-#~ msgstr "Calendário:"
-
-#~ msgid "Unlimited"
-#~ msgstr "Sem Limite"
-
-#~ msgid "Until"
-#~ msgstr "Até"
-
-#~ msgid "Required resources:"
-#~ msgstr "Recursos necessários:"
-
-#~ msgid "Hourly rate:"
-#~ msgstr "Taxa horária:"
-
-#~ msgid "Overtime rate:"
-#~ msgstr "Taxa de horas extraordinárias:"
-
-#~ msgid ""
-#~ "These values are used if your estimate is not in hours.\n"
-#~ "Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-#~ "effort to complete, this is converted to 24 hours when the task is "
-#~ "scheduled. The actual time it will take to complete is of course "
-#~ "dependent on the availability of the person (or persons) that is assigned "
-#~ "to the task."
-#~ msgstr ""
-#~ "São usados estes valores se a sua estimativa não for em horas.\n"
-#~ "Digamos que consome 8 horas por dia. Se estimar que uma tarefa necessita "
-#~ "de um esforço de 3 dias para terminar, este é convertido para 24 horas "
-#~ "quando a tarefa for agendada. A hora actual a que irá terminar será "
-#~ "obviamente dependente da disponibilidade da pessoa (ou pessoas) que "
-#~ "estiverem atribuídas à tarefa."
-
-#~ msgid "Hours per year:"
-#~ msgstr "Horas por ano:"
-
-#~ msgid "Hours per month:"
-#~ msgstr "Horas por mês:"
-
-#~ msgid "Hours per week:"
-#~ msgstr "Horas por semana:"
-
-#~ msgid ""
-#~ "These values are used when you estimate the effort needed to complete a "
-#~ "task."
-#~ msgstr ""
-#~ "São usados estes valores ao estimar o esforço necessário para terminar "
-#~ "uma tarefa."
-
-#~ msgid "Hours per day:"
-#~ msgstr "Horas por dia:"
-
-#~ msgid "Responsib&le:"
-#~ msgstr "Responsáve&l:"
-
-#~ msgid "Sched&ule:"
-#~ msgstr "Esc&alonar:"
-
-#~ msgid "Es&timate:"
-#~ msgstr "Es&timar:"
-
-#~ msgid "Ris&k:"
-#~ msgstr "Ris&co:"
-
-#~ msgid "Optimistic:"
-#~ msgstr "Optimista:"
-
-#~ msgid "Pessimistic:"
-#~ msgstr "Pessimista:"
-
-#~ msgid "Keywords:"
-#~ msgstr "Palavras-chave:"
-
-#~ msgid "Subject:"
-#~ msgstr "Assunto:"
-
-#~ msgid "Last printed:"
-#~ msgstr "Última impressão:"
-
-#~ msgid "Type:"
-#~ msgstr "Tipo:"
-
-#~ msgid "Total editing time:"
-#~ msgstr "Tempo total de edição:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Encriptação:"
-
-#~ msgctxt "Document title"
-#~ msgid "Title:"
-#~ msgstr "Título:"
-
-#~ msgid "Revision number:"
-#~ msgstr "Número de versão:"
-
-#~ msgid "Modified:"
-#~ msgstr "Modificado:"
-
-#~ msgid "Comments:"
-#~ msgstr "Comentários:"
-
-#~ msgid "Created:"
-#~ msgstr "Criado:"
-
-#~ msgid "Path:"
-#~ msgstr "Localização:"
-
-#~ msgid "&Reset"
-#~ msgstr "&Reiniciar"
-
-#~ msgid "Language:"
-#~ msgstr "Língua:"
-
-#~ msgid "Title:"
-#~ msgstr "Título:"
-
-#~ msgid "Position:"
-#~ msgstr "Posição:"
-
-#~ msgid "Company:"
-#~ msgstr "Companhia:"
-
-#~ msgid "Telephone (home):"
-#~ msgstr "Telefone (casa):"
-
-#~ msgid "Telephone (work):"
-#~ msgstr "Telefone (trabalho):"
-
-#~ msgid "Fax:"
-#~ msgstr "Fax:"
-
-#~ msgid "Street:"
-#~ msgstr "Rua:"
-
-#~ msgid "Postal code:"
-#~ msgstr "Código postal:"
-
-#~ msgid "City:"
-#~ msgstr "Cidade:"
-
-#~ msgid "Country:"
-#~ msgstr "País:"
-
-#~ msgid "Unit:"
-#~ msgstr "Unidade:"
-
-#~ msgid "Follow style:"
-#~ msgstr "Seguir o estilo:"
-
-#~ msgid "Size:"
-#~ msgstr "Tamanho:"
-
-#~ msgid "Width:"
-#~ msgstr "Largura:"
-
-#~ msgid "Height:"
-#~ msgstr "Altura:"
-
-#~ msgid "Orientation:"
-#~ msgstr "Orientação:"
-
-#~ msgid "Portrait"
-#~ msgstr "Retrato"
-
-#~ msgid "Landscape"
-#~ msgstr "Paisagem"
-
-#~ msgid "Facing pages:"
-#~ msgstr "Páginas em face:"
-
-#~ msgid "Single sided"
-#~ msgstr "Lado único"
-
-#~ msgid "Text direction:"
-#~ msgstr "Direcção do texto:"
-
-#~ msgid "Automatic"
-#~ msgstr "Automática"
-
-#~ msgid "Left to right"
-#~ msgstr "Esquerda para a direita"
-
-#~ msgid "Right to left"
-#~ msgstr "Direita para a esquerda"
-
-#~ msgid "Margins"
-#~ msgstr "Margens"
-
-#~ msgid "Top:"
-#~ msgstr "Topo:"
-
-#~ msgid "Binding edge:"
-#~ msgstr "Extremo de encadernação:"
-
-#~ msgid "Page edge:"
-#~ msgstr "Extremo da página:"
-
-#~ msgid "Bottom:"
-#~ msgstr "Fundo:"
 
 #, fuzzy
 #~| msgctxt "@title:column"

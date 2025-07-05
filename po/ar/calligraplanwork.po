@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2024-09-07 22:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -51,6 +51,24 @@ msgstr "زايد السعيدي"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zayed.alsaidi@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&حرّر"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "عرض"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&عرض"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -185,6 +203,30 @@ msgstr ""
 #, kde-format
 msgid "Task Progress"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "بدأ:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "انتهى:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "أضف مدخلة"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "أزِل المدخلة"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -541,24 +583,3 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
-
-#~ msgid "&Edit"
-#~ msgstr "&حرّر"
-
-#~ msgid "View"
-#~ msgstr "عرض"
-
-#~ msgid "&View"
-#~ msgstr "&عرض"
-
-#~ msgid "Started:"
-#~ msgstr "بدأ:"
-
-#~ msgid "Finished:"
-#~ msgstr "انتهى:"
-
-#~ msgid "Add Entry"
-#~ msgstr "أضف مدخلة"
-
-#~ msgid "Remove Entry"
-#~ msgstr "أزِل المدخلة"

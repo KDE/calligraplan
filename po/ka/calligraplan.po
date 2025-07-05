@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-01-12 10:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -17,6 +17,512 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&ფაილი"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "&ჩასწორება"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&ხედი"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "პროე&ქტი"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "&ხელსაწყოები"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "&პარამეტრები"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "&დახმარება"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "ჩასწორება"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "საათი წელიწადში"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "საათი თვეში"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "საათი კვირაში"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "საათი დღეში"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "სამუშაო კვირის გენერაცია"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "სამუშაო კვირის გენერირების მროგება"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "თუ არ არსებობს"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "ყოველთვის"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "დასვენებების გენერაცია"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "დასვენებების გენერაციის მორგება"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "საბაზისო კალენდარში"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "ქვეკალენდარში"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "ცალკე კალენდარში"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "დასვენების რეგიონი"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "ორშაბათი:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "სამუშაო დღის დასაწყისი"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "სამუშაო დღის დასასრული"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "სამშაბათი:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "ოთხშაბათი:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "ხუთშაბათი:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "პარასკევი:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "შაბათი:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "კვირა:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "პროექტის მენეჯერის სახელი"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "გაზიარებული რესურსების გამყენება"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "გაზიარებული რესურსების შემცველი ფაილი"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr "დირექტორია, რომელიც შეიცავს პროექტებს, რომლებიც იზიარებენ რესურსებს"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, kde-format
+msgid "Project description"
+msgstr "პროექტის აღწერა"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "დავალებაზე პასუხისმგებლის სახელი"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "დაგეგმვის შეზღუდვის ტიპი"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დაწყება"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "დაწყების თარიღისა და დროის შეზღუდვა"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დასრულება"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "დასრულების თარიღისა და დროის შეზღუდვა"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, kde-format
+msgid "Type of estimate"
+msgstr "დაახლოების დრო"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, kde-format
+msgid "Estimate time unit"
+msgstr "დაახლოების დროის ერეთეული"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, fuzzy, kde-format
+#| msgid "Expected estimate:"
+msgid "Expected estimate"
+msgstr "დაახლოებითი შეფასება:"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "ოპტიმისტური შეფასება"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "პესიმისტური შეფასება"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "ამოცანის აღწერა"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "გრადაცია"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, kde-format
+msgid "Linear"
+msgstr "ხაზოვანი"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, kde-format
+msgid "Flat"
+msgstr "ბრტყელი"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "შემაჯამებელი ამოცანის დონის ფერების ჩართვა"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr "შემაჯამებელი ამოცანის ნაგულისხმები ფერი"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 1"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 2"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 3"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "შემაჯამებელი ამოცანის ფერი, დონე 4"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "ამოცანის ფერი ნორმალურ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "ამოცანის ფერი კრიტიკულ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "ამოცანის ფერი დასრულებულ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "ამოცანის ფერი შეცდომის მდგომარეობაში"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "ეტაპის ფერი ნორმალურ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "ეტაპის ფერი კრიტიკულ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "ეტაპის ფერი დასრულებულ მდგომარეობაში"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "ეტაპის ფერი შეცდომის მდგომარეობაში"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "სამუშაო პაკეტების განახლებების ავტომატური შემოწმება"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "საქაღალდე, სადაც Plan პროექტის წევრებისგან სამუშაო პაკეტებს შეინახავს"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "თუ დაყენებულია, Plan-ი ფაილის წაკითხვის შემდეგ მას წაშლის"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "თუ დაყენებულია, Plan-ი ფაილის წაკითხვის შემდეგ შეინახავს მას"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, fuzzy, kde-format
+#| msgid "Directory where Plan retrieves work packages from project members"
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr "საქაღალდე, სადაც Plan პროექტის წევრებისგან სამუშაო პაკეტებს შეინახავს"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "დირექტორია, სადაც სამუშაო პაკეტების გამოქვეყნება მოხდება"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "ხანგრძლივობის მინიმალური დაშვებული პერიოდის ერთეული"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "ხანგრძლივობის მაქსიმალური დაშვებული პერიოდის ერთეული"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr "ბილიკი დოკუმენტაცამდე"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "ბილიკი კონტექსტის დახმარების დოკუმენტაციამდე"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "კონტექსტის დახმარების დოკუმენტაციის ენაზე გადათარგმნა აუცილებელია"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "ამოცანის მოდულის პირადი საცავიდან გამოყენება"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "ამოცანის მოდულების ბილიკიების სია"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "პროექტის ნიმუშების ბილიკების სია"
 
 #: config/ConfigDialog.cpp:47
 #, kde-format
@@ -58,6 +564,37 @@ msgstr "დოკუმენტაცია"
 msgid "Project Templates"
 msgstr "პროექტის შაბლონები"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, kde-format
+msgid "Documentation:"
+msgstr "დოკუმენტაცია:"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr "კონტექსტის დახმარება:"
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr "კონტექსტის ენა"
+
 #: config/ConfigProjectPanel.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -82,30 +619,529 @@ msgctxt "@info:tooltip"
 msgid "The directory where projects sharing the resources are placed"
 msgstr ""
 
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "საერთო"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, kde-format
+msgid "&Manager:"
+msgstr "&მმართველი:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, kde-format
+msgid "Use shared resources:"
+msgstr "გაზიარებული რესურსების გამოყენება:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, kde-format
+msgid "Shared resource file:"
+msgstr "გაზიარებული რესურსის ფაილი:"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, kde-format
+msgid "Browse..."
+msgstr "ამორჩევა..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, kde-format
+msgid "Shared projects:"
+msgstr "გაზიარებული პროექტები:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "აღწერა"
+
 #: config/ConfigProjectTemplatesPanel.cpp:61
 #, kde-format
 msgid "Project Templates Path"
 msgstr "პროექტის ნიმუშების ბილიკი"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "ჩასმა"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, kde-format
+msgid "Remove"
+msgstr "წაშლა"
 
 #: config/ConfigTaskModulesPanel.cpp:61
 #, kde-format
 msgid "Task Modules Path"
 msgstr "ამოცანის მოდულების ბილიკი"
 
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr "ლოკალური ამოცანის მოდულების გამოყენება"
+
 #: config/ConfigWorkVacationPanel.cpp:52
 #, kde-format
 msgid "Default"
 msgstr "ნაგულისხმები"
 
-#: config/kptcolorsconfigpanel.cpp:33
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
-msgid "Linear"
-msgstr "ხაზოვანი"
+msgid "Working Hours"
+msgstr "სამუშაო საათები"
 
-#: config/kptcolorsconfigpanel.cpp:34
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
 #, kde-format
-msgid "Flat"
-msgstr "ბრტყელი"
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "კალენდარის გენერაცია"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "კვირა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr "დასვენებები"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "კვირის კალენდარში"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "&დასვენების რეგიონი:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "სამუშაო კვირა"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "ჩართეთ  , თუ დღე სამუშაოა"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "ჩართეთ, თუ დღე სამუშაოა"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "დაახლოებითი გარდაქმნები"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "საათი &წელიწადში:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "საათი &თვეში:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "საათი &კვირაში:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "საათი &დღეში:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "გრადიენტი:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "ამოცანის შეჯამება"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "ნაგულისხმები:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "დონის ფერების გამოყენება"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "დონე 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "დონე 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "დონე 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "დონე 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "დავალება"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "ნორმალური:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "კრიტიკული:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "დასრულებული:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "შეცდომა:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "საფეხური"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "პასუხისმგებელი:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "აირჩიეთ..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "დაგეგმვის შეზღუდვა:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "რაც შეიძლება სწრაფად"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "რაც შეიძლება, გვიან"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "უნდა დაიწყოს დროზე"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "უნდა დამთავრდეს დროზე"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "დაწყება არა უადრეს"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "დასრულება არა უგვიანეს"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "ფიქსირებული ინტერვალი"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "შეზღუდული დაწყების დროის გამოყენება:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "მიმდინარე თარიღი და დრო"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "მიმდინარე თარიღი, მითითებული დრო"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "მითითებული თარიღი და დრო"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "შეზღუდვის დაწყების დრო:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "შეზღუდული დასრულების დროის გამოყენება:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "დროის შეზღუდვის დასრულება:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "შეფასების ტიპი:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "ძალისხმევა"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "ხანგრძლოვობა"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "დაახლოებითი შეფასება:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "ოპტიმისტური შეფასება:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "პესიმისტური შეფასება:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "გამოთხოვა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "სამუშაო პაკეტების შემოწმება"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "გამოთხოვა:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "არქივი"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "ფაილის წაშლა მისი მიღების შემდეგ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "ფაილის დაარქვივება მისი მიღების შემდეგ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "დაარქივება:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "გამოქვეყნება"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "გამოქვეყნება:"
 
 #: KPlatoXmlLoader.cpp:69
 #, kde-format
@@ -230,6 +1266,30 @@ msgstr ""
 msgid "Insert File"
 msgstr "ფაილის ჩასმა"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "მიმდინარე კვანძი:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "ზედა დონეზე ჩასმა"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "მიმდინარე კვანძში შვილებად ჩასმა"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "მიმდინარე კვანძის შემდეგ ჩასმა"
+
 #: kptloadsharedprojectsdialog.cpp:40
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -337,11 +1397,6 @@ msgstr "შენარჩუნება"
 msgctxt "Base calendar name"
 msgid "Base"
 msgstr "საბაზისო"
-
-#: kptmaindocument.cpp:1572 kptmaindocument.cpp:1576
-#, kde-format
-msgid "Holidays"
-msgstr "დასვენებები"
 
 #: kptschedulesdocker.cpp:39
 #, kde-format
@@ -1040,6 +2095,70 @@ msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
 msgstr "ჩასმა..."
 
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "ხედის კატეგორია"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "კატეგორია:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "ხედი ამ ხედის შემდეგ მოთავსდა"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "შემდეგ"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "The type of view"
+msgstr "ხედის ტიპი"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "ხედის ტიპი:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "ხედის სახელი"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "სახელი:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "ხედის აღწერა"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "აღწერა:"
+
 #: kptviewlistdialog.cpp:42
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -1156,6 +2275,91 @@ msgctxt "@title:window"
 msgid "View Selector"
 msgstr "ხედის პანელი"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "სიტყვა"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "წინადადებები"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "მარცვლები"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "ხაზები"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "სიმბოლოები ჰარეების ჩათვლით"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "სიმბოლოები ჰარეების არჩათვლით"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "კითხვის სიადვილის ინდექსი ფლეშის მიხედვით"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "მონაცემების ავტომატური განახლება"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, fuzzy, kde-format
+#| msgid "The view is placed after this view"
+msgid "The category is placed after this category"
+msgstr "ხედი ამ ხედის შემდეგ მოთავსდა"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "კატეგორიის სახელი"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "კატეგორიის აღწერა"
+
 #: welcome/WelcomeView.cpp:125
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -1219,577 +2423,108 @@ msgstr ""
 msgid "Open Document"
 msgstr "დოკუმენტის გახსნა"
 
-#~ msgid "&File"
-#~ msgstr "&ფაილი"
-
-#~ msgid "&Edit"
-#~ msgstr "&ჩასწორება"
-
-#~ msgid "&View"
-#~ msgstr "&ხედი"
-
-#~ msgid "&Project"
-#~ msgstr "პროე&ქტი"
-
-#~ msgid "&Tools"
-#~ msgstr "&ხელსაწყოები"
-
-#~ msgid "&Settings"
-#~ msgstr "&პარამეტრები"
-
-#~ msgid "&Help"
-#~ msgstr "&დახმარება"
-
-#~ msgid "Edit"
-#~ msgstr "ჩასწორება"
-
-#~ msgid "Hours per year"
-#~ msgstr "საათი წელიწადში"
-
-#~ msgid "Hours per month"
-#~ msgstr "საათი თვეში"
-
-#~ msgid "Hours per week"
-#~ msgstr "საათი კვირაში"
-
-#~ msgid "Hours per day"
-#~ msgstr "საათი დღეში"
-
-#~ msgid "Generate working week"
-#~ msgstr "სამუშაო კვირის გენერაცია"
-
-#~ msgid "Generate working week options"
-#~ msgstr "სამუშაო კვირის გენერირების მროგება"
-
-#~ msgid "If none exists"
-#~ msgstr "თუ არ არსებობს"
-
-#~ msgid "Always"
-#~ msgstr "ყოველთვის"
-
-#~ msgid "Generate holidays"
-#~ msgstr "დასვენებების გენერაცია"
-
-#~ msgid "Generate holidays options"
-#~ msgstr "დასვენებების გენერაციის მორგება"
-
-#~ msgid "In base calendar"
-#~ msgstr "საბაზისო კალენდარში"
-
-#~ msgid "As sub-calendar"
-#~ msgstr "ქვეკალენდარში"
-
-#~ msgid "As separate calendar"
-#~ msgstr "ცალკე კალენდარში"
-
-#~ msgid "Holiday region"
-#~ msgstr "დასვენების რეგიონი"
-
-#~ msgid "Monday:"
-#~ msgstr "ორშაბათი:"
-
-#~ msgid "Start of working day"
-#~ msgstr "სამუშაო დღის დასაწყისი"
-
-#~ msgid "End of working day"
-#~ msgstr "სამუშაო დღის დასასრული"
-
-#~ msgid "Tuesday:"
-#~ msgstr "სამშაბათი:"
-
-#~ msgid "Wednesday:"
-#~ msgstr "ოთხშაბათი:"
-
-#~ msgid "Thursday:"
-#~ msgstr "ხუთშაბათი:"
-
-#~ msgid "Friday:"
-#~ msgstr "პარასკევი:"
-
-#~ msgid "Saturday:"
-#~ msgstr "შაბათი:"
-
-#~ msgid "Sunday:"
-#~ msgstr "კვირა:"
-
-#~ msgid "Name of project manager"
-#~ msgstr "პროექტის მენეჯერის სახელი"
-
-#~ msgid "Use shared resources"
-#~ msgstr "გაზიარებული რესურსების გამყენება"
-
-#~ msgid "File to contain shared resources"
-#~ msgstr "გაზიარებული რესურსების შემცველი ფაილი"
-
-#~ msgid "Directory that contains projects that share resources"
-#~ msgstr "დირექტორია, რომელიც შეიცავს პროექტებს, რომლებიც იზიარებენ რესურსებს"
-
-#~ msgid "Project description"
-#~ msgstr "პროექტის აღწერა"
-
-#~ msgid "Name of task responsible"
-#~ msgstr "დავალებაზე პასუხისმგებლის სახელი"
-
-#~ msgid "Scheduling constraint type"
-#~ msgstr "დაგეგმვის შეზღუდვის ტიპი"
-
-#~ msgid "Defines how start constraint time is used"
-#~ msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დაწყება"
-
-#~ msgid "Constraint start date and time"
-#~ msgstr "დაწყების თარიღისა და დროის შეზღუდვა"
-
-#~ msgid "Defines how end constraint time is used"
-#~ msgstr "განსაზღვრავს, როგორ გამოიყენება შეზღუდვის დროის დასრულება"
-
-#~ msgid "Constraint end date and time"
-#~ msgstr "დასრულების თარიღისა და დროის შეზღუდვა"
-
-#~ msgid "Type of estimate"
-#~ msgstr "დაახლოების დრო"
-
-#~ msgid "Estimate time unit"
-#~ msgstr "დაახლოების დროის ერეთეული"
-
-#~ msgid "Optimistic estimate"
-#~ msgstr "ოპტიმისტური შეფასება"
-
-#~ msgid "Pessimistic estimate"
-#~ msgstr "პესიმისტური შეფასება"
-
-#~ msgid "Task description"
-#~ msgstr "ამოცანის აღწერა"
-
-#~ msgid "Gradient"
-#~ msgstr "გრადაცია"
-
-#~ msgid "Enable summary task level colors"
-#~ msgstr "შემაჯამებელი ამოცანის დონის ფერების ჩართვა"
-
-#~ msgid "Summary task default color"
-#~ msgstr "შემაჯამებელი ამოცანის ნაგულისხმები ფერი"
-
-#~ msgid "Summary task color, level 1"
-#~ msgstr "შემაჯამებელი ამოცანის ფერი, დონე 1"
-
-#~ msgid "Summary task color, level 2"
-#~ msgstr "შემაჯამებელი ამოცანის ფერი, დონე 2"
-
-#~ msgid "Summary task color, level 3"
-#~ msgstr "შემაჯამებელი ამოცანის ფერი, დონე 3"
-
-#~ msgid "Summary task color, level 4"
-#~ msgstr "შემაჯამებელი ამოცანის ფერი, დონე 4"
-
-#~ msgid "Task color in normal state"
-#~ msgstr "ამოცანის ფერი ნორმალურ მდგომარეობაში"
-
-#~ msgid "Task color in critical state"
-#~ msgstr "ამოცანის ფერი კრიტიკულ მდგომარეობაში"
-
-#~ msgid "Task color in finished state"
-#~ msgstr "ამოცანის ფერი დასრულებულ მდგომარეობაში"
-
-#~ msgid "Task color in error state"
-#~ msgstr "ამოცანის ფერი შეცდომის მდგომარეობაში"
-
-#~ msgid "Milestone color in normal state"
-#~ msgstr "ეტაპის ფერი ნორმალურ მდგომარეობაში"
-
-#~ msgid "Milestone color in critical state"
-#~ msgstr "ეტაპის ფერი კრიტიკულ მდგომარეობაში"
-
-#~ msgid "Milestone color in finished state"
-#~ msgstr "ეტაპის ფერი დასრულებულ მდგომარეობაში"
-
-#~ msgid "Milestone color in error state"
-#~ msgstr "ეტაპის ფერი შეცდომის მდგომარეობაში"
-
-#~ msgid "Automatically check for new work packages"
-#~ msgstr "სამუშაო პაკეტების განახლებების ავტომატური შემოწმება"
-
-#~ msgid "Directory where Plan retrieves work packages from project members"
-#~ msgstr ""
-#~ "საქაღალდე, სადაც Plan პროექტის წევრებისგან სამუშაო პაკეტებს შეინახავს"
-
-#~ msgid "If set, Plan will delete the file after it has been read"
-#~ msgstr "თუ დაყენებულია, Plan-ი ფაილის წაკითხვის შემდეგ მას წაშლის"
-
-#~ msgid "If set, Plan will save the file after it has been read"
-#~ msgstr "თუ დაყენებულია, Plan-ი ფაილის წაკითხვის შემდეგ შეინახავს მას"
-
-#~ msgid "Directory where Plan publishes work packages"
-#~ msgstr "დირექტორია, სადაც სამუშაო პაკეტების გამოქვეყნება მოხდება"
-
-#~ msgid "The smallest duration unit allowed"
-#~ msgstr "ხანგრძლივობის მინიმალური დაშვებული პერიოდის ერთეული"
-
-#~ msgid "The largest duration unit allowed"
-#~ msgstr "ხანგრძლივობის მაქსიმალური დაშვებული პერიოდის ერთეული"
-
-#~ msgid "Path to the documentation"
-#~ msgstr "ბილიკი დოკუმენტაცამდე"
-
-#~ msgid "Path to the context help documentation"
-#~ msgstr "ბილიკი კონტექსტის დახმარების დოკუმენტაციამდე"
-
-#~ msgid ""
-#~ "The context help documentation must have been translated to the language"
-#~ msgstr "კონტექსტის დახმარების დოკუმენტაციის ენაზე გადათარგმნა აუცილებელია"
-
-#~ msgid "Use the task modules from your private store"
-#~ msgstr "ამოცანის მოდულის პირადი საცავიდან გამოყენება"
-
-#~ msgid "List of paths to task modules"
-#~ msgstr "ამოცანის მოდულების ბილიკიების სია"
-
-#~ msgid "List of paths to project templates"
-#~ msgstr "პროექტის ნიმუშების ბილიკების სია"
-
-#~ msgid "Documentation:"
-#~ msgstr "დოკუმენტაცია:"
-
-#~ msgid "Context help:"
-#~ msgstr "კონტექსტის დახმარება:"
-
-#~ msgid "Context language"
-#~ msgstr "კონტექსტის ენა"
-
-#~ msgid "General"
-#~ msgstr "საერთო"
-
-#~ msgid "&Manager:"
-#~ msgstr "&მმართველი:"
-
-#~ msgid "Use shared resources:"
-#~ msgstr "გაზიარებული რესურსების გამოყენება:"
-
-#~ msgid "Shared resource file:"
-#~ msgstr "გაზიარებული რესურსის ფაილი:"
-
-#~ msgid "Browse..."
-#~ msgstr "ამორჩევა..."
-
-#~ msgid "Shared projects:"
-#~ msgstr "გაზიარებული პროექტები:"
-
-#~ msgid "Description"
-#~ msgstr "აღწერა"
-
-#~ msgid "Insert"
-#~ msgstr "ჩასმა"
-
-#~ msgid "Remove"
-#~ msgstr "წაშლა"
-
-#~ msgid "Use local task modules"
-#~ msgstr "ლოკალური ამოცანის მოდულების გამოყენება"
-
-#~ msgid "Working Hours"
-#~ msgstr "სამუშაო საათები"
-
-#~ msgid "Calendar generation"
-#~ msgstr "კალენდარის გენერაცია"
-
-#~ msgid "Week"
-#~ msgstr "კვირა"
-
-#~ msgid "In week calendar"
-#~ msgstr "კვირის კალენდარში"
-
-#~ msgid "Holida&y region:"
-#~ msgstr "&დასვენების რეგიონი:"
-
-#~ msgid "Working week"
-#~ msgstr "სამუშაო კვირა"
-
-#~ msgid "Tick  if working day"
-#~ msgstr "ჩართეთ  , თუ დღე სამუშაოა"
-
-#~ msgid "Tick if working day"
-#~ msgstr "ჩართეთ, თუ დღე სამუშაოა"
-
-#~ msgid "Estimate Conversions"
-#~ msgstr "დაახლოებითი გარდაქმნები"
-
-#~ msgid "Hours &per year:"
-#~ msgstr "საათი &წელიწადში:"
-
-#~ msgid "Hours per &month:"
-#~ msgstr "საათი &თვეში:"
-
-#~ msgid "Hours per wee&k:"
-#~ msgstr "საათი &კვირაში:"
-
-#~ msgid "Hours per &day:"
-#~ msgstr "საათი &დღეში:"
-
-#~ msgid "Gradient:"
-#~ msgstr "გრადიენტი:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Summary task"
-#~ msgstr "ამოცანის შეჯამება"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Default:"
-#~ msgstr "ნაგულისხმები:"
-
-#~ msgctxt "@title:group"
-#~ msgid "Use level colors"
-#~ msgstr "დონის ფერების გამოყენება"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 1"
-#~ msgstr "დონე 1"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 2"
-#~ msgstr "დონე 2"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 3"
-#~ msgstr "დონე 3"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 4"
-#~ msgstr "დონე 4"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Task"
-#~ msgstr "დავალება"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Normal:"
-#~ msgstr "ნორმალური:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Critical:"
-#~ msgstr "კრიტიკული:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Finished:"
-#~ msgstr "დასრულებული:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Error:"
-#~ msgstr "შეცდომა:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Milestone"
-#~ msgstr "საფეხური"
-
-#~ msgid "Responsible:"
-#~ msgstr "პასუხისმგებელი:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან"
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "ჩასვით პიროვნება თქვენი მისამართების წიგნიდან."
-
-#~ msgid "Choose..."
-#~ msgstr "აირჩიეთ..."
-
-#~ msgid "Scheduling constraint:"
-#~ msgstr "დაგეგმვის შეზღუდვა:"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "რაც შეიძლება სწრაფად"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "რაც შეიძლება, გვიან"
-
-#~ msgid "Must Start On"
-#~ msgstr "უნდა დაიწყოს დროზე"
-
-#~ msgid "Must Finish On"
-#~ msgstr "უნდა დამთავრდეს დროზე"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "დაწყება არა უადრეს"
-
-#~ msgid "Finish Not Later Than"
-#~ msgstr "დასრულება არა უგვიანეს"
-
-#~ msgid "Fixed Interval"
-#~ msgstr "ფიქსირებული ინტერვალი"
-
-#~ msgid "Constraint Start time usage:"
-#~ msgstr "შეზღუდული დაწყების დროის გამოყენება:"
-
-#~ msgid "Current date and time"
-#~ msgstr "მიმდინარე თარიღი და დრო"
-
-#~ msgid "Current date, specified time"
-#~ msgstr "მიმდინარე თარიღი, მითითებული დრო"
-
-#~ msgid "Specified date and time"
-#~ msgstr "მითითებული თარიღი და დრო"
-
-#~ msgid "Constraint start time:"
-#~ msgstr "შეზღუდვის დაწყების დრო:"
-
-#~ msgid "Constraint End time usage:"
-#~ msgstr "შეზღუდული დასრულების დროის გამოყენება:"
-
-#~ msgid "Constraint end time:"
-#~ msgstr "დროის შეზღუდვის დასრულება:"
-
-#~ msgid "Estimate type:"
-#~ msgstr "შეფასების ტიპი:"
-
-#~ msgid "Effort"
-#~ msgstr "ძალისხმევა"
-
-#~ msgid "Duration"
-#~ msgstr "ხანგრძლოვობა"
-
-#~ msgid "Expected estimate:"
-#~ msgstr "დაახლოებითი შეფასება:"
-
-#~ msgid "Optimistic estimate:"
-#~ msgstr "ოპტიმისტური შეფასება:"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Pessimistic estimate:"
-#~ msgstr "პესიმისტური შეფასება:"
-
-#~ msgid "Retrieve"
-#~ msgstr "გამოთხოვა"
-
-#~ msgid "Check for work packages"
-#~ msgstr "სამუშაო პაკეტების შემოწმება"
-
-#~ msgid "Retrieve:"
-#~ msgstr "გამოთხოვა:"
-
-#~ msgid "Archive"
-#~ msgstr "არქივი"
-
-#~ msgid "Delete file after it has been retrieved"
-#~ msgstr "ფაილის წაშლა მისი მიღების შემდეგ"
-
-#~ msgid "Archive file after it has been retrieved"
-#~ msgstr "ფაილის დაარქვივება მისი მიღების შემდეგ"
-
-#~ msgid "Archive:"
-#~ msgstr "დაარქივება:"
-
-#~ msgid "Publish"
-#~ msgstr "გამოქვეყნება"
-
-#~ msgid "Publish:"
-#~ msgstr "გამოქვეყნება:"
-
-#~ msgid "Current node:"
-#~ msgstr "მიმდინარე კვანძი:"
-
-#~ msgid "Insert on top level"
-#~ msgstr "ზედა დონეზე ჩასმა"
-
-#~ msgid "Insert as children to current node"
-#~ msgstr "მიმდინარე კვანძში შვილებად ჩასმა"
-
-#~ msgid "Insert after current node"
-#~ msgstr "მიმდინარე კვანძის შემდეგ ჩასმა"
-
-#~ msgid "The category of the view"
-#~ msgstr "ხედის კატეგორია"
-
-#~ msgid "Category:"
-#~ msgstr "კატეგორია:"
-
-#~ msgid "The view is placed after this view"
-#~ msgstr "ხედი ამ ხედის შემდეგ მოთავსდა"
-
-#~ msgid "After"
-#~ msgstr "შემდეგ"
-
-#~ msgid "The type of view"
-#~ msgstr "ხედის ტიპი"
-
-#~ msgid "View type:"
-#~ msgstr "ხედის ტიპი:"
-
-#~ msgid "The name of the view"
-#~ msgstr "ხედის სახელი"
-
-#~ msgid "Name:"
-#~ msgstr "სახელი:"
-
-#~ msgid "The views description"
-#~ msgstr "ხედის აღწერა"
-
-#~ msgid "Description:"
-#~ msgstr "აღწერა:"
-
-#~ msgid "Words"
-#~ msgstr "სიტყვა"
-
-#~ msgid "Sentences"
-#~ msgstr "წინადადებები"
-
-#~ msgid "Syllables"
-#~ msgstr "მარცვლები"
-
-#~ msgid "Lines"
-#~ msgstr "ხაზები"
-
-#~ msgid "Characters incl. spaces"
-#~ msgstr "სიმბოლოები ჰარეების ჩათვლით"
-
-#~ msgid "Characters without spaces"
-#~ msgstr "სიმბოლოები ჰარეების არჩათვლით"
-
-#~ msgid "Flesch reading ease"
-#~ msgstr "კითხვის სიადვილის ინდექსი ფლეშის მიხედვით"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Automatically refresh data"
-#~ msgstr "მონაცემების ავტომატური განახლება"
-
-#~ msgid "The name of the category"
-#~ msgstr "კატეგორიის სახელი"
-
-#~ msgid "The description of the category"
-#~ msgstr "კატეგორიის აღწერა"
-
-#~ msgid "New project"
-#~ msgstr "ახალი პროექტი"
-
-#~ msgid "Create Shared Resources"
-#~ msgstr "გაზიარებული რესურსების შექმნა"
-
-#~ msgid "Open Project..."
-#~ msgstr "პროექტის გახსნა..."
-
-#~ msgid "Introduction"
-#~ msgstr "შესავალი"
-
-#~ msgid "https://userbase.kde.org/Plan"
-#~ msgstr "https://userbase.kde.org/Plan"
-
-#~ msgid "https://forum.kde.org/viewforum.php?f=203"
-#~ msgstr "https://forum.kde.org/viewforum.php?f=203"
-
-#~ msgctxt "@action:button"
-#~ msgid ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
-#~ msgstr ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">მომხმარებლების "
-#~ "ფორუმი</a>"
-
-#~ msgid "https://calligra.org"
-#~ msgstr "https://calligra.org"
-
-#~ msgctxt "@action:button"
-#~ msgid "<a href=\"https://calligra.org\">Calligra</a>"
-#~ msgstr "<a href=\"https://calligra.org\">Calligra</a>"
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, kde-format
+msgid "New project"
+msgstr "ახალი პროექტი"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, kde-format
+msgid "Create Shared Resources"
+msgstr "გაზიარებული რესურსების შექმნა"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, kde-format
+msgid "Open Project..."
+msgstr "პროექტის გახსნა..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr "შესავალი"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr "https://userbase.kde.org/Plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">მომხმარებლების ფორუმი</"
+"a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr "https://calligra.org"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr "<a href=\"https://calligra.org\">Calligra</a>"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2021-11-18 17:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -209,6 +209,7 @@ msgstr "Úsilie nedodržané"
 msgid "Scheduling error"
 msgstr "Chyba plánovania"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -222,8 +223,9 @@ msgstr "Chyba plánovania"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
-#: ui/TasksGeneralPanel.cpp:68
+#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
+#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
+#: ui/TasksGeneralPanel.ui:338
 #, kde-format
 msgid "None"
 msgstr "Žiadne"
@@ -246,7 +248,9 @@ msgstr "Podprojekt"
 msgid "Task"
 msgstr "Úloha"
 
-#: kernel/kptnode.cpp:158
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
+#: ui/TasksGeneralPanel.ui:424
 #, kde-format
 msgid "Milestone"
 msgstr "Míľnik"
@@ -271,12 +275,16 @@ msgstr "Čo najskôr"
 msgid "As Late As Possible"
 msgstr "Čo najneskôr"
 
-#: kernel/kptnode.cpp:731
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
+#: ui/TasksGeneralPanel.ui:179
 #, kde-format
 msgid "Must Start On"
 msgstr "Musí začať"
 
-#: kernel/kptnode.cpp:732
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
+#: ui/TasksGeneralPanel.ui:184
 #, kde-format
 msgid "Must Finish On"
 msgstr "Musí skončiť"
@@ -291,27 +299,39 @@ msgstr "Nezačať skôr než"
 msgid "Finish Not Later"
 msgstr "Nesmie skončiť neskôr ako"
 
-#: kernel/kptnode.cpp:735
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
+#: ui/TasksGeneralPanel.ui:199
 #, kde-format
 msgid "Fixed Interval"
 msgstr "Pevný úsek"
 
-#: kernel/kptnode.cpp:1625
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
+#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
+#: ui/TasksGeneralPanel.ui:414
 #, kde-format
 msgid "Effort"
 msgstr "Úsilie"
 
-#: kernel/kptnode.cpp:1626
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
+#: ui/TasksGeneralPanel.ui:419
 #, kde-format
 msgid "Duration"
 msgstr "Trvanie"
 
-#: kernel/kptnode.cpp:1659
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
+#: ui/TasksGeneralPanel.ui:343
 #, kde-format
 msgid "Low"
 msgstr "Nízka"
 
-#: kernel/kptnode.cpp:1660
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
+#: ui/TasksGeneralPanel.ui:348
 #, kde-format
 msgid "High"
 msgstr "Vysoká"
@@ -492,27 +512,34 @@ msgstr "Ukončené plánovanie spätne: %1 ms"
 msgid "Plan"
 msgstr "Plán"
 
-#: kernel/kptrelation.cpp:92
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
+#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
 #, kde-format
 msgid "Finish-Start"
 msgstr "Koniec-Štart"
 
-#: kernel/kptrelation.cpp:93
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
+#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
 #, kde-format
 msgid "Finish-Finish"
 msgstr "Koniec-Koniec"
 
-#: kernel/kptrelation.cpp:94
+#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
+#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
 #, kde-format
 msgid "Start-Start"
 msgstr "Štart-Štart"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
+#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "Práca"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
+#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "Materiál"
@@ -1545,6 +1572,7 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "%1 (predvolený účet)"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1552,13 +1580,15 @@ msgstr "%1 (predvolený účet)"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/projectview/ProjectView.cpp:53
+#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Názov"
 
+#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
+#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "Popis"
@@ -2551,9 +2581,11 @@ msgstr "Odstrániť dokument"
 msgid "Url"
 msgstr "Url"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
+#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "Typ"
@@ -2988,8 +3020,11 @@ msgstr "Ukončené neskoro"
 msgid "Finished early"
 msgstr "Ukončené skoro"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
+#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
+#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
 #, kde-format
 msgid "Finished"
 msgstr "Dokončené"
@@ -2999,7 +3034,9 @@ msgstr "Dokončené"
 msgid "Running late"
 msgstr "Beží neskoro"
 
+#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
+#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "Beží"
@@ -3014,8 +3051,9 @@ msgstr "Spustené neskoro"
 msgid "Started early"
 msgstr "Spustené skoro"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333
+#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
 msgstr "Začaté"
@@ -5288,9 +5326,10 @@ msgstr ""
 "nastavenie a tlač pomocou kontextovej ponuky.<nl/><link url='%1'>Viac...</"
 "link></para>"
 
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
-#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
-#: widgets/KoDocumentInfoDlg.cpp:125
+#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
+#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
+#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "Všeobecné"
@@ -5300,6 +5339,108 @@ msgstr "Všeobecné"
 #, kde-format
 msgid "View Settings"
 msgstr "Nastavenia pohľadu"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptaccountsviewconfigurepanelbase.ui:26
+#, kde-format
+msgid "Show:"
+msgstr "Zobraziť:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:33
+#, kde-format
+msgid "Periodicity:"
+msgstr "Periodicita:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:44
+#, kde-format
+msgid "Day"
+msgstr "Deň"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:49
+#, kde-format
+msgid "Week"
+msgstr "Týždeň"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:54
+#, kde-format
+msgid "Month"
+msgstr "Mesiac"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
+#: ui/kptaccountsviewconfigurepanelbase.ui:62
+#, kde-format
+msgid "Cumulative"
+msgstr "Kumulatívny"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:70
+#, kde-format
+msgid "Actual cost"
+msgstr "Aktuálne náklady"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:75
+#, kde-format
+msgid "Planned cost"
+msgstr "Plánované náklady"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:80
+#, kde-format
+msgid "Actual and planned"
+msgstr "Aktuálne a plánované"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:85
+#, kde-format
+msgid "Deviation"
+msgstr "Odchýlka"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:101
+#, kde-format
+msgid "Start date"
+msgstr "Počiatočný dátum"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:107
+#, kde-format
+msgid "Project start"
+msgstr "Začiatok projektu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:114
+#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
+#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "Dátum"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:131
+#, kde-format
+msgid "End date"
+msgstr "Koncový dátum"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:137
+#, kde-format
+msgid "Current date"
+msgstr "Aktuálny dátum"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:158
+#, kde-format
+msgid "Project end"
+msgstr "Koniec projektu"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5377,6 +5518,50 @@ msgstr "%1: Nastaviť na nepracovný"
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "Nastaviť %1 na nedefinované"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
+#, kde-format
+msgid "Project Schedule:"
+msgstr "Rozvrh projektu:"
+
+#. i18n: ectx: property (text), widget (QLabel, scheduleName)
+#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
+#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
+#. i18n: ectx: property (text), widget (QLabel, totalFloat)
+#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
+#: ui/reports/reportgroupsectionswidget.ui:22
+#: ui/reports/reportgroupsectionswidget.ui:29
+#: ui/reports/reportgroupsectionswidget.ui:36
+#: ui/reports/reportgroupsectionswidget.ui:43
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptcpmwidget.ui:71
+#, kde-format
+msgid "Probability of finishing before"
+msgstr "Pravdepodobnosť skončenia skôr"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptcpmwidget.ui:91
+#, kde-format
+msgid "is"
+msgstr "je"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
+#. i18n: ectx: property (suffix), widget (QSpinBox, units)
+#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
+#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
+#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -5514,6 +5699,225 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Pridať dokument"
 
+#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
+#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
+#: widgets/koDocumentInfoAuthorWidget.ui:20
+#, kde-format
+msgid "Name:"
+msgstr "Názov:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:54
+#, kde-format
+msgid "Add..."
+msgstr "Pridať..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:61
+#, kde-format
+msgid "Ctrl+I"
+msgstr "Ctrl+I"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:68
+#, kde-format
+msgid "Change..."
+msgstr "Zmeniť..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:75
+#, kde-format
+msgid "Ctrl+M"
+msgstr "Ctrl+M"
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
+#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
+#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
+#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
+#, kde-format
+msgid "Remove"
+msgstr "Odstrániť"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:89
+#, kde-format
+msgid "Del"
+msgstr "Del"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:96
+#, kde-format
+msgid "Open"
+msgstr "Otvoriť"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:103
+#, kde-format
+msgid "Ctrl+O"
+msgstr "Ctrl+O"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttchartdisplayoptions.ui:20
+#, kde-format
+msgid "Timeline"
+msgstr "Časová os"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:28
+#, kde-format
+msgid "Do not show the timeline"
+msgstr "Nezobrazovať časovú os"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:31
+#, kde-format
+msgid "Hide"
+msgstr "Skryť"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:38
+#, kde-format
+msgid "Show timeline in the foreground"
+msgstr "Zobrazovať časovú os v popredí"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:41
+#, kde-format
+msgid "Foreground"
+msgstr "Popredie"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:48
+#, kde-format
+msgid "Show timeline in the background"
+msgstr "Zobrazovať časovú os v pozadí"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:51
+#, kde-format
+msgid "Background"
+msgstr "Pozadie"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:60
+#, kde-format
+msgid "Update interval in minutes, 0 disables update"
+msgstr "Interval aktualizácie v minútach, 0 zakáže aktualizácie"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:63
+#, kde-format
+msgid "Interval:"
+msgstr "Interval:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
+#: ui/kptganttchartdisplayoptions.ui:93
+#, kde-format
+msgid "Use custom line"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:102
+#, kde-format
+msgid "Line width"
+msgstr "Šírka čiary"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:105
+#, kde-format
+msgid "Stroke:"
+msgstr "Ťah:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:126
+#, kde-format
+msgid "Line color"
+msgstr "Farba čiary"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:129
+#, kde-format
+msgid "Color:"
+msgstr "Farba:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptganttchartdisplayoptions.ui:153
+#, kde-format
+msgid "Additional text information"
+msgstr "Ďalšie textové informácie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
+#: ui/kptganttchartdisplayoptions.ui:159
+#, kde-format
+msgid "Task name"
+msgstr "Meno úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
+#: ui/kptganttchartdisplayoptions.ui:166
+#, kde-format
+msgid "Resource names"
+msgstr "Názvy zdrojov"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttchartdisplayoptions.ui:176
+#, kde-format
+msgid "Additional graphics information"
+msgstr "Ďalšie grafické informácie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
+#: ui/kptganttchartdisplayoptions.ui:185
+#, kde-format
+msgid "Task dependencies"
+msgstr "Závislosti úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
+#: ui/kptganttchartdisplayoptions.ui:192
+#, kde-format
+msgid "Task completion"
+msgstr "Ukončenie úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
+#: ui/kptganttchartdisplayoptions.ui:199
+#, kde-format
+msgid "Time constraints"
+msgstr "Časové obmedzenia"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
+#: ui/kptganttchartdisplayoptions.ui:219
+#, kde-format
+msgid "Positive float"
+msgstr "Kladné reálne číslo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
+#: ui/kptganttchartdisplayoptions.ui:226
+#, kde-format
+msgid "Negative float"
+msgstr "Záporné reálne číslo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
+#: ui/kptganttchartdisplayoptions.ui:233
+#, kde-format
+msgid "Critical path"
+msgstr "Kritická cesta"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
+#: ui/kptganttchartdisplayoptions.ui:240
+#, kde-format
+msgid "Critical tasks"
+msgstr "Kritické úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
+#: ui/kptganttchartdisplayoptions.ui:247
+#, kde-format
+msgid "Scheduling errors"
+msgstr "Chyby plánovania"
+
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -5568,6 +5972,99 @@ msgstr "Názov: %1<nl/>Plánované: %2<nl/>Stav: %3<nl/>Plánovanie: %4"
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
 msgstr "Názov: %1<nl/>Plánované: %2 - %3"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttprintingoptions.ui:17
+#, kde-format
+msgctxt "@title:group"
+msgid "Headers"
+msgstr "Hlavičky"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
+#: ui/kptganttprintingoptions.ui:23
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Modify task name"
+msgctxt "@option:check"
+msgid "Print task names"
+msgstr "Zmeniť názov úlohy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
+#: ui/kptganttprintingoptions.ui:30
+#, fuzzy, kde-format
+#| msgctxt "(qtundo-format)"
+#| msgid "Modify task name"
+msgctxt "@option:check"
+msgid "Print time scale"
+msgstr "Zmeniť názov úlohy"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttprintingoptions.ui:40
+#, kde-format
+msgctxt "@title:group"
+msgid "Scaling"
+msgstr "Škálovanie"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
+#: ui/kptganttprintingoptions.ui:46
+#, fuzzy, kde-format
+#| msgid "Divide chart on multiple pages"
+msgctxt "@option:radio"
+msgid "Divide chart on multiple pages"
+msgstr "Rozdeliť graf na viac strán"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
+#: ui/kptganttprintingoptions.ui:53
+#, fuzzy, kde-format
+#| msgid "Print chart on a single page"
+msgctxt "@option:radio"
+msgid "Fit chart to page height"
+msgstr "Vytlačiť graf na jednu stranu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
+#: ui/kptganttprintingoptions.ui:60
+#, fuzzy, kde-format
+#| msgid "Print chart on a single page"
+msgctxt "@option:radio"
+msgid "Fit chart to a single page"
+msgstr "Vytlačiť graf na jednu stranu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#: ui/kptganttprintingoptions.ui:73
+#, kde-format
+msgctxt "@title:group"
+msgid "Range"
+msgstr "Rozsah"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
+#: ui/kptganttprintingoptions.ui:88
+#, fuzzy, kde-format
+#| msgid "Can start"
+msgctxt "@option:radio"
+msgid "Chart start:"
+msgstr "Môže sa spustiť"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
+#: ui/kptganttprintingoptions.ui:105
+#, kde-format
+msgctxt "@option:radio"
+msgid "Start:"
+msgstr "Začiatok:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
+#: ui/kptganttprintingoptions.ui:137
+#, fuzzy, kde-format
+#| msgid "Chart type"
+msgctxt "@option:radio"
+msgid "Chart end:"
+msgstr "Typ grafu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
+#: ui/kptganttprintingoptions.ui:154
+#, kde-format
+msgctxt "@option:radio"
+msgid "End:"
+msgstr "Koniec:"
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:169
@@ -5713,6 +6210,63 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "Zmeniť pracovný interval"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
+#: ui/kptintervaleditbase.ui:21
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptintervaleditbase.ui:31
+#, kde-format
+msgctxt "Start time"
+msgid "From:"
+msgstr "Od:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptintervaleditbase.ui:47
+#, kde-format
+msgid "Length"
+msgstr "Dĺžka"
+
+#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
+#: ui/kptintervaleditbase.ui:70
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, kde-format
+msgid "Add"
+msgstr "Pridať"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bClear)
+#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
+#, kde-format
+msgid "Clear"
+msgstr "Vyčistiť"
+
+#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
+#: ui/kptitemviewsettings.ui:28
+#, kde-format
+msgid "Stretch last section"
+msgstr "Roztiahnuť poslednú sekciu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptitemviewsettings.ui:35
+#, kde-format
+msgid "Select columns to be shown:"
+msgstr "Vyberte stĺpce na zobrazenie:"
+
+#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:56
+#, kde-format
+msgid "&Hidden columns:"
+msgstr "Skryté stĺpce:"
+
+#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:59
+#, kde-format
+msgid "&Visible columns:"
+msgstr "Viditeľné stĺpce:"
+
 #: ui/kptitemviewsettup.cpp:148
 #, kde-format
 msgid "Tree View"
@@ -5839,6 +6393,204 @@ msgstr "Vyčistiť zdieľané priradenia prostriedkov"
 msgid "Task Modules Path"
 msgstr "Cesta modulov úloh"
 
+#. i18n: ectx: property (text), widget (QLabel, wbslabel)
+#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
+#: ui/kpttaskgeneralpanelbase.ui:23
+#, kde-format
+msgid "WBS:"
+msgstr "WBS:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
+#, kde-format
+msgid "The project name."
+msgstr "Názov projektu."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptmainprojectpanelbase.ui:71
+#, kde-format
+msgid "&Name:"
+msgstr "&Názov:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
+#, kde-format
+msgid "The project leader."
+msgstr "Projektový líder."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptmainprojectpanelbase.ui:103
+#, kde-format
+msgid "&Manager:"
+msgstr "Správca:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:132
+#, kde-format
+msgid "Choose a project leader from your address book."
+msgstr "Vyberte projektového lídra z vášho adresára."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:135
+#, kde-format
+msgid "&Choose..."
+msgstr "&Vybrať..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kptmainprojectpanelbase.ui:144
+#, kde-format
+msgid "Scheduling Range"
+msgstr "Rozsah plánovania"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptmainprojectpanelbase.ui:152
+#, kde-format
+msgid "Earliest start:"
+msgstr "Najskoršie spustenie:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptmainprojectpanelbase.ui:172
+#, kde-format
+msgid "Latest finish:"
+msgstr "Najneskoršie ukončenie:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
+#: ui/kptmainprojectpanelbase.ui:210
+#, kde-format
+msgid "&Use shared resources"
+msgstr "Použiť zdieľané zdroje"
+
+#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
+#: ui/kptmainprojectpanelbase.ui:225
+#, kde-format
+msgid "Resources:"
+msgstr "Zdroje:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
+#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
+#, kde-format
+msgid "File"
+msgstr "Súbor"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
+#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
+#, kde-format
+msgid "Browse..."
+msgstr "Prechádzať..."
+
+#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
+#: ui/kptmainprojectpanelbase.ui:255
+#, kde-format
+msgid "Projects:"
+msgstr "Projekty:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
+#: ui/kptmainprojectpanelbase.ui:263
+#, kde-format
+msgid "Directory"
+msgstr "Adresár"
+
+#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
+#: ui/kptmainprojectpanelbase.ui:287
+#, kde-format
+msgid "Load resource assignments at startup"
+msgstr "Načítať priradenia prostriedkov pri spustení"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
+#: ui/kptmainprojectpanelbase.ui:294
+#, kde-format
+msgid "Load"
+msgstr "Načítať"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
+#: ui/kptworkpackagemergepanel.ui:192
+#, kde-format
+msgid "Documents"
+msgstr "Dokumenty"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
+#: ui/kptmainprojectpanelbase.ui:371
+#, kde-format
+msgid "Work Package"
+msgstr "Pracovný balík"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: ui/kptmainprojectpanelbase.ui:377
+#, kde-format
+msgid "Publish"
+msgstr "Publikovať"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/kptmainprojectpanelbase.ui:385
+#, kde-format
+msgid "Publish:"
+msgstr "Publikovať:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptmainprojectpanelbase.ui:400
+#, kde-format
+msgid "Retrieve"
+msgstr "Získať"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
+#: ui/kptmainprojectpanelbase.ui:406
+#, kde-format
+msgid "Check for work packages"
+msgstr "Skontrolovať pracovné balíky"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptmainprojectpanelbase.ui:415
+#, kde-format
+msgid "Retrieve:"
+msgstr "Obnoviť:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptmainprojectpanelbase.ui:430
+#, kde-format
+msgid "Archive"
+msgstr "Archív"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
+#: ui/kptmainprojectpanelbase.ui:436
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Vymazať súbor po jeho obnove"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
+#: ui/kptmainprojectpanelbase.ui:443
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Archivovať súbor po jeho obnove"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptmainprojectpanelbase.ui:452
+#, kde-format
+msgid "Archive:"
+msgstr "Archív:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
+#: ui/kptmainprojectpanelbase.ui:481
+#, kde-format
+msgid "Task Modules"
+msgstr "Moduly úloh"
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
+#: ui/kptmainprojectpanelbase.ui:526
+#, kde-format
+msgid "Insert"
+msgstr "Vložiť"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
+#: ui/kptmainprojectpanelbase.ui:550
+#, kde-format
+msgid "Use local task modules"
+msgstr "Používať miestne moduly úloh"
+
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, kde-format
 msgid "Milestone Progress"
@@ -5854,10 +6606,87 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "Odstrániť závislosť úlohy"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
+#: ui/reports/reportdata.cpp:383
+#, kde-format
+msgid "Tasks"
+msgstr "Úlohy"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, available)
+#: ui/kptperteditor.ui:29
+#, kde-format
+msgid "Available tasks"
+msgstr "Dostupné úlohy"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
+#: ui/kptperteditor.ui:64
+#, kde-format
+msgid "Add required task"
+msgstr "Pridať potrebnú úlohu"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
+#: ui/kptperteditor.ui:80
+#, kde-format
+msgid "Remove required task"
+msgstr "Odstrániť potrebnú úlohu"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptpertresult.ui:90
+#, kde-format
+msgid "Total Float:"
+msgstr "Celkové plávanie:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
+#: ui/kptprintingheaderfooter.ui:16
+#, kde-format
+msgid "Header"
+msgstr "Hlavička"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
+#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
+#, kde-format
+msgid "Project name"
+msgstr "Názov projektu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
+#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
+#, kde-format
+msgid "Page number"
+msgstr "Číslo strany"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
+#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
+#, kde-format
+msgid "Project manager"
+msgstr "Správca projektu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
+#: ui/kptprintingheaderfooter.ui:56
+#, kde-format
+msgid "Footer"
+msgstr "Pätička"
+
 #: ui/kptrecalculatedialog.cpp:47
 #, kde-format
 msgid "Re-calculate Schedule"
 msgstr "Prepočítať rozvrh"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
+#: ui/kptrecalculatedialog.ui:26
+#, kde-format
+msgid "Re-calculate from current date/time"
+msgstr "Prepočítať od aktuálneho dátumu/času"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
+#: ui/kptrecalculatedialog.ui:33
+#, kde-format
+msgid "Re-calculate from:"
+msgstr "Prepočítať od:"
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -5904,6 +6733,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "Zmeniť závislosť úlohy"
 
+#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:16
+#, kde-format
+msgid "Show internal appointments"
+msgstr "Zobraziť vnútorné udalosti"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:23
+#, kde-format
+msgid "Show external appointments"
+msgstr "Zobraziť vonkajšie udalosti"
+
 #: ui/kptresourceappointmentsview.cpp:92
 #, kde-format
 msgid "Resource Assignments View Settings"
@@ -5930,6 +6771,12 @@ msgstr "Žiadna úloha nepridelená"
 #, kde-format
 msgid "No resource attributed"
 msgstr "Žiadny zdroj nepridelený"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptresourceassignmentview.ui:38
+#, kde-format
+msgid "Advance"
+msgstr "Pokrok"
 
 #: ui/kptresourcedialog.cpp:65
 #, kde-kuit-format
@@ -6062,6 +6909,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Zmeniť čas ukončenia cieľového projektu"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptscheduleeditor.ui:35
+#, kde-format
+msgid "Scheduling range:"
+msgstr "Rozsah plánovania:"
+
 #: ui/kptstandardworktimedialog.cpp:86
 #, kde-format
 msgid "Estimate Conversions"
@@ -6102,10 +6955,102 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "Upraviť úlohu"
 
+#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
+#, kde-format
+msgid "Work Breakdown Structure"
+msgstr "Štruktúra deľby práce"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:58
+#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
+#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
+#: ui/kpttaskgeneralpanelbase.ui:71
+#, kde-format
+msgid "The name of the Task."
+msgstr "Meno úlohy."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:95
+#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
+#: ui/TasksGeneralPanel.ui:57
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Osoba zodpovedná za túto úlohu.\n"
+"\n"
+"Toto nastavenie nie je obmedzené iba na členov zdrojovej skupiny - "
+"zodpovedná osoba môže byť hocikto. Môžete vybrať osobu z adresára pomocou "
+"tlačidla Vybrať."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:98
+#, kde-format
+msgid "Responsible:"
+msgstr "Zodpovedný:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
+#: ui/TasksGeneralPanel.ui:64
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Vložiť osobu z vášho adresára"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
+#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
+#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
+#, kde-format
+msgid "Choose..."
+msgstr "Vybrať..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
+#: ui/TasksGeneralPanel.ui:82
+#, kde-format
+msgid "Priority:"
+msgstr "Priorita:"
+
 #: ui/kpttaskcostpanel.cpp:101
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "Zmeniť náklady úlohy"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
+#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
+#, kde-format
+msgid "Account:"
+msgstr "Účet:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
+#: ui/kpttaskcostpanelbase.ui:72
+#, kde-format
+msgid "Startup"
+msgstr "Spustenie"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
+#, kde-format
+msgid "Cost:"
+msgstr "Náklady:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
+#: ui/kpttaskcostpanelbase.ui:142
+#, kde-format
+msgid "Shutdown"
+msgstr "Vypnutie"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 msgctxt "(qtundo-format)"
@@ -6329,7 +7274,8 @@ msgstr ""
 "stavu úloh počas výkonu.</para> <para>Tento pohľad podporuje nastavenie a "
 "tlač pomocou kontextovej ponuky.<nl/><link url='%1'>Viac...</link></para>"
 
-#: ui/kpttaskeditor.cpp:1768
+#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
+#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr "Publikovať..."
@@ -6348,6 +7294,162 @@ msgstr "Zaznamenať poslaný pracovný balík"
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "Upraviť úlohu"
+
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#: ui/kpttaskgeneralpanelbase.ui:55
+#, kde-format
+msgid "N&ame:"
+msgstr "Názov:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:79
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"        "
+msgstr ""
+"Osoba zodpovedná za túto úlohu.\n"
+"       "
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:82
+#, kde-format
+msgid "Responsi&ble:"
+msgstr "Zodpovedný:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Vložte osobu z vášho adresára."
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
+#, kde-format
+msgid ""
+"Scheduling Configuration. These settings affect the actual scheduling of the "
+"task.\n"
+"\n"
+"The estimation can be either effort based or duration based. If it is effort "
+"based, the final duration will depend on the resources assigned to the task. "
+"For duration based estimation, the assigned resources do not affect the "
+"fixed duration of the task, but only the costs."
+msgstr ""
+"Nastavenie plánovania. Tieto nastavenia ovplyvňujú aktuálne plánovanie "
+"úlohy.\n"
+"\n"
+"Odhad môže byť buď závislý na úsilí alebo na trvaní. Ak je závislý na úsilí, "
+"konečné trvanie bude závisieť na zdrojoch priradených k úlohe. Pre odhad "
+"závislý na trvaní, priradené zdroje neovplyvňujú fixné trvanie úlohy, ale "
+"iba náklady."
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
+#, kde-format
+msgid "Timing"
+msgstr "Časovanie"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/kpttaskgeneralpanelbase.ui:194
+#, kde-format
+msgid "&Schedule:"
+msgstr "Rozvrh:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Čo najskôr"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Čo najneskôr"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Nezačať skôr než"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Nesmie skončiť neskôr ako"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/kpttaskgeneralpanelbase.ui:300
+#, kde-format
+msgid "Esti&mate:"
+msgstr "Odhad:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
+#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
+#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
+#, kde-format
+msgid ""
+"Risk controls the PERT distribution used when calculating the actual "
+"estimate for this task."
+msgstr ""
+"Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu pre túto "
+"úlohu"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
+#, kde-format
+msgid ""
+"<p>Risk controls the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+"<p>Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu pre "
+"úlohu.\n"
+"<b>Žiadne</b> znamená, že sa použije Očakávaný odhad tak, ako je.\n"
+"<b>Nízke riziko</b> znamená, že sa použije normálne rozdelenie.\n"
+"<b>Vysoké riziko</b> znamená, že odhad bude mierne pesimistický v porovnaní "
+"s nízkym rizikom.</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:348
+#, kde-format
+msgid "Risk:"
+msgstr "Riziko:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
+#, kde-format
+msgid ""
+"<p>Risk controles the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+"<p>Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu pre "
+"úlohu.\n"
+"<b>Žiadne</b> znamená, že sa použije Očakávaný odhad tak, ako je.\n"
+"<b>Nízke riziko</b> znamená, že sa použije normálne rozdelenie.\n"
+"<b>Vysoké riziko</b> znamená, že odhad bude mierne pesimistický v porovnaní "
+"s nízkym rizikom.</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kpttaskgeneralpanelbase.ui:404
+#, kde-format
+msgid "Optimisti&c:"
+msgstr "Optimi&stický:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/kpttaskgeneralpanelbase.ui:433
+#, kde-format
+msgid "&Pessimistic:"
+msgstr "&Pesimistický:"
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -6409,6 +7511,74 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "Týždeň %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
+#: ui/RelationEditorDialog.ui:58
+#, kde-format
+msgid "Task:"
+msgstr "Úloha:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: ui/kpttaskprogresspanelbase.ui:45
+#, kde-format
+msgid "Started:"
+msgstr "Spustený:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kpttaskprogresspanelbase.ui:62
+#, kde-format
+msgid "Finished:"
+msgstr "Dokončené:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskprogresspanelbase.ui:117
+#, kde-format
+msgid "Edit mode:"
+msgstr "Režim úprav:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:125
+#, kde-format
+msgid "Per resource"
+msgstr "Za zdroj"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:130
+#, kde-format
+msgid "Per task"
+msgstr "Za úlohu"
+
+#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:177
+#, kde-format
+msgid "Prev"
+msgstr "Predošlý"
+
+#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "Ďalší"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kpttaskprogresspanelbase.ui:230
+#, kde-format
+msgid "Add resource:"
+msgstr "Pridať zdroj:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:278
+#, kde-format
+msgid "Add Entry"
+msgstr "Pridať záznam"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:289
+#, kde-format
+msgid "Remove Entry"
+msgstr "Odstrániť záznam"
+
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6437,6 +7607,30 @@ msgstr ""
 msgid "General Settings"
 msgstr "Všeobecné nastavenia"
 
+#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
+#: ui/kpttaskstatusviewsettingspanel.ui:16
+#, kde-format
+msgid "Period Definition"
+msgstr "Definícia obdobia"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskstatusviewsettingspanel.ui:25
+#, kde-format
+msgid "Period length (days):"
+msgstr "Dĺžka obdobia (dni):"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
+#: ui/kpttaskstatusviewsettingspanel.ui:48
+#, kde-format
+msgid "Use current date"
+msgstr "Aktuálny dátum"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
+#: ui/kpttaskstatusviewsettingspanel.ui:68
+#, kde-format
+msgid "Use weekday:"
+msgstr "Použiť deň v týždni:"
+
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -6451,12 +7645,6 @@ msgstr "Tento týždeň"
 #, kde-format
 msgid "Total effort this week"
 msgstr "Celkové úsilie tento týždeň"
-
-#: ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "Dátum"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -6598,6 +7786,77 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "Zmeniť definíciu WBS kódu"
 
+#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
+#: ui/kptwbsdefinitionpanelbase.ui:21
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define WBS code for the project"
+msgstr "Definovať WBS kód pre projekt"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptwbsdefinitionpanelbase.ui:33
+#, kde-format
+msgid "Project Code Definition"
+msgstr "Definícia kódu projektu"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
+#, kde-format
+msgid "Code:"
+msgstr "Kód:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
+#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
+#, kde-format
+msgid "Separator:"
+msgstr "Oddeľovač:"
+
+#. i18n: ectx: property (toolTip), widget (QFrame, frame)
+#: ui/kptwbsdefinitionpanelbase.ui:86
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define default WBS code"
+msgstr "Definovať predvolený WBS kód"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptwbsdefinitionpanelbase.ui:98
+#, kde-format
+msgid "Default Definition"
+msgstr "Predvolená definícia"
+
+#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:148
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define separate WBS codes for individual levels"
+msgstr "Definovať oddelené WBS kódy pre jednotlivé úrovne"
+
+#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:151
+#, kde-format
+msgid "Use Levels Definition"
+msgstr "Použiť definíciu úrovní"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:167
+#, kde-format
+msgid "Code"
+msgstr "Kód"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:172
+#, kde-format
+msgid "Separator"
+msgstr "Oddeľovač"
+
+#. i18n: ectx: property (text), widget (QPushButton, addBtn)
+#: ui/kptwbsdefinitionpanelbase.ui:187
+#, kde-format
+msgid "Add Level"
+msgstr "Pridať úroveň"
+
 #: ui/kptworkpackagemergedialog.cpp:66
 #, kde-kuit-format
 msgctxt "@title"
@@ -6655,11 +7914,6 @@ msgstr "Odmietnuť"
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr ""
-
-#: ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "Ďalší"
 
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
@@ -6719,11 +7973,6 @@ msgstr "Nová hodnota: %1<nl/>Aktuálna hodnota: %2"
 msgid "No documents"
 msgstr "Žiadne dokumenty"
 
-#: ui/kptworkpackagemergedialog.cpp:241
-#, kde-format
-msgid "Documents"
-msgstr "Dokumenty"
-
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
@@ -6732,6 +7981,39 @@ msgid ""
 msgstr ""
 "Vlastík balíka '%1' nie je prostriedok v tomto projekte. Musíte to spracovať "
 "ručne."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptworkpackagemergepanel.ui:70
+#, kde-format
+msgid "Generated:"
+msgstr "Vygenerované:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptworkpackagemergepanel.ui:77
+#, kde-format
+msgid "From:"
+msgstr "Od:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
+#: ui/kptworkpackagemergepanel.ui:96
+#, kde-format
+msgid "<package time>"
+msgstr "<package time>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
+#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
+#: ui/kptworkpackagemergepanel.ui:198
+#, kde-format
+msgid "Update"
+msgstr "Aktualizovať"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptworkpackagemergepanel.ui:245
+#, kde-format
+msgid "No more data. Press Close to finish."
+msgstr "Žiadne ďalšie údaje. Skončite stlačením tlačidla Zavrieť."
 
 #: ui/kptworkpackagesenddialog.cpp:34
 #, kde-kuit-format
@@ -6745,7 +8027,8 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "Zdroj"
 
-#: ui/locale/localemon.cpp:52
+#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
+#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
 #, kde-format
 msgid "Currency symbol:"
 msgstr "Symbol meny:"
@@ -6759,6 +8042,12 @@ msgstr "Desatinné číslice:"
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr "Sem môžete zadať váš zvyčajný symbol meny, napr. $ alebo €."
+
+#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
+#: ui/locale/localemon.ui:32
+#, kde-format
+msgid "Fractional digits:"
+msgstr "Zlomkové číslice:"
 
 #: ui/performance/PerformanceStatusBase.cpp:535
 #: ui/performance/PerformanceStatusBase.cpp:538
@@ -6793,6 +8082,98 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "Nastavenie grafu"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
+#, kde-format
+msgid "Chart type"
+msgstr "Typ grafu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
+#, kde-format
+msgid "Line chart"
+msgstr "Čiarový graf"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
+#, kde-format
+msgid "Bar chart"
+msgstr "Stĺpcový graf"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
+#, kde-format
+msgid "Table"
+msgstr "Tabuľka"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
+#, kde-format
+msgid "Base values"
+msgstr "Základné hodnoty"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
+#, kde-format
+msgid "Indices"
+msgstr "Indexy"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
+#: ui/resourcedialogbase.ui:414
+#, kde-format
+msgid "Cost"
+msgstr "Náklady"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
+#, kde-format
+msgid "Show BCWS plot"
+msgstr "Ukázať zakreslenie BCWS"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
+#, kde-format
+msgid "Show BCWP plot"
+msgstr "Ukázať zakreslenie BCWP"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
+#, kde-format
+msgid "Show ACWP plot"
+msgstr "Ukázať zakreslenie ACWP"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
+#, kde-format
+msgid "SPI Cost"
+msgstr "SPI náklady"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
+#, kde-format
+msgid "SPI Effort"
+msgstr "SPI úšilie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
+#, kde-format
+msgid "CPI Effort"
+msgstr "CPI úsilie"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
+#, kde-format
+msgid "CPI Cost"
+msgstr "CPI náklady"
+
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6810,11 +8191,6 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr "ID"
-
-#: ui/projectview/ProjectView.cpp:55
-#, kde-format
-msgid "File"
-msgstr "Súbor"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, kde-format
@@ -6855,10 +8231,31 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Zmeniť závislosť"
 
-#: ui/reports/reportdata.cpp:383
+#. i18n: ectx: property (text), widget (QToolButton, addBtn)
+#: ui/RelationEditorDialog.ui:131
 #, kde-format
-msgid "Tasks"
-msgstr "Úlohy"
+msgctxt "Insert task dependency"
+msgid "Insert"
+msgstr "Vložiť"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
+#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
+#, kde-format
+msgid "From"
+msgstr "Od"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/relationpanel.ui:63
+#, kde-format
+msgid "To"
+msgstr "Do"
+
+#. i18n: ectx: property (title), widget (QGroupBox, relationType)
+#: ui/relationpanel.ui:87
+#, kde-format
+msgid "Dependency Type"
+msgstr "Typ závislosti"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -6884,6 +8281,191 @@ msgstr "Pomer výkonu"
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Rozdelenie nákladov"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
+#, kde-format
+msgid "Page"
+msgstr "Stránka"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
+#: ui/reports/reportnavigator.ui:42
+#, kde-format
+msgid "Go to first page"
+msgstr "Prejsť na prvú stranu"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
+#: ui/reports/reportnavigator.ui:64
+#, kde-format
+msgid "Go to previous page"
+msgstr "Prejsť na predošlú stranu"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
+#: ui/reports/reportnavigator.ui:77
+#, kde-format
+msgid "Show page"
+msgstr "Zobraziť stránku"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/reports/reportnavigator.ui:99
+#, kde-format
+msgid "of"
+msgstr "z"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
+#: ui/reports/reportnavigator.ui:149
+#, kde-format
+msgid "Go to next page"
+msgstr "Prejsť na nasledujúcu stránku"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
+#: ui/reports/reportnavigator.ui:171
+#, kde-format
+msgid "Go to last page"
+msgstr "Prejsť na poslednú stránku"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:28
+#, kde-format
+msgid "Enable report header"
+msgstr "Povoliť hlavičku správy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:31
+#, kde-format
+msgid "Report Header"
+msgstr "Hlavička správy"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:38
+#, kde-format
+msgid "Enable report footer"
+msgstr "Povoliť pätičku správy"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:41
+#, kde-format
+msgid "Report Footer"
+msgstr "Pätička správy"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/reports/reportsectionswidget.ui:50
+#, kde-format
+msgid "Page Header"
+msgstr "Hlavička stránky"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
+#: ui/reports/reportsectionswidget.ui:62
+#, kde-format
+msgid "Enable header on first page"
+msgstr "Povoliť hlavičku na prvej strane"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
+#, kde-format
+msgid "First page"
+msgstr "Prvá strana"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
+#: ui/reports/reportsectionswidget.ui:72
+#, kde-format
+msgid "Enable header on last page"
+msgstr "Povoliť hlavičku na poslednej strane"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
+#, kde-format
+msgid "Last page"
+msgstr "Posledná strana"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
+#: ui/reports/reportsectionswidget.ui:82
+#, kde-format
+msgid "Enable header on odd pages"
+msgstr "Povoliť hlavičku na nepárnych stranách"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
+#, kde-format
+msgid "Odd pages"
+msgstr "Nepárne stránky"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
+#: ui/reports/reportsectionswidget.ui:92
+#, kde-format
+msgid "Enable header on even pages"
+msgstr "Povoliť hlavičku na párnych stranách"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
+#, kde-format
+msgid "Even pages"
+msgstr "Párne stránky"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
+#: ui/reports/reportsectionswidget.ui:102
+#, kde-format
+msgid "Enable header on all pages"
+msgstr "Povoliť hlavičku na všetkých stranách"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:105
+#: ui/reports/reportsectionswidget.ui:170
+#, kde-format
+msgid "All pages"
+msgstr "Všetky stránky"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/reports/reportsectionswidget.ui:115
+#, kde-format
+msgid "Page Footer"
+msgstr "Pätička stránky"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:127
+#, kde-format
+msgid "Enable footer on first page"
+msgstr "Povoliť pätičku na prvej strane"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:137
+#, kde-format
+msgid "Enable footer on odd pages"
+msgstr "Povoliť pätičku na nepárnych stranách"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:147
+#, kde-format
+msgid "Enable footer on even pages"
+msgstr "Povoliť pätičku na párnych stranách"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:157
+#, kde-format
+msgid "Enable footer on last page"
+msgstr "Povoliť pätičku na poslednej strane"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:167
+#, kde-format
+msgid "Enable footer on all pages"
+msgstr "Povoliť pätičku na všetkých stranách"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -7081,11 +8663,6 @@ msgstr "Nič"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
-msgid "Add"
-msgstr "Pridať"
-
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, kde-format
 msgid "Report File"
 msgstr "Súbor správy"
 
@@ -7214,11 +8791,140 @@ msgstr "Vygenerovaný súbor reportu:<nl/><filename>%1</filename>"
 msgid "Allocate"
 msgstr "Alokácia"
 
+#. i18n: ectx: property (text), widget (QLabel, groupLabel)
+#: ui/resourcedialogbase.ui:23
+#, kde-format
+msgid "Group:"
+msgstr "Skupina:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
+#: ui/resourcedialogbase.ui:67
+#, kde-format
+msgid "Choose resource from address book"
+msgstr "Vybrať zdroj z adresára"
+
+#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
+#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
+#, kde-format
+msgid "Initials:"
+msgstr "Iniciály:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
+#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
+#, kde-format
+msgid "Email:"
+msgstr "E-mail:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: ui/resourcedialogbase.ui:161
+#, kde-format
+msgid "Resource type:"
+msgstr "Typ zdroja:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
+#: ui/resourcedialogbase.ui:185
+#, kde-format
+msgid "Team"
+msgstr "Tím"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
+#: ui/resourcedialogbase.ui:220
+#, kde-format
+msgid "Available:"
+msgstr "Dostupné:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
+#: ui/resourcedialogbase.ui:255
+#, kde-format
+msgid "Calendar:"
+msgstr "Kalendár:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
+#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
+#, kde-format
+msgid "Unlimited"
+msgstr "Bez obmedzenia"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
+#: ui/resourcedialogbase.ui:317
+#, kde-format
+msgid "Until"
+msgstr "Do"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
+#: ui/resourcedialogbase.ui:389
+#, kde-format
+msgid "Required resources:"
+msgstr "Potrebné zdroje:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/resourcedialogbase.ui:420
+#, kde-format
+msgid "Hourly rate:"
+msgstr "Hodinová frekvencia:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: ui/resourcedialogbase.ui:443
+#, kde-format
+msgid "Overtime rate:"
+msgstr "Cezčasová frekvencia:"
+
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, kde-kuit-format
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "Otvoriť odkaz"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
+#: ui/standardworktimedialogbase.ui:16
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Tieto hodnoty sa použijú, ak váš odhad nie je v hodinách.\n"
+"Povedzme že Hodín za deň je 8. Ak odhadnete, že úloha potrebuje 3 dni úsilia "
+"na ukončenie, toto sa skonvertuje na 24 hodín pri plánovaní úlohy. Aktuálny "
+"čas potrebný na ukončenie je samozrejme závislý na dostupnosti osoby (alebo "
+"osôb), ktoré sú priradené na túto úlohu."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/standardworktimedialogbase.ui:25
+#, kde-format
+msgid "Hours per year:"
+msgstr "Hodín za rok:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/standardworktimedialogbase.ui:54
+#, kde-format
+msgid "Hours per month:"
+msgstr "Hodín za mesiac:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: ui/standardworktimedialogbase.ui:86
+#, kde-format
+msgid "Hours per week:"
+msgstr "Hodín za týždeň:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:115
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Tieto hodnoty sa použijú keď odhadujete úsilie potrebné na ukončenie úlohy."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:118
+#, kde-format
+msgid "Hours per day:"
+msgstr "Hodín za deň:"
 
 #: ui/TasksEditDialog.cpp:46
 #, kde-format
@@ -7234,6 +8940,42 @@ msgstr "Upraviť úlohy"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "Upraviť úlohy"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/TasksGeneralPanel.ui:25
+#, kde-format
+msgid "Responsib&le:"
+msgstr "Zodpovedný:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/TasksGeneralPanel.ui:146
+#, kde-format
+msgid "Sched&ule:"
+msgstr "&Plánovanie:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/TasksGeneralPanel.ui:252
+#, kde-format
+msgid "Es&timate:"
+msgstr "Odhad:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/TasksGeneralPanel.ui:300
+#, kde-format
+msgid "Ris&k:"
+msgstr "Riziko:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/TasksGeneralPanel.ui:356
+#, kde-format
+msgid "Optimistic:"
+msgstr "Optimistický:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/TasksGeneralPanel.ui:385
+#, kde-format
+msgid "Pessimistic:"
+msgstr "Pesimistický:"
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -7285,6 +9027,158 @@ msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr "Zamknúť docker"
 
+#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
+#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
+#: widgets/KoDocumentInfoDlg.cpp:351
+#, kde-format
+msgid "&Encrypt"
+msgstr "Ši&frovať"
+
+#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:64
+#, kde-format
+msgid "Keywords:"
+msgstr "Kľúčové slová:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:111
+#, kde-format
+msgid "Subject:"
+msgstr "Predmet:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:124
+#, kde-format
+msgid "Last printed:"
+msgstr "Naposledy tlačené:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:141
+#, kde-format
+msgid "Type:"
+msgstr "Typ:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:158
+#, kde-format
+msgid "Total editing time:"
+msgstr "Celkový čas editovania:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:178
+#, kde-format
+msgid "Encryption:"
+msgstr "Šifrovanie:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:188
+#, kde-format
+msgctxt "Document title"
+msgid "Title:"
+msgstr "Názov:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:201
+#, kde-format
+msgid "Revision number:"
+msgstr "Číslo revízie:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:211
+#, kde-format
+msgid "Modified:"
+msgstr "Zmenené:"
+
+#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:231
+#, kde-format
+msgid "Comments:"
+msgstr "Komentáre:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:251
+#, kde-format
+msgid "Created:"
+msgstr "Vytvorené:"
+
+#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
+#: widgets/koDocumentInfoAboutWidget.ui:261
+#, kde-format
+msgid "Path:"
+msgstr "Cesta:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbReset)
+#: widgets/koDocumentInfoAboutWidget.ui:280
+#, kde-format
+msgid "&Reset"
+msgstr "&Obnoviť"
+
+#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:297
+#, kde-format
+msgid "Language:"
+msgstr "Jazyk:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:60
+#, kde-format
+msgid "Title:"
+msgstr "Názov:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:77
+#, kde-format
+msgid "Position:"
+msgstr "Umiestnenie:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:94
+#, kde-format
+msgid "Company:"
+msgstr "Firma:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
+#: widgets/koDocumentInfoAuthorWidget.ui:114
+#, kde-format
+msgid "Telephone (home):"
+msgstr "Telefón (domov):"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
+#: widgets/koDocumentInfoAuthorWidget.ui:124
+#, kde-format
+msgid "Telephone (work):"
+msgstr "Telefón (práca):"
+
+#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:134
+#, kde-format
+msgid "Fax:"
+msgstr "Fax:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:144
+#, kde-format
+msgid "Street:"
+msgstr "Ulica:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:154
+#, kde-format
+msgid "Postal code:"
+msgstr "PSČ:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:164
+#, kde-format
+msgid "City:"
+msgstr "Mesto:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:174
+#, kde-format
+msgid "Country:"
+msgstr "Krajina:"
+
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
 msgid "Author"
@@ -7334,11 +9228,6 @@ msgstr "Nešifrovať"
 #, kde-format
 msgid "This document is not encrypted"
 msgstr "Tento dokument nie je šifrovaný"
-
-#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
-#, kde-format
-msgid "&Encrypt"
-msgstr "Ši&frovať"
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, kde-format
@@ -7434,11 +9323,6 @@ msgstr ""
 msgid "Page Layout"
 msgstr "Rozloženie stránky"
 
-#: widgets/KoPageLayoutDialog.cpp:51
-#, kde-format
-msgid "Page"
-msgstr "Stránka"
-
 #: widgets/KoPageLayoutDialog.cpp:109
 #, kde-format
 msgid "Apply to document"
@@ -7469,7 +9353,8 @@ msgstr "Okraj strany:"
 msgid "Facing Pages:"
 msgstr "Protiľahlé stránky:"
 
-#: widgets/KoPageLayoutWidget.cpp:291
+#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
+#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
 #, kde-format
 msgid "Facing pages"
 msgstr "Protiľahlé stránky"
@@ -7483,6 +9368,120 @@ msgstr "Rozloženie stránky:"
 #, kde-format
 msgid "Page spread"
 msgstr "Rozptyl strany"
+
+#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
+#: widgets/KoPageLayoutWidget.ui:25
+#, kde-format
+msgid "Unit:"
+msgstr "Jednotka:"
+
+#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
+#: widgets/KoPageLayoutWidget.ui:45
+#, kde-format
+msgid "Follow style:"
+msgstr "Sledovať štýl:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/KoPageLayoutWidget.ui:61
+#, kde-format
+msgid "Size:"
+msgstr "Veľkosť:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/KoPageLayoutWidget.ui:77
+#, kde-format
+msgid "Width:"
+msgstr "Šírka:"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:104
+#, kde-format
+msgid "Height:"
+msgstr "Výška:"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:119
+#, kde-format
+msgid "Orientation:"
+msgstr "Orientácia:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, portrait)
+#: widgets/KoPageLayoutWidget.ui:129
+#, kde-format
+msgid "Portrait"
+msgstr "Portrét"
+
+#. i18n: ectx: property (text), widget (QRadioButton, landscape)
+#: widgets/KoPageLayoutWidget.ui:136
+#, kde-format
+msgid "Landscape"
+msgstr "Krajinka"
+
+#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
+#: widgets/KoPageLayoutWidget.ui:143
+#, kde-format
+msgid "Facing pages:"
+msgstr "Protiľahlé stránky:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
+#: widgets/KoPageLayoutWidget.ui:153
+#, kde-format
+msgid "Single sided"
+msgstr "Jednostranne"
+
+#. i18n: ectx: property (text), widget (QLabel, directionLabel)
+#: widgets/KoPageLayoutWidget.ui:167
+#, kde-format
+msgid "Text direction:"
+msgstr "Smer textu:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:184
+#, kde-format
+msgid "Automatic"
+msgstr "Automatické"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:189
+#, kde-format
+msgid "Left to right"
+msgstr "Zľava doprava"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:194
+#, kde-format
+msgid "Right to left"
+msgstr "Sprava doľava"
+
+#. i18n: ectx: property (title), widget (QGroupBox, margins)
+#: widgets/KoPageLayoutWidget.ui:204
+#, kde-format
+msgid "Margins"
+msgstr "Okraje"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:210
+#, kde-format
+msgid "Top:"
+msgstr "Hore:"
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: widgets/KoPageLayoutWidget.ui:230
+#, kde-format
+msgid "Binding edge:"
+msgstr "Zviazaný okraj:"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: widgets/KoPageLayoutWidget.ui:250
+#, kde-format
+msgid "Page edge:"
+msgstr "Okraj strany:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: widgets/KoPageLayoutWidget.ui:270
+#, kde-format
+msgid "Bottom:"
+msgstr "Dole:"
 
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
@@ -7500,987 +9499,6 @@ msgstr "Náhrada"
 #, kde-format
 msgid "All supported formats"
 msgstr "Všetky podporované formáty"
-
-#~ msgid "Show:"
-#~ msgstr "Zobraziť:"
-
-#~ msgid "Periodicity:"
-#~ msgstr "Periodicita:"
-
-#~ msgid "Day"
-#~ msgstr "Deň"
-
-#~ msgid "Week"
-#~ msgstr "Týždeň"
-
-#~ msgid "Month"
-#~ msgstr "Mesiac"
-
-#~ msgid "Cumulative"
-#~ msgstr "Kumulatívny"
-
-#~ msgid "Actual cost"
-#~ msgstr "Aktuálne náklady"
-
-#~ msgid "Planned cost"
-#~ msgstr "Plánované náklady"
-
-#~ msgid "Actual and planned"
-#~ msgstr "Aktuálne a plánované"
-
-#~ msgid "Deviation"
-#~ msgstr "Odchýlka"
-
-#~ msgid "Start date"
-#~ msgstr "Počiatočný dátum"
-
-#~ msgid "Project start"
-#~ msgstr "Začiatok projektu"
-
-#~ msgid "End date"
-#~ msgstr "Koncový dátum"
-
-#~ msgid "Current date"
-#~ msgstr "Aktuálny dátum"
-
-#~ msgid "Project end"
-#~ msgstr "Koniec projektu"
-
-#~ msgid "Project Schedule:"
-#~ msgstr "Rozvrh projektu:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Probability of finishing before"
-#~ msgstr "Pravdepodobnosť skončenia skôr"
-
-#~ msgid "is"
-#~ msgstr "je"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Name:"
-#~ msgstr "Názov:"
-
-#~ msgid "Add..."
-#~ msgstr "Pridať..."
-
-#~ msgid "Ctrl+I"
-#~ msgstr "Ctrl+I"
-
-#~ msgid "Change..."
-#~ msgstr "Zmeniť..."
-
-#~ msgid "Ctrl+M"
-#~ msgstr "Ctrl+M"
-
-#~ msgid "Remove"
-#~ msgstr "Odstrániť"
-
-#~ msgid "Del"
-#~ msgstr "Del"
-
-#~ msgid "Open"
-#~ msgstr "Otvoriť"
-
-#~ msgid "Ctrl+O"
-#~ msgstr "Ctrl+O"
-
-#~ msgid "Timeline"
-#~ msgstr "Časová os"
-
-#~ msgid "Do not show the timeline"
-#~ msgstr "Nezobrazovať časovú os"
-
-#~ msgid "Hide"
-#~ msgstr "Skryť"
-
-#~ msgid "Show timeline in the foreground"
-#~ msgstr "Zobrazovať časovú os v popredí"
-
-#~ msgid "Foreground"
-#~ msgstr "Popredie"
-
-#~ msgid "Show timeline in the background"
-#~ msgstr "Zobrazovať časovú os v pozadí"
-
-#~ msgid "Background"
-#~ msgstr "Pozadie"
-
-#~ msgid "Update interval in minutes, 0 disables update"
-#~ msgstr "Interval aktualizácie v minútach, 0 zakáže aktualizácie"
-
-#~ msgid "Interval:"
-#~ msgstr "Interval:"
-
-#~ msgid "Line width"
-#~ msgstr "Šírka čiary"
-
-#~ msgid "Stroke:"
-#~ msgstr "Ťah:"
-
-#~ msgid "Line color"
-#~ msgstr "Farba čiary"
-
-#~ msgid "Color:"
-#~ msgstr "Farba:"
-
-#~ msgid "Additional text information"
-#~ msgstr "Ďalšie textové informácie"
-
-#~ msgid "Task name"
-#~ msgstr "Meno úlohy"
-
-#~ msgid "Resource names"
-#~ msgstr "Názvy zdrojov"
-
-#~ msgid "Additional graphics information"
-#~ msgstr "Ďalšie grafické informácie"
-
-#~ msgid "Task dependencies"
-#~ msgstr "Závislosti úlohy"
-
-#~ msgid "Task completion"
-#~ msgstr "Ukončenie úlohy"
-
-#~ msgid "Time constraints"
-#~ msgstr "Časové obmedzenia"
-
-#~ msgid "Positive float"
-#~ msgstr "Kladné reálne číslo"
-
-#~ msgid "Negative float"
-#~ msgstr "Záporné reálne číslo"
-
-#~ msgid "Critical path"
-#~ msgstr "Kritická cesta"
-
-#~ msgid "Critical tasks"
-#~ msgstr "Kritické úlohy"
-
-#~ msgid "Scheduling errors"
-#~ msgstr "Chyby plánovania"
-
-#~ msgctxt "@title:group"
-#~ msgid "Headers"
-#~ msgstr "Hlavičky"
-
-#, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Modify task name"
-#~ msgctxt "@option:check"
-#~ msgid "Print task names"
-#~ msgstr "Zmeniť názov úlohy"
-
-#, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Modify task name"
-#~ msgctxt "@option:check"
-#~ msgid "Print time scale"
-#~ msgstr "Zmeniť názov úlohy"
-
-#~ msgctxt "@title:group"
-#~ msgid "Scaling"
-#~ msgstr "Škálovanie"
-
-#, fuzzy
-#~| msgid "Divide chart on multiple pages"
-#~ msgctxt "@option:radio"
-#~ msgid "Divide chart on multiple pages"
-#~ msgstr "Rozdeliť graf na viac strán"
-
-#, fuzzy
-#~| msgid "Print chart on a single page"
-#~ msgctxt "@option:radio"
-#~ msgid "Fit chart to page height"
-#~ msgstr "Vytlačiť graf na jednu stranu"
-
-#, fuzzy
-#~| msgid "Print chart on a single page"
-#~ msgctxt "@option:radio"
-#~ msgid "Fit chart to a single page"
-#~ msgstr "Vytlačiť graf na jednu stranu"
-
-#~ msgctxt "@title:group"
-#~ msgid "Range"
-#~ msgstr "Rozsah"
-
-#, fuzzy
-#~| msgid "Can start"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart start:"
-#~ msgstr "Môže sa spustiť"
-
-#~ msgctxt "@option:radio"
-#~ msgid "Start:"
-#~ msgstr "Začiatok:"
-
-#, fuzzy
-#~| msgid "Chart type"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart end:"
-#~ msgstr "Typ grafu"
-
-#~ msgctxt "@option:radio"
-#~ msgid "End:"
-#~ msgstr "Koniec:"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgctxt "Start time"
-#~ msgid "From:"
-#~ msgstr "Od:"
-
-#~ msgid "Length"
-#~ msgstr "Dĺžka"
-
-#~ msgid "Clear"
-#~ msgstr "Vyčistiť"
-
-#~ msgid "Stretch last section"
-#~ msgstr "Roztiahnuť poslednú sekciu"
-
-#~ msgid "Select columns to be shown:"
-#~ msgstr "Vyberte stĺpce na zobrazenie:"
-
-#~ msgid "&Hidden columns:"
-#~ msgstr "Skryté stĺpce:"
-
-#~ msgid "&Visible columns:"
-#~ msgstr "Viditeľné stĺpce:"
-
-#~ msgid "WBS:"
-#~ msgstr "WBS:"
-
-#~ msgid "The project name."
-#~ msgstr "Názov projektu."
-
-#~ msgid "&Name:"
-#~ msgstr "&Názov:"
-
-#~ msgid "The project leader."
-#~ msgstr "Projektový líder."
-
-#~ msgid "&Manager:"
-#~ msgstr "Správca:"
-
-#~ msgid "Choose a project leader from your address book."
-#~ msgstr "Vyberte projektového lídra z vášho adresára."
-
-#~ msgid "&Choose..."
-#~ msgstr "&Vybrať..."
-
-#~ msgid "Scheduling Range"
-#~ msgstr "Rozsah plánovania"
-
-#~ msgid "Earliest start:"
-#~ msgstr "Najskoršie spustenie:"
-
-#~ msgid "Latest finish:"
-#~ msgstr "Najneskoršie ukončenie:"
-
-#~ msgid "&Use shared resources"
-#~ msgstr "Použiť zdieľané zdroje"
-
-#~ msgid "Resources:"
-#~ msgstr "Zdroje:"
-
-#~ msgid "Browse..."
-#~ msgstr "Prechádzať..."
-
-#~ msgid "Projects:"
-#~ msgstr "Projekty:"
-
-#~ msgid "Directory"
-#~ msgstr "Adresár"
-
-#~ msgid "Load resource assignments at startup"
-#~ msgstr "Načítať priradenia prostriedkov pri spustení"
-
-#~ msgid "Load"
-#~ msgstr "Načítať"
-
-#~ msgid "Work Package"
-#~ msgstr "Pracovný balík"
-
-#~ msgid "Publish"
-#~ msgstr "Publikovať"
-
-#~ msgid "Publish:"
-#~ msgstr "Publikovať:"
-
-#~ msgid "Retrieve"
-#~ msgstr "Získať"
-
-#~ msgid "Check for work packages"
-#~ msgstr "Skontrolovať pracovné balíky"
-
-#~ msgid "Retrieve:"
-#~ msgstr "Obnoviť:"
-
-#~ msgid "Archive"
-#~ msgstr "Archív"
-
-#~ msgid "Delete file after it has been retrieved"
-#~ msgstr "Vymazať súbor po jeho obnove"
-
-#~ msgid "Archive file after it has been retrieved"
-#~ msgstr "Archivovať súbor po jeho obnove"
-
-#~ msgid "Archive:"
-#~ msgstr "Archív:"
-
-#~ msgid "Task Modules"
-#~ msgstr "Moduly úloh"
-
-#~ msgid "Insert"
-#~ msgstr "Vložiť"
-
-#~ msgid "Use local task modules"
-#~ msgstr "Používať miestne moduly úloh"
-
-#~ msgid "Available tasks"
-#~ msgstr "Dostupné úlohy"
-
-#~ msgid "Add required task"
-#~ msgstr "Pridať potrebnú úlohu"
-
-#~ msgid "Remove required task"
-#~ msgstr "Odstrániť potrebnú úlohu"
-
-#~ msgid "Total Float:"
-#~ msgstr "Celkové plávanie:"
-
-#~ msgid "Header"
-#~ msgstr "Hlavička"
-
-#~ msgid "Project name"
-#~ msgstr "Názov projektu"
-
-#~ msgid "Page number"
-#~ msgstr "Číslo strany"
-
-#~ msgid "Project manager"
-#~ msgstr "Správca projektu"
-
-#~ msgid "Footer"
-#~ msgstr "Pätička"
-
-#~ msgid "Re-calculate from current date/time"
-#~ msgstr "Prepočítať od aktuálneho dátumu/času"
-
-#~ msgid "Re-calculate from:"
-#~ msgstr "Prepočítať od:"
-
-#~ msgid "Show internal appointments"
-#~ msgstr "Zobraziť vnútorné udalosti"
-
-#~ msgid "Show external appointments"
-#~ msgstr "Zobraziť vonkajšie udalosti"
-
-#~ msgid "Advance"
-#~ msgstr "Pokrok"
-
-#~ msgid "Scheduling range:"
-#~ msgstr "Rozsah plánovania:"
-
-#~ msgid "Work Breakdown Structure"
-#~ msgstr "Štruktúra deľby práce"
-
-#~ msgid "The name of the Task."
-#~ msgstr "Meno úlohy."
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "\n"
-#~ "This is not limited to persons available in a resource group but can be "
-#~ "anyone. You can even directly access your address book with the Choose "
-#~ "button."
-#~ msgstr ""
-#~ "Osoba zodpovedná za túto úlohu.\n"
-#~ "\n"
-#~ "Toto nastavenie nie je obmedzené iba na členov zdrojovej skupiny - "
-#~ "zodpovedná osoba môže byť hocikto. Môžete vybrať osobu z adresára pomocou "
-#~ "tlačidla Vybrať."
-
-#~ msgid "Responsible:"
-#~ msgstr "Zodpovedný:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "Vložiť osobu z vášho adresára"
-
-#~ msgid "Choose..."
-#~ msgstr "Vybrať..."
-
-#~ msgid "Priority:"
-#~ msgstr "Priorita:"
-
-#~ msgid "Account:"
-#~ msgstr "Účet:"
-
-#~ msgid "Startup"
-#~ msgstr "Spustenie"
-
-#~ msgid "Cost:"
-#~ msgstr "Náklady:"
-
-#~ msgid "Shutdown"
-#~ msgstr "Vypnutie"
-
-#~ msgid "N&ame:"
-#~ msgstr "Názov:"
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "        "
-#~ msgstr ""
-#~ "Osoba zodpovedná za túto úlohu.\n"
-#~ "       "
-
-#~ msgid "Responsi&ble:"
-#~ msgstr "Zodpovedný:"
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "Vložte osobu z vášho adresára."
-
-#~ msgid ""
-#~ "Scheduling Configuration. These settings affect the actual scheduling of "
-#~ "the task.\n"
-#~ "\n"
-#~ "The estimation can be either effort based or duration based. If it is "
-#~ "effort based, the final duration will depend on the resources assigned to "
-#~ "the task. For duration based estimation, the assigned resources do not "
-#~ "affect the fixed duration of the task, but only the costs."
-#~ msgstr ""
-#~ "Nastavenie plánovania. Tieto nastavenia ovplyvňujú aktuálne plánovanie "
-#~ "úlohy.\n"
-#~ "\n"
-#~ "Odhad môže byť buď závislý na úsilí alebo na trvaní. Ak je závislý na "
-#~ "úsilí, konečné trvanie bude závisieť na zdrojoch priradených k úlohe. Pre "
-#~ "odhad závislý na trvaní, priradené zdroje neovplyvňujú fixné trvanie "
-#~ "úlohy, ale iba náklady."
-
-#~ msgid "Timing"
-#~ msgstr "Časovanie"
-
-#~ msgid "&Schedule:"
-#~ msgstr "Rozvrh:"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "Čo najskôr"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "Čo najneskôr"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "Nezačať skôr než"
-
-#~ msgid "Finish Not Later Than"
-#~ msgstr "Nesmie skončiť neskôr ako"
-
-#~ msgid "Esti&mate:"
-#~ msgstr "Odhad:"
-
-#~ msgid ""
-#~ "Risk controls the PERT distribution used when calculating the actual "
-#~ "estimate for this task."
-#~ msgstr ""
-#~ "Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu pre "
-#~ "túto úlohu"
-
-#~ msgid ""
-#~ "<p>Risk controls the PERT distribution used when calculating the actual "
-#~ "estimate for the task.\n"
-#~ "<b>None</b> means the Expected estimate is used as is.\n"
-#~ "<b>Low risk</b> means that a normal distribution is used.\n"
-#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
-#~ "compared to Low risk.</p>"
-#~ msgstr ""
-#~ "<p>Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu "
-#~ "pre úlohu.\n"
-#~ "<b>Žiadne</b> znamená, že sa použije Očakávaný odhad tak, ako je.\n"
-#~ "<b>Nízke riziko</b> znamená, že sa použije normálne rozdelenie.\n"
-#~ "<b>Vysoké riziko</b> znamená, že odhad bude mierne pesimistický v "
-#~ "porovnaní s nízkym rizikom.</p>"
-
-#~ msgid "Risk:"
-#~ msgstr "Riziko:"
-
-#~ msgid ""
-#~ "<p>Risk controles the PERT distribution used when calculating the actual "
-#~ "estimate for the task.\n"
-#~ "<b>None</b> means the Expected estimate is used as is.\n"
-#~ "<b>Low risk</b> means that a normal distribution is used.\n"
-#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
-#~ "compared to Low risk.</p>"
-#~ msgstr ""
-#~ "<p>Riziko ovláda PERT rozdelenie použité pri výpočte aktuálneho odhadu "
-#~ "pre úlohu.\n"
-#~ "<b>Žiadne</b> znamená, že sa použije Očakávaný odhad tak, ako je.\n"
-#~ "<b>Nízke riziko</b> znamená, že sa použije normálne rozdelenie.\n"
-#~ "<b>Vysoké riziko</b> znamená, že odhad bude mierne pesimistický v "
-#~ "porovnaní s nízkym rizikom.</p>"
-
-#~ msgid "Optimisti&c:"
-#~ msgstr "Optimi&stický:"
-
-#~ msgid "&Pessimistic:"
-#~ msgstr "&Pesimistický:"
-
-#~ msgid "Task:"
-#~ msgstr "Úloha:"
-
-#~ msgid "Started:"
-#~ msgstr "Spustený:"
-
-#~ msgid "Finished:"
-#~ msgstr "Dokončené:"
-
-#~ msgid "Edit mode:"
-#~ msgstr "Režim úprav:"
-
-#~ msgid "Per resource"
-#~ msgstr "Za zdroj"
-
-#~ msgid "Per task"
-#~ msgstr "Za úlohu"
-
-#~ msgid "Prev"
-#~ msgstr "Predošlý"
-
-#~ msgid "Add resource:"
-#~ msgstr "Pridať zdroj:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Pridať záznam"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Odstrániť záznam"
-
-#~ msgid "Period Definition"
-#~ msgstr "Definícia obdobia"
-
-#~ msgid "Period length (days):"
-#~ msgstr "Dĺžka obdobia (dni):"
-
-#~ msgid "Use current date"
-#~ msgstr "Aktuálny dátum"
-
-#~ msgid "Use weekday:"
-#~ msgstr "Použiť deň v týždni:"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define WBS code for the project"
-#~ msgstr "Definovať WBS kód pre projekt"
-
-#~ msgid "Project Code Definition"
-#~ msgstr "Definícia kódu projektu"
-
-#~ msgid "Code:"
-#~ msgstr "Kód:"
-
-#~ msgid "Separator:"
-#~ msgstr "Oddeľovač:"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define default WBS code"
-#~ msgstr "Definovať predvolený WBS kód"
-
-#~ msgid "Default Definition"
-#~ msgstr "Predvolená definícia"
-
-#~ msgctxt "@info:tooltip Work Breakdown Structure code"
-#~ msgid "Define separate WBS codes for individual levels"
-#~ msgstr "Definovať oddelené WBS kódy pre jednotlivé úrovne"
-
-#~ msgid "Use Levels Definition"
-#~ msgstr "Použiť definíciu úrovní"
-
-#~ msgid "Code"
-#~ msgstr "Kód"
-
-#~ msgid "Separator"
-#~ msgstr "Oddeľovač"
-
-#~ msgid "Add Level"
-#~ msgstr "Pridať úroveň"
-
-#~ msgid "Generated:"
-#~ msgstr "Vygenerované:"
-
-#~ msgid "From:"
-#~ msgstr "Od:"
-
-#~ msgid "<package time>"
-#~ msgstr "<package time>"
-
-#~ msgid "Update"
-#~ msgstr "Aktualizovať"
-
-#~ msgid "No more data. Press Close to finish."
-#~ msgstr "Žiadne ďalšie údaje. Skončite stlačením tlačidla Zavrieť."
-
-#~ msgid "Fractional digits:"
-#~ msgstr "Zlomkové číslice:"
-
-#~ msgid "Chart type"
-#~ msgstr "Typ grafu"
-
-#~ msgid "Line chart"
-#~ msgstr "Čiarový graf"
-
-#~ msgid "Bar chart"
-#~ msgstr "Stĺpcový graf"
-
-#~ msgid "Table"
-#~ msgstr "Tabuľka"
-
-#~ msgid "Base values"
-#~ msgstr "Základné hodnoty"
-
-#~ msgid "Indices"
-#~ msgstr "Indexy"
-
-#~ msgid "Cost"
-#~ msgstr "Náklady"
-
-#~ msgid "Show BCWS plot"
-#~ msgstr "Ukázať zakreslenie BCWS"
-
-#~ msgid "Show BCWP plot"
-#~ msgstr "Ukázať zakreslenie BCWP"
-
-#~ msgid "Show ACWP plot"
-#~ msgstr "Ukázať zakreslenie ACWP"
-
-#~ msgid "SPI Cost"
-#~ msgstr "SPI náklady"
-
-#~ msgid "SPI Effort"
-#~ msgstr "SPI úšilie"
-
-#~ msgid "CPI Effort"
-#~ msgstr "CPI úsilie"
-
-#~ msgid "CPI Cost"
-#~ msgstr "CPI náklady"
-
-#~ msgctxt "Insert task dependency"
-#~ msgid "Insert"
-#~ msgstr "Vložiť"
-
-#~ msgid "From"
-#~ msgstr "Od"
-
-#~ msgid "To"
-#~ msgstr "Do"
-
-#~ msgid "Dependency Type"
-#~ msgstr "Typ závislosti"
-
-#~ msgid "Go to first page"
-#~ msgstr "Prejsť na prvú stranu"
-
-#~ msgid "Go to previous page"
-#~ msgstr "Prejsť na predošlú stranu"
-
-#~ msgid "Show page"
-#~ msgstr "Zobraziť stránku"
-
-#~ msgid "of"
-#~ msgstr "z"
-
-#~ msgid "Go to next page"
-#~ msgstr "Prejsť na nasledujúcu stránku"
-
-#~ msgid "Go to last page"
-#~ msgstr "Prejsť na poslednú stránku"
-
-#~ msgid "Enable report header"
-#~ msgstr "Povoliť hlavičku správy"
-
-#~ msgid "Report Header"
-#~ msgstr "Hlavička správy"
-
-#~ msgid "Enable report footer"
-#~ msgstr "Povoliť pätičku správy"
-
-#~ msgid "Report Footer"
-#~ msgstr "Pätička správy"
-
-#~ msgid "Page Header"
-#~ msgstr "Hlavička stránky"
-
-#~ msgid "Enable header on first page"
-#~ msgstr "Povoliť hlavičku na prvej strane"
-
-#~ msgid "First page"
-#~ msgstr "Prvá strana"
-
-#~ msgid "Enable header on last page"
-#~ msgstr "Povoliť hlavičku na poslednej strane"
-
-#~ msgid "Last page"
-#~ msgstr "Posledná strana"
-
-#~ msgid "Enable header on odd pages"
-#~ msgstr "Povoliť hlavičku na nepárnych stranách"
-
-#~ msgid "Odd pages"
-#~ msgstr "Nepárne stránky"
-
-#~ msgid "Enable header on even pages"
-#~ msgstr "Povoliť hlavičku na párnych stranách"
-
-#~ msgid "Even pages"
-#~ msgstr "Párne stránky"
-
-#~ msgid "Enable header on all pages"
-#~ msgstr "Povoliť hlavičku na všetkých stranách"
-
-#~ msgid "All pages"
-#~ msgstr "Všetky stránky"
-
-#~ msgid "Page Footer"
-#~ msgstr "Pätička stránky"
-
-#~ msgid "Enable footer on first page"
-#~ msgstr "Povoliť pätičku na prvej strane"
-
-#~ msgid "Enable footer on odd pages"
-#~ msgstr "Povoliť pätičku na nepárnych stranách"
-
-#~ msgid "Enable footer on even pages"
-#~ msgstr "Povoliť pätičku na párnych stranách"
-
-#~ msgid "Enable footer on last page"
-#~ msgstr "Povoliť pätičku na poslednej strane"
-
-#~ msgid "Enable footer on all pages"
-#~ msgstr "Povoliť pätičku na všetkých stranách"
-
-#~ msgid "Group:"
-#~ msgstr "Skupina:"
-
-#~ msgid "Choose resource from address book"
-#~ msgstr "Vybrať zdroj z adresára"
-
-#~ msgid "Initials:"
-#~ msgstr "Iniciály:"
-
-#~ msgid "Email:"
-#~ msgstr "E-mail:"
-
-#~ msgid "Resource type:"
-#~ msgstr "Typ zdroja:"
-
-#~ msgid "Team"
-#~ msgstr "Tím"
-
-#~ msgid "Available:"
-#~ msgstr "Dostupné:"
-
-#~ msgid "Calendar:"
-#~ msgstr "Kalendár:"
-
-#~ msgid "Unlimited"
-#~ msgstr "Bez obmedzenia"
-
-#~ msgid "Until"
-#~ msgstr "Do"
-
-#~ msgid "Required resources:"
-#~ msgstr "Potrebné zdroje:"
-
-#~ msgid "Hourly rate:"
-#~ msgstr "Hodinová frekvencia:"
-
-#~ msgid "Overtime rate:"
-#~ msgstr "Cezčasová frekvencia:"
-
-#~ msgid ""
-#~ "These values are used if your estimate is not in hours.\n"
-#~ "Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-#~ "effort to complete, this is converted to 24 hours when the task is "
-#~ "scheduled. The actual time it will take to complete is of course "
-#~ "dependent on the availability of the person (or persons) that is assigned "
-#~ "to the task."
-#~ msgstr ""
-#~ "Tieto hodnoty sa použijú, ak váš odhad nie je v hodinách.\n"
-#~ "Povedzme že Hodín za deň je 8. Ak odhadnete, že úloha potrebuje 3 dni "
-#~ "úsilia na ukončenie, toto sa skonvertuje na 24 hodín pri plánovaní úlohy. "
-#~ "Aktuálny čas potrebný na ukončenie je samozrejme závislý na dostupnosti "
-#~ "osoby (alebo osôb), ktoré sú priradené na túto úlohu."
-
-#~ msgid "Hours per year:"
-#~ msgstr "Hodín za rok:"
-
-#~ msgid "Hours per month:"
-#~ msgstr "Hodín za mesiac:"
-
-#~ msgid "Hours per week:"
-#~ msgstr "Hodín za týždeň:"
-
-#~ msgid ""
-#~ "These values are used when you estimate the effort needed to complete a "
-#~ "task."
-#~ msgstr ""
-#~ "Tieto hodnoty sa použijú keď odhadujete úsilie potrebné na ukončenie "
-#~ "úlohy."
-
-#~ msgid "Hours per day:"
-#~ msgstr "Hodín za deň:"
-
-#~ msgid "Responsib&le:"
-#~ msgstr "Zodpovedný:"
-
-#~ msgid "Sched&ule:"
-#~ msgstr "&Plánovanie:"
-
-#~ msgid "Es&timate:"
-#~ msgstr "Odhad:"
-
-#~ msgid "Ris&k:"
-#~ msgstr "Riziko:"
-
-#~ msgid "Optimistic:"
-#~ msgstr "Optimistický:"
-
-#~ msgid "Pessimistic:"
-#~ msgstr "Pesimistický:"
-
-#~ msgid "Keywords:"
-#~ msgstr "Kľúčové slová:"
-
-#~ msgid "Subject:"
-#~ msgstr "Predmet:"
-
-#~ msgid "Last printed:"
-#~ msgstr "Naposledy tlačené:"
-
-#~ msgid "Type:"
-#~ msgstr "Typ:"
-
-#~ msgid "Total editing time:"
-#~ msgstr "Celkový čas editovania:"
-
-#~ msgid "Encryption:"
-#~ msgstr "Šifrovanie:"
-
-#~ msgctxt "Document title"
-#~ msgid "Title:"
-#~ msgstr "Názov:"
-
-#~ msgid "Revision number:"
-#~ msgstr "Číslo revízie:"
-
-#~ msgid "Modified:"
-#~ msgstr "Zmenené:"
-
-#~ msgid "Comments:"
-#~ msgstr "Komentáre:"
-
-#~ msgid "Created:"
-#~ msgstr "Vytvorené:"
-
-#~ msgid "Path:"
-#~ msgstr "Cesta:"
-
-#~ msgid "&Reset"
-#~ msgstr "&Obnoviť"
-
-#~ msgid "Language:"
-#~ msgstr "Jazyk:"
-
-#~ msgid "Title:"
-#~ msgstr "Názov:"
-
-#~ msgid "Position:"
-#~ msgstr "Umiestnenie:"
-
-#~ msgid "Company:"
-#~ msgstr "Firma:"
-
-#~ msgid "Telephone (home):"
-#~ msgstr "Telefón (domov):"
-
-#~ msgid "Telephone (work):"
-#~ msgstr "Telefón (práca):"
-
-#~ msgid "Fax:"
-#~ msgstr "Fax:"
-
-#~ msgid "Street:"
-#~ msgstr "Ulica:"
-
-#~ msgid "Postal code:"
-#~ msgstr "PSČ:"
-
-#~ msgid "City:"
-#~ msgstr "Mesto:"
-
-#~ msgid "Country:"
-#~ msgstr "Krajina:"
-
-#~ msgid "Unit:"
-#~ msgstr "Jednotka:"
-
-#~ msgid "Follow style:"
-#~ msgstr "Sledovať štýl:"
-
-#~ msgid "Size:"
-#~ msgstr "Veľkosť:"
-
-#~ msgid "Width:"
-#~ msgstr "Šírka:"
-
-#~ msgid "Height:"
-#~ msgstr "Výška:"
-
-#~ msgid "Orientation:"
-#~ msgstr "Orientácia:"
-
-#~ msgid "Portrait"
-#~ msgstr "Portrét"
-
-#~ msgid "Landscape"
-#~ msgstr "Krajinka"
-
-#~ msgid "Facing pages:"
-#~ msgstr "Protiľahlé stránky:"
-
-#~ msgid "Single sided"
-#~ msgstr "Jednostranne"
-
-#~ msgid "Text direction:"
-#~ msgstr "Smer textu:"
-
-#~ msgid "Automatic"
-#~ msgstr "Automatické"
-
-#~ msgid "Left to right"
-#~ msgstr "Zľava doprava"
-
-#~ msgid "Right to left"
-#~ msgstr "Sprava doľava"
-
-#~ msgid "Margins"
-#~ msgstr "Okraje"
-
-#~ msgid "Top:"
-#~ msgstr "Hore:"
-
-#~ msgid "Binding edge:"
-#~ msgstr "Zviazaný okraj:"
-
-#~ msgid "Page edge:"
-#~ msgstr "Okraj strany:"
-
-#~ msgid "Bottom:"
-#~ msgstr "Dole:"
 
 #, fuzzy
 #~| msgctxt "@title:column"

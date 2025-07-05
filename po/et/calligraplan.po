@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-03-02 13:27+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -17,6 +17,510 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 19.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Fail"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "&Redigeerimine"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Vaade"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "&Projekt"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "&Tööriistad"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "&Seadistused"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "&Abi"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, kde-format
+msgid "Edit"
+msgstr "Redigeerimine"
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, kde-format
+msgid "Hours per year"
+msgstr "Tunde aastas"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, kde-format
+msgid "Hours per month"
+msgstr "Tunde kuus"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, kde-format
+msgid "Hours per week"
+msgstr "Tunde nädalas"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, kde-format
+msgid "Hours per day"
+msgstr "Tunde päevas"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, kde-format
+msgid "Generate working week"
+msgstr "Töönädala genereerimine"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, kde-format
+msgid "Generate working week options"
+msgstr "Töönädala valikute genereerimine"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr "kui ühtegi pole"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr "Alati"
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, kde-format
+msgid "Generate holidays"
+msgstr "Pühade genereerimine"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, kde-format
+msgid "Generate holidays options"
+msgstr "Pühade valikute genereerimine"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, kde-format
+msgid "In base calendar"
+msgstr "baaskalendris"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, kde-format
+msgid "As sub-calendar"
+msgstr "Alamkalendris"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, kde-format
+msgid "As separate calendar"
+msgstr "Eraldi kalendrina"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr "Pühade piirkond"
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, kde-format
+msgid "Monday:"
+msgstr "Esmaspäev:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, kde-format
+msgid "Start of working day"
+msgstr "Tööpäeva algus"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, kde-format
+msgid "End of working day"
+msgstr "Tööpäeva lõpp"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, kde-format
+msgid "Tuesday:"
+msgstr "Teisipäev:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, kde-format
+msgid "Wednesday:"
+msgstr "Kolmapäev:"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, kde-format
+msgid "Thursday:"
+msgstr "Neljapäev:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, kde-format
+msgid "Friday:"
+msgstr "Reede:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, kde-format
+msgid "Saturday:"
+msgstr "Laupäev:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, kde-format
+msgid "Sunday:"
+msgstr "Pühapäev:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, kde-format
+msgid "Name of project manager"
+msgstr "Projektijuhi nimi"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, kde-format
+msgid "Use shared resources"
+msgstr "Jagatud ressursside kasutamine"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, kde-format
+msgid "File to contain shared resources"
+msgstr "Jagatud ressursse sisaldav fail"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr "Kataloog projektidega, mis jagavad ressursse"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, kde-format
+msgid "Project description"
+msgstr "Projekti kirjeldus"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Vastutava isiku nimi"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, kde-format
+msgid "Scheduling constraint type"
+msgstr "Ajakava piirangu tüüp"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr "Määrab, kuidas kasutada algusaja piirangut"
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, kde-format
+msgid "Constraint start date and time"
+msgstr "Algusaja piirang"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr "Määrab, kuidas kasutada lõpuaja piirangut"
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, kde-format
+msgid "Constraint end date and time"
+msgstr "Lõpuaja piirang"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, kde-format
+msgid "Type of estimate"
+msgstr "Hinnangu tüüp"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, kde-format
+msgid "Estimate time unit"
+msgstr "Hinnangu ajaühik"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, kde-format
+msgid "Expected estimate"
+msgstr "Oodatud hinnang"
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, kde-format
+msgid "Optimistic estimate"
+msgstr "Optimistlik hinnang"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, kde-format
+msgid "Pessimistic estimate"
+msgstr "Pessimistlik hinnang"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "Ülesande kirjeldus"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "Üleminek"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, kde-format
+msgid "Linear"
+msgstr "Lineaarne"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, kde-format
+msgid "Flat"
+msgstr "Ühtlane"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, kde-format
+msgid "Enable summary task level colors"
+msgstr "Koondülesande tasemete värvide kasutamine"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, kde-format
+msgid "Summary task default color"
+msgstr "Koondülesande vaikimisi värv"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, kde-format
+msgid "Summary task color, level 1"
+msgstr "Koondülesande 1. taseme värv"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, kde-format
+msgid "Summary task color, level 2"
+msgstr "Koondülesande 2. taseme värv"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, kde-format
+msgid "Summary task color, level 3"
+msgstr "Koondülesande 3. taseme värv"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, kde-format
+msgid "Summary task color, level 4"
+msgstr "Koondülesande 4. taseme värv"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Ülesande värv tavalises olekus"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Ülesande värv kriitilises olekus"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Ülesande värv lõpetatud olekus"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "Ülesande värv veaolekus"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Tähtaja värv tavalises olekus"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Tähtaja värv kriitilises olekus"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Tähtaja värv lõpetatud olekus"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Tähtaja värv veaolekus"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Uute töölõikude olemasolu automaatne kontrollimine"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr "Kataloog, kust Plan hangib projekti liikmete töölõike"
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr "Valimise korral kustutab Plan faili pärast selle lugemist"
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr "Valimise korral salvestab Plan faili pärast selle lugemist"
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr "Kataloog, kuhu Plan salvestab töölõigud pärast nende lugemist"
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr "Kataloog, kus Plan avaldab töölõigud"
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr "Väikseim lubatud kestuse ühik"
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr "Suurim lubatud kestuse ühik"
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, kde-format
+msgid "Path to the documentation"
+msgstr "Dokumentatsiooni asukoht"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, kde-format
+msgid "Path to the context help documentation"
+msgstr "Kontekstiabi dokumentatsiooni asukoht"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr "Kontekstiabi dokumentatsioon peab olema tõlgitud sihtkeelde"
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr "Oma erahoidla ülesandemoodulite kasutamine"
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr "Ülesandemoodulite asukohtade loend"
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr "Projektimallide asukohtade loend"
 
 #: config/ConfigDialog.cpp:47
 #, kde-format
@@ -58,6 +562,41 @@ msgstr "Dokumentatsioon"
 msgid "Project Templates"
 msgstr "Projektimallid"
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Isik, kes ülesande eest vastutab.\n"
+"\n"
+"See ei ole piiratud ressursigrupis saadaolevate isikutega, vaid võib olla "
+"kes tahes. Nupu Vali abil saab isiku valida ka otse oma aadressiraamatust."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, kde-format
+msgid "Documentation:"
+msgstr "Dokumentatsioon:"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr "Kontekstiabi:"
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr "Konteksti keel"
+
 #: config/ConfigProjectPanel.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -82,30 +621,548 @@ msgctxt "@info:tooltip"
 msgid "The directory where projects sharing the resources are placed"
 msgstr "Kataloog projektidega, mis jagavad ressursse"
 
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Üldine"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, kde-format
+msgid "&Manager:"
+msgstr "&Projektijuht:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, kde-format
+msgid "Use shared resources:"
+msgstr "Jagatud ressursside kasutamine:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, kde-format
+msgid "Shared resource file:"
+msgstr "Jagatud ressursside fail:"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, kde-format
+msgid "Browse..."
+msgstr "Sirvi ..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, kde-format
+msgid "Shared projects:"
+msgstr "Jagatud projektid:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Kirjeldus"
+
 #: config/ConfigProjectTemplatesPanel.cpp:61
 #, kde-format
 msgid "Project Templates Path"
 msgstr "Projektimallide asukoht"
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, kde-format
+msgid "Insert"
+msgstr "Lisa"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, kde-format
+msgid "Remove"
+msgstr "Eemalda"
 
 #: config/ConfigTaskModulesPanel.cpp:61
 #, kde-format
 msgid "Task Modules Path"
 msgstr "Ülesande moodulite asukoht"
 
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr "Kohalike ülesannete moodulite kasutamine"
+
 #: config/ConfigWorkVacationPanel.cpp:52
 #, kde-format
 msgid "Default"
 msgstr "Vaikimisi"
 
-#: config/kptcolorsconfigpanel.cpp:33
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
-msgid "Linear"
-msgstr "Lineaarne"
+msgid "Working Hours"
+msgstr "Töötunnid"
 
-#: config/kptcolorsconfigpanel.cpp:34
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
 #, kde-format
-msgid "Flat"
-msgstr "Ühtlane"
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Väärtused töönädala ja puhkepäevade vaikimisi "
+"kalendrite genereerimiseks.</p><p><span style=\" font-style:italic;"
+"\">Nädala</span> kalender kasutab <span style=\" font-style:italic;"
+"\">töönädala</span> all määratud väärtusi.</p><p><span style=\" font-style:"
+"italic;\">Nädala</span> kalender võib olla <span style=\" font-style:italic;"
+"\">alati</span> genereeritud või genereeritud ainult siis, <span style=\" "
+"font-style:italic;\">kui ühtegi kalendrit pole</span>. Viimane on parim "
+"valik, kui sinu kalendrid on enamasti määratud mallides või jagatud "
+"ressurssides.</p><p><span style=\" font-style:italic;\">Pühad</span> saab "
+"genereerida nii sinu piirkonna (vaikimisi) kui ka mis tahes muu valitud "
+"piirkonna jaoks. Pühad lisatakse nädalakalendrisse kas selle alamkalendrina "
+"või eraldi kalendrina.</p><p>Kui nädalakalendrit ei genereerita, lisatakse "
+"pühad eraldi kalendrina.</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
+#, kde-format
+msgid "Calendar generation"
+msgstr "Kalendri genereerimine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Nädal"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr "Pühad"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, kde-format
+msgid "In week calendar"
+msgstr "Nädalakalendris"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr "Pü&hade piirkond:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, kde-format
+msgid "Working week"
+msgstr "Töönädal"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, kde-format
+msgid "Tick  if working day"
+msgstr "Märgi, kui on tööpäev"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, kde-format
+msgid "Tick if working day"
+msgstr "Märgi, kui on tööpäev"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr "Hinnangute teisendused"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+"Neid väärtusi kasutatakse, kui hinnang ei ole antud tundides.\n"
+"Oletame, et tunde päevas on 8. Kui nüüd hinnang ütleb, et ülesande "
+"täitmiseks on tarvis 3 päeva, siis see teisendatakse 24 tunniks. Tegelik "
+"täitmise aeg sõltub loomulikult isiku (või isikute) kättesaadavusest, "
+"kellele see ülesanne on täitmiseks antud."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, kde-format
+msgid "Hours &per year:"
+msgstr "Tu&nde aastas:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, kde-format
+msgid "Hours per &month:"
+msgstr "T&unde kuus:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, kde-format
+msgid "Hours per wee&k:"
+msgstr "Tund&e nädalas:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Neid väärtusi kasutatakse ülesande täitmiseks vajaliku koormuse hindamisel."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, kde-format
+msgid "Hours per &day:"
+msgstr "Tunde &päevas:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Üleminek:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Koondülesanne"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "Vaikimisi:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Taseme värvide kasutamine"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Tase 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Tase 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Tase 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Tase 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Ülesanne"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Tavaline:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Kriitiline:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Lõpetatud:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Viga:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Tähtaeg"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Vastutaja:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Vali isik aadressiraamatust"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Vali isik aadressiraamatust."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Vali..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, kde-format
+msgid "Scheduling constraint:"
+msgstr "Ajakava piirang:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Nii ruttu kui võimalik"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Nii hilja kui võimalik"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Peab algama"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Peab lõppema"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Algus mitte varem kui"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Lõpp mitte hiljem kui"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Fikseeritud intervall"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Piirangu algusaja kasutamine:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Praegune kuupäev ja kellaaeg"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Praegune kuupäev, määratud kellaaeg"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Määratud kuupäev ja kellaaeg"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, kde-format
+msgid "Constraint start time:"
+msgstr "Piirangu algusaeg:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, kde-format
+msgid "Constraint End time usage:"
+msgstr "Piirangu lõpuaja kasutamine:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, kde-format
+msgid "Constraint end time:"
+msgstr "Piirangu lõpuaeg:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, kde-format
+msgid "Estimate type:"
+msgstr "Hinnangu tüüp:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Koormus"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Kestus"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, kde-format
+msgid "Expected estimate:"
+msgstr "Oodatud hinnang:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, kde-format
+msgid "Optimistic estimate:"
+msgstr "Optimistlik hinnang:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Pessimistlik hinnang:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr "Hankimine"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Töölõikude kontrollimine"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr "Hankimine:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr "Arhiveerimine"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr "Faili kustutamine pärast hankimist"
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr "Faili arhiveerimine hankimise järel"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr "Arhiiv:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr "Avaldamine"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr "Avaldamine:"
 
 #: KPlatoXmlLoader.cpp:69
 #, kde-format
@@ -248,6 +1305,30 @@ msgstr ""
 msgid "Insert File"
 msgstr "Faili lisamine"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, kde-format
+msgid "Current node:"
+msgstr "Aktiivne sõlm:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, kde-format
+msgid "Insert on top level"
+msgstr "Lisamine tipptasemele"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, kde-format
+msgid "Insert as children to current node"
+msgstr "Lisamine aktiivse sõlme järglasena"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, kde-format
+msgid "Insert after current node"
+msgstr "Lisamine aktiivse sõlme järele"
+
 #: kptloadsharedprojectsdialog.cpp:40
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -361,11 +1442,6 @@ msgstr "Hoitakse alles"
 msgctxt "Base calendar name"
 msgid "Base"
 msgstr "Baas"
-
-#: kptmaindocument.cpp:1572 kptmaindocument.cpp:1576
-#, kde-format
-msgid "Holidays"
-msgstr "Pühad"
 
 #: kptschedulesdocker.cpp:39
 #, kde-format
@@ -1078,6 +2154,70 @@ msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
 msgstr "Lisa..."
 
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, kde-format
+msgid "The category of the view"
+msgstr "Vaatekategooria"
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Kategooria:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, kde-format
+msgid "The view is placed after this view"
+msgstr "Vaade asetatakse selle vaate järele"
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "Pärast"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, kde-format
+msgid "The type of view"
+msgstr "Vaatetüüp"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, kde-format
+msgid "View type:"
+msgstr "Vaatetüüp:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, kde-format
+msgid "The name of the view"
+msgstr "Vaate nimi"
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, kde-format
+msgid "The views description"
+msgstr "Vaate kirjeldus"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, kde-format
+msgid "Description:"
+msgstr "Kirjeldus:"
+
 #: kptviewlistdialog.cpp:42
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -1201,6 +2341,90 @@ msgctxt "@title:window"
 msgid "View Selector"
 msgstr "Vaatevalija"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Sõnad"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Laused"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Silbid"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Read"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Märke koos tühikutega"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Märke ilma tühikuteta"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Fleschi loetavus"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Kaasa arvatud all- ja lõpumärkuste tekst"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Andmete automaatne uuendamine"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, kde-format
+msgid "The category is placed after this category"
+msgstr "Kategooria asetatakse selle kategooria järele"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, kde-format
+msgid "The name of the category"
+msgstr "Kategooria nimi"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, kde-format
+msgid "The description of the category"
+msgstr "Kategooria kirjeldus"
+
 #: welcome/WelcomeView.cpp:125
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -1292,707 +2516,129 @@ msgstr ""
 msgid "Open Document"
 msgstr "Ava dokument"
 
-#~ msgid "&File"
-#~ msgstr "&Fail"
-
-#~ msgid "&Edit"
-#~ msgstr "&Redigeerimine"
-
-#~ msgid "&View"
-#~ msgstr "&Vaade"
-
-#~ msgid "&Project"
-#~ msgstr "&Projekt"
-
-#~ msgid "&Tools"
-#~ msgstr "&Tööriistad"
-
-#~ msgid "&Settings"
-#~ msgstr "&Seadistused"
-
-#~ msgid "&Help"
-#~ msgstr "&Abi"
-
-#~ msgid "Edit"
-#~ msgstr "Redigeerimine"
-
-#~ msgid "Hours per year"
-#~ msgstr "Tunde aastas"
-
-#~ msgid "Hours per month"
-#~ msgstr "Tunde kuus"
-
-#~ msgid "Hours per week"
-#~ msgstr "Tunde nädalas"
-
-#~ msgid "Hours per day"
-#~ msgstr "Tunde päevas"
-
-#~ msgid "Generate working week"
-#~ msgstr "Töönädala genereerimine"
-
-#~ msgid "Generate working week options"
-#~ msgstr "Töönädala valikute genereerimine"
-
-#~ msgid "If none exists"
-#~ msgstr "kui ühtegi pole"
-
-#~ msgid "Always"
-#~ msgstr "Alati"
-
-#~ msgid "Generate holidays"
-#~ msgstr "Pühade genereerimine"
-
-#~ msgid "Generate holidays options"
-#~ msgstr "Pühade valikute genereerimine"
-
-#~ msgid "In base calendar"
-#~ msgstr "baaskalendris"
-
-#~ msgid "As sub-calendar"
-#~ msgstr "Alamkalendris"
-
-#~ msgid "As separate calendar"
-#~ msgstr "Eraldi kalendrina"
-
-#~ msgid "Holiday region"
-#~ msgstr "Pühade piirkond"
-
-#~ msgid "Monday:"
-#~ msgstr "Esmaspäev:"
-
-#~ msgid "Start of working day"
-#~ msgstr "Tööpäeva algus"
-
-#~ msgid "End of working day"
-#~ msgstr "Tööpäeva lõpp"
-
-#~ msgid "Tuesday:"
-#~ msgstr "Teisipäev:"
-
-#~ msgid "Wednesday:"
-#~ msgstr "Kolmapäev:"
-
-#~ msgid "Thursday:"
-#~ msgstr "Neljapäev:"
-
-#~ msgid "Friday:"
-#~ msgstr "Reede:"
-
-#~ msgid "Saturday:"
-#~ msgstr "Laupäev:"
-
-#~ msgid "Sunday:"
-#~ msgstr "Pühapäev:"
-
-#~ msgid "Name of project manager"
-#~ msgstr "Projektijuhi nimi"
-
-#~ msgid "Use shared resources"
-#~ msgstr "Jagatud ressursside kasutamine"
-
-#~ msgid "File to contain shared resources"
-#~ msgstr "Jagatud ressursse sisaldav fail"
-
-#~ msgid "Directory that contains projects that share resources"
-#~ msgstr "Kataloog projektidega, mis jagavad ressursse"
-
-#~ msgid "Project description"
-#~ msgstr "Projekti kirjeldus"
-
-#~ msgid "Name of task responsible"
-#~ msgstr "Vastutava isiku nimi"
-
-#~ msgid "Scheduling constraint type"
-#~ msgstr "Ajakava piirangu tüüp"
-
-#~ msgid "Defines how start constraint time is used"
-#~ msgstr "Määrab, kuidas kasutada algusaja piirangut"
-
-#~ msgid "Constraint start date and time"
-#~ msgstr "Algusaja piirang"
-
-#~ msgid "Defines how end constraint time is used"
-#~ msgstr "Määrab, kuidas kasutada lõpuaja piirangut"
-
-#~ msgid "Constraint end date and time"
-#~ msgstr "Lõpuaja piirang"
-
-#~ msgid "Type of estimate"
-#~ msgstr "Hinnangu tüüp"
-
-#~ msgid "Estimate time unit"
-#~ msgstr "Hinnangu ajaühik"
-
-#~ msgid "Expected estimate"
-#~ msgstr "Oodatud hinnang"
-
-#~ msgid "Optimistic estimate"
-#~ msgstr "Optimistlik hinnang"
-
-#~ msgid "Pessimistic estimate"
-#~ msgstr "Pessimistlik hinnang"
-
-#~ msgid "Task description"
-#~ msgstr "Ülesande kirjeldus"
-
-#~ msgid "Gradient"
-#~ msgstr "Üleminek"
-
-#~ msgid "Enable summary task level colors"
-#~ msgstr "Koondülesande tasemete värvide kasutamine"
-
-#~ msgid "Summary task default color"
-#~ msgstr "Koondülesande vaikimisi värv"
-
-#~ msgid "Summary task color, level 1"
-#~ msgstr "Koondülesande 1. taseme värv"
-
-#~ msgid "Summary task color, level 2"
-#~ msgstr "Koondülesande 2. taseme värv"
-
-#~ msgid "Summary task color, level 3"
-#~ msgstr "Koondülesande 3. taseme värv"
-
-#~ msgid "Summary task color, level 4"
-#~ msgstr "Koondülesande 4. taseme värv"
-
-#~ msgid "Task color in normal state"
-#~ msgstr "Ülesande värv tavalises olekus"
-
-#~ msgid "Task color in critical state"
-#~ msgstr "Ülesande värv kriitilises olekus"
-
-#~ msgid "Task color in finished state"
-#~ msgstr "Ülesande värv lõpetatud olekus"
-
-#~ msgid "Task color in error state"
-#~ msgstr "Ülesande värv veaolekus"
-
-#~ msgid "Milestone color in normal state"
-#~ msgstr "Tähtaja värv tavalises olekus"
-
-#~ msgid "Milestone color in critical state"
-#~ msgstr "Tähtaja värv kriitilises olekus"
-
-#~ msgid "Milestone color in finished state"
-#~ msgstr "Tähtaja värv lõpetatud olekus"
-
-#~ msgid "Milestone color in error state"
-#~ msgstr "Tähtaja värv veaolekus"
-
-#~ msgid "Automatically check for new work packages"
-#~ msgstr "Uute töölõikude olemasolu automaatne kontrollimine"
-
-#~ msgid "Directory where Plan retrieves work packages from project members"
-#~ msgstr "Kataloog, kust Plan hangib projekti liikmete töölõike"
-
-#~ msgid "If set, Plan will delete the file after it has been read"
-#~ msgstr "Valimise korral kustutab Plan faili pärast selle lugemist"
-
-#~ msgid "If set, Plan will save the file after it has been read"
-#~ msgstr "Valimise korral salvestab Plan faili pärast selle lugemist"
-
-#~ msgid ""
-#~ "Directory where Plan saves work packages when the package has been read"
-#~ msgstr "Kataloog, kuhu Plan salvestab töölõigud pärast nende lugemist"
-
-#~ msgid "Directory where Plan publishes work packages"
-#~ msgstr "Kataloog, kus Plan avaldab töölõigud"
-
-#~ msgid "The smallest duration unit allowed"
-#~ msgstr "Väikseim lubatud kestuse ühik"
-
-#~ msgid "The largest duration unit allowed"
-#~ msgstr "Suurim lubatud kestuse ühik"
-
-#~ msgid "Path to the documentation"
-#~ msgstr "Dokumentatsiooni asukoht"
-
-#~ msgid "Path to the context help documentation"
-#~ msgstr "Kontekstiabi dokumentatsiooni asukoht"
-
-#~ msgid ""
-#~ "The context help documentation must have been translated to the language"
-#~ msgstr "Kontekstiabi dokumentatsioon peab olema tõlgitud sihtkeelde"
-
-#~ msgid "Use the task modules from your private store"
-#~ msgstr "Oma erahoidla ülesandemoodulite kasutamine"
-
-#~ msgid "List of paths to task modules"
-#~ msgstr "Ülesandemoodulite asukohtade loend"
-
-#~ msgid "List of paths to project templates"
-#~ msgstr "Projektimallide asukohtade loend"
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "\n"
-#~ "This is not limited to persons available in a resource group but can be "
-#~ "anyone. You can even directly access your address book with the Choose "
-#~ "button."
-#~ msgstr ""
-#~ "Isik, kes ülesande eest vastutab.\n"
-#~ "\n"
-#~ "See ei ole piiratud ressursigrupis saadaolevate isikutega, vaid võib olla "
-#~ "kes tahes. Nupu Vali abil saab isiku valida ka otse oma aadressiraamatust."
-
-#~ msgid "Documentation:"
-#~ msgstr "Dokumentatsioon:"
-
-#~ msgid "Context help:"
-#~ msgstr "Kontekstiabi:"
-
-#~ msgid "Context language"
-#~ msgstr "Konteksti keel"
-
-#~ msgid "General"
-#~ msgstr "Üldine"
-
-#~ msgid "&Manager:"
-#~ msgstr "&Projektijuht:"
-
-#~ msgid "Use shared resources:"
-#~ msgstr "Jagatud ressursside kasutamine:"
-
-#~ msgid "Shared resource file:"
-#~ msgstr "Jagatud ressursside fail:"
-
-#~ msgid "Browse..."
-#~ msgstr "Sirvi ..."
-
-#~ msgid "Shared projects:"
-#~ msgstr "Jagatud projektid:"
-
-#~ msgid "Description"
-#~ msgstr "Kirjeldus"
-
-#~ msgid "Insert"
-#~ msgstr "Lisa"
-
-#~ msgid "Remove"
-#~ msgstr "Eemalda"
-
-#~ msgid "Use local task modules"
-#~ msgstr "Kohalike ülesannete moodulite kasutamine"
-
-#~ msgid "Working Hours"
-#~ msgstr "Töötunnid"
-
-#~ msgid ""
-#~ "<html><head/><body><p>Values used for generating default calendars for "
-#~ "working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
-#~ "\">Week</span> calendar uses the values defined in <span style=\" font-"
-#~ "style:italic;\">Working week</span>.</p><p>The <span style=\" font-style:"
-#~ "italic;\">Week</span> calendar can be <span style=\" font-style:italic;"
-#~ "\">Always</span> generated or only generated <span style=\" font-style:"
-#~ "italic;\">If none exists</span>. The latter choice is the most common as "
-#~ "you often have calendars defined as part of templates or shared resources."
-#~ "</p><p><span style=\" font-style:italic;\">Holidays</span> can be "
-#~ "generated for your region (default) or any region you choose. The "
-#~ "holidays can be added into the week calendar, as sub-calendar to the week "
-#~ "calendar or as a separate calendar.</p><p>If a week calendar is not "
-#~ "generated, the holidays are put into a separate calendar.</p></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<html><head/><body><p>Väärtused töönädala ja puhkepäevade vaikimisi "
-#~ "kalendrite genereerimiseks.</p><p><span style=\" font-style:italic;"
-#~ "\">Nädala</span> kalender kasutab <span style=\" font-style:italic;"
-#~ "\">töönädala</span> all määratud väärtusi.</p><p><span style=\" font-"
-#~ "style:italic;\">Nädala</span> kalender võib olla <span style=\" font-"
-#~ "style:italic;\">alati</span> genereeritud või genereeritud ainult siis, "
-#~ "<span style=\" font-style:italic;\">kui ühtegi kalendrit pole</span>. "
-#~ "Viimane on parim valik, kui sinu kalendrid on enamasti määratud mallides "
-#~ "või jagatud ressurssides.</p><p><span style=\" font-style:italic;"
-#~ "\">Pühad</span> saab genereerida nii sinu piirkonna (vaikimisi) kui ka "
-#~ "mis tahes muu valitud piirkonna jaoks. Pühad lisatakse nädalakalendrisse "
-#~ "kas selle alamkalendrina või eraldi kalendrina.</p><p>Kui nädalakalendrit "
-#~ "ei genereerita, lisatakse pühad eraldi kalendrina.</p></body></html>"
-
-#~ msgid "Calendar generation"
-#~ msgstr "Kalendri genereerimine"
-
-#~ msgid "Week"
-#~ msgstr "Nädal"
-
-#~ msgid "In week calendar"
-#~ msgstr "Nädalakalendris"
-
-#~ msgid "Holida&y region:"
-#~ msgstr "Pü&hade piirkond:"
-
-#~ msgid "Working week"
-#~ msgstr "Töönädal"
-
-#~ msgid "Tick  if working day"
-#~ msgstr "Märgi, kui on tööpäev"
-
-#~ msgid "Tick if working day"
-#~ msgstr "Märgi, kui on tööpäev"
-
-#~ msgid "Estimate Conversions"
-#~ msgstr "Hinnangute teisendused"
-
-#~ msgid ""
-#~ "These values are used if your estimate is not in hours.\n"
-#~ "Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-#~ "effort to complete, this is converted to 24 hours when the task is "
-#~ "scheduled. The actual time it will take to complete is of course "
-#~ "dependent on the availability of the person (or persons) that is assigned "
-#~ "to the task."
-#~ msgstr ""
-#~ "Neid väärtusi kasutatakse, kui hinnang ei ole antud tundides.\n"
-#~ "Oletame, et tunde päevas on 8. Kui nüüd hinnang ütleb, et ülesande "
-#~ "täitmiseks on tarvis 3 päeva, siis see teisendatakse 24 tunniks. Tegelik "
-#~ "täitmise aeg sõltub loomulikult isiku (või isikute) kättesaadavusest, "
-#~ "kellele see ülesanne on täitmiseks antud."
-
-#~ msgid "Hours &per year:"
-#~ msgstr "Tu&nde aastas:"
-
-#~ msgid "Hours per &month:"
-#~ msgstr "T&unde kuus:"
-
-#~ msgid "Hours per wee&k:"
-#~ msgstr "Tund&e nädalas:"
-
-#~ msgid ""
-#~ "These values are used when you estimate the effort needed to complete a "
-#~ "task."
-#~ msgstr ""
-#~ "Neid väärtusi kasutatakse ülesande täitmiseks vajaliku koormuse "
-#~ "hindamisel."
-
-#~ msgid "Hours per &day:"
-#~ msgstr "Tunde &päevas:"
-
-#~ msgid "Gradient:"
-#~ msgstr "Üleminek:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Summary task"
-#~ msgstr "Koondülesanne"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Default:"
-#~ msgstr "Vaikimisi:"
-
-#~ msgctxt "@title:group"
-#~ msgid "Use level colors"
-#~ msgstr "Taseme värvide kasutamine"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 1"
-#~ msgstr "Tase 1"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 2"
-#~ msgstr "Tase 2"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 3"
-#~ msgstr "Tase 3"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 4"
-#~ msgstr "Tase 4"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Task"
-#~ msgstr "Ülesanne"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Normal:"
-#~ msgstr "Tavaline:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Critical:"
-#~ msgstr "Kriitiline:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Finished:"
-#~ msgstr "Lõpetatud:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Error:"
-#~ msgstr "Viga:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Milestone"
-#~ msgstr "Tähtaeg"
-
-#~ msgid "Responsible:"
-#~ msgstr "Vastutaja:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "Vali isik aadressiraamatust"
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "Vali isik aadressiraamatust."
-
-#~ msgid "Choose..."
-#~ msgstr "Vali..."
-
-#~ msgid "Scheduling constraint:"
-#~ msgstr "Ajakava piirang:"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "Nii ruttu kui võimalik"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "Nii hilja kui võimalik"
-
-#~ msgid "Must Start On"
-#~ msgstr "Peab algama"
-
-#~ msgid "Must Finish On"
-#~ msgstr "Peab lõppema"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "Algus mitte varem kui"
-
-#~ msgid "Finish Not Later Than"
-#~ msgstr "Lõpp mitte hiljem kui"
-
-#~ msgid "Fixed Interval"
-#~ msgstr "Fikseeritud intervall"
-
-#~ msgid "Constraint Start time usage:"
-#~ msgstr "Piirangu algusaja kasutamine:"
-
-#~ msgid "Current date and time"
-#~ msgstr "Praegune kuupäev ja kellaaeg"
-
-#~ msgid "Current date, specified time"
-#~ msgstr "Praegune kuupäev, määratud kellaaeg"
-
-#~ msgid "Specified date and time"
-#~ msgstr "Määratud kuupäev ja kellaaeg"
-
-#~ msgid "Constraint start time:"
-#~ msgstr "Piirangu algusaeg:"
-
-#~ msgid "Constraint End time usage:"
-#~ msgstr "Piirangu lõpuaja kasutamine:"
-
-#~ msgid "Constraint end time:"
-#~ msgstr "Piirangu lõpuaeg:"
-
-#~ msgid "Estimate type:"
-#~ msgstr "Hinnangu tüüp:"
-
-#~ msgid "Effort"
-#~ msgstr "Koormus"
-
-#~ msgid "Duration"
-#~ msgstr "Kestus"
-
-#~ msgid "Expected estimate:"
-#~ msgstr "Oodatud hinnang:"
-
-#~ msgid "Optimistic estimate:"
-#~ msgstr "Optimistlik hinnang:"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Pessimistic estimate:"
-#~ msgstr "Pessimistlik hinnang:"
-
-#~ msgid "Retrieve"
-#~ msgstr "Hankimine"
-
-#~ msgid "Check for work packages"
-#~ msgstr "Töölõikude kontrollimine"
-
-#~ msgid "Retrieve:"
-#~ msgstr "Hankimine:"
-
-#~ msgid "Archive"
-#~ msgstr "Arhiveerimine"
-
-#~ msgid "Delete file after it has been retrieved"
-#~ msgstr "Faili kustutamine pärast hankimist"
-
-#~ msgid "Archive file after it has been retrieved"
-#~ msgstr "Faili arhiveerimine hankimise järel"
-
-#~ msgid "Archive:"
-#~ msgstr "Arhiiv:"
-
-#~ msgid "Publish"
-#~ msgstr "Avaldamine"
-
-#~ msgid "Publish:"
-#~ msgstr "Avaldamine:"
-
-#~ msgid "Current node:"
-#~ msgstr "Aktiivne sõlm:"
-
-#~ msgid "Insert on top level"
-#~ msgstr "Lisamine tipptasemele"
-
-#~ msgid "Insert as children to current node"
-#~ msgstr "Lisamine aktiivse sõlme järglasena"
-
-#~ msgid "Insert after current node"
-#~ msgstr "Lisamine aktiivse sõlme järele"
-
-#~ msgid "The category of the view"
-#~ msgstr "Vaatekategooria"
-
-#~ msgid "Category:"
-#~ msgstr "Kategooria:"
-
-#~ msgid "The view is placed after this view"
-#~ msgstr "Vaade asetatakse selle vaate järele"
-
-#~ msgid "After"
-#~ msgstr "Pärast"
-
-#~ msgid "The type of view"
-#~ msgstr "Vaatetüüp"
-
-#~ msgid "View type:"
-#~ msgstr "Vaatetüüp:"
-
-#~ msgid "The name of the view"
-#~ msgstr "Vaate nimi"
-
-#~ msgid "Name:"
-#~ msgstr "Nimi:"
-
-#~ msgid "The views description"
-#~ msgstr "Vaate kirjeldus"
-
-#~ msgid "Description:"
-#~ msgstr "Kirjeldus:"
-
-#~ msgid "Words"
-#~ msgstr "Sõnad"
-
-#~ msgid "Sentences"
-#~ msgstr "Laused"
-
-#~ msgid "Syllables"
-#~ msgstr "Silbid"
-
-#~ msgid "Lines"
-#~ msgstr "Read"
-
-#~ msgid "Characters incl. spaces"
-#~ msgstr "Märke koos tühikutega"
-
-#~ msgid "Characters without spaces"
-#~ msgstr "Märke ilma tühikuteta"
-
-#~ msgid "Flesch reading ease"
-#~ msgstr "Fleschi loetavus"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Include text from foot- and endnotes"
-#~ msgstr "Kaasa arvatud all- ja lõpumärkuste tekst"
-
-#~ msgid "Automatically refresh data"
-#~ msgstr "Andmete automaatne uuendamine"
-
-#~ msgid "The category is placed after this category"
-#~ msgstr "Kategooria asetatakse selle kategooria järele"
-
-#~ msgid "The name of the category"
-#~ msgstr "Kategooria nimi"
-
-#~ msgid "The description of the category"
-#~ msgstr "Kategooria kirjeldus"
-
-#~ msgid "New project"
-#~ msgstr "Uus projekt"
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Template projects:</span></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Projektimallid:</span></p></body></html>"
-
-#~ msgid "Create Shared Resources"
-#~ msgstr "Loo jagatud ressursid"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</"
-#~ "span></p><p>Displays a file dialog enabling you to open an existing "
-#~ "project.</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Ava projekt</"
-#~ "span></p><p>Avatakse failidialoog, mille vahendusel saab avada "
-#~ "olemasoleva projekti.</p></body></html>"
-
-#~ msgid "Open Project..."
-#~ msgstr "Ava projekt ..."
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Recent projects:</span></p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~ "\">Viimased projektid:</span></p></body></html>"
-
-#~ msgid "Introduction"
-#~ msgstr "Sissejuhatus"
-
-#~ msgid ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Context Help</"
-#~ "span></p><p>Many functions has help and hints that can be displayed with "
-#~ "<span style=\" font-style:italic;\">What's this</span>.</p><p>Activate it "
-#~ "by selecting <span style=\" font-style:italic;\">Help-&gt;What's this</"
-#~ "span> or <span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try "
-#~ "it on this text!</p></body></html>"
-#~ msgstr ""
-#~ "<html><head/><body><p><span style=\" font-weight:600;\">Kontekstiabi</"
-#~ "span></p><p>Paljud funktsioonid pakuvad abistavaid vihjeid, mida näitab "
-#~ "abivõimalus <span style=\" font-style:italic;\">Mis see on?</span></"
-#~ "p><p>Seda saab kasutada, kui valida <span style=\" font-style:italic;"
-#~ "\">Abi-&gt;Mis see on?</span> või kiirklahv <span style=\" font-style:"
-#~ "italic;\">Shift+F1</span>.</p><p>Proovi seda kas või sellesama teksti "
-#~ "peal!</p></body></html>"
-
-#~ msgid "https://userbase.kde.org/Plan"
-#~ msgstr "https://userbase.kde.org/Plan"
-
-#, fuzzy
-#~| msgctxt "@action:button"
-#~| msgid ""
-#~| "<a href=\"https://userbase.kde.org/Special:MyLanguage/Plan\">Plan user "
-#~| "documentation</a>"
-#~ msgctxt "@action:button"
-#~ msgid ""
-#~ "<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
-#~ "user documentation</a>"
-#~ msgstr ""
-#~ "<a href=\"https://userbase.kde.org/Special:MyLanguage/Plan\">Plani "
-#~ "dokumentatsioon</a>"
-
-#~ msgid "https://forum.kde.org/viewforum.php?f=203"
-#~ msgstr "https://forum.kde.org/viewforum.php?f=203"
-
-#~ msgctxt "@action:button"
-#~ msgid ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
-#~ msgstr ""
-#~ "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Kogukonna foorum</a>"
-
-#~ msgid "https://calligra.org"
-#~ msgstr "https://calligra.org"
-
-#~ msgctxt "@action:button"
-#~ msgid "<a href=\"https://calligra.org\">Calligra</a>"
-#~ msgstr "<a href=\"https://calligra.org\">Calligra</a>"
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, kde-format
+msgid "New project"
+msgstr "Uus projekt"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Projektimallid:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, kde-format
+msgid "Create Shared Resources"
+msgstr "Loo jagatud ressursid"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Ava projekt</span></"
+"p><p>Avatakse failidialoog, mille vahendusel saab avada olemasoleva projekti."
+"</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, kde-format
+msgid "Open Project..."
+msgstr "Ava projekt ..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Viimased projektid:</span></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr "Sissejuhatus"
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Kontekstiabi</span></"
+"p><p>Paljud funktsioonid pakuvad abistavaid vihjeid, mida näitab abivõimalus "
+"<span style=\" font-style:italic;\">Mis see on?</span></p><p>Seda saab "
+"kasutada, kui valida <span style=\" font-style:italic;\">Abi-&gt;Mis see on?"
+"</span> või kiirklahv <span style=\" font-style:italic;\">Shift+F1</span>.</"
+"p><p>Proovi seda kas või sellesama teksti peal!</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr "https://userbase.kde.org/Plan"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid ""
+#| "<a href=\"https://userbase.kde.org/Special:MyLanguage/Plan\">Plan user "
+#| "documentation</a>"
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+"<a href=\"https://userbase.kde.org/Special:MyLanguage/Plan\">Plani "
+"dokumentatsioon</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr "https://forum.kde.org/viewforum.php?f=203"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Kogukonna foorum</a>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr "https://calligra.org"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr "<a href=\"https://calligra.org\">Calligra</a>"
 
 #~ msgid "Plan"
 #~ msgstr "Plan"

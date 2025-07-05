@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-03-21 13:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -55,6 +55,24 @@ msgstr "Serdar Soytetir, Anıl Özbek, Emir SARI"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tulliana@gmail.com, ozbekanil@gmail.com, emir_sari@icloud.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "Dü&zen"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Görünüm"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Görünüm"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -204,6 +222,30 @@ msgstr "Düzenleme başarısız oldu. Bir çalışma paketi bulunamadı."
 #, kde-format
 msgid "Task Progress"
 msgstr "Görev İlerlemesi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Başlangıç:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Bitiş:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Girdi Ekle"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Girdiyi Kaldır"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -578,27 +620,6 @@ msgstr "<p>Çalışma paketi <b>'%1'</b></p><p>Depo açılamadı:</p><p>%2</p>"
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>Çalışma paketi <b>'%1'</b></p><p>Dosya açılamadı:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "Dü&zen"
-
-#~ msgid "View"
-#~ msgstr "Görünüm"
-
-#~ msgid "&View"
-#~ msgstr "&Görünüm"
-
-#~ msgid "Started:"
-#~ msgstr "Başlangıç:"
-
-#~ msgid "Finished:"
-#~ msgstr "Bitiş:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Girdi Ekle"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Girdiyi Kaldır"
 
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Remove work package"

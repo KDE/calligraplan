@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2023-04-14 17:27+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -58,6 +58,24 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "mikko.piippo@helsinki.fi, translator@legisign.org, karvonen.jorma@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Muokkaa"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Näytä"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Näytä"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -207,6 +225,30 @@ msgstr "Muokkaus epäonnistui. Työpakettia ei löydy."
 #, kde-format
 msgid "Task Progress"
 msgstr "Tehtävän eteneminen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Aloitettu:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Lopetettu:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Lisää merkintä"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Poista merkintä"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -592,27 +634,6 @@ msgstr ""
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Työpaketti <b>”%1”</b></p><p>Tiedostoa ei saatu puretuksi:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "&Muokkaa"
-
-#~ msgid "View"
-#~ msgstr "Näytä"
-
-#~ msgid "&View"
-#~ msgstr "&Näytä"
-
-#~ msgid "Started:"
-#~ msgstr "Aloitettu:"
-
-#~ msgid "Finished:"
-#~ msgstr "Lopetettu:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Lisää merkintä"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Poista merkintä"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Työpaketin asetukset"

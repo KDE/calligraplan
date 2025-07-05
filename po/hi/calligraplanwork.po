@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2008-03-12 19:43+0530\n"
 "Last-Translator: Ravishankar Shrivastava <aviratlami@aol.in>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -56,6 +56,25 @@ msgstr "रविशंकर श्रीवास्तव, जी. करू�
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "raviratlami@aol.in"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "संपादन (&E)"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, fuzzy, kde-format
+#| msgid "&View"
+msgid "View"
+msgstr "देखें (&V)"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "देखें (&V)"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -227,6 +246,30 @@ msgstr ""
 #| msgid "Progress..."
 msgid "Task Progress"
 msgstr "प्रगति..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr ""
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -648,17 +691,6 @@ msgstr ""
 "यह कार्यस्थान आपके परियोजना भंडार में नहीं है:\n"
 "%1\n"
 "क्या आप इसे सहेजना चाहेंगे?"
-
-#~ msgid "&Edit"
-#~ msgstr "संपादन (&E)"
-
-#, fuzzy
-#~| msgid "&View"
-#~ msgid "View"
-#~ msgstr "देखें (&V)"
-
-#~ msgid "&View"
-#~ msgstr "देखें (&V)"
 
 #, fuzzy
 #~| msgid "Progress..."

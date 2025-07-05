@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatowork.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2007-11-05 08:28-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -50,6 +50,24 @@ msgstr "Kevin Scannell"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kscanne@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Eagar"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, fuzzy, kde-format
+msgid "View"
+msgstr "&Amharc"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Amharc"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -194,6 +212,30 @@ msgstr "Bain pacáiste oibre"
 #| msgid "Progress"
 msgid "Task Progress"
 msgstr "Dul chun cinn"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Dáta Tosaigh:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Críochnaithe:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Cuir Iontráil Leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Bain Iontráil"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -585,28 +627,6 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
-
-#~ msgid "&Edit"
-#~ msgstr "&Eagar"
-
-#, fuzzy
-#~ msgid "View"
-#~ msgstr "&Amharc"
-
-#~ msgid "&View"
-#~ msgstr "&Amharc"
-
-#~ msgid "Started:"
-#~ msgstr "Dáta Tosaigh:"
-
-#~ msgid "Finished:"
-#~ msgstr "Críochnaithe:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Cuir Iontráil Leis"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Bain Iontráil"
 
 #, fuzzy
 #~| msgid "Work Package: %1"

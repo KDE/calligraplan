@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatoui.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2007-10-24 08:22-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -219,6 +219,7 @@ msgstr "Saothar"
 msgid "Scheduling error"
 msgstr "Logchomhad Sceidealta"
 
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -232,8 +233,9 @@ msgstr "Logchomhad Sceidealta"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
-#: ui/TasksGeneralPanel.cpp:68
+#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
+#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
+#: ui/TasksGeneralPanel.ui:338
 #, kde-format
 msgid "None"
 msgstr "Neamhní"
@@ -256,7 +258,9 @@ msgstr "Fothionscadal"
 msgid "Task"
 msgstr "Tasc"
 
-#: kernel/kptnode.cpp:158
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
+#: ui/TasksGeneralPanel.ui:424
 #, kde-format
 msgid "Milestone"
 msgstr "Cloch Mhíle"
@@ -282,12 +286,16 @@ msgstr "Chomh Luath agus is Féidir"
 msgid "As Late As Possible"
 msgstr "A deireanaí is féidir"
 
-#: kernel/kptnode.cpp:731
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
+#: ui/TasksGeneralPanel.ui:179
 #, kde-format
 msgid "Must Start On"
 msgstr ""
 
-#: kernel/kptnode.cpp:732
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
+#: ui/TasksGeneralPanel.ui:184
 #, fuzzy, kde-format
 #| msgid "Finish"
 msgid "Must Finish On"
@@ -304,27 +312,39 @@ msgstr "Ná tosaigh níos luaithe ná"
 msgid "Finish Not Later"
 msgstr "Ná tosaigh níos luaithe ná"
 
-#: kernel/kptnode.cpp:735
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
+#: ui/TasksGeneralPanel.ui:199
 #, kde-format
 msgid "Fixed Interval"
 msgstr "Eatramh Socraithe"
 
-#: kernel/kptnode.cpp:1625
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
+#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
+#: ui/TasksGeneralPanel.ui:414
 #, kde-format
 msgid "Effort"
 msgstr "Saothar"
 
-#: kernel/kptnode.cpp:1626
+#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
+#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
+#: ui/TasksGeneralPanel.ui:419
 #, kde-format
 msgid "Duration"
 msgstr "Aga"
 
-#: kernel/kptnode.cpp:1659
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
+#: ui/TasksGeneralPanel.ui:343
 #, kde-format
 msgid "Low"
 msgstr "Íseal"
 
-#: kernel/kptnode.cpp:1660
+#. i18n: ectx: property (text), item, widget (KComboBox, risk)
+#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
+#: ui/TasksGeneralPanel.ui:348
 #, kde-format
 msgid "High"
 msgstr "Ard"
@@ -513,27 +533,34 @@ msgstr ""
 msgid "Plan"
 msgstr "Plean"
 
-#: kernel/kptrelation.cpp:92
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
+#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
 #, kde-format
 msgid "Finish-Start"
 msgstr "Críoch-Tús"
 
-#: kernel/kptrelation.cpp:93
+#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
+#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
 #, kde-format
 msgid "Finish-Finish"
 msgstr "Críoch-Críoch"
 
-#: kernel/kptrelation.cpp:94
+#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
+#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
 #, kde-format
 msgid "Start-Start"
 msgstr "Tús-Tús"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
+#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "Obair"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
+#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "Ábhar"
@@ -1574,6 +1601,7 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "%1 (Cuntas réamhshocraithe)"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1581,13 +1609,15 @@ msgstr "%1 (Cuntas réamhshocraithe)"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/projectview/ProjectView.cpp:53
+#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Ainm"
 
+#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
+#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "Cur Síos"
@@ -2594,9 +2624,11 @@ msgstr "Bain cáipéis"
 msgid "Url"
 msgstr "URL"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
+#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "Cineál"
@@ -3034,8 +3066,11 @@ msgstr "Críochnaithe"
 msgid "Finished early"
 msgstr "Críochnaithe"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
+#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
+#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
 #, kde-format
 msgid "Finished"
 msgstr "Críochnaithe"
@@ -3045,7 +3080,9 @@ msgstr "Críochnaithe"
 msgid "Running late"
 msgstr "Ag Rith"
 
+#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
+#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "Ag Rith"
@@ -3060,8 +3097,9 @@ msgstr "Dáta tosaigh"
 msgid "Started early"
 msgstr "Tosaithe"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333
+#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
 msgstr "Tosaithe"
@@ -5425,9 +5463,10 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
-#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
-#: widgets/KoDocumentInfoDlg.cpp:125
+#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
+#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
+#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "Ginearálta"
@@ -5437,6 +5476,111 @@ msgstr "Ginearálta"
 #, kde-format
 msgid "View Settings"
 msgstr "Socruithe Amhairc"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptaccountsviewconfigurepanelbase.ui:26
+#, kde-format
+msgid "Show:"
+msgstr "Taispeáin:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:33
+#, kde-format
+msgid "Periodicity:"
+msgstr "Tréimhsiúlacht:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:44
+#, kde-format
+msgid "Day"
+msgstr "Lá"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:49
+#, kde-format
+msgid "Week"
+msgstr "Seachtain"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:54
+#, kde-format
+msgid "Month"
+msgstr "Mí"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
+#: ui/kptaccountsviewconfigurepanelbase.ui:62
+#, kde-format
+msgid "Cumulative"
+msgstr "Carnach"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:70
+#, fuzzy, kde-format
+msgid "Actual cost"
+msgstr "Dáta Tosaigh: %1"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:75
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid "Planned cost"
+msgid "Planned cost"
+msgstr "Costas pleanáilte"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:80
+#, kde-format
+msgid "Actual and planned"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:85
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Deviation"
+msgstr "Aga"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptaccountsviewconfigurepanelbase.ui:101
+#, kde-format
+msgid "Start date"
+msgstr "Dáta tosaigh"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:107
+#, kde-format
+msgid "Project start"
+msgstr "Tús an tionscadail"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:114
+#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
+#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "Dáta"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptaccountsviewconfigurepanelbase.ui:131
+#, kde-format
+msgid "End date"
+msgstr "Dáta deiridh"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:137
+#, kde-format
+msgid "Current date"
+msgstr "Dáta reatha"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
+#: ui/kptaccountsviewconfigurepanelbase.ui:158
+#, kde-format
+msgid "Project end"
+msgstr "Deireadh an tionscadail"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5504,6 +5648,50 @@ msgstr "Oibriú..."
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "Socraigh %1 mar Neamhshainithe"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
+#, kde-format
+msgid "Project Schedule:"
+msgstr "Sceideal an Tionscadail:"
+
+#. i18n: ectx: property (text), widget (QLabel, scheduleName)
+#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
+#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
+#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
+#. i18n: ectx: property (text), widget (QLabel, totalFloat)
+#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
+#: ui/reports/reportgroupsectionswidget.ui:22
+#: ui/reports/reportgroupsectionswidget.ui:29
+#: ui/reports/reportgroupsectionswidget.ui:36
+#: ui/reports/reportgroupsectionswidget.ui:43
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptcpmwidget.ui:71
+#, kde-format
+msgid "Probability of finishing before"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptcpmwidget.ui:91
+#, kde-format
+msgid "is"
+msgstr "atá"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
+#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
+#. i18n: ectx: property (suffix), widget (QSpinBox, units)
+#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
+#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
+#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -5647,6 +5835,233 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Cuir cáipéis leis"
 
+#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
+#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
+#: widgets/koDocumentInfoAuthorWidget.ui:20
+#, kde-format
+msgid "Name:"
+msgstr "Ainm:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:54
+#, kde-format
+msgid "Add..."
+msgstr "Cuir Leis..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
+#: ui/kptdocumentspanel.ui:61
+#, kde-format
+msgid "Ctrl+I"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:68
+#, kde-format
+msgid "Change..."
+msgstr "Athraigh..."
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
+#: ui/kptdocumentspanel.ui:75
+#, kde-format
+msgid "Ctrl+M"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
+#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
+#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
+#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
+#, kde-format
+msgid "Remove"
+msgstr "Bain"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
+#: ui/kptdocumentspanel.ui:89
+#, fuzzy, kde-format
+#| msgid "Delete"
+msgid "Del"
+msgstr "Scrios"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:96
+#, kde-format
+msgid "Open"
+msgstr "Oscail"
+
+#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
+#: ui/kptdocumentspanel.ui:103
+#, kde-format
+msgid "Ctrl+O"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttchartdisplayoptions.ui:20
+#, fuzzy, kde-format
+msgid "Timeline"
+msgstr "Crios ama"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:28
+#, kde-format
+msgid "Do not show the timeline"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
+#: ui/kptganttchartdisplayoptions.ui:31
+#, kde-format
+msgid "Hide"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:38
+#, kde-format
+msgid "Show timeline in the foreground"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
+#: ui/kptganttchartdisplayoptions.ui:41
+#, fuzzy, kde-format
+#| msgctxt "Schedule project backward"
+#| msgid "Backward"
+msgid "Foreground"
+msgstr "Ar gCúl"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:48
+#, kde-format
+msgid "Show timeline in the background"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
+#: ui/kptganttchartdisplayoptions.ui:51
+#, fuzzy, kde-format
+#| msgctxt "Schedule project backward"
+#| msgid "Backward"
+msgid "Background"
+msgstr "Ar gCúl"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:60
+#, kde-format
+msgid "Update interval in minutes, 0 disables update"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptganttchartdisplayoptions.ui:63
+#, fuzzy, kde-format
+#| msgid "Interval"
+msgid "Interval:"
+msgstr "Eatramh"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
+#: ui/kptganttchartdisplayoptions.ui:93
+#, kde-format
+msgid "Use custom line"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:102
+#, fuzzy, kde-format
+#| msgid "Chart"
+msgid "Line width"
+msgstr "Cairt"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptganttchartdisplayoptions.ui:105
+#, kde-format
+msgid "Stroke:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:126
+#, fuzzy, kde-format
+#| msgid "Chart"
+msgid "Line color"
+msgstr "Cairt"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptganttchartdisplayoptions.ui:129
+#, kde-format
+msgid "Color:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptganttchartdisplayoptions.ui:153
+#, kde-format
+msgid "Additional text information"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
+#: ui/kptganttchartdisplayoptions.ui:159
+#, fuzzy, kde-format
+msgid "Task name"
+msgstr "Taispeáin ainm an tasc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
+#: ui/kptganttchartdisplayoptions.ui:166
+#, fuzzy, kde-format
+msgid "Resource names"
+msgstr "Taispeáin ainmneacha na n-acmhainní"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttchartdisplayoptions.ui:176
+#, kde-format
+msgid "Additional graphics information"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
+#: ui/kptganttchartdisplayoptions.ui:185
+#, fuzzy, kde-format
+msgid "Task dependencies"
+msgstr "Cuir spleáchóg tasc leis"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
+#: ui/kptganttchartdisplayoptions.ui:192
+#, fuzzy, kde-format
+msgid "Task completion"
+msgstr "Críochnú an tasc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
+#: ui/kptganttchartdisplayoptions.ui:199
+#, fuzzy, kde-format
+msgid "Time constraints"
+msgstr "Mionathraigh cineál na cáipéise"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
+#: ui/kptganttchartdisplayoptions.ui:219
+#, fuzzy, kde-format
+msgid "Positive float"
+msgstr "Deimhneach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
+#: ui/kptganttchartdisplayoptions.ui:226
+#, fuzzy, kde-format
+msgid "Negative float"
+msgstr "Diúltach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
+#: ui/kptganttchartdisplayoptions.ui:233
+#, fuzzy, kde-format
+msgid "Critical path"
+msgstr "Rébhealach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
+#: ui/kptganttchartdisplayoptions.ui:240
+#, fuzzy, kde-format
+msgid "Critical tasks"
+msgstr "Rébhealach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
+#: ui/kptganttchartdisplayoptions.ui:247
+#, fuzzy, kde-format
+msgid "Scheduling errors"
+msgstr "Logchomhad Sceidealta"
+
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -5693,6 +6108,99 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptganttprintingoptions.ui:17
+#, fuzzy, kde-format
+#| msgid "Header"
+msgctxt "@title:group"
+msgid "Headers"
+msgstr "Ceanntásc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
+#: ui/kptganttprintingoptions.ui:23
+#, fuzzy, kde-format
+msgctxt "@option:check"
+msgid "Print task names"
+msgstr "Mionathraigh ainm an tasc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
+#: ui/kptganttprintingoptions.ui:30
+#, fuzzy, kde-format
+msgctxt "@option:check"
+msgid "Print time scale"
+msgstr "Mionathraigh ainm an tasc"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptganttprintingoptions.ui:40
+#, fuzzy, kde-format
+#| msgid "Scheduling"
+msgctxt "@title:group"
+msgid "Scaling"
+msgstr "Sceidealadh"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
+#: ui/kptganttprintingoptions.ui:46
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgctxt "@option:radio"
+msgid "Divide chart on multiple pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
+#: ui/kptganttprintingoptions.ui:53
+#, kde-format
+msgctxt "@option:radio"
+msgid "Fit chart to page height"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
+#: ui/kptganttprintingoptions.ui:60
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgctxt "@option:radio"
+msgid "Fit chart to a single page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
+#: ui/kptganttprintingoptions.ui:73
+#, fuzzy, kde-format
+#| msgid "Change..."
+msgctxt "@title:group"
+msgid "Range"
+msgstr "Athraigh..."
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
+#: ui/kptganttprintingoptions.ui:88
+#, fuzzy, kde-format
+#| msgid "Can start"
+msgctxt "@option:radio"
+msgid "Chart start:"
+msgstr "Is féidir tosú"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
+#: ui/kptganttprintingoptions.ui:105
+#, fuzzy, kde-format
+#| msgctxt "Interval start time"
+#| msgid "Start"
+msgctxt "@option:radio"
+msgid "Start:"
+msgstr "Tosach"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
+#: ui/kptganttprintingoptions.ui:137
+#, fuzzy, kde-format
+#| msgid "Chart type"
+msgctxt "@option:radio"
+msgid "Chart end:"
+msgstr "Cineál na cairte"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
+#: ui/kptganttprintingoptions.ui:154
+#, kde-format
+msgctxt "@option:radio"
+msgid "End:"
 msgstr ""
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
@@ -5828,6 +6336,63 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "Mionathraigh Eatramh Oibre"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
+#: ui/kptintervaleditbase.ui:21
+#, kde-format
+msgid "1"
+msgstr "1"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptintervaleditbase.ui:31
+#, kde-format
+msgctxt "Start time"
+msgid "From:"
+msgstr "Ó:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptintervaleditbase.ui:47
+#, kde-format
+msgid "Length"
+msgstr "Fad"
+
+#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
+#: ui/kptintervaleditbase.ui:70
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, kde-format
+msgid "Add"
+msgstr "Cuir Leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
+#. i18n: ectx: property (text), widget (QPushButton, bClear)
+#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
+#, kde-format
+msgid "Clear"
+msgstr "Glan"
+
+#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
+#: ui/kptitemviewsettings.ui:28
+#, kde-format
+msgid "Stretch last section"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptitemviewsettings.ui:35
+#, kde-format
+msgid "Select columns to be shown:"
+msgstr ""
+
+#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:56
+#, kde-format
+msgid "&Hidden columns:"
+msgstr "Colúin f&holaithe:"
+
+#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
+#: ui/kptitemviewsettings.ui:59
+#, kde-format
+msgid "&Visible columns:"
+msgstr "Colúin &infheicthe:"
+
 #: ui/kptitemviewsettup.cpp:148
 #, kde-format
 msgid "Tree View"
@@ -5947,6 +6512,218 @@ msgstr "Acmhainní riachtanacha:"
 msgid "Task Modules Path"
 msgstr "Mionsonraí an tasc "
 
+#. i18n: ectx: property (text), widget (QLabel, wbslabel)
+#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
+#: ui/kpttaskgeneralpanelbase.ui:23
+#, kde-format
+msgid "WBS:"
+msgstr "WBS:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
+#, kde-format
+msgid "The project name."
+msgstr "Ainm an tionscadail."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptmainprojectpanelbase.ui:71
+#, fuzzy, kde-format
+#| msgid "Name:"
+msgid "&Name:"
+msgstr "Ainm:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
+#, kde-format
+msgid "The project leader."
+msgstr "Ceannaire an tionscadail."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kptmainprojectpanelbase.ui:103
+#, fuzzy, kde-format
+#| msgid "Manager:"
+msgid "&Manager:"
+msgstr "Bainisteoir:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:132
+#, kde-format
+msgid "Choose a project leader from your address book."
+msgstr "Roghnaigh ceannaire an tionscadail as do leabhar seoltaí."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: ui/kptmainprojectpanelbase.ui:135
+#, kde-format
+msgid "&Choose..."
+msgstr "&Roghnaigh..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kptmainprojectpanelbase.ui:144
+#, kde-format
+msgid "Scheduling Range"
+msgstr "Raon Sceidealta"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptmainprojectpanelbase.ui:152
+#, fuzzy, kde-format
+msgid "Earliest start:"
+msgstr "Dáta Tosaigh: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptmainprojectpanelbase.ui:172
+#, fuzzy, kde-format
+msgid "Latest finish:"
+msgstr "Críochnú: %1"
+
+#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
+#: ui/kptmainprojectpanelbase.ui:210
+#, fuzzy, kde-format
+#| msgid "Required resources:"
+msgid "&Use shared resources"
+msgstr "Acmhainní riachtanacha:"
+
+#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
+#: ui/kptmainprojectpanelbase.ui:225
+#, fuzzy, kde-format
+#| msgid "Resources"
+msgid "Resources:"
+msgstr "Acmhainní"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
+#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
+#, fuzzy, kde-format
+#| msgid "Open"
+msgid "File"
+msgstr "Oscail"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
+#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
+#, fuzzy, kde-format
+#| msgid "Choose..."
+msgid "Browse..."
+msgstr "Roghnaigh..."
+
+#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
+#: ui/kptmainprojectpanelbase.ui:255
+#, fuzzy, kde-format
+#| msgid "Project:"
+msgid "Projects:"
+msgstr "Tionscadal:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
+#: ui/kptmainprojectpanelbase.ui:263
+#, fuzzy, kde-format
+#| msgid "Direction"
+msgid "Directory"
+msgstr "Treo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
+#: ui/kptmainprojectpanelbase.ui:287
+#, fuzzy, kde-format
+#| msgid "Required resources:"
+msgid "Load resource assignments at startup"
+msgstr "Acmhainní riachtanacha:"
+
+#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
+#: ui/kptmainprojectpanelbase.ui:294
+#, fuzzy, kde-format
+#| msgctxt "@title:column noun"
+#| msgid "Load"
+msgid "Load"
+msgstr "Luchtaigh"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
+#: ui/kptworkpackagemergepanel.ui:192
+#, fuzzy, kde-format
+#| msgid "&Documents"
+msgid "Documents"
+msgstr "&Cáipéisí"
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
+#: ui/kptmainprojectpanelbase.ui:371
+#, fuzzy, kde-format
+msgid "Work Package"
+msgstr "Stádas an tasc"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: ui/kptmainprojectpanelbase.ui:377
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: ui/kptmainprojectpanelbase.ui:385
+#, kde-format
+msgid "Publish:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/kptmainprojectpanelbase.ui:400
+#, kde-format
+msgid "Retrieve"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
+#: ui/kptmainprojectpanelbase.ui:406
+#, fuzzy, kde-format
+msgid "Check for work packages"
+msgstr "Stádas an tasc"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptmainprojectpanelbase.ui:415
+#, kde-format
+msgid "Retrieve:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/kptmainprojectpanelbase.ui:430
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
+#: ui/kptmainprojectpanelbase.ui:436
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
+#: ui/kptmainprojectpanelbase.ui:443
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptmainprojectpanelbase.ui:452
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
+#: ui/kptmainprojectpanelbase.ui:481
+#, fuzzy, kde-format
+msgid "Task Modules"
+msgstr "Mionsonraí an tasc "
+
+#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
+#: ui/kptmainprojectpanelbase.ui:526
+#, fuzzy, kde-format
+#| msgid "Per task"
+msgid "Insert"
+msgstr "Sa tasc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
+#: ui/kptmainprojectpanelbase.ui:550
+#, fuzzy, kde-format
+#| msgid "Per task"
+msgid "Use local task modules"
+msgstr "Sa tasc"
+
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, fuzzy, kde-format
 #| msgid "MilestoneProgressPanelBase"
@@ -5965,11 +6742,91 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "Scrios spleáchóg tasc"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
+#: ui/reports/reportdata.cpp:383
+#, kde-format
+msgid "Tasks"
+msgstr "Tascanna"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, available)
+#: ui/kptperteditor.ui:29
+#, kde-format
+msgid "Available tasks"
+msgstr "Tascanna ar fáil"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
+#: ui/kptperteditor.ui:64
+#, kde-format
+msgid "Add required task"
+msgstr "Cuir tasc riachtanach leis"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
+#: ui/kptperteditor.ui:80
+#, kde-format
+msgid "Remove required task"
+msgstr "Bain tasc riachtanach"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptpertresult.ui:90
+#, fuzzy, kde-format
+#| msgid "Project start"
+msgid "Total Float:"
+msgstr "Tús an tionscadail"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
+#: ui/kptprintingheaderfooter.ui:16
+#, kde-format
+msgid "Header"
+msgstr "Ceanntásc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
+#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
+#, kde-format
+msgid "Project name"
+msgstr "Ainm an tionscadail"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
+#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
+#, kde-format
+msgid "Page number"
+msgstr "Uimhir an leathanaigh"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
+#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
+#, kde-format
+msgid "Project manager"
+msgstr "Bainisteoir an tionscadail"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
+#: ui/kptprintingheaderfooter.ui:56
+#, kde-format
+msgid "Footer"
+msgstr "Buntásc"
+
 #: ui/kptrecalculatedialog.cpp:47
 #, fuzzy, kde-format
 #| msgid "Project Schedule:"
 msgid "Re-calculate Schedule"
 msgstr "Sceideal an Tionscadail:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
+#: ui/kptrecalculatedialog.ui:26
+#, fuzzy, kde-format
+#| msgid "Calculate"
+msgid "Re-calculate from current date/time"
+msgstr "Ríomh"
+
+#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
+#: ui/kptrecalculatedialog.ui:33
+#, fuzzy, kde-format
+#| msgid "Calculate"
+msgid "Re-calculate from:"
+msgstr "Ríomh"
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -6019,6 +6876,18 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "Cuir spleáchóg tasc leis"
 
+#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:16
+#, kde-format
+msgid "Show internal appointments"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
+#: ui/kptresourceappointmentsdisplayoptions.ui:23
+#, kde-format
+msgid "Show external appointments"
+msgstr ""
+
 #: ui/kptresourceappointmentsview.cpp:92
 #, fuzzy, kde-format
 #| msgid "Resource Settings"
@@ -6043,6 +6912,12 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "No resource attributed"
 msgstr "Mionathraigh Acmhainn"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
+#: ui/kptresourceassignmentview.ui:38
+#, kde-format
+msgid "Advance"
+msgstr "Téigh ar aghaidh"
 
 #: ui/kptresourcedialog.cpp:65
 #, kde-kuit-format
@@ -6173,6 +7048,13 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Mionathraigh ainm an tasc"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptscheduleeditor.ui:35
+#, fuzzy, kde-format
+#| msgid "Scheduling Range"
+msgid "Scheduling range:"
+msgstr "Raon Sceidealta"
+
 #: ui/kptstandardworktimedialog.cpp:86
 #, fuzzy, kde-format
 msgid "Estimate Conversions"
@@ -6212,11 +7094,99 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "Mionathraigh tasc"
 
+#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
+#, kde-format
+msgid "Work Breakdown Structure"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:58
+#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
+#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
+#: ui/kpttaskgeneralpanelbase.ui:71
+#, kde-format
+msgid "The name of the Task."
+msgstr "Ainm an Tasc."
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
+#: ui/kptsummarytaskgeneralpanelbase.ui:95
+#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
+#: ui/TasksGeneralPanel.ui:57
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kptsummarytaskgeneralpanelbase.ui:98
+#, kde-format
+msgid "Responsible:"
+msgstr "Freagrach:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
+#: ui/TasksGeneralPanel.ui:64
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Ionsáigh duine as do leabhar seoltaí"
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
+#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
+#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
+#, kde-format
+msgid "Choose..."
+msgstr "Roghnaigh..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
+#: ui/TasksGeneralPanel.ui:82
+#, fuzzy, kde-format
+#| msgid "Periodicity:"
+msgid "Priority:"
+msgstr "Tréimhsiúlacht:"
+
 #: ui/kpttaskcostpanel.cpp:101
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "Mionathraigh Costas an Taisc"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
+#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
+#, kde-format
+msgid "Account:"
+msgstr "Cuntas:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
+#: ui/kpttaskcostpanelbase.ui:72
+#, kde-format
+msgid "Startup"
+msgstr "Tosú"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
+#, kde-format
+msgid "Cost:"
+msgstr "Costas:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
+#: ui/kpttaskcostpanelbase.ui:142
+#, kde-format
+msgid "Shutdown"
+msgstr "Múchadh"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 #, fuzzy
@@ -6439,7 +7409,8 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#: ui/kpttaskeditor.cpp:1768
+#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
+#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
 #, kde-format
 msgid "Publish..."
 msgstr ""
@@ -6459,6 +7430,145 @@ msgstr ""
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "Mionathraigh Tasc"
+
+#. i18n: ectx: property (text), widget (QLabel, namelabel)
+#: ui/kpttaskgeneralpanelbase.ui:55
+#, kde-format
+msgid "N&ame:"
+msgstr "&Ainm:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:79
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"        "
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/kpttaskgeneralpanelbase.ui:82
+#, fuzzy, kde-format
+#| msgid "Responsible:"
+msgid "Responsi&ble:"
+msgstr "Freagrach:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Ionsáigh duine as do leabhar seoltaí."
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
+#, kde-format
+msgid ""
+"Scheduling Configuration. These settings affect the actual scheduling of the "
+"task.\n"
+"\n"
+"The estimation can be either effort based or duration based. If it is effort "
+"based, the final duration will depend on the resources assigned to the task. "
+"For duration based estimation, the assigned resources do not affect the "
+"fixed duration of the task, but only the costs."
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
+#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
+#, kde-format
+msgid "Timing"
+msgstr "Uainiú"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/kpttaskgeneralpanelbase.ui:194
+#, fuzzy, kde-format
+#| msgid "Schedule:"
+msgid "&Schedule:"
+msgstr "Sceideal:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Chomh Luath agus is Féidir"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
+#, kde-format
+msgid "As Late as Possible"
+msgstr "A deireanaí is féidir"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Ná tosaigh níos luaithe ná"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
+#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
+#, fuzzy, kde-format
+#| msgid "Start Not Earlier Than"
+msgid "Finish Not Later Than"
+msgstr "Ná tosaigh níos luaithe ná"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/kpttaskgeneralpanelbase.ui:300
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Esti&mate:"
+msgstr "Meastachán:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
+#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
+#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
+#, kde-format
+msgid ""
+"Risk controls the PERT distribution used when calculating the actual "
+"estimate for this task."
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
+#, kde-format
+msgid ""
+"<p>Risk controls the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/kpttaskgeneralpanelbase.ui:348
+#, kde-format
+msgid "Risk:"
+msgstr "Riosca:"
+
+#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
+#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
+#, kde-format
+msgid ""
+"<p>Risk controles the PERT distribution used when calculating the actual "
+"estimate for the task.\n"
+"<b>None</b> means the Expected estimate is used as is.\n"
+"<b>Low risk</b> means that a normal distribution is used.\n"
+"<b>High risk</b> means that the estimate will be slightly pessimistic "
+"compared to Low risk.</p>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/kpttaskgeneralpanelbase.ui:404
+#, fuzzy, kde-format
+#| msgid "Optimistic:"
+msgid "Optimisti&c:"
+msgstr "Soirbh:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/kpttaskgeneralpanelbase.ui:433
+#, fuzzy, kde-format
+#| msgid "Pessimistic:"
+msgid "&Pessimistic:"
+msgstr "Doirbh:"
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, fuzzy, kde-format
@@ -6520,6 +7630,75 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "Seachtain %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
+#: ui/RelationEditorDialog.ui:58
+#, fuzzy, kde-format
+#| msgid "Task"
+msgid "Task:"
+msgstr "Tasc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: ui/kpttaskprogresspanelbase.ui:45
+#, kde-format
+msgid "Started:"
+msgstr "Dáta Tosaigh:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kpttaskprogresspanelbase.ui:62
+#, kde-format
+msgid "Finished:"
+msgstr "Críochnaithe:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskprogresspanelbase.ui:117
+#, kde-format
+msgid "Edit mode:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:125
+#, kde-format
+msgid "Per resource"
+msgstr "San acmhainn"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
+#: ui/kpttaskprogresspanelbase.ui:130
+#, kde-format
+msgid "Per task"
+msgstr "Sa tasc"
+
+#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:177
+#, kde-format
+msgid "Prev"
+msgstr "Roimhe Seo"
+
+#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
+#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "Ar Aghaidh"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kpttaskprogresspanelbase.ui:230
+#, fuzzy, kde-format
+msgid "Add resource:"
+msgstr "Cuir acmhainn leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:278
+#, kde-format
+msgid "Add Entry"
+msgstr "Cuir Iontráil Leis"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: ui/kpttaskprogresspanelbase.ui:289
+#, kde-format
+msgid "Remove Entry"
+msgstr "Bain Iontráil"
+
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6540,6 +7719,31 @@ msgstr ""
 msgid "General Settings"
 msgstr "Socruithe Ginearálta"
 
+#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
+#: ui/kpttaskstatusviewsettingspanel.ui:16
+#, fuzzy, kde-format
+#| msgid "WBS Definition"
+msgid "Period Definition"
+msgstr "Sainmhíniú SMO"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kpttaskstatusviewsettingspanel.ui:25
+#, kde-format
+msgid "Period length (days):"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
+#: ui/kpttaskstatusviewsettingspanel.ui:48
+#, kde-format
+msgid "Use current date"
+msgstr "Úsáid an dáta reatha"
+
+#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
+#: ui/kpttaskstatusviewsettingspanel.ui:68
+#, kde-format
+msgid "Use weekday:"
+msgstr "Úsáid lá oibre:"
+
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -6554,12 +7758,6 @@ msgstr "An tSeachtain Seo"
 #, kde-format
 msgid "Total effort this week"
 msgstr ""
-
-#: ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "Dáta"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -6708,6 +7906,78 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "Sainmhíniú SMO"
 
+#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
+#: ui/kptwbsdefinitionpanelbase.ui:21
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define WBS code for the project"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptwbsdefinitionpanelbase.ui:33
+#, fuzzy, kde-format
+msgid "Project Code Definition"
+msgstr "Sainmhíniú SMO"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
+#, kde-format
+msgid "Code:"
+msgstr "Cód:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
+#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
+#, kde-format
+msgid "Separator:"
+msgstr "Deighilteoir:"
+
+#. i18n: ectx: property (toolTip), widget (QFrame, frame)
+#: ui/kptwbsdefinitionpanelbase.ui:86
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define default WBS code"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/kptwbsdefinitionpanelbase.ui:98
+#, kde-format
+msgid "Default Definition"
+msgstr "Sainmhíniú Réamhshocraithe"
+
+#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:148
+#, kde-format
+msgctxt "@info:tooltip Work Breakdown Structure code"
+msgid "Define separate WBS codes for individual levels"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
+#: ui/kptwbsdefinitionpanelbase.ui:151
+#, fuzzy, kde-format
+#| msgid "Default Definition"
+msgid "Use Levels Definition"
+msgstr "Sainmhíniú Réamhshocraithe"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:167
+#, kde-format
+msgid "Code"
+msgstr "Cód"
+
+#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
+#: ui/kptwbsdefinitionpanelbase.ui:172
+#, kde-format
+msgid "Separator"
+msgstr "Deighilteoir"
+
+#. i18n: ectx: property (text), widget (QPushButton, addBtn)
+#: ui/kptwbsdefinitionpanelbase.ui:187
+#, kde-format
+msgid "Add Level"
+msgstr "Cuir Leibhéal Leis"
+
 #: ui/kptworkpackagemergedialog.cpp:66
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
@@ -6772,11 +8042,6 @@ msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr ""
 
-#: ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "Ar Aghaidh"
-
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -6838,17 +8103,47 @@ msgstr ""
 msgid "No documents"
 msgstr "Mionathraigh cáipéisí"
 
-#: ui/kptworkpackagemergedialog.cpp:241
-#, fuzzy, kde-format
-#| msgid "&Documents"
-msgid "Documents"
-msgstr "&Cáipéisí"
-
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/kptworkpackagemergepanel.ui:70
+#, fuzzy, kde-format
+#| msgid "General"
+msgid "Generated:"
+msgstr "Ginearálta"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/kptworkpackagemergepanel.ui:77
+#, fuzzy, kde-format
+#| msgctxt "Start time"
+#| msgid "From:"
+msgid "From:"
+msgstr "Ó:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
+#: ui/kptworkpackagemergepanel.ui:96
+#, fuzzy, kde-format
+msgid "<package time>"
+msgstr "Críochnú: %1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
+#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
+#: ui/kptworkpackagemergepanel.ui:198
+#, kde-format
+msgid "Update"
+msgstr "Nuashonraigh"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/kptworkpackagemergepanel.ui:245
+#, kde-format
+msgid "No more data. Press Close to finish."
 msgstr ""
 
 #: ui/kptworkpackagesenddialog.cpp:34
@@ -6864,7 +8159,8 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "Acmhainn"
 
-#: ui/locale/localemon.cpp:52
+#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
+#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
 #, kde-format
 msgid "Currency symbol:"
 msgstr "Siombail airgeadra:"
@@ -6880,6 +8176,12 @@ msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr ""
 "Anseo is féidir leat an ghnáthshiombail airgeadra atá agat a iontráil, m.sh. "
 "$ nó €."
+
+#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
+#: ui/locale/localemon.ui:32
+#, kde-format
+msgid "Fractional digits:"
+msgstr "Digití codánacha:"
 
 #: ui/performance/PerformanceStatusBase.cpp:535
 #: ui/performance/PerformanceStatusBase.cpp:538
@@ -6911,6 +8213,103 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "Socruithe na Cairte"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
+#, kde-format
+msgid "Chart type"
+msgstr "Cineál na cairte"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
+#, fuzzy, kde-format
+#| msgid "Chart"
+msgid "Line chart"
+msgstr "Cairt"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
+#, fuzzy, kde-format
+#| msgid "Chart"
+msgid "Bar chart"
+msgstr "Cairt"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
+#, kde-format
+msgid "Table"
+msgstr "Tábla"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
+#, fuzzy, kde-format
+msgid "Base values"
+msgstr "Bonnlíne"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
+#, kde-format
+msgid "Indices"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
+#: ui/resourcedialogbase.ui:414
+#, kde-format
+msgid "Cost"
+msgstr "Costas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
+#, fuzzy, kde-format
+#| msgid "Show Project"
+msgid "Show BCWS plot"
+msgstr "Taispeáin Tionscadal"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
+#, fuzzy, kde-format
+#| msgid "Show Project"
+msgid "Show BCWP plot"
+msgstr "Taispeáin Tionscadal"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
+#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
+#, fuzzy, kde-format
+#| msgid "Show Project"
+msgid "Show ACWP plot"
+msgstr "Taispeáin Tionscadal"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
+#, fuzzy, kde-format
+msgid "SPI Cost"
+msgstr "Costas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
+#, fuzzy, kde-format
+msgid "SPI Effort"
+msgstr "Saothar"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
+#, fuzzy, kde-format
+msgid "CPI Effort"
+msgstr "Saothar"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
+#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
+#, fuzzy, kde-format
+msgid "CPI Cost"
+msgstr "Costas"
+
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -6925,12 +8324,6 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr ""
-
-#: ui/projectview/ProjectView.cpp:55
-#, fuzzy, kde-format
-#| msgid "Open"
-msgid "File"
-msgstr "Oscail"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, fuzzy, kde-format
@@ -6977,10 +8370,32 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Cuir spleáchóg tasc leis"
 
-#: ui/reports/reportdata.cpp:383
+#. i18n: ectx: property (text), widget (QToolButton, addBtn)
+#: ui/RelationEditorDialog.ui:131
+#, fuzzy, kde-format
+#| msgid "Per task"
+msgctxt "Insert task dependency"
+msgid "Insert"
+msgstr "Sa tasc"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
+#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
 #, kde-format
-msgid "Tasks"
-msgstr "Tascanna"
+msgid "From"
+msgstr "Ó"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/relationpanel.ui:63
+#, kde-format
+msgid "To"
+msgstr "Go"
+
+#. i18n: ectx: property (title), widget (QGroupBox, relationType)
+#: ui/relationpanel.ui:87
+#, fuzzy, kde-format
+msgid "Dependency Type"
+msgstr "Cuir spleáchóg tasc leis"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -7006,6 +8421,206 @@ msgstr "Saothar"
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "Miondealú Costas"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
+#, kde-format
+msgid "Page"
+msgstr "Leathanach"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
+#: ui/reports/reportnavigator.ui:42
+#, kde-format
+msgid "Go to first page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
+#: ui/reports/reportnavigator.ui:64
+#, kde-format
+msgid "Go to previous page"
+msgstr "Go dtí an leathanach roimhe seo"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
+#: ui/reports/reportnavigator.ui:77
+#, kde-format
+msgid "Show page"
+msgstr "Taispeáin leathanach"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/reports/reportnavigator.ui:99
+#, kde-format
+msgid "of"
+msgstr "as"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
+#: ui/reports/reportnavigator.ui:149
+#, kde-format
+msgid "Go to next page"
+msgstr "Go dtían chéad leathanach eile"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
+#: ui/reports/reportnavigator.ui:171
+#, kde-format
+msgid "Go to last page"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:28
+#, fuzzy, kde-format
+msgid "Enable report header"
+msgstr "Ceanntásc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
+#: ui/reports/reportsectionswidget.ui:31
+#, fuzzy, kde-format
+msgid "Report Header"
+msgstr "Ceanntásc"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:38
+#, fuzzy, kde-format
+msgid "Enable report footer"
+msgstr "Buntásc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
+#: ui/reports/reportsectionswidget.ui:41
+#, fuzzy, kde-format
+msgid "Report Footer"
+msgstr "Buntásc"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/reports/reportsectionswidget.ui:50
+#, fuzzy, kde-format
+msgid "Page Header"
+msgstr "Ceanntásc"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
+#: ui/reports/reportsectionswidget.ui:62
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable header on first page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "First page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
+#: ui/reports/reportsectionswidget.ui:72
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable header on last page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
+#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Last page"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
+#: ui/reports/reportsectionswidget.ui:82
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable header on odd pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Odd pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
+#: ui/reports/reportsectionswidget.ui:92
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable header on even pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Even pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
+#: ui/reports/reportsectionswidget.ui:102
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable header on all pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
+#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:105
+#: ui/reports/reportsectionswidget.ui:170
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "All pages"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/reports/reportsectionswidget.ui:115
+#, fuzzy, kde-format
+msgid "Page Footer"
+msgstr "Buntásc"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
+#: ui/reports/reportsectionswidget.ui:127
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Enable footer on first page"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
+#: ui/reports/reportsectionswidget.ui:137
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Enable footer on odd pages"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
+#: ui/reports/reportsectionswidget.ui:147
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Enable footer on even pages"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
+#: ui/reports/reportsectionswidget.ui:157
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Enable footer on last page"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: @info:tooltip
+#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
+#: ui/reports/reportsectionswidget.ui:167
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Enable footer on all pages"
+msgstr "Go dtí an leathanach deireanach"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -7205,11 +8820,6 @@ msgid "Nothing"
 msgstr ""
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, kde-format
-msgid "Add"
-msgstr "Cuir Leis"
-
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, fuzzy, kde-format
 msgid "Report File"
 msgstr "Buntásc"
@@ -7344,12 +8954,137 @@ msgstr "Ní féidir an comhad teimpléid a íosluchtú: %1"
 msgid "Allocate"
 msgstr "Leithdháileadh"
 
+#. i18n: ectx: property (text), widget (QLabel, groupLabel)
+#: ui/resourcedialogbase.ui:23
+#, kde-format
+msgid "Group:"
+msgstr "Grúpa:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
+#: ui/resourcedialogbase.ui:67
+#, kde-format
+msgid "Choose resource from address book"
+msgstr "Roghnaigh acmhainn as an leabhar seoltaí"
+
+#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
+#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
+#, kde-format
+msgid "Initials:"
+msgstr "Túslitreacha:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
+#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
+#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "Email:"
+msgstr "Ríomhphost"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel7)
+#: ui/resourcedialogbase.ui:161
+#, kde-format
+msgid "Resource type:"
+msgstr "Cineál acmhainne:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, type)
+#: ui/resourcedialogbase.ui:185
+#, kde-format
+msgid "Team"
+msgstr "Foireann"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
+#: ui/resourcedialogbase.ui:220
+#, kde-format
+msgid "Available:"
+msgstr "Ar Fáil:"
+
+#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
+#: ui/resourcedialogbase.ui:255
+#, fuzzy, kde-format
+#| msgid "Calendar"
+msgid "Calendar:"
+msgstr "Féilire"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
+#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
+#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
+#, kde-format
+msgid "Unlimited"
+msgstr "Gan Teorainn"
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
+#: ui/resourcedialogbase.ui:317
+#, kde-format
+msgid "Until"
+msgstr "Go dtí"
+
+#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
+#: ui/resourcedialogbase.ui:389
+#, kde-format
+msgid "Required resources:"
+msgstr "Acmhainní riachtanacha:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/resourcedialogbase.ui:420
+#, kde-format
+msgid "Hourly rate:"
+msgstr "Ráta in aghaidh na huaire:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: ui/resourcedialogbase.ui:443
+#, kde-format
+msgid "Overtime rate:"
+msgstr "Ráta breis-ama:"
+
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, fuzzy, kde-kuit-format
 #| msgid "Open"
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "Oscail"
+
+#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
+#: ui/standardworktimedialogbase.ui:16
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: ui/standardworktimedialogbase.ui:25
+#, kde-format
+msgid "Hours per year:"
+msgstr "Uaireanta sa bhliain:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/standardworktimedialogbase.ui:54
+#, kde-format
+msgid "Hours per month:"
+msgstr "Uaireanta sa mhí:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: ui/standardworktimedialogbase.ui:86
+#, kde-format
+msgid "Hours per week:"
+msgstr "Uaireanta sa tseachtain:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:115
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: ui/standardworktimedialogbase.ui:118
+#, kde-format
+msgid "Hours per day:"
+msgstr "Uaire sa lá:"
 
 #: ui/TasksEditDialog.cpp:46
 #, fuzzy, kde-format
@@ -7368,6 +9103,45 @@ msgstr "Mionathraigh tasc"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "Mionathraigh Tasc"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: ui/TasksGeneralPanel.ui:25
+#, fuzzy, kde-format
+#| msgid "Responsible:"
+msgid "Responsib&le:"
+msgstr "Freagrach:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: ui/TasksGeneralPanel.ui:146
+#, fuzzy, kde-format
+#| msgid "Schedule:"
+msgid "Sched&ule:"
+msgstr "Sceideal:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
+#: ui/TasksGeneralPanel.ui:252
+#, fuzzy, kde-format
+#| msgid "Estimate:"
+msgid "Es&timate:"
+msgstr "Meastachán:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
+#: ui/TasksGeneralPanel.ui:300
+#, kde-format
+msgid "Ris&k:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/TasksGeneralPanel.ui:356
+#, kde-format
+msgid "Optimistic:"
+msgstr "Soirbh:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: ui/TasksGeneralPanel.ui:385
+#, kde-format
+msgid "Pessimistic:"
+msgstr "Doirbh:"
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -7421,6 +9195,169 @@ msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
+#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
+#: widgets/KoDocumentInfoDlg.cpp:351
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Encrypt"
+msgstr "Cur Síos:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:64
+#, kde-format
+msgid "Keywords:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:111
+#, fuzzy, kde-format
+#| msgid "Sub-Project"
+msgid "Subject:"
+msgstr "Fothionscadal"
+
+#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:124
+#, fuzzy, kde-format
+#| msgid "Go to last page"
+msgid "Last printed:"
+msgstr "Go dtí an leathanach deireanach"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:141
+#, fuzzy, kde-format
+#| msgid "Type"
+msgid "Type:"
+msgstr "Cineál"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:158
+#, kde-format
+msgid "Total editing time:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:178
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "Encryption:"
+msgstr "Cur Síos:"
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:188
+#, kde-format
+msgctxt "Document title"
+msgid "Title:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:201
+#, kde-format
+msgid "Revision number:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:211
+#, kde-format
+msgid "Modified:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:231
+#, fuzzy, kde-format
+#| msgid "&Documents"
+msgid "Comments:"
+msgstr "&Cáipéisí"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:251
+#, fuzzy, kde-format
+#| msgid "Started:"
+msgid "Created:"
+msgstr "Dáta Tosaigh:"
+
+#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
+#: widgets/koDocumentInfoAboutWidget.ui:261
+#, fuzzy, kde-format
+#| msgid "Path"
+msgid "Path:"
+msgstr "Conair"
+
+#. i18n: ectx: property (text), widget (QPushButton, pbReset)
+#: widgets/koDocumentInfoAboutWidget.ui:280
+#, fuzzy, kde-format
+#| msgid "&Resources"
+msgid "&Reset"
+msgstr "&Acmhainní"
+
+#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
+#: widgets/koDocumentInfoAboutWidget.ui:297
+#, kde-format
+msgid "Language:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:60
+#, kde-format
+msgid "Title:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:77
+#, fuzzy, kde-format
+#| msgid "Positive"
+msgid "Position:"
+msgstr "Deimhneach"
+
+#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:94
+#, kde-format
+msgid "Company:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
+#: widgets/koDocumentInfoAuthorWidget.ui:114
+#, kde-format
+msgid "Telephone (home):"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
+#: widgets/koDocumentInfoAuthorWidget.ui:124
+#, kde-format
+msgid "Telephone (work):"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:134
+#, kde-format
+msgid "Fax:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:144
+#, kde-format
+msgid "Street:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:154
+#, kde-format
+msgid "Postal code:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:164
+#, kde-format
+msgid "City:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
+#: widgets/koDocumentInfoAuthorWidget.ui:174
+#, fuzzy, kde-format
+#| msgid "Account:"
+msgid "Country:"
+msgstr "Cuntas:"
+
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
 msgid "Author"
@@ -7471,12 +9408,6 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "This document is not encrypted"
 msgstr "Mionathraigh cineál na cáipéise"
-
-#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "&Encrypt"
-msgstr "Cur Síos:"
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, fuzzy, kde-format
@@ -7563,11 +9494,6 @@ msgstr ""
 msgid "Page Layout"
 msgstr "Buntásc"
 
-#: widgets/KoPageLayoutDialog.cpp:51
-#, kde-format
-msgid "Page"
-msgstr "Leathanach"
-
 #: widgets/KoPageLayoutDialog.cpp:109
 #, fuzzy, kde-format
 msgid "Apply to document"
@@ -7600,7 +9526,8 @@ msgstr "Ceanntásc"
 msgid "Facing Pages:"
 msgstr "Raon Sceidealta"
 
-#: widgets/KoPageLayoutWidget.cpp:291
+#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
+#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
 #, fuzzy, kde-format
 #| msgid "Go to first page"
 msgid "Facing pages"
@@ -7615,6 +9542,124 @@ msgstr "Buntásc"
 #, fuzzy, kde-format
 msgid "Page spread"
 msgstr "Ceanntásc"
+
+#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
+#: widgets/KoPageLayoutWidget.ui:25
+#, kde-format
+msgid "Unit:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
+#: widgets/KoPageLayoutWidget.ui:45
+#, kde-format
+msgid "Follow style:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/KoPageLayoutWidget.ui:61
+#, kde-format
+msgid "Size:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/KoPageLayoutWidget.ui:77
+#, kde-format
+msgid "Width:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:104
+#, kde-format
+msgid "Height:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:119
+#, fuzzy, kde-format
+#| msgid "Duration"
+msgid "Orientation:"
+msgstr "Aga"
+
+#. i18n: ectx: property (text), widget (QRadioButton, portrait)
+#: widgets/KoPageLayoutWidget.ui:129
+#, fuzzy, kde-format
+msgid "Portrait"
+msgstr "Mionathraigh cineál na cáipéise"
+
+#. i18n: ectx: property (text), widget (QRadioButton, landscape)
+#: widgets/KoPageLayoutWidget.ui:136
+#, kde-format
+msgid "Landscape"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
+#: widgets/KoPageLayoutWidget.ui:143
+#, fuzzy, kde-format
+#| msgid "Go to first page"
+msgid "Facing pages:"
+msgstr "Go dtí an chéad leathanach"
+
+#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
+#: widgets/KoPageLayoutWidget.ui:153
+#, kde-format
+msgid "Single sided"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, directionLabel)
+#: widgets/KoPageLayoutWidget.ui:167
+#, fuzzy, kde-format
+#| msgid "Direction"
+msgid "Text direction:"
+msgstr "Treo"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:184
+#, kde-format
+msgid "Automatic"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:189
+#, kde-format
+msgid "Left to right"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
+#: widgets/KoPageLayoutWidget.ui:194
+#, kde-format
+msgid "Right to left"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, margins)
+#: widgets/KoPageLayoutWidget.ui:204
+#, kde-format
+msgid "Margins"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: widgets/KoPageLayoutWidget.ui:210
+#, kde-format
+msgid "Top:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, leftLabel)
+#: widgets/KoPageLayoutWidget.ui:230
+#, fuzzy, kde-format
+#| msgid "Printing"
+msgid "Binding edge:"
+msgstr "Priontáil"
+
+#. i18n: ectx: property (text), widget (QLabel, rightLabel)
+#: widgets/KoPageLayoutWidget.ui:250
+#, fuzzy, kde-format
+msgid "Page edge:"
+msgstr "Ceanntásc"
+
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: widgets/KoPageLayoutWidget.ui:270
+#, kde-format
+msgid "Bottom:"
+msgstr ""
 
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
@@ -7633,846 +9678,6 @@ msgstr "Dáileadh"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
-
-#~ msgid "Show:"
-#~ msgstr "Taispeáin:"
-
-#~ msgid "Periodicity:"
-#~ msgstr "Tréimhsiúlacht:"
-
-#~ msgid "Day"
-#~ msgstr "Lá"
-
-#~ msgid "Week"
-#~ msgstr "Seachtain"
-
-#~ msgid "Month"
-#~ msgstr "Mí"
-
-#~ msgid "Cumulative"
-#~ msgstr "Carnach"
-
-#, fuzzy
-#~ msgid "Actual cost"
-#~ msgstr "Dáta Tosaigh: %1"
-
-#, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid "Planned cost"
-#~ msgid "Planned cost"
-#~ msgstr "Costas pleanáilte"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Deviation"
-#~ msgstr "Aga"
-
-#~ msgid "Start date"
-#~ msgstr "Dáta tosaigh"
-
-#~ msgid "Project start"
-#~ msgstr "Tús an tionscadail"
-
-#~ msgid "End date"
-#~ msgstr "Dáta deiridh"
-
-#~ msgid "Current date"
-#~ msgstr "Dáta reatha"
-
-#~ msgid "Project end"
-#~ msgstr "Deireadh an tionscadail"
-
-#~ msgid "Project Schedule:"
-#~ msgstr "Sceideal an Tionscadail:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "is"
-#~ msgstr "atá"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Name:"
-#~ msgstr "Ainm:"
-
-#~ msgid "Add..."
-#~ msgstr "Cuir Leis..."
-
-#~ msgid "Change..."
-#~ msgstr "Athraigh..."
-
-#~ msgid "Remove"
-#~ msgstr "Bain"
-
-#, fuzzy
-#~| msgid "Delete"
-#~ msgid "Del"
-#~ msgstr "Scrios"
-
-#~ msgid "Open"
-#~ msgstr "Oscail"
-
-#, fuzzy
-#~ msgid "Timeline"
-#~ msgstr "Crios ama"
-
-#, fuzzy
-#~| msgctxt "Schedule project backward"
-#~| msgid "Backward"
-#~ msgid "Background"
-#~ msgstr "Ar gCúl"
-
-#, fuzzy
-#~| msgid "Interval"
-#~ msgid "Interval:"
-#~ msgstr "Eatramh"
-
-#, fuzzy
-#~| msgid "Chart"
-#~ msgid "Line width"
-#~ msgstr "Cairt"
-
-#, fuzzy
-#~| msgid "Chart"
-#~ msgid "Line color"
-#~ msgstr "Cairt"
-
-#, fuzzy
-#~ msgid "Task name"
-#~ msgstr "Taispeáin ainm an tasc"
-
-#, fuzzy
-#~ msgid "Resource names"
-#~ msgstr "Taispeáin ainmneacha na n-acmhainní"
-
-#, fuzzy
-#~ msgid "Task dependencies"
-#~ msgstr "Cuir spleáchóg tasc leis"
-
-#, fuzzy
-#~ msgid "Task completion"
-#~ msgstr "Críochnú an tasc"
-
-#, fuzzy
-#~ msgid "Time constraints"
-#~ msgstr "Mionathraigh cineál na cáipéise"
-
-#, fuzzy
-#~ msgid "Positive float"
-#~ msgstr "Deimhneach"
-
-#, fuzzy
-#~ msgid "Negative float"
-#~ msgstr "Diúltach"
-
-#, fuzzy
-#~ msgid "Critical path"
-#~ msgstr "Rébhealach"
-
-#, fuzzy
-#~ msgid "Critical tasks"
-#~ msgstr "Rébhealach"
-
-#, fuzzy
-#~ msgid "Scheduling errors"
-#~ msgstr "Logchomhad Sceidealta"
-
-#, fuzzy
-#~| msgid "Header"
-#~ msgctxt "@title:group"
-#~ msgid "Headers"
-#~ msgstr "Ceanntásc"
-
-#, fuzzy
-#~ msgctxt "@option:check"
-#~ msgid "Print task names"
-#~ msgstr "Mionathraigh ainm an tasc"
-
-#, fuzzy
-#~ msgctxt "@option:check"
-#~ msgid "Print time scale"
-#~ msgstr "Mionathraigh ainm an tasc"
-
-#, fuzzy
-#~| msgid "Scheduling"
-#~ msgctxt "@title:group"
-#~ msgid "Scaling"
-#~ msgstr "Sceidealadh"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgctxt "@option:radio"
-#~ msgid "Divide chart on multiple pages"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Change..."
-#~ msgctxt "@title:group"
-#~ msgid "Range"
-#~ msgstr "Athraigh..."
-
-#, fuzzy
-#~| msgid "Can start"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart start:"
-#~ msgstr "Is féidir tosú"
-
-#, fuzzy
-#~| msgctxt "Interval start time"
-#~| msgid "Start"
-#~ msgctxt "@option:radio"
-#~ msgid "Start:"
-#~ msgstr "Tosach"
-
-#, fuzzy
-#~| msgid "Chart type"
-#~ msgctxt "@option:radio"
-#~ msgid "Chart end:"
-#~ msgstr "Cineál na cairte"
-
-#~ msgid "1"
-#~ msgstr "1"
-
-#~ msgctxt "Start time"
-#~ msgid "From:"
-#~ msgstr "Ó:"
-
-#~ msgid "Length"
-#~ msgstr "Fad"
-
-#~ msgid "Clear"
-#~ msgstr "Glan"
-
-#~ msgid "&Hidden columns:"
-#~ msgstr "Colúin f&holaithe:"
-
-#~ msgid "&Visible columns:"
-#~ msgstr "Colúin &infheicthe:"
-
-#~ msgid "WBS:"
-#~ msgstr "WBS:"
-
-#~ msgid "The project name."
-#~ msgstr "Ainm an tionscadail."
-
-#, fuzzy
-#~| msgid "Name:"
-#~ msgid "&Name:"
-#~ msgstr "Ainm:"
-
-#~ msgid "The project leader."
-#~ msgstr "Ceannaire an tionscadail."
-
-#, fuzzy
-#~| msgid "Manager:"
-#~ msgid "&Manager:"
-#~ msgstr "Bainisteoir:"
-
-#~ msgid "Choose a project leader from your address book."
-#~ msgstr "Roghnaigh ceannaire an tionscadail as do leabhar seoltaí."
-
-#~ msgid "&Choose..."
-#~ msgstr "&Roghnaigh..."
-
-#~ msgid "Scheduling Range"
-#~ msgstr "Raon Sceidealta"
-
-#, fuzzy
-#~ msgid "Earliest start:"
-#~ msgstr "Dáta Tosaigh: %1"
-
-#, fuzzy
-#~ msgid "Latest finish:"
-#~ msgstr "Críochnú: %1"
-
-#, fuzzy
-#~| msgid "Required resources:"
-#~ msgid "&Use shared resources"
-#~ msgstr "Acmhainní riachtanacha:"
-
-#, fuzzy
-#~| msgid "Resources"
-#~ msgid "Resources:"
-#~ msgstr "Acmhainní"
-
-#, fuzzy
-#~| msgid "Choose..."
-#~ msgid "Browse..."
-#~ msgstr "Roghnaigh..."
-
-#, fuzzy
-#~| msgid "Project:"
-#~ msgid "Projects:"
-#~ msgstr "Tionscadal:"
-
-#, fuzzy
-#~| msgid "Direction"
-#~ msgid "Directory"
-#~ msgstr "Treo"
-
-#, fuzzy
-#~| msgid "Required resources:"
-#~ msgid "Load resource assignments at startup"
-#~ msgstr "Acmhainní riachtanacha:"
-
-#, fuzzy
-#~| msgctxt "@title:column noun"
-#~| msgid "Load"
-#~ msgid "Load"
-#~ msgstr "Luchtaigh"
-
-#, fuzzy
-#~ msgid "Work Package"
-#~ msgstr "Stádas an tasc"
-
-#, fuzzy
-#~ msgid "Check for work packages"
-#~ msgstr "Stádas an tasc"
-
-#, fuzzy
-#~ msgid "Task Modules"
-#~ msgstr "Mionsonraí an tasc "
-
-#, fuzzy
-#~| msgid "Per task"
-#~ msgid "Insert"
-#~ msgstr "Sa tasc"
-
-#~ msgid "Available tasks"
-#~ msgstr "Tascanna ar fáil"
-
-#~ msgid "Add required task"
-#~ msgstr "Cuir tasc riachtanach leis"
-
-#~ msgid "Remove required task"
-#~ msgstr "Bain tasc riachtanach"
-
-#, fuzzy
-#~| msgid "Project start"
-#~ msgid "Total Float:"
-#~ msgstr "Tús an tionscadail"
-
-#~ msgid "Header"
-#~ msgstr "Ceanntásc"
-
-#~ msgid "Project name"
-#~ msgstr "Ainm an tionscadail"
-
-#~ msgid "Page number"
-#~ msgstr "Uimhir an leathanaigh"
-
-#~ msgid "Project manager"
-#~ msgstr "Bainisteoir an tionscadail"
-
-#~ msgid "Footer"
-#~ msgstr "Buntásc"
-
-#, fuzzy
-#~| msgid "Calculate"
-#~ msgid "Re-calculate from:"
-#~ msgstr "Ríomh"
-
-#~ msgid "Advance"
-#~ msgstr "Téigh ar aghaidh"
-
-#, fuzzy
-#~| msgid "Scheduling Range"
-#~ msgid "Scheduling range:"
-#~ msgstr "Raon Sceidealta"
-
-#~ msgid "The name of the Task."
-#~ msgstr "Ainm an Tasc."
-
-#~ msgid "Responsible:"
-#~ msgstr "Freagrach:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "Ionsáigh duine as do leabhar seoltaí"
-
-#~ msgid "Choose..."
-#~ msgstr "Roghnaigh..."
-
-#, fuzzy
-#~| msgid "Periodicity:"
-#~ msgid "Priority:"
-#~ msgstr "Tréimhsiúlacht:"
-
-#~ msgid "Account:"
-#~ msgstr "Cuntas:"
-
-#~ msgid "Startup"
-#~ msgstr "Tosú"
-
-#~ msgid "Cost:"
-#~ msgstr "Costas:"
-
-#~ msgid "Shutdown"
-#~ msgstr "Múchadh"
-
-#~ msgid "N&ame:"
-#~ msgstr "&Ainm:"
-
-#, fuzzy
-#~| msgid "Responsible:"
-#~ msgid "Responsi&ble:"
-#~ msgstr "Freagrach:"
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "Ionsáigh duine as do leabhar seoltaí."
-
-#~ msgid "Timing"
-#~ msgstr "Uainiú"
-
-#, fuzzy
-#~| msgid "Schedule:"
-#~ msgid "&Schedule:"
-#~ msgstr "Sceideal:"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "Chomh Luath agus is Féidir"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "A deireanaí is féidir"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "Ná tosaigh níos luaithe ná"
-
-#, fuzzy
-#~| msgid "Start Not Earlier Than"
-#~ msgid "Finish Not Later Than"
-#~ msgstr "Ná tosaigh níos luaithe ná"
-
-#, fuzzy
-#~| msgid "Estimate:"
-#~ msgid "Esti&mate:"
-#~ msgstr "Meastachán:"
-
-#~ msgid "Risk:"
-#~ msgstr "Riosca:"
-
-#, fuzzy
-#~| msgid "Optimistic:"
-#~ msgid "Optimisti&c:"
-#~ msgstr "Soirbh:"
-
-#, fuzzy
-#~| msgid "Pessimistic:"
-#~ msgid "&Pessimistic:"
-#~ msgstr "Doirbh:"
-
-#, fuzzy
-#~| msgid "Task"
-#~ msgid "Task:"
-#~ msgstr "Tasc"
-
-#~ msgid "Started:"
-#~ msgstr "Dáta Tosaigh:"
-
-#~ msgid "Finished:"
-#~ msgstr "Críochnaithe:"
-
-#~ msgid "Per resource"
-#~ msgstr "San acmhainn"
-
-#~ msgid "Per task"
-#~ msgstr "Sa tasc"
-
-#~ msgid "Prev"
-#~ msgstr "Roimhe Seo"
-
-#, fuzzy
-#~ msgid "Add resource:"
-#~ msgstr "Cuir acmhainn leis"
-
-#~ msgid "Add Entry"
-#~ msgstr "Cuir Iontráil Leis"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Bain Iontráil"
-
-#, fuzzy
-#~| msgid "WBS Definition"
-#~ msgid "Period Definition"
-#~ msgstr "Sainmhíniú SMO"
-
-#~ msgid "Use current date"
-#~ msgstr "Úsáid an dáta reatha"
-
-#~ msgid "Use weekday:"
-#~ msgstr "Úsáid lá oibre:"
-
-#, fuzzy
-#~ msgid "Project Code Definition"
-#~ msgstr "Sainmhíniú SMO"
-
-#~ msgid "Code:"
-#~ msgstr "Cód:"
-
-#~ msgid "Separator:"
-#~ msgstr "Deighilteoir:"
-
-#~ msgid "Default Definition"
-#~ msgstr "Sainmhíniú Réamhshocraithe"
-
-#, fuzzy
-#~| msgid "Default Definition"
-#~ msgid "Use Levels Definition"
-#~ msgstr "Sainmhíniú Réamhshocraithe"
-
-#~ msgid "Code"
-#~ msgstr "Cód"
-
-#~ msgid "Separator"
-#~ msgstr "Deighilteoir"
-
-#~ msgid "Add Level"
-#~ msgstr "Cuir Leibhéal Leis"
-
-#, fuzzy
-#~| msgid "General"
-#~ msgid "Generated:"
-#~ msgstr "Ginearálta"
-
-#, fuzzy
-#~| msgctxt "Start time"
-#~| msgid "From:"
-#~ msgid "From:"
-#~ msgstr "Ó:"
-
-#, fuzzy
-#~ msgid "<package time>"
-#~ msgstr "Críochnú: %1"
-
-#~ msgid "Update"
-#~ msgstr "Nuashonraigh"
-
-#~ msgid "Fractional digits:"
-#~ msgstr "Digití codánacha:"
-
-#~ msgid "Chart type"
-#~ msgstr "Cineál na cairte"
-
-#, fuzzy
-#~| msgid "Chart"
-#~ msgid "Line chart"
-#~ msgstr "Cairt"
-
-#, fuzzy
-#~| msgid "Chart"
-#~ msgid "Bar chart"
-#~ msgstr "Cairt"
-
-#~ msgid "Table"
-#~ msgstr "Tábla"
-
-#, fuzzy
-#~ msgid "Base values"
-#~ msgstr "Bonnlíne"
-
-#~ msgid "Cost"
-#~ msgstr "Costas"
-
-#, fuzzy
-#~| msgid "Show Project"
-#~ msgid "Show BCWS plot"
-#~ msgstr "Taispeáin Tionscadal"
-
-#, fuzzy
-#~| msgid "Show Project"
-#~ msgid "Show BCWP plot"
-#~ msgstr "Taispeáin Tionscadal"
-
-#, fuzzy
-#~| msgid "Show Project"
-#~ msgid "Show ACWP plot"
-#~ msgstr "Taispeáin Tionscadal"
-
-#, fuzzy
-#~ msgid "SPI Cost"
-#~ msgstr "Costas"
-
-#, fuzzy
-#~ msgid "SPI Effort"
-#~ msgstr "Saothar"
-
-#, fuzzy
-#~ msgid "CPI Effort"
-#~ msgstr "Saothar"
-
-#, fuzzy
-#~ msgid "CPI Cost"
-#~ msgstr "Costas"
-
-#, fuzzy
-#~| msgid "Per task"
-#~ msgctxt "Insert task dependency"
-#~ msgid "Insert"
-#~ msgstr "Sa tasc"
-
-#~ msgid "From"
-#~ msgstr "Ó"
-
-#~ msgid "To"
-#~ msgstr "Go"
-
-#~ msgid "Go to first page"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#~ msgid "Go to previous page"
-#~ msgstr "Go dtí an leathanach roimhe seo"
-
-#~ msgid "Show page"
-#~ msgstr "Taispeáin leathanach"
-
-#~ msgid "of"
-#~ msgstr "as"
-
-#~ msgid "Go to next page"
-#~ msgstr "Go dtían chéad leathanach eile"
-
-#~ msgid "Go to last page"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~ msgid "Enable report header"
-#~ msgstr "Ceanntásc"
-
-#, fuzzy
-#~ msgid "Report Header"
-#~ msgstr "Ceanntásc"
-
-#, fuzzy
-#~ msgid "Enable report footer"
-#~ msgstr "Buntásc"
-
-#, fuzzy
-#~ msgid "Report Footer"
-#~ msgstr "Buntásc"
-
-#, fuzzy
-#~ msgid "Page Header"
-#~ msgstr "Ceanntásc"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable header on first page"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "First page"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable header on last page"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Last page"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable header on odd pages"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable header on even pages"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Even pages"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable header on all pages"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~ msgid "Page Footer"
-#~ msgstr "Buntásc"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Enable footer on first page"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Enable footer on odd pages"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Enable footer on even pages"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Enable footer on last page"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Enable footer on all pages"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#~ msgid "Group:"
-#~ msgstr "Grúpa:"
-
-#~ msgid "Choose resource from address book"
-#~ msgstr "Roghnaigh acmhainn as an leabhar seoltaí"
-
-#~ msgid "Initials:"
-#~ msgstr "Túslitreacha:"
-
-#, fuzzy
-#~| msgid "Email"
-#~ msgid "Email:"
-#~ msgstr "Ríomhphost"
-
-#~ msgid "Resource type:"
-#~ msgstr "Cineál acmhainne:"
-
-#~ msgid "Team"
-#~ msgstr "Foireann"
-
-#~ msgid "Available:"
-#~ msgstr "Ar Fáil:"
-
-#, fuzzy
-#~| msgid "Calendar"
-#~ msgid "Calendar:"
-#~ msgstr "Féilire"
-
-#~ msgid "Unlimited"
-#~ msgstr "Gan Teorainn"
-
-#~ msgid "Until"
-#~ msgstr "Go dtí"
-
-#~ msgid "Required resources:"
-#~ msgstr "Acmhainní riachtanacha:"
-
-#~ msgid "Hourly rate:"
-#~ msgstr "Ráta in aghaidh na huaire:"
-
-#~ msgid "Overtime rate:"
-#~ msgstr "Ráta breis-ama:"
-
-#~ msgid "Hours per year:"
-#~ msgstr "Uaireanta sa bhliain:"
-
-#~ msgid "Hours per month:"
-#~ msgstr "Uaireanta sa mhí:"
-
-#~ msgid "Hours per week:"
-#~ msgstr "Uaireanta sa tseachtain:"
-
-#~ msgid "Hours per day:"
-#~ msgstr "Uaire sa lá:"
-
-#, fuzzy
-#~| msgid "Responsible:"
-#~ msgid "Responsib&le:"
-#~ msgstr "Freagrach:"
-
-#, fuzzy
-#~| msgid "Schedule:"
-#~ msgid "Sched&ule:"
-#~ msgstr "Sceideal:"
-
-#, fuzzy
-#~| msgid "Estimate:"
-#~ msgid "Es&timate:"
-#~ msgstr "Meastachán:"
-
-#~ msgid "Optimistic:"
-#~ msgstr "Soirbh:"
-
-#~ msgid "Pessimistic:"
-#~ msgstr "Doirbh:"
-
-#, fuzzy
-#~| msgid "Sub-Project"
-#~ msgid "Subject:"
-#~ msgstr "Fothionscadal"
-
-#, fuzzy
-#~| msgid "Go to last page"
-#~ msgid "Last printed:"
-#~ msgstr "Go dtí an leathanach deireanach"
-
-#, fuzzy
-#~| msgid "Type"
-#~ msgid "Type:"
-#~ msgstr "Cineál"
-
-#, fuzzy
-#~| msgid "Description:"
-#~ msgid "Encryption:"
-#~ msgstr "Cur Síos:"
-
-#, fuzzy
-#~| msgid "&Documents"
-#~ msgid "Comments:"
-#~ msgstr "&Cáipéisí"
-
-#, fuzzy
-#~| msgid "Started:"
-#~ msgid "Created:"
-#~ msgstr "Dáta Tosaigh:"
-
-#, fuzzy
-#~| msgid "Path"
-#~ msgid "Path:"
-#~ msgstr "Conair"
-
-#, fuzzy
-#~| msgid "&Resources"
-#~ msgid "&Reset"
-#~ msgstr "&Acmhainní"
-
-#, fuzzy
-#~| msgid "Positive"
-#~ msgid "Position:"
-#~ msgstr "Deimhneach"
-
-#, fuzzy
-#~| msgid "Account:"
-#~ msgid "Country:"
-#~ msgstr "Cuntas:"
-
-#, fuzzy
-#~| msgid "Duration"
-#~ msgid "Orientation:"
-#~ msgstr "Aga"
-
-#, fuzzy
-#~| msgid "Go to first page"
-#~ msgid "Facing pages:"
-#~ msgstr "Go dtí an chéad leathanach"
-
-#, fuzzy
-#~| msgid "Direction"
-#~ msgid "Text direction:"
-#~ msgstr "Treo"
-
-#, fuzzy
-#~| msgid "Printing"
-#~ msgid "Binding edge:"
-#~ msgstr "Priontáil"
-
-#, fuzzy
-#~ msgid "Page edge:"
-#~ msgstr "Ceanntásc"
 
 #, fuzzy
 #~| msgid "Time"

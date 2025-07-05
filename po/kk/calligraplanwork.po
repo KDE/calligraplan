@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2013-10-24 03:54+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -56,6 +56,24 @@ msgstr "Сайран Киккарин"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sairan@computer.org"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "Өңд&еу"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Көрініс"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Көрініс"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -198,6 +216,30 @@ msgstr "Өңдеуі болмады. Жұмыс дестесі табылған 
 #, kde-format
 msgid "Task Progress"
 msgstr "Тапсырма барысы"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Басталған:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Біткен:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Жазуды қосу"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Жазуды өшіру"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -587,27 +629,6 @@ msgstr "<p><b>'%1'</b> жұмыс дестесі</p><p>Ашылмайтын қо
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p><b>'%1'</b> жұмыс дестесі</p><p>Алып-шығарылмайтын файлы:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "Өңд&еу"
-
-#~ msgid "View"
-#~ msgstr "Көрініс"
-
-#~ msgid "&View"
-#~ msgstr "&Көрініс"
-
-#~ msgid "Started:"
-#~ msgstr "Басталған:"
-
-#~ msgid "Finished:"
-#~ msgstr "Біткен:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Жазуды қосу"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Жазуды өшіру"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Жұмыс дестесінің параметрлері "

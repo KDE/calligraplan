@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2019-11-03 11:17+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -51,6 +51,24 @@ msgstr "Andrew Coles, Steve Allewell"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Edit"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "View"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&View"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -192,6 +210,30 @@ msgstr "Edit failed. Cannot find a work package."
 #, kde-format
 msgid "Task Progress"
 msgstr "Task Progress"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Started:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Finished:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Add Entry"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Remove Entry"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -566,27 +608,6 @@ msgstr "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "&Edit"
-
-#~ msgid "View"
-#~ msgstr "View"
-
-#~ msgid "&View"
-#~ msgstr "&View"
-
-#~ msgid "Started:"
-#~ msgstr "Started:"
-
-#~ msgid "Finished:"
-#~ msgstr "Finished:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Add Entry"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Remove Entry"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Work Package Settings"

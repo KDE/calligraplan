@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2014-12-22 20:18+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -52,6 +52,24 @@ msgstr "Martin Schlander"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mschlander@opensuse.org"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Redigér"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Vis"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Vis"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -198,6 +216,30 @@ msgstr "Redigering mislykkedes. Kan ikke finde Work Package."
 #, kde-format
 msgid "Task Progress"
 msgstr "Opgavefremgang"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Startet:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Afsluttet:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Tilføj indgang"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Fjern indgang"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -592,27 +634,6 @@ msgstr ""
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Work Package <b>\"%1\"</b></p><p>Kunne ikke pakke fil ud:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "&Redigér"
-
-#~ msgid "View"
-#~ msgstr "Vis"
-
-#~ msgid "&View"
-#~ msgstr "&Vis"
-
-#~ msgid "Started:"
-#~ msgstr "Startet:"
-
-#~ msgid "Finished:"
-#~ msgstr "Afsluttet:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Tilføj indgang"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Fjern indgang"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Indstillinger for Work Package"

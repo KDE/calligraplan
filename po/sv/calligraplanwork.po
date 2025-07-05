@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2019-10-12 12:45+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -53,6 +53,24 @@ msgstr "Stefan Asserhäll"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Redigera"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Visa"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Visa"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -197,6 +215,30 @@ msgstr "Redigering misslyckades. Kan inte hitta ett arbetspaket."
 #, kde-format
 msgid "Task Progress"
 msgstr "Aktivitetens utveckling"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Startad:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Avslutad:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Lägg till post"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Ta bort post"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -571,27 +613,6 @@ msgstr ""
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Arbetspaket <b>'%1'</b></p><p>Kunde inte extrahera fil:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "&Redigera"
-
-#~ msgid "View"
-#~ msgstr "Visa"
-
-#~ msgid "&View"
-#~ msgstr "&Visa"
-
-#~ msgid "Started:"
-#~ msgstr "Startad:"
-
-#~ msgid "Finished:"
-#~ msgstr "Avslutad:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Lägg till post"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Ta bort post"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"

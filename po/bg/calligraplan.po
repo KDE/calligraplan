@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2011-07-26 12:57+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
@@ -17,6 +17,510 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. i18n: ectx: Menu (file)
+#: calligraplan.rc:4
+#, kde-format
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplan.rc:9
+#, kde-format
+msgid "&Edit"
+msgstr "&Редактиране"
+
+#. i18n: ectx: Menu (view)
+#: calligraplan.rc:20 calligraplan_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Изглед"
+
+#. i18n: ectx: Menu (project)
+#: calligraplan.rc:27
+#, kde-format
+msgid "&Project"
+msgstr "&Проект"
+
+#. i18n: ectx: Menu (tools)
+#: calligraplan.rc:35
+#, kde-format
+msgid "&Tools"
+msgstr "&Инструменти"
+
+#. i18n: ectx: Menu (settings)
+#: calligraplan.rc:40
+#, kde-format
+msgid "&Settings"
+msgstr "&Настройки"
+
+#. i18n: ectx: Menu (help)
+#: calligraplan.rc:43
+#, kde-format
+msgid "&Help"
+msgstr "&Помощ"
+
+#. i18n: ectx: ToolBar (edit)
+#: calligraplan.rc:47
+#, fuzzy, kde-format
+msgid "Edit"
+msgstr "Редактиране..."
+
+#. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
+#: calligraplansettings.kcfg:9
+#, fuzzy, kde-format
+msgid "Hours per year"
+msgstr "Часове/година:"
+
+#. i18n: ectx: label, entry (HoursPrMonth), group (EstimateConversion)
+#: calligraplansettings.kcfg:13
+#, fuzzy, kde-format
+msgid "Hours per month"
+msgstr "Часове/месец:"
+
+#. i18n: ectx: label, entry (HoursPrWeek), group (EstimateConversion)
+#: calligraplansettings.kcfg:17
+#, fuzzy, kde-format
+msgid "Hours per week"
+msgstr "Часове/седмица:"
+
+#. i18n: ectx: label, entry (HoursPrDay), group (EstimateConversion)
+#: calligraplansettings.kcfg:21
+#, fuzzy, kde-format
+msgid "Hours per day"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
+#: calligraplansettings.kcfg:27
+#, fuzzy, kde-format
+msgid "Generate working week"
+msgstr "Генериране на WBS код"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:31
+#, fuzzy, kde-format
+msgid "Generate working week options"
+msgstr "Генериране на WBS код"
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
+#, kde-format
+msgid "If none exists"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
+#: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
+#, kde-format
+msgid "Always"
+msgstr ""
+
+#. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
+#: calligraplansettings.kcfg:43
+#, fuzzy, kde-format
+msgid "Generate holidays"
+msgstr "Генериране на WBS код"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:47
+#, fuzzy, kde-format
+msgid "Generate holidays options"
+msgstr "Генериране на WBS код"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#: calligraplansettings.kcfg:50
+#, fuzzy, kde-format
+msgid "In base calendar"
+msgstr "Основен календар:"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
+#, fuzzy, kde-format
+msgid "As sub-calendar"
+msgstr "Добавяне на подзадача"
+
+#. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
+#, fuzzy, kde-format
+msgid "As separate calendar"
+msgstr "Основен календар:"
+
+#. i18n: ectx: label, entry (Region), group (CalendarGeneration)
+#: calligraplansettings.kcfg:62
+#, kde-format
+msgid "Holiday region"
+msgstr ""
+
+#. i18n: ectx: label, entry (Monday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
+#: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
+#, fuzzy, kde-format
+msgid "Monday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayStart), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayStart), group (WorkingWeek)
+#: calligraplansettings.kcfg:72 calligraplansettings.kcfg:85
+#: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
+#: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
+#: calligraplansettings.kcfg:150
+#, fuzzy, kde-format
+msgid "Start of working day"
+msgstr "Начална дата"
+
+#. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (WednesdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (ThursdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (FridayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SaturdayEnd), group (WorkingWeek)
+#. i18n: ectx: label, entry (SundayEnd), group (WorkingWeek)
+#: calligraplansettings.kcfg:76 calligraplansettings.kcfg:89
+#: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
+#: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
+#: calligraplansettings.kcfg:154
+#, fuzzy, kde-format
+msgid "End of working day"
+msgstr "Начална дата"
+
+#. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
+#: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
+#, fuzzy, kde-format
+msgid "Tuesday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
+#: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
+#, fuzzy, kde-format
+msgid "Wednesday:"
+msgstr "Седмица"
+
+#. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
+#: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
+#, fuzzy, kde-format
+msgid "Thursday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (Friday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
+#: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
+#, fuzzy, kde-format
+msgid "Friday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
+#: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
+#, fuzzy, kde-format
+msgid "Saturday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
+#: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
+#, fuzzy, kde-format
+msgid "Sunday:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: label, entry (Manager), group (Project settings)
+#: calligraplansettings.kcfg:161
+#, fuzzy, kde-format
+msgid "Name of project manager"
+msgstr "Мениджър на проекта:"
+
+#. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
+#: calligraplansettings.kcfg:164
+#, fuzzy, kde-format
+msgid "Use shared resources"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
+#: calligraplansettings.kcfg:168
+#, fuzzy, kde-format
+msgid "File to contain shared resources"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
+#: calligraplansettings.kcfg:171
+#, fuzzy, kde-format
+msgid "Directory that contains projects that share resources"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
+#: calligraplansettings.kcfg:174
+#, fuzzy, kde-format
+msgid "Project description"
+msgstr "Описание на задача"
+
+#. i18n: ectx: label, entry (Leader), group (Task defaults)
+#: calligraplansettings.kcfg:179
+#, kde-format
+msgid "Name of task responsible"
+msgstr "Име на отговорника за задачата"
+
+#. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
+#: calligraplansettings.kcfg:182
+#, fuzzy, kde-format
+msgid "Scheduling constraint type"
+msgstr "Конфликт при планиране"
+
+#. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:195
+#, kde-format
+msgid "Defines how start constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
+#: calligraplansettings.kcfg:204
+#, fuzzy, kde-format
+msgid "Constraint start date and time"
+msgstr "Ограничения"
+
+#. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
+#: calligraplansettings.kcfg:207
+#, kde-format
+msgid "Defines how end constraint time is used"
+msgstr ""
+
+#. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
+#: calligraplansettings.kcfg:216
+#, fuzzy, kde-format
+msgid "Constraint end date and time"
+msgstr "Ограничения"
+
+#. i18n: ectx: label, entry (EstimateType), group (Task defaults)
+#: calligraplansettings.kcfg:220
+#, fuzzy, kde-format
+msgid "Type of estimate"
+msgstr "Промяна на име"
+
+#. i18n: ectx: label, entry (Unit), group (Task defaults)
+#: calligraplansettings.kcfg:228
+#, fuzzy, kde-format
+msgid "Estimate time unit"
+msgstr "Приблизително:"
+
+#. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
+#: calligraplansettings.kcfg:242
+#, fuzzy, kde-format
+msgid "Expected estimate"
+msgstr "Ръководител на проекта."
+
+#. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:246
+#, fuzzy, kde-format
+msgid "Optimistic estimate"
+msgstr "Оптимистично"
+
+#. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
+#: calligraplansettings.kcfg:250
+#, fuzzy, kde-format
+msgid "Pessimistic estimate"
+msgstr "Песимистично"
+
+#. i18n: ectx: label, entry (Description), group (Task defaults)
+#: calligraplansettings.kcfg:255
+#, kde-format
+msgid "Task description"
+msgstr "Описание на задача"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:261
+#, kde-format
+msgid "Gradient"
+msgstr "Преливка"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:263 config/kptcolorsconfigpanel.cpp:33
+#, fuzzy, kde-format
+msgid "Linear"
+msgstr "Редове"
+
+#. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
+#: calligraplansettings.kcfg:264 config/kptcolorsconfigpanel.cpp:34
+#, fuzzy, kde-format
+msgid "Flat"
+msgstr "Число с плаваща запетая"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColorsEnabled), group (TaskColors)
+#: calligraplansettings.kcfg:269
+#, fuzzy, kde-format
+msgid "Enable summary task level colors"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
+#: calligraplansettings.kcfg:273
+#, fuzzy, kde-format
+msgid "Summary task default color"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
+#: calligraplansettings.kcfg:277
+#, fuzzy, kde-format
+msgid "Summary task color, level 1"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
+#: calligraplansettings.kcfg:281
+#, fuzzy, kde-format
+msgid "Summary task color, level 2"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
+#: calligraplansettings.kcfg:285
+#, fuzzy, kde-format
+msgid "Summary task color, level 3"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
+#: calligraplansettings.kcfg:289
+#, fuzzy, kde-format
+msgid "Summary task color, level 4"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:293
+#, kde-format
+msgid "Task color in normal state"
+msgstr "Цвят на задача в нормално състояние"
+
+#. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:297
+#, kde-format
+msgid "Task color in critical state"
+msgstr "Цвят на задача в критично състояние"
+
+#. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:301
+#, kde-format
+msgid "Task color in finished state"
+msgstr "Цвят на задача в приключено състояние"
+
+#. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:305
+#, kde-format
+msgid "Task color in error state"
+msgstr "Цвят на задача в състояние на грешка"
+
+#. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
+#: calligraplansettings.kcfg:309
+#, kde-format
+msgid "Milestone color in normal state"
+msgstr "Цвят на важно събитие в нормално състояние"
+
+#. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
+#: calligraplansettings.kcfg:313
+#, kde-format
+msgid "Milestone color in critical state"
+msgstr "Цвят на важно събитие в критично състояние"
+
+#. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
+#: calligraplansettings.kcfg:317
+#, kde-format
+msgid "Milestone color in finished state"
+msgstr "Цвят на важно събитие в приключено състояние"
+
+#. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
+#: calligraplansettings.kcfg:321
+#, kde-format
+msgid "Milestone color in error state"
+msgstr "Цвят на важно събитие в състояние на грешка"
+
+#. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
+#: calligraplansettings.kcfg:328
+#, kde-format
+msgid "Automatically check for new work packages"
+msgstr "Автоматична проверка за нови работни пакети"
+
+#. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
+#: calligraplansettings.kcfg:331
+#, kde-format
+msgid "Directory where Plan retrieves work packages from project members"
+msgstr ""
+
+#. i18n: ectx: label, entry (DeleteFile), group (Work Package)
+#: calligraplansettings.kcfg:334
+#, kde-format
+msgid "If set, Plan will delete the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveFile), group (Work Package)
+#: calligraplansettings.kcfg:337
+#, kde-format
+msgid "If set, Plan will save the file after it has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (SaveUrl), group (Work Package)
+#: calligraplansettings.kcfg:340
+#, kde-format
+msgid "Directory where Plan saves work packages when the package has been read"
+msgstr ""
+
+#. i18n: ectx: label, entry (PublishUrl), group (Work Package)
+#: calligraplansettings.kcfg:343
+#, kde-format
+msgid "Directory where Plan publishes work packages"
+msgstr ""
+
+#. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:349
+#, kde-format
+msgid "The smallest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
+#: calligraplansettings.kcfg:353
+#, kde-format
+msgid "The largest duration unit allowed"
+msgstr ""
+
+#. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
+#: calligraplansettings.kcfg:360
+#, fuzzy, kde-format
+msgid "Path to the documentation"
+msgstr "Продължителност"
+
+#. i18n: ectx: label, entry (ContextPath), group (Documentation)
+#: calligraplansettings.kcfg:364
+#, fuzzy, kde-format
+msgid "Path to the context help documentation"
+msgstr "Продължителност"
+
+#. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
+#: calligraplansettings.kcfg:368
+#, kde-format
+msgid ""
+"The context help documentation must have been translated to the language"
+msgstr ""
+
+#. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
+#: calligraplansettings.kcfg:374
+#, kde-format
+msgid "Use the task modules from your private store"
+msgstr ""
+
+#. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
+#: calligraplansettings.kcfg:378
+#, kde-format
+msgid "List of paths to task modules"
+msgstr ""
+
+#. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
+#: calligraplansettings.kcfg:384
+#, kde-format
+msgid "List of paths to project templates"
+msgstr ""
 
 #: config/ConfigDialog.cpp:47
 #, fuzzy, kde-format
@@ -58,6 +562,41 @@ msgstr "Сметка"
 msgid "Project Templates"
 msgstr "Създаване на доклад..."
 
+#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
+#. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
+#: config/ConfigDocumentationPanel.ui:40 config/kptconfigtaskpanelbase.ui:33
+#: config/kptconfigtaskpanelbase.ui:65
+#, kde-format
+msgid ""
+"The person responsible for this task.\n"
+"\n"
+"This is not limited to persons available in a resource group but can be "
+"anyone. You can even directly access your address book with the Choose "
+"button."
+msgstr ""
+"Човек, отговорен за задачата.\n"
+"\n"
+"Това не ограничено до наличните хора в ресурсна група, а може да бъде всеки. "
+"Дори можете директно да влезнете в адресника си чрез бутона \"Избор\"."
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigDocumentationPanel.ui:43
+#, fuzzy, kde-format
+msgid "Documentation:"
+msgstr "Сметка"
+
+#. i18n: ectx: property (text), widget (QLabel, contextlabel)
+#: config/ConfigDocumentationPanel.ui:79
+#, kde-format
+msgid "Context help:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, languageLabel)
+#: config/ConfigDocumentationPanel.ui:95
+#, kde-format
+msgid "Context language"
+msgstr ""
+
 #: config/ConfigProjectPanel.cpp:50
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -82,30 +621,531 @@ msgctxt "@info:tooltip"
 msgid "The directory where projects sharing the resources are placed"
 msgstr "Свързани ресурси:"
 
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:25
+#, kde-format
+msgid "General"
+msgstr "Общи"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/ConfigProjectPanel.ui:42
+#, fuzzy, kde-format
+msgid "&Manager:"
+msgstr "Управител:"
+
+#. i18n: ectx: property (text), widget (QLabel, usrlabel)
+#: config/ConfigProjectPanel.ui:71
+#, fuzzy, kde-format
+msgid "Use shared resources:"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: property (text), widget (QLabel, srflabel)
+#: config/ConfigProjectPanel.ui:85
+#, fuzzy, kde-format
+msgid "Shared resource file:"
+msgstr "Редактиране на ресурси"
+
+#. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
+#. i18n: ectx: property (text), widget (QPushButton, projectsPlaceBrowseBtn)
+#: config/ConfigProjectPanel.ui:97 config/ConfigProjectPanel.ui:122
+#, fuzzy, kde-format
+msgid "Browse..."
+msgstr "Избор..."
+
+#. i18n: ectx: property (text), widget (QLabel, spplabel)
+#: config/ConfigProjectPanel.ui:110
+#, fuzzy, kde-format
+msgid "Shared projects:"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#. i18n: ectx: attribute (title), widget (QWidget, widget)
+#: config/ConfigProjectPanel.ui:149 config/kptconfigtaskpanelbase.ui:481
+#, kde-format
+msgid "Description"
+msgstr "Описание"
+
 #: config/ConfigProjectTemplatesPanel.cpp:61
 #, fuzzy, kde-format
 msgid "Project Templates Path"
 msgstr "Създаване на доклад..."
+
+#. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, insertModule)
+#: config/ConfigProjectTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
+#, fuzzy, kde-format
+msgid "Insert"
+msgstr "Вмъкване..."
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
+#. i18n: ectx: property (text), widget (QToolButton, removeModule)
+#: config/ConfigProjectTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
+#, fuzzy, kde-format
+msgid "Remove"
+msgstr "Премахване"
 
 #: config/ConfigTaskModulesPanel.cpp:61
 #, fuzzy, kde-format
 msgid "Task Modules Path"
 msgstr "Цветове на задачи"
 
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
+#: config/ConfigTaskModulesPanel.ui:17
+#, kde-format
+msgid "Use local task modules"
+msgstr ""
+
 #: config/ConfigWorkVacationPanel.cpp:52
 #, fuzzy, kde-format
 msgid "Default"
 msgstr "По подразбиране:"
 
-#: config/kptcolorsconfigpanel.cpp:33
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/ConfigWorkVacationPanel.ui:22
 #, fuzzy, kde-format
-msgid "Linear"
-msgstr "Редове"
+msgid "Working Hours"
+msgstr "Работни часове"
 
-#: config/kptcolorsconfigpanel.cpp:34
+#. i18n: info@whatsthis
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:28
+#, kde-format
+msgid ""
+"<html><head/><body><p>Values used for generating default calendars for "
+"working weeks and holidays.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar uses the values defined in <span style=\" font-style:"
+"italic;\">Working week</span>.</p><p>The <span style=\" font-style:italic;"
+"\">Week</span> calendar can be <span style=\" font-style:italic;\">Always</"
+"span> generated or only generated <span style=\" font-style:italic;\">If "
+"none exists</span>. The latter choice is the most common as you often have "
+"calendars defined as part of templates or shared resources.</p><p><span "
+"style=\" font-style:italic;\">Holidays</span> can be generated for your "
+"region (default) or any region you choose. The holidays can be added into "
+"the week calendar, as sub-calendar to the week calendar or as a separate "
+"calendar.</p><p>If a week calendar is not generated, the holidays are put "
+"into a separate calendar.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: config/ConfigWorkVacationPanel.ui:31
 #, fuzzy, kde-format
-msgid "Flat"
-msgstr "Число с плаваща запетая"
+msgid "Calendar generation"
+msgstr "Настройки на календара"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
+#: config/ConfigWorkVacationPanel.ui:37
+#, kde-format
+msgid "Week"
+msgstr "Седмица"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
+#: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1572
+#: kptmaindocument.cpp:1576
+#, kde-format
+msgid "Holidays"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
+#: config/ConfigWorkVacationPanel.ui:81
+#, fuzzy, kde-format
+msgid "In week calendar"
+msgstr "Основен календар:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/ConfigWorkVacationPanel.ui:99
+#, kde-format
+msgid "Holida&y region:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/ConfigWorkVacationPanel.ui:131
+#, fuzzy, kde-format
+msgid "Working week"
+msgstr "Работен"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
+#: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
+#, fuzzy, kde-format
+msgid "Tick  if working day"
+msgstr "Начална дата"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Friday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Saturday)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Sunday)
+#: config/ConfigWorkVacationPanel.ui:202 config/ConfigWorkVacationPanel.ui:212
+#: config/ConfigWorkVacationPanel.ui:222 config/ConfigWorkVacationPanel.ui:232
+#: config/ConfigWorkVacationPanel.ui:242
+#, fuzzy, kde-format
+msgid "Tick if working day"
+msgstr "Начална дата"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/ConfigWorkVacationPanel.ui:266
+#, kde-format
+msgid "Estimate Conversions"
+msgstr ""
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
+#: config/ConfigWorkVacationPanel.ui:273
+#, kde-format
+msgid ""
+"These values are used if your estimate is not in hours.\n"
+"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+"effort to complete, this is converted to 24 hours when the task is "
+"scheduled. The actual time it will take to complete is of course dependent "
+"on the availability of the person (or persons) that is assigned to the task."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: config/ConfigWorkVacationPanel.ui:282
+#, fuzzy, kde-format
+msgid "Hours &per year:"
+msgstr "Часове/година:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: config/ConfigWorkVacationPanel.ui:311
+#, fuzzy, kde-format
+msgid "Hours per &month:"
+msgstr "Часове/месец:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabe3)
+#: config/ConfigWorkVacationPanel.ui:356
+#, fuzzy, kde-format
+msgid "Hours per wee&k:"
+msgstr "Часове/седмица:"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:385
+#, kde-format
+msgid ""
+"These values are used when you estimate the effort needed to complete a task."
+msgstr ""
+"Тези стойности се използват при изчисление на необходимите усилия за "
+"изпълнение на задача."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#: config/ConfigWorkVacationPanel.ui:388
+#, fuzzy, kde-format
+msgid "Hours per &day:"
+msgstr "Часове/ден:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_9)
+#: config/kptcolorsconfigpanel.ui:28
+#, kde-format
+msgid "Gradient:"
+msgstr "Преливка:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: config/kptcolorsconfigpanel.ui:57
+#, kde-format
+msgctxt "@title:tab"
+msgid "Summary task"
+msgstr "Обобщение на задача"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptcolorsconfigpanel.ui:69
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Default:"
+msgstr "По подразбиране:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
+#: config/kptcolorsconfigpanel.ui:92
+#, kde-format
+msgctxt "@title:group"
+msgid "Use level colors"
+msgstr "Използване на цветове за нивата"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: config/kptcolorsconfigpanel.ui:110
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 1"
+msgstr "Ниво 1"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: config/kptcolorsconfigpanel.ui:139
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 2"
+msgstr "Ниво 2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptcolorsconfigpanel.ui:168
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 3"
+msgstr "Ниво 3"
+
+#. i18n: ectx: property (text), widget (QLabel, label_10)
+#: config/kptcolorsconfigpanel.ui:197
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Level 4"
+msgstr "Ниво 4"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: config/kptcolorsconfigpanel.ui:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Task"
+msgstr "Задача"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#. i18n: ectx: property (text), widget (QLabel, label_12)
+#: config/kptcolorsconfigpanel.ui:243 config/kptcolorsconfigpanel.ui:385
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Normal:"
+msgstr "Нормално:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_8)
+#. i18n: ectx: property (text), widget (QLabel, label_14)
+#: config/kptcolorsconfigpanel.ui:275 config/kptcolorsconfigpanel.ui:417
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Critical:"
+msgstr "Критично:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#. i18n: ectx: property (text), widget (QLabel, label_13)
+#: config/kptcolorsconfigpanel.ui:307 config/kptcolorsconfigpanel.ui:449
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Finished:"
+msgstr "Завършено:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#. i18n: ectx: property (text), widget (QLabel, label_11)
+#: config/kptcolorsconfigpanel.ui:339 config/kptcolorsconfigpanel.ui:481
+#, kde-format
+msgctxt "@label:chooser"
+msgid "Error:"
+msgstr "Грешка:"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: config/kptcolorsconfigpanel.ui:373
+#, kde-format
+msgctxt "@title:tab"
+msgid "Milestone"
+msgstr "Важно събитие"
+
+#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
+#: config/kptconfigtaskpanelbase.ui:36
+#, kde-format
+msgid "Responsible:"
+msgstr "Отговорник:"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:72
+#, kde-format
+msgid "Insert a person from your address book"
+msgstr "Вмъкнете човек от адресника си."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:75
+#, kde-format
+msgid "Insert a person from your address book."
+msgstr "Вмъкнете човек от адресника си."
+
+#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
+#: config/kptconfigtaskpanelbase.ui:78
+#, kde-format
+msgid "Choose..."
+msgstr "Избор..."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3)
+#: config/kptconfigtaskpanelbase.ui:96
+#, fuzzy, kde-format
+msgid "Scheduling constraint:"
+msgstr "Конфликт при планиране"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:119
+#, kde-format
+msgid "As Soon as Possible"
+msgstr "Възможно най-скоро"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:124
+#, kde-format
+msgid "As Late as Possible"
+msgstr "Възможно най-късно"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:129
+#, kde-format
+msgid "Must Start On"
+msgstr "Трябва да започне на"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:134
+#, kde-format
+msgid "Must Finish On"
+msgstr "Трябва да завърши на"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:139
+#, kde-format
+msgid "Start Not Earlier Than"
+msgstr "Начало не по-рано от"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:144
+#, kde-format
+msgid "Finish Not Later Than"
+msgstr "Край не по-късно от"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
+#: config/kptconfigtaskpanelbase.ui:149
+#, kde-format
+msgid "Fixed Interval"
+msgstr "Фиксиран интервал"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
+#: config/kptconfigtaskpanelbase.ui:163
+#, fuzzy, kde-format
+msgid "Constraint Start time usage:"
+msgstr "Ограничения"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:186 config/kptconfigtaskpanelbase.ui:262
+#, kde-format
+msgid "Current date and time"
+msgstr "Текуща дата и час"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
+#, kde-format
+msgid "Current date, specified time"
+msgstr "Текуща дата, зададен час"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
+#: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
+#, kde-format
+msgid "Specified date and time"
+msgstr "Зададени дата и час"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
+#: config/kptconfigtaskpanelbase.ui:210
+#, fuzzy, kde-format
+msgid "Constraint start time:"
+msgstr "Ограничения"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
+#: config/kptconfigtaskpanelbase.ui:239
+#, fuzzy, kde-format
+msgid "Constraint End time usage:"
+msgstr "Ограничения"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
+#: config/kptconfigtaskpanelbase.ui:286
+#, fuzzy, kde-format
+msgid "Constraint end time:"
+msgstr "Ограничения"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
+#: config/kptconfigtaskpanelbase.ui:322
+#, fuzzy, kde-format
+msgid "Estimate type:"
+msgstr "Приблизително:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:348
+#, kde-format
+msgid "Effort"
+msgstr "Усилие"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
+#: config/kptconfigtaskpanelbase.ui:353
+#, kde-format
+msgid "Duration"
+msgstr "Продължителност"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
+#: config/kptconfigtaskpanelbase.ui:367
+#, fuzzy, kde-format
+msgid "Expected estimate:"
+msgstr "Ръководител на проекта."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
+#: config/kptconfigtaskpanelbase.ui:399
+#, fuzzy, kde-format
+msgid "Optimistic estimate:"
+msgstr "Оптимистично"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
+#. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
+#: config/kptconfigtaskpanelbase.ui:415 config/kptconfigtaskpanelbase.ui:450
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: config/kptconfigtaskpanelbase.ui:434
+#, fuzzy, kde-format
+msgid "Pessimistic estimate:"
+msgstr "Песимистично"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: config/kptworkpackageconfigpanel.ui:17
+#, kde-format
+msgid "Retrieve"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
+#: config/kptworkpackageconfigpanel.ui:23
+#, kde-format
+msgid "Check for work packages"
+msgstr "Проверка за работни пакети"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: config/kptworkpackageconfigpanel.ui:32
+#, kde-format
+msgid "Retrieve:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: config/kptworkpackageconfigpanel.ui:47
+#, kde-format
+msgid "Archive"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
+#: config/kptworkpackageconfigpanel.ui:53
+#, kde-format
+msgid "Delete file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
+#: config/kptworkpackageconfigpanel.ui:60
+#, kde-format
+msgid "Archive file after it has been retrieved"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: config/kptworkpackageconfigpanel.ui:69
+#, kde-format
+msgid "Archive:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
+#: config/kptworkpackageconfigpanel.ui:84
+#, kde-format
+msgid "Publish"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: config/kptworkpackageconfigpanel.ui:92
+#, kde-format
+msgid "Publish:"
+msgstr ""
 
 #: KPlatoXmlLoader.cpp:69
 #, fuzzy, kde-format
@@ -239,6 +1279,30 @@ msgstr ""
 msgid "Insert File"
 msgstr "Вмъкване на файл"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kptinsertfilepanel.ui:40
+#, fuzzy, kde-format
+msgid "Current node:"
+msgstr "Текуща дата и час"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
+#: kptinsertfilepanel.ui:68
+#, fuzzy, kde-format
+msgid "Insert on top level"
+msgstr "Вмъкване на файл"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
+#: kptinsertfilepanel.ui:75
+#, fuzzy, kde-format
+msgid "Insert as children to current node"
+msgstr "Име на календар"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
+#: kptinsertfilepanel.ui:82
+#, fuzzy, kde-format
+msgid "Insert after current node"
+msgstr "Име на календар"
+
 #: kptloadsharedprojectsdialog.cpp:40
 #, fuzzy, kde-kuit-format
 msgctxt "@title:window"
@@ -354,11 +1418,6 @@ msgstr ""
 msgctxt "Base calendar name"
 msgid "Base"
 msgstr "Основа"
-
-#: kptmaindocument.cpp:1572 kptmaindocument.cpp:1576
-#, kde-format
-msgid "Holidays"
-msgstr ""
 
 #: kptschedulesdocker.cpp:39
 #, fuzzy, kde-format
@@ -1066,6 +2125,70 @@ msgctxt "@action:inmenu Insert View"
 msgid "Insert..."
 msgstr "Вмъкване..."
 
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:20 kptviewlisteditview.ui:20
+#, fuzzy, kde-format
+msgid "The category of the view"
+msgstr "Името на задачата."
+
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:23 kptviewlisteditview.ui:23
+#, kde-format
+msgid "Category:"
+msgstr "Категория:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
+#, fuzzy, kde-format
+msgid "The view is placed after this view"
+msgstr "Името на задачата."
+
+#. i18n: ectx: property (text), widget (QLabel, afterLabel)
+#: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
+#: kptviewlisteditview.ui:58
+#, kde-format
+msgid "After"
+msgstr "След"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:75
+#, fuzzy, kde-format
+msgid "The type of view"
+msgstr "Промяна на име"
+
+#. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
+#: kptviewlistaddview.ui:78
+#, fuzzy, kde-format
+msgid "View type:"
+msgstr "Приблизително:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
+#: kptviewlistaddview.ui:95 kptviewlisteditview.ui:78
+#, fuzzy, kde-format
+msgid "The name of the view"
+msgstr "Името на задачата."
+
+#. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
+#. i18n: ectx: property (text), widget (QLabel, categoryLabel)
+#: kptviewlistaddview.ui:98 kptviewlisteditcategory.ui:46
+#: kptviewlisteditview.ui:81
+#, kde-format
+msgid "Name:"
+msgstr "Име:"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:111 kptviewlisteditview.ui:94
+#, fuzzy, kde-format
+msgid "The views description"
+msgstr "Описание на задача"
+
+#. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
+#: kptviewlistaddview.ui:114 kptviewlisteditcategory.ui:62
+#: kptviewlisteditview.ui:97
+#, fuzzy, kde-format
+msgid "Description:"
+msgstr "Описание"
+
 #: kptviewlistdialog.cpp:42
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -1182,6 +2305,90 @@ msgctxt "@title:window"
 msgid "View Selector"
 msgstr "Показване на дяловете"
 
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:22
+#, kde-format
+msgid "Words"
+msgstr "Думи"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:27
+#, kde-format
+msgid "Sentences"
+msgstr "Изречения"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:32
+#, kde-format
+msgid "Syllables"
+msgstr "Срички"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:37
+#, kde-format
+msgid "Lines"
+msgstr "Редове"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:42
+#, kde-format
+msgid "Characters incl. spaces"
+msgstr "Символи, включително интервали"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:47
+#, kde-format
+msgid "Characters without spaces"
+msgstr "Символи без интервалите"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, statistics)
+#: kptviewlistdocker.ui:52
+#, kde-format
+msgid "Flesch reading ease"
+msgstr "Флеш алгоритъм"
+
+#. i18n: ectx: property (text), widget (QLineEdit, count)
+#: kptviewlistdocker.ui:63
+#, kde-format
+msgid "0"
+msgstr "0"
+
+#. i18n: ectx: property (text), widget (QToolButton, refresh)
+#: kptviewlistdocker.ui:73
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, footEndNotes)
+#: kptviewlistdocker.ui:84
+#, kde-format
+msgid "Include text from foot- and endnotes"
+msgstr "Включително текста от бележките"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoRefresh)
+#: kptviewlistdocker.ui:91
+#, kde-format
+msgid "Automatically refresh data"
+msgstr "Автоматично обновяване на данните"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
+#: kptviewlisteditcategory.ui:20
+#, fuzzy, kde-format
+msgid "The category is placed after this category"
+msgstr "Името на задачата."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
+#: kptviewlisteditcategory.ui:43
+#, fuzzy, kde-format
+msgid "The name of the category"
+msgstr "Името на задачата."
+
+#. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
+#: kptviewlisteditcategory.ui:59
+#, fuzzy, kde-format
+msgid "The description of the category"
+msgstr "Името на задачата."
+
 #: welcome/WelcomeView.cpp:125
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -1245,579 +2452,106 @@ msgstr ""
 msgid "Open Document"
 msgstr "Сметка"
 
-#~ msgid "&File"
-#~ msgstr "&Файл"
-
-#~ msgid "&Edit"
-#~ msgstr "&Редактиране"
-
-#~ msgid "&View"
-#~ msgstr "&Изглед"
-
-#~ msgid "&Project"
-#~ msgstr "&Проект"
-
-#~ msgid "&Tools"
-#~ msgstr "&Инструменти"
-
-#~ msgid "&Settings"
-#~ msgstr "&Настройки"
-
-#~ msgid "&Help"
-#~ msgstr "&Помощ"
-
-#, fuzzy
-#~ msgid "Edit"
-#~ msgstr "Редактиране..."
-
-#, fuzzy
-#~ msgid "Hours per year"
-#~ msgstr "Часове/година:"
-
-#, fuzzy
-#~ msgid "Hours per month"
-#~ msgstr "Часове/месец:"
-
-#, fuzzy
-#~ msgid "Hours per week"
-#~ msgstr "Часове/седмица:"
-
-#, fuzzy
-#~ msgid "Hours per day"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Generate working week"
-#~ msgstr "Генериране на WBS код"
-
-#, fuzzy
-#~ msgid "Generate working week options"
-#~ msgstr "Генериране на WBS код"
-
-#, fuzzy
-#~ msgid "Generate holidays"
-#~ msgstr "Генериране на WBS код"
-
-#, fuzzy
-#~ msgid "Generate holidays options"
-#~ msgstr "Генериране на WBS код"
-
-#, fuzzy
-#~ msgid "In base calendar"
-#~ msgstr "Основен календар:"
-
-#, fuzzy
-#~ msgid "As sub-calendar"
-#~ msgstr "Добавяне на подзадача"
-
-#, fuzzy
-#~ msgid "As separate calendar"
-#~ msgstr "Основен календар:"
-
-#, fuzzy
-#~ msgid "Monday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Start of working day"
-#~ msgstr "Начална дата"
-
-#, fuzzy
-#~ msgid "End of working day"
-#~ msgstr "Начална дата"
-
-#, fuzzy
-#~ msgid "Tuesday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Wednesday:"
-#~ msgstr "Седмица"
-
-#, fuzzy
-#~ msgid "Thursday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Friday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Saturday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Sunday:"
-#~ msgstr "Часове/ден:"
-
-#, fuzzy
-#~ msgid "Name of project manager"
-#~ msgstr "Мениджър на проекта:"
-
-#, fuzzy
-#~ msgid "Use shared resources"
-#~ msgstr "Свързани ресурси:"
-
-#, fuzzy
-#~ msgid "File to contain shared resources"
-#~ msgstr "Свързани ресурси:"
-
-#, fuzzy
-#~ msgid "Directory that contains projects that share resources"
-#~ msgstr "Свързани ресурси:"
-
-#, fuzzy
-#~ msgid "Project description"
-#~ msgstr "Описание на задача"
-
-#~ msgid "Name of task responsible"
-#~ msgstr "Име на отговорника за задачата"
-
-#, fuzzy
-#~ msgid "Scheduling constraint type"
-#~ msgstr "Конфликт при планиране"
-
-#, fuzzy
-#~ msgid "Constraint start date and time"
-#~ msgstr "Ограничения"
-
-#, fuzzy
-#~ msgid "Constraint end date and time"
-#~ msgstr "Ограничения"
-
-#, fuzzy
-#~ msgid "Type of estimate"
-#~ msgstr "Промяна на име"
-
-#, fuzzy
-#~ msgid "Estimate time unit"
-#~ msgstr "Приблизително:"
-
-#, fuzzy
-#~ msgid "Expected estimate"
-#~ msgstr "Ръководител на проекта."
-
-#, fuzzy
-#~ msgid "Optimistic estimate"
-#~ msgstr "Оптимистично"
-
-#, fuzzy
-#~ msgid "Pessimistic estimate"
-#~ msgstr "Песимистично"
-
-#~ msgid "Task description"
-#~ msgstr "Описание на задача"
-
-#~ msgid "Gradient"
-#~ msgstr "Преливка"
-
-#, fuzzy
-#~ msgid "Enable summary task level colors"
-#~ msgstr "Обобщение на задача"
-
-#, fuzzy
-#~ msgid "Summary task default color"
-#~ msgstr "Обобщение на задача"
-
-#, fuzzy
-#~ msgid "Summary task color, level 1"
-#~ msgstr "Обобщение на задача"
-
-#, fuzzy
-#~ msgid "Summary task color, level 2"
-#~ msgstr "Обобщение на задача"
-
-#, fuzzy
-#~ msgid "Summary task color, level 3"
-#~ msgstr "Обобщение на задача"
-
-#, fuzzy
-#~ msgid "Summary task color, level 4"
-#~ msgstr "Обобщение на задача"
-
-#~ msgid "Task color in normal state"
-#~ msgstr "Цвят на задача в нормално състояние"
-
-#~ msgid "Task color in critical state"
-#~ msgstr "Цвят на задача в критично състояние"
-
-#~ msgid "Task color in finished state"
-#~ msgstr "Цвят на задача в приключено състояние"
-
-#~ msgid "Task color in error state"
-#~ msgstr "Цвят на задача в състояние на грешка"
-
-#~ msgid "Milestone color in normal state"
-#~ msgstr "Цвят на важно събитие в нормално състояние"
-
-#~ msgid "Milestone color in critical state"
-#~ msgstr "Цвят на важно събитие в критично състояние"
-
-#~ msgid "Milestone color in finished state"
-#~ msgstr "Цвят на важно събитие в приключено състояние"
-
-#~ msgid "Milestone color in error state"
-#~ msgstr "Цвят на важно събитие в състояние на грешка"
-
-#~ msgid "Automatically check for new work packages"
-#~ msgstr "Автоматична проверка за нови работни пакети"
-
-#, fuzzy
-#~ msgid "Path to the documentation"
-#~ msgstr "Продължителност"
-
-#~ msgid ""
-#~ "The person responsible for this task.\n"
-#~ "\n"
-#~ "This is not limited to persons available in a resource group but can be "
-#~ "anyone. You can even directly access your address book with the Choose "
-#~ "button."
-#~ msgstr ""
-#~ "Човек, отговорен за задачата.\n"
-#~ "\n"
-#~ "Това не ограничено до наличните хора в ресурсна група, а може да бъде "
-#~ "всеки. Дори можете директно да влезнете в адресника си чрез бутона \"Избор"
-#~ "\"."
-
-#, fuzzy
-#~ msgid "Documentation:"
-#~ msgstr "Сметка"
-
-#~ msgid "General"
-#~ msgstr "Общи"
-
-#, fuzzy
-#~ msgid "&Manager:"
-#~ msgstr "Управител:"
-
-#, fuzzy
-#~ msgid "Use shared resources:"
-#~ msgstr "Свързани ресурси:"
-
-#, fuzzy
-#~ msgid "Shared resource file:"
-#~ msgstr "Редактиране на ресурси"
-
-#, fuzzy
-#~ msgid "Browse..."
-#~ msgstr "Избор..."
-
-#, fuzzy
-#~ msgid "Shared projects:"
-#~ msgstr "Свързани ресурси:"
-
-#~ msgid "Description"
-#~ msgstr "Описание"
-
-#, fuzzy
-#~ msgid "Insert"
-#~ msgstr "Вмъкване..."
-
-#, fuzzy
-#~ msgid "Remove"
-#~ msgstr "Премахване"
-
-#, fuzzy
-#~ msgid "Working Hours"
-#~ msgstr "Работни часове"
-
-#, fuzzy
-#~ msgid "Calendar generation"
-#~ msgstr "Настройки на календара"
-
-#~ msgid "Week"
-#~ msgstr "Седмица"
-
-#, fuzzy
-#~ msgid "In week calendar"
-#~ msgstr "Основен календар:"
-
-#, fuzzy
-#~ msgid "Working week"
-#~ msgstr "Работен"
-
-#, fuzzy
-#~ msgid "Tick  if working day"
-#~ msgstr "Начална дата"
-
-#, fuzzy
-#~ msgid "Tick if working day"
-#~ msgstr "Начална дата"
-
-#, fuzzy
-#~ msgid "Hours &per year:"
-#~ msgstr "Часове/година:"
-
-#, fuzzy
-#~ msgid "Hours per &month:"
-#~ msgstr "Часове/месец:"
-
-#, fuzzy
-#~ msgid "Hours per wee&k:"
-#~ msgstr "Часове/седмица:"
-
-#~ msgid ""
-#~ "These values are used when you estimate the effort needed to complete a "
-#~ "task."
-#~ msgstr ""
-#~ "Тези стойности се използват при изчисление на необходимите усилия за "
-#~ "изпълнение на задача."
-
-#, fuzzy
-#~ msgid "Hours per &day:"
-#~ msgstr "Часове/ден:"
-
-#~ msgid "Gradient:"
-#~ msgstr "Преливка:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Summary task"
-#~ msgstr "Обобщение на задача"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Default:"
-#~ msgstr "По подразбиране:"
-
-#~ msgctxt "@title:group"
-#~ msgid "Use level colors"
-#~ msgstr "Използване на цветове за нивата"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 1"
-#~ msgstr "Ниво 1"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 2"
-#~ msgstr "Ниво 2"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 3"
-#~ msgstr "Ниво 3"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Level 4"
-#~ msgstr "Ниво 4"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Task"
-#~ msgstr "Задача"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Normal:"
-#~ msgstr "Нормално:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Critical:"
-#~ msgstr "Критично:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Finished:"
-#~ msgstr "Завършено:"
-
-#~ msgctxt "@label:chooser"
-#~ msgid "Error:"
-#~ msgstr "Грешка:"
-
-#~ msgctxt "@title:tab"
-#~ msgid "Milestone"
-#~ msgstr "Важно събитие"
-
-#~ msgid "Responsible:"
-#~ msgstr "Отговорник:"
-
-#~ msgid "Insert a person from your address book"
-#~ msgstr "Вмъкнете човек от адресника си."
-
-#~ msgid "Insert a person from your address book."
-#~ msgstr "Вмъкнете човек от адресника си."
-
-#~ msgid "Choose..."
-#~ msgstr "Избор..."
-
-#, fuzzy
-#~ msgid "Scheduling constraint:"
-#~ msgstr "Конфликт при планиране"
-
-#~ msgid "As Soon as Possible"
-#~ msgstr "Възможно най-скоро"
-
-#~ msgid "As Late as Possible"
-#~ msgstr "Възможно най-късно"
-
-#~ msgid "Must Start On"
-#~ msgstr "Трябва да започне на"
-
-#~ msgid "Must Finish On"
-#~ msgstr "Трябва да завърши на"
-
-#~ msgid "Start Not Earlier Than"
-#~ msgstr "Начало не по-рано от"
-
-#~ msgid "Finish Not Later Than"
-#~ msgstr "Край не по-късно от"
-
-#~ msgid "Fixed Interval"
-#~ msgstr "Фиксиран интервал"
-
-#, fuzzy
-#~ msgid "Constraint Start time usage:"
-#~ msgstr "Ограничения"
-
-#~ msgid "Current date and time"
-#~ msgstr "Текуща дата и час"
-
-#~ msgid "Current date, specified time"
-#~ msgstr "Текуща дата, зададен час"
-
-#~ msgid "Specified date and time"
-#~ msgstr "Зададени дата и час"
-
-#, fuzzy
-#~ msgid "Constraint start time:"
-#~ msgstr "Ограничения"
-
-#, fuzzy
-#~ msgid "Constraint End time usage:"
-#~ msgstr "Ограничения"
-
-#, fuzzy
-#~ msgid "Constraint end time:"
-#~ msgstr "Ограничения"
-
-#, fuzzy
-#~ msgid "Estimate type:"
-#~ msgstr "Приблизително:"
-
-#~ msgid "Effort"
-#~ msgstr "Усилие"
-
-#~ msgid "Duration"
-#~ msgstr "Продължителност"
-
-#, fuzzy
-#~ msgid "Expected estimate:"
-#~ msgstr "Ръководител на проекта."
-
-#, fuzzy
-#~ msgid "Optimistic estimate:"
-#~ msgstr "Оптимистично"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#, fuzzy
-#~ msgid "Pessimistic estimate:"
-#~ msgstr "Песимистично"
-
-#~ msgid "Check for work packages"
-#~ msgstr "Проверка за работни пакети"
-
-#, fuzzy
-#~ msgid "Current node:"
-#~ msgstr "Текуща дата и час"
-
-#, fuzzy
-#~ msgid "Insert on top level"
-#~ msgstr "Вмъкване на файл"
-
-#, fuzzy
-#~ msgid "Insert as children to current node"
-#~ msgstr "Име на календар"
-
-#, fuzzy
-#~ msgid "Insert after current node"
-#~ msgstr "Име на календар"
-
-#, fuzzy
-#~ msgid "The category of the view"
-#~ msgstr "Името на задачата."
-
-#~ msgid "Category:"
-#~ msgstr "Категория:"
-
-#, fuzzy
-#~ msgid "The view is placed after this view"
-#~ msgstr "Името на задачата."
-
-#~ msgid "After"
-#~ msgstr "След"
-
-#, fuzzy
-#~ msgid "The type of view"
-#~ msgstr "Промяна на име"
-
-#, fuzzy
-#~ msgid "View type:"
-#~ msgstr "Приблизително:"
-
-#, fuzzy
-#~ msgid "The name of the view"
-#~ msgstr "Името на задачата."
-
-#~ msgid "Name:"
-#~ msgstr "Име:"
-
-#, fuzzy
-#~ msgid "The views description"
-#~ msgstr "Описание на задача"
-
-#, fuzzy
-#~ msgid "Description:"
-#~ msgstr "Описание"
-
-#~ msgid "Words"
-#~ msgstr "Думи"
-
-#~ msgid "Sentences"
-#~ msgstr "Изречения"
-
-#~ msgid "Syllables"
-#~ msgstr "Срички"
-
-#~ msgid "Lines"
-#~ msgstr "Редове"
-
-#~ msgid "Characters incl. spaces"
-#~ msgstr "Символи, включително интервали"
-
-#~ msgid "Characters without spaces"
-#~ msgstr "Символи без интервалите"
-
-#~ msgid "Flesch reading ease"
-#~ msgstr "Флеш алгоритъм"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Include text from foot- and endnotes"
-#~ msgstr "Включително текста от бележките"
-
-#~ msgid "Automatically refresh data"
-#~ msgstr "Автоматично обновяване на данните"
-
-#, fuzzy
-#~ msgid "The category is placed after this category"
-#~ msgstr "Името на задачата."
-
-#, fuzzy
-#~ msgid "The name of the category"
-#~ msgstr "Името на задачата."
-
-#, fuzzy
-#~ msgid "The description of the category"
-#~ msgstr "Името на задачата."
-
-#, fuzzy
-#~ msgid "New project"
-#~ msgstr "Вмъкване на проекта"
-
-#, fuzzy
-#~ msgid "Create Shared Resources"
-#~ msgstr "Свързани ресурси:"
-
-#, fuzzy
-#~ msgid "Open Project..."
-#~ msgstr "Създаване на доклад..."
+#. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
+#: welcome/WelcomeView.ui:37
+#, fuzzy, kde-format
+msgid "New project"
+msgstr "Вмъкване на проекта"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: welcome/WelcomeView.ui:63
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Template projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
+#: welcome/WelcomeView.ui:107
+#, fuzzy, kde-format
+msgid "Create Shared Resources"
+msgstr "Свързани ресурси:"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:152
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
+"p><p>Displays a file dialog enabling you to open an existing project.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
+#: welcome/WelcomeView.ui:155
+#, fuzzy, kde-format
+msgid "Open Project..."
+msgstr "Създаване на доклад..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: welcome/WelcomeView.ui:181
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
+"\">Recent projects:</span></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: welcome/WelcomeView.ui:236
+#, kde-format
+msgid "Introduction"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, contextHelp)
+#: welcome/WelcomeView.ui:271
+#, kde-format
+msgid ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Context Help</span></"
+"p><p>Many functions has help and hints that can be displayed with <span "
+"style=\" font-style:italic;\">What's this</span>.</p><p>Activate it by "
+"selecting <span style=\" font-style:italic;\">Help-&gt;What's this</span> or "
+"<span style=\" font-style:italic;\">Shift+F1</span>.</p><p>Try it on this "
+"text!</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:307
+#, kde-format
+msgid "https://userbase.kde.org/Plan"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: welcome/WelcomeView.ui:310
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan\">Plan "
+"user documentation</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:323
+#, kde-format
+msgid "https://forum.kde.org/viewforum.php?f=203"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: welcome/WelcomeView.ui:326
+#, kde-format
+msgctxt "@action:button"
+msgid ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:339
+#, kde-format
+msgid "https://calligra.org"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: welcome/WelcomeView.ui:342
+#, kde-format
+msgctxt "@action:button"
+msgid "<a href=\"https://calligra.org\">Calligra</a>"
+msgstr ""

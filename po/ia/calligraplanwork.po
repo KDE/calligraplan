@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-10-14 17:49+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -50,6 +50,24 @@ msgstr "Giovanni Sora"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Modifica"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Vista"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Vista"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -184,6 +202,30 @@ msgstr ""
 #, kde-format
 msgid "Task Progress"
 msgstr "Progresso de carga"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Initiate:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Terminate"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Adde Entrata"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Remove entrata"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -548,27 +590,6 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
-
-#~ msgid "&Edit"
-#~ msgstr "&Modifica"
-
-#~ msgid "View"
-#~ msgstr "Vista"
-
-#~ msgid "&View"
-#~ msgstr "&Vista"
-
-#~ msgid "Started:"
-#~ msgstr "Initiate:"
-
-#~ msgid "Finished:"
-#~ msgstr "Terminate"
-
-#~ msgid "Add Entry"
-#~ msgstr "Adde Entrata"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Remove entrata"
 
 #~ msgid "Progress"
 #~ msgstr "Progresso"

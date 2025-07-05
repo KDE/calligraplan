@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2022-10-28 10:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -52,6 +52,24 @@ msgstr "Rinse de Vries,Antoon Tolboom,Freek de Kruijf"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "rinsedevries@kde.nl,,freekdekruijf@kde.nl"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "Be&werken"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Beeld"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "Beel&d"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -197,6 +215,30 @@ msgstr "Bewerken is mislukt. Kan het werkpakket niet vinden."
 #, kde-format
 msgid "Task Progress"
 msgstr "Voortgang van taak"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Gestart:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Beëindigd:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Item toevoegen"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Item verwijderen"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -565,27 +607,6 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>Werkpakket <b>'%1'</b></p><p>Kon bestand niet ophalen:</p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "Be&werken"
-
-#~ msgid "View"
-#~ msgstr "Beeld"
-
-#~ msgid "&View"
-#~ msgstr "Beel&d"
-
-#~ msgid "Started:"
-#~ msgstr "Gestart:"
-
-#~ msgid "Finished:"
-#~ msgstr "Beëindigd:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Item toevoegen"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Item verwijderen"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"

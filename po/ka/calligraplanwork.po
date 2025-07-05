@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2022-12-29 11:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -51,6 +51,24 @@ msgstr "Temuri Doghonadze"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&ჩასწორება"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "ხედი"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&ხედი"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -185,6 +203,30 @@ msgstr "ჩასწორების შეცდომა. სამუშა
 #, kde-format
 msgid "Task Progress"
 msgstr "ამოცანის მიმდინარეობა"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "დაწყებულია:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "დასრულებული:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "ჩანაწერი"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "ჩანაწერის ამოღება"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -553,24 +595,3 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
-
-#~ msgid "&Edit"
-#~ msgstr "&ჩასწორება"
-
-#~ msgid "View"
-#~ msgstr "ხედი"
-
-#~ msgid "&View"
-#~ msgstr "&ხედი"
-
-#~ msgid "Started:"
-#~ msgstr "დაწყებულია:"
-
-#~ msgid "Finished:"
-#~ msgstr "დასრულებული:"
-
-#~ msgid "Add Entry"
-#~ msgstr "ჩანაწერი"
-
-#~ msgid "Remove Entry"
-#~ msgstr "ჩანაწერის ამოღება"

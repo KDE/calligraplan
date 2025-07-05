@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2025-01-06 20:40+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -58,6 +58,24 @@ msgstr "Miguel Branco"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mgl.branco@gmail.com"
+
+#. i18n: ectx: Menu (edit)
+#: calligraplanwork.rc:4 calligraplanworkui.rc:4
+#, kde-format
+msgid "&Edit"
+msgstr "&Editar…"
+
+#. i18n: ectx: ToolBar (view_selection)
+#: calligraplanwork.rc:8
+#, kde-format
+msgid "View"
+msgstr "Vista"
+
+#. i18n: ectx: Menu (view)
+#: calligraplanwork_readonly.rc:4
+#, kde-format
+msgid "&View"
+msgstr "&Ver"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -204,6 +222,30 @@ msgstr "Fallou a edición. Non se poden atopar paquetes de traballo."
 #, kde-format
 msgid "Task Progress"
 msgstr "Progreso da tarefa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, started)
+#: taskcompletionpanel.ui:33
+#, kde-format
+msgid "Started:"
+msgstr "Comezado:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, finished)
+#: taskcompletionpanel.ui:50
+#, kde-format
+msgid "Finished:"
+msgstr "Rematado:"
+
+#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
+#: taskcompletionpanel.ui:143
+#, kde-format
+msgid "Add Entry"
+msgstr "Engadir entrada"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
+#: taskcompletionpanel.ui:150
+#, kde-format
+msgid "Remove Entry"
+msgstr "Retirar entrada"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -581,27 +623,6 @@ msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>O paquete de traballo<b>«%1»</b></p><p> non puido extraer o ficheiro:</"
 "p><p>%2</p>"
-
-#~ msgid "&Edit"
-#~ msgstr "&Editar…"
-
-#~ msgid "View"
-#~ msgstr "Vista"
-
-#~ msgid "&View"
-#~ msgstr "&Ver"
-
-#~ msgid "Started:"
-#~ msgstr "Comezado:"
-
-#~ msgid "Finished:"
-#~ msgstr "Rematado:"
-
-#~ msgid "Add Entry"
-#~ msgstr "Engadir entrada"
-
-#~ msgid "Remove Entry"
-#~ msgstr "Retirar entrada"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Configuracións dos paquetes de traballo"
