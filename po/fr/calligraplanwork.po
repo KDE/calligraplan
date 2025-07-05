@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2023-10-26 11:04+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -66,24 +66,6 @@ msgid "Your emails"
 msgstr ""
 "uncensored.assault@gmail.com, xavier.besnard@kde.org, thomas.vergnaud@mailo."
 "eu"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "Modifi&er"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Affichage"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "&Affichage"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -230,30 +212,6 @@ msgstr "La modification a échoué. Impossible de trouver un lot de travail."
 #, kde-format
 msgid "Task Progress"
 msgstr "Avancement de tâche"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Démarré :"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Terminé :"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Ajouter une entrée"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Supprimer une entrée"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -632,6 +590,27 @@ msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Lot de travaux<b> « %1 » </b></p> <p>Impossible d'extraire le fichier :</"
 "p> <p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "Modifi&er"
+
+#~ msgid "View"
+#~ msgstr "Affichage"
+
+#~ msgid "&View"
+#~ msgstr "&Affichage"
+
+#~ msgid "Started:"
+#~ msgstr "Démarré :"
+
+#~ msgid "Finished:"
+#~ msgstr "Terminé :"
+
+#~ msgid "Add Entry"
+#~ msgstr "Ajouter une entrée"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Supprimer une entrée"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Paramètres du lot de travaux"

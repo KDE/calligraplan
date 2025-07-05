@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2011-12-10 19:42+0800\n"
 "Last-Translator: Franklin <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -54,25 +54,6 @@ msgstr "Frank Weng (a.k.a. Franklin)"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "編輯(&E)"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, fuzzy, kde-format
-#| msgid "&View"
-msgid "View"
-msgstr "檢視(&V)"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "檢視(&V)"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -212,30 +193,6 @@ msgstr "編輯失敗。找不到工作套件。"
 #, kde-format
 msgid "Task Progress"
 msgstr "工作進度"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "已開始："
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "已完成："
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "新增項目"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "移除項目"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -618,3 +575,26 @@ msgstr "<p>工作套件 <b>'%1'</b></p><p>無法開啟儲存：</p><p>%2</p>"
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>工作套件 <b>'%1'</b></p><p>無法展開檔案：</p><p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "編輯(&E)"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgid "View"
+#~ msgstr "檢視(&V)"
+
+#~ msgid "&View"
+#~ msgstr "檢視(&V)"
+
+#~ msgid "Started:"
+#~ msgstr "已開始："
+
+#~ msgid "Finished:"
+#~ msgstr "已完成："
+
+#~ msgid "Add Entry"
+#~ msgstr "新增項目"
+
+#~ msgid "Remove Entry"
+#~ msgstr "移除項目"

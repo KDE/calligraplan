@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2023-02-24 11:07+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -51,24 +51,6 @@ msgstr "Vít Pelčák"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "&Upravit"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Pohled"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "&Pohled"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -204,30 +186,6 @@ msgstr ""
 #, kde-format
 msgid "Task Progress"
 msgstr "Průběh úlohy"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Započato:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Dokončeno:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Přidat položku"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Odstranit položku"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -589,3 +547,24 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
+
+#~ msgid "&Edit"
+#~ msgstr "&Upravit"
+
+#~ msgid "View"
+#~ msgstr "Pohled"
+
+#~ msgid "&View"
+#~ msgstr "&Pohled"
+
+#~ msgid "Started:"
+#~ msgstr "Započato:"
+
+#~ msgid "Finished:"
+#~ msgstr "Dokončeno:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Přidat položku"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Odstranit položku"

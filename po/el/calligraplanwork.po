@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2017-04-29 00:37+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -56,24 +56,6 @@ msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης, Stelios"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org, sstavra@gmail.com"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "&Επεξεργασία"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Προβολή"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "Π&ροβολή"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -220,30 +202,6 @@ msgstr "Η επεξεργασία απέτυχε. Αδυναμία εύρεση�
 #, kde-format
 msgid "Task Progress"
 msgstr "Πρόοδος εργασίας"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Ξεκίνησε:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Τερματίστηκε:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Προσθήκη δεδομένων εισόδου"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Αφαίρεση δεδομένων εισόδου"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -641,6 +599,27 @@ msgstr ""
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Πακέτο εργασίας <b>'%1'</b></p><p>Αδυναμία εξαγωγής αρχείου:</p><p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "&Επεξεργασία"
+
+#~ msgid "View"
+#~ msgstr "Προβολή"
+
+#~ msgid "&View"
+#~ msgstr "Π&ροβολή"
+
+#~ msgid "Started:"
+#~ msgstr "Ξεκίνησε:"
+
+#~ msgid "Finished:"
+#~ msgstr "Τερματίστηκε:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Προσθήκη δεδομένων εισόδου"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Αφαίρεση δεδομένων εισόδου"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Ρυθμίσεις πακέτου εργασίας"

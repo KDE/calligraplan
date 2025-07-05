@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-28 13:53+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2025-03-26 18:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -218,7 +218,6 @@ msgstr "未達到負擔"
 msgid "Scheduling error"
 msgstr "排程錯誤"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -232,9 +231,8 @@ msgstr "排程錯誤"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
-#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
-#: ui/TasksGeneralPanel.ui:338
+#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
+#: ui/TasksGeneralPanel.cpp:68
 #, kde-format
 msgid "None"
 msgstr "無"
@@ -257,9 +255,7 @@ msgstr "子專案"
 msgid "Task"
 msgstr "工作"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
-#: ui/TasksGeneralPanel.ui:424
+#: kernel/kptnode.cpp:158
 #, kde-format
 msgid "Milestone"
 msgstr "里程碑"
@@ -284,16 +280,12 @@ msgstr "能多快就多快"
 msgid "As Late As Possible"
 msgstr "能多晚就多晚"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
-#: ui/TasksGeneralPanel.ui:179
+#: kernel/kptnode.cpp:731
 #, kde-format
 msgid "Must Start On"
 msgstr "必須開始於"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
-#: ui/TasksGeneralPanel.ui:184
+#: kernel/kptnode.cpp:732
 #, kde-format
 msgid "Must Finish On"
 msgstr "必須完成於"
@@ -308,39 +300,27 @@ msgstr "不早於何時開始"
 msgid "Finish Not Later"
 msgstr "不晚於何時完成"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
-#: ui/TasksGeneralPanel.ui:199
+#: kernel/kptnode.cpp:735
 #, kde-format
 msgid "Fixed Interval"
 msgstr "固定間隔"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
-#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
-#: ui/TasksGeneralPanel.ui:414
+#: kernel/kptnode.cpp:1625
 #, kde-format
 msgid "Effort"
 msgstr "實際花費時間"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
-#: ui/TasksGeneralPanel.ui:419
+#: kernel/kptnode.cpp:1626
 #, kde-format
 msgid "Duration"
 msgstr "期間"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
-#: ui/TasksGeneralPanel.ui:343
+#: kernel/kptnode.cpp:1659
 #, kde-format
 msgid "Low"
 msgstr "低"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
-#: ui/TasksGeneralPanel.ui:348
+#: kernel/kptnode.cpp:1660
 #, kde-format
 msgid "High"
 msgstr "高"
@@ -529,34 +509,27 @@ msgstr "延遲完成已計算：%1"
 msgid "Plan"
 msgstr "計畫"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
-#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
+#: kernel/kptrelation.cpp:92
 #, kde-format
 msgid "Finish-Start"
 msgstr "完成-開始"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
-#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
+#: kernel/kptrelation.cpp:93
 #, kde-format
 msgid "Finish-Finish"
 msgstr "完成-完成"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
-#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
+#: kernel/kptrelation.cpp:94
 #, kde-format
 msgid "Start-Start"
 msgstr "開始-開始"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
-#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "工作"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
-#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "材料"
@@ -1584,7 +1557,6 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "%1（預設帳號）"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1592,15 +1564,13 @@ msgstr "%1（預設帳號）"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
+#: ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "名稱"
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
-#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "描述"
@@ -2587,11 +2557,9 @@ msgstr "移除文件"
 msgid "Url"
 msgstr "網址"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
-#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "類型"
@@ -3046,11 +3014,8 @@ msgstr "延遲完成"
 msgid "Finished early"
 msgstr "提早完成"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
-#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
+#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
 #, kde-format
 msgid "Finished"
 msgstr "已完成"
@@ -3061,9 +3026,7 @@ msgstr "已完成"
 msgid "Running late"
 msgstr "執行中"
 
-#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
-#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "執行中"
@@ -3078,9 +3041,8 @@ msgstr "延遲開始"
 msgid "Started early"
 msgstr "提早開始"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
+#: ui/kptresourceassignmentview.cpp:333
 #, kde-format
 msgid "Started"
 msgstr "已開始"
@@ -5346,10 +5308,9 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
-#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
-#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
+#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
+#: widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "一般"
@@ -5359,108 +5320,6 @@ msgstr "一般"
 #, kde-format
 msgid "View Settings"
 msgstr "檢視設定"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptaccountsviewconfigurepanelbase.ui:26
-#, kde-format
-msgid "Show:"
-msgstr "顯示："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:33
-#, kde-format
-msgid "Periodicity:"
-msgstr "週期："
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:44
-#, kde-format
-msgid "Day"
-msgstr "日"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:49
-#, kde-format
-msgid "Week"
-msgstr "週"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:54
-#, kde-format
-msgid "Month"
-msgstr "月"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
-#: ui/kptaccountsviewconfigurepanelbase.ui:62
-#, kde-format
-msgid "Cumulative"
-msgstr "累積的"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:70
-#, kde-format
-msgid "Actual cost"
-msgstr "實際花費"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:75
-#, kde-format
-msgid "Planned cost"
-msgstr "預計花費"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:80
-#, kde-format
-msgid "Actual and planned"
-msgstr "實際與預計"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:85
-#, kde-format
-msgid "Deviation"
-msgstr "差異"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:101
-#, kde-format
-msgid "Start date"
-msgstr "開始日期："
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:107
-#, kde-format
-msgid "Project start"
-msgstr "專案開始"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:114
-#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
-#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "日期"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:131
-#, kde-format
-msgid "End date"
-msgstr "結束日期"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:137
-#, kde-format
-msgid "Current date"
-msgstr "目前的日期"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:158
-#, kde-format
-msgid "Project end"
-msgstr "專案結束"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5548,50 +5407,6 @@ msgstr "%1：設為非工作中"
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "設定 %1 為未定義"
-
-#. i18n: ectx: property (text), widget (QLabel, label_1)
-#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
-#, kde-format
-msgid "Project Schedule:"
-msgstr "專案排程："
-
-#. i18n: ectx: property (text), widget (QLabel, scheduleName)
-#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
-#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
-#. i18n: ectx: property (text), widget (QLabel, totalFloat)
-#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
-#: ui/reports/reportgroupsectionswidget.ui:22
-#: ui/reports/reportgroupsectionswidget.ui:29
-#: ui/reports/reportgroupsectionswidget.ui:36
-#: ui/reports/reportgroupsectionswidget.ui:43
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptcpmwidget.ui:71
-#, kde-format
-msgid "Probability of finishing before"
-msgstr "完成機率，於此之前"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptcpmwidget.ui:91
-#, kde-format
-msgid "is"
-msgstr "是"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
-#. i18n: ectx: property (suffix), widget (QSpinBox, units)
-#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
-#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
-#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
-#, no-c-format, kde-format
-msgid "%"
-msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -5726,234 +5541,6 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "新增文件"
 
-#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
-#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
-#: widgets/koDocumentInfoAuthorWidget.ui:20
-#, kde-format
-msgid "Name:"
-msgstr "名稱："
-
-#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:54
-#, kde-format
-msgid "Add..."
-msgstr "新增..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:61
-#, kde-format
-msgid "Ctrl+I"
-msgstr "Ctrl+I"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:68
-#, kde-format
-msgid "Change..."
-msgstr "變更..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:75
-#, kde-format
-msgid "Ctrl+M"
-msgstr "Ctrl+M"
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
-#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
-#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
-#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
-#, kde-format
-msgid "Remove"
-msgstr "移除"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:89
-#, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Delete"
-msgid "Del"
-msgstr "刪除"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:96
-#, kde-format
-msgid "Open"
-msgstr "開啟"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:103
-#, kde-format
-msgid "Ctrl+O"
-msgstr "Ctrl+O"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttchartdisplayoptions.ui:20
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Timezone"
-msgid "Timeline"
-msgstr "時區"
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:28
-#, kde-format
-msgid "Do not show the timeline"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:31
-#, kde-format
-msgid "Hide"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:38
-#, kde-format
-msgid "Show timeline in the foreground"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:41
-#, kde-format
-msgid "Foreground"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:48
-#, kde-format
-msgid "Show timeline in the background"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:51
-#, fuzzy, kde-format
-#| msgctxt "Schedule project backward"
-#| msgid "Backward"
-msgid "Background"
-msgstr "往後"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:60
-#, kde-format
-msgid "Update interval in minutes, 0 disables update"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:63
-#, fuzzy, kde-format
-#| msgid "Interval"
-msgid "Interval:"
-msgstr "間隔"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
-#: ui/kptganttchartdisplayoptions.ui:93
-#, kde-format
-msgid "Use custom line"
-msgstr "使用自訂線條"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:102
-#, fuzzy, kde-format
-#| msgid "Line chart"
-msgid "Line width"
-msgstr "線條圖"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:105
-#, kde-format
-msgid "Stroke:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:126
-#, fuzzy, kde-format
-#| msgid "Line chart"
-msgid "Line color"
-msgstr "線條圖"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:129
-#, kde-format
-msgid "Color:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptganttchartdisplayoptions.ui:153
-#, kde-format
-msgid "Additional text information"
-msgstr "額外文字資訊"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
-#: ui/kptganttchartdisplayoptions.ui:159
-#, kde-format
-msgid "Task name"
-msgstr "工作名稱"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
-#: ui/kptganttchartdisplayoptions.ui:166
-#, kde-format
-msgid "Resource names"
-msgstr "資源名稱"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttchartdisplayoptions.ui:176
-#, kde-format
-msgid "Additional graphics information"
-msgstr "額外圖形資訊"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
-#: ui/kptganttchartdisplayoptions.ui:185
-#, kde-format
-msgid "Task dependencies"
-msgstr "工作相依性"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
-#: ui/kptganttchartdisplayoptions.ui:192
-#, kde-format
-msgid "Task completion"
-msgstr "工作完成度"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
-#: ui/kptganttchartdisplayoptions.ui:199
-#, kde-format
-msgid "Time constraints"
-msgstr "時間限制"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
-#: ui/kptganttchartdisplayoptions.ui:219
-#, kde-format
-msgid "Positive float"
-msgstr "正向浮動"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
-#: ui/kptganttchartdisplayoptions.ui:226
-#, kde-format
-msgid "Negative float"
-msgstr "負向浮動"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
-#: ui/kptganttchartdisplayoptions.ui:233
-#, kde-format
-msgid "Critical path"
-msgstr "要徑"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
-#: ui/kptganttchartdisplayoptions.ui:240
-#, kde-format
-msgid "Critical tasks"
-msgstr "必要工作"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
-#: ui/kptganttchartdisplayoptions.ui:247
-#, kde-format
-msgid "Scheduling errors"
-msgstr "排程錯誤"
-
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -6015,100 +5602,6 @@ msgstr "名稱：%1<nl/>計劃時間：%2 <nl/>狀態：%3<nl/>"
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
 msgstr "名稱：%1<nl/>計劃時間：%2 - %3"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttprintingoptions.ui:17
-#, kde-format
-msgctxt "@title:group"
-msgid "Headers"
-msgstr "標頭"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
-#: ui/kptganttprintingoptions.ui:23
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify task name"
-msgctxt "@option:check"
-msgid "Print task names"
-msgstr "變更工作名稱"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
-#: ui/kptganttprintingoptions.ui:30
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify task name"
-msgctxt "@option:check"
-msgid "Print time scale"
-msgstr "變更工作名稱"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttprintingoptions.ui:40
-#, kde-format
-msgctxt "@title:group"
-msgid "Scaling"
-msgstr "縮放"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
-#: ui/kptganttprintingoptions.ui:46
-#, fuzzy, kde-format
-#| msgid "Divide chart on multiple pages"
-msgctxt "@option:radio"
-msgid "Divide chart on multiple pages"
-msgstr "區隔多個頁面上的圖表"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
-#: ui/kptganttprintingoptions.ui:53
-#, fuzzy, kde-format
-#| msgid "Print chart on a single page"
-msgctxt "@option:radio"
-msgid "Fit chart to page height"
-msgstr "在單一頁面上印出圖表"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
-#: ui/kptganttprintingoptions.ui:60
-#, fuzzy, kde-format
-#| msgid "Print chart on a single page"
-msgctxt "@option:radio"
-msgid "Fit chart to a single page"
-msgstr "在單一頁面上印出圖表"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#: ui/kptganttprintingoptions.ui:73
-#, fuzzy, kde-format
-#| msgid "Change..."
-msgctxt "@title:group"
-msgid "Range"
-msgstr "變更..."
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
-#: ui/kptganttprintingoptions.ui:88
-#, fuzzy, kde-format
-#| msgid "Can start"
-msgctxt "@option:radio"
-msgid "Chart start:"
-msgstr "可以開始"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
-#: ui/kptganttprintingoptions.ui:105
-#, kde-format
-msgctxt "@option:radio"
-msgid "Start:"
-msgstr "開始："
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
-#: ui/kptganttprintingoptions.ui:137
-#, fuzzy, kde-format
-#| msgid "Chart type"
-msgctxt "@option:radio"
-msgid "Chart end:"
-msgstr "圖表型態"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
-#: ui/kptganttprintingoptions.ui:154
-#, kde-format
-msgctxt "@option:radio"
-msgid "End:"
-msgstr "結束："
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
 #: ui/performance/ProjectStatusView.cpp:169
@@ -6241,63 +5734,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "變更工作間隔"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
-#: ui/kptintervaleditbase.ui:21
-#, kde-format
-msgid "1"
-msgstr "1"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptintervaleditbase.ui:31
-#, kde-format
-msgctxt "Start time"
-msgid "From:"
-msgstr "從："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptintervaleditbase.ui:47
-#, kde-format
-msgid "Length"
-msgstr "長度"
-
-#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
-#: ui/kptintervaleditbase.ui:70
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, kde-format
-msgid "Add"
-msgstr "新增"
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bClear)
-#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
-#, kde-format
-msgid "Clear"
-msgstr "清除"
-
-#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
-#: ui/kptitemviewsettings.ui:28
-#, kde-format
-msgid "Stretch last section"
-msgstr "延伸上個區段"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptitemviewsettings.ui:35
-#, kde-format
-msgid "Select columns to be shown:"
-msgstr "選擇要顯示的欄位："
-
-#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:56
-#, kde-format
-msgid "&Hidden columns:"
-msgstr "隱藏欄位(&H)："
-
-#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:59
-#, kde-format
-msgid "&Visible columns:"
-msgstr "可見欄位(&V)："
-
 #: ui/kptitemviewsettup.cpp:148
 #, kde-format
 msgid "Tree View"
@@ -6427,213 +5863,6 @@ msgstr "資源分配"
 msgid "Task Modules Path"
 msgstr "工作模組路徑"
 
-#. i18n: ectx: property (text), widget (QLabel, wbslabel)
-#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
-#: ui/kpttaskgeneralpanelbase.ui:23
-#, kde-format
-msgid "WBS:"
-msgstr "WBS："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
-#, kde-format
-msgid "The project name."
-msgstr "專案名稱。"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptmainprojectpanelbase.ui:71
-#, fuzzy, kde-format
-#| msgid "Name:"
-msgid "&Name:"
-msgstr "名稱："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
-#, kde-format
-msgid "The project leader."
-msgstr "計畫領導人。"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptmainprojectpanelbase.ui:103
-#, fuzzy, kde-format
-#| msgid "Manager:"
-msgid "&Manager:"
-msgstr "管理者："
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:132
-#, kde-format
-msgid "Choose a project leader from your address book."
-msgstr "從您的通訊錄中選擇專案領導人。"
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:135
-#, kde-format
-msgid "&Choose..."
-msgstr "選擇(&C)..."
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kptmainprojectpanelbase.ui:144
-#, kde-format
-msgid "Scheduling Range"
-msgstr "排程範圍"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptmainprojectpanelbase.ui:152
-#, kde-format
-msgid "Earliest start:"
-msgstr "最早開始時間："
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptmainprojectpanelbase.ui:172
-#, kde-format
-msgid "Latest finish:"
-msgstr "最晚完成"
-
-#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
-#: ui/kptmainprojectpanelbase.ui:210
-#, fuzzy, kde-format
-#| msgid "Required resources:"
-msgid "&Use shared resources"
-msgstr "需要的資源："
-
-#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
-#: ui/kptmainprojectpanelbase.ui:225
-#, fuzzy, kde-format
-#| msgid "Resources"
-msgid "Resources:"
-msgstr "資源"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
-#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
-#, kde-format
-msgid "File"
-msgstr "檔案"
-
-#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
-#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
-#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
-#, fuzzy, kde-format
-#| msgid "Choose..."
-msgid "Browse..."
-msgstr "選擇..."
-
-#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
-#: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Project:"
-msgid "Projects:"
-msgstr "專案："
-
-#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
-#: ui/kptmainprojectpanelbase.ui:263
-#, fuzzy, kde-format
-#| msgid "Direction"
-msgid "Directory"
-msgstr "方向"
-
-#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
-#: ui/kptmainprojectpanelbase.ui:287
-#, fuzzy, kde-format
-#| msgid "Resource assignments"
-msgid "Load resource assignments at startup"
-msgstr "資源分配"
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
-#: ui/kptmainprojectpanelbase.ui:294
-#, kde-format
-msgid "Load"
-msgstr "載入"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
-#: ui/kptworkpackagemergepanel.ui:192
-#, fuzzy, kde-format
-#| msgid "&Documents"
-msgid "Documents"
-msgstr "文件(&D)"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
-#: ui/kptmainprojectpanelbase.ui:371
-#, kde-format
-msgid "Work Package"
-msgstr "工作套件"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
-#: ui/kptmainprojectpanelbase.ui:377
-#, kde-format
-msgid "Publish"
-msgstr "發布"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/kptmainprojectpanelbase.ui:385
-#, kde-format
-msgid "Publish:"
-msgstr "發布："
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptmainprojectpanelbase.ui:400
-#, kde-format
-msgid "Retrieve"
-msgstr "取得"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
-#: ui/kptmainprojectpanelbase.ui:406
-#, kde-format
-msgid "Check for work packages"
-msgstr "檢查工作套件"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptmainprojectpanelbase.ui:415
-#, kde-format
-msgid "Retrieve:"
-msgstr "取得："
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptmainprojectpanelbase.ui:430
-#, kde-format
-msgid "Archive"
-msgstr "封存"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
-#: ui/kptmainprojectpanelbase.ui:436
-#, kde-format
-msgid "Delete file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
-#: ui/kptmainprojectpanelbase.ui:443
-#, kde-format
-msgid "Archive file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptmainprojectpanelbase.ui:452
-#, kde-format
-msgid "Archive:"
-msgstr "封存："
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
-#: ui/kptmainprojectpanelbase.ui:481
-#, kde-format
-msgid "Task Modules"
-msgstr "工作模組"
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
-#: ui/kptmainprojectpanelbase.ui:526
-#, kde-format
-msgid "Insert"
-msgstr "插入"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
-#: ui/kptmainprojectpanelbase.ui:550
-#, kde-format
-msgid "Use local task modules"
-msgstr "使用本地工作模組"
-
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, kde-format
 msgid "Milestone Progress"
@@ -6649,87 +5878,10 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "移除工作相依性"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
-#: ui/reports/reportdata.cpp:383
-#, kde-format
-msgid "Tasks"
-msgstr "工作"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, available)
-#: ui/kptperteditor.ui:29
-#, kde-format
-msgid "Available tasks"
-msgstr "可用工作"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
-#: ui/kptperteditor.ui:64
-#, kde-format
-msgid "Add required task"
-msgstr "新增需要的工作"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
-#: ui/kptperteditor.ui:80
-#, kde-format
-msgid "Remove required task"
-msgstr "移除需要的工作"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptpertresult.ui:90
-#, kde-format
-msgid "Total Float:"
-msgstr "總計浮動："
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
-#: ui/kptprintingheaderfooter.ui:16
-#, kde-format
-msgid "Header"
-msgstr "標頭"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
-#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
-#, kde-format
-msgid "Project name"
-msgstr "專案名稱"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
-#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
-#, kde-format
-msgid "Page number"
-msgstr "頁碼"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
-#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
-#, kde-format
-msgid "Project manager"
-msgstr "專案管理員"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
-#: ui/kptprintingheaderfooter.ui:56
-#, kde-format
-msgid "Footer"
-msgstr "註腳"
-
 #: ui/kptrecalculatedialog.cpp:47
 #, kde-format
 msgid "Re-calculate Schedule"
 msgstr "重新計算排程"
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
-#: ui/kptrecalculatedialog.ui:26
-#, kde-format
-msgid "Re-calculate from current date/time"
-msgstr "從目前的日期與時間重新計算"
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
-#: ui/kptrecalculatedialog.ui:33
-#, kde-format
-msgid "Re-calculate from:"
-msgstr "重新計算基礎時間："
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -6776,18 +5928,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "變更工作相依性"
 
-#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:16
-#, kde-format
-msgid "Show internal appointments"
-msgstr "顯示內部約會"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:23
-#, kde-format
-msgid "Show external appointments"
-msgstr "顯示外部約會"
-
 #: ui/kptresourceappointmentsview.cpp:92
 #, kde-format
 msgid "Resource Assignments View Settings"
@@ -6811,12 +5951,6 @@ msgstr "沒有工作屬性"
 #, kde-format
 msgid "No resource attributed"
 msgstr "沒有資源屬性"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptresourceassignmentview.ui:38
-#, kde-format
-msgid "Advance"
-msgstr "進階"
 
 #: ui/kptresourcedialog.cpp:65
 #, kde-kuit-format
@@ -6961,12 +6095,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "從目標結束時間排程專案"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptscheduleeditor.ui:35
-#, kde-format
-msgid "Scheduling range:"
-msgstr "排程範圍："
-
 #: ui/kptstandardworktimedialog.cpp:86
 #, kde-format
 msgid "Estimate Conversions"
@@ -7007,100 +6135,10 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "變更工作"
 
-#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
-#, kde-format
-msgid "Work Breakdown Structure"
-msgstr "工作分類結構"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:58
-#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
-#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
-#: ui/kpttaskgeneralpanelbase.ui:71
-#, kde-format
-msgid "The name of the Task."
-msgstr "工作名稱。"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:95
-#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
-#: ui/TasksGeneralPanel.ui:57
-#, kde-format
-msgid ""
-"The person responsible for this task.\n"
-"\n"
-"This is not limited to persons available in a resource group but can be "
-"anyone. You can even directly access your address book with the Choose "
-"button."
-msgstr ""
-"負責此工作的人。\n"
-"\n"
-"這不限於在資源群組中的人，而可以是任何人。您甚至可以直接從您的通訊錄中選取。"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:98
-#, kde-format
-msgid "Responsible:"
-msgstr "負責人："
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
-#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
-#: ui/TasksGeneralPanel.ui:64
-#, kde-format
-msgid "Insert a person from your address book"
-msgstr "從您的通訊錄中插入一個人"
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
-#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
-#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
-#, kde-format
-msgid "Choose..."
-msgstr "選擇..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
-#: ui/TasksGeneralPanel.ui:82
-#, kde-format
-msgid "Priority:"
-msgstr "優先度："
-
 #: ui/kpttaskcostpanel.cpp:101
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "變更工作花費"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
-#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
-#, kde-format
-msgid "Account:"
-msgstr "帳號："
-
-#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
-#: ui/kpttaskcostpanelbase.ui:72
-#, kde-format
-msgid "Startup"
-msgstr "啟動"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
-#, kde-format
-msgid "Cost:"
-msgstr "花費："
-
-#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
-#: ui/kpttaskcostpanelbase.ui:142
-#, kde-format
-msgid "Shutdown"
-msgstr "關機"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 msgctxt "(qtundo-format)"
@@ -7313,8 +6351,7 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:1768
 #, kde-format
 msgid "Publish..."
 msgstr "發布..."
@@ -7335,159 +6372,6 @@ msgstr "傳送紀錄套件"
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "變更工作"
-
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#: ui/kpttaskgeneralpanelbase.ui:55
-#, kde-format
-msgid "N&ame:"
-msgstr "名稱(&A)："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:79
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "The person responsible for this task"
-msgid ""
-"The person responsible for this task.\n"
-"        "
-msgstr "此工作的負責人"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Responsible:"
-msgid "Responsi&ble:"
-msgstr "負責人："
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
-#, kde-format
-msgid "Insert a person from your address book."
-msgstr "從您的通訊錄中插入一個人。"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
-#, kde-format
-msgid ""
-"Scheduling Configuration. These settings affect the actual scheduling of the "
-"task.\n"
-"\n"
-"The estimation can be either effort based or duration based. If it is effort "
-"based, the final duration will depend on the resources assigned to the task. "
-"For duration based estimation, the assigned resources do not affect the "
-"fixed duration of the task, but only the costs."
-msgstr ""
-"排程設定。這些設定會影響實際工作的排程。\n"
-"\n"
-"時間估計可基於實際花費的時間或工作期間。如果是基於實際花費的時間，則完成期間"
-"將會依據分配到的資源而定。如果是基於工作期間，則分配到的資源不會影響，只有花"
-"費（金錢）會影響。"
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
-#, kde-format
-msgid "Timing"
-msgstr "時間"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/kpttaskgeneralpanelbase.ui:194
-#, fuzzy, kde-format
-#| msgid "Schedule:"
-msgid "&Schedule:"
-msgstr "排程："
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
-#, kde-format
-msgid "As Soon as Possible"
-msgstr "能多快就多快"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
-#, kde-format
-msgid "As Late as Possible"
-msgstr "能多晚就多晚"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
-#, kde-format
-msgid "Start Not Earlier Than"
-msgstr "不早於何時開始"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
-#, kde-format
-msgid "Finish Not Later Than"
-msgstr "不晚於何時完成"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/kpttaskgeneralpanelbase.ui:300
-#, fuzzy, kde-format
-#| msgid "Estimate:"
-msgid "Esti&mate:"
-msgstr "估計："
-
-#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
-#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
-#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
-#, kde-format
-msgid ""
-"Risk controls the PERT distribution used when calculating the actual "
-"estimate for this task."
-msgstr "風險控制 PERT 分布用在計算此工作的實際估計."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
-#, kde-format
-msgid ""
-"<p>Risk controls the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-"<p>風險用於控制計算實際估計此工作時的計劃評估（PERT）分配。\n"
-"<b>無</b>表示跟估計值剛好符合。\n"
-"<b>低風險</b>表示落在常態分配範圍內。\n"
-"<b>高風險</b>表示這個估計會比「低風險」估計得要悲觀一點。</p>"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:348
-#, kde-format
-msgid "Risk:"
-msgstr "風險："
-
-#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
-#, kde-format
-msgid ""
-"<p>Risk controles the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-"<p>風險用於控制計算實際估計此工作時的計劃評估（PERT）分配。\n"
-"<b>無</b>表示跟估計值剛好符合。\n"
-"<b>低風險</b>表示落在常態分配範圍內。\n"
-"<b>高風險</b>表示這個估計會比「低風險」估計得要悲觀一點。</p>"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kpttaskgeneralpanelbase.ui:404
-#, fuzzy, kde-format
-#| msgid "Optimistic:"
-msgid "Optimisti&c:"
-msgstr "樂觀："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/kpttaskgeneralpanelbase.ui:433
-#, fuzzy, kde-format
-#| msgid "Pessimistic:"
-msgid "&Pessimistic:"
-msgstr "悲觀："
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -7549,74 +6433,6 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "第 %1 週"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
-#: ui/RelationEditorDialog.ui:58
-#, kde-format
-msgid "Task:"
-msgstr "工作："
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: ui/kpttaskprogresspanelbase.ui:45
-#, kde-format
-msgid "Started:"
-msgstr "已開始："
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kpttaskprogresspanelbase.ui:62
-#, kde-format
-msgid "Finished:"
-msgstr "已完成:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskprogresspanelbase.ui:117
-#, kde-format
-msgid "Edit mode:"
-msgstr "編輯模式："
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:125
-#, kde-format
-msgid "Per resource"
-msgstr "每個資源"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:130
-#, kde-format
-msgid "Per task"
-msgstr "每個工作"
-
-#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:177
-#, kde-format
-msgid "Prev"
-msgstr "前一個"
-
-#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "下一個"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kpttaskprogresspanelbase.ui:230
-#, kde-format
-msgid "Add resource:"
-msgstr "新增資源："
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:278
-#, kde-format
-msgid "Add Entry"
-msgstr "新增項目"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:289
-#, kde-format
-msgid "Remove Entry"
-msgstr "移除項目"
-
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -7637,30 +6453,6 @@ msgstr ""
 msgid "General Settings"
 msgstr "一般設定"
 
-#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
-#: ui/kpttaskstatusviewsettingspanel.ui:16
-#, kde-format
-msgid "Period Definition"
-msgstr "期間定義"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskstatusviewsettingspanel.ui:25
-#, kde-format
-msgid "Period length (days):"
-msgstr "期間長度（天）："
-
-#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
-#: ui/kpttaskstatusviewsettingspanel.ui:48
-#, kde-format
-msgid "Use current date"
-msgstr "使用目前的日期"
-
-#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
-#: ui/kpttaskstatusviewsettingspanel.ui:68
-#, kde-format
-msgid "Use weekday:"
-msgstr "使用工作日："
-
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -7675,6 +6467,12 @@ msgstr "本週"
 #, kde-format
 msgid "Total effort this week"
 msgstr "本週總負擔"
+
+#: ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "日期"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -7823,77 +6621,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "變更 WBS 碼定義"
 
-#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
-#: ui/kptwbsdefinitionpanelbase.ui:21
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define WBS code for the project"
-msgstr "定義專案的工作分類結構代碼"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptwbsdefinitionpanelbase.ui:33
-#, kde-format
-msgid "Project Code Definition"
-msgstr "專案碼定義"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
-#, kde-format
-msgid "Code:"
-msgstr "代碼："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
-#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
-#, kde-format
-msgid "Separator:"
-msgstr "分隔符號："
-
-#. i18n: ectx: property (toolTip), widget (QFrame, frame)
-#: ui/kptwbsdefinitionpanelbase.ui:86
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define default WBS code"
-msgstr "定義預設工作分類結構代碼"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptwbsdefinitionpanelbase.ui:98
-#, kde-format
-msgid "Default Definition"
-msgstr "預設定義"
-
-#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:148
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define separate WBS codes for individual levels"
-msgstr "定義個別等級的工作分類結構代碼"
-
-#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:151
-#, kde-format
-msgid "Use Levels Definition"
-msgstr "使用等級定義"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:167
-#, kde-format
-msgid "Code"
-msgstr "程式碼"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:172
-#, kde-format
-msgid "Separator"
-msgstr "分隔符號"
-
-#. i18n: ectx: property (text), widget (QPushButton, addBtn)
-#: ui/kptwbsdefinitionpanelbase.ui:187
-#, kde-format
-msgid "Add Level"
-msgstr "新增等級"
-
 #: ui/kptworkpackagemergedialog.cpp:66
 #, kde-kuit-format
 msgctxt "@title"
@@ -7954,6 +6681,11 @@ msgstr "拒絕"
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr ""
+
+#: ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "下一個"
 
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
@@ -8017,48 +6749,17 @@ msgstr ""
 msgid "No documents"
 msgstr "變更文件"
 
+#: ui/kptworkpackagemergedialog.cpp:241
+#, fuzzy, kde-format
+#| msgid "&Documents"
+msgid "Documents"
+msgstr "文件(&D)"
+
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptworkpackagemergepanel.ui:70
-#, fuzzy, kde-format
-#| msgid "General"
-msgid "Generated:"
-msgstr "一般"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptworkpackagemergepanel.ui:77
-#, fuzzy, kde-format
-#| msgctxt "Start time"
-#| msgid "From:"
-msgid "From:"
-msgstr "從："
-
-#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
-#: ui/kptworkpackagemergepanel.ui:96
-#, fuzzy, kde-format
-#| msgid "Target times"
-msgid "<package time>"
-msgstr "目標時間"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
-#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
-#: ui/kptworkpackagemergepanel.ui:198
-#, kde-format
-msgid "Update"
-msgstr "更新"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptworkpackagemergepanel.ui:245
-#, kde-format
-msgid "No more data. Press Close to finish."
 msgstr ""
 
 #: ui/kptworkpackagesenddialog.cpp:34
@@ -8074,8 +6775,7 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "資源"
 
-#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
-#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
+#: ui/locale/localemon.cpp:52
 #, kde-format
 msgid "Currency symbol:"
 msgstr "貨幣符號:"
@@ -8089,12 +6789,6 @@ msgstr "小數位數："
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr "您可以在此輸入您常用的貨幣符號，如 $ 或 €。"
-
-#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
-#: ui/locale/localemon.ui:32
-#, kde-format
-msgid "Fractional digits:"
-msgstr "小數位數："
 
 #: ui/performance/PerformanceStatusBase.cpp:535
 #: ui/performance/PerformanceStatusBase.cpp:538
@@ -8126,107 +6820,6 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "圖表設定"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
-#, kde-format
-msgid "Chart type"
-msgstr "圖表型態"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
-#, kde-format
-msgid "Line chart"
-msgstr "線條圖"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
-#, kde-format
-msgid "Bar chart"
-msgstr "長條圖"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
-#, kde-format
-msgid "Table"
-msgstr "表格"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
-#, fuzzy, kde-format
-#| msgid "Baseline"
-msgid "Base values"
-msgstr "基線"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
-#, kde-format
-msgid "Indices"
-msgstr "索引"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
-#: ui/resourcedialogbase.ui:414
-#, kde-format
-msgid "Cost"
-msgstr "花費"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
-#, kde-format
-msgid "Show BCWS plot"
-msgstr "顯示 BCWS 圖表"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
-#, kde-format
-msgid "Show BCWP plot"
-msgstr "顯示 BCWP 圖表"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
-#, kde-format
-msgid "Show ACWP plot"
-msgstr "顯示 ACWP 圖表"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
-#, fuzzy, kde-format
-#| msgctxt "Cost based Budgeted Cost of Work Scheduled"
-#| msgid "BCWS Cost"
-msgid "SPI Cost"
-msgstr "BCWS 成本"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
-#, fuzzy, kde-format
-#| msgctxt "Effort based Budgeted Cost of Work Scheduled"
-#| msgid "BCWS Effort"
-msgid "SPI Effort"
-msgstr "BCWS 負擔"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
-#, fuzzy, kde-format
-#| msgctxt "Effort based Budgeted Cost of Work Performed"
-#| msgid "BCWP Effort"
-msgid "CPI Effort"
-msgstr "BCWP 負擔"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
-#, fuzzy, kde-format
-#| msgctxt "Cost based Budgeted Cost of Work Performed"
-#| msgid "BCWP Cost"
-msgid "CPI Cost"
-msgstr "BCWP 成本"
-
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -8241,6 +6834,11 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr "ID"
+
+#: ui/projectview/ProjectView.cpp:55
+#, kde-format
+msgid "File"
+msgstr "檔案"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, kde-format
@@ -8281,31 +6879,10 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "變更相依性"
 
-#. i18n: ectx: property (text), widget (QToolButton, addBtn)
-#: ui/RelationEditorDialog.ui:131
+#: ui/reports/reportdata.cpp:383
 #, kde-format
-msgctxt "Insert task dependency"
-msgid "Insert"
-msgstr "插入"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
-#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
-#, kde-format
-msgid "From"
-msgstr "從"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/relationpanel.ui:63
-#, kde-format
-msgid "To"
-msgstr "到"
-
-#. i18n: ectx: property (title), widget (QGroupBox, relationType)
-#: ui/relationpanel.ui:87
-#, kde-format
-msgid "Dependency Type"
-msgstr "相依型態"
+msgid "Tasks"
+msgstr "工作"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -8331,209 +6908,6 @@ msgstr "負擔效能"
 #, kde-format
 msgid "Cost Breakdown"
 msgstr "成本分析"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
-#, kde-format
-msgid "Page"
-msgstr "頁面"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
-#: ui/reports/reportnavigator.ui:42
-#, kde-format
-msgid "Go to first page"
-msgstr "前往第一頁"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
-#: ui/reports/reportnavigator.ui:64
-#, kde-format
-msgid "Go to previous page"
-msgstr "回到上一頁"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
-#: ui/reports/reportnavigator.ui:77
-#, kde-format
-msgid "Show page"
-msgstr "顯示頁面"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/reports/reportnavigator.ui:99
-#, kde-format
-msgid "of"
-msgstr "之"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
-#: ui/reports/reportnavigator.ui:149
-#, kde-format
-msgid "Go to next page"
-msgstr "前往下一頁"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
-#: ui/reports/reportnavigator.ui:171
-#, kde-format
-msgid "Go to last page"
-msgstr "前往最末頁"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:28
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report Designer"
-msgid "Enable report header"
-msgstr "報告設計器"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report Designer"
-msgid "Report Header"
-msgstr "報告設計器"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:38
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report Designer"
-msgid "Enable report footer"
-msgstr "報告設計器"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:41
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Report Designer"
-msgid "Report Footer"
-msgstr "報告設計器"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/reports/reportsectionswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "Header"
-msgid "Page Header"
-msgstr "標頭"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
-#: ui/reports/reportsectionswidget.ui:62
-#, fuzzy, kde-format
-#| msgid "Go to first page"
-msgid "Enable header on first page"
-msgstr "前往第一頁"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
-#, fuzzy, kde-format
-#| msgid "Go to first page"
-msgid "First page"
-msgstr "前往第一頁"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
-#: ui/reports/reportsectionswidget.ui:72
-#, fuzzy, kde-format
-#| msgid "Go to first page"
-msgid "Enable header on last page"
-msgstr "前往第一頁"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
-#, fuzzy, kde-format
-#| msgid "Go to last page"
-msgid "Last page"
-msgstr "前往最末頁"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
-#: ui/reports/reportsectionswidget.ui:82
-#, kde-format
-msgid "Enable header on odd pages"
-msgstr "在奇數頁面上啟用頁首"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
-#, kde-format
-msgid "Odd pages"
-msgstr "奇數頁面"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
-#: ui/reports/reportsectionswidget.ui:92
-#, kde-format
-msgid "Enable header on even pages"
-msgstr "在偶數頁面上啟用頁首"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
-#, kde-format
-msgid "Even pages"
-msgstr "偶數頁面"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
-#: ui/reports/reportsectionswidget.ui:102
-#, fuzzy, kde-format
-#| msgid "Divide chart on multiple pages"
-msgid "Enable header on all pages"
-msgstr "區隔多個頁面上的圖表"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:105
-#: ui/reports/reportsectionswidget.ui:170
-#, kde-format
-msgid "All pages"
-msgstr "所有頁面"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/reports/reportsectionswidget.ui:115
-#, fuzzy, kde-format
-#| msgid "Footer"
-msgid "Page Footer"
-msgstr "註腳"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:127
-#, fuzzy, kde-format
-#| msgid "Go to first page"
-msgid "Enable footer on first page"
-msgstr "前往第一頁"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:137
-#, kde-format
-msgid "Enable footer on odd pages"
-msgstr "在奇數頁面上啟用頁尾"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:147
-#, kde-format
-msgid "Enable footer on even pages"
-msgstr "在偶數頁面上啟用頁尾"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:157
-#, fuzzy, kde-format
-#| msgid "Go to last page"
-msgid "Enable footer on last page"
-msgstr "前往最末頁"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Go to last page"
-msgid "Enable footer on all pages"
-msgstr "前往最末頁"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -8742,6 +7116,11 @@ msgid "Nothing"
 msgstr "無"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, kde-format
+msgid "Add"
+msgstr "新增"
+
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Report Designer"
@@ -8889,140 +7268,12 @@ msgstr "無法開啟檔案：<br/><filename>%1</filename>"
 msgid "Allocate"
 msgstr "配置"
 
-#. i18n: ectx: property (text), widget (QLabel, groupLabel)
-#: ui/resourcedialogbase.ui:23
-#, kde-format
-msgid "Group:"
-msgstr "群組："
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
-#: ui/resourcedialogbase.ui:67
-#, kde-format
-msgid "Choose resource from address book"
-msgstr "從通訊錄選擇資源"
-
-#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
-#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
-#, kde-format
-msgid "Initials:"
-msgstr "縮寫："
-
-#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
-#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
-#, fuzzy, kde-format
-#| msgid "Email"
-msgid "Email:"
-msgstr "電子郵件地址"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: ui/resourcedialogbase.ui:161
-#, kde-format
-msgid "Resource type:"
-msgstr "資源型態："
-
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
-#: ui/resourcedialogbase.ui:185
-#, kde-format
-msgid "Team"
-msgstr "團隊"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
-#: ui/resourcedialogbase.ui:220
-#, kde-format
-msgid "Available:"
-msgstr "可用："
-
-#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
-#: ui/resourcedialogbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Calendar"
-msgid "Calendar:"
-msgstr "行事曆"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
-#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
-#, kde-format
-msgid "Unlimited"
-msgstr "不限制"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
-#: ui/resourcedialogbase.ui:317
-#, kde-format
-msgid "Until"
-msgstr "到"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
-#: ui/resourcedialogbase.ui:389
-#, kde-format
-msgid "Required resources:"
-msgstr "需要的資源："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/resourcedialogbase.ui:420
-#, kde-format
-msgid "Hourly rate:"
-msgstr "每小時費用："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: ui/resourcedialogbase.ui:443
-#, kde-format
-msgid "Overtime rate:"
-msgstr "超時費率："
-
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, fuzzy, kde-kuit-format
 #| msgid "Open"
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "開啟"
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
-#: ui/standardworktimedialogbase.ui:16
-#, kde-format
-msgid ""
-"These values are used if your estimate is not in hours.\n"
-"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-"effort to complete, this is converted to 24 hours when the task is "
-"scheduled. The actual time it will take to complete is of course dependent "
-"on the availability of the person (or persons) that is assigned to the task."
-msgstr ""
-"這些值用於您的估計不是以小時為單位時。\n"
-"比方說，每天時數為八小時。若您估計某工作需要三天完成，則在排程工作時會轉換成 "
-"24 小時。實際完成的時間當然是相依於配置到此工作的資源（人）而定。"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/standardworktimedialogbase.ui:25
-#, kde-format
-msgid "Hours per year:"
-msgstr "每年幾小時："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/standardworktimedialogbase.ui:54
-#, kde-format
-msgid "Hours per month:"
-msgstr "每月幾小時："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabe3)
-#: ui/standardworktimedialogbase.ui:86
-#, kde-format
-msgid "Hours per week:"
-msgstr "每週幾小時："
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:115
-#, kde-format
-msgid ""
-"These values are used when you estimate the effort needed to complete a task."
-msgstr "這些值用於您估計完成一件工作所花費的時間。"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:118
-#, kde-format
-msgid "Hours per day:"
-msgstr "每天幾小時："
 
 #: ui/TasksEditDialog.cpp:46
 #, fuzzy, kde-format
@@ -9045,43 +7296,6 @@ msgstr "變更工作"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "變更工作"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/TasksGeneralPanel.ui:25
-#, fuzzy, kde-format
-#| msgid "Responsible:"
-msgid "Responsib&le:"
-msgstr "負責人："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/TasksGeneralPanel.ui:146
-#, kde-format
-msgid "Sched&ule:"
-msgstr "排程(&U)："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/TasksGeneralPanel.ui:252
-#, kde-format
-msgid "Es&timate:"
-msgstr "估計(&T)："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/TasksGeneralPanel.ui:300
-#, kde-format
-msgid "Ris&k:"
-msgstr "風險(&K)："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/TasksGeneralPanel.ui:356
-#, kde-format
-msgid "Optimistic:"
-msgstr "樂觀："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/TasksGeneralPanel.ui:385
-#, kde-format
-msgid "Pessimistic:"
-msgstr "悲觀："
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -9133,170 +7347,6 @@ msgstr "收起面板"
 msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr "鎖定面板"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
-#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
-#: widgets/KoDocumentInfoDlg.cpp:351
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "&Encrypt"
-msgstr "描述："
-
-#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:64
-#, kde-format
-msgid "Keywords:"
-msgstr "關鍵字："
-
-#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:111
-#, fuzzy, kde-format
-#| msgid "Sub-Project"
-msgid "Subject:"
-msgstr "子專案"
-
-#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:124
-#, fuzzy, kde-format
-#| msgid "Go to last page"
-msgid "Last printed:"
-msgstr "前往最末頁"
-
-#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:141
-#, fuzzy, kde-format
-#| msgid "Type"
-msgid "Type:"
-msgstr "類型"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:158
-#, kde-format
-msgid "Total editing time:"
-msgstr "總計編輯時間："
-
-#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:178
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "Encryption:"
-msgstr "描述："
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:188
-#, kde-format
-msgctxt "Document title"
-msgid "Title:"
-msgstr "標題："
-
-#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:201
-#, kde-format
-msgid "Revision number:"
-msgstr "修訂版本："
-
-#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:211
-#, fuzzy, kde-format
-#| msgid "Modify Name"
-msgid "Modified:"
-msgstr "變更名稱"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:231
-#, fuzzy, kde-format
-#| msgid "&Documents"
-msgid "Comments:"
-msgstr "文件(&D)"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:251
-#, fuzzy, kde-format
-#| msgid "Started:"
-msgid "Created:"
-msgstr "已開始："
-
-#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
-#: widgets/koDocumentInfoAboutWidget.ui:261
-#, fuzzy, kde-format
-#| msgid "Path"
-msgid "Path:"
-msgstr "路徑"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbReset)
-#: widgets/koDocumentInfoAboutWidget.ui:280
-#, fuzzy, kde-format
-#| msgid "&Resources"
-msgid "&Reset"
-msgstr "資源(&R)"
-
-#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:297
-#, kde-format
-msgid "Language:"
-msgstr "語言："
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:60
-#, kde-format
-msgid "Title:"
-msgstr "標題："
-
-#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:77
-#, fuzzy, kde-format
-#| msgid "Positive"
-msgid "Position:"
-msgstr "正值"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:94
-#, kde-format
-msgid "Company:"
-msgstr "公司："
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
-#: widgets/koDocumentInfoAuthorWidget.ui:114
-#, kde-format
-msgid "Telephone (home):"
-msgstr "電話（住家）："
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
-#: widgets/koDocumentInfoAuthorWidget.ui:124
-#, kde-format
-msgid "Telephone (work):"
-msgstr "電話（工作）："
-
-#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:134
-#, kde-format
-msgid "Fax:"
-msgstr "傳真："
-
-#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:144
-#, kde-format
-msgid "Street:"
-msgstr "街道："
-
-#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:154
-#, kde-format
-msgid "Postal code:"
-msgstr "郵遞區號："
-
-#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:164
-#, kde-format
-msgid "City:"
-msgstr "城市："
-
-#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:174
-#, fuzzy, kde-format
-#| msgid "Account:"
-msgid "Country:"
-msgstr "帳號："
 
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
@@ -9355,6 +7405,12 @@ msgstr "不要加密"
 #| msgid "Export to text document failed"
 msgid "This document is not encrypted"
 msgstr "匯出到文字文件失敗"
+
+#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Encrypt"
+msgstr "描述："
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, fuzzy, kde-format
@@ -9441,6 +7497,11 @@ msgstr ""
 msgid "Page Layout"
 msgstr "頁面佈局"
 
+#: widgets/KoPageLayoutDialog.cpp:51
+#, kde-format
+msgid "Page"
+msgstr "頁面"
+
 #: widgets/KoPageLayoutDialog.cpp:109
 #, fuzzy, kde-format
 #| msgctxt "(qtundo-format)"
@@ -9478,8 +7539,7 @@ msgstr "標頭"
 msgid "Facing Pages:"
 msgstr "排程範圍"
 
-#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
-#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
+#: widgets/KoPageLayoutWidget.cpp:291
 #, fuzzy, kde-format
 #| msgid "Go to first page"
 msgid "Facing pages"
@@ -9498,125 +7558,6 @@ msgstr "頁面佈局"
 msgid "Page spread"
 msgstr "標頭"
 
-#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
-#: widgets/KoPageLayoutWidget.ui:25
-#, kde-format
-msgid "Unit:"
-msgstr "單位："
-
-#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
-#: widgets/KoPageLayoutWidget.ui:45
-#, kde-format
-msgid "Follow style:"
-msgstr "跟隨樣式："
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/KoPageLayoutWidget.ui:61
-#, kde-format
-msgid "Size:"
-msgstr "大小："
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/KoPageLayoutWidget.ui:77
-#, kde-format
-msgid "Width:"
-msgstr "寬度："
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:104
-#, kde-format
-msgid "Height:"
-msgstr "高度："
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:119
-#, kde-format
-msgid "Orientation:"
-msgstr "方向："
-
-#. i18n: ectx: property (text), widget (QRadioButton, portrait)
-#: widgets/KoPageLayoutWidget.ui:129
-#, kde-format
-msgid "Portrait"
-msgstr "縱向"
-
-#. i18n: ectx: property (text), widget (QRadioButton, landscape)
-#: widgets/KoPageLayoutWidget.ui:136
-#, kde-format
-msgid "Landscape"
-msgstr "橫向"
-
-#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
-#: widgets/KoPageLayoutWidget.ui:143
-#, fuzzy, kde-format
-#| msgid "Go to first page"
-msgid "Facing pages:"
-msgstr "前往第一頁"
-
-#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
-#: widgets/KoPageLayoutWidget.ui:153
-#, kde-format
-msgid "Single sided"
-msgstr "單頁"
-
-#. i18n: ectx: property (text), widget (QLabel, directionLabel)
-#: widgets/KoPageLayoutWidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Direction"
-msgid "Text direction:"
-msgstr "方向"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:184
-#, kde-format
-msgid "Automatic"
-msgstr "自動"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:189
-#, kde-format
-msgid "Left to right"
-msgstr "左到右"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:194
-#, kde-format
-msgid "Right to left"
-msgstr "右到左"
-
-#. i18n: ectx: property (title), widget (QGroupBox, margins)
-#: widgets/KoPageLayoutWidget.ui:204
-#, fuzzy, kde-format
-#| msgid "Free Margin"
-msgid "Margins"
-msgstr "自由空間"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:210
-#, kde-format
-msgid "Top:"
-msgstr "頂端："
-
-#. i18n: ectx: property (text), widget (QLabel, leftLabel)
-#: widgets/KoPageLayoutWidget.ui:230
-#, fuzzy, kde-format
-#| msgid "Print"
-msgid "Binding edge:"
-msgstr "列印"
-
-#. i18n: ectx: property (text), widget (QLabel, rightLabel)
-#: widgets/KoPageLayoutWidget.ui:250
-#, fuzzy, kde-format
-#| msgid "Header"
-msgid "Page edge:"
-msgstr "標頭"
-
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#: widgets/KoPageLayoutWidget.ui:270
-#, kde-format
-msgid "Bottom:"
-msgstr "底端："
-
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
 msgctxt "title@column"
@@ -9634,6 +7575,1079 @@ msgstr "發布（Distribution）"
 #, kde-format
 msgid "All supported formats"
 msgstr "所有支援的格式"
+
+#~ msgid "Show:"
+#~ msgstr "顯示："
+
+#~ msgid "Periodicity:"
+#~ msgstr "週期："
+
+#~ msgid "Day"
+#~ msgstr "日"
+
+#~ msgid "Week"
+#~ msgstr "週"
+
+#~ msgid "Month"
+#~ msgstr "月"
+
+#~ msgid "Cumulative"
+#~ msgstr "累積的"
+
+#~ msgid "Actual cost"
+#~ msgstr "實際花費"
+
+#~ msgid "Planned cost"
+#~ msgstr "預計花費"
+
+#~ msgid "Actual and planned"
+#~ msgstr "實際與預計"
+
+#~ msgid "Deviation"
+#~ msgstr "差異"
+
+#~ msgid "Start date"
+#~ msgstr "開始日期："
+
+#~ msgid "Project start"
+#~ msgstr "專案開始"
+
+#~ msgid "End date"
+#~ msgstr "結束日期"
+
+#~ msgid "Current date"
+#~ msgstr "目前的日期"
+
+#~ msgid "Project end"
+#~ msgstr "專案結束"
+
+#~ msgid "Project Schedule:"
+#~ msgstr "專案排程："
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Probability of finishing before"
+#~ msgstr "完成機率，於此之前"
+
+#~ msgid "is"
+#~ msgstr "是"
+
+#~ msgid "%"
+#~ msgstr "%"
+
+#~ msgid "Name:"
+#~ msgstr "名稱："
+
+#~ msgid "Add..."
+#~ msgstr "新增..."
+
+#~ msgid "Ctrl+I"
+#~ msgstr "Ctrl+I"
+
+#~ msgid "Change..."
+#~ msgstr "變更..."
+
+#~ msgid "Ctrl+M"
+#~ msgstr "Ctrl+M"
+
+#~ msgid "Remove"
+#~ msgstr "移除"
+
+#, fuzzy
+#~| msgctxt "@action"
+#~| msgid "Delete"
+#~ msgid "Del"
+#~ msgstr "刪除"
+
+#~ msgid "Open"
+#~ msgstr "開啟"
+
+#~ msgid "Ctrl+O"
+#~ msgstr "Ctrl+O"
+
+#, fuzzy
+#~| msgctxt "@title:column"
+#~| msgid "Timezone"
+#~ msgid "Timeline"
+#~ msgstr "時區"
+
+#, fuzzy
+#~| msgctxt "Schedule project backward"
+#~| msgid "Backward"
+#~ msgid "Background"
+#~ msgstr "往後"
+
+#, fuzzy
+#~| msgid "Interval"
+#~ msgid "Interval:"
+#~ msgstr "間隔"
+
+#~ msgid "Use custom line"
+#~ msgstr "使用自訂線條"
+
+#, fuzzy
+#~| msgid "Line chart"
+#~ msgid "Line width"
+#~ msgstr "線條圖"
+
+#, fuzzy
+#~| msgid "Line chart"
+#~ msgid "Line color"
+#~ msgstr "線條圖"
+
+#~ msgid "Additional text information"
+#~ msgstr "額外文字資訊"
+
+#~ msgid "Task name"
+#~ msgstr "工作名稱"
+
+#~ msgid "Resource names"
+#~ msgstr "資源名稱"
+
+#~ msgid "Additional graphics information"
+#~ msgstr "額外圖形資訊"
+
+#~ msgid "Task dependencies"
+#~ msgstr "工作相依性"
+
+#~ msgid "Task completion"
+#~ msgstr "工作完成度"
+
+#~ msgid "Time constraints"
+#~ msgstr "時間限制"
+
+#~ msgid "Positive float"
+#~ msgstr "正向浮動"
+
+#~ msgid "Negative float"
+#~ msgstr "負向浮動"
+
+#~ msgid "Critical path"
+#~ msgstr "要徑"
+
+#~ msgid "Critical tasks"
+#~ msgstr "必要工作"
+
+#~ msgid "Scheduling errors"
+#~ msgstr "排程錯誤"
+
+#~ msgctxt "@title:group"
+#~ msgid "Headers"
+#~ msgstr "標頭"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Modify task name"
+#~ msgctxt "@option:check"
+#~ msgid "Print task names"
+#~ msgstr "變更工作名稱"
+
+#, fuzzy
+#~| msgctxt "(qtundo-format)"
+#~| msgid "Modify task name"
+#~ msgctxt "@option:check"
+#~ msgid "Print time scale"
+#~ msgstr "變更工作名稱"
+
+#~ msgctxt "@title:group"
+#~ msgid "Scaling"
+#~ msgstr "縮放"
+
+#, fuzzy
+#~| msgid "Divide chart on multiple pages"
+#~ msgctxt "@option:radio"
+#~ msgid "Divide chart on multiple pages"
+#~ msgstr "區隔多個頁面上的圖表"
+
+#, fuzzy
+#~| msgid "Print chart on a single page"
+#~ msgctxt "@option:radio"
+#~ msgid "Fit chart to page height"
+#~ msgstr "在單一頁面上印出圖表"
+
+#, fuzzy
+#~| msgid "Print chart on a single page"
+#~ msgctxt "@option:radio"
+#~ msgid "Fit chart to a single page"
+#~ msgstr "在單一頁面上印出圖表"
+
+#, fuzzy
+#~| msgid "Change..."
+#~ msgctxt "@title:group"
+#~ msgid "Range"
+#~ msgstr "變更..."
+
+#, fuzzy
+#~| msgid "Can start"
+#~ msgctxt "@option:radio"
+#~ msgid "Chart start:"
+#~ msgstr "可以開始"
+
+#~ msgctxt "@option:radio"
+#~ msgid "Start:"
+#~ msgstr "開始："
+
+#, fuzzy
+#~| msgid "Chart type"
+#~ msgctxt "@option:radio"
+#~ msgid "Chart end:"
+#~ msgstr "圖表型態"
+
+#~ msgctxt "@option:radio"
+#~ msgid "End:"
+#~ msgstr "結束："
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgctxt "Start time"
+#~ msgid "From:"
+#~ msgstr "從："
+
+#~ msgid "Length"
+#~ msgstr "長度"
+
+#~ msgid "Clear"
+#~ msgstr "清除"
+
+#~ msgid "Stretch last section"
+#~ msgstr "延伸上個區段"
+
+#~ msgid "Select columns to be shown:"
+#~ msgstr "選擇要顯示的欄位："
+
+#~ msgid "&Hidden columns:"
+#~ msgstr "隱藏欄位(&H)："
+
+#~ msgid "&Visible columns:"
+#~ msgstr "可見欄位(&V)："
+
+#~ msgid "WBS:"
+#~ msgstr "WBS："
+
+#~ msgid "The project name."
+#~ msgstr "專案名稱。"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgid "&Name:"
+#~ msgstr "名稱："
+
+#~ msgid "The project leader."
+#~ msgstr "計畫領導人。"
+
+#, fuzzy
+#~| msgid "Manager:"
+#~ msgid "&Manager:"
+#~ msgstr "管理者："
+
+#~ msgid "Choose a project leader from your address book."
+#~ msgstr "從您的通訊錄中選擇專案領導人。"
+
+#~ msgid "&Choose..."
+#~ msgstr "選擇(&C)..."
+
+#~ msgid "Scheduling Range"
+#~ msgstr "排程範圍"
+
+#~ msgid "Earliest start:"
+#~ msgstr "最早開始時間："
+
+#~ msgid "Latest finish:"
+#~ msgstr "最晚完成"
+
+#, fuzzy
+#~| msgid "Required resources:"
+#~ msgid "&Use shared resources"
+#~ msgstr "需要的資源："
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgid "Resources:"
+#~ msgstr "資源"
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgid "Browse..."
+#~ msgstr "選擇..."
+
+#, fuzzy
+#~| msgid "Project:"
+#~ msgid "Projects:"
+#~ msgstr "專案："
+
+#, fuzzy
+#~| msgid "Direction"
+#~ msgid "Directory"
+#~ msgstr "方向"
+
+#, fuzzy
+#~| msgid "Resource assignments"
+#~ msgid "Load resource assignments at startup"
+#~ msgstr "資源分配"
+
+#~ msgid "Load"
+#~ msgstr "載入"
+
+#~ msgid "Work Package"
+#~ msgstr "工作套件"
+
+#~ msgid "Publish"
+#~ msgstr "發布"
+
+#~ msgid "Publish:"
+#~ msgstr "發布："
+
+#~ msgid "Retrieve"
+#~ msgstr "取得"
+
+#~ msgid "Check for work packages"
+#~ msgstr "檢查工作套件"
+
+#~ msgid "Retrieve:"
+#~ msgstr "取得："
+
+#~ msgid "Archive"
+#~ msgstr "封存"
+
+#~ msgid "Archive:"
+#~ msgstr "封存："
+
+#~ msgid "Task Modules"
+#~ msgstr "工作模組"
+
+#~ msgid "Insert"
+#~ msgstr "插入"
+
+#~ msgid "Use local task modules"
+#~ msgstr "使用本地工作模組"
+
+#~ msgid "Available tasks"
+#~ msgstr "可用工作"
+
+#~ msgid "Add required task"
+#~ msgstr "新增需要的工作"
+
+#~ msgid "Remove required task"
+#~ msgstr "移除需要的工作"
+
+#~ msgid "Total Float:"
+#~ msgstr "總計浮動："
+
+#~ msgid "Header"
+#~ msgstr "標頭"
+
+#~ msgid "Project name"
+#~ msgstr "專案名稱"
+
+#~ msgid "Page number"
+#~ msgstr "頁碼"
+
+#~ msgid "Project manager"
+#~ msgstr "專案管理員"
+
+#~ msgid "Footer"
+#~ msgstr "註腳"
+
+#~ msgid "Re-calculate from current date/time"
+#~ msgstr "從目前的日期與時間重新計算"
+
+#~ msgid "Re-calculate from:"
+#~ msgstr "重新計算基礎時間："
+
+#~ msgid "Show internal appointments"
+#~ msgstr "顯示內部約會"
+
+#~ msgid "Show external appointments"
+#~ msgstr "顯示外部約會"
+
+#~ msgid "Advance"
+#~ msgstr "進階"
+
+#~ msgid "Scheduling range:"
+#~ msgstr "排程範圍："
+
+#~ msgid "Work Breakdown Structure"
+#~ msgstr "工作分類結構"
+
+#~ msgid "The name of the Task."
+#~ msgstr "工作名稱。"
+
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "負責此工作的人。\n"
+#~ "\n"
+#~ "這不限於在資源群組中的人，而可以是任何人。您甚至可以直接從您的通訊錄中選"
+#~ "取。"
+
+#~ msgid "Responsible:"
+#~ msgstr "負責人："
+
+#~ msgid "Insert a person from your address book"
+#~ msgstr "從您的通訊錄中插入一個人"
+
+#~ msgid "Choose..."
+#~ msgstr "選擇..."
+
+#~ msgid "Priority:"
+#~ msgstr "優先度："
+
+#~ msgid "Account:"
+#~ msgstr "帳號："
+
+#~ msgid "Startup"
+#~ msgstr "啟動"
+
+#~ msgid "Cost:"
+#~ msgstr "花費："
+
+#~ msgid "Shutdown"
+#~ msgstr "關機"
+
+#~ msgid "N&ame:"
+#~ msgstr "名稱(&A)："
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "The person responsible for this task"
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "        "
+#~ msgstr "此工作的負責人"
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgid "Responsi&ble:"
+#~ msgstr "負責人："
+
+#~ msgid "Insert a person from your address book."
+#~ msgstr "從您的通訊錄中插入一個人。"
+
+#~ msgid ""
+#~ "Scheduling Configuration. These settings affect the actual scheduling of "
+#~ "the task.\n"
+#~ "\n"
+#~ "The estimation can be either effort based or duration based. If it is "
+#~ "effort based, the final duration will depend on the resources assigned to "
+#~ "the task. For duration based estimation, the assigned resources do not "
+#~ "affect the fixed duration of the task, but only the costs."
+#~ msgstr ""
+#~ "排程設定。這些設定會影響實際工作的排程。\n"
+#~ "\n"
+#~ "時間估計可基於實際花費的時間或工作期間。如果是基於實際花費的時間，則完成期"
+#~ "間將會依據分配到的資源而定。如果是基於工作期間，則分配到的資源不會影響，只"
+#~ "有花費（金錢）會影響。"
+
+#~ msgid "Timing"
+#~ msgstr "時間"
+
+#, fuzzy
+#~| msgid "Schedule:"
+#~ msgid "&Schedule:"
+#~ msgstr "排程："
+
+#~ msgid "As Soon as Possible"
+#~ msgstr "能多快就多快"
+
+#~ msgid "As Late as Possible"
+#~ msgstr "能多晚就多晚"
+
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "不早於何時開始"
+
+#~ msgid "Finish Not Later Than"
+#~ msgstr "不晚於何時完成"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgid "Esti&mate:"
+#~ msgstr "估計："
+
+#~ msgid ""
+#~ "Risk controls the PERT distribution used when calculating the actual "
+#~ "estimate for this task."
+#~ msgstr "風險控制 PERT 分布用在計算此工作的實際估計."
+
+#~ msgid ""
+#~ "<p>Risk controls the PERT distribution used when calculating the actual "
+#~ "estimate for the task.\n"
+#~ "<b>None</b> means the Expected estimate is used as is.\n"
+#~ "<b>Low risk</b> means that a normal distribution is used.\n"
+#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
+#~ "compared to Low risk.</p>"
+#~ msgstr ""
+#~ "<p>風險用於控制計算實際估計此工作時的計劃評估（PERT）分配。\n"
+#~ "<b>無</b>表示跟估計值剛好符合。\n"
+#~ "<b>低風險</b>表示落在常態分配範圍內。\n"
+#~ "<b>高風險</b>表示這個估計會比「低風險」估計得要悲觀一點。</p>"
+
+#~ msgid "Risk:"
+#~ msgstr "風險："
+
+#~ msgid ""
+#~ "<p>Risk controles the PERT distribution used when calculating the actual "
+#~ "estimate for the task.\n"
+#~ "<b>None</b> means the Expected estimate is used as is.\n"
+#~ "<b>Low risk</b> means that a normal distribution is used.\n"
+#~ "<b>High risk</b> means that the estimate will be slightly pessimistic "
+#~ "compared to Low risk.</p>"
+#~ msgstr ""
+#~ "<p>風險用於控制計算實際估計此工作時的計劃評估（PERT）分配。\n"
+#~ "<b>無</b>表示跟估計值剛好符合。\n"
+#~ "<b>低風險</b>表示落在常態分配範圍內。\n"
+#~ "<b>高風險</b>表示這個估計會比「低風險」估計得要悲觀一點。</p>"
+
+#, fuzzy
+#~| msgid "Optimistic:"
+#~ msgid "Optimisti&c:"
+#~ msgstr "樂觀："
+
+#, fuzzy
+#~| msgid "Pessimistic:"
+#~ msgid "&Pessimistic:"
+#~ msgstr "悲觀："
+
+#~ msgid "Task:"
+#~ msgstr "工作："
+
+#~ msgid "Started:"
+#~ msgstr "已開始："
+
+#~ msgid "Finished:"
+#~ msgstr "已完成:"
+
+#~ msgid "Edit mode:"
+#~ msgstr "編輯模式："
+
+#~ msgid "Per resource"
+#~ msgstr "每個資源"
+
+#~ msgid "Per task"
+#~ msgstr "每個工作"
+
+#~ msgid "Prev"
+#~ msgstr "前一個"
+
+#~ msgid "Add resource:"
+#~ msgstr "新增資源："
+
+#~ msgid "Add Entry"
+#~ msgstr "新增項目"
+
+#~ msgid "Remove Entry"
+#~ msgstr "移除項目"
+
+#~ msgid "Period Definition"
+#~ msgstr "期間定義"
+
+#~ msgid "Period length (days):"
+#~ msgstr "期間長度（天）："
+
+#~ msgid "Use current date"
+#~ msgstr "使用目前的日期"
+
+#~ msgid "Use weekday:"
+#~ msgstr "使用工作日："
+
+#~ msgctxt "@info:tooltip Work Breakdown Structure code"
+#~ msgid "Define WBS code for the project"
+#~ msgstr "定義專案的工作分類結構代碼"
+
+#~ msgid "Project Code Definition"
+#~ msgstr "專案碼定義"
+
+#~ msgid "Code:"
+#~ msgstr "代碼："
+
+#~ msgid "Separator:"
+#~ msgstr "分隔符號："
+
+#~ msgctxt "@info:tooltip Work Breakdown Structure code"
+#~ msgid "Define default WBS code"
+#~ msgstr "定義預設工作分類結構代碼"
+
+#~ msgid "Default Definition"
+#~ msgstr "預設定義"
+
+#~ msgctxt "@info:tooltip Work Breakdown Structure code"
+#~ msgid "Define separate WBS codes for individual levels"
+#~ msgstr "定義個別等級的工作分類結構代碼"
+
+#~ msgid "Use Levels Definition"
+#~ msgstr "使用等級定義"
+
+#~ msgid "Code"
+#~ msgstr "程式碼"
+
+#~ msgid "Separator"
+#~ msgstr "分隔符號"
+
+#~ msgid "Add Level"
+#~ msgstr "新增等級"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgid "Generated:"
+#~ msgstr "一般"
+
+#, fuzzy
+#~| msgctxt "Start time"
+#~| msgid "From:"
+#~ msgid "From:"
+#~ msgstr "從："
+
+#, fuzzy
+#~| msgid "Target times"
+#~ msgid "<package time>"
+#~ msgstr "目標時間"
+
+#~ msgid "Update"
+#~ msgstr "更新"
+
+#~ msgid "Fractional digits:"
+#~ msgstr "小數位數："
+
+#~ msgid "Chart type"
+#~ msgstr "圖表型態"
+
+#~ msgid "Line chart"
+#~ msgstr "線條圖"
+
+#~ msgid "Bar chart"
+#~ msgstr "長條圖"
+
+#~ msgid "Table"
+#~ msgstr "表格"
+
+#, fuzzy
+#~| msgid "Baseline"
+#~ msgid "Base values"
+#~ msgstr "基線"
+
+#~ msgid "Indices"
+#~ msgstr "索引"
+
+#~ msgid "Cost"
+#~ msgstr "花費"
+
+#~ msgid "Show BCWS plot"
+#~ msgstr "顯示 BCWS 圖表"
+
+#~ msgid "Show BCWP plot"
+#~ msgstr "顯示 BCWP 圖表"
+
+#~ msgid "Show ACWP plot"
+#~ msgstr "顯示 ACWP 圖表"
+
+#, fuzzy
+#~| msgctxt "Cost based Budgeted Cost of Work Scheduled"
+#~| msgid "BCWS Cost"
+#~ msgid "SPI Cost"
+#~ msgstr "BCWS 成本"
+
+#, fuzzy
+#~| msgctxt "Effort based Budgeted Cost of Work Scheduled"
+#~| msgid "BCWS Effort"
+#~ msgid "SPI Effort"
+#~ msgstr "BCWS 負擔"
+
+#, fuzzy
+#~| msgctxt "Effort based Budgeted Cost of Work Performed"
+#~| msgid "BCWP Effort"
+#~ msgid "CPI Effort"
+#~ msgstr "BCWP 負擔"
+
+#, fuzzy
+#~| msgctxt "Cost based Budgeted Cost of Work Performed"
+#~| msgid "BCWP Cost"
+#~ msgid "CPI Cost"
+#~ msgstr "BCWP 成本"
+
+#~ msgctxt "Insert task dependency"
+#~ msgid "Insert"
+#~ msgstr "插入"
+
+#~ msgid "From"
+#~ msgstr "從"
+
+#~ msgid "To"
+#~ msgstr "到"
+
+#~ msgid "Dependency Type"
+#~ msgstr "相依型態"
+
+#~ msgid "Go to first page"
+#~ msgstr "前往第一頁"
+
+#~ msgid "Go to previous page"
+#~ msgstr "回到上一頁"
+
+#~ msgid "Show page"
+#~ msgstr "顯示頁面"
+
+#~ msgid "of"
+#~ msgstr "之"
+
+#~ msgid "Go to next page"
+#~ msgstr "前往下一頁"
+
+#~ msgid "Go to last page"
+#~ msgstr "前往最末頁"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Report Designer"
+#~ msgid "Enable report header"
+#~ msgstr "報告設計器"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Report Designer"
+#~ msgid "Report Header"
+#~ msgstr "報告設計器"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Report Designer"
+#~ msgid "Enable report footer"
+#~ msgstr "報告設計器"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Report Designer"
+#~ msgid "Report Footer"
+#~ msgstr "報告設計器"
+
+#, fuzzy
+#~| msgid "Header"
+#~ msgid "Page Header"
+#~ msgstr "標頭"
+
+#, fuzzy
+#~| msgid "Go to first page"
+#~ msgid "Enable header on first page"
+#~ msgstr "前往第一頁"
+
+#, fuzzy
+#~| msgid "Go to first page"
+#~ msgid "First page"
+#~ msgstr "前往第一頁"
+
+#, fuzzy
+#~| msgid "Go to first page"
+#~ msgid "Enable header on last page"
+#~ msgstr "前往第一頁"
+
+#, fuzzy
+#~| msgid "Go to last page"
+#~ msgid "Last page"
+#~ msgstr "前往最末頁"
+
+#~ msgid "Enable header on odd pages"
+#~ msgstr "在奇數頁面上啟用頁首"
+
+#~ msgid "Odd pages"
+#~ msgstr "奇數頁面"
+
+#~ msgid "Enable header on even pages"
+#~ msgstr "在偶數頁面上啟用頁首"
+
+#~ msgid "Even pages"
+#~ msgstr "偶數頁面"
+
+#, fuzzy
+#~| msgid "Divide chart on multiple pages"
+#~ msgid "Enable header on all pages"
+#~ msgstr "區隔多個頁面上的圖表"
+
+#~ msgid "All pages"
+#~ msgstr "所有頁面"
+
+#, fuzzy
+#~| msgid "Footer"
+#~ msgid "Page Footer"
+#~ msgstr "註腳"
+
+#, fuzzy
+#~| msgid "Go to first page"
+#~ msgid "Enable footer on first page"
+#~ msgstr "前往第一頁"
+
+#~ msgid "Enable footer on odd pages"
+#~ msgstr "在奇數頁面上啟用頁尾"
+
+#~ msgid "Enable footer on even pages"
+#~ msgstr "在偶數頁面上啟用頁尾"
+
+#, fuzzy
+#~| msgid "Go to last page"
+#~ msgid "Enable footer on last page"
+#~ msgstr "前往最末頁"
+
+#, fuzzy
+#~| msgid "Go to last page"
+#~ msgid "Enable footer on all pages"
+#~ msgstr "前往最末頁"
+
+#~ msgid "Group:"
+#~ msgstr "群組："
+
+#~ msgid "Choose resource from address book"
+#~ msgstr "從通訊錄選擇資源"
+
+#~ msgid "Initials:"
+#~ msgstr "縮寫："
+
+#, fuzzy
+#~| msgid "Email"
+#~ msgid "Email:"
+#~ msgstr "電子郵件地址"
+
+#~ msgid "Resource type:"
+#~ msgstr "資源型態："
+
+#~ msgid "Team"
+#~ msgstr "團隊"
+
+#~ msgid "Available:"
+#~ msgstr "可用："
+
+#, fuzzy
+#~| msgid "Calendar"
+#~ msgid "Calendar:"
+#~ msgstr "行事曆"
+
+#~ msgid "Unlimited"
+#~ msgstr "不限制"
+
+#~ msgid "Until"
+#~ msgstr "到"
+
+#~ msgid "Required resources:"
+#~ msgstr "需要的資源："
+
+#~ msgid "Hourly rate:"
+#~ msgstr "每小時費用："
+
+#~ msgid "Overtime rate:"
+#~ msgstr "超時費率："
+
+#~ msgid ""
+#~ "These values are used if your estimate is not in hours.\n"
+#~ "Let us say Hours per day is 8. If you estimate that a task needs 3 days "
+#~ "effort to complete, this is converted to 24 hours when the task is "
+#~ "scheduled. The actual time it will take to complete is of course "
+#~ "dependent on the availability of the person (or persons) that is assigned "
+#~ "to the task."
+#~ msgstr ""
+#~ "這些值用於您的估計不是以小時為單位時。\n"
+#~ "比方說，每天時數為八小時。若您估計某工作需要三天完成，則在排程工作時會轉換"
+#~ "成 24 小時。實際完成的時間當然是相依於配置到此工作的資源（人）而定。"
+
+#~ msgid "Hours per year:"
+#~ msgstr "每年幾小時："
+
+#~ msgid "Hours per month:"
+#~ msgstr "每月幾小時："
+
+#~ msgid "Hours per week:"
+#~ msgstr "每週幾小時："
+
+#~ msgid ""
+#~ "These values are used when you estimate the effort needed to complete a "
+#~ "task."
+#~ msgstr "這些值用於您估計完成一件工作所花費的時間。"
+
+#~ msgid "Hours per day:"
+#~ msgstr "每天幾小時："
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgid "Responsib&le:"
+#~ msgstr "負責人："
+
+#~ msgid "Sched&ule:"
+#~ msgstr "排程(&U)："
+
+#~ msgid "Es&timate:"
+#~ msgstr "估計(&T)："
+
+#~ msgid "Ris&k:"
+#~ msgstr "風險(&K)："
+
+#~ msgid "Optimistic:"
+#~ msgstr "樂觀："
+
+#~ msgid "Pessimistic:"
+#~ msgstr "悲觀："
+
+#~ msgid "Keywords:"
+#~ msgstr "關鍵字："
+
+#, fuzzy
+#~| msgid "Sub-Project"
+#~ msgid "Subject:"
+#~ msgstr "子專案"
+
+#, fuzzy
+#~| msgid "Go to last page"
+#~ msgid "Last printed:"
+#~ msgstr "前往最末頁"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgid "Type:"
+#~ msgstr "類型"
+
+#~ msgid "Total editing time:"
+#~ msgstr "總計編輯時間："
+
+#, fuzzy
+#~| msgid "Description:"
+#~ msgid "Encryption:"
+#~ msgstr "描述："
+
+#~ msgctxt "Document title"
+#~ msgid "Title:"
+#~ msgstr "標題："
+
+#~ msgid "Revision number:"
+#~ msgstr "修訂版本："
+
+#, fuzzy
+#~| msgid "Modify Name"
+#~ msgid "Modified:"
+#~ msgstr "變更名稱"
+
+#, fuzzy
+#~| msgid "&Documents"
+#~ msgid "Comments:"
+#~ msgstr "文件(&D)"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgid "Created:"
+#~ msgstr "已開始："
+
+#, fuzzy
+#~| msgid "Path"
+#~ msgid "Path:"
+#~ msgstr "路徑"
+
+#, fuzzy
+#~| msgid "&Resources"
+#~ msgid "&Reset"
+#~ msgstr "資源(&R)"
+
+#~ msgid "Language:"
+#~ msgstr "語言："
+
+#~ msgid "Title:"
+#~ msgstr "標題："
+
+#, fuzzy
+#~| msgid "Positive"
+#~ msgid "Position:"
+#~ msgstr "正值"
+
+#~ msgid "Company:"
+#~ msgstr "公司："
+
+#~ msgid "Telephone (home):"
+#~ msgstr "電話（住家）："
+
+#~ msgid "Telephone (work):"
+#~ msgstr "電話（工作）："
+
+#~ msgid "Fax:"
+#~ msgstr "傳真："
+
+#~ msgid "Street:"
+#~ msgstr "街道："
+
+#~ msgid "Postal code:"
+#~ msgstr "郵遞區號："
+
+#~ msgid "City:"
+#~ msgstr "城市："
+
+#, fuzzy
+#~| msgid "Account:"
+#~ msgid "Country:"
+#~ msgstr "帳號："
+
+#~ msgid "Unit:"
+#~ msgstr "單位："
+
+#~ msgid "Follow style:"
+#~ msgstr "跟隨樣式："
+
+#~ msgid "Size:"
+#~ msgstr "大小："
+
+#~ msgid "Width:"
+#~ msgstr "寬度："
+
+#~ msgid "Height:"
+#~ msgstr "高度："
+
+#~ msgid "Orientation:"
+#~ msgstr "方向："
+
+#~ msgid "Portrait"
+#~ msgstr "縱向"
+
+#~ msgid "Landscape"
+#~ msgstr "橫向"
+
+#, fuzzy
+#~| msgid "Go to first page"
+#~ msgid "Facing pages:"
+#~ msgstr "前往第一頁"
+
+#~ msgid "Single sided"
+#~ msgstr "單頁"
+
+#, fuzzy
+#~| msgid "Direction"
+#~ msgid "Text direction:"
+#~ msgstr "方向"
+
+#~ msgid "Automatic"
+#~ msgstr "自動"
+
+#~ msgid "Left to right"
+#~ msgstr "左到右"
+
+#~ msgid "Right to left"
+#~ msgstr "右到左"
+
+#, fuzzy
+#~| msgid "Free Margin"
+#~ msgid "Margins"
+#~ msgstr "自由空間"
+
+#~ msgid "Top:"
+#~ msgstr "頂端："
+
+#, fuzzy
+#~| msgid "Print"
+#~ msgid "Binding edge:"
+#~ msgstr "列印"
+
+#, fuzzy
+#~| msgid "Header"
+#~ msgid "Page edge:"
+#~ msgstr "標頭"
+
+#~ msgid "Bottom:"
+#~ msgstr "底端："
 
 #, fuzzy
 #~| msgctxt "@title:column"

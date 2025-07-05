@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-28 13:53+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2011-07-26 12:37+0300\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -209,7 +209,6 @@ msgstr "Усилие"
 msgid "Scheduling error"
 msgstr "Грешка при планиране"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -223,9 +222,8 @@ msgstr "Грешка при планиране"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
-#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
-#: ui/TasksGeneralPanel.ui:338
+#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
+#: ui/TasksGeneralPanel.cpp:68
 #, kde-format
 msgid "None"
 msgstr "Без"
@@ -248,9 +246,7 @@ msgstr "Подпроект"
 msgid "Task"
 msgstr "Задача"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
-#: ui/TasksGeneralPanel.ui:424
+#: kernel/kptnode.cpp:158
 #, kde-format
 msgid "Milestone"
 msgstr ""
@@ -275,16 +271,12 @@ msgstr "Възможно най-скоро"
 msgid "As Late As Possible"
 msgstr "Възможно най-късно"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
-#: ui/TasksGeneralPanel.ui:179
+#: kernel/kptnode.cpp:731
 #, kde-format
 msgid "Must Start On"
 msgstr "Трябва да започне на"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
-#: ui/TasksGeneralPanel.ui:184
+#: kernel/kptnode.cpp:732
 #, kde-format
 msgid "Must Finish On"
 msgstr "Трябва да завърши на"
@@ -299,39 +291,27 @@ msgstr "Начало не по-рано от"
 msgid "Finish Not Later"
 msgstr "Край не по-късно от"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
-#: ui/TasksGeneralPanel.ui:199
+#: kernel/kptnode.cpp:735
 #, kde-format
 msgid "Fixed Interval"
 msgstr "Фиксиран интервал"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
-#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
-#: ui/TasksGeneralPanel.ui:414
+#: kernel/kptnode.cpp:1625
 #, kde-format
 msgid "Effort"
 msgstr "Усилие"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
-#: ui/TasksGeneralPanel.ui:419
+#: kernel/kptnode.cpp:1626
 #, kde-format
 msgid "Duration"
 msgstr "Продължителност"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
-#: ui/TasksGeneralPanel.ui:343
+#: kernel/kptnode.cpp:1659
 #, kde-format
 msgid "Low"
 msgstr "Ниско"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
-#: ui/TasksGeneralPanel.ui:348
+#: kernel/kptnode.cpp:1660
 #, kde-format
 msgid "High"
 msgstr "Високо"
@@ -512,34 +492,27 @@ msgstr ""
 msgid "Plan"
 msgstr "План"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
-#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
+#: kernel/kptrelation.cpp:92
 #, fuzzy, kde-format
 msgid "Finish-Start"
 msgstr "Край не по-късно от"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
-#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
+#: kernel/kptrelation.cpp:93
 #, kde-format
 msgid "Finish-Finish"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
-#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
+#: kernel/kptrelation.cpp:94
 #, fuzzy, kde-format
 msgid "Start-Start"
 msgstr "Начална дата"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
-#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "Работа"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
-#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "Материал"
@@ -1532,7 +1505,6 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "%1 (Сметка по подразбиране)"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1540,15 +1512,13 @@ msgstr "%1 (Сметка по подразбиране)"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
+#: ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "Име"
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
-#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "Описание"
@@ -2515,11 +2485,9 @@ msgstr "Премахване на документ"
 msgid "Url"
 msgstr "Url-адрес"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
-#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "Вид"
@@ -2954,11 +2922,8 @@ msgstr "Завършено късно"
 msgid "Finished early"
 msgstr "Завършено рано"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
-#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
+#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
 #, kde-format
 msgid "Finished"
 msgstr "Завършено"
@@ -2968,9 +2933,7 @@ msgstr "Завършено"
 msgid "Running late"
 msgstr "Изпълнение"
 
-#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
-#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "Изпълнение"
@@ -2985,9 +2948,8 @@ msgstr "Започнато късно"
 msgid "Started early"
 msgstr "Започнато рано"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
+#: ui/kptresourceassignmentview.cpp:333
 #, kde-format
 msgid "Started"
 msgstr "Започнато"
@@ -5246,10 +5208,9 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
-#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
-#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
+#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
+#: widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "Общи"
@@ -5259,108 +5220,6 @@ msgstr "Общи"
 #, kde-format
 msgid "View Settings"
 msgstr "Настройки на изглед"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptaccountsviewconfigurepanelbase.ui:26
-#, kde-format
-msgid "Show:"
-msgstr "Показване:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:33
-#, kde-format
-msgid "Periodicity:"
-msgstr "Периодичност:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:44
-#, kde-format
-msgid "Day"
-msgstr "Ден"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:49
-#, kde-format
-msgid "Week"
-msgstr "Седмица"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:54
-#, kde-format
-msgid "Month"
-msgstr "Месец"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
-#: ui/kptaccountsviewconfigurepanelbase.ui:62
-#, fuzzy, kde-format
-msgid "Cumulative"
-msgstr "Изчисляване"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:70
-#, kde-format
-msgid "Actual cost"
-msgstr "Действителна цена"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:75
-#, kde-format
-msgid "Planned cost"
-msgstr "Планирана цена"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:80
-#, kde-format
-msgid "Actual and planned"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:85
-#, kde-format
-msgid "Deviation"
-msgstr "Отклонение"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:101
-#, kde-format
-msgid "Start date"
-msgstr "Начална дата"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:107
-#, fuzzy, kde-format
-msgid "Project start"
-msgstr "Име на проект"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:114
-#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
-#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "Дата"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:131
-#, kde-format
-msgid "End date"
-msgstr "Крайна дата"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:137
-#, fuzzy, kde-format
-msgid "Current date"
-msgstr "Начална дата"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:158
-#, fuzzy, kde-format
-msgid "Project end"
-msgstr "Име на проект"
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -5426,50 +5285,6 @@ msgstr "Неработен"
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "Неопределен"
-
-#. i18n: ectx: property (text), widget (QLabel, label_1)
-#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
-#, fuzzy, kde-format
-msgid "Project Schedule:"
-msgstr "Непланирано"
-
-#. i18n: ectx: property (text), widget (QLabel, scheduleName)
-#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
-#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
-#. i18n: ectx: property (text), widget (QLabel, totalFloat)
-#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
-#: ui/reports/reportgroupsectionswidget.ui:22
-#: ui/reports/reportgroupsectionswidget.ui:29
-#: ui/reports/reportgroupsectionswidget.ui:36
-#: ui/reports/reportgroupsectionswidget.ui:43
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptcpmwidget.ui:71
-#, kde-format
-msgid "Probability of finishing before"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptcpmwidget.ui:91
-#, fuzzy, kde-format
-msgid "is"
-msgstr "сек"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
-#. i18n: ectx: property (suffix), widget (QSpinBox, units)
-#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
-#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
-#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
-#, no-c-format, kde-format
-msgid "%"
-msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -5606,225 +5421,6 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Добавяне на документ"
 
-#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
-#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
-#: widgets/koDocumentInfoAuthorWidget.ui:20
-#, kde-format
-msgid "Name:"
-msgstr "Име:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:54
-#, kde-format
-msgid "Add..."
-msgstr "Добавяне..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:61
-#, kde-format
-msgid "Ctrl+I"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:68
-#, kde-format
-msgid "Change..."
-msgstr "Промяна..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:75
-#, kde-format
-msgid "Ctrl+M"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
-#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
-#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
-#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
-#, kde-format
-msgid "Remove"
-msgstr "Премахване"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:89
-#, fuzzy, kde-format
-msgid "Del"
-msgstr "Изтриване"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:96
-#, kde-format
-msgid "Open"
-msgstr "Отваряне"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:103
-#, kde-format
-msgid "Ctrl+O"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttchartdisplayoptions.ui:20
-#, fuzzy, kde-format
-msgid "Timeline"
-msgstr "Часови пояс"
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:28
-#, kde-format
-msgid "Do not show the timeline"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:31
-#, kde-format
-msgid "Hide"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:38
-#, kde-format
-msgid "Show timeline in the foreground"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:41
-#, kde-format
-msgid "Foreground"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:48
-#, kde-format
-msgid "Show timeline in the background"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:51
-#, fuzzy, kde-format
-msgid "Background"
-msgstr "Назад"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:60
-#, kde-format
-msgid "Update interval in minutes, 0 disables update"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:63
-#, fuzzy, kde-format
-msgid "Interval:"
-msgstr "Интервал"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
-#: ui/kptganttchartdisplayoptions.ui:93
-#, kde-format
-msgid "Use custom line"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:102
-#, fuzzy, kde-format
-msgid "Line width"
-msgstr "Линейна диаграма"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:105
-#, kde-format
-msgid "Stroke:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:126
-#, fuzzy, kde-format
-msgid "Line color"
-msgstr "Линейна диаграма"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:129
-#, kde-format
-msgid "Color:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptganttchartdisplayoptions.ui:153
-#, kde-format
-msgid "Additional text information"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
-#: ui/kptganttchartdisplayoptions.ui:159
-#, kde-format
-msgid "Task name"
-msgstr "Име на задача"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
-#: ui/kptganttchartdisplayoptions.ui:166
-#, fuzzy, kde-format
-msgid "Resource names"
-msgstr "Ресурси"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttchartdisplayoptions.ui:176
-#, kde-format
-msgid "Additional graphics information"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
-#: ui/kptganttchartdisplayoptions.ui:185
-#, fuzzy, kde-format
-msgid "Task dependencies"
-msgstr "Добавяне на зависимост"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
-#: ui/kptganttchartdisplayoptions.ui:192
-#, fuzzy, kde-format
-msgid "Task completion"
-msgstr "Завършване на задачата"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
-#: ui/kptganttchartdisplayoptions.ui:199
-#, fuzzy, kde-format
-msgid "Time constraints"
-msgstr "Ограничение"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
-#: ui/kptganttchartdisplayoptions.ui:219
-#, fuzzy, kde-format
-msgid "Positive float"
-msgstr "Положително"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
-#: ui/kptganttchartdisplayoptions.ui:226
-#, fuzzy, kde-format
-msgid "Negative float"
-msgstr "Отрицателно"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
-#: ui/kptganttchartdisplayoptions.ui:233
-#, fuzzy, kde-format
-msgid "Critical path"
-msgstr "Критично"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
-#: ui/kptganttchartdisplayoptions.ui:240
-#, fuzzy, kde-format
-msgid "Critical tasks"
-msgstr "Критично"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
-#: ui/kptganttchartdisplayoptions.ui:247
-#, fuzzy, kde-format
-msgid "Scheduling errors"
-msgstr "Грешка при планиране"
-
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -5871,90 +5467,6 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttprintingoptions.ui:17
-#, fuzzy, kde-format
-msgctxt "@title:group"
-msgid "Headers"
-msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
-#: ui/kptganttprintingoptions.ui:23
-#, fuzzy, kde-format
-msgctxt "@option:check"
-msgid "Print task names"
-msgstr "Промяна името на задачата"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
-#: ui/kptganttprintingoptions.ui:30
-#, fuzzy, kde-format
-msgctxt "@option:check"
-msgid "Print time scale"
-msgstr "Промяна името на задачата"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttprintingoptions.ui:40
-#, fuzzy, kde-format
-msgctxt "@title:group"
-msgid "Scaling"
-msgstr "Разписание"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
-#: ui/kptganttprintingoptions.ui:46
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Divide chart on multiple pages"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
-#: ui/kptganttprintingoptions.ui:53
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Fit chart to page height"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
-#: ui/kptganttprintingoptions.ui:60
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Fit chart to a single page"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#: ui/kptganttprintingoptions.ui:73
-#, fuzzy, kde-format
-msgctxt "@title:group"
-msgid "Range"
-msgstr "Промяна..."
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
-#: ui/kptganttprintingoptions.ui:88
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Chart start:"
-msgstr "Може да започне"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
-#: ui/kptganttprintingoptions.ui:105
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Start:"
-msgstr "Начало"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
-#: ui/kptganttprintingoptions.ui:137
-#, fuzzy, kde-format
-msgctxt "@option:radio"
-msgid "Chart end:"
-msgstr "Вид диаграма"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
-#: ui/kptganttprintingoptions.ui:154
-#, kde-format
-msgctxt "@option:radio"
-msgid "End:"
 msgstr ""
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
@@ -6085,63 +5597,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "Промяна на вида риск"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
-#: ui/kptintervaleditbase.ui:21
-#, kde-format
-msgid "1"
-msgstr "1"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptintervaleditbase.ui:31
-#, kde-format
-msgctxt "Start time"
-msgid "From:"
-msgstr "От:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptintervaleditbase.ui:47
-#, kde-format
-msgid "Length"
-msgstr "Времетраене"
-
-#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
-#: ui/kptintervaleditbase.ui:70
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, kde-format
-msgid "Add"
-msgstr "Добавяне"
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bClear)
-#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
-#, kde-format
-msgid "Clear"
-msgstr "Изчистване"
-
-#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
-#: ui/kptitemviewsettings.ui:28
-#, kde-format
-msgid "Stretch last section"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptitemviewsettings.ui:35
-#, kde-format
-msgid "Select columns to be shown:"
-msgstr "Избор на колони за показване:"
-
-#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:56
-#, kde-format
-msgid "&Hidden columns:"
-msgstr "&Скрити колони:"
-
-#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:59
-#, kde-format
-msgid "&Visible columns:"
-msgstr "&Видими колони:"
-
 #: ui/kptitemviewsettup.cpp:148
 #, kde-format
 msgid "Tree View"
@@ -6254,204 +5709,6 @@ msgstr "Ресурси"
 msgid "Task Modules Path"
 msgstr "Бележки на задача"
 
-#. i18n: ectx: property (text), widget (QLabel, wbslabel)
-#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
-#: ui/kpttaskgeneralpanelbase.ui:23
-#, kde-format
-msgid "WBS:"
-msgstr "WBS:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
-#, kde-format
-msgid "The project name."
-msgstr "Име на проекта."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptmainprojectpanelbase.ui:71
-#, fuzzy, kde-format
-msgid "&Name:"
-msgstr "Име:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
-#, kde-format
-msgid "The project leader."
-msgstr "Ръководител на проекта."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptmainprojectpanelbase.ui:103
-#, fuzzy, kde-format
-msgid "&Manager:"
-msgstr "Управител:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:132
-#, kde-format
-msgid "Choose a project leader from your address book."
-msgstr "Изберете ръководител на проекта от адресника си."
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:135
-#, kde-format
-msgid "&Choose..."
-msgstr "&Избор..."
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kptmainprojectpanelbase.ui:144
-#, fuzzy, kde-format
-msgid "Scheduling Range"
-msgstr "Разписание"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptmainprojectpanelbase.ui:152
-#, kde-format
-msgid "Earliest start:"
-msgstr "Най-ранно започване:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptmainprojectpanelbase.ui:172
-#, kde-format
-msgid "Latest finish:"
-msgstr "Най-късно приключване:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
-#: ui/kptmainprojectpanelbase.ui:210
-#, fuzzy, kde-format
-msgid "&Use shared resources"
-msgstr "Изисквани ресурси:"
-
-#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
-#: ui/kptmainprojectpanelbase.ui:225
-#, fuzzy, kde-format
-msgid "Resources:"
-msgstr "Ресурси"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
-#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
-#, fuzzy, kde-format
-msgid "File"
-msgstr "Отваряне"
-
-#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
-#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
-#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
-#, fuzzy, kde-format
-msgid "Browse..."
-msgstr "Избор..."
-
-#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
-#: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-msgid "Projects:"
-msgstr "Проект:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
-#: ui/kptmainprojectpanelbase.ui:263
-#, fuzzy, kde-format
-msgid "Directory"
-msgstr "Посока"
-
-#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
-#: ui/kptmainprojectpanelbase.ui:287
-#, fuzzy, kde-format
-msgid "Load resource assignments at startup"
-msgstr "Ресурси"
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
-#: ui/kptmainprojectpanelbase.ui:294
-#, fuzzy, kde-format
-msgid "Load"
-msgstr "Зареждане"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
-#: ui/kptworkpackagemergepanel.ui:192
-#, fuzzy, kde-format
-msgid "Documents"
-msgstr "&Документи"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
-#: ui/kptmainprojectpanelbase.ui:371
-#, fuzzy, kde-format
-msgid "Work Package"
-msgstr "Състояние на задачата"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
-#: ui/kptmainprojectpanelbase.ui:377
-#, kde-format
-msgid "Publish"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/kptmainprojectpanelbase.ui:385
-#, kde-format
-msgid "Publish:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptmainprojectpanelbase.ui:400
-#, kde-format
-msgid "Retrieve"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
-#: ui/kptmainprojectpanelbase.ui:406
-#, fuzzy, kde-format
-msgid "Check for work packages"
-msgstr "Състояние на задачата"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptmainprojectpanelbase.ui:415
-#, kde-format
-msgid "Retrieve:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptmainprojectpanelbase.ui:430
-#, kde-format
-msgid "Archive"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
-#: ui/kptmainprojectpanelbase.ui:436
-#, kde-format
-msgid "Delete file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
-#: ui/kptmainprojectpanelbase.ui:443
-#, kde-format
-msgid "Archive file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptmainprojectpanelbase.ui:452
-#, kde-format
-msgid "Archive:"
-msgstr ""
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
-#: ui/kptmainprojectpanelbase.ui:481
-#, fuzzy, kde-format
-msgid "Task Modules"
-msgstr "Бележки на задача"
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
-#: ui/kptmainprojectpanelbase.ui:526
-#, fuzzy, kde-format
-msgid "Insert"
-msgstr "По задача"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
-#: ui/kptmainprojectpanelbase.ui:550
-#, kde-format
-msgid "Use local task modules"
-msgstr ""
-
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, fuzzy, kde-format
 msgid "Milestone Progress"
@@ -6468,86 +5725,9 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
-#: ui/reports/reportdata.cpp:383
-#, kde-format
-msgid "Tasks"
-msgstr "Задачи"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, available)
-#: ui/kptperteditor.ui:29
-#, kde-format
-msgid "Available tasks"
-msgstr "Налични задачи"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
-#: ui/kptperteditor.ui:64
-#, fuzzy, kde-format
-msgid "Add required task"
-msgstr "Добавяне на задача"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
-#: ui/kptperteditor.ui:80
-#, fuzzy, kde-format
-msgid "Remove required task"
-msgstr "Добавяне на задача"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptpertresult.ui:90
-#, fuzzy, kde-format
-msgid "Total Float:"
-msgstr "Проект:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
-#: ui/kptprintingheaderfooter.ui:16
-#, kde-format
-msgid "Header"
-msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
-#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
-#, kde-format
-msgid "Project name"
-msgstr "Име на проект"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
-#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
-#, kde-format
-msgid "Page number"
-msgstr "Номер на страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
-#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
-#, kde-format
-msgid "Project manager"
-msgstr "Управител на проекта"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
-#: ui/kptprintingheaderfooter.ui:56
-#, kde-format
-msgid "Footer"
-msgstr "Долен колонтитул"
-
 #: ui/kptrecalculatedialog.cpp:47
 #, fuzzy, kde-format
 msgid "Re-calculate Schedule"
-msgstr "Изчисляване на усилието"
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
-#: ui/kptrecalculatedialog.ui:26
-#, fuzzy, kde-format
-msgid "Re-calculate from current date/time"
-msgstr "Изчисляване на усилието"
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
-#: ui/kptrecalculatedialog.ui:33
-#, fuzzy, kde-format
-msgid "Re-calculate from:"
 msgstr "Изчисляване на усилието"
 
 #: ui/kptrelationdialog.cpp:37
@@ -6597,18 +5777,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "Промяна името на задачата"
 
-#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:16
-#, kde-format
-msgid "Show internal appointments"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:23
-#, kde-format
-msgid "Show external appointments"
-msgstr ""
-
 #: ui/kptresourceappointmentsview.cpp:92
 #, fuzzy, kde-format
 msgid "Resource Assignments View Settings"
@@ -6632,12 +5800,6 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "No resource attributed"
 msgstr "Промяна състоянието на календара"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptresourceassignmentview.ui:38
-#, kde-format
-msgid "Advance"
-msgstr ""
 
 #: ui/kptresourcedialog.cpp:65
 #, fuzzy, kde-kuit-format
@@ -6767,12 +5929,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "Промяна името на проекта"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptscheduleeditor.ui:35
-#, fuzzy, kde-format
-msgid "Scheduling range:"
-msgstr "Разписание"
-
 #: ui/kptstandardworktimedialog.cpp:86
 #, fuzzy, kde-format
 msgid "Estimate Conversions"
@@ -6810,102 +5966,11 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "Промяна на задача"
 
-#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
-#, kde-format
-msgid "Work Breakdown Structure"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:58
-#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
-#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
-#: ui/kpttaskgeneralpanelbase.ui:71
-#, kde-format
-msgid "The name of the Task."
-msgstr "Име на екрана задачата."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:95
-#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
-#: ui/TasksGeneralPanel.ui:57
-#, kde-format
-msgid ""
-"The person responsible for this task.\n"
-"\n"
-"This is not limited to persons available in a resource group but can be "
-"anyone. You can even directly access your address book with the Choose "
-"button."
-msgstr ""
-"Човек, отговорен за задачата.\n"
-"\n"
-"Това не ограничено до наличните хора в ресурсна група, а може да бъде всеки. "
-"Дори можете директно да влезнете в адресника си чрез бутона \"Избор\"."
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:98
-#, kde-format
-msgid "Responsible:"
-msgstr "Отговорник:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
-#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
-#: ui/TasksGeneralPanel.ui:64
-#, kde-format
-msgid "Insert a person from your address book"
-msgstr "Вмъкнете човек от адресника си"
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
-#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
-#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
-#, kde-format
-msgid "Choose..."
-msgstr "Избор..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
-#: ui/TasksGeneralPanel.ui:82
-#, fuzzy, kde-format
-msgid "Priority:"
-msgstr "Периодичност:"
-
 #: ui/kpttaskcostpanel.cpp:101
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "Промяна на задача"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
-#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
-#, kde-format
-msgid "Account:"
-msgstr "Сметка:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
-#: ui/kpttaskcostpanelbase.ui:72
-#, kde-format
-msgid "Startup"
-msgstr "Зареждане"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
-#, kde-format
-msgid "Cost:"
-msgstr "Цена:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
-#: ui/kpttaskcostpanelbase.ui:142
-#, kde-format
-msgid "Shutdown"
-msgstr "Изключване"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 #, fuzzy
@@ -7115,8 +6180,7 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:1768
 #, kde-format
 msgid "Publish..."
 msgstr ""
@@ -7135,139 +6199,6 @@ msgstr ""
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "Промяна на задача"
-
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#: ui/kpttaskgeneralpanelbase.ui:55
-#, kde-format
-msgid "N&ame:"
-msgstr "И&ме:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:79
-#, kde-format
-msgid ""
-"The person responsible for this task.\n"
-"        "
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:82
-#, fuzzy, kde-format
-msgid "Responsi&ble:"
-msgstr "Отговорник:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
-#, kde-format
-msgid "Insert a person from your address book."
-msgstr "Вмъкнете човек от адресника си."
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
-#, kde-format
-msgid ""
-"Scheduling Configuration. These settings affect the actual scheduling of the "
-"task.\n"
-"\n"
-"The estimation can be either effort based or duration based. If it is effort "
-"based, the final duration will depend on the resources assigned to the task. "
-"For duration based estimation, the assigned resources do not affect the "
-"fixed duration of the task, but only the costs."
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
-#, kde-format
-msgid "Timing"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/kpttaskgeneralpanelbase.ui:194
-#, fuzzy, kde-format
-msgid "&Schedule:"
-msgstr "Планиране:"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
-#, kde-format
-msgid "As Soon as Possible"
-msgstr "Възможно най-скоро"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
-#, kde-format
-msgid "As Late as Possible"
-msgstr "Възможно най-късно"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
-#, kde-format
-msgid "Start Not Earlier Than"
-msgstr "Начало не по-рано от"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
-#, kde-format
-msgid "Finish Not Later Than"
-msgstr "Край не по-късно от"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/kpttaskgeneralpanelbase.ui:300
-#, kde-format
-msgid "Esti&mate:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
-#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
-#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
-#, kde-format
-msgid ""
-"Risk controls the PERT distribution used when calculating the actual "
-"estimate for this task."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
-#, kde-format
-msgid ""
-"<p>Risk controls the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:348
-#, kde-format
-msgid "Risk:"
-msgstr "Риск:"
-
-#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
-#, kde-format
-msgid ""
-"<p>Risk controles the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kpttaskgeneralpanelbase.ui:404
-#, kde-format
-msgid "Optimisti&c:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/kpttaskgeneralpanelbase.ui:433
-#, kde-format
-msgid "&Pessimistic:"
-msgstr ""
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -7328,74 +6259,6 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "Седмица %1"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
-#: ui/RelationEditorDialog.ui:58
-#, fuzzy, kde-format
-msgid "Task:"
-msgstr "Задача"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: ui/kpttaskprogresspanelbase.ui:45
-#, kde-format
-msgid "Started:"
-msgstr "Започнато:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kpttaskprogresspanelbase.ui:62
-#, kde-format
-msgid "Finished:"
-msgstr "Завършено:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskprogresspanelbase.ui:117
-#, kde-format
-msgid "Edit mode:"
-msgstr "Режим редактиране:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:125
-#, kde-format
-msgid "Per resource"
-msgstr "По ресурс"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:130
-#, kde-format
-msgid "Per task"
-msgstr "По задача"
-
-#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:177
-#, kde-format
-msgid "Prev"
-msgstr "Предишно"
-
-#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "Следващо"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kpttaskprogresspanelbase.ui:230
-#, fuzzy, kde-format
-msgid "Add resource:"
-msgstr "Добавяне на ресурс"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:278
-#, kde-format
-msgid "Add Entry"
-msgstr "Добавяне на запис"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:289
-#, kde-format
-msgid "Remove Entry"
-msgstr "Премахване на запис"
-
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -7416,30 +6279,6 @@ msgstr ""
 msgid "General Settings"
 msgstr "Общи настройки"
 
-#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
-#: ui/kpttaskstatusviewsettingspanel.ui:16
-#, fuzzy, kde-format
-msgid "Period Definition"
-msgstr "Периодичност:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskstatusviewsettingspanel.ui:25
-#, kde-format
-msgid "Period length (days):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
-#: ui/kpttaskstatusviewsettingspanel.ui:48
-#, fuzzy, kde-format
-msgid "Use current date"
-msgstr "Избор на текущия ден"
-
-#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
-#: ui/kpttaskstatusviewsettingspanel.ui:68
-#, fuzzy, kde-format
-msgid "Use weekday:"
-msgstr "Седмица"
-
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -7454,6 +6293,12 @@ msgstr "Тази седмица"
 #, kde-format
 msgid "Total effort this week"
 msgstr ""
+
+#: ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "Дата"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -7596,77 +6441,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "Настройки на проекта"
 
-#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
-#: ui/kptwbsdefinitionpanelbase.ui:21
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define WBS code for the project"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptwbsdefinitionpanelbase.ui:33
-#, fuzzy, kde-format
-msgid "Project Code Definition"
-msgstr "Настройки на проекта"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
-#, kde-format
-msgid "Code:"
-msgstr "Код:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
-#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
-#, kde-format
-msgid "Separator:"
-msgstr "Разделител:"
-
-#. i18n: ectx: property (toolTip), widget (QFrame, frame)
-#: ui/kptwbsdefinitionpanelbase.ui:86
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define default WBS code"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptwbsdefinitionpanelbase.ui:98
-#, fuzzy, kde-format
-msgid "Default Definition"
-msgstr "По подразбиране (%1)"
-
-#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:148
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define separate WBS codes for individual levels"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:151
-#, fuzzy, kde-format
-msgid "Use Levels Definition"
-msgstr "Настройки на проекта"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:167
-#, kde-format
-msgid "Code"
-msgstr "Код"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:172
-#, kde-format
-msgid "Separator"
-msgstr "Разделител"
-
-#. i18n: ectx: property (text), widget (QPushButton, addBtn)
-#: ui/kptwbsdefinitionpanelbase.ui:187
-#, kde-format
-msgid "Add Level"
-msgstr "Добавяне на ниво"
-
 #: ui/kptworkpackagemergedialog.cpp:66
 #, fuzzy, kde-kuit-format
 msgctxt "@title"
@@ -7724,6 +6498,11 @@ msgstr "Проект"
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr ""
+
+#: ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "Следващо"
 
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
@@ -7783,44 +6562,16 @@ msgstr ""
 msgid "No documents"
 msgstr "Промяна на документи"
 
+#: ui/kptworkpackagemergedialog.cpp:241
+#, fuzzy, kde-format
+msgid "Documents"
+msgstr "&Документи"
+
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptworkpackagemergepanel.ui:70
-#, fuzzy, kde-format
-msgid "Generated:"
-msgstr "Общи"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptworkpackagemergepanel.ui:77
-#, fuzzy, kde-format
-msgid "From:"
-msgstr "От:"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
-#: ui/kptworkpackagemergepanel.ui:96
-#, fuzzy, kde-format
-msgid "<package time>"
-msgstr "Най-късно приключване:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
-#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
-#: ui/kptworkpackagemergepanel.ui:198
-#, kde-format
-msgid "Update"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptworkpackagemergepanel.ui:245
-#, kde-format
-msgid "No more data. Press Close to finish."
 msgstr ""
 
 #: ui/kptworkpackagesenddialog.cpp:34
@@ -7835,8 +6586,7 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "Ресурс"
 
-#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
-#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
+#: ui/locale/localemon.cpp:52
 #, kde-format
 msgid "Currency symbol:"
 msgstr "Паричен символ:"
@@ -7849,12 +6599,6 @@ msgstr ""
 #: ui/locale/localemon.cpp:111
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
-#: ui/locale/localemon.ui:32
-#, kde-format
-msgid "Fractional digits:"
 msgstr ""
 
 #: ui/performance/PerformanceStatusBase.cpp:535
@@ -7887,98 +6631,6 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "Настройки на диаграма"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
-#, kde-format
-msgid "Chart type"
-msgstr "Вид диаграма"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
-#, kde-format
-msgid "Line chart"
-msgstr "Линейна диаграма"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
-#, kde-format
-msgid "Bar chart"
-msgstr "Лентова диаграма"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
-#, kde-format
-msgid "Table"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
-#, kde-format
-msgid "Base values"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
-#, kde-format
-msgid "Indices"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
-#: ui/resourcedialogbase.ui:414
-#, kde-format
-msgid "Cost"
-msgstr "Цена"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
-#, fuzzy, kde-format
-msgid "Show BCWS plot"
-msgstr "Показване на проект"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
-#, fuzzy, kde-format
-msgid "Show BCWP plot"
-msgstr "Показване на проект"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
-#, fuzzy, kde-format
-msgid "Show ACWP plot"
-msgstr "Показване на проект"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
-#, fuzzy, kde-format
-msgid "SPI Cost"
-msgstr "Цена"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
-#, fuzzy, kde-format
-msgid "SPI Effort"
-msgstr "Усилие"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
-#, fuzzy, kde-format
-msgid "CPI Effort"
-msgstr "Усилие"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
-#, fuzzy, kde-format
-msgid "CPI Cost"
-msgstr "Цена"
-
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -7993,6 +6645,11 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr ""
+
+#: ui/projectview/ProjectView.cpp:55
+#, fuzzy, kde-format
+msgid "File"
+msgstr "Отваряне"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, fuzzy, kde-format
@@ -8034,31 +6691,10 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Промяна името на задачата"
 
-#. i18n: ectx: property (text), widget (QToolButton, addBtn)
-#: ui/RelationEditorDialog.ui:131
-#, fuzzy, kde-format
-msgctxt "Insert task dependency"
-msgid "Insert"
-msgstr "По задача"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
-#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
+#: ui/reports/reportdata.cpp:383
 #, kde-format
-msgid "From"
-msgstr "От"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/relationpanel.ui:63
-#, kde-format
-msgid "To"
-msgstr "До"
-
-#. i18n: ectx: property (title), widget (QGroupBox, relationType)
-#: ui/relationpanel.ui:87
-#, kde-format
-msgid "Dependency Type"
-msgstr "Вид зависимост"
+msgid "Tasks"
+msgstr "Задачи"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -8084,191 +6720,6 @@ msgstr ""
 #, kde-format
 msgid "Cost Breakdown"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
-#, kde-format
-msgid "Page"
-msgstr "Страница"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
-#: ui/reports/reportnavigator.ui:42
-#, kde-format
-msgid "Go to first page"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
-#: ui/reports/reportnavigator.ui:64
-#, kde-format
-msgid "Go to previous page"
-msgstr "Към предишната страница"
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
-#: ui/reports/reportnavigator.ui:77
-#, kde-format
-msgid "Show page"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/reports/reportnavigator.ui:99
-#, kde-format
-msgid "of"
-msgstr "от"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
-#: ui/reports/reportnavigator.ui:149
-#, kde-format
-msgid "Go to next page"
-msgstr "Към следващата страница"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
-#: ui/reports/reportnavigator.ui:171
-#, kde-format
-msgid "Go to last page"
-msgstr "Към последната страница"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:28
-#, fuzzy, kde-format
-msgid "Enable report header"
-msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:31
-#, fuzzy, kde-format
-msgid "Report Header"
-msgstr "Горен колонтитул"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:38
-#, fuzzy, kde-format
-msgid "Enable report footer"
-msgstr "Долен колонтитул"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:41
-#, fuzzy, kde-format
-msgid "Report Footer"
-msgstr "Долен колонтитул"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/reports/reportsectionswidget.ui:50
-#, fuzzy, kde-format
-msgid "Page Header"
-msgstr "Горен колонтитул"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
-#: ui/reports/reportsectionswidget.ui:62
-#, fuzzy, kde-format
-msgid "Enable header on first page"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
-#, fuzzy, kde-format
-msgid "First page"
-msgstr "Към първата страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
-#: ui/reports/reportsectionswidget.ui:72
-#, fuzzy, kde-format
-msgid "Enable header on last page"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
-#, fuzzy, kde-format
-msgid "Last page"
-msgstr "Към последната страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
-#: ui/reports/reportsectionswidget.ui:82
-#, fuzzy, kde-format
-msgid "Enable header on odd pages"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
-#, kde-format
-msgid "Odd pages"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
-#: ui/reports/reportsectionswidget.ui:92
-#, fuzzy, kde-format
-msgid "Enable header on even pages"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
-#, fuzzy, kde-format
-msgid "Even pages"
-msgstr "Към първата страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
-#: ui/reports/reportsectionswidget.ui:102
-#, fuzzy, kde-format
-msgid "Enable header on all pages"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:105
-#: ui/reports/reportsectionswidget.ui:170
-#, kde-format
-msgid "All pages"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/reports/reportsectionswidget.ui:115
-#, fuzzy, kde-format
-msgid "Page Footer"
-msgstr "Долен колонтитул"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:127
-#, fuzzy, kde-format
-msgid "Enable footer on first page"
-msgstr "Към първата страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:137
-#, fuzzy, kde-format
-msgid "Enable footer on odd pages"
-msgstr "Към последната страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:147
-#, fuzzy, kde-format
-msgid "Enable footer on even pages"
-msgstr "Към последната страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:157
-#, fuzzy, kde-format
-msgid "Enable footer on last page"
-msgstr "Към последната страница"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:167
-#, fuzzy, kde-format
-msgid "Enable footer on all pages"
-msgstr "Към последната страница"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -8465,6 +6916,11 @@ msgid "Nothing"
 msgstr ""
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, kde-format
+msgid "Add"
+msgstr "Добавяне"
+
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, fuzzy, kde-format
 msgid "Report File"
 msgstr "Долен колонтитул"
@@ -8586,134 +7042,11 @@ msgstr "Грешка при отваряне на файл:<br/><filename>%1</fi
 msgid "Allocate"
 msgstr "Разрешване"
 
-#. i18n: ectx: property (text), widget (QLabel, groupLabel)
-#: ui/resourcedialogbase.ui:23
-#, fuzzy, kde-format
-msgid "Group:"
-msgstr "Група"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
-#: ui/resourcedialogbase.ui:67
-#, fuzzy, kde-format
-msgid "Choose resource from address book"
-msgstr "Добавяне на ресурс от адресника"
-
-#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
-#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
-#, kde-format
-msgid "Initials:"
-msgstr "Инициали:"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
-#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
-#, fuzzy, kde-format
-msgid "Email:"
-msgstr "Е-поща"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: ui/resourcedialogbase.ui:161
-#, kde-format
-msgid "Resource type:"
-msgstr "Вид ресурс:"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
-#: ui/resourcedialogbase.ui:185
-#, kde-format
-msgid "Team"
-msgstr "Екип"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
-#: ui/resourcedialogbase.ui:220
-#, kde-format
-msgid "Available:"
-msgstr "Налично:"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
-#: ui/resourcedialogbase.ui:255
-#, fuzzy, kde-format
-msgid "Calendar:"
-msgstr "Календар"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
-#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
-#, kde-format
-msgid "Unlimited"
-msgstr "Неограничено"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
-#: ui/resourcedialogbase.ui:317
-#, kde-format
-msgid "Until"
-msgstr "До"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
-#: ui/resourcedialogbase.ui:389
-#, kde-format
-msgid "Required resources:"
-msgstr "Изисквани ресурси:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/resourcedialogbase.ui:420
-#, fuzzy, kde-format
-msgid "Hourly rate:"
-msgstr "Часове за ден:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: ui/resourcedialogbase.ui:443
-#, kde-format
-msgid "Overtime rate:"
-msgstr ""
-
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, fuzzy, kde-kuit-format
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "Отваряне"
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
-#: ui/standardworktimedialogbase.ui:16
-#, kde-format
-msgid ""
-"These values are used if your estimate is not in hours.\n"
-"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-"effort to complete, this is converted to 24 hours when the task is "
-"scheduled. The actual time it will take to complete is of course dependent "
-"on the availability of the person (or persons) that is assigned to the task."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/standardworktimedialogbase.ui:25
-#, kde-format
-msgid "Hours per year:"
-msgstr "Часове за година:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/standardworktimedialogbase.ui:54
-#, kde-format
-msgid "Hours per month:"
-msgstr "Часове за месец:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabe3)
-#: ui/standardworktimedialogbase.ui:86
-#, kde-format
-msgid "Hours per week:"
-msgstr "Часове за седмица:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:115
-#, kde-format
-msgid ""
-"These values are used when you estimate the effort needed to complete a task."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:118
-#, kde-format
-msgid "Hours per day:"
-msgstr "Часове за ден:"
 
 #: ui/TasksEditDialog.cpp:46
 #, fuzzy, kde-format
@@ -8731,42 +7064,6 @@ msgstr "Промяна на задача"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "Промяна на задача"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/TasksGeneralPanel.ui:25
-#, fuzzy, kde-format
-msgid "Responsib&le:"
-msgstr "Отговорник:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/TasksGeneralPanel.ui:146
-#, fuzzy, kde-format
-msgid "Sched&ule:"
-msgstr "Планиране:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/TasksGeneralPanel.ui:252
-#, kde-format
-msgid "Es&timate:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/TasksGeneralPanel.ui:300
-#, kde-format
-msgid "Ris&k:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/TasksGeneralPanel.ui:356
-#, kde-format
-msgid "Optimistic:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/TasksGeneralPanel.ui:385
-#, kde-format
-msgid "Pessimistic:"
-msgstr ""
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -8818,158 +7115,6 @@ msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
-#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
-#: widgets/KoDocumentInfoDlg.cpp:351
-#, fuzzy, kde-format
-msgid "&Encrypt"
-msgstr "Описание"
-
-#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:64
-#, kde-format
-msgid "Keywords:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:111
-#, fuzzy, kde-format
-msgid "Subject:"
-msgstr "Подпроект"
-
-#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:124
-#, fuzzy, kde-format
-msgid "Last printed:"
-msgstr "Към последната страница"
-
-#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:141
-#, fuzzy, kde-format
-msgid "Type:"
-msgstr "Вид"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:158
-#, kde-format
-msgid "Total editing time:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:178
-#, fuzzy, kde-format
-msgid "Encryption:"
-msgstr "Описание"
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:188
-#, kde-format
-msgctxt "Document title"
-msgid "Title:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:201
-#, kde-format
-msgid "Revision number:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:211
-#, fuzzy, kde-format
-msgid "Modified:"
-msgstr "Промяна на името"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:231
-#, fuzzy, kde-format
-msgid "Comments:"
-msgstr "&Документи"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:251
-#, fuzzy, kde-format
-msgid "Created:"
-msgstr "Започнато:"
-
-#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
-#: widgets/koDocumentInfoAboutWidget.ui:261
-#, fuzzy, kde-format
-msgid "Path:"
-msgstr "Път"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbReset)
-#: widgets/koDocumentInfoAboutWidget.ui:280
-#, fuzzy, kde-format
-msgid "&Reset"
-msgstr "&Ресурси"
-
-#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:297
-#, kde-format
-msgid "Language:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:60
-#, kde-format
-msgid "Title:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:77
-#, fuzzy, kde-format
-msgid "Position:"
-msgstr "Положително"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:94
-#, kde-format
-msgid "Company:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
-#: widgets/koDocumentInfoAuthorWidget.ui:114
-#, kde-format
-msgid "Telephone (home):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
-#: widgets/koDocumentInfoAuthorWidget.ui:124
-#, kde-format
-msgid "Telephone (work):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:134
-#, kde-format
-msgid "Fax:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:144
-#, kde-format
-msgid "Street:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:154
-#, kde-format
-msgid "Postal code:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:164
-#, kde-format
-msgid "City:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:174
-#, fuzzy, kde-format
-msgid "Country:"
-msgstr "Сметка:"
-
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
 msgid "Author"
@@ -9019,6 +7164,11 @@ msgstr ""
 #, fuzzy, kde-format
 msgid "This document is not encrypted"
 msgstr "Задачата не е започната"
+
+#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
+#, fuzzy, kde-format
+msgid "&Encrypt"
+msgstr "Описание"
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, fuzzy, kde-format
@@ -9101,6 +7251,11 @@ msgstr ""
 msgid "Page Layout"
 msgstr "Подредба на страница"
 
+#: widgets/KoPageLayoutDialog.cpp:51
+#, kde-format
+msgid "Page"
+msgstr "Страница"
+
 #: widgets/KoPageLayoutDialog.cpp:109
 #, fuzzy, kde-format
 msgid "Apply to document"
@@ -9131,8 +7286,7 @@ msgstr "Горен колонтитул"
 msgid "Facing Pages:"
 msgstr "Разписание"
 
-#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
-#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
+#: widgets/KoPageLayoutWidget.cpp:291
 #, fuzzy, kde-format
 msgid "Facing pages"
 msgstr "Към първата страница"
@@ -9146,120 +7300,6 @@ msgstr "Подредба на страница"
 #, fuzzy, kde-format
 msgid "Page spread"
 msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
-#: widgets/KoPageLayoutWidget.ui:25
-#, kde-format
-msgid "Unit:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
-#: widgets/KoPageLayoutWidget.ui:45
-#, kde-format
-msgid "Follow style:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/KoPageLayoutWidget.ui:61
-#, kde-format
-msgid "Size:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/KoPageLayoutWidget.ui:77
-#, kde-format
-msgid "Width:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:104
-#, kde-format
-msgid "Height:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:119
-#, fuzzy, kde-format
-msgid "Orientation:"
-msgstr "Продължителност"
-
-#. i18n: ectx: property (text), widget (QRadioButton, portrait)
-#: widgets/KoPageLayoutWidget.ui:129
-#, fuzzy, kde-format
-msgid "Portrait"
-msgstr "Ограничение"
-
-#. i18n: ectx: property (text), widget (QRadioButton, landscape)
-#: widgets/KoPageLayoutWidget.ui:136
-#, kde-format
-msgid "Landscape"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
-#: widgets/KoPageLayoutWidget.ui:143
-#, fuzzy, kde-format
-msgid "Facing pages:"
-msgstr "Към първата страница"
-
-#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
-#: widgets/KoPageLayoutWidget.ui:153
-#, kde-format
-msgid "Single sided"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, directionLabel)
-#: widgets/KoPageLayoutWidget.ui:167
-#, fuzzy, kde-format
-msgid "Text direction:"
-msgstr "Посока"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:184
-#, kde-format
-msgid "Automatic"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:189
-#, kde-format
-msgid "Left to right"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:194
-#, kde-format
-msgid "Right to left"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, margins)
-#: widgets/KoPageLayoutWidget.ui:204
-#, kde-format
-msgid "Margins"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:210
-#, kde-format
-msgid "Top:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, leftLabel)
-#: widgets/KoPageLayoutWidget.ui:230
-#, fuzzy, kde-format
-msgid "Binding edge:"
-msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QLabel, rightLabel)
-#: widgets/KoPageLayoutWidget.ui:250
-#, fuzzy, kde-format
-msgid "Page edge:"
-msgstr "Горен колонтитул"
-
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#: widgets/KoPageLayoutWidget.ui:270
-#, kde-format
-msgid "Bottom:"
-msgstr ""
 
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
@@ -9277,3 +7317,764 @@ msgstr "Разпределение"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
+
+#~ msgid "Show:"
+#~ msgstr "Показване:"
+
+#~ msgid "Periodicity:"
+#~ msgstr "Периодичност:"
+
+#~ msgid "Day"
+#~ msgstr "Ден"
+
+#~ msgid "Week"
+#~ msgstr "Седмица"
+
+#~ msgid "Month"
+#~ msgstr "Месец"
+
+#, fuzzy
+#~ msgid "Cumulative"
+#~ msgstr "Изчисляване"
+
+#~ msgid "Actual cost"
+#~ msgstr "Действителна цена"
+
+#~ msgid "Planned cost"
+#~ msgstr "Планирана цена"
+
+#~ msgid "Deviation"
+#~ msgstr "Отклонение"
+
+#~ msgid "Start date"
+#~ msgstr "Начална дата"
+
+#, fuzzy
+#~ msgid "Project start"
+#~ msgstr "Име на проект"
+
+#~ msgid "End date"
+#~ msgstr "Крайна дата"
+
+#, fuzzy
+#~ msgid "Current date"
+#~ msgstr "Начална дата"
+
+#, fuzzy
+#~ msgid "Project end"
+#~ msgstr "Име на проект"
+
+#, fuzzy
+#~ msgid "Project Schedule:"
+#~ msgstr "Непланирано"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#, fuzzy
+#~ msgid "is"
+#~ msgstr "сек"
+
+#~ msgid "%"
+#~ msgstr "%"
+
+#~ msgid "Name:"
+#~ msgstr "Име:"
+
+#~ msgid "Add..."
+#~ msgstr "Добавяне..."
+
+#~ msgid "Change..."
+#~ msgstr "Промяна..."
+
+#~ msgid "Remove"
+#~ msgstr "Премахване"
+
+#, fuzzy
+#~ msgid "Del"
+#~ msgstr "Изтриване"
+
+#~ msgid "Open"
+#~ msgstr "Отваряне"
+
+#, fuzzy
+#~ msgid "Timeline"
+#~ msgstr "Часови пояс"
+
+#, fuzzy
+#~ msgid "Background"
+#~ msgstr "Назад"
+
+#, fuzzy
+#~ msgid "Interval:"
+#~ msgstr "Интервал"
+
+#, fuzzy
+#~ msgid "Line width"
+#~ msgstr "Линейна диаграма"
+
+#, fuzzy
+#~ msgid "Line color"
+#~ msgstr "Линейна диаграма"
+
+#~ msgid "Task name"
+#~ msgstr "Име на задача"
+
+#, fuzzy
+#~ msgid "Resource names"
+#~ msgstr "Ресурси"
+
+#, fuzzy
+#~ msgid "Task dependencies"
+#~ msgstr "Добавяне на зависимост"
+
+#, fuzzy
+#~ msgid "Task completion"
+#~ msgstr "Завършване на задачата"
+
+#, fuzzy
+#~ msgid "Time constraints"
+#~ msgstr "Ограничение"
+
+#, fuzzy
+#~ msgid "Positive float"
+#~ msgstr "Положително"
+
+#, fuzzy
+#~ msgid "Negative float"
+#~ msgstr "Отрицателно"
+
+#, fuzzy
+#~ msgid "Critical path"
+#~ msgstr "Критично"
+
+#, fuzzy
+#~ msgid "Critical tasks"
+#~ msgstr "Критично"
+
+#, fuzzy
+#~ msgid "Scheduling errors"
+#~ msgstr "Грешка при планиране"
+
+#, fuzzy
+#~ msgctxt "@title:group"
+#~ msgid "Headers"
+#~ msgstr "Горен колонтитул"
+
+#, fuzzy
+#~ msgctxt "@option:check"
+#~ msgid "Print task names"
+#~ msgstr "Промяна името на задачата"
+
+#, fuzzy
+#~ msgctxt "@option:check"
+#~ msgid "Print time scale"
+#~ msgstr "Промяна името на задачата"
+
+#, fuzzy
+#~ msgctxt "@title:group"
+#~ msgid "Scaling"
+#~ msgstr "Разписание"
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Divide chart on multiple pages"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Fit chart to page height"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Fit chart to a single page"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgctxt "@title:group"
+#~ msgid "Range"
+#~ msgstr "Промяна..."
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Chart start:"
+#~ msgstr "Може да започне"
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Start:"
+#~ msgstr "Начало"
+
+#, fuzzy
+#~ msgctxt "@option:radio"
+#~ msgid "Chart end:"
+#~ msgstr "Вид диаграма"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgctxt "Start time"
+#~ msgid "From:"
+#~ msgstr "От:"
+
+#~ msgid "Length"
+#~ msgstr "Времетраене"
+
+#~ msgid "Clear"
+#~ msgstr "Изчистване"
+
+#~ msgid "Select columns to be shown:"
+#~ msgstr "Избор на колони за показване:"
+
+#~ msgid "&Hidden columns:"
+#~ msgstr "&Скрити колони:"
+
+#~ msgid "&Visible columns:"
+#~ msgstr "&Видими колони:"
+
+#~ msgid "WBS:"
+#~ msgstr "WBS:"
+
+#~ msgid "The project name."
+#~ msgstr "Име на проекта."
+
+#, fuzzy
+#~ msgid "&Name:"
+#~ msgstr "Име:"
+
+#~ msgid "The project leader."
+#~ msgstr "Ръководител на проекта."
+
+#, fuzzy
+#~ msgid "&Manager:"
+#~ msgstr "Управител:"
+
+#~ msgid "Choose a project leader from your address book."
+#~ msgstr "Изберете ръководител на проекта от адресника си."
+
+#~ msgid "&Choose..."
+#~ msgstr "&Избор..."
+
+#, fuzzy
+#~ msgid "Scheduling Range"
+#~ msgstr "Разписание"
+
+#~ msgid "Earliest start:"
+#~ msgstr "Най-ранно започване:"
+
+#~ msgid "Latest finish:"
+#~ msgstr "Най-късно приключване:"
+
+#, fuzzy
+#~ msgid "&Use shared resources"
+#~ msgstr "Изисквани ресурси:"
+
+#, fuzzy
+#~ msgid "Resources:"
+#~ msgstr "Ресурси"
+
+#, fuzzy
+#~ msgid "Browse..."
+#~ msgstr "Избор..."
+
+#, fuzzy
+#~ msgid "Projects:"
+#~ msgstr "Проект:"
+
+#, fuzzy
+#~ msgid "Directory"
+#~ msgstr "Посока"
+
+#, fuzzy
+#~ msgid "Load resource assignments at startup"
+#~ msgstr "Ресурси"
+
+#, fuzzy
+#~ msgid "Load"
+#~ msgstr "Зареждане"
+
+#, fuzzy
+#~ msgid "Work Package"
+#~ msgstr "Състояние на задачата"
+
+#, fuzzy
+#~ msgid "Check for work packages"
+#~ msgstr "Състояние на задачата"
+
+#, fuzzy
+#~ msgid "Task Modules"
+#~ msgstr "Бележки на задача"
+
+#, fuzzy
+#~ msgid "Insert"
+#~ msgstr "По задача"
+
+#~ msgid "Available tasks"
+#~ msgstr "Налични задачи"
+
+#, fuzzy
+#~ msgid "Add required task"
+#~ msgstr "Добавяне на задача"
+
+#, fuzzy
+#~ msgid "Remove required task"
+#~ msgstr "Добавяне на задача"
+
+#, fuzzy
+#~ msgid "Total Float:"
+#~ msgstr "Проект:"
+
+#~ msgid "Header"
+#~ msgstr "Горен колонтитул"
+
+#~ msgid "Project name"
+#~ msgstr "Име на проект"
+
+#~ msgid "Page number"
+#~ msgstr "Номер на страница"
+
+#~ msgid "Project manager"
+#~ msgstr "Управител на проекта"
+
+#~ msgid "Footer"
+#~ msgstr "Долен колонтитул"
+
+#, fuzzy
+#~ msgid "Re-calculate from current date/time"
+#~ msgstr "Изчисляване на усилието"
+
+#, fuzzy
+#~ msgid "Re-calculate from:"
+#~ msgstr "Изчисляване на усилието"
+
+#, fuzzy
+#~ msgid "Scheduling range:"
+#~ msgstr "Разписание"
+
+#~ msgid "The name of the Task."
+#~ msgstr "Име на екрана задачата."
+
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "\n"
+#~ "This is not limited to persons available in a resource group but can be "
+#~ "anyone. You can even directly access your address book with the Choose "
+#~ "button."
+#~ msgstr ""
+#~ "Човек, отговорен за задачата.\n"
+#~ "\n"
+#~ "Това не ограничено до наличните хора в ресурсна група, а може да бъде "
+#~ "всеки. Дори можете директно да влезнете в адресника си чрез бутона \"Избор"
+#~ "\"."
+
+#~ msgid "Responsible:"
+#~ msgstr "Отговорник:"
+
+#~ msgid "Insert a person from your address book"
+#~ msgstr "Вмъкнете човек от адресника си"
+
+#~ msgid "Choose..."
+#~ msgstr "Избор..."
+
+#, fuzzy
+#~ msgid "Priority:"
+#~ msgstr "Периодичност:"
+
+#~ msgid "Account:"
+#~ msgstr "Сметка:"
+
+#~ msgid "Startup"
+#~ msgstr "Зареждане"
+
+#~ msgid "Cost:"
+#~ msgstr "Цена:"
+
+#~ msgid "Shutdown"
+#~ msgstr "Изключване"
+
+#~ msgid "N&ame:"
+#~ msgstr "И&ме:"
+
+#, fuzzy
+#~ msgid "Responsi&ble:"
+#~ msgstr "Отговорник:"
+
+#~ msgid "Insert a person from your address book."
+#~ msgstr "Вмъкнете човек от адресника си."
+
+#, fuzzy
+#~ msgid "&Schedule:"
+#~ msgstr "Планиране:"
+
+#~ msgid "As Soon as Possible"
+#~ msgstr "Възможно най-скоро"
+
+#~ msgid "As Late as Possible"
+#~ msgstr "Възможно най-късно"
+
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "Начало не по-рано от"
+
+#~ msgid "Finish Not Later Than"
+#~ msgstr "Край не по-късно от"
+
+#~ msgid "Risk:"
+#~ msgstr "Риск:"
+
+#, fuzzy
+#~ msgid "Task:"
+#~ msgstr "Задача"
+
+#~ msgid "Started:"
+#~ msgstr "Започнато:"
+
+#~ msgid "Finished:"
+#~ msgstr "Завършено:"
+
+#~ msgid "Edit mode:"
+#~ msgstr "Режим редактиране:"
+
+#~ msgid "Per resource"
+#~ msgstr "По ресурс"
+
+#~ msgid "Per task"
+#~ msgstr "По задача"
+
+#~ msgid "Prev"
+#~ msgstr "Предишно"
+
+#, fuzzy
+#~ msgid "Add resource:"
+#~ msgstr "Добавяне на ресурс"
+
+#~ msgid "Add Entry"
+#~ msgstr "Добавяне на запис"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Премахване на запис"
+
+#, fuzzy
+#~ msgid "Period Definition"
+#~ msgstr "Периодичност:"
+
+#, fuzzy
+#~ msgid "Use current date"
+#~ msgstr "Избор на текущия ден"
+
+#, fuzzy
+#~ msgid "Use weekday:"
+#~ msgstr "Седмица"
+
+#, fuzzy
+#~ msgid "Project Code Definition"
+#~ msgstr "Настройки на проекта"
+
+#~ msgid "Code:"
+#~ msgstr "Код:"
+
+#~ msgid "Separator:"
+#~ msgstr "Разделител:"
+
+#, fuzzy
+#~ msgid "Default Definition"
+#~ msgstr "По подразбиране (%1)"
+
+#, fuzzy
+#~ msgid "Use Levels Definition"
+#~ msgstr "Настройки на проекта"
+
+#~ msgid "Code"
+#~ msgstr "Код"
+
+#~ msgid "Separator"
+#~ msgstr "Разделител"
+
+#~ msgid "Add Level"
+#~ msgstr "Добавяне на ниво"
+
+#, fuzzy
+#~ msgid "Generated:"
+#~ msgstr "Общи"
+
+#, fuzzy
+#~ msgid "From:"
+#~ msgstr "От:"
+
+#, fuzzy
+#~ msgid "<package time>"
+#~ msgstr "Най-късно приключване:"
+
+#~ msgid "Chart type"
+#~ msgstr "Вид диаграма"
+
+#~ msgid "Line chart"
+#~ msgstr "Линейна диаграма"
+
+#~ msgid "Bar chart"
+#~ msgstr "Лентова диаграма"
+
+#~ msgid "Cost"
+#~ msgstr "Цена"
+
+#, fuzzy
+#~ msgid "Show BCWS plot"
+#~ msgstr "Показване на проект"
+
+#, fuzzy
+#~ msgid "Show BCWP plot"
+#~ msgstr "Показване на проект"
+
+#, fuzzy
+#~ msgid "Show ACWP plot"
+#~ msgstr "Показване на проект"
+
+#, fuzzy
+#~ msgid "SPI Cost"
+#~ msgstr "Цена"
+
+#, fuzzy
+#~ msgid "SPI Effort"
+#~ msgstr "Усилие"
+
+#, fuzzy
+#~ msgid "CPI Effort"
+#~ msgstr "Усилие"
+
+#, fuzzy
+#~ msgid "CPI Cost"
+#~ msgstr "Цена"
+
+#, fuzzy
+#~ msgctxt "Insert task dependency"
+#~ msgid "Insert"
+#~ msgstr "По задача"
+
+#~ msgid "From"
+#~ msgstr "От"
+
+#~ msgid "To"
+#~ msgstr "До"
+
+#~ msgid "Dependency Type"
+#~ msgstr "Вид зависимост"
+
+#~ msgid "Go to first page"
+#~ msgstr "Към първата страница"
+
+#~ msgid "Go to previous page"
+#~ msgstr "Към предишната страница"
+
+#~ msgid "of"
+#~ msgstr "от"
+
+#~ msgid "Go to next page"
+#~ msgstr "Към следващата страница"
+
+#~ msgid "Go to last page"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Enable report header"
+#~ msgstr "Горен колонтитул"
+
+#, fuzzy
+#~ msgid "Report Header"
+#~ msgstr "Горен колонтитул"
+
+#, fuzzy
+#~ msgid "Enable report footer"
+#~ msgstr "Долен колонтитул"
+
+#, fuzzy
+#~ msgid "Report Footer"
+#~ msgstr "Долен колонтитул"
+
+#, fuzzy
+#~ msgid "Page Header"
+#~ msgstr "Горен колонтитул"
+
+#, fuzzy
+#~ msgid "Enable header on first page"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "First page"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Enable header on last page"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Last page"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Enable header on odd pages"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Enable header on even pages"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Even pages"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Enable header on all pages"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Page Footer"
+#~ msgstr "Долен колонтитул"
+
+#, fuzzy
+#~ msgid "Enable footer on first page"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Enable footer on odd pages"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Enable footer on even pages"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Enable footer on last page"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Enable footer on all pages"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Group:"
+#~ msgstr "Група"
+
+#, fuzzy
+#~ msgid "Choose resource from address book"
+#~ msgstr "Добавяне на ресурс от адресника"
+
+#~ msgid "Initials:"
+#~ msgstr "Инициали:"
+
+#, fuzzy
+#~ msgid "Email:"
+#~ msgstr "Е-поща"
+
+#~ msgid "Resource type:"
+#~ msgstr "Вид ресурс:"
+
+#~ msgid "Team"
+#~ msgstr "Екип"
+
+#~ msgid "Available:"
+#~ msgstr "Налично:"
+
+#, fuzzy
+#~ msgid "Calendar:"
+#~ msgstr "Календар"
+
+#~ msgid "Unlimited"
+#~ msgstr "Неограничено"
+
+#~ msgid "Until"
+#~ msgstr "До"
+
+#~ msgid "Required resources:"
+#~ msgstr "Изисквани ресурси:"
+
+#, fuzzy
+#~ msgid "Hourly rate:"
+#~ msgstr "Часове за ден:"
+
+#~ msgid "Hours per year:"
+#~ msgstr "Часове за година:"
+
+#~ msgid "Hours per month:"
+#~ msgstr "Часове за месец:"
+
+#~ msgid "Hours per week:"
+#~ msgstr "Часове за седмица:"
+
+#~ msgid "Hours per day:"
+#~ msgstr "Часове за ден:"
+
+#, fuzzy
+#~ msgid "Responsib&le:"
+#~ msgstr "Отговорник:"
+
+#, fuzzy
+#~ msgid "Sched&ule:"
+#~ msgstr "Планиране:"
+
+#, fuzzy
+#~ msgid "Subject:"
+#~ msgstr "Подпроект"
+
+#, fuzzy
+#~ msgid "Last printed:"
+#~ msgstr "Към последната страница"
+
+#, fuzzy
+#~ msgid "Type:"
+#~ msgstr "Вид"
+
+#, fuzzy
+#~ msgid "Encryption:"
+#~ msgstr "Описание"
+
+#, fuzzy
+#~ msgid "Modified:"
+#~ msgstr "Промяна на името"
+
+#, fuzzy
+#~ msgid "Comments:"
+#~ msgstr "&Документи"
+
+#, fuzzy
+#~ msgid "Created:"
+#~ msgstr "Започнато:"
+
+#, fuzzy
+#~ msgid "Path:"
+#~ msgstr "Път"
+
+#, fuzzy
+#~ msgid "&Reset"
+#~ msgstr "&Ресурси"
+
+#, fuzzy
+#~ msgid "Position:"
+#~ msgstr "Положително"
+
+#, fuzzy
+#~ msgid "Country:"
+#~ msgstr "Сметка:"
+
+#, fuzzy
+#~ msgid "Orientation:"
+#~ msgstr "Продължителност"
+
+#, fuzzy
+#~ msgid "Portrait"
+#~ msgstr "Ограничение"
+
+#, fuzzy
+#~ msgid "Facing pages:"
+#~ msgstr "Към първата страница"
+
+#, fuzzy
+#~ msgid "Text direction:"
+#~ msgstr "Посока"
+
+#, fuzzy
+#~ msgid "Binding edge:"
+#~ msgstr "Горен колонтитул"
+
+#, fuzzy
+#~ msgid "Page edge:"
+#~ msgstr "Горен колонтитул"

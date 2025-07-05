@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2021-03-28 13:53+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2008-03-26 18:25+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -238,7 +238,6 @@ msgstr "प्रयास"
 msgid "Scheduling error"
 msgstr "सारिणी सीमा"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
 #: kernel/kptnode.cpp:154 kernel/kptnode.cpp:1658 kernel/kpttask.cpp:3855
 #: models/kptcalendarmodel.cpp:429 models/kptcalendarmodel.cpp:449
 #: models/kptnodeitemmodel.cpp:415 models/kptnodeitemmodel.cpp:431
@@ -252,9 +251,8 @@ msgstr "सारिणी सीमा"
 #: models/kpttreecombobox.cpp:123 ui/kptpertresult.cpp:139
 #: ui/kptpertresult.cpp:492 ui/kptresourcedialog.cpp:293
 #: ui/kptresourcedialog.cpp:319 ui/kpttaskcostpanel.cpp:49
-#: ui/kpttaskgeneralpanel.cpp:72 ui/kpttaskgeneralpanelbase.ui:386
-#: ui/reports/reportview.cpp:1344 ui/TasksGeneralPanel.cpp:68
-#: ui/TasksGeneralPanel.ui:338
+#: ui/kpttaskgeneralpanel.cpp:72 ui/reports/reportview.cpp:1344
+#: ui/TasksGeneralPanel.cpp:68
 #, kde-format
 msgid "None"
 msgstr "कुछ नहीं"
@@ -278,9 +276,7 @@ msgstr "परियोजना"
 msgid "Task"
 msgstr "कार्य"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:158 ui/kpttaskgeneralpanelbase.ui:472
-#: ui/TasksGeneralPanel.ui:424
+#: kernel/kptnode.cpp:158
 #, fuzzy, kde-format
 #| msgid "Add Milestone..."
 msgid "Milestone"
@@ -309,16 +305,12 @@ msgstr "जितनी जल्दी संभव हो"
 msgid "As Late As Possible"
 msgstr "जितनी देरी से संभव हो"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:731 ui/kpttaskgeneralpanelbase.ui:227
-#: ui/TasksGeneralPanel.ui:179
+#: kernel/kptnode.cpp:731
 #, kde-format
 msgid "Must Start On"
 msgstr "पर प्रारंभ होना ही चाहिए"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:732 ui/kpttaskgeneralpanelbase.ui:232
-#: ui/TasksGeneralPanel.ui:184
+#: kernel/kptnode.cpp:732
 #, kde-format
 msgid "Must Finish On"
 msgstr "पर पूरा होना ही चाहिए"
@@ -335,39 +327,27 @@ msgstr "से पहले प्रारंब नहीं हो"
 msgid "Finish Not Later"
 msgstr "के बाद पूर्ण नहीं हो"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: kernel/kptnode.cpp:735 ui/kpttaskgeneralpanelbase.ui:247
-#: ui/TasksGeneralPanel.ui:199
+#: kernel/kptnode.cpp:735
 #, kde-format
 msgid "Fixed Interval"
 msgstr "स्थिर अंतराल"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
-#: kernel/kptnode.cpp:1625 ui/kpttaskgeneralpanelbase.ui:462
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:142
-#: ui/TasksGeneralPanel.ui:414
+#: kernel/kptnode.cpp:1625
 #, kde-format
 msgid "Effort"
 msgstr "प्रयास"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
-#: kernel/kptnode.cpp:1626 ui/kpttaskgeneralpanelbase.ui:467
-#: ui/TasksGeneralPanel.ui:419
+#: kernel/kptnode.cpp:1626
 #, kde-format
 msgid "Duration"
 msgstr "अवधि"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1659 ui/kpttaskgeneralpanelbase.ui:391
-#: ui/TasksGeneralPanel.ui:343
+#: kernel/kptnode.cpp:1659
 #, kde-format
 msgid "Low"
 msgstr "निम्न"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, risk)
-#: kernel/kptnode.cpp:1660 ui/kpttaskgeneralpanelbase.ui:396
-#: ui/TasksGeneralPanel.ui:348
+#: kernel/kptnode.cpp:1660
 #, kde-format
 msgid "High"
 msgstr "उच्च"
@@ -575,34 +555,27 @@ msgstr "अर्ली फ़िनिश तिथि"
 msgid "Plan"
 msgstr "प्लान"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishStart)
-#: kernel/kptrelation.cpp:92 ui/relationpanel.ui:93
+#: kernel/kptrelation.cpp:92
 #, kde-format
 msgid "Finish-Start"
 msgstr "समाप्त-प्रारंभ"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
-#: kernel/kptrelation.cpp:93 ui/relationpanel.ui:100
+#: kernel/kptrelation.cpp:93
 #, kde-format
 msgid "Finish-Finish"
 msgstr "पूर्ण-पूर्ण"
 
-#. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
-#: kernel/kptrelation.cpp:94 ui/relationpanel.ui:107
+#: kernel/kptrelation.cpp:94
 #, kde-format
 msgid "Start-Start"
 msgstr "प्रारंभ-प्रारंभ"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:131 ui/kptresourceassignmentview.cpp:81
-#: ui/resourcedialogbase.ui:175
 #, kde-format
 msgid "Work"
 msgstr "कार्यस्थल"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
 #: kernel/kptresource.cpp:132 ui/kptresourceassignmentview.cpp:85
-#: ui/resourcedialogbase.ui:180
 #, kde-format
 msgid "Material"
 msgstr "वस्तु"
@@ -1674,7 +1647,6 @@ msgctxt "1=account name"
 msgid "%1 (Default account)"
 msgstr "डिफ़ॉल्ट खाता:"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptaccountsmodel.cpp:125 models/kptaccountsmodel.cpp:1067
 #: models/kptdocumentmodel.cpp:200 models/kptresourceallocationmodel.cpp:330
 #: models/kptresourceappointmentsmodel.cpp:919
@@ -1682,15 +1654,13 @@ msgstr "डिफ़ॉल्ट खाता:"
 #: models/kptresourceappointmentsmodel.cpp:1503 models/kptresourcemodel.cpp:505
 #: models/kptschedulemodel.cpp:990 models/kptschedulemodel.cpp:1313
 #: models/reportgenerator/ReportGeneratorOdt.cpp:191
-#: ui/kptresourceassignmentview.ui:21 ui/projectview/ProjectView.cpp:53
+#: ui/projectview/ProjectView.cpp:53
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, kde-format
 msgid "Name"
 msgstr "नाम"
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:126 models/kptaccountsmodel.cpp:1068
-#: ui/kptmainprojectpanelbase.ui:338
 #, kde-format
 msgid "Description"
 msgstr "वर्णन"
@@ -2797,11 +2767,9 @@ msgstr "दस्तावेज़ मिटाएँ"
 msgid "Url"
 msgstr "यूआरएल"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, m_resList)
 #: models/kptdocumentmodel.cpp:201 models/kptrelationmodel.cpp:138
 #: models/kptresourceallocationmodel.cpp:331
 #: models/kptresourceappointmentsmodel.cpp:1504 models/kptresourcemodel.cpp:507
-#: ui/kptresourceassignmentview.ui:26
 #, kde-format
 msgid "Type"
 msgstr "क़िस्म"
@@ -3296,11 +3264,8 @@ msgstr "पूर्ण"
 msgid "Finished early"
 msgstr "पूर्ण"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
 #: models/kptnodeitemmodel.cpp:1344 models/kpttaskstatusmodel.cpp:61
-#: ui/kptmilestoneprogresspanelbase.ui:23 ui/kptresourceassignmentview.cpp:256
-#: ui/kptresourceassignmentview.cpp:334 ui/kptworkpackagemergepanel.ui:156
+#: ui/kptresourceassignmentview.cpp:256 ui/kptresourceassignmentview.cpp:334
 #, kde-format
 msgid "Finished"
 msgstr "पूर्ण"
@@ -3311,9 +3276,7 @@ msgstr "पूर्ण"
 msgid "Running late"
 msgstr "चल रहा है"
 
-#. i18n: ectx: property (title), widget (QGroupBox, runningGroup)
 #: models/kptnodeitemmodel.cpp:1350 models/kpttaskstatusmodel.cpp:57
-#: ui/kpttaskcostpanelbase.ui:21
 #, kde-format
 msgid "Running"
 msgstr "चल रहा है"
@@ -3330,9 +3293,8 @@ msgstr "लेट प्रारंभ तिथि"
 msgid "Started early"
 msgstr "प्रारंभ"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1362 ui/kptresourceassignmentview.cpp:255
-#: ui/kptresourceassignmentview.cpp:333 ui/kptworkpackagemergepanel.ui:133
+#: ui/kptresourceassignmentview.cpp:333
 #, kde-format
 msgid "Started"
 msgstr "प्रारंभ"
@@ -5879,10 +5841,9 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: attribute (title), widget (QWidget, ui_general)
-#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptmainprojectpanelbase.ui:25
-#: ui/kptresourceappointmentsview.cpp:91 ui/kpttaskstatusview.cpp:441
-#: widgets/KoDocumentInfoDlg.cpp:124 widgets/KoDocumentInfoDlg.cpp:125
+#: ui/kptaccountsviewconfigdialog.cpp:75 ui/kptresourceappointmentsview.cpp:91
+#: ui/kpttaskstatusview.cpp:441 widgets/KoDocumentInfoDlg.cpp:124
+#: widgets/KoDocumentInfoDlg.cpp:125
 #, kde-format
 msgid "General"
 msgstr "सामान्य"
@@ -5892,117 +5853,6 @@ msgstr "सामान्य"
 #, kde-format
 msgid "View Settings"
 msgstr "दृश्य विन्यास"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptaccountsviewconfigurepanelbase.ui:26
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Show:"
-msgstr "बन्दकरें"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:33
-#, fuzzy, kde-format
-#| msgid "Periodicity:%1"
-msgid "Periodicity:"
-msgstr "पीरियाडिसिटी:%1"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:44
-#, kde-format
-msgid "Day"
-msgstr "दिन"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:49
-#, kde-format
-msgid "Week"
-msgstr "सप्ताह"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_periodBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:54
-#, kde-format
-msgid "Month"
-msgstr "माह"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cumulative)
-#: ui/kptaccountsviewconfigurepanelbase.ui:62
-#, kde-format
-msgid "Cumulative"
-msgstr "क्युमुलेटिव"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:70
-#, kde-format
-msgid "Actual cost"
-msgstr "वास्तविक लागत"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:75
-#, fuzzy, kde-format
-#| msgid "Planned Effort"
-msgid "Planned cost"
-msgstr "प्लान किया गया प्रयास"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:80
-#, kde-format
-msgid "Actual and planned"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, ui_showBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:85
-#, fuzzy, kde-format
-#| msgid "Duration"
-msgid "Deviation"
-msgstr "अवधि"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptaccountsviewconfigurepanelbase.ui:101
-#, fuzzy, kde-format
-#| msgid "Late start date"
-msgid "Start date"
-msgstr "लेट प्रारंभ तिथि"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:107
-#, fuzzy, kde-format
-#| msgid "The project name."
-msgid "Project start"
-msgstr "परियोजना नाम."
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startdateBtn)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_enddateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:114
-#: ui/kptaccountsviewconfigurepanelbase.ui:144 ui/kptprintingheaderfooter.ui:46
-#: ui/kptprintingheaderfooter.ui:86 ui/kptusedefforteditor.cpp:407
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
-#, kde-format
-msgid "Date"
-msgstr "तारीख़"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptaccountsviewconfigurepanelbase.ui:131
-#, fuzzy, kde-format
-#| msgid "End Time"
-msgid "End date"
-msgstr "समाप्ति समय"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_currentdateBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:137
-#, fuzzy, kde-format
-#| msgid "Cut-off date:"
-msgid "Current date"
-msgstr "कटऑफ़ तिथि:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectendBtn)
-#: ui/kptaccountsviewconfigurepanelbase.ui:158
-#, fuzzy, kde-format
-#| msgid "The project name."
-msgid "Project end"
-msgstr "परियोजना नाम."
 
 #: ui/kptcalendareditor.cpp:202 ui/kptcalendareditor.cpp:661
 #, kde-format
@@ -6074,51 +5924,6 @@ msgstr "%1: अकार्यशील पर सेट है"
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
 msgstr "%1 अपरिभाषित पर सेट है"
-
-#. i18n: ectx: property (text), widget (QLabel, label_1)
-#: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
-#, kde-format
-msgid "Project Schedule:"
-msgstr "परियोजना समय-सारिणी:"
-
-#. i18n: ectx: property (text), widget (QLabel, scheduleName)
-#. i18n: ectx: property (text), widget (QToolButton, btnAdd)
-#. i18n: ectx: property (text), widget (QToolButton, btnRemove)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveUp)
-#. i18n: ectx: property (text), widget (QToolButton, btnMoveDown)
-#. i18n: ectx: property (text), widget (QLabel, totalFloat)
-#: ui/kptcpmwidget.ui:43 ui/kptpertresult.ui:52 ui/kptpertresult.ui:109
-#: ui/reports/reportgroupsectionswidget.ui:22
-#: ui/reports/reportgroupsectionswidget.ui:29
-#: ui/reports/reportgroupsectionswidget.ui:36
-#: ui/reports/reportgroupsectionswidget.ui:43
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptcpmwidget.ui:71
-#, kde-format
-msgid "Probability of finishing before"
-msgstr "पहले पूरा हो जाने की संभावना"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptcpmwidget.ui:91
-#, fuzzy, kde-format
-#| msgid "Risk:"
-msgid "is"
-msgstr "ख़तरा:"
-
-#. i18n: ectx: property (suffix), widget (QSpinBox, pessimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, optimisticValue)
-#. i18n: ectx: property (suffix), widget (QSpinBox, probability)
-#. i18n: ectx: property (suffix), widget (QSpinBox, units)
-#: ui/kptcpmwidget.ui:98 ui/kpttaskgeneralpanelbase.ui:316
-#: ui/kpttaskgeneralpanelbase.ui:420 ui/resourcedialogbase.ui:239
-#: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
-#, no-c-format, kde-format
-msgid "%"
-msgstr "%"
 
 #: ui/kptdependencyeditor.cpp:2042
 #, kde-kuit-format
@@ -6272,241 +6077,6 @@ msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "दस्तावेज़ जोड़ें"
 
-#. i18n: ectx: property (text), widget (QLabel, fullNameLabel)
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#. i18n: ectx: property (text), widget (QLabel, ui_namelabel)
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptdocumentspanel.ui:29 ui/kptsummarytaskgeneralpanelbase.ui:61
-#: ui/kpttaskdescriptionpanelbase.ui:36 ui/resourcedialogbase.ui:36
-#: widgets/koDocumentInfoAuthorWidget.ui:20
-#, kde-format
-msgid "Name:"
-msgstr "नाम:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:54
-#, kde-format
-msgid "Add..."
-msgstr "जोड़ें..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbAdd)
-#: ui/kptdocumentspanel.ui:61
-#, kde-format
-msgid "Ctrl+I"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:68
-#, kde-format
-msgid "Change..."
-msgstr "बदलें..."
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbChange)
-#: ui/kptdocumentspanel.ui:75
-#, kde-format
-msgid "Ctrl+M"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_removeModule)
-#. i18n: ectx: property (text), widget (QPushButton, removeBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bRemoveInterval)
-#. i18n: ectx: property (text), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:82 ui/kptintervaleditbase.ui:77
-#: ui/kptmainprojectpanelbase.ui:502 ui/kptwbsdefinitionpanelbase.ui:180
-#, kde-format
-msgid "Remove"
-msgstr "हटाएँ"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbRemove)
-#: ui/kptdocumentspanel.ui:89
-#, fuzzy, kde-format
-#| msgid "Delete"
-msgid "Del"
-msgstr "मिटाएँ"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:96
-#, kde-format
-msgid "Open"
-msgstr "खोलें"
-
-#. i18n: ectx: property (shortcut), widget (QPushButton, pbView)
-#: ui/kptdocumentspanel.ui:103
-#, kde-format
-msgid "Ctrl+O"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttchartdisplayoptions.ui:20
-#, fuzzy, kde-format
-#| msgid "Timezone"
-msgid "Timeline"
-msgstr "समयक्षेत्र"
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:28
-#, kde-format
-msgid "Do not show the timeline"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
-#: ui/kptganttchartdisplayoptions.ui:31
-#, kde-format
-msgid "Hide"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:38
-#, kde-format
-msgid "Show timeline in the foreground"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
-#: ui/kptganttchartdisplayoptions.ui:41
-#, kde-format
-msgid "Foreground"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:48
-#, kde-format
-msgid "Show timeline in the background"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
-#: ui/kptganttchartdisplayoptions.ui:51
-#, fuzzy, kde-format
-#| msgid "Backwards"
-msgid "Background"
-msgstr "पीछे से"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:60
-#, kde-format
-msgid "Update interval in minutes, 0 disables update"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptganttchartdisplayoptions.ui:63
-#, fuzzy, kde-format
-#| msgid "Add Interval"
-msgid "Interval:"
-msgstr "अंतराल जोड़ें"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_timeLineUseCustom)
-#: ui/kptganttchartdisplayoptions.ui:93
-#, kde-format
-msgid "Use custom line"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:102
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgid "Line width"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptganttchartdisplayoptions.ui:105
-#, kde-format
-msgid "Stroke:"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:126
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgid "Line color"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptganttchartdisplayoptions.ui:129
-#, kde-format
-msgid "Color:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptganttchartdisplayoptions.ui:153
-#, kde-format
-msgid "Additional text information"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
-#: ui/kptganttchartdisplayoptions.ui:159
-#, fuzzy, kde-format
-#| msgid "Task Progress"
-msgid "Task name"
-msgstr "कार्य प्रगति"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
-#: ui/kptganttchartdisplayoptions.ui:166
-#, fuzzy, kde-format
-#| msgid "No resource attributed"
-msgid "Resource names"
-msgstr "कोई संसाधन एट्रीब्यूटेड नहीं"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttchartdisplayoptions.ui:176
-#, kde-format
-msgid "Additional graphics information"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
-#: ui/kptganttchartdisplayoptions.ui:185
-#, fuzzy, kde-format
-#| msgid "Remove task dependency"
-msgid "Task dependencies"
-msgstr "कार्य डिपेंडेंसी मिटाएं"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
-#: ui/kptganttchartdisplayoptions.ui:192
-#, fuzzy, kde-format
-#| msgid "Modify task completion"
-msgid "Task completion"
-msgstr "कार्य पूर्णता परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
-#: ui/kptganttchartdisplayoptions.ui:199
-#, fuzzy, kde-format
-#| msgid "Constraint"
-msgid "Time constraints"
-msgstr "प्रतिबन्ध"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
-#: ui/kptganttchartdisplayoptions.ui:219
-#, fuzzy, kde-format
-#| msgid "Project Float :"
-msgid "Positive float"
-msgstr "परियोजना फ्लोट :"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
-#: ui/kptganttchartdisplayoptions.ui:226
-#, fuzzy, kde-format
-#| msgid "Negative Float"
-msgid "Negative float"
-msgstr "नेगेटिव फ्लोट"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
-#: ui/kptganttchartdisplayoptions.ui:233
-#, fuzzy, kde-format
-#| msgid "Critical Path"
-msgid "Critical path"
-msgstr "क्रिटिकल पथ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
-#: ui/kptganttchartdisplayoptions.ui:240
-#, fuzzy, kde-format
-#| msgid "Critical Path"
-msgid "Critical tasks"
-msgstr "क्रिटिकल पथ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
-#: ui/kptganttchartdisplayoptions.ui:247
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgid "Scheduling errors"
-msgstr "सारिणी सीमा"
-
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -6553,99 +6123,6 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptganttprintingoptions.ui:17
-#, fuzzy, kde-format
-#| msgid "&Leader:"
-msgctxt "@title:group"
-msgid "Headers"
-msgstr "नेता: (&L)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
-#: ui/kptganttprintingoptions.ui:23
-#, fuzzy, kde-format
-#| msgid "Modify Task Cost"
-msgctxt "@option:check"
-msgid "Print task names"
-msgstr "कार्य लागत परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
-#: ui/kptganttprintingoptions.ui:30
-#, fuzzy, kde-format
-#| msgid "Modify Task Cost"
-msgctxt "@option:check"
-msgid "Print time scale"
-msgstr "कार्य लागत परिवर्धित करें"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptganttprintingoptions.ui:40
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgctxt "@title:group"
-msgid "Scaling"
-msgstr "सारिणी सीमा"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
-#: ui/kptganttprintingoptions.ui:46
-#, kde-format
-msgctxt "@option:radio"
-msgid "Divide chart on multiple pages"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
-#: ui/kptganttprintingoptions.ui:53
-#, kde-format
-msgctxt "@option:radio"
-msgid "Fit chart to page height"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
-#: ui/kptganttprintingoptions.ui:60
-#, kde-format
-msgctxt "@option:radio"
-msgid "Fit chart to a single page"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
-#: ui/kptganttprintingoptions.ui:73
-#, fuzzy, kde-format
-#| msgid "Change..."
-msgctxt "@title:group"
-msgid "Range"
-msgstr "बदलें..."
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
-#: ui/kptganttprintingoptions.ui:88
-#, fuzzy, kde-format
-#| msgid "Can start"
-msgctxt "@option:radio"
-msgid "Chart start:"
-msgstr "प्रारंभ कर सकते है"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
-#: ui/kptganttprintingoptions.ui:105
-#, fuzzy, kde-format
-#| msgctxt "Interval start time"
-#| msgid "Start"
-msgctxt "@option:radio"
-msgid "Start:"
-msgstr "प्रारंभ"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
-#: ui/kptganttprintingoptions.ui:137
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgctxt "@option:radio"
-msgid "Chart end:"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
-#: ui/kptganttprintingoptions.ui:154
-#, kde-format
-msgctxt "@option:radio"
-msgid "End:"
 msgstr ""
 
 #: ui/kptganttview.cpp:213 ui/performance/PerformanceStatusView.cpp:391
@@ -6785,65 +6262,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
 msgstr "कार्य अंतराल संपादित करें"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
-#: ui/kptintervaleditbase.ui:21
-#, kde-format
-msgid "1"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptintervaleditbase.ui:31
-#, fuzzy, kde-format
-#| msgid "From:"
-msgctxt "Start time"
-msgid "From:"
-msgstr "सेः"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptintervaleditbase.ui:47
-#, kde-format
-msgid "Length"
-msgstr "लंबाई"
-
-#. i18n: ectx: property (text), widget (QPushButton, bAddInterval)
-#: ui/kptintervaleditbase.ui:70
-#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
-#, fuzzy, kde-format
-#| msgid "Add..."
-msgid "Add"
-msgstr "जोड़ें..."
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsClearBtn)
-#. i18n: ectx: property (text), widget (QPushButton, bClear)
-#: ui/kptintervaleditbase.ui:97 ui/kptmainprojectpanelbase.ui:305
-#, kde-format
-msgid "Clear"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
-#: ui/kptitemviewsettings.ui:28
-#, kde-format
-msgid "Stretch last section"
-msgstr "अंतिम क्रिया फैलाएं"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptitemviewsettings.ui:35
-#, kde-format
-msgid "Select columns to be shown:"
-msgstr "दिखाए जाने वाले स्तम्भ को चुनें:"
-
-#. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:56
-#, kde-format
-msgid "&Hidden columns:"
-msgstr "छुपे स्तम्भ: (&H)"
-
-#. i18n: ectx: property (selectedLabel), widget (KActionSelector, selector)
-#: ui/kptitemviewsettings.ui:59
-#, kde-format
-msgid "&Visible columns:"
-msgstr "दिखाई देने वाले स्तम्भ: (&V)"
-
 #: ui/kptitemviewsettup.cpp:148
 #, fuzzy, kde-format
 #| msgid "&New"
@@ -6968,219 +6386,6 @@ msgstr "रिसोर्स विन्यास"
 msgid "Task Modules Path"
 msgstr "कार्य प्रगति"
 
-#. i18n: ectx: property (text), widget (QLabel, wbslabel)
-#: ui/kptmainprojectpanelbase.ui:33 ui/kptsummarytaskgeneralpanelbase.ui:29
-#: ui/kpttaskgeneralpanelbase.ui:23
-#, kde-format
-msgid "WBS:"
-msgstr "डबल्यूबीएस:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptmainprojectpanelbase.ui:68 ui/kptmainprojectpanelbase.ui:93
-#, kde-format
-msgid "The project name."
-msgstr "परियोजना नाम."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptmainprojectpanelbase.ui:71
-#, fuzzy, kde-format
-#| msgid "Name:"
-msgid "&Name:"
-msgstr "नाम:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptmainprojectpanelbase.ui:100 ui/kptmainprojectpanelbase.ui:125
-#, kde-format
-msgid "The project leader."
-msgstr "परियोजना नेता."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kptmainprojectpanelbase.ui:103
-#, kde-format
-msgid "&Manager:"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:132
-#, kde-format
-msgid "Choose a project leader from your address book."
-msgstr "अपनी पता पुस्तिका से परियोजना नेता चुनें."
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#: ui/kptmainprojectpanelbase.ui:135
-#, kde-format
-msgid "&Choose..."
-msgstr "चुनें... (&C)"
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kptmainprojectpanelbase.ui:144
-#, kde-format
-msgid "Scheduling Range"
-msgstr "सारिणी सीमा"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptmainprojectpanelbase.ui:152
-#, kde-format
-msgid "Earliest start:"
-msgstr "अर्लीएस्ट प्रारंभ:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptmainprojectpanelbase.ui:172
-#, fuzzy, kde-format
-#| msgid "Latest finish:"
-msgid "Latest finish:"
-msgstr "लेटेस्ट समाप्ति:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
-#: ui/kptmainprojectpanelbase.ui:210
-#, fuzzy, kde-format
-#| msgid "Per Resource"
-msgid "&Use shared resources"
-msgstr "संसाधनों के अनुसार"
-
-#. i18n: ectx: property (text), widget (QLabel, resourcesLabel)
-#: ui/kptmainprojectpanelbase.ui:225
-#, fuzzy, kde-format
-#| msgid "Resources"
-msgid "Resources:"
-msgstr "संसाधन "
-
-#. i18n: ectx: property (text), item, widget (QComboBox, resourcesType)
-#: ui/kptmainprojectpanelbase.ui:233 ui/projectview/ProjectView.cpp:55
-#, fuzzy, kde-format
-#| msgid "Open"
-msgid "File"
-msgstr "खोलें"
-
-#. i18n: ectx: property (text), widget (QPushButton, resourcesBrowseBtn)
-#. i18n: ectx: property (text), widget (QPushButton, projectsBrowseBtn)
-#: ui/kptmainprojectpanelbase.ui:244 ui/kptmainprojectpanelbase.ui:274
-#, fuzzy, kde-format
-#| msgid "Choose..."
-msgid "Browse..."
-msgstr "चुनें..."
-
-#. i18n: ectx: property (text), widget (QLabel, projectsLabel)
-#: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Project"
-msgid "Projects:"
-msgstr "परियोजना"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, projectsType)
-#: ui/kptmainprojectpanelbase.ui:263
-#, fuzzy, kde-format
-#| msgid "Duration"
-msgid "Directory"
-msgstr "अवधि"
-
-#. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
-#: ui/kptmainprojectpanelbase.ui:287
-#, fuzzy, kde-format
-#| msgid "Resource Settings"
-msgid "Load resource assignments at startup"
-msgstr "रिसोर्स विन्यास"
-
-#. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
-#: ui/kptmainprojectpanelbase.ui:294
-#, fuzzy, kde-format
-#| msgid "Load"
-msgid "Load"
-msgstr "लोड"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: ui/kptmainprojectpanelbase.ui:357 ui/kptworkpackagemergedialog.cpp:241
-#: ui/kptworkpackagemergepanel.ui:192
-#, fuzzy, kde-format
-#| msgid "&Documents"
-msgid "Documents"
-msgstr "दस्तावेज़ (&D)"
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_workpackage)
-#: ui/kptmainprojectpanelbase.ui:371
-#, fuzzy, kde-format
-#| msgid "Work Package Control"
-msgid "Work Package"
-msgstr "कार्य पैकेज नियंत्रण"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
-#: ui/kptmainprojectpanelbase.ui:377
-#, kde-format
-msgid "Publish"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: ui/kptmainprojectpanelbase.ui:385
-#, kde-format
-msgid "Publish:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/kptmainprojectpanelbase.ui:400
-#, kde-format
-msgid "Retrieve"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_CheckForWorkPackages)
-#: ui/kptmainprojectpanelbase.ui:406
-#, fuzzy, kde-format
-#| msgid "Work Package Control"
-msgid "Check for work packages"
-msgstr "कार्य पैकेज नियंत्रण"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptmainprojectpanelbase.ui:415
-#, kde-format
-msgid "Retrieve:"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/kptmainprojectpanelbase.ui:430
-#, kde-format
-msgid "Archive"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_DeleteFile)
-#: ui/kptmainprojectpanelbase.ui:436
-#, kde-format
-msgid "Delete file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_ArchiveFile)
-#: ui/kptmainprojectpanelbase.ui:443
-#, kde-format
-msgid "Archive file after it has been retrieved"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptmainprojectpanelbase.ui:452
-#, kde-format
-msgid "Archive:"
-msgstr ""
-
-#. i18n: ectx: attribute (title), widget (QWidget, ui_taskModules)
-#: ui/kptmainprojectpanelbase.ui:481
-#, fuzzy, kde-format
-#| msgid "Task Progress"
-msgid "Task Modules"
-msgstr "कार्य प्रगति"
-
-#. i18n: ectx: property (text), widget (QToolButton, ui_insertModule)
-#: ui/kptmainprojectpanelbase.ui:526
-#, fuzzy, kde-format
-#| msgid "Available tasks"
-msgid "Insert"
-msgstr "उपलब्ध कार्य"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_useLocalModules)
-#: ui/kptmainprojectpanelbase.ui:550
-#, kde-format
-msgid "Use local task modules"
-msgstr ""
-
 #: ui/kptmilestoneprogressdialog.cpp:39
 #, kde-format
 msgid "Milestone Progress"
@@ -7200,95 +6405,10 @@ msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
 msgstr "कार्य डिपेंडेंसी मिटाएं"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, taskList)
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptperteditor.ui:20 ui/kptresourceassignmentview.ui:33
-#: ui/reports/reportdata.cpp:383
-#, kde-format
-msgid "Tasks"
-msgstr "कार्य"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, available)
-#: ui/kptperteditor.ui:29
-#, fuzzy, kde-format
-#| msgid "Available tasks"
-msgid "Available tasks"
-msgstr "उपलब्ध कार्य"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, addBtn)
-#: ui/kptperteditor.ui:64
-#, kde-format
-msgid "Add required task"
-msgstr "वांछित कार्य जोड़ें"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
-#: ui/kptperteditor.ui:80
-#, kde-format
-msgid "Remove required task"
-msgstr "वांछित कार्य मिटाएं"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptpertresult.ui:90
-#, kde-format
-msgid "Total Float:"
-msgstr "कुल फ्लोट:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_header)
-#: ui/kptprintingheaderfooter.ui:16
-#, fuzzy, kde-format
-#| msgid "&Leader:"
-msgid "Header"
-msgstr "नेता: (&L)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
-#: ui/kptprintingheaderfooter.ui:25 ui/kptprintingheaderfooter.ui:65
-#, fuzzy, kde-format
-#| msgid "The project name."
-msgid "Project name"
-msgstr "परियोजना नाम."
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerPage)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerPage)
-#: ui/kptprintingheaderfooter.ui:32 ui/kptprintingheaderfooter.ui:72
-#, fuzzy, kde-format
-#| msgid "&Leader:"
-msgid "Page number"
-msgstr "नेता: (&L)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_headerManager)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_footerManager)
-#: ui/kptprintingheaderfooter.ui:39 ui/kptprintingheaderfooter.ui:79
-#, fuzzy, kde-format
-#| msgid "Project Manager: %1"
-msgid "Project manager"
-msgstr "परियोजना प्रबंधक: %1"
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_footer)
-#: ui/kptprintingheaderfooter.ui:56
-#, fuzzy, kde-format
-#| msgid "From"
-msgid "Footer"
-msgstr "से"
-
 #: ui/kptrecalculatedialog.cpp:47
 #, fuzzy, kde-format
 #| msgid "Calculate Schedule..."
 msgid "Re-calculate Schedule"
-msgstr "समय-सारिणी गणना करें..."
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
-#: ui/kptrecalculatedialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Calculate Schedule..."
-msgid "Re-calculate from current date/time"
-msgstr "समय-सारिणी गणना करें..."
-
-#. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
-#: ui/kptrecalculatedialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Calculate Schedule..."
-msgid "Re-calculate from:"
 msgstr "समय-सारिणी गणना करें..."
 
 #: ui/kptrelationdialog.cpp:37
@@ -7346,18 +6466,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
 msgstr "कार्य डिपेंडेंसी मिटाएं"
 
-#. i18n: ectx: property (text), widget (QCheckBox, ui_internalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:16
-#, kde-format
-msgid "Show internal appointments"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_externalAppointments)
-#: ui/kptresourceappointmentsdisplayoptions.ui:23
-#, kde-format
-msgid "Show external appointments"
-msgstr ""
-
 #: ui/kptresourceappointmentsview.cpp:92
 #, fuzzy, kde-format
 #| msgid "Resource Settings"
@@ -7382,13 +6490,6 @@ msgstr "कोई कार्य एट्रीब्यूटेड नही
 #, kde-format
 msgid "No resource attributed"
 msgstr "कोई संसाधन एट्रीब्यूटेड नहीं"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, m_taskList)
-#: ui/kptresourceassignmentview.ui:38
-#, fuzzy, kde-format
-#| msgid "Advance"
-msgid "Advance"
-msgstr "अग्रिम"
 
 #: ui/kptresourcedialog.cpp:65
 #, fuzzy, kde-kuit-format
@@ -7532,13 +6633,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
 msgstr "सारिणी में समाप्ति समय"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptscheduleeditor.ui:35
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgid "Scheduling range:"
-msgstr "सारिणी सीमा"
-
 #: ui/kptstandardworktimedialog.cpp:86
 #, fuzzy, kde-format
 #| msgid "Modify Calendar"
@@ -7581,106 +6675,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify task"
 msgstr "कार्य परिवर्धित करें"
 
-#. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
-#, fuzzy, kde-format
-#| msgid "Work Breakdown Structure"
-msgid "Work Breakdown Structure"
-msgstr "कार्य ब्रेकडाउन स्ट्रक्चर"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:58
-#: ui/kptsummarytaskgeneralpanelbase.ui:86 ui/kpttaskdescriptionpanelbase.ui:33
-#: ui/kpttaskdescriptionpanelbase.ui:49 ui/kpttaskgeneralpanelbase.ui:52
-#: ui/kpttaskgeneralpanelbase.ui:71
-#, fuzzy, kde-format
-#| msgid "The name of the Task."
-msgid "The name of the Task."
-msgstr "कार्य का नाम."
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#. i18n: ectx: property (whatsThis), widget (KLineEdit, leaderfield)
-#: ui/kptsummarytaskgeneralpanelbase.ui:95
-#: ui/kptsummarytaskgeneralpanelbase.ui:133 ui/TasksGeneralPanel.ui:22
-#: ui/TasksGeneralPanel.ui:57
-#, kde-format
-msgid ""
-"The person responsible for this task.\n"
-"\n"
-"This is not limited to persons available in a resource group but can be "
-"anyone. You can even directly access your address book with the Choose "
-"button."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kptsummarytaskgeneralpanelbase.ui:98
-#, fuzzy, kde-format
-#| msgid "Responsible:"
-msgid "Responsible:"
-msgstr "जवाबदार:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
-#: ui/kptsummarytaskgeneralpanelbase.ui:140 ui/kpttaskgeneralpanelbase.ui:115
-#: ui/TasksGeneralPanel.ui:64
-#, kde-format
-msgid "Insert a person from your address book"
-msgstr "अपनी पता पुस्तिका से एक व्यक्ति प्रविष्ट करें"
-
-#. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
-#. i18n: ectx: property (text), widget (QPushButton, chooseBtn)
-#: ui/kptsummarytaskgeneralpanelbase.ui:143 ui/kpttaskgeneralpanelbase.ui:121
-#: ui/resourcedialogbase.ui:70 ui/TasksGeneralPanel.ui:70
-#, kde-format
-msgid "Choose..."
-msgstr "चुनें..."
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptsummarytaskgeneralpanelbase.ui:155 ui/kpttaskgeneralpanelbase.ui:133
-#: ui/TasksGeneralPanel.ui:82
-#, fuzzy, kde-format
-#| msgid "Periodicity:%1"
-msgid "Priority:"
-msgstr "पीरियाडिसिटी:%1"
-
 #: ui/kpttaskcostpanel.cpp:101
 #, fuzzy
 #| msgid "Modify Task Cost"
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
 msgstr "कार्य लागत परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
-#: ui/kpttaskcostpanelbase.ui:27 ui/kpttaskcostpanelbase.ui:97
-#: ui/kpttaskcostpanelbase.ui:167 ui/resourcedialogbase.ui:492
-#, kde-format
-msgid "Account:"
-msgstr "खाताः"
-
-#. i18n: ectx: property (title), widget (QGroupBox, startupGroup)
-#: ui/kpttaskcostpanelbase.ui:72
-#, fuzzy, kde-format
-#| msgctxt "Interval start time"
-#| msgid "Start"
-msgid "Startup"
-msgstr "प्रारंभ"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/kpttaskcostpanelbase.ui:78 ui/kpttaskcostpanelbase.ui:148
-#, kde-format
-msgid "Cost:"
-msgstr "लागत:"
-
-#. i18n: ectx: property (title), widget (QGroupBox, shutdownGroup)
-#: ui/kpttaskcostpanelbase.ui:142
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shutdown"
-msgstr "बन्दकरें"
 
 #: ui/kpttaskdescriptiondialog.cpp:53
 #, fuzzy
@@ -7909,8 +6909,7 @@ msgid ""
 "</link></para>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, ui_publish)
-#: ui/kpttaskeditor.cpp:1768 ui/kptworkpackagesendpanel.ui:45
+#: ui/kpttaskeditor.cpp:1768
 #, kde-format
 msgid "Publish..."
 msgstr ""
@@ -7934,150 +6933,6 @@ msgstr "कार्य पैकेज नियंत्रण"
 msgctxt "(qtundo-format)"
 msgid "Modify Task"
 msgstr "कार्य परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QLabel, namelabel)
-#: ui/kpttaskgeneralpanelbase.ui:55
-#, kde-format
-msgid "N&ame:"
-msgstr "नाम: (&a)"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:79
-#, fuzzy, kde-format
-#| msgid "This is the unique identifier for this task."
-msgid ""
-"The person responsible for this task.\n"
-"        "
-msgstr "यह इस कार्य के लिए विशिष्ट पहचान है"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/kpttaskgeneralpanelbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Responsible:"
-msgid "Responsi&ble:"
-msgstr "जवाबदार:"
-
-#. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
-#: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
-#, kde-format
-msgid "Insert a person from your address book."
-msgstr "अपनी पता पुस्तिका से एक व्यक्ति प्रविष्ट करें"
-
-#. i18n: ectx: property (whatsThis), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:164 ui/TasksGeneralPanel.ui:116
-#, kde-format
-msgid ""
-"Scheduling Configuration. These settings affect the actual scheduling of the "
-"task.\n"
-"\n"
-"The estimation can be either effort based or duration based. If it is effort "
-"based, the final duration will depend on the resources assigned to the task. "
-"For duration based estimation, the assigned resources do not affect the "
-"fixed duration of the task, but only the costs."
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
-#: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
-#, kde-format
-msgid "Timing"
-msgstr "टाइमिंग"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/kpttaskgeneralpanelbase.ui:194
-#, fuzzy, kde-format
-#| msgid "Schedule:"
-msgid "&Schedule:"
-msgstr "समयसारिणी:"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
-#, fuzzy, kde-format
-#| msgid "As Soon as Possible"
-msgid "As Soon as Possible"
-msgstr "जितनी जल्दी संभव हो"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:222 ui/TasksGeneralPanel.ui:174
-#, fuzzy, kde-format
-#| msgid "As Late as Possible"
-msgid "As Late as Possible"
-msgstr "जितनी देरी से संभव हो"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:237 ui/TasksGeneralPanel.ui:189
-#, fuzzy, kde-format
-#| msgid "Start Not Earlier Than"
-msgid "Start Not Earlier Than"
-msgstr "से पहले प्रारंब नहीं हो"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
-#: ui/kpttaskgeneralpanelbase.ui:242 ui/TasksGeneralPanel.ui:194
-#, fuzzy, kde-format
-#| msgid "Finish Not Later Than"
-msgid "Finish Not Later Than"
-msgstr "के बाद पूर्ण नहीं हो"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/kpttaskgeneralpanelbase.ui:300
-#, fuzzy, kde-format
-#| msgid "Estimate:"
-msgid "Esti&mate:"
-msgstr "एस्टीमेट:"
-
-#. i18n: ectx: property (toolTip), widget (QLabel, textLabel3_2_3)
-#. i18n: ectx: property (toolTip), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:339 ui/kpttaskgeneralpanelbase.ui:373
-#: ui/TasksGeneralPanel.ui:291 ui/TasksGeneralPanel.ui:325
-#, kde-format
-msgid ""
-"Risk controls the PERT distribution used when calculating the actual "
-"estimate for this task."
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:345 ui/TasksGeneralPanel.ui:297
-#, kde-format
-msgid ""
-"<p>Risk controls the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/kpttaskgeneralpanelbase.ui:348
-#, fuzzy, kde-format
-#| msgid "Risk:"
-msgid "Risk:"
-msgstr "ख़तरा:"
-
-#. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
-#: ui/kpttaskgeneralpanelbase.ui:379 ui/TasksGeneralPanel.ui:331
-#, kde-format
-msgid ""
-"<p>Risk controles the PERT distribution used when calculating the actual "
-"estimate for the task.\n"
-"<b>None</b> means the Expected estimate is used as is.\n"
-"<b>Low risk</b> means that a normal distribution is used.\n"
-"<b>High risk</b> means that the estimate will be slightly pessimistic "
-"compared to Low risk.</p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/kpttaskgeneralpanelbase.ui:404
-#, fuzzy, kde-format
-#| msgid "Optimistic:"
-msgid "Optimisti&c:"
-msgstr "आशावादी:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/kpttaskgeneralpanelbase.ui:433
-#, fuzzy, kde-format
-#| msgid "Pessimistic:"
-msgid "&Pessimistic:"
-msgstr "निष्क्रियवादी:"
 
 #: ui/kpttaskprogressdialog.cpp:38
 #, kde-format
@@ -8142,78 +6997,6 @@ msgctxt "Week number"
 msgid "Week %1"
 msgstr "सप्ताह %1"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kpttaskprogresspanelbase.ui:20 ui/kptworkpackagemergepanel.ui:63
-#: ui/RelationEditorDialog.ui:58
-#, fuzzy, kde-format
-#| msgid "Task"
-msgid "Task:"
-msgstr "कार्य"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: ui/kpttaskprogresspanelbase.ui:45
-#, kde-format
-msgid "Started:"
-msgstr "प्रारंभ:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kpttaskprogresspanelbase.ui:62
-#, kde-format
-msgid "Finished:"
-msgstr "पूर्ण:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskprogresspanelbase.ui:117
-#, kde-format
-msgid "Edit mode:"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:125
-#, fuzzy, kde-format
-#| msgid "Per Resource"
-msgid "Per resource"
-msgstr "संसाधनों के अनुसार"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, editmode)
-#: ui/kpttaskprogresspanelbase.ui:130
-#, fuzzy, kde-format
-#| msgid "Available tasks"
-msgid "Per task"
-msgstr "उपलब्ध कार्य"
-
-#. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:177
-#, kde-format
-msgid "Prev"
-msgstr "पिछला"
-
-#. i18n: ectx: property (text), widget (QPushButton, nextWeekBtn)
-#: ui/kpttaskprogresspanelbase.ui:191 ui/kptworkpackagemergedialog.cpp:103
-#, kde-format
-msgid "Next"
-msgstr "अगला"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kpttaskprogresspanelbase.ui:230
-#, fuzzy, kde-format
-#| msgid "Add Resource..."
-msgid "Add resource:"
-msgstr "संसाधन जोड़ें..."
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:278
-#, kde-format
-msgid "Add Entry"
-msgstr "एन्ट्री जोड़ें"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: ui/kpttaskprogresspanelbase.ui:289
-#, kde-format
-msgid "Remove Entry"
-msgstr "एन्ट्री हटाएँ"
-
 #: ui/kpttaskstatusview.cpp:201
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -8235,33 +7018,6 @@ msgstr ""
 msgid "General Settings"
 msgstr "दृश्य विन्यास"
 
-#. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
-#: ui/kpttaskstatusviewsettingspanel.ui:16
-#, fuzzy, kde-format
-#| msgid "WBS Definition"
-msgid "Period Definition"
-msgstr "डबल्यूबीएस परिभाषा"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kpttaskstatusviewsettingspanel.ui:25
-#, kde-format
-msgid "Period length (days):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
-#: ui/kpttaskstatusviewsettingspanel.ui:48
-#, fuzzy, kde-format
-#| msgid "Cut-off date:"
-msgid "Use current date"
-msgstr "कटऑफ़ तिथि:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
-#: ui/kpttaskstatusviewsettingspanel.ui:68
-#, fuzzy, kde-format
-#| msgid "Week"
-msgid "Use weekday:"
-msgstr "सप्ताह"
-
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
 msgid "Resource"
@@ -8276,6 +7032,12 @@ msgstr "इस सप्ताह"
 #, kde-format
 msgid "Total effort this week"
 msgstr "इस सप्ताह कुल प्रयास"
+
+#: ui/kptusedefforteditor.cpp:407
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:202
+#, kde-format
+msgid "Date"
+msgstr "तारीख़"
 
 #: ui/kptusedefforteditor.cpp:409
 #, no-c-format, kde-format
@@ -8432,83 +7194,6 @@ msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
 msgstr "डबल्यूबीएस परिभाषा परिवर्धित करें"
 
-#. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
-#: ui/kptwbsdefinitionpanelbase.ui:21
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define WBS code for the project"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptwbsdefinitionpanelbase.ui:33
-#, fuzzy, kde-format
-#| msgid "Project Settings"
-msgid "Project Code Definition"
-msgstr "परियोजना विन्यास"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/kptwbsdefinitionpanelbase.ui:42 ui/kptwbsdefinitionpanelbase.ui:107
-#, kde-format
-msgid "Code:"
-msgstr "कोड:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_3)
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_3_2)
-#: ui/kptwbsdefinitionpanelbase.ui:58 ui/kptwbsdefinitionpanelbase.ui:127
-#, kde-format
-msgid "Separator:"
-msgstr "विभाजकः"
-
-#. i18n: ectx: property (toolTip), widget (QFrame, frame)
-#: ui/kptwbsdefinitionpanelbase.ui:86
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define default WBS code"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/kptwbsdefinitionpanelbase.ui:98
-#, fuzzy, kde-format
-#| msgid "WBS Definition"
-msgid "Default Definition"
-msgstr "डबल्यूबीएस परिभाषा"
-
-#. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:148
-#, kde-format
-msgctxt "@info:tooltip Work Breakdown Structure code"
-msgid "Define separate WBS codes for individual levels"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
-#: ui/kptwbsdefinitionpanelbase.ui:151
-#, fuzzy, kde-format
-#| msgid "Use Levels"
-msgid "Use Levels Definition"
-msgstr "स्तर प्रयोग करें"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:167
-#, fuzzy, kde-format
-#| msgid "Code:"
-msgid "Code"
-msgstr "कोड:"
-
-#. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
-#: ui/kptwbsdefinitionpanelbase.ui:172
-#, fuzzy, kde-format
-#| msgid "Separator:"
-msgid "Separator"
-msgstr "विभाजकः"
-
-#. i18n: ectx: property (text), widget (QPushButton, addBtn)
-#: ui/kptwbsdefinitionpanelbase.ui:187
-#, fuzzy, kde-format
-#| msgid "Add Level"
-msgid "Add Level"
-msgstr "स्तर जोड़ें"
-
 #: ui/kptworkpackagemergedialog.cpp:66
 #, fuzzy, kde-kuit-format
 #| msgid "Date"
@@ -8574,6 +7259,11 @@ msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
 msgstr ""
 
+#: ui/kptworkpackagemergedialog.cpp:103
+#, kde-format
+msgid "Next"
+msgstr "अगला"
+
 #: ui/kptworkpackagemergedialog.cpp:105
 #, kde-kuit-format
 msgctxt "@info:tooltip"
@@ -8637,47 +7327,17 @@ msgstr ""
 msgid "No documents"
 msgstr "दस्तावेज़ परिवर्धित करें"
 
+#: ui/kptworkpackagemergedialog.cpp:241
+#, fuzzy, kde-format
+#| msgid "&Documents"
+msgid "Documents"
+msgstr "दस्तावेज़ (&D)"
+
 #: ui/kptworkpackagemergedialog.cpp:353
 #, kde-format
 msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/kptworkpackagemergepanel.ui:70
-#, fuzzy, kde-format
-#| msgid "General"
-msgid "Generated:"
-msgstr "सामान्य"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/kptworkpackagemergepanel.ui:77
-#, fuzzy, kde-format
-#| msgid "From:"
-msgid "From:"
-msgstr "सेः"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_packageTime)
-#: ui/kptworkpackagemergepanel.ui:96
-#, fuzzy, kde-format
-#| msgid "Started"
-msgid "<package time>"
-msgstr "प्रारंभ"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_updateDocuments)
-#: ui/kptworkpackagemergepanel.ui:139 ui/kptworkpackagemergepanel.ui:162
-#: ui/kptworkpackagemergepanel.ui:198
-#, kde-format
-msgid "Update"
-msgstr "अद्यतन"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/kptworkpackagemergepanel.ui:245
-#, kde-format
-msgid "No more data. Press Close to finish."
 msgstr ""
 
 #: ui/kptworkpackagesenddialog.cpp:34
@@ -8694,8 +7354,7 @@ msgctxt "@title"
 msgid "Resource"
 msgstr "साधन"
 
-#. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
-#: ui/locale/localemon.cpp:52 ui/locale/localemon.ui:19
+#: ui/locale/localemon.cpp:52
 #, fuzzy, kde-format
 #| msgid "Project Settings"
 msgid "Currency symbol:"
@@ -8709,12 +7368,6 @@ msgstr ""
 #: ui/locale/localemon.cpp:111
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_labMonFraDig)
-#: ui/locale/localemon.ui:32
-#, kde-format
-msgid "Fractional digits:"
 msgstr ""
 
 #: ui/performance/PerformanceStatusBase.cpp:535
@@ -8750,108 +7403,6 @@ msgstr ""
 msgid "Chart Settings"
 msgstr "कार्य विन्यास"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgid "Chart type"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_linechart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:23
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgid "Line chart"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_barchart)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
-#, fuzzy, kde-format
-#| msgid "Clear"
-msgid "Bar chart"
-msgstr "साफ करें"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_table)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
-#, kde-format
-msgid "Table"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
-#, kde-format
-msgid "Base values"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
-#, kde-format
-msgid "Indices"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:91
-#: ui/resourcedialogbase.ui:414
-#, kde-format
-msgid "Cost"
-msgstr "खर्च"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwsEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:106
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
-#, fuzzy, kde-format
-#| msgid "Actual Effort"
-msgid "Show BCWS plot"
-msgstr "वास्तविक प्रयास"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
-#, fuzzy, kde-format
-#| msgid "Project"
-msgid "Show BCWP plot"
-msgstr "परियोजना"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
-#. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
-#, fuzzy, kde-format
-#| msgid "Project"
-msgid "Show ACWP plot"
-msgstr "परियोजना"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
-#, fuzzy, kde-format
-#| msgid "Actual Effort"
-msgid "SPI Cost"
-msgstr "वास्तविक प्रयास"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
-#, fuzzy, kde-format
-#| msgid "Effort"
-msgid "SPI Effort"
-msgstr "प्रयास"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
-#, fuzzy, kde-format
-#| msgid "Effort"
-msgid "CPI Effort"
-msgstr "प्रयास"
-
-#. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
-#: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
-#, fuzzy, kde-format
-#| msgid "Actual Effort"
-msgid "CPI Cost"
-msgstr "वास्तविक प्रयास"
-
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
@@ -8866,6 +7417,12 @@ msgstr ""
 #, kde-format
 msgid "ID"
 msgstr ""
+
+#: ui/projectview/ProjectView.cpp:55
+#, fuzzy, kde-format
+#| msgid "Open"
+msgid "File"
+msgstr "खोलें"
 
 #: ui/RelationEditorDialog.cpp:244 ui/RelationEditorDialog.cpp:323
 #, fuzzy, kde-format
@@ -8911,33 +7468,10 @@ msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "कार्य डिपेंडेंसी मिटाएं"
 
-#. i18n: ectx: property (text), widget (QToolButton, addBtn)
-#: ui/RelationEditorDialog.ui:131
-#, fuzzy, kde-format
-#| msgid "Available tasks"
-msgctxt "Insert task dependency"
-msgid "Insert"
-msgstr "उपलब्ध कार्य"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: ectx: property (title), widget (QGroupBox, ui_fromgroup)
-#: ui/relationpanel.ui:41 ui/resourcedialogbase.ui:271
+#: ui/reports/reportdata.cpp:383
 #, kde-format
-msgid "From"
-msgstr "से"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/relationpanel.ui:63
-#, kde-format
-msgid "To"
-msgstr "को"
-
-#. i18n: ectx: property (title), widget (QGroupBox, relationType)
-#: ui/relationpanel.ui:87
-#, fuzzy, kde-format
-#| msgid "Relationship Type"
-msgid "Dependency Type"
-msgstr "संबंध क़िस्म"
+msgid "Tasks"
+msgstr "कार्य"
 
 #: ui/reports/reportdata.cpp:432
 #, fuzzy, kde-format
@@ -8966,201 +7500,6 @@ msgstr "सारिणी में प्रारंभ समय"
 #: ui/reports/reportdata.cpp:894
 #, kde-format
 msgid "Cost Breakdown"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:51
-#, fuzzy, kde-format
-#| msgid "Lag:"
-msgid "Page"
-msgstr "लेग:"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_first)
-#: ui/reports/reportnavigator.ui:42
-#, kde-format
-msgid "Go to first page"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_prev)
-#: ui/reports/reportnavigator.ui:64
-#, kde-format
-msgid "Go to previous page"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QSpinBox, ui_selector)
-#: ui/reports/reportnavigator.ui:77
-#, fuzzy, kde-format
-#| msgid "No resource attributed"
-msgid "Show page"
-msgstr "कोई संसाधन एट्रीब्यूटेड नहीं"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: ui/reports/reportnavigator.ui:99
-#, kde-format
-msgid "of"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_next)
-#: ui/reports/reportnavigator.ui:149
-#, kde-format
-msgid "Go to next page"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, ui_last)
-#: ui/reports/reportnavigator.ui:171
-#, kde-format
-msgid "Go to last page"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:28
-#, fuzzy, kde-format
-#| msgid "Report Template"
-msgid "Enable report header"
-msgstr "रिपोर्ट टैम्प्लेट"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportheader)
-#: ui/reports/reportsectionswidget.ui:31
-#, fuzzy, kde-format
-#| msgid "Report Template"
-msgid "Report Header"
-msgstr "रिपोर्ट टैम्प्लेट"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:38
-#, fuzzy, kde-format
-#| msgid "Report Template"
-msgid "Enable report footer"
-msgstr "रिपोर्ट टैम्प्लेट"
-
-#. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
-#: ui/reports/reportsectionswidget.ui:41
-#, fuzzy, kde-format
-#| msgid "Report Template"
-msgid "Report Footer"
-msgstr "रिपोर्ट टैम्प्लेट"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: ui/reports/reportsectionswidget.ui:50
-#, fuzzy, kde-format
-#| msgid "&Leader:"
-msgid "Page Header"
-msgstr "नेता: (&L)"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
-#: ui/reports/reportsectionswidget.ui:62
-#, kde-format
-msgid "Enable header on first page"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:65 ui/reports/reportsectionswidget.ui:130
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgid "First page"
-msgstr "सारिणी सीमा"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerLastpage)
-#: ui/reports/reportsectionswidget.ui:72
-#, kde-format
-msgid "Enable header on last page"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
-#. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:75 ui/reports/reportsectionswidget.ui:160
-#, kde-format
-msgid "Last page"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerOddpages)
-#: ui/reports/reportsectionswidget.ui:82
-#, kde-format
-msgid "Enable header on odd pages"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
-#, kde-format
-msgid "Odd pages"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
-#: ui/reports/reportsectionswidget.ui:92
-#, kde-format
-msgid "Enable header on even pages"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:95 ui/reports/reportsectionswidget.ui:150
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgid "Even pages"
-msgstr "सारिणी सीमा"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, headerAllpages)
-#: ui/reports/reportsectionswidget.ui:102
-#, kde-format
-msgid "Enable header on all pages"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
-#. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:105
-#: ui/reports/reportsectionswidget.ui:170
-#, kde-format
-msgid "All pages"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: ui/reports/reportsectionswidget.ui:115
-#, fuzzy, kde-format
-#| msgid "From"
-msgid "Page Footer"
-msgstr "से"
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
-#: ui/reports/reportsectionswidget.ui:127
-#, kde-format
-msgid "Enable footer on first page"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
-#: ui/reports/reportsectionswidget.ui:137
-#, kde-format
-msgid "Enable footer on odd pages"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
-#: ui/reports/reportsectionswidget.ui:147
-#, kde-format
-msgid "Enable footer on even pages"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
-#: ui/reports/reportsectionswidget.ui:157
-#, kde-format
-msgid "Enable footer on last page"
-msgstr ""
-
-#. i18n: @info:tooltip
-#. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
-#: ui/reports/reportsectionswidget.ui:167
-#, kde-format
-msgid "Enable footer on all pages"
 msgstr ""
 
 #: ui/reports/reportview.cpp:373
@@ -9379,6 +7718,12 @@ msgstr ""
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:225
 #, fuzzy, kde-format
+#| msgid "Add..."
+msgid "Add"
+msgstr "जोड़ें..."
+
+#: ui/reportsgenerator/ReportsGeneratorView.cpp:225
+#, fuzzy, kde-format
 #| msgid "Report Template"
 msgid "Report File"
 msgstr "रिपोर्ट टैम्प्लेट"
@@ -9517,146 +7862,12 @@ msgstr "दस्तावेज़ यूआरएल: %1 पहले से �
 msgid "Allocate"
 msgstr "सम्बन्ध जोड़ें"
 
-#. i18n: ectx: property (text), widget (QLabel, groupLabel)
-#: ui/resourcedialogbase.ui:23
-#, fuzzy, kde-format
-#| msgid "Group"
-msgid "Group:"
-msgstr "समूह"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
-#: ui/resourcedialogbase.ui:67
-#, fuzzy, kde-format
-#| msgid "Choose resource from addressbook"
-msgid "Choose resource from address book"
-msgstr "पतापुस्तिका से संसाधन चुनें"
-
-#. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
-#: ui/resourcedialogbase.ui:79 widgets/koDocumentInfoAuthorWidget.ui:37
-#, fuzzy, kde-format
-#| msgid "Initials:"
-msgid "Initials:"
-msgstr "प्रथमाक्षर:"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
-#. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
-#: ui/resourcedialogbase.ui:119 widgets/koDocumentInfoAuthorWidget.ui:104
-#, fuzzy, kde-format
-#| msgid "Email"
-msgid "Email:"
-msgstr "ईमेल"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel7)
-#: ui/resourcedialogbase.ui:161
-#, fuzzy, kde-format
-#| msgid "Resource"
-msgid "Resource type:"
-msgstr "साधन"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, type)
-#: ui/resourcedialogbase.ui:185
-#, kde-format
-msgid "Team"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, ui_unitslabel)
-#: ui/resourcedialogbase.ui:220
-#, fuzzy, kde-format
-#| msgid "Available:"
-msgid "Available:"
-msgstr "उपलब्ध:"
-
-#. i18n: ectx: property (text), widget (QLabel, ui_calendarlabel)
-#: ui/resourcedialogbase.ui:255
-#, fuzzy, kde-format
-#| msgid "Add Calendar"
-msgid "Calendar:"
-msgstr "कैलेण्डर जोड़ें"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbfromunlimited)
-#. i18n: ectx: property (text), widget (QRadioButton, ui_rbuntilunlimited)
-#: ui/resourcedialogbase.ui:283 ui/resourcedialogbase.ui:332
-#, kde-format
-msgid "Unlimited"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, ui_untilgroup)
-#: ui/resourcedialogbase.ui:317
-#, fuzzy, kde-format
-#| msgid "Initials:"
-msgid "Until"
-msgstr "प्रथमाक्षर:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, useRequired)
-#: ui/resourcedialogbase.ui:389
-#, fuzzy, kde-format
-#| msgid "Per Resource"
-msgid "Required resources:"
-msgstr "संसाधनों के अनुसार"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/resourcedialogbase.ui:420
-#, kde-format
-msgid "Hourly rate:"
-msgstr "प्रतिघंटा दर:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
-#: ui/resourcedialogbase.ui:443
-#, fuzzy, kde-format
-#| msgid "Overtime rate:"
-msgid "Overtime rate:"
-msgstr "ओवरटाइम दर:"
-
 #: ui/RichTextWidget.cpp:39 ui/RichTextWidget.cpp:52
 #, fuzzy, kde-kuit-format
 #| msgid "Open"
 msgctxt "@action:intoolbar"
 msgid "Open Link"
 msgstr "खोलें"
-
-#. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
-#: ui/standardworktimedialogbase.ui:16
-#, kde-format
-msgid ""
-"These values are used if your estimate is not in hours.\n"
-"Let us say Hours per day is 8. If you estimate that a task needs 3 days "
-"effort to complete, this is converted to 24 hours when the task is "
-"scheduled. The actual time it will take to complete is of course dependent "
-"on the availability of the person (or persons) that is assigned to the task."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: ui/standardworktimedialogbase.ui:25
-#, kde-format
-msgid "Hours per year:"
-msgstr "घंटे प्रति वर्ष:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2)
-#: ui/standardworktimedialogbase.ui:54
-#, kde-format
-msgid "Hours per month:"
-msgstr "घंटे प्रति माह:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabe3)
-#: ui/standardworktimedialogbase.ui:86
-#, kde-format
-msgid "Hours per week:"
-msgstr "घंटे प्रति सप्ताह:"
-
-#. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:115
-#, kde-format
-msgid ""
-"These values are used when you estimate the effort needed to complete a task."
-msgstr ""
-"जब आप किसी कार्य के लिए वांछित प्रयास का एस्टीमेट बनाते हैं तब ये मूल्य प्रयोग में आते हैं."
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel4)
-#: ui/standardworktimedialogbase.ui:118
-#, kde-format
-msgid "Hours per day:"
-msgstr "घंटे प्रति दिन:"
 
 #: ui/TasksEditDialog.cpp:46
 #, fuzzy, kde-format
@@ -9677,47 +7888,6 @@ msgstr "कार्य परिवर्धित करें"
 msgctxt "(qtundo-format)"
 msgid "Modify Tasks"
 msgstr "कार्य परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QLabel, leaderlabel)
-#: ui/TasksGeneralPanel.ui:25
-#, fuzzy, kde-format
-#| msgid "Responsible:"
-msgid "Responsib&le:"
-msgstr "जवाबदार:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3)
-#: ui/TasksGeneralPanel.ui:146
-#, fuzzy, kde-format
-#| msgid "Schedule:"
-msgid "Sched&ule:"
-msgstr "समयसारिणी:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
-#: ui/TasksGeneralPanel.ui:252
-#, fuzzy, kde-format
-#| msgid "Estimate:"
-msgid "Es&timate:"
-msgstr "एस्टीमेट:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
-#: ui/TasksGeneralPanel.ui:300
-#, kde-format
-msgid "Ris&k:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/TasksGeneralPanel.ui:356
-#, fuzzy, kde-format
-#| msgid "Optimistic:"
-msgid "Optimistic:"
-msgstr "आशावादी:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: ui/TasksGeneralPanel.ui:385
-#, fuzzy, kde-format
-#| msgid "Pessimistic:"
-msgid "Pessimistic:"
-msgstr "निष्क्रियवादी:"
 
 #: widgets/KoDialog.cpp:265
 #, kde-format
@@ -9772,169 +7942,6 @@ msgctxt "@info:tooltip"
 msgid "Lock Docker"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
-#: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:255
-#: widgets/KoDocumentInfoDlg.cpp:351
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "&Encrypt"
-msgstr "वर्णनः"
-
-#. i18n: ectx: property (text), widget (QLabel, lblKeywordsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:64
-#, kde-format
-msgid "Keywords:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblSubjectDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:111
-#, fuzzy, kde-format
-#| msgid "Project"
-msgid "Subject:"
-msgstr "परियोजना"
-
-#. i18n: ectx: property (text), widget (QLabel, lblLastPrintedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:124
-#, kde-format
-msgid "Last printed:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblTypeDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:141
-#, fuzzy, kde-format
-#| msgid "Type"
-msgid "Type:"
-msgstr "क़िस्म"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEditingDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:158
-#, kde-format
-msgid "Total editing time:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblEncryptedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:178
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "Encryption:"
-msgstr "वर्णनः"
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:188
-#, kde-format
-msgctxt "Document title"
-msgid "Title:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblRevisionDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:201
-#, kde-format
-msgid "Revision number:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblModifiedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:211
-#, fuzzy, kde-format
-#| msgid "Modify Task"
-msgid "Modified:"
-msgstr "कार्य परिवर्धित करें"
-
-#. i18n: ectx: property (text), widget (QLabel, lbCommentsDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:231
-#, fuzzy, kde-format
-#| msgid "&Documents"
-msgid "Comments:"
-msgstr "दस्तावेज़ (&D)"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCreatedDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:251
-#, fuzzy, kde-format
-#| msgid "Started:"
-msgid "Created:"
-msgstr "प्रारंभ:"
-
-#. i18n: ectx: property (text), widget (QLabel, filePathInfoLabel)
-#: widgets/koDocumentInfoAboutWidget.ui:261
-#, fuzzy, kde-format
-#| msgid "Path"
-msgid "Path:"
-msgstr "पथ"
-
-#. i18n: ectx: property (text), widget (QPushButton, pbReset)
-#: widgets/koDocumentInfoAboutWidget.ui:280
-#, fuzzy, kde-format
-#| msgid "&Resources"
-msgid "&Reset"
-msgstr "संसाधन (&R)"
-
-#. i18n: ectx: property (text), widget (QLabel, lbLanguageDesc)
-#: widgets/koDocumentInfoAboutWidget.ui:297
-#, kde-format
-msgid "Language:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblTitleDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:60
-#, kde-format
-msgid "Title:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPositionDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:77
-#, fuzzy, kde-format
-#| msgid "Project Float :"
-msgid "Position:"
-msgstr "परियोजना फ्लोट :"
-
-#. i18n: ectx: property (text), widget (QLabel, lblCompanyDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:94
-#, kde-format
-msgid "Company:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneHome)
-#: widgets/koDocumentInfoAuthorWidget.ui:114
-#, kde-format
-msgid "Telephone (home):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPhoneWork)
-#: widgets/koDocumentInfoAuthorWidget.ui:124
-#, kde-format
-msgid "Telephone (work):"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblFaxDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:134
-#, kde-format
-msgid "Fax:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblStreetDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:144
-#, kde-format
-msgid "Street:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblPostalDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:154
-#, kde-format
-msgid "Postal code:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblCityDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:164
-#, kde-format
-msgid "City:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblCountryDesc)
-#: widgets/koDocumentInfoAuthorWidget.ui:174
-#, fuzzy, kde-format
-#| msgid "Account:"
-msgid "Country:"
-msgstr "खाताः"
-
 #: widgets/KoDocumentInfoDlg.cpp:151
 #, kde-format
 msgid "Author"
@@ -9988,6 +7995,12 @@ msgstr ""
 #| msgid "Time when task was actually started"
 msgid "This document is not encrypted"
 msgstr "समय जब कार्य वास्तविक रूप में प्रारंभ होगा"
+
+#: widgets/KoDocumentInfoDlg.cpp:255 widgets/KoDocumentInfoDlg.cpp:351
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Encrypt"
+msgstr "वर्णनः"
 
 #: widgets/KoDocumentInfoDlg.cpp:259
 #, fuzzy, kde-format
@@ -10076,6 +8089,12 @@ msgstr ""
 msgid "Page Layout"
 msgstr "से"
 
+#: widgets/KoPageLayoutDialog.cpp:51
+#, fuzzy, kde-format
+#| msgid "Lag:"
+msgid "Page"
+msgstr "लेग:"
+
 #: widgets/KoPageLayoutDialog.cpp:109
 #, fuzzy, kde-format
 #| msgid "Add Document"
@@ -10112,8 +8131,7 @@ msgstr "नेता: (&L)"
 msgid "Facing Pages:"
 msgstr "सारिणी सीमा"
 
-#. i18n: ectx: property (text), widget (QRadioButton, facingPages)
-#: widgets/KoPageLayoutWidget.cpp:291 widgets/KoPageLayoutWidget.ui:160
+#: widgets/KoPageLayoutWidget.cpp:291
 #, fuzzy, kde-format
 #| msgid "Scheduling Range"
 msgid "Facing pages"
@@ -10130,127 +8148,6 @@ msgstr "से"
 #| msgid "&Leader:"
 msgid "Page spread"
 msgstr "नेता: (&L)"
-
-#. i18n: ectx: property (text), widget (QLabel, unitsLabel)
-#: widgets/KoPageLayoutWidget.ui:25
-#, kde-format
-msgid "Unit:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, stylesLabel)
-#: widgets/KoPageLayoutWidget.ui:45
-#, kde-format
-msgid "Follow style:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/KoPageLayoutWidget.ui:61
-#, kde-format
-msgid "Size:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/KoPageLayoutWidget.ui:77
-#, kde-format
-msgid "Width:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:104
-#, kde-format
-msgid "Height:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:119
-#, fuzzy, kde-format
-#| msgid "Duration"
-msgid "Orientation:"
-msgstr "अवधि"
-
-#. i18n: ectx: property (text), widget (QRadioButton, portrait)
-#: widgets/KoPageLayoutWidget.ui:129
-#, fuzzy, kde-format
-#| msgid "Constraint"
-msgid "Portrait"
-msgstr "प्रतिबन्ध"
-
-#. i18n: ectx: property (text), widget (QRadioButton, landscape)
-#: widgets/KoPageLayoutWidget.ui:136
-#, kde-format
-msgid "Landscape"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, facingPageLabel)
-#: widgets/KoPageLayoutWidget.ui:143
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
-msgid "Facing pages:"
-msgstr "सारिणी सीमा"
-
-#. i18n: ectx: property (text), widget (QRadioButton, singleSided)
-#: widgets/KoPageLayoutWidget.ui:153
-#, kde-format
-msgid "Single sided"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, directionLabel)
-#: widgets/KoPageLayoutWidget.ui:167
-#, fuzzy, kde-format
-#| msgid "Duration"
-msgid "Text direction:"
-msgstr "अवधि"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:184
-#, kde-format
-msgid "Automatic"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:189
-#, kde-format
-msgid "Left to right"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
-#: widgets/KoPageLayoutWidget.ui:194
-#, kde-format
-msgid "Right to left"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, margins)
-#: widgets/KoPageLayoutWidget.ui:204
-#, fuzzy, kde-format
-#| msgid "Free Margin"
-msgid "Margins"
-msgstr "मुक्त हाशिया"
-
-#. i18n: ectx: property (text), widget (QLabel)
-#: widgets/KoPageLayoutWidget.ui:210
-#, kde-format
-msgid "Top:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, leftLabel)
-#: widgets/KoPageLayoutWidget.ui:230
-#, fuzzy, kde-format
-#| msgid "Parent"
-msgid "Binding edge:"
-msgstr "पैरेंट"
-
-#. i18n: ectx: property (text), widget (QLabel, rightLabel)
-#: widgets/KoPageLayoutWidget.ui:250
-#, fuzzy, kde-format
-#| msgid "&Leader:"
-msgid "Page edge:"
-msgstr "नेता: (&L)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_12)
-#: widgets/KoPageLayoutWidget.ui:270
-#, kde-format
-msgid "Bottom:"
-msgstr ""
 
 #: widgets/ParameterSubstitutionDialog.cpp:58
 #, kde-kuit-format
@@ -10269,6 +8166,905 @@ msgstr "वर्णन"
 #, kde-format
 msgid "All supported formats"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Show:"
+#~ msgstr "बन्दकरें"
+
+#, fuzzy
+#~| msgid "Periodicity:%1"
+#~ msgid "Periodicity:"
+#~ msgstr "पीरियाडिसिटी:%1"
+
+#~ msgid "Day"
+#~ msgstr "दिन"
+
+#~ msgid "Week"
+#~ msgstr "सप्ताह"
+
+#~ msgid "Month"
+#~ msgstr "माह"
+
+#~ msgid "Cumulative"
+#~ msgstr "क्युमुलेटिव"
+
+#~ msgid "Actual cost"
+#~ msgstr "वास्तविक लागत"
+
+#, fuzzy
+#~| msgid "Planned Effort"
+#~ msgid "Planned cost"
+#~ msgstr "प्लान किया गया प्रयास"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Deviation"
+#~ msgstr "अवधि"
+
+#, fuzzy
+#~| msgid "Late start date"
+#~ msgid "Start date"
+#~ msgstr "लेट प्रारंभ तिथि"
+
+#, fuzzy
+#~| msgid "The project name."
+#~ msgid "Project start"
+#~ msgstr "परियोजना नाम."
+
+#, fuzzy
+#~| msgid "End Time"
+#~ msgid "End date"
+#~ msgstr "समाप्ति समय"
+
+#, fuzzy
+#~| msgid "Cut-off date:"
+#~ msgid "Current date"
+#~ msgstr "कटऑफ़ तिथि:"
+
+#, fuzzy
+#~| msgid "The project name."
+#~ msgid "Project end"
+#~ msgstr "परियोजना नाम."
+
+#~ msgid "Project Schedule:"
+#~ msgstr "परियोजना समय-सारिणी:"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Probability of finishing before"
+#~ msgstr "पहले पूरा हो जाने की संभावना"
+
+#, fuzzy
+#~| msgid "Risk:"
+#~ msgid "is"
+#~ msgstr "ख़तरा:"
+
+#~ msgid "%"
+#~ msgstr "%"
+
+#~ msgid "Name:"
+#~ msgstr "नाम:"
+
+#~ msgid "Add..."
+#~ msgstr "जोड़ें..."
+
+#~ msgid "Change..."
+#~ msgstr "बदलें..."
+
+#~ msgid "Remove"
+#~ msgstr "हटाएँ"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Del"
+#~ msgstr "मिटाएँ"
+
+#~ msgid "Open"
+#~ msgstr "खोलें"
+
+#, fuzzy
+#~| msgid "Timezone"
+#~ msgid "Timeline"
+#~ msgstr "समयक्षेत्र"
+
+#, fuzzy
+#~| msgid "Backwards"
+#~ msgid "Background"
+#~ msgstr "पीछे से"
+
+#, fuzzy
+#~| msgid "Add Interval"
+#~ msgid "Interval:"
+#~ msgstr "अंतराल जोड़ें"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgid "Line width"
+#~ msgstr "साफ करें"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgid "Line color"
+#~ msgstr "साफ करें"
+
+#, fuzzy
+#~| msgid "Task Progress"
+#~ msgid "Task name"
+#~ msgstr "कार्य प्रगति"
+
+#, fuzzy
+#~| msgid "No resource attributed"
+#~ msgid "Resource names"
+#~ msgstr "कोई संसाधन एट्रीब्यूटेड नहीं"
+
+#, fuzzy
+#~| msgid "Remove task dependency"
+#~ msgid "Task dependencies"
+#~ msgstr "कार्य डिपेंडेंसी मिटाएं"
+
+#, fuzzy
+#~| msgid "Modify task completion"
+#~ msgid "Task completion"
+#~ msgstr "कार्य पूर्णता परिवर्धित करें"
+
+#, fuzzy
+#~| msgid "Constraint"
+#~ msgid "Time constraints"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Project Float :"
+#~ msgid "Positive float"
+#~ msgstr "परियोजना फ्लोट :"
+
+#, fuzzy
+#~| msgid "Negative Float"
+#~ msgid "Negative float"
+#~ msgstr "नेगेटिव फ्लोट"
+
+#, fuzzy
+#~| msgid "Critical Path"
+#~ msgid "Critical path"
+#~ msgstr "क्रिटिकल पथ"
+
+#, fuzzy
+#~| msgid "Critical Path"
+#~ msgid "Critical tasks"
+#~ msgstr "क्रिटिकल पथ"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgid "Scheduling errors"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "&Leader:"
+#~ msgctxt "@title:group"
+#~ msgid "Headers"
+#~ msgstr "नेता: (&L)"
+
+#, fuzzy
+#~| msgid "Modify Task Cost"
+#~ msgctxt "@option:check"
+#~ msgid "Print task names"
+#~ msgstr "कार्य लागत परिवर्धित करें"
+
+#, fuzzy
+#~| msgid "Modify Task Cost"
+#~ msgctxt "@option:check"
+#~ msgid "Print time scale"
+#~ msgstr "कार्य लागत परिवर्धित करें"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgctxt "@title:group"
+#~ msgid "Scaling"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "Change..."
+#~ msgctxt "@title:group"
+#~ msgid "Range"
+#~ msgstr "बदलें..."
+
+#, fuzzy
+#~| msgid "Can start"
+#~ msgctxt "@option:radio"
+#~ msgid "Chart start:"
+#~ msgstr "प्रारंभ कर सकते है"
+
+#, fuzzy
+#~| msgctxt "Interval start time"
+#~| msgid "Start"
+#~ msgctxt "@option:radio"
+#~ msgid "Start:"
+#~ msgstr "प्रारंभ"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgctxt "@option:radio"
+#~ msgid "Chart end:"
+#~ msgstr "साफ करें"
+
+#, fuzzy
+#~| msgid "From:"
+#~ msgctxt "Start time"
+#~ msgid "From:"
+#~ msgstr "सेः"
+
+#~ msgid "Length"
+#~ msgstr "लंबाई"
+
+#~ msgid "Clear"
+#~ msgstr "साफ करें"
+
+#~ msgid "Stretch last section"
+#~ msgstr "अंतिम क्रिया फैलाएं"
+
+#~ msgid "Select columns to be shown:"
+#~ msgstr "दिखाए जाने वाले स्तम्भ को चुनें:"
+
+#~ msgid "&Hidden columns:"
+#~ msgstr "छुपे स्तम्भ: (&H)"
+
+#~ msgid "&Visible columns:"
+#~ msgstr "दिखाई देने वाले स्तम्भ: (&V)"
+
+#~ msgid "WBS:"
+#~ msgstr "डबल्यूबीएस:"
+
+#~ msgid "The project name."
+#~ msgstr "परियोजना नाम."
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgid "&Name:"
+#~ msgstr "नाम:"
+
+#~ msgid "The project leader."
+#~ msgstr "परियोजना नेता."
+
+#~ msgid "Choose a project leader from your address book."
+#~ msgstr "अपनी पता पुस्तिका से परियोजना नेता चुनें."
+
+#~ msgid "&Choose..."
+#~ msgstr "चुनें... (&C)"
+
+#~ msgid "Scheduling Range"
+#~ msgstr "सारिणी सीमा"
+
+#~ msgid "Earliest start:"
+#~ msgstr "अर्लीएस्ट प्रारंभ:"
+
+#, fuzzy
+#~| msgid "Latest finish:"
+#~ msgid "Latest finish:"
+#~ msgstr "लेटेस्ट समाप्ति:"
+
+#, fuzzy
+#~| msgid "Per Resource"
+#~ msgid "&Use shared resources"
+#~ msgstr "संसाधनों के अनुसार"
+
+#, fuzzy
+#~| msgid "Resources"
+#~ msgid "Resources:"
+#~ msgstr "संसाधन "
+
+#, fuzzy
+#~| msgid "Choose..."
+#~ msgid "Browse..."
+#~ msgstr "चुनें..."
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgid "Projects:"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Directory"
+#~ msgstr "अवधि"
+
+#, fuzzy
+#~| msgid "Resource Settings"
+#~ msgid "Load resource assignments at startup"
+#~ msgstr "रिसोर्स विन्यास"
+
+#, fuzzy
+#~| msgid "Load"
+#~ msgid "Load"
+#~ msgstr "लोड"
+
+#, fuzzy
+#~| msgid "Work Package Control"
+#~ msgid "Work Package"
+#~ msgstr "कार्य पैकेज नियंत्रण"
+
+#, fuzzy
+#~| msgid "Work Package Control"
+#~ msgid "Check for work packages"
+#~ msgstr "कार्य पैकेज नियंत्रण"
+
+#, fuzzy
+#~| msgid "Task Progress"
+#~ msgid "Task Modules"
+#~ msgstr "कार्य प्रगति"
+
+#, fuzzy
+#~| msgid "Available tasks"
+#~ msgid "Insert"
+#~ msgstr "उपलब्ध कार्य"
+
+#, fuzzy
+#~| msgid "Available tasks"
+#~ msgid "Available tasks"
+#~ msgstr "उपलब्ध कार्य"
+
+#~ msgid "Add required task"
+#~ msgstr "वांछित कार्य जोड़ें"
+
+#~ msgid "Remove required task"
+#~ msgstr "वांछित कार्य मिटाएं"
+
+#~ msgid "Total Float:"
+#~ msgstr "कुल फ्लोट:"
+
+#, fuzzy
+#~| msgid "&Leader:"
+#~ msgid "Header"
+#~ msgstr "नेता: (&L)"
+
+#, fuzzy
+#~| msgid "The project name."
+#~ msgid "Project name"
+#~ msgstr "परियोजना नाम."
+
+#, fuzzy
+#~| msgid "&Leader:"
+#~ msgid "Page number"
+#~ msgstr "नेता: (&L)"
+
+#, fuzzy
+#~| msgid "Project Manager: %1"
+#~ msgid "Project manager"
+#~ msgstr "परियोजना प्रबंधक: %1"
+
+#, fuzzy
+#~| msgid "From"
+#~ msgid "Footer"
+#~ msgstr "से"
+
+#, fuzzy
+#~| msgid "Calculate Schedule..."
+#~ msgid "Re-calculate from current date/time"
+#~ msgstr "समय-सारिणी गणना करें..."
+
+#, fuzzy
+#~| msgid "Calculate Schedule..."
+#~ msgid "Re-calculate from:"
+#~ msgstr "समय-सारिणी गणना करें..."
+
+#, fuzzy
+#~| msgid "Advance"
+#~ msgid "Advance"
+#~ msgstr "अग्रिम"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgid "Scheduling range:"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "Work Breakdown Structure"
+#~ msgid "Work Breakdown Structure"
+#~ msgstr "कार्य ब्रेकडाउन स्ट्रक्चर"
+
+#, fuzzy
+#~| msgid "The name of the Task."
+#~ msgid "The name of the Task."
+#~ msgstr "कार्य का नाम."
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgid "Responsible:"
+#~ msgstr "जवाबदार:"
+
+#~ msgid "Insert a person from your address book"
+#~ msgstr "अपनी पता पुस्तिका से एक व्यक्ति प्रविष्ट करें"
+
+#~ msgid "Choose..."
+#~ msgstr "चुनें..."
+
+#, fuzzy
+#~| msgid "Periodicity:%1"
+#~ msgid "Priority:"
+#~ msgstr "पीरियाडिसिटी:%1"
+
+#~ msgid "Account:"
+#~ msgstr "खाताः"
+
+#, fuzzy
+#~| msgctxt "Interval start time"
+#~| msgid "Start"
+#~ msgid "Startup"
+#~ msgstr "प्रारंभ"
+
+#~ msgid "Cost:"
+#~ msgstr "लागत:"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shutdown"
+#~ msgstr "बन्दकरें"
+
+#~ msgid "N&ame:"
+#~ msgstr "नाम: (&a)"
+
+#, fuzzy
+#~| msgid "This is the unique identifier for this task."
+#~ msgid ""
+#~ "The person responsible for this task.\n"
+#~ "        "
+#~ msgstr "यह इस कार्य के लिए विशिष्ट पहचान है"
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgid "Responsi&ble:"
+#~ msgstr "जवाबदार:"
+
+#~ msgid "Insert a person from your address book."
+#~ msgstr "अपनी पता पुस्तिका से एक व्यक्ति प्रविष्ट करें"
+
+#~ msgid "Timing"
+#~ msgstr "टाइमिंग"
+
+#, fuzzy
+#~| msgid "Schedule:"
+#~ msgid "&Schedule:"
+#~ msgstr "समयसारिणी:"
+
+#, fuzzy
+#~| msgid "As Soon as Possible"
+#~ msgid "As Soon as Possible"
+#~ msgstr "जितनी जल्दी संभव हो"
+
+#, fuzzy
+#~| msgid "As Late as Possible"
+#~ msgid "As Late as Possible"
+#~ msgstr "जितनी देरी से संभव हो"
+
+#, fuzzy
+#~| msgid "Start Not Earlier Than"
+#~ msgid "Start Not Earlier Than"
+#~ msgstr "से पहले प्रारंब नहीं हो"
+
+#, fuzzy
+#~| msgid "Finish Not Later Than"
+#~ msgid "Finish Not Later Than"
+#~ msgstr "के बाद पूर्ण नहीं हो"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgid "Esti&mate:"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Risk:"
+#~ msgid "Risk:"
+#~ msgstr "ख़तरा:"
+
+#, fuzzy
+#~| msgid "Optimistic:"
+#~ msgid "Optimisti&c:"
+#~ msgstr "आशावादी:"
+
+#, fuzzy
+#~| msgid "Pessimistic:"
+#~ msgid "&Pessimistic:"
+#~ msgstr "निष्क्रियवादी:"
+
+#, fuzzy
+#~| msgid "Task"
+#~ msgid "Task:"
+#~ msgstr "कार्य"
+
+#~ msgid "Started:"
+#~ msgstr "प्रारंभ:"
+
+#~ msgid "Finished:"
+#~ msgstr "पूर्ण:"
+
+#, fuzzy
+#~| msgid "Per Resource"
+#~ msgid "Per resource"
+#~ msgstr "संसाधनों के अनुसार"
+
+#, fuzzy
+#~| msgid "Available tasks"
+#~ msgid "Per task"
+#~ msgstr "उपलब्ध कार्य"
+
+#~ msgid "Prev"
+#~ msgstr "पिछला"
+
+#, fuzzy
+#~| msgid "Add Resource..."
+#~ msgid "Add resource:"
+#~ msgstr "संसाधन जोड़ें..."
+
+#~ msgid "Add Entry"
+#~ msgstr "एन्ट्री जोड़ें"
+
+#~ msgid "Remove Entry"
+#~ msgstr "एन्ट्री हटाएँ"
+
+#, fuzzy
+#~| msgid "WBS Definition"
+#~ msgid "Period Definition"
+#~ msgstr "डबल्यूबीएस परिभाषा"
+
+#, fuzzy
+#~| msgid "Cut-off date:"
+#~ msgid "Use current date"
+#~ msgstr "कटऑफ़ तिथि:"
+
+#, fuzzy
+#~| msgid "Week"
+#~ msgid "Use weekday:"
+#~ msgstr "सप्ताह"
+
+#, fuzzy
+#~| msgid "Project Settings"
+#~ msgid "Project Code Definition"
+#~ msgstr "परियोजना विन्यास"
+
+#~ msgid "Code:"
+#~ msgstr "कोड:"
+
+#~ msgid "Separator:"
+#~ msgstr "विभाजकः"
+
+#, fuzzy
+#~| msgid "WBS Definition"
+#~ msgid "Default Definition"
+#~ msgstr "डबल्यूबीएस परिभाषा"
+
+#, fuzzy
+#~| msgid "Use Levels"
+#~ msgid "Use Levels Definition"
+#~ msgstr "स्तर प्रयोग करें"
+
+#, fuzzy
+#~| msgid "Code:"
+#~ msgid "Code"
+#~ msgstr "कोड:"
+
+#, fuzzy
+#~| msgid "Separator:"
+#~ msgid "Separator"
+#~ msgstr "विभाजकः"
+
+#, fuzzy
+#~| msgid "Add Level"
+#~ msgid "Add Level"
+#~ msgstr "स्तर जोड़ें"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgid "Generated:"
+#~ msgstr "सामान्य"
+
+#, fuzzy
+#~| msgid "From:"
+#~ msgid "From:"
+#~ msgstr "सेः"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgid "<package time>"
+#~ msgstr "प्रारंभ"
+
+#~ msgid "Update"
+#~ msgstr "अद्यतन"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgid "Chart type"
+#~ msgstr "साफ करें"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgid "Line chart"
+#~ msgstr "साफ करें"
+
+#, fuzzy
+#~| msgid "Clear"
+#~ msgid "Bar chart"
+#~ msgstr "साफ करें"
+
+#~ msgid "Cost"
+#~ msgstr "खर्च"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgid "Show BCWS plot"
+#~ msgstr "वास्तविक प्रयास"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgid "Show BCWP plot"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgid "Show ACWP plot"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgid "SPI Cost"
+#~ msgstr "वास्तविक प्रयास"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgid "SPI Effort"
+#~ msgstr "प्रयास"
+
+#, fuzzy
+#~| msgid "Effort"
+#~ msgid "CPI Effort"
+#~ msgstr "प्रयास"
+
+#, fuzzy
+#~| msgid "Actual Effort"
+#~ msgid "CPI Cost"
+#~ msgstr "वास्तविक प्रयास"
+
+#, fuzzy
+#~| msgid "Available tasks"
+#~ msgctxt "Insert task dependency"
+#~ msgid "Insert"
+#~ msgstr "उपलब्ध कार्य"
+
+#~ msgid "From"
+#~ msgstr "से"
+
+#~ msgid "To"
+#~ msgstr "को"
+
+#, fuzzy
+#~| msgid "Relationship Type"
+#~ msgid "Dependency Type"
+#~ msgstr "संबंध क़िस्म"
+
+#, fuzzy
+#~| msgid "No resource attributed"
+#~ msgid "Show page"
+#~ msgstr "कोई संसाधन एट्रीब्यूटेड नहीं"
+
+#, fuzzy
+#~| msgid "Report Template"
+#~ msgid "Enable report header"
+#~ msgstr "रिपोर्ट टैम्प्लेट"
+
+#, fuzzy
+#~| msgid "Report Template"
+#~ msgid "Report Header"
+#~ msgstr "रिपोर्ट टैम्प्लेट"
+
+#, fuzzy
+#~| msgid "Report Template"
+#~ msgid "Enable report footer"
+#~ msgstr "रिपोर्ट टैम्प्लेट"
+
+#, fuzzy
+#~| msgid "Report Template"
+#~ msgid "Report Footer"
+#~ msgstr "रिपोर्ट टैम्प्लेट"
+
+#, fuzzy
+#~| msgid "&Leader:"
+#~ msgid "Page Header"
+#~ msgstr "नेता: (&L)"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgid "First page"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgid "Even pages"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "From"
+#~ msgid "Page Footer"
+#~ msgstr "से"
+
+#, fuzzy
+#~| msgid "Group"
+#~ msgid "Group:"
+#~ msgstr "समूह"
+
+#, fuzzy
+#~| msgid "Choose resource from addressbook"
+#~ msgid "Choose resource from address book"
+#~ msgstr "पतापुस्तिका से संसाधन चुनें"
+
+#, fuzzy
+#~| msgid "Initials:"
+#~ msgid "Initials:"
+#~ msgstr "प्रथमाक्षर:"
+
+#, fuzzy
+#~| msgid "Email"
+#~ msgid "Email:"
+#~ msgstr "ईमेल"
+
+#, fuzzy
+#~| msgid "Resource"
+#~ msgid "Resource type:"
+#~ msgstr "साधन"
+
+#, fuzzy
+#~| msgid "Available:"
+#~ msgid "Available:"
+#~ msgstr "उपलब्ध:"
+
+#, fuzzy
+#~| msgid "Add Calendar"
+#~ msgid "Calendar:"
+#~ msgstr "कैलेण्डर जोड़ें"
+
+#, fuzzy
+#~| msgid "Initials:"
+#~ msgid "Until"
+#~ msgstr "प्रथमाक्षर:"
+
+#, fuzzy
+#~| msgid "Per Resource"
+#~ msgid "Required resources:"
+#~ msgstr "संसाधनों के अनुसार"
+
+#~ msgid "Hourly rate:"
+#~ msgstr "प्रतिघंटा दर:"
+
+#, fuzzy
+#~| msgid "Overtime rate:"
+#~ msgid "Overtime rate:"
+#~ msgstr "ओवरटाइम दर:"
+
+#~ msgid "Hours per year:"
+#~ msgstr "घंटे प्रति वर्ष:"
+
+#~ msgid "Hours per month:"
+#~ msgstr "घंटे प्रति माह:"
+
+#~ msgid "Hours per week:"
+#~ msgstr "घंटे प्रति सप्ताह:"
+
+#~ msgid ""
+#~ "These values are used when you estimate the effort needed to complete a "
+#~ "task."
+#~ msgstr ""
+#~ "जब आप किसी कार्य के लिए वांछित प्रयास का एस्टीमेट बनाते हैं तब ये मूल्य प्रयोग में आते हैं."
+
+#~ msgid "Hours per day:"
+#~ msgstr "घंटे प्रति दिन:"
+
+#, fuzzy
+#~| msgid "Responsible:"
+#~ msgid "Responsib&le:"
+#~ msgstr "जवाबदार:"
+
+#, fuzzy
+#~| msgid "Schedule:"
+#~ msgid "Sched&ule:"
+#~ msgstr "समयसारिणी:"
+
+#, fuzzy
+#~| msgid "Estimate:"
+#~ msgid "Es&timate:"
+#~ msgstr "एस्टीमेट:"
+
+#, fuzzy
+#~| msgid "Optimistic:"
+#~ msgid "Optimistic:"
+#~ msgstr "आशावादी:"
+
+#, fuzzy
+#~| msgid "Pessimistic:"
+#~ msgid "Pessimistic:"
+#~ msgstr "निष्क्रियवादी:"
+
+#, fuzzy
+#~| msgid "Project"
+#~ msgid "Subject:"
+#~ msgstr "परियोजना"
+
+#, fuzzy
+#~| msgid "Type"
+#~ msgid "Type:"
+#~ msgstr "क़िस्म"
+
+#, fuzzy
+#~| msgid "Description:"
+#~ msgid "Encryption:"
+#~ msgstr "वर्णनः"
+
+#, fuzzy
+#~| msgid "Modify Task"
+#~ msgid "Modified:"
+#~ msgstr "कार्य परिवर्धित करें"
+
+#, fuzzy
+#~| msgid "&Documents"
+#~ msgid "Comments:"
+#~ msgstr "दस्तावेज़ (&D)"
+
+#, fuzzy
+#~| msgid "Started:"
+#~ msgid "Created:"
+#~ msgstr "प्रारंभ:"
+
+#, fuzzy
+#~| msgid "Path"
+#~ msgid "Path:"
+#~ msgstr "पथ"
+
+#, fuzzy
+#~| msgid "&Resources"
+#~ msgid "&Reset"
+#~ msgstr "संसाधन (&R)"
+
+#, fuzzy
+#~| msgid "Project Float :"
+#~ msgid "Position:"
+#~ msgstr "परियोजना फ्लोट :"
+
+#, fuzzy
+#~| msgid "Account:"
+#~ msgid "Country:"
+#~ msgstr "खाताः"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Orientation:"
+#~ msgstr "अवधि"
+
+#, fuzzy
+#~| msgid "Constraint"
+#~ msgid "Portrait"
+#~ msgstr "प्रतिबन्ध"
+
+#, fuzzy
+#~| msgid "Scheduling Range"
+#~ msgid "Facing pages:"
+#~ msgstr "सारिणी सीमा"
+
+#, fuzzy
+#~| msgid "Duration"
+#~ msgid "Text direction:"
+#~ msgstr "अवधि"
+
+#, fuzzy
+#~| msgid "Free Margin"
+#~ msgid "Margins"
+#~ msgstr "मुक्त हाशिया"
+
+#, fuzzy
+#~| msgid "Parent"
+#~ msgid "Binding edge:"
+#~ msgstr "पैरेंट"
+
+#, fuzzy
+#~| msgid "&Leader:"
+#~ msgid "Page edge:"
+#~ msgstr "नेता: (&L)"
 
 #, fuzzy
 #~| msgid "Timezone"

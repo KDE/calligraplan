@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2015-04-25 16:38-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -53,24 +53,6 @@ msgstr "Taiki Komoda,Yukiko Bando"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kom@kde.gr.jp,ybando@k6.dion.ne.jp"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "編集(&E)"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "表示"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "表示(&V)"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -220,32 +202,6 @@ msgstr "ワークパッケージを見つけることができません"
 #, kde-format
 msgid "Task Progress"
 msgstr "タスク進捗"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, fuzzy, kde-format
-#| msgid "Started"
-msgid "Started:"
-msgstr "開始済み"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, fuzzy, kde-format
-#| msgid "Finished"
-msgid "Finished:"
-msgstr "完了"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr ""
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -638,3 +594,22 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
+
+#~ msgid "&Edit"
+#~ msgstr "編集(&E)"
+
+#~ msgid "View"
+#~ msgstr "表示"
+
+#~ msgid "&View"
+#~ msgstr "表示(&V)"
+
+#, fuzzy
+#~| msgid "Started"
+#~ msgid "Started:"
+#~ msgstr "開始済み"
+
+#, fuzzy
+#~| msgid "Finished"
+#~ msgid "Finished:"
+#~ msgstr "完了"

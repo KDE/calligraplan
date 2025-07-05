@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2019-08-09 21:33+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -50,24 +50,6 @@ msgstr "Rahmad.D,Wantoyo"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "masmamuth@gmail.com,wantoyek@gmail.com"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "&Edit"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Tampilan"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "&Tampilan"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -212,30 +194,6 @@ msgstr "Gagal mengedit. Tidak bisa menemukan paket work."
 #, kde-format
 msgid "Task Progress"
 msgstr "Progres Tugas"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Dimulai:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Selesai:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Tambahkan Entri"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Hapus Entri"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -629,6 +587,27 @@ msgstr "<p>Paket work <b>'%1'</b></p><p>Tidak bisa membuka toko:</p><p>%2</p>"
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Paket work <b>'%1'</b></p><p>Tidak bisa mengekstrak file:</p><p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "&Edit"
+
+#~ msgid "View"
+#~ msgstr "Tampilan"
+
+#~ msgid "&View"
+#~ msgstr "&Tampilan"
+
+#~ msgid "Started:"
+#~ msgstr "Dimulai:"
+
+#~ msgid "Finished:"
+#~ msgstr "Selesai:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Tambahkan Entri"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Hapus Entri"
 
 #, fuzzy
 #~| msgid "Package Settings..."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2011-06-15 10:04+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -53,25 +53,6 @@ msgstr "Sönke Dibbern, Manfred Wiese"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de, m.j.wiese@web.de"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "&Bewerken"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, fuzzy, kde-format
-#| msgid "&View"
-msgid "View"
-msgstr "&Ansicht"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "&Ansicht"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -219,30 +200,6 @@ msgstr "Bewerken fehlslaan. Arbeitpaket lett sik nich finnen."
 #, kde-format
 msgid "Task Progress"
 msgstr "Opgaven-Vörankamen"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Anfungen:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Fardigstellt:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Indrag tofögen"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Indrag wegmaken"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -642,6 +599,29 @@ msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Arbeitpaket <b>\"%1\"</b></p><p>Datei lett sik nich ruttrecken:</p><p>%2</"
 "p>"
+
+#~ msgid "&Edit"
+#~ msgstr "&Bewerken"
+
+#, fuzzy
+#~| msgid "&View"
+#~ msgid "View"
+#~ msgstr "&Ansicht"
+
+#~ msgid "&View"
+#~ msgstr "&Ansicht"
+
+#~ msgid "Started:"
+#~ msgstr "Anfungen:"
+
+#~ msgid "Finished:"
+#~ msgstr "Fardigstellt:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Indrag tofögen"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Indrag wegmaken"
 
 #~ msgid "Work Package Settings"
 #~ msgstr "Arbeitpaket-Instellen"

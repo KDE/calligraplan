@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2019-10-12 09:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -56,24 +56,6 @@ msgstr "о. Іван Петрущак"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "fr.ivan@ukrainian-orthodox.org"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "З&міни"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Переглянути"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "П&ерегляд"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -230,30 +212,6 @@ msgstr "Спроба редагування була невдалою. Не вд
 #, kde-format
 msgid "Task Progress"
 msgstr "Поступ завдання"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Почато:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Завершено:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Додати запис"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Вилучити запис"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -645,6 +603,27 @@ msgstr ""
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
 "<p>Робочий пакунок <b>«%1»</b></p><p>Не вдалося видобути файл:</p><p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "З&міни"
+
+#~ msgid "View"
+#~ msgstr "Переглянути"
+
+#~ msgid "&View"
+#~ msgstr "П&ерегляд"
+
+#~ msgid "Started:"
+#~ msgstr "Почато:"
+
+#~ msgid "Finished:"
+#~ msgstr "Завершено:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Додати запис"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Вилучити запис"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid "%1: <emphasis>%2</emphasis><para>%3</para>"

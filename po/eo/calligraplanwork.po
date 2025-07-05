@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-03-18 08:40+0100\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2023-03-01 20:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -52,24 +52,6 @@ msgstr "Axel Rousseau,Oliver Kellogg"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
-
-#. i18n: ectx: Menu (edit)
-#: calligraplanwork.rc:4 calligraplanworkui.rc:4
-#, kde-format
-msgid "&Edit"
-msgstr "R&edakti"
-
-#. i18n: ectx: ToolBar (view_selection)
-#: calligraplanwork.rc:8
-#, kde-format
-msgid "View"
-msgstr "Vido"
-
-#. i18n: ectx: Menu (view)
-#: calligraplanwork_readonly.rc:4
-#, kde-format
-msgid "&View"
-msgstr "&Vido"
 
 #: commandlineparser.cpp:50
 #, kde-format
@@ -213,30 +195,6 @@ msgstr "Redakto malsukcesis. Ne povas trovi laborpakaĵon."
 #, kde-format
 msgid "Task Progress"
 msgstr "Taska Progreso"
-
-#. i18n: ectx: property (text), widget (QCheckBox, started)
-#: taskcompletionpanel.ui:33
-#, kde-format
-msgid "Started:"
-msgstr "Komencis:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, finished)
-#: taskcompletionpanel.ui:50
-#, kde-format
-msgid "Finished:"
-msgstr "Finis:"
-
-#. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
-#: taskcompletionpanel.ui:143
-#, kde-format
-msgid "Add Entry"
-msgstr "Aldoni eron"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeEntryBtn)
-#: taskcompletionpanel.ui:150
-#, kde-format
-msgid "Remove Entry"
-msgstr "Forigi eron"
 
 #: taskworkpackagemodel.cpp:298
 #, kde-format
@@ -612,3 +570,24 @@ msgstr ""
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr "<p>Laborpakaĵo <b>'%1'</b></p><p>Ne eblis ĉerpi dosieron:</p><p>%2</p>"
+
+#~ msgid "&Edit"
+#~ msgstr "R&edakti"
+
+#~ msgid "View"
+#~ msgstr "Vido"
+
+#~ msgid "&View"
+#~ msgstr "&Vido"
+
+#~ msgid "Started:"
+#~ msgstr "Komencis:"
+
+#~ msgid "Finished:"
+#~ msgstr "Finis:"
+
+#~ msgid "Add Entry"
+#~ msgstr "Aldoni eron"
+
+#~ msgid "Remove Entry"
+#~ msgstr "Forigi eron"
