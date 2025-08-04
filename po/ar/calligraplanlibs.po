@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-09-07 22:43+0400\n"
+"PO-Revision-Date: 2025-08-03 15:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1177,7 +1177,7 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
-"كلمة المرور لهذا المستند المشفر مجهولة. تم مغادرة الحفظ التلقائي! يرجى حفظ "
+"كلمة السر لهذا المستند المعما مجهولة. تم مغادرة الحفظ التلقائي! يرجى حفظ "
 "عملك يدويا."
 
 #: main/KoDocument.cpp:725
@@ -5716,7 +5716,7 @@ msgid ""
 "This document contains an unknown encryption method. Some parts may be "
 "unreadable."
 msgstr ""
-"هذا المستند يحتوي على وسيلة تشفير مجهولة. بعض الأجزاء قد لا يمكن قراءتها."
+"هذا المستند يحتوي على وسيلة تعمية مجهولة. بعض الأجزاء قد لا يمكن قراءتها."
 
 #: store/KoEncryptedStore.cpp:289
 #, kde-format
@@ -5724,7 +5724,7 @@ msgid ""
 "This document contains incomplete encryption data. Some parts may be "
 "unreadable."
 msgstr ""
-"هذا المستند يحتوي بيانات تشفير غير كاملة. بعض الأجزاء قد لا يمكن قراءتها."
+"هذا المستند يحتوي بيانات تعمية غير كاملة. بعض الأجزاء قد لا يمكن قراءتها."
 
 #: store/KoEncryptedStore.cpp:303
 #, kde-format
@@ -5761,7 +5761,7 @@ msgstr "خطأ قراءة"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
-msgstr "يرجي إدخال كلمة المرور لفتح هذا الملف:<nl/>%1"
+msgstr "يرجي إدخال كلمة السر لفتح هذا الملف:<nl/>%1"
 
 #: store/KoEncryptedStore.cpp:575
 #, kde-format
@@ -5771,12 +5771,12 @@ msgstr ""
 #: store/KoEncryptedStore.cpp:737
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
-msgstr "يرجى إدخال كلمة المرور لتشفير المستند معها."
+msgstr "يرجى إدخال كلمة السر لتعمية المستند معها."
 
 #: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgid "Do you want to save the password?"
-msgstr "هل ترغب بحفظ كلمة المرور؟"
+msgstr "هل ترغب بحفظ كلمة السر؟"
 
 #: store/KoEncryptedStore.cpp:758
 #, kde-format
@@ -10051,37 +10051,37 @@ msgstr ""
 #: widgets/KoDocumentInfoDlg.cpp:226 widgets/KoDocumentInfoDlg.cpp:322
 #, kde-format
 msgid "This document will be decrypted"
-msgstr "هذا المستند سيتم فك تشفيره"
+msgstr "هذا المستند سيتم فك تعميةه"
 
 #: widgets/KoDocumentInfoDlg.cpp:228 widgets/KoDocumentInfoDlg.cpp:324
 #, kde-format
 msgid "Do not decrypt"
-msgstr "لا تفك التشفير"
+msgstr "لا تفك التعمية"
 
 #: widgets/KoDocumentInfoDlg.cpp:230 widgets/KoDocumentInfoDlg.cpp:326
 #, kde-format
 msgid "This document is encrypted"
-msgstr "هذا المستند تم تشفيره"
+msgstr "هذا المستند تم تعميةه"
 
 #: widgets/KoDocumentInfoDlg.cpp:232 widgets/KoDocumentInfoDlg.cpp:328
 #, kde-format
 msgid "D&ecrypt"
-msgstr "فكّ التشفير"
+msgstr "فكّ التعمية"
 
 #: widgets/KoDocumentInfoDlg.cpp:236 widgets/KoDocumentInfoDlg.cpp:332
 #, kde-format
 msgid "This document will be encrypted."
-msgstr "هذا المستند سيتم تشفيره"
+msgstr "هذا المستند سيتم تعميةه"
 
 #: widgets/KoDocumentInfoDlg.cpp:238 widgets/KoDocumentInfoDlg.cpp:334
 #, kde-format
 msgid "Do not encrypt"
-msgstr "لا تقم بالتشفير"
+msgstr "لا تعمِ"
 
 #: widgets/KoDocumentInfoDlg.cpp:240 widgets/KoDocumentInfoDlg.cpp:336
 #, kde-format
 msgid "This document is not encrypted"
-msgstr "هذا المستند ليس مشفراً"
+msgstr "هذا المستند ليس معمًا"
 
 #: widgets/KoDocumentInfoDlg.cpp:246
 #, kde-format
@@ -10094,13 +10094,13 @@ msgid ""
 "<qt>Decrypting the document will remove the password protection from it."
 "<p>Do you still want to decrypt the file?</qt>"
 msgstr ""
-"<qt>فك تشفير الملف سيزيل منه حماية كلمة المرور.<p>هل لازلت تريد فك تشفير "
-"الملف؟</qt>"
+"<qt>فك تعمية الملف سيزيل منه حماية كلمة السر.<p>هل لازلت تريد فك تعمية الملف؟"
+"</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:360
 #, kde-format
 msgid "Confirm Decrypt"
-msgstr "أكد فك التشفير"
+msgstr "أكد فك التعمية"
 
 #: widgets/KoDocumentInfoDlg.cpp:361
 #, kde-format
@@ -10113,7 +10113,7 @@ msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "decryption, please save the document.</qt>"
 msgstr ""
-"<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال فك التشفير، يرجى حفظ المستند.</qt>"
+"<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال فك التعمية، يرجى حفظ المستند.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format
@@ -10131,7 +10131,7 @@ msgid ""
 "file to OASIS OpenDocument?</qt>"
 msgstr ""
 "<qt>المستند محفوظ حالياً على أنه %1. يحتاج المستند أن يتم تغييره  إلى "
-"<b>OASIS OpenDocument</b> ليتم تشفيره.<p>هل تريد تغيير  الملف إلى OASIS "
+"<b>OASIS OpenDocument</b> ليتم تعميةه.<p>هل تريد تغيير  الملف إلى OASIS "
 "OpenDocument؟</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:400 widgets/KoDocumentInfoDlg.cpp:445
@@ -10149,7 +10149,7 @@ msgstr "عدّل"
 msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "encryption, please save the document.</qt>"
-msgstr "<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال التشفير، يرجي حفظ الملف.</qt>"
+msgstr "<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال التعمية، يرجي حفظ الملف.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:422 widgets/KoDocumentInfoDlg.cpp:487
 #, kde-format
@@ -10158,7 +10158,7 @@ msgid ""
 "encryption the document needs to be saved.<p>Do you want to save the "
 "document now?</qt>"
 msgstr ""
-"<qt>لقد تغير المستند منذ فتحه. لإكمال التشفير يحتاج المستند أن يحفظ.<p>هل "
+"<qt>لقد تغير المستند منذ فتحه. لإكمال التعمية يحتاج المستند أن يحفظ.<p>هل "
 "تريد حفظ المستند الآن؟</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:443
