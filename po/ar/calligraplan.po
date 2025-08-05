@@ -553,7 +553,7 @@ msgstr "إنشاء جدول"
 #: config/ConfigDialog.cpp:36
 #, kde-format
 msgid "Project Defaults"
-msgstr "افتراضيّات المشروع"
+msgstr "مبدئيّات المشروع"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, fuzzy, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-08-03 15:47+0400\n"
+"PO-Revision-Date: 2025-08-04 18:39+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -990,12 +990,12 @@ msgid ""
 "default? The changes will be applied immediately."
 msgstr ""
 "هل تريد فعلاً استرجاع كل أشرطة الأدوات الخاصة بهذا التطبيق إلى قيمها "
-"الافتراضية ؟ سيتم تطبيق التغييرات فوراً."
+"المبدئية ؟ سيتم تطبيق التغييرات فوراً."
 
 #: main/kedittoolbar.cpp:665
 #, kde-format
 msgid "Reset Toolbars"
-msgstr "أعد ضبط شريط الأدوات"
+msgstr "صفّر أشرطة الأدوات"
 
 #: main/kedittoolbar.cpp:666
 #, kde-format
@@ -1177,18 +1177,18 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
-"كلمة السر لهذا المستند المعما مجهولة. تم مغادرة الحفظ التلقائي! يرجى حفظ "
-"عملك يدويا."
+"كلمة السر لهذا المستند المعما مجهولة. تم مغادرة الحفظ الآليّ! يرجى حفظ عملك "
+"يدويا."
 
 #: main/KoDocument.cpp:725
 #, kde-format
 msgid "Autosaving..."
-msgstr "يجري الحفظ التلقائي..."
+msgstr "يجري الحفظ الآليّ..."
 
 #: main/KoDocument.cpp:737
 #, kde-format
 msgid "Error during autosave! Partition full?"
-msgstr "خطأ أثناء الحفظ التلقائي! القسم مليء؟"
+msgstr "خطأ أثناء الحفظ الآليّ! القسم مليء؟"
 
 #: main/KoDocument.cpp:831
 #, kde-format
@@ -1221,7 +1221,7 @@ msgid ""
 "An autosaved file exists for this document.\n"
 "Do you want to open it instead?"
 msgstr ""
-"توجد نسخة محفوظة آليا لهذا الملف\n"
+"توجد نسخة محفوظة آليّا لهذا الملف\n"
 "هل تريد أن تفتح هذه النسخة كبديل ؟"
 
 #: main/KoDocument.cpp:1198
@@ -7028,7 +7028,7 @@ msgstr "أضف"
 #: ui/kptintervaleditbase.ui:97
 #, kde-format
 msgid "Clear"
-msgstr "امسح"
+msgstr "امحُ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
 #: ui/kptitemviewsettings.ui:28
@@ -10112,8 +10112,7 @@ msgstr "فكّ التّعمية"
 msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "decryption, please save the document.</qt>"
-msgstr ""
-"<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال فك التعمية، يرجى حفظ المستند.</qt>"
+msgstr "<qt>تعذر حفظ مستندك آليّا.<p>لإكمال فك التعمية، يرجى حفظ المستند.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format
@@ -10149,7 +10148,7 @@ msgstr "عدّل"
 msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "encryption, please save the document.</qt>"
-msgstr "<qt>تعذر حفظ مستندك تلقائيا.<p>لإكمال التعمية، يرجي حفظ الملف.</qt>"
+msgstr "<qt>تعذر حفظ مستندك آليّا.<p>لإكمال التعمية، يرجي حفظ الملف.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:422 widgets/KoDocumentInfoDlg.cpp:487
 #, kde-format
@@ -10289,7 +10288,7 @@ msgstr "اتجاه النص:"
 #: widgets/KoPageLayoutWidget.ui:184
 #, kde-format
 msgid "Automatic"
-msgstr "تلقائي"
+msgstr "آليّ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, textDirection)
 #: widgets/KoPageLayoutWidget.ui:189
