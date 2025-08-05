@@ -531,7 +531,7 @@ msgstr ""
 #: config/ConfigDialog.cpp:47
 #, kde-format
 msgid "Project Defaults"
-msgstr "افتراضيّات المشروع"
+msgstr "مبدئيّات المشروع"
 
 #: config/ConfigDialog.cpp:48 kptview.cpp:660
 #, fuzzy, kde-format
