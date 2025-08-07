@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-08-04 18:39+0400\n"
+"PO-Revision-Date: 2025-08-06 14:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -990,7 +990,7 @@ msgid ""
 "default? The changes will be applied immediately."
 msgstr ""
 "هل تريد فعلاً استرجاع كل أشرطة الأدوات الخاصة بهذا التطبيق إلى قيمها "
-"المبدئية ؟ سيتم تطبيق التغييرات فوراً."
+"المبدئية ؟ ستطبق التغييرات فوراً."
 
 #: main/kedittoolbar.cpp:665
 #, kde-format
@@ -1052,7 +1052,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
-msgstr "سيتم استبدال هذا العنصر بكل العناصر من المكوّن المدمج"
+msgstr "ستُستبدل هذا العنصر بكل العناصر من المكوّن المدمج"
 
 #: main/kedittoolbar.cpp:1263
 #, kde-format
@@ -1177,8 +1177,7 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
-"كلمة السر لهذا المستند المعما مجهولة. تم مغادرة الحفظ الآليّ! يرجى حفظ عملك "
-"يدويا."
+"كلمة السر لهذا المستند المعمى مجهولة. أجهض الحفظ الآليّ! يرجى حفظ عملك يدويا."
 
 #: main/KoDocument.cpp:725
 #, kde-format
@@ -5707,8 +5706,7 @@ msgid ""
 "This document contains an unknown checksum. When you give a password it "
 "might not be verified."
 msgstr ""
-"هذا المستند يحتوي على checksum مجهول. عندما تعطي كلمة مرور قد لا يتم التعرف "
-"عليها."
+"هذا المستند يحتوي على مجموع تحقق مجهول. عندما تعطي كلمة سر قد لا يتعرف عليها."
 
 #: store/KoEncryptedStore.cpp:257 store/KoEncryptedStore.cpp:274
 #, kde-format
@@ -10051,7 +10049,7 @@ msgstr ""
 #: widgets/KoDocumentInfoDlg.cpp:226 widgets/KoDocumentInfoDlg.cpp:322
 #, kde-format
 msgid "This document will be decrypted"
-msgstr "هذا المستند سيتم فك تعميةه"
+msgstr "هذا المستند سيُفك تعميته"
 
 #: widgets/KoDocumentInfoDlg.cpp:228 widgets/KoDocumentInfoDlg.cpp:324
 #, kde-format
@@ -10061,7 +10059,7 @@ msgstr "لا تفك التعمية"
 #: widgets/KoDocumentInfoDlg.cpp:230 widgets/KoDocumentInfoDlg.cpp:326
 #, kde-format
 msgid "This document is encrypted"
-msgstr "هذا المستند تم تعميةه"
+msgstr "هذا المستند معمى"
 
 #: widgets/KoDocumentInfoDlg.cpp:232 widgets/KoDocumentInfoDlg.cpp:328
 #, kde-format
@@ -10071,7 +10069,7 @@ msgstr "فكّ التعمية"
 #: widgets/KoDocumentInfoDlg.cpp:236 widgets/KoDocumentInfoDlg.cpp:332
 #, kde-format
 msgid "This document will be encrypted."
-msgstr "هذا المستند سيتم تعميةه"
+msgstr "هذا المستند سيعمى"
 
 #: widgets/KoDocumentInfoDlg.cpp:238 widgets/KoDocumentInfoDlg.cpp:334
 #, kde-format
@@ -10129,9 +10127,9 @@ msgid ""
 "to <b>OASIS OpenDocument</b> to be encrypted.<p>Do you want to change the "
 "file to OASIS OpenDocument?</qt>"
 msgstr ""
-"<qt>المستند محفوظ حالياً على أنه %1. يحتاج المستند أن يتم تغييره  إلى "
-"<b>OASIS OpenDocument</b> ليتم تعميةه.<p>هل تريد تغيير  الملف إلى OASIS "
-"OpenDocument؟</qt>"
+"<qt>المستند محفوظ حالياً على أنه %1. يحتاج المستند أن يغير  إلى <b>OASIS "
+"OpenDocument</b> حتى يعمى.<p>هل تريد تغيير  الملف إلى OASIS OpenDocument؟</"
+"qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:400 widgets/KoDocumentInfoDlg.cpp:445
 #, kde-format
