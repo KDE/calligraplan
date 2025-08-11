@@ -3,12 +3,12 @@
 >GANTT-sammanfattning</title>
 <sect1 id="description"
 ><title
->Description</title
+>Beskrivning</title
 >&WORK-IN-PROGRESS; <para
 >Visar ett GANTT-diagram för alla projekt i portföljen. </para
 ><para
->A gantt view for a project can be shown by selecting <userinput
->Context Menu->Open Project</userinput
->. </para>
+>En GANTT-vy av ett projekt kan visas genom att välja <userinput
+>Sammanhangsberoende meny -> Öppna projekt</userinput
+> </para>
 </sect1>
 </chapter>

@@ -1,7 +1,7 @@
 <!-- Note: Set id of chapter to the id the first section should have had -->
 <chapter id="introduction-chapter"
 ><title
->Introduction to &portfolio;</title>
+>Introduktion av &portfolio;</title>
   <sect1 id="introduction"
 ><title
 >Introduktion</title

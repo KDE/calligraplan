@@ -3,9 +3,9 @@
 >Framsteg</title>
 <sect1 id="progress-description"
 ><title
->Description</title
+>Beskrivning</title
 >&WORK-IN-PROGRESS; <para
->The progress view lists the projects in your portfolio on the left and shows progress information for the selected project on the right. </para>
+>Förloppsvyn listar projekten i portföljen till vänster och visar förloppsinformation för det markerade projektet till höger. </para>
   <para>
     <screenshot>
       <screeninfo
@@ -22,7 +22,7 @@
     </screenshot>
   </para>
   <para
->The tasks are divided into groups dependent on the status of the task: </para>
+>Aktiviteterna är uppdelade i grupper beroende på aktivitetens status: </para>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -30,41 +30,41 @@
           <row>
             <entry>
               <para
->Not Started</para>
+>Inte påbörjad</para>
             </entry>
             <entry>
               <para
->Tasks that should have been started by now.</para>
-            </entry>
-          </row>
-          <row>
-            <entry>
-              <para
->Running</para>
-            </entry>
-            <entry>
-              <para
->Tasks that have been started, but not yet finished.</para>
+>Aktiviteter som skulle ha startats vid det här lagret.</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Finished</para>
+>Pågår</para>
             </entry>
             <entry>
               <para
->Tasks that were finished in this period</para>
+>Aktiviteter som har startats, men ännu inte avslutats.</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Next Period</para>
+>Avslutad</para>
             </entry>
             <entry>
               <para
->Tasks that are scheduled to be started in the next period.</para
+>Aktiviteter som har avslutats under perioden</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Nästa period</para>
+            </entry>
+            <entry>
+              <para
+>Aktiviteter som är planerade att starta nästa period.</para
 ></entry>
           </row>
         </tbody>
@@ -74,7 +74,7 @@
 </sect1>
 <sect1 id="progress-editing-data"
 ><title
->Editing data</title>
+>Redigera data</title>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -82,7 +82,7 @@
           <row>
             <entry>
               <para
->Progress information can be edited in-line or by using the task progress dialog.</para>
+>Förloppsinformation kan redigeras på plats eller genom att använda dialogrutan för aktivitetsförlopp.</para>
             </entry>
             <entry>
               <para>
@@ -107,7 +107,7 @@
     </informaltable>
   </para>
   <para
->The following columns are displayed as default: </para>
+>Följande kolumner visas normalt: </para>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -115,11 +115,11 @@
           <row>
             <entry
 ><guilabel
->Column</guilabel
+>Kolumn</guilabel
 ></entry>
             <entry
 ><guilabel
->Description</guilabel
+>Beskrivning</guilabel
 ></entry>
           </row>
         </thead>
@@ -127,11 +127,11 @@
           <row>
             <entry>
               <para
->Name</para>
+>Namn</para>
             </entry>
             <entry>
               <para
->The name of the task.</para>
+>Aktivitetens namn.</para>
             </entry>
           </row>
           <row>
@@ -141,87 +141,87 @@
             </entry>
             <entry>
               <para
->Task status</para>
+>Aktivitetsstatus</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->% Completion</para>
+>% färdig</para>
             </entry>
             <entry>
               <para
->Task completion</para>
-            </entry>
-          </row>
-          <row>
-            <entry>
-              <para
->Planned Effort</para>
-            </entry>
-            <entry>
-              <para
->The amount of work planned to be used at the end of the current period.</para>
+>När aktiviteten är färdig</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Actual Effort</para>
+>Planerad insats</para>
             </entry>
             <entry>
               <para
->The amount of work spent.</para>
-            </entry>
-          </row>
-          <row>
-            <entry>
-              <para
->Remaining Effort</para>
-            </entry>
-            <entry>
-              <para
->The remaining effort needed to complete the task.</para>
+>Arbetsmängden som planeras ha använd vid slutet av aktuell period.</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Planned Cost</para>
+>Verklig insats</para>
             </entry>
             <entry>
               <para
->The planned cost at the end of the current period.</para>
-            </entry>
-          </row>
-          <row>
-            <entry>
-              <para
->Actual Cost</para>
-            </entry>
-            <entry>
-              <para
->The actual cost incurred.</para>
+>Arbetsmängden som används.</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Actual Start</para>
+>Återstående insats</para>
             </entry>
             <entry>
               <para
->The actual start time of the task.</para>
+>Den återstående insatsen för att färdigställa aktiviteten.</para>
             </entry>
           </row>
           <row>
             <entry>
               <para
->Actual Finish</para>
+>Planerad kostnad</para>
             </entry>
             <entry>
               <para
->The actual finish time of the task.</para
+>Den planerade kostnaden vid slutet av aktuell period.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verklig kostnad</para>
+            </entry>
+            <entry>
+              <para
+>Den verkliga kostnaden som uppstod.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verklig start</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens verklig starttid.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Verklig avslutning</para>
+            </entry>
+            <entry>
+              <para
+>Aktivitetens verklig sluttid.</para
 ></entry>
           </row>
         </tbody>
@@ -231,9 +231,9 @@
 </sect1>
 <sect1 id="progress-configuration"
 ><title
->Configuration</title>
+>Inställning</title>
   <para
->Using the context menu, the view can be configured to split / unsplit the tree view or it can be configured using the configure dialog. </para>
+>Genom att använda den sammanhangsberoende menyn. kan vyn ställas in att dela eller dra ihop trädvyn, eller anpassas med inställningsdialogrutan. </para>
   <para>
     <informaltable>
       <tgroup cols="2">
@@ -241,7 +241,7 @@
           <row>
             <entry>
               <para
->The configure dialog enables you to tailor the amount of information the view displays to fit your needs.</para>
+>Inställningsdialogrutan låter dig skräddarsy hur mycket information vyn visar, för att passa dina behov.</para>
             </entry>
             <entry>
               <para>

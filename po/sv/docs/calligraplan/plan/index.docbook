@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY plan "<application
+>Plan</application
+>">
+<!ENTITY portfolio "<application
+>Plan Portfolio Manager</application
+>">
+<!ENTITY work "<application
+>Plan Work</application
+>">
+<!ENTITY plan-introduction-chapter SYSTEM "planintroduction.docbook">
+<!ENTITY guidelines-chapter SYSTEM "guidelines.docbook">
+<!ENTITY common-user-interface-chapter SYSTEM "commonuserinterface.docbook">
+<!ENTITY views-and-editors-chapter SYSTEM "viewsandeditors.docbook">
+<!ENTITY reports-chapter SYSTEM "reports.docbook">
+<!ENTITY introduction-section SYSTEM "introduction.docbook">
+<!ENTITY definitions-section SYSTEM "definitions.docbook">
+<!ENTITY context-help-section SYSTEM "contexthelp.docbook">
+<!ENTITY creating-project-section SYSTEM "creatingproject.docbook">
+<!ENTITY managing-resources-section SYSTEM "managingresources.docbook">
+<!ENTITY creating-odt-report-templates-section SYSTEM "creatingodtreporttemplates.docbook">
+<!ENTITY main-work-space-section SYSTEM "mainworkspace.docbook">
+<!ENTITY using-the-views-section SYSTEM "usingtheviews.docbook">
+<!ENTITY startup-view-section SYSTEM "startupview.docbook">
+<!ENTITY task-editor-section SYSTEM "taskeditor.docbook">
+<!ENTITY resource-editor-section SYSTEM "resourceeditor.docbook">
+<!ENTITY work-and-vacation-editor-section SYSTEM "workandvacationeditor.docbook">
+<!ENTITY cost-breakdown-structure-editor-section SYSTEM "costbreakdownstructureeditor.docbook">
+<!ENTITY task-dependency-editor-graphical-section SYSTEM "taskdependencyeditorgraphical.docbook">
+<!ENTITY task-dependency-editor-list-section SYSTEM "taskdependencyeditorlist.docbook">
+<!ENTITY schedules-editor-section SYSTEM "scheduleseditor.docbook">
+<!ENTITY project-performance-view-section SYSTEM "projectperformanceview.docbook">
+<!ENTITY task-performance-view-section SYSTEM "taskperformanceview.docbook">
+<!ENTITY task-status-view-section SYSTEM "taskstatusview.docbook">
+<!ENTITY task-execution-view-section SYSTEM "taskexecutionview.docbook">
+<!ENTITY task-gantt-view-section SYSTEM "taskganttview.docbook">
+<!ENTITY milestone-gantt-view-section SYSTEM "milestoneganttview.docbook">
+<!ENTITY resource-assignment-view-section SYSTEM "resourceassignmentview.docbook">
+<!ENTITY resource-assignment-gantt-view-section SYSTEM "resourceassignmentganttview.docbook">
+<!ENTITY reports-generator-view-section SYSTEM "reportsgeneratorview.docbook">
+<!ENTITY cost-breakdown-view-section SYSTEM "costbreakdownview.docbook">
+<!ENTITY plan-configuration-chapter SYSTEM "planconfiguration.docbook">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+
+<!ENTITY WIP "<para
+>WIP: Work In Progress. Do not translate!</para
+>">
+
+]>
+<book lang="&language;">
+  <bookinfo>
+    <title
+>Handbok Plan</title>
+    <authorgroup>
+      <author>
+        <personname
+><firstname
+>Dag</firstname
+><surname
+>Andersen</surname
+> </personname>
+      </author>
+      <othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+    </authorgroup>
+    <legalnotice
+>&FDLNotice;</legalnotice>
+    <date
+>2019-11-01</date>
+    <releaseinfo
+>3.2</releaseinfo>
+    <abstract>
+      <para
+></para>
+    </abstract>
+    <keywordset>
+      <keyword
+>KDE</keyword>
+    </keywordset>
+  </bookinfo>
+
+  &plan-introduction-chapter;
+  &guidelines-chapter;
+  &views-and-editors-chapter;
+  &reports-chapter;
+  &plan-configuration-chapter;
+
+  <!--userbase-content-->
+  <chapter id="credits">
+    <title
+>Tack till och licens</title>
+    <para
+>Dokumentation Copyright se användarbasens <ulink url="http://userbase.kde.org/index.php?title=Plan&amp;action=history"
+>Plan sidhistorik</ulink
+></para>
+    <para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@gmail.com</email
+></para
+> &underFDL; </chapter>
+  &documentation.index;
+</book>

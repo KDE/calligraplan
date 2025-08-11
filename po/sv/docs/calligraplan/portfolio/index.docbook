@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY plan "<application
+>Plan</application
+>">
+<!ENTITY portfolio "<application
+>Plan Portfolio Manager</application
+>">
+<!ENTITY work "<application
+>Plan Work</application
+>">
+<!ENTITY introduction-chapter SYSTEM "portfoliointroduction.docbook">
+<!ENTITY introduction SYSTEM "introduction.docbook">
+<!ENTITY context-help SYSTEM "contexthelp.docbook">
+<!ENTITY content-editor SYSTEM "contenteditor.docbook">
+<!ENTITY scheduling SYSTEM "schedulingview.docbook">
+<!ENTITY summary SYSTEM "summaryview.docbook">
+<!ENTITY performance SYSTEM "performanceview.docbook">
+<!ENTITY progress SYSTEM "progressview.docbook">
+<!ENTITY resourceusage SYSTEM "resourceusageview.docbook">
+<!ENTITY ganttsummary SYSTEM "ganttsummaryview.docbook">
+<!ENTITY portfolio-configuration-dialog SYSTEM "portfolioconfiguration.docbook">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+
+<!ENTITY WORK-IN-PROGRESS "<para
+>WIP: Work In Progress. Do not translate!</para
+>">
+
+]>
+<book lang="&language;">
+  <bookinfo>
+    <title
+>Handbok Plan portfölj</title>
+    <authorgroup>
+      <author>
+        <personname
+><firstname
+>Dag</firstname
+><surname
+>Andersen</surname
+> </personname>
+      </author>
+      <othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@gmail.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+    </authorgroup>
+    <legalnotice
+>&FDLNotice;</legalnotice>
+    <date
+>2021-12-14</date>
+    <releaseinfo
+>WIP</releaseinfo>
+    <abstract>
+      <para
+></para>
+    </abstract>
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>Kontor</keyword>
+      <keyword
+>Projekthantering</keyword>
+    </keywordset>
+  </bookinfo>
+
+  &introduction-chapter;
+  &content-editor;
+  &scheduling;
+  &summary;
+  &progress;
+  &performance;
+  &resourceusage;
+  &ganttsummary;
+  &portfolio-configuration-dialog;
+
+  <!--userbase-content-->
+  <chapter id="credits">
+    <title
+>Tack till och licens</title>
+     
+    <para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@gmail.com</email
+></para
+> &underFDL; </chapter>
+  &documentation.index;
+</book>

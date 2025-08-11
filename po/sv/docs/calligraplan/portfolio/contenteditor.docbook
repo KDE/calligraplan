@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Portföljinnehåll</title
+>&WORK-IN-PROGRESS; <para
+>Med den här editorn kan du anpassa innehållet i din portfölj. </para
+><para
+>Välj <menuchoice
+> <shortcut
+><keycap
+>Insert</keycap
+></shortcut
+> <guimenu
+>Redigera</guimenu
+><guimenuitem
+>Lägg till</guimenuitem
+> </menuchoice
+> eller tryck på <guibutton
+>Lägg till</guibutton
+> för att lägga till projekt i portföljen. </para
+><para
+>Välj <menuchoice
+> <shortcut
+><keycap
+>Delete</keycap
+></shortcut
+> <guimenu
+>Redigera</guimenu
+><guimenuitem
+>Ta bort</guimenuitem
+> </menuchoice
+> eller tryck på <guibutton
+>Ta bort</guibutton
+> för att ta bort projekt. </para
+><para
+>Lägg till projekten du hanterar och ställ in <guilabel
+>Portfölj</guilabel
+> = <emphasis
+>Ja</emphasis
+>. </para
+><para
+>Om du har resurser som används av projekt som inte ingår i din portfölj och du vill schemalägga eller inspektera resursanvändning, måste du lägga till alla relevanta projekt och ställa in <guilabel
+>Portfölj</guilabel
+> = <emphasis
+>Nej</emphasis
+> för projekten. </para>
+<formalpara
+><title
+>Lagring</title>
+<para
+></para>
+</formalpara>
+<para
+>Projektändringar kan sparas i den ursprungliga projektfilen eller så kan de inbäddas i portföljfilen. Om du hanterar projekt bör de normalt sparas i sina ursprungliga filer. Ställ in <guilabel 
+>Lagring</guilabel 
+> = <emphasis 
+>Extern</emphasis 
+> i detta fall. Men om du bara vill se vilken effekt förändringar kan ha, kanske du vill lagra projekt inbäddade medan du arbetar med olika scenarier. Ställ in <guilabel 
+>Lagring</guilabel 
+> = <emphasis 
+>Inbäddad</emphasis 
+> i detta fall. Projektets externa webbadress bevaras om du senare vill spara ändringarna i originalfilen. </para>
+</chapter>

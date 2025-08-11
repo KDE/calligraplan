@@ -1,0 +1,41 @@
+<sect2
+><title/>&WORK-IN-PROGRESS; <para
+>En &portfolio; låter dig hantera flera projekt från ett enda program. </para>
+<para
+>Två användarfall: <itemizedlist>
+  <listitem>
+    <para
+>Hantera flera projekt, för att få en överblick över var du ska fokusera uppmärksamheten.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspektera och planera projekt över hela företaget. Assistera med att hantera förseningar, ändra prioriteringar eller införliva nya projekt.</para>
+  </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Funktioner: <itemizedlist>
+  <listitem>
+    <para
+>Schemalägg eller schemalägg om flera projekt.</para>
+  </listitem>
+  <listitem>
+    <para
+>Resursutjämning över projekt.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspektera planerad resursanvändning över projekt.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspektera och uppdatera framstegsinformation i tabellform såväl som i diagram.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspektera projektens gantt-diagram.</para>
+  </listitem>
+</itemizedlist>
+</para>
+</sect2>

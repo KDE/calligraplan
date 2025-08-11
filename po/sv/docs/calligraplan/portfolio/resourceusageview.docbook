@@ -3,7 +3,7 @@
 >Resursanvändning</title>
 <sect1 id="resourceusage-description"
 ><title
->Description</title
+>Beskrivning</title
 >&WORK-IN-PROGRESS; <para
 >Visar ett diagram över belastningen planerad för den markerade resursen färgkodad per aktivitet. </para>
 </sect1>

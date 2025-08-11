@@ -3,29 +3,29 @@
 >Schemaläggning</title>
 <sect1 id="scheduling-description"
 ><title
->Description</title
+>Beskrivning</title
 >&WORK-IN-PROGRESS; <para
->The Scheduling view lets you schedule the projects in your portfolio. The projects are scheduled according to their priority. </para
+>Schemaläggningsvyn låter dig schemalägga projekten i din portfölj. Projekten är schemaläggs enligt sin prioritet. </para
 ><para
->Set <emphasis
->Control</emphasis
-> to <emphasis
->Schedule</emphasis
-> for the project or projects you want to schedule. Set <emphasis
->Control</emphasis
-> to <emphasis
->Include</emphasis
-> to have resource assignments included in resource leveling. Set <emphasis
->Control</emphasis
-> to <emphasis
->Exclude</emphasis
-> if you want to exclude the project. </para>
+>Ställ in <emphasis 
+>Styrning</emphasis 
+> till <emphasis 
+>Tidplan</emphasis 
+> för det eller de projekt du vill schemalägga. Ställ in <emphasis
+>Styrning</emphasis
+> till <emphasis
+>Inkludera</emphasis
+> för att få resurstilldelningar inkluderade i resursutjämning. Ställ in <emphasis 
+>Styrning</emphasis 
+> till <emphasis 
+>Undanta</emphasis 
+> om du vill undanta projektet. </para>
   <tip
 ><para
->If your projects share resources with projects that are not part of your portfolio, these projects needs to be included for resource leveling to work properly. See <xref linkend="content-editor"/>. </para
+>Om dina projekt delar resurser med projekt som inte ingår i portföljen, måste projekten inkluderas för att resursutjämning ska fungera korrekt. Se <xref linkend="content-editor"/>. </para
 ></tip>
    <para
->The view has tree sections: <itemizedlist>
+>Vyn har tre delar: <itemizedlist>
     <listitem
 ><para
 ><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
@@ -43,7 +43,7 @@
 </sect1>
 <sect1 id="scheduling-projecttable"
 ><title
->Table of Projects</title>
+>Projekttabell</title>
   <para>
   <informaltable>
     <tgroup cols="2">
@@ -51,82 +51,82 @@
 ><row>
           <entry
 ><guilabel
->Name</guilabel
+>Namn</guilabel
 ></entry>
           <entry
 ><guilabel
->Description</guilabel
+>Beskrivning</guilabel
 ></entry>
         </row
 ></thead>
       <tbody>
       <row
 ><entry
->Name</entry
+>Namn</entry
 ><entry
->Project name</entry
+>Projektnamn</entry
 ></row>
       <row
 ><entry
->Schedule</entry
+>Tidplan</entry
 ><entry
->Schedule name</entry
+>Tidplanens namn</entry
 ></row>
       <row
 ><entry
 >Status</entry
 ><entry
->Scheduling status</entry
+>Schemaläggningsstatus</entry
 ></row>
       <row
 ><entry
->Control</entry>
+>Kontroll</entry>
         <entry
->Scheduling control can have the following values: <itemizedlist>
+>Styrning av schemaläggning kan ha följande värden: <itemizedlist>
             <listitem
 ><para
 ><emphasis
->Schedule:</emphasis
-> The project will be scheduled.</para
+>Schemalägg:</emphasis
+> Projektet schemaläggs.</para
 ></listitem>
             <listitem
 ><para
 ><emphasis
->Include:</emphasis
-> Resource bookings will be included in resource levelling.</para
+>Inkludera:</emphasis
+> Resursbokningar inkluderas i resursresursutjämning.</para
 ></listitem>
             <listitem
 ><para
 ><emphasis
->Exclude:</emphasis
-> The project will not be included.</para
+>Undanta:</emphasis
+> Projektet inkluderas inte.</para
 ></listitem>
           </itemizedlist>
         </entry>
       </row>
       <row
 ><entry
->Priority</entry
+>Prioritet</entry
 ><entry
->Project priority. A higher number means higher priority.</entry
+>Projektprioritet. Ett större värde betyder högre prioritet.</entry
 ></row>
       <row
 ><entry
->Target Start</entry
+>Startmål</entry
 ><entry
->The earliest project start time</entry
+>Den tidigaste starttiden för projektet.</entry
 ></row>
       <row
 ><entry
->Target End</entry
+>Slutmål</entry
 ><entry
->The latest project finish time</entry
+>Den senaste sluttiden för projektet.</entry
 ></row>
       <row
 ><entry
->Description</entry
+>Beskrivning</entry
 ><entry
->Project description</entry
+>Projektbeskrivning</entry
 ></row>
       </tbody>
     </tgroup>
@@ -135,12 +135,10 @@
 </sect1>
 <sect1 id="scheduling-control"
 ><title
->Scheduling Control</title>
-   
-</sect1>
+>Kontroll av schemaläggning</title
+>&WORK-IN-PROGRESS; </sect1>
 <sect1 id="scheduling-log"
 ><title
->Scheduling Log</title>
-   
-</sect1>
+>Schemaläggningslogg</title
+>&WORK-IN-PROGRESS; </sect1>
 </chapter>

@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>Sammanfattning</title
+>&WORK-IN-PROGRESS; <para
+>Den här vyn sammanfattar resultatdata för projekten i din portfölj. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Namn</guilabel
+></entry>
+          <entry
+><guilabel
+>Beskrivning</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Namn</entry
+><entry
+>Projektnamn</entry
+></row>
+      <row
+><entry
+>Tidplan</entry
+><entry
+>Tidplanens namn</entry
+></row>
+      <row
+><entry
+>SPI-kostnad</entry
+><entry
+>Schemalagd prestationsindex (kostnadsbaserat)</entry
+></row>
+      <row
+><entry
+>KPI-kostnad</entry
+><entry
+>Schemalagd prestationsindex (kostnadsbaserat)</entry
+></row>
+      <row
+><entry
+>SPI-insats</entry
+><entry
+>Schemalagd prestationsindex (insatsbaserat)</entry
+></row>
+      <row
+><entry
+>KPI-insats</entry
+><entry
+>Schemalagd prestationsindex (insatsbaserat)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>SPI indikerar om framstegen är enligt tidplan (1), efter tidplan (mindre än 1) eller före tidplan (större än 1). KPI anger hur mycket det har kostat att få fram de faktiska framstegen. Ett värde på 1 betyder som planerat, mindre än 1 betyder att det har kostat mer än det borde ha gjort och ett värde större än 1 betyder att framstegen har uppnåtts med mindre resursanvändning än planerat. </para>
+</chapter>
