@@ -1070,8 +1070,8 @@ msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
 "will not be able to re-add it."
 msgstr ""
-"هذه قائمة إجراءات حركية. يمكنك تحريكها ، لكن إذا حذفتها ، لن يمكنك إضافتها "
-"مرة أخرى."
+"هذه قائمة إجراءات حركية. يمكنك تحريكها، لكن إذا حذفتها، لن يمكنك إضافتها مرة "
+"أخرى."
 
 #: main/kedittoolbar.cpp:1276
 #, kde-format
