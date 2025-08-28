@@ -5319,10 +5319,9 @@ msgstr "Počáteční datum"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectstartBtn)
 #: ui/kptaccountsviewconfigurepanelbase.ui:107
-#, fuzzy, kde-format
-#| msgid "Projects:"
+#, kde-format
 msgid "Project start"
-msgstr "Projekty:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
@@ -5420,11 +5419,9 @@ msgstr "Nastavit %1 na Nedefinovaný"
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Not Scheduled"
+#, kde-format
 msgid "Project Schedule:"
-msgstr "Nenaplánováno"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, scheduleName)
 #. i18n: ectx: property (text), widget (QToolButton, btnAdd)
@@ -5755,10 +5752,9 @@ msgstr "Název úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showResourceNames)
 #: ui/kptganttchartdisplayoptions.ui:166
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource names"
-msgstr "Zdroje"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/kptganttchartdisplayoptions.ui:176
@@ -5780,18 +5776,15 @@ msgstr "Dokončení úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
 #: ui/kptganttchartdisplayoptions.ui:199
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Constraint"
+#, kde-format
 msgid "Time constraints"
-msgstr "Omezení"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showPositiveFloat)
 #: ui/kptganttchartdisplayoptions.ui:219
-#, fuzzy, kde-format
-#| msgid "Position:"
+#, kde-format
 msgid "Positive float"
-msgstr "Pozice:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showNegativeFloat)
 #: ui/kptganttchartdisplayoptions.ui:226
@@ -5801,24 +5794,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
 #: ui/kptganttchartdisplayoptions.ui:233
-#, fuzzy, kde-format
-#| msgid "Critical"
+#, kde-format
 msgid "Critical path"
-msgstr "Kritická"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
 #: ui/kptganttchartdisplayoptions.ui:240
-#, fuzzy, kde-format
-#| msgid "Critical"
+#, kde-format
 msgid "Critical tasks"
-msgstr "Kritická"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
 #: ui/kptganttchartdisplayoptions.ui:247
-#, fuzzy, kde-format
-#| msgid "Scheduling error"
+#, kde-format
 msgid "Scheduling errors"
-msgstr "Chyba plánování"
+msgstr ""
 
 #: ui/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
@@ -5884,12 +5874,10 @@ msgstr "Vypsat názvy úkolů"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_printColumnLabels)
 #: ui/kptganttprintingoptions.ui:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Print task names"
+#, kde-format
 msgctxt "@option:check"
 msgid "Print time scale"
-msgstr "Vypsat názvy úkolů"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/kptganttprintingoptions.ui:40
@@ -5900,11 +5888,10 @@ msgstr "Škálování"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_noFitting)
 #: ui/kptganttprintingoptions.ui:46
-#, fuzzy, kde-format
-#| msgid "Enable header on all pages"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Divide chart on multiple pages"
-msgstr "Povolit záhlaví na všech stranách"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
 #: ui/kptganttprintingoptions.ui:53
@@ -5929,11 +5916,10 @@ msgstr "Rozsah"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectStartBtn)
 #: ui/kptganttprintingoptions.ui:88
-#, fuzzy, kde-format
-#| msgid "Can start"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Chart start:"
-msgstr "Lze začít"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
 #: ui/kptganttprintingoptions.ui:105
@@ -5944,11 +5930,10 @@ msgstr "Zahájení:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
 #: ui/kptganttprintingoptions.ui:137
-#, fuzzy, kde-format
-#| msgid "Chart type"
+#, kde-format
 msgctxt "@option:radio"
 msgid "Chart end:"
-msgstr "Druh grafu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
 #: ui/kptganttprintingoptions.ui:154
@@ -6287,10 +6272,9 @@ msgstr "&Správce:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: ui/kptmainprojectpanelbase.ui:132
-#, fuzzy, kde-format
-#| msgid "Insert a person from your address book."
+#, kde-format
 msgid "Choose a project leader from your address book."
-msgstr "Vložte osobu z vaší knihy adres."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: ui/kptmainprojectpanelbase.ui:135
@@ -6355,10 +6339,9 @@ msgstr "Adresář"
 
 #. i18n: ectx: property (text), widget (QCheckBox, projectsLoadAtStartup)
 #: ui/kptmainprojectpanelbase.ui:287
-#, fuzzy, kde-format
-#| msgid "Resource assignments"
+#, kde-format
 msgid "Load resource assignments at startup"
-msgstr "Přidělení zdrojů"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, projectsLoadBtn)
 #: ui/kptmainprojectpanelbase.ui:294
@@ -6545,10 +6528,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
 #: ui/kptrecalculatedialog.ui:33
-#, fuzzy, kde-format
-#| msgid "Calculate start"
+#, kde-format
 msgid "Re-calculate from:"
-msgstr "Spočítat start"
+msgstr ""
 
 #: ui/kptrelationdialog.cpp:37
 #, kde-kuit-format
@@ -7345,20 +7327,15 @@ msgstr "Režim úprav:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, editmode)
 #: ui/kpttaskprogresspanelbase.ui:125
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Move resource"
-#| msgid_plural "Move %1 resources"
+#, kde-format
 msgid "Per resource"
-msgstr "Přesunout zdroj"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, editmode)
 #: ui/kpttaskprogresspanelbase.ui:130
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Insert tasks"
+#, kde-format
 msgid "Per task"
-msgstr "Vložit úlohy"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
 #: ui/kpttaskprogresspanelbase.ui:177
@@ -7412,10 +7389,9 @@ msgstr "Obecné nastavení"
 
 #. i18n: ectx: property (title), widget (QGroupBox, periodGroupBox)
 #: ui/kpttaskstatusviewsettingspanel.ui:16
-#, fuzzy, kde-format
-#| msgid "Periodicity:"
+#, kde-format
 msgid "Period Definition"
-msgstr "Periodicita:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskstatusviewsettingspanel.ui:25
@@ -7425,18 +7401,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
 #: ui/kpttaskstatusviewsettingspanel.ui:48
-#, fuzzy, kde-format
-#| msgid "Current date"
+#, kde-format
 msgid "Use current date"
-msgstr "Aktuální datum"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
 #: ui/kpttaskstatusviewsettingspanel.ui:68
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Weekday"
+#, kde-format
 msgid "Use weekday:"
-msgstr "Den týdne"
+msgstr ""
 
 #: ui/kptusedefforteditor.cpp:45
 #, kde-format
@@ -7602,10 +7575,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptwbsdefinitionpanelbase.ui:33
-#, fuzzy, kde-format
-#| msgid "Project Description"
+#, kde-format
 msgid "Project Code Definition"
-msgstr "Popis projektu"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
@@ -7911,10 +7883,9 @@ msgstr "Tabulka"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_showbasevalues)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
-#, fuzzy, kde-format
-#| msgid "Baseline"
+#, kde-format
 msgid "Base values"
-msgstr "Základní řada"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
@@ -7942,47 +7913,41 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:116
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show BCWP plot"
-msgstr "Zobrazit projekt"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:126
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show ACWP plot"
-msgstr "Zobrazit projekt"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
-#, fuzzy, kde-format
-#| msgid "Cost"
+#, kde-format
 msgid "SPI Cost"
-msgstr "Cena"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
-#, fuzzy, kde-format
-#| msgid "Effort"
+#, kde-format
 msgid "SPI Effort"
-msgstr "Úsilí:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
-#, fuzzy, kde-format
-#| msgid "Effort"
+#, kde-format
 msgid "CPI Effort"
-msgstr "Úsilí:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
-#, fuzzy, kde-format
-#| msgid "Cost"
+#, kde-format
 msgid "CPI Cost"
-msgstr "Cena"
+msgstr ""
 
 #: ui/performance/ProjectStatusView.cpp:67
 #, kde-kuit-format
@@ -8060,11 +8025,9 @@ msgstr "Do"
 
 #. i18n: ectx: property (title), widget (QGroupBox, relationType)
 #: ui/relationpanel.ui:87
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Dependency"
+#, kde-format
 msgid "Dependency Type"
-msgstr "Přidat závislost"
+msgstr ""
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -8600,10 +8563,9 @@ msgstr "Skupina:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, chooseBtn)
 #: ui/resourcedialogbase.ui:67
-#, fuzzy, kde-format
-#| msgid "Insert a person from your address book"
+#, kde-format
 msgid "Choose resource from address book"
-msgstr "Vložte osobu z vaší knihy adres"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
 #. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)
@@ -8664,10 +8626,9 @@ msgstr "Potřebné zdroje:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2)
 #: ui/resourcedialogbase.ui:420
-#, fuzzy, kde-format
-#| msgid "Hours per day:"
+#, kde-format
 msgid "Hourly rate:"
-msgstr "Hodin denně:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: ui/resourcedialogbase.ui:443

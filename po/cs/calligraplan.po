@@ -93,17 +93,15 @@ msgstr "Hodin denně"
 
 #. i18n: ectx: label, entry (GenerateWeek), group (CalendarGeneration)
 #: calligraplansettings.kcfg:27
-#, fuzzy, kde-format
-#| msgid "Working week"
+#, kde-format
 msgid "Generate working week"
-msgstr "Pracovní týden"
+msgstr ""
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
-#, fuzzy, kde-format
-#| msgid "Generate reports"
+#, kde-format
 msgid "Generate working week options"
-msgstr "Vytvořit hlášení"
+msgstr ""
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
@@ -121,10 +119,9 @@ msgstr "Vždy"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
-#, fuzzy, kde-format
-#| msgid "Generate reports"
+#, kde-format
 msgid "Generate holidays"
-msgstr "Vytvořit hlášení"
+msgstr ""
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
@@ -134,10 +131,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
-#, fuzzy, kde-format
-#| msgid "In week calendar"
+#, kde-format
 msgid "In base calendar"
-msgstr "V týdenním kalendáři"
+msgstr ""
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
@@ -177,10 +173,9 @@ msgstr "Pondělí:"
 #: calligraplansettings.kcfg:98 calligraplansettings.kcfg:111
 #: calligraplansettings.kcfg:124 calligraplansettings.kcfg:137
 #: calligraplansettings.kcfg:150
-#, fuzzy, kde-format
-#| msgid "Tick if working day"
+#, kde-format
 msgid "Start of working day"
-msgstr "Zaškrtněte pokud je den pracovní"
+msgstr ""
 
 #. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
@@ -193,10 +188,9 @@ msgstr "Zaškrtněte pokud je den pracovní"
 #: calligraplansettings.kcfg:102 calligraplansettings.kcfg:115
 #: calligraplansettings.kcfg:128 calligraplansettings.kcfg:141
 #: calligraplansettings.kcfg:154
-#, fuzzy, kde-format
-#| msgid "Tick if working day"
+#, kde-format
 msgid "End of working day"
-msgstr "Zaškrtněte pokud je den pracovní"
+msgstr ""
 
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
@@ -242,11 +236,9 @@ msgstr "Neděle:"
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify project name"
+#, kde-format
 msgid "Name of project manager"
-msgstr "Změnit název projektu"
+msgstr ""
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
@@ -256,10 +248,9 @@ msgstr "Použít sdílené zdroje"
 
 #. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
 #: calligraplansettings.kcfg:168
-#, fuzzy, kde-format
-#| msgid "Use shared resources"
+#, kde-format
 msgid "File to contain shared resources"
-msgstr "Použít sdílené zdroje"
+msgstr ""
 
 #. i18n: ectx: label, entry (SharedProjectsPlace), group (Project settings)
 #: calligraplansettings.kcfg:171
@@ -371,43 +362,33 @@ msgstr ""
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
 #: calligraplansettings.kcfg:273
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Summary task"
+#, kde-format
 msgid "Summary task default color"
-msgstr "Souhrnná úloha"
+msgstr ""
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
 #: calligraplansettings.kcfg:277
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Summary task"
+#, kde-format
 msgid "Summary task color, level 1"
-msgstr "Souhrnná úloha"
+msgstr ""
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
 #: calligraplansettings.kcfg:281
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Summary task"
+#, kde-format
 msgid "Summary task color, level 2"
-msgstr "Souhrnná úloha"
+msgstr ""
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
 #: calligraplansettings.kcfg:285
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Summary task"
+#, kde-format
 msgid "Summary task color, level 3"
-msgstr "Souhrnná úloha"
+msgstr ""
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
 #: calligraplansettings.kcfg:289
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Summary task"
+#, kde-format
 msgid "Summary task color, level 4"
-msgstr "Souhrnná úloha"
+msgstr ""
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:293
@@ -459,10 +440,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
 #: calligraplansettings.kcfg:328
-#, fuzzy, kde-format
-#| msgid "Check for work packages"
+#, kde-format
 msgid "Automatically check for new work packages"
-msgstr "Hledat pracovní balíčky"
+msgstr ""
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
 #: calligraplansettings.kcfg:331
@@ -472,17 +452,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
 #: calligraplansettings.kcfg:334
-#, fuzzy, kde-format
-#| msgid "Delete file after it has been retrieved"
+#, kde-format
 msgid "If set, Plan will delete the file after it has been read"
-msgstr "Smazat soubor po jejím získání"
+msgstr ""
 
 #. i18n: ectx: label, entry (SaveFile), group (Work Package)
 #: calligraplansettings.kcfg:337
-#, fuzzy, kde-format
-#| msgid "Delete file after it has been retrieved"
+#, kde-format
 msgid "If set, Plan will save the file after it has been read"
-msgstr "Smazat soubor po jejím získání"
+msgstr ""
 
 #. i18n: ectx: label, entry (SaveUrl), group (Work Package)
 #: calligraplansettings.kcfg:340
@@ -541,10 +519,9 @@ msgstr "Seznam cest k modulům úloh"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:384
-#, fuzzy, kde-format
-#| msgid "List of paths to task modules"
+#, kde-format
 msgid "List of paths to project templates"
-msgstr "Seznam cest k modulům úloh"
+msgstr ""
 
 #: config/ConfigDialog.cpp:47
 #, kde-format
@@ -617,10 +594,9 @@ msgstr "Kontextová nápověda:"
 
 #. i18n: ectx: property (text), widget (QLabel, languageLabel)
 #: config/ConfigDocumentationPanel.ui:95
-#, fuzzy, kde-format
-#| msgid "Context help:"
+#, kde-format
 msgid "Context language"
-msgstr "Kontextová nápověda:"
+msgstr ""
 
 #: config/ConfigProjectPanel.cpp:50
 #, kde-kuit-format
@@ -1044,18 +1020,16 @@ msgstr "Aktuální datum a čas"
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:191 config/kptconfigtaskpanelbase.ui:267
-#, fuzzy, kde-format
-#| msgid "Current date and time"
+#, kde-format
 msgid "Current date, specified time"
-msgstr "Aktuální datum a čas"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:196 config/kptconfigtaskpanelbase.ui:272
-#, fuzzy, kde-format
-#| msgid "Current date and time"
+#, kde-format
 msgid "Specified date and time"
-msgstr "Aktuální datum a čas"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #: config/kptconfigtaskpanelbase.ui:210
@@ -1297,17 +1271,15 @@ msgstr "Vložit soubor"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
-#, fuzzy, kde-format
-#| msgid "Current date and time"
+#, kde-format
 msgid "Current node:"
-msgstr "Aktuální datum a čas"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
 #: kptinsertfilepanel.ui:68
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert on top level"
-msgstr "Vložit soubor"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
 #: kptinsertfilepanel.ui:75
@@ -2145,10 +2117,9 @@ msgstr "Kategorie:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditview.ui:55
-#, fuzzy, kde-format
-#| msgid "The category is placed after this category"
+#, kde-format
 msgid "The view is placed after this view"
-msgstr "Kategorie byla umístěna za kategorií"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:55 kptviewlisteditcategory.ui:23
@@ -2467,16 +2438,11 @@ msgstr "Nový projekt"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: welcome/WelcomeView.ui:63
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#| "\">Recent projects:</span></p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
 "\">Template projects:</span></p></body></html>"
 msgstr ""
-"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-"\">Nedávné projekty:</span></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, createResourceFileBtn)
 #: welcome/WelcomeView.ui:107
@@ -2486,18 +2452,13 @@ msgstr "Vytvořit sdílené zdroje"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
 #: welcome/WelcomeView.ui:152
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#| "\">Recent projects:</span></p></body></html>"
+#, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
 "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</span></"
 "p><p>Displays a file dialog enabling you to open an existing project.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-"\">Nedávné projekty:</span></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
 #: welcome/WelcomeView.ui:155
