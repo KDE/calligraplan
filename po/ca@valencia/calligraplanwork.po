@@ -442,7 +442,7 @@ msgstr "Llista"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr "Seleccioneu una llista de tasques"
+msgstr "Trieu una llista de tasques"
 
 #: view.cpp:109
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "Gantt"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr "Seleccioneu la «línia de temps»"
+msgstr "Trieu la «línia de temps»"
 
 #. i18n("Progress..."), this);
 #. collection->addAction("task_progress", actionTaskProgress);

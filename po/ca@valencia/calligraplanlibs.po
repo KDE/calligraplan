@@ -1292,7 +1292,7 @@ msgstr "Falta el filtre d'importació"
 #: main/KoFilterManager_p.cpp:44
 #, kde-format
 msgid "Choose Filter"
-msgstr "Seleccioneu un filtre"
+msgstr "Trieu un filtre"
 
 #: main/KoMainWindow.cpp:168
 #, kde-format
@@ -1565,22 +1565,22 @@ msgstr "Mes anterior"
 #: models/kcalendar/kdatepicker.cpp:310
 #, kde-format
 msgid "Select a week"
-msgstr "Seleccioneu una setmana"
+msgstr "Trieu una setmana"
 
 #: models/kcalendar/kdatepicker.cpp:311
 #, kde-format
 msgid "Select a month"
-msgstr "Selecciona un mes"
+msgstr "Tria un mes"
 
 #: models/kcalendar/kdatepicker.cpp:312
 #, kde-format
 msgid "Select a year"
-msgstr "Selecciona un any"
+msgstr "Tria un any"
 
 #: models/kcalendar/kdatepicker.cpp:313
 #, kde-format
 msgid "Select the current day"
-msgstr "Selecciona el dia d'hui"
+msgstr "Tria el dia d'hui"
 
 #: models/kptaccountsmodel.cpp:85
 #, kde-kuit-format
@@ -1622,7 +1622,7 @@ msgstr "Desselecciona com a compte predeterminat"
 #: models/kptaccountsmodel.cpp:343
 msgctxt "(qtundo-format)"
 msgid "Select as default account"
-msgstr "Selecciona com a compte predeterminat"
+msgstr "Tria com a compte predeterminat"
 
 #: models/kptaccountsmodel.cpp:360
 msgctxt "(qtundo-format)"
@@ -1712,7 +1712,7 @@ msgstr "Desselecciona com a calendari seleccionat"
 #: models/kptcalendarmodel.cpp:357
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
-msgstr "Selecciona com a calendari predeterminat"
+msgstr "Tria com a calendari predeterminat"
 
 #: models/kptcalendarmodel.cpp:415
 msgctxt "(qtundo-format)"
@@ -6278,7 +6278,7 @@ msgstr "Amplia l'última secció"
 #: ui/kptitemviewsettings.ui:35
 #, kde-format
 msgid "Select columns to be shown:"
-msgstr "Selecciona les columnes que s'han de mostrar:"
+msgstr "Tria les columnes que s'han de mostrar:"
 
 #. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
 #: ui/kptitemviewsettings.ui:56
@@ -6810,7 +6810,7 @@ msgstr "Grup"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Select team members"
-msgstr "Seleccioneu els membres de l'equip"
+msgstr "Trieu els membres de l'equip"
 
 #: ui/kptresourcedialog.cpp:248
 #, kde-format
@@ -7538,7 +7538,7 @@ msgstr "Modifica el progrés de la tasca"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Select the tasks finish time"
-msgstr "Seleccioneu el temps de finalització de les tasques"
+msgstr "Trieu el temps de finalització de les tasques"
 
 #: ui/kpttaskprogresspanel.cpp:111
 #, kde-kuit-format
@@ -8866,7 +8866,7 @@ msgstr "Grup:"
 #: ui/resourcedialogbase.ui:67
 #, kde-format
 msgid "Choose resource from address book"
-msgstr "Selecciona un recurs des de la llibreta d'adreces"
+msgstr "Tria un recurs des de la llibreta d'adreces"
 
 #. i18n: ectx: property (text), widget (QLabel, lblInitialsDesc)
 #. i18n: ectx: property (text), widget (QLabel, ui_initialslabel)

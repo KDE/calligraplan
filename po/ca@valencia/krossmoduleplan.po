@@ -68,7 +68,7 @@ msgstr "&Eines"
 #: ScriptingDataQueryView.ui:22
 #, kde-format
 msgid "Select from:"
-msgstr "Selecciona des de:"
+msgstr "Tria des de:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
 #: ScriptingDataQueryView.ui:30
@@ -206,7 +206,7 @@ msgstr "No hi ha cap propietat que s'haja d'exportar"
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
 msgid "Select schedule"
-msgstr "Seleccioneu la programació"
+msgstr "Trieu la programació"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Data"
@@ -214,7 +214,7 @@ msgstr "Dades"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Select data"
-msgstr "Seleccioneu les dades"
+msgstr "Trieu les dades"
 
 #: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
 msgid "Export ods file"

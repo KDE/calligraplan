@@ -1469,7 +1469,7 @@ msgid ""
 "Select how they shall be treated in this project."
 msgstr ""
 "Els recursos compartits s'han eliminat del fitxer de recursos compartits.\n"
-"Seleccioneu com s'haurien de tractar en este projecte."
+"Trieu com s'haurien de tractar en este projecte."
 
 #: kptmaindocument.cpp:1328
 #, kde-kuit-format
@@ -2166,10 +2166,10 @@ msgid ""
 "displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Selector de planificacions</title><para>Selecciona la planificació "
-"que s'utilitzarà quan es mostren dades dependents de planificació.<nl/"
-"><note>Les tasques no planificades només es mostren en els editors.</"
-"note><nl/><link url='%1'>Més…</link></para>"
+"<title>Selector de planificacions</title><para>Tria la planificació que "
+"s'utilitzarà quan es mostren dades dependents de planificació.<nl/><note>Les "
+"tasques no planificades només es mostren en els editors.</note><nl/><link "
+"url='%1'>Més…</link></para>"
 
 #: kptviewlist.cpp:604
 #, kde-format
@@ -2573,13 +2573,13 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Plantilles de projecte</title><para>Seleccioneu una plantilla per a "
-"crear un projecte nou basat en al plantilla seleccionada.</para><para>Plan "
-"buscarà les plantilles en els llocs que definiu en el diàleg de "
-"configuració: <interface>Configuració -> Configura Plan</interface>.</"
-"para><para>Podeu crear plantilles noves a partir d'un projecte utilitzant "
-"l'entrada de menú <interface>Fitxer -> Crea una plantilla de projecte</"
-"interface>.<nl/><link url='%1'>Més…</link></para>"
+"<title>Plantilles de projecte</title><para>Trieu una plantilla per a crear "
+"un projecte nou basat en al plantilla seleccionada.</para><para>Plan buscarà "
+"les plantilles en els llocs que definiu en el diàleg de configuració: "
+"<interface>Configuració -> Configura Plan</interface>.</para><para>Podeu "
+"crear plantilles noves a partir d'un projecte utilitzant l'entrada de menú "
+"<interface>Fitxer -> Crea una plantilla de projecte</interface>.<nl/><link "
+"url='%1'>Més…</link></para>"
 
 #: welcome/WelcomeView.cpp:312
 #, kde-format
