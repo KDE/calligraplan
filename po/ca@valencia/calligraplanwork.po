@@ -450,7 +450,7 @@ msgstr "Llista"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr "Seleccioneu una llista de tasques"
+msgstr "Trieu una llista de tasques"
 
 #: view.cpp:97
 #, kde-format
@@ -461,7 +461,7 @@ msgstr "Gantt"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr "Seleccioneu la «línia de temps»"
+msgstr "Trieu la «línia de temps»"
 
 #: view.cpp:103
 #, kde-format

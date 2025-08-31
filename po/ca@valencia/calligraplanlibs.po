@@ -1554,7 +1554,7 @@ msgstr "Falta el filtre d'importació"
 #: main/KoFilterManager_p.cpp:29
 #, kde-format
 msgid "Choose Filter"
-msgstr "Seleccioneu un filtre"
+msgstr "Trieu un filtre"
 
 #: main/KoMainWindow.cpp:160
 #, kde-format
@@ -1902,13 +1902,13 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Plantilles de projecte</title><para>Seleccioneu una plantilla per a "
-"crear un projecte nou basat en la plantilla seleccionada.</para><para>Plan "
-"buscarà les plantilles en els llocs que definiu en el diàleg de "
-"configuració: <interface>Configuració -> Configura Plan</interface>.</"
-"para><para>Podeu crear plantilles noves a partir d'un projecte utilitzant "
-"l'entrada de menú <interface>Fitxer -> Crea una plantilla de projectes</"
-"interface>.<nl/><link url='%1'>Més…</link></para>"
+"<title>Plantilles de projecte</title><para>Trieu una plantilla per a crear "
+"un projecte nou basat en la plantilla seleccionada.</para><para>Plan buscarà "
+"les plantilles en els llocs que definiu en el diàleg de configuració: "
+"<interface>Configuració -> Configura Plan</interface>.</para><para>Podeu "
+"crear plantilles noves a partir d'un projecte utilitzant l'entrada de menú "
+"<interface>Fitxer -> Crea una plantilla de projectes</interface>.<nl/><link "
+"url='%1'>Més…</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -2194,22 +2194,22 @@ msgstr "Mes anterior"
 #: models/kcalendar/kdatepicker.cpp:297
 #, kde-format
 msgid "Select a week"
-msgstr "Seleccioneu una setmana"
+msgstr "Trieu una setmana"
 
 #: models/kcalendar/kdatepicker.cpp:298
 #, kde-format
 msgid "Select a month"
-msgstr "Selecciona un mes"
+msgstr "Tria un mes"
 
 #: models/kcalendar/kdatepicker.cpp:299
 #, kde-format
 msgid "Select a year"
-msgstr "Selecciona un any"
+msgstr "Tria un any"
 
 #: models/kcalendar/kdatepicker.cpp:300
 #, kde-format
 msgid "Select the current day"
-msgstr "Selecciona el dia d'hui"
+msgstr "Tria el dia d'hui"
 
 #: models/kptaccountsmodel.cpp:72
 #, kde-kuit-format
@@ -2237,7 +2237,7 @@ msgstr "Desselecciona com a compte predeterminat"
 #: models/kptaccountsmodel.cpp:330
 msgctxt "(qtundo-format)"
 msgid "Select as default account"
-msgstr "Selecciona com a compte predeterminat"
+msgstr "Tria com a compte predeterminat"
 
 #: models/kptaccountsmodel.cpp:347
 msgctxt "(qtundo-format)"
@@ -2341,7 +2341,7 @@ msgstr "Desselecciona com a calendari seleccionat"
 #: models/kptcalendarmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
-msgstr "Selecciona com a calendari predeterminat"
+msgstr "Tria com a calendari predeterminat"
 
 #: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
@@ -7238,7 +7238,7 @@ msgstr "Amplia l'última secció"
 #: ui/kptitemviewsettings.ui:35
 #, kde-format
 msgid "Select columns to be shown:"
-msgstr "Selecciona les columnes que s'han de mostrar:"
+msgstr "Tria les columnes que s'han de mostrar:"
 
 #. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
 #: ui/kptitemviewsettings.ui:56
@@ -7669,7 +7669,7 @@ msgstr "Grups"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Select team members"
-msgstr "Seleccioneu els membres de l'equip"
+msgstr "Trieu els membres de l'equip"
 
 #: ui/kptresourcedialog.cpp:238
 #, kde-format
@@ -8522,7 +8522,7 @@ msgstr "Modifica el progrés de la tasca"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Select the tasks finish time"
-msgstr "Seleccioneu el temps de finalització de les tasques"
+msgstr "Trieu el temps de finalització de les tasques"
 
 #: ui/kpttaskprogresspanel.cpp:97
 #, kde-kuit-format
@@ -9929,7 +9929,7 @@ msgstr "Inicials:"
 #: ui/resourcedialogbase.ui:143
 #, kde-format
 msgid "Choose resource from address book"
-msgstr "Selecciona un recurs des de la llibreta d'adreces"
+msgstr "Tria un recurs des de la llibreta d'adreces"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: ui/resourcedialogbase.ui:172
