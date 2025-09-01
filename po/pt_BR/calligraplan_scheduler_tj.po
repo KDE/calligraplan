@@ -2,21 +2,21 @@
 # Copyright (C) 2011-2018 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Marcus Gama <marcus.gama@gmail.com>, 2011.
+# SPDX-FileCopyrightText: 2011, 2025 Marcus Gama <marcus.gama@gmail.com>
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2013, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan_scheduler_tj\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2018-07-08 22:42-0300\n"
-"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"PO-Revision-Date: 2025-08-31 08:08-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: PlanTJPlugin.cpp:43
@@ -142,13 +142,13 @@ msgstr "Não foi possível cumprir a dependência. Folga negativa=%1"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
-msgstr ""
+msgstr "Falha ao adicionar como predecessor à tarefa '%1'"
 
 #: PlanTJScheduler.cpp:791
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
-msgstr ""
+msgstr "Falha ao adicionar como sucessor à tarefa '%1'"
 
 #: PlanTJScheduler.cpp:812
 #, kde-kuit-format
@@ -183,16 +183,14 @@ msgstr ""
 "tarefa"
 
 #: PlanTJScheduler.cpp:986
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Re-calculate project from start time: %1"
+#, kde-format
 msgid "Recalculate, earliest start: %1"
-msgstr "Recalcular o projeto a partir da hora inicial: %1"
+msgstr "Recalcular, início mais cedo: %1"
 
 #: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
-msgstr ""
+msgstr "A tarefa foi iniciada. Esforço restante: %1d"
 
 #: PlanTJScheduler.cpp:1018
 #, kde-format
@@ -200,66 +198,54 @@ msgid "No working hours defined for resource: %1"
 msgstr "Não foi definido o horário de trabalho do recurso: %1"
 
 #: PlanTJScheduler.cpp:1080
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Scheduled milestone: %1"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "Marco agendado: %1"
+msgstr "Agendamento iniciado: %1"
 
 #: PlanTJScheduler.cpp:1082
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Re-calculate project from start time: %1"
+#, kde-format
 msgid "Recalculating from: %1"
-msgstr "Recalcular o projeto a partir da hora inicial: %1"
+msgstr "Recalculando de: %1"
 
 #: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Schedule"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Agendar"
+msgstr "Agendamento cancelado"
 
 #: PlanTJScheduler.cpp:1094
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "Agendamento concluído em %1, tempo decorrido: %2 segundos"
 
 #: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
-msgstr ""
+msgstr "Intervalo de agendamento: %1 - %2, granularidade: %3 minutos"
 
 #: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Invalid start time"
+#, kde-format
 msgid "Invalid project, start > end"
-msgstr "Hora inicial inválida"
+msgstr "Projeto inválido, início > fim"
 
 #: PlanTJScheduler.cpp:1125 PlanTJScheduler.cpp:1170
 #, kde-format
 msgid "Project check failed"
-msgstr ""
+msgstr "Falha na verificação do projeto"
 
 #: PlanTJScheduler.cpp:1133
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Scheduled task: %1 - %2"
+#, kde-format
 msgid "Scheduled: %1 - %2"
-msgstr "Tarefa agendada: %1 - %2"
+msgstr "Agendado: %1 - %2"
 
 #: PlanTJScheduler.cpp:1135
-#, fuzzy, kde-format
-#| msgctxt "@info/plain"
-#| msgid "Schedule"
+#, kde-format
 msgid "Scheduling failed"
-msgstr "Agendar"
+msgstr "Agendamento falhou"
 
 #: PlanTJScheduler.cpp:1139 PlanTJScheduler.cpp:1180
 #, kde-format
 msgid "Project scheduling failed"
-msgstr ""
+msgstr "Agendamento do projeto falhou"
 
 #: PlanTJScheduler.cpp:1241
 #, kde-format
@@ -267,6 +253,8 @@ msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "
 "supported"
 msgstr ""
+"Compromisso com carga (%1) menor que as unidades de recursos disponíveis "
+"(%2) não suportado"
 
 #, fuzzy
 #~| msgctxt "@info:whatsthis"

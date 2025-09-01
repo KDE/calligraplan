@@ -1,7 +1,7 @@
 # Translation of calligraplan.po to Brazilian Portuguese
 # Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2020 Free Software Foundation, Inc.
 #
-# Marcus Gama <marcus_gama@uol.com.br>, 2003, 2004, 2005.
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2025 Marcus Gama <marcus_gama@uol.com.br>
 # Lisiane Sztoltz <lisiane@conectiva.com.br>, 2003.
 # Lisiane Sztoltz Teixeira <lisiane@conectiva.com.br>, 2004.
 # Marcus Gama <marcus.gama@gmail.com>, 2006, 2007, 2008, 2009, 2011.
@@ -16,15 +16,15 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2021-12-09 10:28-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2025-08-31 08:14-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -321,16 +321,15 @@ msgstr "Unidade temporal da estimativa"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "Tipo de estimativa:"
+msgstr "Estimar"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Risco"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -536,10 +535,9 @@ msgstr "Lista de caminhos dos módulos das tarefas"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
-msgstr "Lista de caminhos dos modelos de projetos"
+msgstr "Lista de caminhos dos modelos de relatórios"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
@@ -595,10 +593,9 @@ msgid "Project Templates"
 msgstr "Modelos de projeto"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgid "Report Templates"
-msgstr "Modelos de projeto"
+msgstr "Modelos de relatório"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -1134,25 +1131,25 @@ msgstr "Restrição no agendamento:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Risco:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Baixo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Alto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1212,27 +1209,25 @@ msgstr "Publicar:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Janela"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Modelo base:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Renomear"
+msgstr "Nome do arquivo:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Abrir assistente"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1383,10 +1378,9 @@ msgid "Recalculating from: %1"
 msgstr "Recalculando de: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Gerenciador de Agenda"
+msgstr "Agendamento cancelado"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
@@ -1396,7 +1390,7 @@ msgstr "Agendamento concluído em %1, tempo decorrido: %2 segundos"
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Inserindo reservas de recursos do projeto: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1450,12 +1444,10 @@ msgstr ""
 "Abri-lo com esta versão do Plan pode causar a perda de algumas informações."
 
 #: kptmaindocument.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
-"Não foi possível salvar no arquivo temporário:<br/> <filename>%1</filename>"
+"vFalha ao salvar no arquivo temporário. Nenhum recurso foi especificado."
 
 #: kptmaindocument.cpp:474
 #, kde-format
@@ -1485,13 +1477,9 @@ msgid "Saving..."
 msgstr "Salvando..."
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Documento inválido. Esperado o tipo MIME application/x-vnd.kde.plan, "
-"recebido %1"
+msgstr "Documento inválido. Tipo MIME esperado %2, obtido %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1516,13 +1504,14 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Falha ao carregar recursos compartilhados no projeto %1:<nl/>Erro interno, "
+"falha ao inserir arquivo."
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgid "File to contain shared resources"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "Arquivo que contém os recursos compartilhados"
+msgstr "Falha ao carregar recursos compartilhados no projeto %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1545,18 +1534,15 @@ msgid "Calendar: %1"
 msgstr "Calendário: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Update Shared Resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Atualizar recursos compartilhados"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "Projeto:"
+msgstr "Projeto: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
@@ -1630,10 +1616,9 @@ msgid "Open Report Definition File..."
 msgstr "Abrir o arquivo de definição do relatório..."
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "Criar modelo de projeto..."
+msgstr "Criar modelo de relatório..."
 
 #: kptview.cpp:260
 #, kde-format
@@ -1935,19 +1920,16 @@ msgstr "Relatórios"
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "O arquivo '%1 já existe. Deseja sobrescreve-lo?"
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Project Templates"
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "Modelos de projeto"
+msgstr "Modelos de relatório"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Recursos compartilhados"
@@ -1958,6 +1940,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"O uso de recursos compartilhados foi ativado.<nl/>Os recursos devem ser "
+"atualizados?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -2389,25 +2373,21 @@ msgid "The description of the category"
 msgstr "A descrição da categoria"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Duração"
+msgstr "Ação"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
 #: SharedResourcesDialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Calendar: %1"
+#, kde-format
 msgid "Calendars"
-msgstr "Calendário: %1"
+msgstr "Calendários"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2422,6 +2402,15 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Janela de recursos compartilhados</title><para>Permite que você "
+"decida como tratar recursos compartilhados, grupos de recursos "
+"compartilhados e calendários compartilhados quando eles forem excluídos do "
+"arquivo de recursos compartilhados.</para><para>Você pode selecionar se um "
+"item deve ser:<list><item><emphasis>Removido:</emphasis> Remove o item do "
+"seu projeto também.</item><item><emphasis>Convertido:</emphasis> Converte o "
+"item em um item local.</item><item><emphasis>Mantido:</emphasis> Mantém o "
+"item como um item compartilhado.</item></list><nl/><link url='%1'>Mais...</"
+"link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
@@ -2438,14 +2427,14 @@ msgstr "Manter"
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Marque todos os itens selecionados para serem removidos do seu projeto"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Marque como: Remover"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
@@ -2453,14 +2442,14 @@ msgstr ""
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
 msgstr ""
+"Marque todos os itens selecionados para serem convertidos em recursos locais"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Convert"
+#, kde-format
 msgid "Mark as: Convert"
-msgstr "Converter"
+msgstr "Marcar como: Converter"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
@@ -2468,13 +2457,15 @@ msgstr "Converter"
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
 msgstr ""
+"Marque todos os itens selecionados para serem mantidos como recursos "
+"compartilhados"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "Marcar como: Manter"
 
 #~ msgid "Expected estimate"
 #~ msgstr "Estimativa esperada"
