@@ -22,6 +22,7 @@
   <name xml:lang="nl">Plan Portfolio</name>
   <name xml:lang="pl">Plan Portfolio</name>
   <name xml:lang="pt">Plan Portfolio</name>
+  <name xml:lang="pt-BR">Plan Portfolio</name>
   <name xml:lang="sk">Plan Portfolio</name>
   <name xml:lang="sl">Plan Portfolio</name>
   <name xml:lang="sv">Plan Portfölj</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="nl">Beheer van portfolio met projecten</summary>
   <summary xml:lang="pl">Zarządzanie Portfolio Projektu</summary>
   <summary xml:lang="pt">Gestão de Portfólios de Projectos</summary>
+  <summary xml:lang="pt-BR">Gerenciamento de portfólio de projeto</summary>
   <summary xml:lang="sk">Správa Plan Portfolio</summary>
   <summary xml:lang="sl">Upravljanje portfelja projektov</summary>
   <summary xml:lang="sv">Hantering av projektportfölj</summary>
@@ -70,6 +72,7 @@
     <p xml:lang="nl">Plan Portfolio is een beheertoepassing van projectportfolio's. Het is bedoeld voor het beheren van een verzameling projecten.</p>
     <p xml:lang="pl">Plan Portfolio jest aplikacją do zarządzania Portfolio Projektu. Został pomyślany do zarządzania zbiorami projektów.</p>
     <p xml:lang="pt">O Plan Portfolio é uma aplicação de gestão de portfólios de projectos. Pretende servir para gerir uma colecção de projectos.</p>
+    <p xml:lang="pt-BR">O Plan Portfolio é um aplicativo de gerenciamento de portfólio de projetos. Ele foi criado para gerenciar um conjunto de projetos.</p>
     <p xml:lang="sl">Plan Portfolio je aplikacija za upravljanje portfelja projektov. Namenjena je za upravljanje zbirke projektov.</p>
     <p xml:lang="sv">Plan Portfölj är ett program för hantering av projektportföljer. Det är avsett för att hantera en projektsamling.</p>
     <p xml:lang="tr">Plan Portföy, bir proje portföy yönetimi uygulamasıdır. Bir proje koleksiyonunu yönetmek için tasarlanmıştır.</p>
