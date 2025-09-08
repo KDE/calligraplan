@@ -24,7 +24,6 @@ Name[sl]=Vtičnik za Planove skripte
 Name[sv]=Plan skriptinsticksprogram
 Name[tr]=Plan Betik Yazımı Eklentisi
 Name[uk]=Додаток роботи зі скриптами для Plan
-Name[x-test]=xxPlan Scripting Pluginxx
 Name[zh_CN]=Plan 的脚本插件
 X-KDE-ServiceTypes=Plan/ViewPlugin
 Type=Service
