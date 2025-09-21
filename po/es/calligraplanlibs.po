@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2025-05-24 18:54+0100\n"
+"PO-Revision-Date: 2025-09-20 20:14+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -3040,7 +3040,7 @@ msgstr "Recursos asignados:<nl/>%1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
-msgstr "La tarea está completada al %1%"
+msgstr "La tarea está completada al %1 %"
 
 #: models/kptnodeitemmodel.cpp:1339
 #, kde-format
@@ -3996,7 +3996,7 @@ msgstr "Modificar el tiempo de retraso de la relación"
 #, no-c-format, kde-format
 msgctxt "<value>%"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: models/kptresourceallocationmodel.cpp:169
 #: models/kptresourceallocationmodel.cpp:686 models/kptresourcemodel.cpp:1734
@@ -4009,12 +4009,12 @@ msgstr "No asignado"
 #, no-c-format, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allocated units: %1%"
-msgstr "Unidades asignadas: %1%"
+msgstr "Unidades asignadas: %1 %"
 
 #: models/kptresourceallocationmodel.cpp:225
 #, no-c-format, kde-format
 msgid "Maximum units available: %1%"
-msgstr "Máximo de unidades disponibles: %1%"
+msgstr "Máximo de unidades disponibles: %1 %"
 
 #: models/kptresourceallocationmodel.cpp:254
 #, kde-kuit-format
@@ -4877,7 +4877,7 @@ msgstr "Transmisión de paquete de trabajo recibido el: %1"
 #: models/kptworkpackagemodel.cpp:141
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr "La tarea informó de que está completada al %1%"
+msgstr "La tarea informó de que está completada al %1 %"
 
 #: models/reportgenerator/ReportGenerator.cpp:81
 #, kde-format
@@ -8032,7 +8032,7 @@ msgstr "Nueva entrada"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1%<nl/>Current value: %2%"
-msgstr "Nuevo valor: %1%<nl/>Valor actual: %2%"
+msgstr "Nuevo valor: %1 %<nl/>Valor actual: %2 %"
 
 #: ui/kptworkpackagemergedialog.cpp:217 ui/kptworkpackagemergedialog.cpp:228
 #, kde-kuit-format
