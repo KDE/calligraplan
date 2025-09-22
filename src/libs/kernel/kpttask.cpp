@@ -328,7 +328,7 @@ void Task::copyAppointmentsFromParentSchedule(const DateTime &start, const DateT
         }
         Appointment app;
         app.setIntervals(lst);
-        m_currentSchedule->logDebug(QStringLiteral("%1: Appontments to be added: %2 - %3").arg(r->name()).arg(app.startTime().toString()).arg(app.endTime().toString()));
+        m_currentSchedule->logDebug(QStringLiteral("%1: Appointments to be added: %2 - %3").arg(r->name()).arg(app.startTime().toString()).arg(app.endTime().toString()));
         //debugPlan<<"Add appointments:"<<app;
         curr->merge(app);
         //debugPlan<<"Appointments added";

@@ -143,7 +143,7 @@ public:
                           const Task* task = nullptr) const;
 
     /***
-     * Return the unallocated load of the resource and its children wheighted
+     * Return the unallocated load of the resource and its children weighted
      * by their efficiency.
      */
     double getEffectiveFreeLoad(int sc, const Interval& period);

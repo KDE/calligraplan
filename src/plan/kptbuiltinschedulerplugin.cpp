@@ -322,7 +322,7 @@ void KPlatoScheduler::mergeProject(Project *calculatedProject, Project *original
             originalProject->addSchedule(sch);
             newManager->setExpected(sch);
         } else {
-            // re-calculating existing schedule, need to remove old schedule form tasks abd resources first
+            // re-calculating existing schedule, need to remove old schedule form tasks and resources first
             const auto tasks = originalProject->allNodes();
             for (auto t : tasks) {
                 if (t->type() == KPlato::Node::Type_Project) {

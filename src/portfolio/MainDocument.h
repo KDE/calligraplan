@@ -77,7 +77,7 @@ public:
      *
      * @param store The store to save to
      * @param doc The document to save
-     * @param path An internal url to load fram
+     * @param path An internal url to load from
      */
     bool saveDocumentToStore(KoStore *_store, KoDocument *doc);
 

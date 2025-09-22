@@ -38,7 +38,7 @@ PortfolioModel::~PortfolioModel()
 QModelIndex PortfolioModel::parent(const QModelIndex &child) const
 {
     if (child.row() >= m_baseModel->rowCount()) {
-        warnPortfolio<<child<<"FIXME: Happends sometimes: invalid child index, find out why";
+        warnPortfolio<<child<<"FIXME: Happens sometimes: invalid child index, find out why";
         return QModelIndex();
     }
     return KExtraColumnsProxyModel::parent(child);

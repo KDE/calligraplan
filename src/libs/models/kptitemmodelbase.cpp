@@ -85,7 +85,7 @@ bool ItemDelegate::eventFilter(QObject *object, QEvent *event)
 
 QSize ItemDelegate::sizeHint(const QStyleOptionViewItem & option, const QModelIndex & index) const
 {
-    // Decoration (like basline icon) increases height so check height of column 0 in case...
+    // Decoration (like baseline icon) increases height so check height of column 0 in case...
     QSize s = QStyledItemDelegate::sizeHint(option, index);
     return QSize(s.width(), qMax(s.height(), QStyledItemDelegate::sizeHint(option, index.sibling(index.row(), 0)).height()));
 }

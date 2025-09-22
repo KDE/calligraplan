@@ -14,9 +14,9 @@ See test files in testdata.
 
 Note that the MS .mpd files (database files) need a java-odbc bridge which I don't think is available on linux.
 
-Dependecies
------------
-To run anything you need a  jave runtime environment, version 8
+Dependencies
+------------
+To run anything you need a java runtime environment, version 8
 e.g: openjdk-8-jre for ubuntu systems.
 
 This is also needed to run filters.

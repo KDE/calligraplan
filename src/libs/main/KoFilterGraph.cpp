@@ -168,7 +168,7 @@ void Graph::shortestPaths()
     if (!from)
         return;
 
-    // Inititalize start vertex
+    // Initialize start vertex
     from->setKey(0);
 
     // Fill the priority queue with all the vertices

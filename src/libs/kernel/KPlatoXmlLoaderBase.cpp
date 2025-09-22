@@ -603,7 +603,7 @@ bool KPlatoXmlLoaderBase::load(Relation *relation, const KoXmlElement &element, 
         return false;
     }
     if (! relation->parent()->legalToLink(relation->child())) {
-        warnPlanXml<<"Realation is not legal:"<<relation->parent()->name()<<"->"<<relation->child()->name();
+        warnPlanXml<<"Relation is not legal:"<<relation->parent()->name()<<"->"<<relation->child()->name();
         return false;
     }
     relation->setType(element.attribute(QStringLiteral("type")));

@@ -63,7 +63,7 @@ void InsertProjectTester::testAccount()
 
     Account *parent = addAccount(fromDocB, nullptr, QStringLiteral("Parent Account"));
     QCOMPARE(fromDocB.getProject().accounts().accountCount(), 1);
-    addAccount(fromDocB, parent, "Child acount");
+    addAccount(fromDocB, parent, "Child account");
     QCOMPARE(fromDocB.getProject().accounts().accountCount(), 1);
     QCOMPARE(parent->childCount(), 1);
 

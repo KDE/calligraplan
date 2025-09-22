@@ -2477,7 +2477,7 @@ void DependencyEditor::updateActionsEnabled(bool on)
         return;
     }
     if (!m_currentnode) {
-        // alow adding to project
+        // allow adding to project
         menuAddTask->setEnabled(true);
         actionAddTask->setEnabled(true);
         actionAddMilestone->setEnabled(true);

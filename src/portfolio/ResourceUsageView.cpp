@@ -233,7 +233,7 @@ void ResourceUsageView::saveSettings(QDomElement &settings) const
 
 void ResourceUsageView::loadSettings(KoXmlElement &settings)
 {
-    m_numDays->setMaximum(settings.attribute(QStringLiteral("maximim")).toInt());
+    m_numDays->setMaximum(settings.attribute(QStringLiteral("maximum")).toInt());
     m_numDays->setValue(settings.attribute(QStringLiteral("days")).toInt());
 
     auto a = static_cast<KSelectAction*>(actionCollection()->action(QStringLiteral("diagramtypes")));

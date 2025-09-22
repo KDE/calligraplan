@@ -53,7 +53,7 @@ public:
     QString lastError() const;
 
 protected:
-    /// Re-implement this to initate your report generator
+    /// Re-implement this to initiate your report generator
     virtual bool initiateInternal();
 
     QAbstractItemModel *projectsModel(ItemModelBase *base) const;

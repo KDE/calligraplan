@@ -456,7 +456,7 @@ KPlato::ScheduleManager *MainDocument::findBestScheduleManager(const KoDocument 
             break;
         }
         if (m->isScheduled()) {
-            sm = m; // the latest sceduled
+            sm = m; // the latest scheduled
         }
     }
     return sm;

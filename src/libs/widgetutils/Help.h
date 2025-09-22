@@ -81,7 +81,7 @@ public:
 
     /// Used when getting docs form docs.kde.org
     /// We try to find the correct language but unfortunately
-    /// the docs are not stored excactly under a locale name.
+    /// the docs are not stored exactly under a locale name.
     void setDocLanguage(const QString &doc, const QString &language);
     QString language(const QString &doc) const;
 

@@ -44,9 +44,9 @@ using namespace KPlato;
  * 
  * The datetime can be set using setDateTime().
  * 
- * The timeline can priodically moved to the current datetime
+ * The timeline can be periodically moved to the current datetime
  * by setting the interval > 0 with setInterval().
- * Setting a zero interval turns the periodically update off.
+ * Setting a zero interval turns the periodic update off.
  * 
  * The timeline is off by default.
  *
