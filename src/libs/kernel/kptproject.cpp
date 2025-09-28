@@ -1370,7 +1370,6 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!resources.isEmpty()) {
             QDomElement el = me.ownerDocument().createElement(QStringLiteral("resource-requests"));
             me.appendChild(el);
-            //QHash<Task*, ResourceRequest*>::const_iterator it;
             for (auto it = resources.constBegin(); it != resources.constEnd(); ++it) {
                 if (!it.value()->resource()) {
                     continue;
@@ -1396,7 +1395,6 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!required.isEmpty()) {
             QDomElement reqs = me.ownerDocument().createElement(QStringLiteral("required-resource-requests"));
             me.appendChild(reqs);
-            //QHash<Task*, std::pair<ResourceRequest*, Resource*> >::const_iterator it;
             for (auto it = required.constBegin(); it != required.constEnd(); ++it) {
                 QDomElement req = reqs.ownerDocument().createElement(QStringLiteral("required-resource-request"));
                 reqs.appendChild(req);
@@ -1409,7 +1407,6 @@ void Project::save(QDomElement &element, const XmlSaveContext &context) const
         if (!alternativeRequests.isEmpty()) {
             QDomElement reqs = me.ownerDocument().createElement(QStringLiteral("alternative-requests"));
             me.appendChild(reqs);
-            //QHash<Task*, std::pair<ResourceRequest*, ResourceRequest*> >::const_iterator it;
             for (auto it = alternativeRequests.constBegin(); it != alternativeRequests.constEnd(); ++it) {
                 QDomElement req = reqs.ownerDocument().createElement(QStringLiteral("alternative-request"));
                 reqs.appendChild(req);

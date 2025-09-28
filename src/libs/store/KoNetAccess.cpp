@@ -12,7 +12,6 @@
 
 #include <cstring>
 
-// #include <QtCore/QCharRef>
 #include <QApplication>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>

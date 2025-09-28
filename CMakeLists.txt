@@ -94,7 +94,6 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 
 set(QT_REQUIRED_VERSION "6.5.0")
 set(KF_MIN_VERSION "6.3.0")
-set(KF_MAJOR_VERSION "6")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -196,12 +195,7 @@ set_package_properties(Qt5DBus PROPERTIES
 
 find_package(X11)
 if(X11_FOUND)
-#     find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED
-#         COMPONENTS
-#             X11Extras
-#     )
      set(HAVE_X11 TRUE)
-#     add_definitions(-DHAVE_X11)
 else()
      set(HAVE_X11 FALSE)
 endif()

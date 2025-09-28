@@ -59,7 +59,6 @@ target_link_libraries(calligraplanportfolioprivate
         KF6::ItemViews
         KChart6
         #KF6::IconThemes
-        #KF6::KHtml
 )
 
 set_target_properties(calligraplanportfolioprivate PROPERTIES VERSION ${GENERIC_PLAN_LIB_VERSION} SOVERSION ${GENERIC_PLAN_LIB_SOVERSION})
@@ -72,7 +71,6 @@ set(calligraplanportfoliopart_PART_SRCS PortfolioFactoryInit.cpp)
 
 add_library(calligraplanportfoliopart MODULE ${calligraplanportfoliopart_PART_SRCS})
 
-# kcoreaddons_desktop_to_json(calligraplanportfoliopart calligraplanportfoliopart.desktop)
 
 
 target_link_libraries(calligraplanportfoliopart PUBLIC KF6::Parts KF6::CoreAddons PRIVATE calligraplanportfolioprivate)

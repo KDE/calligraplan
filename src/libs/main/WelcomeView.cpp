@@ -220,7 +220,6 @@ KoMainWindow * WelcomeView::mainWindow() const
     return qobject_cast<KoMainWindow*>(parent());
 }
 
-
 void WelcomeView::slotRecentFileSelected(const QModelIndex &idx)
 {
     if (idx.isValid()) {

@@ -785,7 +785,9 @@ bool Part::viewDocument(const QUrl &filename)
     auto *job = new KIO::OpenUrlJob(filename);
     job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, nullptr));
     job->start();
-    Q_UNUSED(job); // auto-deletes by default so no need to delete it
+
+    // auto-deletes by default so no need to delete it
+    Q_UNUSED(job);
     return true; //NOLINT(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 

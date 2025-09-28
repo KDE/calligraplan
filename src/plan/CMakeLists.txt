@@ -80,7 +80,6 @@ target_link_libraries(calligraplanprivate
     PRIVATE
         calligraplanplugin
         KF6::IconThemes
-        #KF6::KHtml
 )
 if(KF6AkonadiContact_FOUND)
     target_link_libraries(calligraplanprivate  PRIVATE KF6::AkonadiContactCore)
@@ -94,12 +93,6 @@ install(TARGETS calligraplanprivate ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 set(calligraplanpart_PART_SRCS kptfactoryinit.cpp )
 
 add_library(calligraplanpart MODULE ${calligraplanpart_PART_SRCS})
-
-#calligraplan_part_desktop_to_json(calligraplanpart planpart.desktop)
-# kcoreaddons_desktop_to_json(calligraplanpart planpart.desktop
-#         SERVICE_TYPES ${PLAN_SOURCE_DIR}/servicetypes/calligraplan_part.desktop
-# )
-
 
 target_link_libraries(calligraplanpart PUBLIC KF6::Parts KF6::CoreAddons PRIVATE calligraplanprivate)
 

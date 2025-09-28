@@ -830,8 +830,7 @@ void Calendar::addCalendar(Calendar *calendar, int pos)
 {
     if (pos == -1) {
         m_calendars.append(calendar);
-    }
-    else {
+    } else {
         m_calendars.insert(pos, calendar);
     }
     calendar->setTimeZone(m_timeZone);

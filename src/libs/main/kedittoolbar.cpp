@@ -40,11 +40,8 @@
 
 #include "ktoolbarhelper_p.h"
 
-static const char separatorstring[] = "--- separator ---";
-static const char spacerstring[] = "--- expanding spacer ---";
-
-#define SEPARATORSTRING i18n(separatorstring)
-#define SPACERSTRING i18n(spacerstring)
+static const KLocalizedString separatorstring = ki18n("--- separator ---");
+static const KLocalizedString spacerstring = ki18n("--- expanding spacer ---");
 
 // static const char *const s_XmlTypeToString[] = { "Shell", "Part", "Local", "Merged" };
 
@@ -1242,14 +1239,14 @@ void KEditToolBarWidgetPrivate::loadActions(const QDomElement &elem)
         if (it.tagName() == tagSeparator) {
             ToolBarItem *act = new ToolBarItem(m_activeList, tagSeparator, sep_name.arg(sep_num++), QString());
             act->setSeparator(true);
-            act->setText(SEPARATORSTRING);
+            act->setText(separatorstring.toString());
             it.setAttribute(attrName, act->internalName());
             continue;
         }
         if (it.tagName() == tagSpacer) {
             ToolBarItem *act = new ToolBarItem(m_activeList, tagSpacer, spacer_name.arg(spacer_num++), QString());
             act->setSpacer(true);
-            act->setText(SPACERSTRING);
+            act->setText(spacerstring.toString());
             it.setAttribute(attrName, act->internalName());
             continue;
         }
@@ -1314,12 +1311,12 @@ void KEditToolBarWidgetPrivate::loadActions(const QDomElement &elem)
     // finally, add default separators and spacers to the inactive list
     ToolBarItem *sep = new ToolBarItem(nullptr, tagSeparator, sep_name.arg(sep_num++), QString());
     sep->setSeparator(true);
-    sep->setText(SEPARATORSTRING);
+    sep->setText(separatorstring.toString());
     m_inactiveList->insertItem(0, sep);
 
     ToolBarItem *spacer = new ToolBarItem(nullptr, tagSpacer, spacer_name.arg(spacer_num++), QString());
     spacer->setSpacer(true);
-    spacer->setText(SPACERSTRING);
+    spacer->setText(spacerstring.toString());
     m_inactiveList->insertItem(1, spacer);
 }
 

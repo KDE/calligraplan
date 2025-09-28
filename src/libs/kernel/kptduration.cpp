@@ -244,7 +244,7 @@ Duration Duration::fromString(const QString &s, Format format, bool *ok) {
     switch (format) {
         case Format_Hour: {
             QRegularExpression matcher(QStringLiteral("^(\\d*)h(\\d*)m$"));
-            QRegularExpressionMatch match = matcher.match(s);
+            auto match = matcher.match(s);
             if (match.hasMatch()) {
                 tmp.addHours(match.captured(1).toUInt());
                 tmp.addMinutes(match.captured(2).toUInt());
@@ -254,7 +254,7 @@ Duration Duration::fromString(const QString &s, Format format, bool *ok) {
         }
         case Format_DayTime: {
             QRegularExpression matcher(QStringLiteral("^(\\d*) (\\d*):(\\d*):(\\d*)\\.(\\d*)$"));
-            QRegularExpressionMatch match = matcher.match(s);
+            auto match = matcher.match(s);
             if (match.hasMatch()) {
                 tmp.addDays(match.captured(1).toUInt());
                 tmp.addHours(match.captured(2).toUInt());
