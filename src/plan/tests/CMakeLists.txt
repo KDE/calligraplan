@@ -13,22 +13,22 @@ endmacro()
 
 plan_add_unit_test(InsertProjectTester
     InsertProjectTester.cpp
-    LINK_LIBRARIES calligraplanprivate calligraplankernel calligraplanmain Qt6::Test
+    LINK_LIBRARIES calligraplanprivate calligraplankernel calligraplanmain Qt::Test
 )
 
 plan_add_unit_test(ReportsTester
     ReportsTester.cpp
-    LINK_LIBRARIES calligraplanprivate Qt6::Test
+    LINK_LIBRARIES calligraplanprivate Qt::Test
 )
 
 plan_add_unit_test(SharedResourcesTester
     SharedResourcesTester.cpp
-    LINK_LIBRARIES calligraplanprivate Qt6::Test
+    LINK_LIBRARIES calligraplanprivate Qt::Test
 )
 
 if (Java_FOUND)
     plan_add_unit_test(MpxjImportTester
         MpxjImportTester.cpp
-        LINK_LIBRARIES calligraplanprivate Qt6::Test
+        LINK_LIBRARIES calligraplanprivate Qt::Test
     )
 endif()

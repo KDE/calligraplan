@@ -40,7 +40,7 @@ target_link_libraries(calligraplanwidgets
         calligraplanwidgetutils
         KF6::KIOWidgets
         KF6::ConfigWidgets
-        Qt6::PrintSupport
+        Qt::PrintSupport
         KF6::XmlGui
     PRIVATE
         KF6::GuiAddons

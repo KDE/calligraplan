@@ -52,8 +52,8 @@ target_link_libraries(calligraplanodf
         calligraplanstore
         KF6::ConfigCore
         KF6::CoreAddons
-        Qt6::PrintSupport
-        Qt6::Xml
+        Qt::PrintSupport
+        Qt::Xml
     PRIVATE
         KF6::I18n
 )

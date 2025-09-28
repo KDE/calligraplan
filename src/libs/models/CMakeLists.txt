@@ -76,7 +76,7 @@ target_link_libraries(calligraplanmodels
         KF6::KIOWidgets
         KF6::ItemModels
     PRIVATE
-        Qt6::Gui
+        Qt::Gui
         KF6::Notifications
         KF6::TextWidgets
         calligraplanwidgets

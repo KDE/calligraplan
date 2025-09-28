@@ -29,11 +29,11 @@ generate_export_header(calligraplanstore BASE_NAME kostore)
 
 target_link_libraries(calligraplanstore
     PUBLIC
-        Qt6::Xml
-        Qt6::Core
+        Qt::Xml
+        Qt::Core
         KF6::KIOCore
     PRIVATE
-        Qt6::Gui
+        Qt::Gui
         KF6::Archive
         KF6::KIOWidgets
         KF6::I18n

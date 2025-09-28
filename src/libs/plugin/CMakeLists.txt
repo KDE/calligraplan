@@ -9,7 +9,7 @@ generate_export_header(calligraplanplugin BASE_NAME koplugin)
 
 target_link_libraries(calligraplanplugin
     PUBLIC
-        Qt6::Core
+        Qt::Core
     PRIVATE
         KF6::ConfigCore
         KF6::CoreAddons

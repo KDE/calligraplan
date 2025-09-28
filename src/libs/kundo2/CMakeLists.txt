@@ -16,8 +16,8 @@ target_link_libraries(calligraplankundo2
     PUBLIC
         KF6::I18n
         KF6::XmlGui
-        Qt6::Core
-        Qt6::Widgets
+        Qt::Core
+        Qt::Widgets
     PRIVATE
         KF6::ConfigWidgets
 )

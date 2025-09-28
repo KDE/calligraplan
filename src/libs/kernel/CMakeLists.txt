@@ -72,7 +72,7 @@ target_link_libraries(calligraplankernel
         calligraplankundo2
         calligraplanstore
         calligraplanwidgetutils
-        Qt6::PrintSupport
+        Qt::PrintSupport
 #         KF5::I18n
 #         KF5::CoreAddons
 )
