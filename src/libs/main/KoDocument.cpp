@@ -42,6 +42,7 @@
 
 #include <KFileItem>
 #include <KoNetAccess.h>
+#include <KLazyLocalizedString>
 #include <KLocalizedString>
 #include <MainDebug.h>
 #include <KConfigGroup>
@@ -2242,13 +2243,13 @@ bool KoDocument::hasExternURL() const
 
 static const struct {
     const char *localName;
-    const char *documentType;
+    KLazyLocalizedString documentType;
 } TN2DTArray[] = {
-    { "text", "a word processing" },
-    { "spreadsheet", "a spreadsheet" },
-    { "presentation", "a presentation" },
-    { "chart", "a chart" },
-    { "drawing", "a drawing" }
+    { "text", kli18n("a word processing") },
+    { "spreadsheet", kli18n("a spreadsheet") },
+    { "presentation", kli18n("a presentation") },
+    { "chart", kli18n("a chart") },
+    { "drawing", kli18n("a drawing") }
 };
 static const unsigned int numTN2DT = sizeof(TN2DTArray) / sizeof(*TN2DTArray);
 
@@ -2256,7 +2257,7 @@ QString KoDocument::tagNameToDocumentType(const QString& localName)
 {
     for (unsigned int i = 0 ; i < numTN2DT ; ++i)
         if (localName == QString::fromLatin1(TN2DTArray[i].localName))
-            return i18n(TN2DTArray[i].documentType);
+            return TN2DTArray[i].documentType.toString();
     return localName;
 }
 
