@@ -84,7 +84,6 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
     : QApplication(argc, argv)
     , d(new KoApplicationPrivate())
 {
-
     QScopedPointer<KAboutData> aboutData(aboutDataGenerator());
     KAboutData::setApplicationData(*aboutData);
 
