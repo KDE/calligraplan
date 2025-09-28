@@ -53,7 +53,6 @@ set(komain_LIB_SRCS
     KoPart.cpp
 
     MainDebug.cpp
-   # Calligra2Migration.cpp
 )
 
 if( Qt6DBus_FOUND )
