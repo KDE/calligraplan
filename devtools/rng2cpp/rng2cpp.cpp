@@ -13,6 +13,8 @@
 #include <QSet>
 #include <QVector>
 
+using namespace Qt::Literals::StringLiterals;
+
 #define x_assert(cond, what) Q_ASSERT_X(cond, "", qPrintable(what))
 
 static QString ns() {
@@ -41,7 +43,7 @@ public:
     template<class T>
     fatal& operator<<(T s)
     {
-        msg += QStringLiteral("%1").arg(s);
+        msg += u"%1"_s.arg(s);
         return *this;
     }
 };
