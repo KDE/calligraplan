@@ -390,37 +390,37 @@ void KoGenStyle::printDebug() const
 {
     int i = DefaultType;
     debugOdf << m_properties[i].count() << " properties.";
-    for (QMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     i = TextType;
     debugOdf << m_properties[i].count() << " text properties.";
-    for (QMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     i = ParagraphType;
     debugOdf << m_properties[i].count() << " paragraph properties.";
-    for (QMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_properties[i].constBegin(); it != m_properties[i].constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     i = TextType;
     debugOdf << m_childProperties[i].count() << " text child elements.";
-    for (QMap<QString, QString>::ConstIterator it = m_childProperties[i].constBegin(); it != m_childProperties[i].constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_childProperties[i].constBegin(); it != m_childProperties[i].constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     i = ParagraphType;
     debugOdf << m_childProperties[i].count() << " paragraph child elements.";
-    for (QMap<QString, QString>::ConstIterator it = m_childProperties[i].constBegin(); it != m_childProperties[i].constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_childProperties[i].constBegin(); it != m_childProperties[i].constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     debugOdf << m_attributes.count() << " attributes.";
-    for (QMap<QString, QString>::ConstIterator it = m_attributes.constBegin(); it != m_attributes.constEnd(); ++it) {
+    for (QMultiMap<QString, QString>::ConstIterator it = m_attributes.constBegin(); it != m_attributes.constEnd(); ++it) {
         debugOdf << "" << it.key() << " =" << it.value();
     }
     debugOdf << m_maps.count() << " maps.";
     for (int i = 0; i < m_maps.count(); ++i) {
         debugOdf << "map" << i << ":";
-        for (QMap<QString, QString>::ConstIterator it = m_maps[i].constBegin(); it != m_maps[i].constEnd(); ++it) {
+        for (QMultiMap<QString, QString>::ConstIterator it = m_maps[i].constBegin(); it != m_maps[i].constEnd(); ++it) {
             debugOdf << "" << it.key() << " =" << it.value();
         }
     }
