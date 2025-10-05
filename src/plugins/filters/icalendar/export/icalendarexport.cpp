@@ -20,8 +20,8 @@
 #ifdef USE_KCalendarCore
 #include <KCalendarCore/Attendee>
 #include <KCalendarCore/Attachment>
-#include <KCalendarCore/Calformat>
-#include <KCalendarCore/MemoryCalendar.h>
+#include <KCalendarCore/CalFormat>
+#include <KCalendarCore/MemoryCalendar>
 #include <kcalendarcore_version.h>
 #endif
 

@@ -306,7 +306,7 @@ find_package(Perl REQUIRED)
 # )
 
 ##
-## Test for KF5CalendarCore
+## Test for KF6CalendarCore
 ##
 find_package(KF6CalendarCore CONFIG QUIET)
 set_package_properties(KF6CalendarCore PROPERTIES
