@@ -9,7 +9,7 @@
 #define KPLATOWORK_ABOUTDATA
 
 #include <KAboutData>
-#include <KLocalizedString>
+#include <KLazyLocalizedString>
 #include <kcoreaddons_version.h>
 
 #include <config.h>
@@ -17,7 +17,7 @@
 namespace KPlatoWork
 {
 
-static const char PLANWORK_DESCRIPTION[] = "PlanWork - Work Package handler for the Plan Project Planning Tool";
+static KLazyLocalizedString PLANWORK_DESCRIPTION = kli18n("PlanWork - Work Package handler for the Plan Project Planning Tool");
 static const char PLANWORK_VERSION[] = PLAN_VERSION_STRING;
 
 KAboutData * newAboutData()
