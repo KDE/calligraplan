@@ -158,7 +158,7 @@ void KoDialogPrivate::init(KoDialog *q)
     q->setButtons(KoDialog::Ok | KoDialog::Cancel);
     q->setDefaultButton(KoDialog::Ok);
 
-    q->connect(&mButtonSignalMapper, SIGNAL(mappedInt(int)), q, SLOT(slotButtonClicked(int)));
+    q->connect(&mButtonSignalMapper, &QSignalMapper::mappedInt, q, &KoDialog::slotButtonClicked);
 
     q->setPlainCaption(qApp->applicationDisplayName()); // set appropriate initial window title for case it gets not set later
 }
