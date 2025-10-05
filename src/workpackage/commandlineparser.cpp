@@ -75,7 +75,7 @@ void CommandLineParser::handleCommandLine(const QDir &workingDirectory)
     const QRegularExpression withProtocolChecker(QStringLiteral("^[a-zA-Z]+:"));
     for(const QString &fileUrl : fileUrls) {
         // convert to an url
-        const bool startsWithProtocol = (withProtocolChecker.match(fileUrl).hasMatch() == 0);
+        const bool startsWithProtocol = withProtocolChecker.match(fileUrl).hasMatch();
         const QUrl url = startsWithProtocol ?
             QUrl::fromUserInput(fileUrl) :
             QUrl::fromLocalFile(workingDirectory.absoluteFilePath(fileUrl));
