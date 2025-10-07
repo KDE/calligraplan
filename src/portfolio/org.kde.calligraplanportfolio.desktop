@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Plan Portfolio
+Name[ar]=حافظة مشاريع المُخطِط
 Name[ca]=Plan Portfolio
 Name[ca@valencia]=Plan Portfolio
 Name[cs]=Naplánovat portfolio
@@ -22,6 +23,7 @@ Name[sv]=Plan Portfölj
 Name[tr]=Plan Portföyü
 Name[uk]=Портфоліо Plan
 GenericName=Project Portfolio Management
+GenericName[ar]=إدارة حافظة المشاريع
 GenericName[ca]=Gestió de carteres de projectes
 GenericName[ca@valencia]=Gestió de carteres de projectes
 GenericName[cs]=Správa projektů portfolia

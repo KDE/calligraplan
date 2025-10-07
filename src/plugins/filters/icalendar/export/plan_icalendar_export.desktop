@@ -4,6 +4,7 @@ Icon=
 X-KDE-Import=application/x-vnd.kde.plan
 X-KDE-Weight=1
 Name=Plan iCalendar Export Filter
+Name[ar]=مُرشِّح تصدير آي-روزنامة للمُخطِط
 Name[ca]=Filtre d'exportació iCalendar del Plan
 Name[ca@valencia]=Filtre d'exportació iCalendar de Plan
 Name[de]=iCalendar-Exportfilter für Plan
