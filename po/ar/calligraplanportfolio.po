@@ -1,14 +1,14 @@
 # POT_PART_NORMAL only
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2024-09-07 22:46+0400\n"
+"PO-Revision-Date: 2025-10-06 13:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -23,7 +23,7 @@ msgstr ""
 #, kde-format
 msgctxt "application name"
 msgid "Plan Portfolio"
-msgstr ""
+msgstr "محفظة المُخطِط"
 
 #: AboutData.h:23
 #, kde-format
@@ -33,7 +33,7 @@ msgstr "إدارة محفظة المشروع"
 #: AboutData.h:25
 #, kde-format
 msgid "Copyright 2020-%1, The Plan Team"
-msgstr ""
+msgstr "حقوق النشر 2020-%1، فريق المُخطِط"
 
 #: AboutData.h:29
 #, kde-format
@@ -81,20 +81,20 @@ msgstr "مستند"
 #: config/portfoliosettings.kcfg:10
 #, kde-format
 msgid "Path to the documentation"
-msgstr ""
+msgstr "المسار إلى التوثيق"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: config/portfoliosettings.kcfg:14
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "المسار إلى توثيق مساعدة السياق"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: config/portfoliosettings.kcfg:18
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "يجب أن يكون توثيق مساعدة السياق مُترجَمًا إلى اللغة"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: config/portfoliosettings.kcfg:24
@@ -106,7 +106,7 @@ msgstr "فترة الحفظ الآليّ"
 #: config/portfoliosettings.kcfg:28
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "أنشئ ملف احتياطي"
 
 #: DocumentsSaveDialog.cpp:27 PortfolioModel.cpp:23
 #, kde-format, kde-kuit-format
@@ -159,7 +159,7 @@ msgstr "احفظ المستندات"
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr ""
+msgstr "الملف موجود بالفعل. أتريد الكتابة فوقه؟"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
@@ -182,6 +182,9 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>ملخص غانت</title><para>يعرض مخطط غانت لجميع المشاريع في محفظتك.</"
+"para><para>يمكن عرض عرض غانت لمشروع باختيار <interface>قائمة السياق->افتح "
+"المشروع</interface>.<nl/><link url='%1'>المزيد...</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -191,12 +194,12 @@ msgstr "افتح مشروعًا"
 #: MainDocument.cpp:89
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr ""
+msgstr "مستند غير صالح. لا نوع وسائط محدد."
 
 #: MainDocument.cpp:94
 #, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
-msgstr ""
+msgstr "مستند غير صالح. نوع الوسائط المتوقع %1، أُعطِي %2"
 
 #: MainDocument.cpp:100
 #, kde-format
@@ -204,6 +207,8 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"أُنشِئ هذا المستند بإصدار أحدث من المُخطِط (صيغة البنية: %1)\n"
+"فتحُه في هذا الإصدار من المُخطِط يُفقِد بعض المعلومات."
 
 #: MainDocument.cpp:102
 #, kde-format
@@ -219,14 +224,14 @@ msgstr "تابع"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr ""
+msgstr "المشروع موجود بالفعل.<nl/>المشروع: %1<nl/>المستند: %2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
-msgstr ""
+msgstr "لا أستطيع إضافة المشروع"
 
 #: MainWindow.cpp:149
 #, kde-kuit-format
@@ -235,6 +240,7 @@ msgid ""
 "<p>The external project file <filename>%1</filename> has been modified.</"
 "p><p>Do you want to save it?</p>"
 msgstr ""
+"<p>عُدِّل ملف المشروع الخارجي <filename>%1</filename>.</p><p>أتريد حفظه؟</p>"
 
 #: MainWindow.cpp:150
 #, kde-format
@@ -245,19 +251,19 @@ msgstr "احفظ المستند"
 #: Part.cpp:61
 #, kde-format
 msgid "Configure Portfolio..."
-msgstr ""
+msgstr "اضبط المحفظة..."
 
 #: Part.cpp:69
 #, kde-kuit-format
 msgctxt "title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "إعدادات المحفظة"
 
 #: Part.cpp:72
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "إعدادات المحفظة"
 
 #: PerformanceView.cpp:170
 #, kde-format
@@ -272,32 +278,32 @@ msgstr "التكلفة (%1)"
 #: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
-msgstr ""
+msgstr "الجهد (ساعة)"
 
 #: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
 msgid "SPI: %1"
-msgstr ""
+msgstr "مؤشر أداء الجدول (SPI): %1"
 
 #: PerformanceView.cpp:194 PerformanceView.cpp:214
 #, kde-format
 msgid "CPI: %1"
-msgstr ""
+msgstr "مؤشر أداء التكلفة (CPI): %1"
 
 #: PerformanceView.cpp:198 PerformanceView.cpp:218
 #, kde-format
 msgid "BCWS: %1"
-msgstr ""
+msgstr "التكلفة المُقدّرة للعمل المُجدوَل (BCWS): %1"
 
 #: PerformanceView.cpp:202 PerformanceView.cpp:222
 #, kde-format
 msgid "BCWP: %1"
-msgstr ""
+msgstr "التكلفة المُقدّرة للعمل المُنجَز (BCWP): %1"
 
 #: PerformanceView.cpp:206 PerformanceView.cpp:226
 #, kde-format
 msgid "ACWP: %1"
-msgstr ""
+msgstr "التكلفة الفعلية للعمل المُنجَز (ACWP): %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: PerformanceView.ui:57
@@ -372,7 +378,7 @@ msgstr "ملف"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
-msgstr ""
+msgstr "يُحدِّد ما إذا كان المشروع جزءًا من المحفظة"
 
 #: PortfolioModel.cpp:79
 #, kde-format
@@ -380,13 +386,13 @@ msgctxt "@info:tooltip"
 msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
-msgstr ""
+msgstr "يُحدِّد ما إذا كان المشروع مُخزّنًا مضمَّنًا في ملف المحفظة أو في الملف الخارجي"
 
 #: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
-msgstr ""
+msgstr "العنوان الخارجي لملف المشروع"
 
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
@@ -397,7 +403,7 @@ msgstr "خطأ"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
-msgstr ""
+msgstr "أخفق تحميل المستند"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
@@ -413,7 +419,7 @@ msgstr "خارجى"
 #, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
-msgstr ""
+msgstr "المحافظ الحديثة"
 
 #: PortfolioView.cpp:133
 #, kde-kuit-format
@@ -431,6 +437,15 @@ msgid ""
 "<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects."
 "</note></para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>مُحرِّر محتوى المحفظة</title><para>يمكّنك هذا المُحرِّر من اضبط محتوى محفظتك."
+"</para><para>اختر <interface>حرّر|أضف</interface> أو اضغط <interface>أضف...</"
+"interface> لإضافة مشاريع إلى محفظتك.<nl/>اختر <interface>حرّر|أزل</interface> "
+"أو اضغط <interface>أزل</interface> لإزالة المشاريع المُختارة.</para><para>أضف "
+"المشاريع التي تديرها واضبط <emphasis>حقيبة العرض</emphasis> = <emphasis>نعم</"
+"emphasis>.</para><para><note>إن كان لديك موارد مُشتركة بين مشاريع متعددة وكنت "
+"تريد إعادة الجدولة أو فحص استخدام الموارد، فاحتَجْ إلى إضافة جميع المشاريع ذات "
+"الصلة ثم اضبط <emphasis>حقيبة العرض</emphasis> = <emphasis>لا</emphasis> "
+"لهذه المشاريع.</note></para><para><link url='%1'>المزيد...</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -442,6 +457,10 @@ msgid ""
 "this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
+"<subtitle>مساعدة السياق</subtitle><para>تُظهِر العديد من الوظائف مساعدة "
+"وتلميحات يمكن عرضها باستخدام <emphasis>ما هذا؟</emphasis>.</para><para>فعِّلها "
+"باختيار بند القائمة <interface>مساعدة|ما هذا</interface> أو بالضغط على "
+"<shortcut>Shift+F1</shortcut>.</para><para>جرِّبها على هذا النص!</para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
@@ -461,6 +480,13 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>مساعدة السياق</title><para>المساعدة متوفرة في أماكن كثيرة باستخدام "
+"<emphasis>ما هذا؟</emphasis>.<nl/>فعِّلها باستخدام إدخال القائمة "
+"<interface>مساعدة->ما هذا؟</interface> أو اختصار لوحة المفاتيح "
+"<shortcut>Shift+F1</shortcut>.</para><para>في الحوارات تكون متوفرة عبر "
+"<interface>؟</interface> في شريط عنوان الحوار.</para><para>إن رأيت <link "
+"url='%1'>المزيد...</link> في النص، فالضغط عليه يعرض المزيد من المعلومات من "
+"التوثيق.</para>"
 
 #: PortfolioView.cpp:184
 #, kde-format
@@ -475,19 +501,19 @@ msgstr "أزل"
 #: PortfolioView.cpp:210
 #, kde-format
 msgid "Add Project"
-msgstr ""
+msgstr "أضف مشروعًا"
 
 #: PortfolioView.cpp:256 PortfolioView.cpp:320
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
-msgstr ""
+msgstr "أخفق تحميل المشروع. ليس ملف المُخطِط صالحًا:<nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
-msgstr ""
+msgstr "أخفق فتح المشروع. يبدو أن هذا ملف محفظة:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -495,7 +521,7 @@ msgctxt "@info"
 msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
-msgstr ""
+msgstr "المشروع موجود بالفعل، ولن يُضاف.<nl/>المشروع: %1<nl/> المستند: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
@@ -508,7 +534,7 @@ msgstr "معلومات"
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:246
@@ -527,7 +553,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "https://docs.kde.org"
-msgstr ""
+msgstr "https://docs.kde.org"
 
 #. i18n: ectx: property (text), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:262
@@ -537,13 +563,15 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
 "\">User documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">توثيق المستخدم</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: PortfolioView.ui:278
 #, kde-format
 msgctxt "@info:status"
 msgid "https://forum.kde.org/viewforum.php?f=203"
-msgstr ""
+msgstr "https://forum.kde.org/viewforum.php?f=203"
 
 #. i18n: ectx: property (text), widget (QLabel, forumLabel)
 #: PortfolioView.ui:281
@@ -552,13 +580,14 @@ msgctxt "@action:button"
 msgid ""
 "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
 msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">منتدى المجتمع</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:297
 #, kde-format
 msgctxt "@info:status"
 msgid "https://userbase.kde.org/Plan"
-msgstr ""
+msgstr "https://userbase.kde.org/Plan"
 
 #. i18n: ectx: property (text), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:300
@@ -582,6 +611,15 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>التّقدّم</title><para>يُستخدَم هذا العرض لفحص وتحرير معلومات تقدّم المهمة "
+"للمشروع المُختار.<nl/>المَهام مُقسّمة إلى مجموعات تعتمد على حالة المهمة:"
+"<list><item><emphasis>لم تبدأ:</emphasis> المهام التي كان ينبغي أن تبدأ الآن."
+"</item><item><emphasis>قيد التشغيل:</emphasis> المهام التي بدأت، ولكن لم "
+"تنتهِ بعد.</item><item><emphasis>انتهت:</emphasis> المهام التي انتهت في هذه "
+"الفترة.</item><item><emphasis>الفترة القادمة:</emphasis> المهام المُجدوَلة "
+"لتبدأ في الفترة القادمة.</item></list>فترة الوقت قابلة للضبط.</"
+"para><para>هذا العرض يدعم الضبط والطباعة باستخدام قائمة السياق.<nl/><link "
+"url='%1'>المزيد...</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -592,35 +630,35 @@ msgstr "المشاريع"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project name"
-msgstr ""
+msgstr "اسم المشروع"
 
 #: ProjectsModel.cpp:151
 #, kde-format
 msgid "Target Start"
-msgstr ""
+msgstr "تاريخ البدء المُستهدَف"
 
 #: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
-msgstr ""
+msgstr "نطاق الجدولة: أبكر وقت بدء"
 
 #: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
-msgstr ""
+msgstr "تاريخ الانتهاء المُستهدَف"
 
 #: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
-msgstr ""
+msgstr "نطاق الجدولة: أحدث وقت انتهاء"
 
 #: ProjectsModel.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
-msgstr ""
+msgstr "وصف المشروع"
 
 #: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
 #: SchedulingModel.cpp:29
@@ -632,7 +670,7 @@ msgstr "الجدولة"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select schedule"
-msgstr ""
+msgstr "اختر الجدول"
 
 #: ProjectsModel.cpp:231
 #, kde-kuit-format
@@ -642,6 +680,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>المشروع: %1</title><para>الجدول: غير مُجدوَل</"
+"para><para><list><item>تاريخ البدء المُستهدَف:\t%2</item><item>تاريخ الانتهاء "
+"المُستهدَف:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -651,6 +692,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>المشروع: %1</title><para>الجدول: %4 غير مُجدوَل</"
+"para><para><list><item>تاريخ البدء المُستهدَف:\t%2</item><item>تاريخ الانتهاء "
+"المُستهدَف:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -660,59 +704,63 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>المشروع: %1</title><para>الجدول: %6</para><para><list><item>تاريخ "
+"البدء المُخطَّط:\t%2</item><item>تاريخ الانتهاء المُخطَّط:\t%3</item><item>تاريخ "
+"البدء المُستهدَف:\t%4</item><item>تاريخ الانتهاء المُستهدَف:\t%5</item></list></"
+"para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
-msgstr ""
+msgstr "غير مُجدوَل"
 
 #: ProjectsModel.cpp:295 ProjectsModel.cpp:316
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr ""
+msgstr "الجدول: %1 غير مُجدوَل"
 
 #: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "الجدول %1: مُجدوَل ليبدأ: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "الجدول %1: مُجدوَل لينتهي: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "الجدول مملوك للمحفظة"
 
 #: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr ""
+msgstr "الجدول مبدئي"
 
 #: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr ""
+msgstr "مُجدوَل ولكن ليس مبدئي"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
-msgstr ""
+msgstr "لا مهمة"
 
 #: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr ""
+msgstr "بنية تجزئة العمل (WBS): %1<nl/>المهمة: %2<nl/>المشروع: %3"
 
 #: ResourceUsageView.cpp:51
 #, kde-format
@@ -727,11 +775,13 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>استخدام الموارد</title><para>يعرض هذا العرض تخصيصات مهام الموارد لكل "
+"يوم.</para><para><nl/><link url='%1'>المزيد...</link></para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
 msgid "Diagram Types"
-msgstr ""
+msgstr "أنواع المخططات"
 
 #: ResourceUsageView.cpp:110
 #, kde-format
@@ -775,17 +825,17 @@ msgstr "الحالة"
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, kde-format
 msgid "New schedule"
-msgstr ""
+msgstr "جدول جديد"
 
 #: ScheduleManagerInfoDialog.cpp:34
 #, kde-format
 msgid "New sub-schedule"
-msgstr ""
+msgstr "جدول فرعي جديد"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "أنشئ جدولًا جديدًا '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -793,6 +843,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"الجدول الموجود '%1' مملوك للمحفظة.\n"
+"جدوِل '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -800,6 +852,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"الجدول الموجود '%1' مملوك للمُخطِط.\n"
+"أنشئ جدولًا جديدًا '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -807,6 +861,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"المشروع بدأ.\n"
+"أنشئ '%1' كجدول فرعي لـ '%2'."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -867,6 +923,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"الجدولة غير ممكنة. يجب أن يكون تاريخ الانتهاء المُستهدَف للمشروع أحدث من وقت "
+"الحساب"
 
 #: SchedulingModel.cpp:190
 #, kde-format
@@ -876,7 +934,7 @@ msgstr "جدولة..."
 #: SchedulingModel.cpp:192
 #, kde-format
 msgid "Not scheduled"
-msgstr ""
+msgstr "غير مُجدوَل"
 
 #: SchedulingModel.cpp:194
 #, kde-format
@@ -891,12 +949,12 @@ msgstr "بدأ"
 #: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "مبدئي"
 
 #: SchedulingModel.cpp:200
 #, kde-format
 msgid "Scheduled"
-msgstr ""
+msgstr "مُجدوَل"
 
 #: SchedulingModel.cpp:235
 #, kde-format
@@ -905,30 +963,32 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"الجدولة غير ممكنة. يجب أن يكون تاريخ الانتهاء المُستهدَف للمشروع أحدث من وقت "
+"الحساب"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "جدوِل هذا المشروع"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
-msgstr ""
+msgstr "ضم حجوزات الموارد من هذا المشروع"
 
 #: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "استثنِ هذا المشروع"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "الأولوية الأعلى تُجدوَل أولًا"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -946,6 +1006,15 @@ msgid ""
 "needs to be included for resource leveling to work properly.</note></"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>الجدولة</title><para>يتيح لك عرض الجدولة جدولة المشاريع في محفظتك. "
+"تُجدوََل المشاريع وفقًا لأولويتها.</para><para>اضبط <emphasis>التحكم</emphasis> "
+"إلى <emphasis>الجدولة</emphasis> للمشروع أو المشاريع التي تريد جدولتها.<nl/"
+">اضبط <emphasis>التحكم</emphasis> إلى <emphasis>ضم</emphasis> لكي تُضَم "
+"تخصيصات الموارد في تسوية الموارد.<nl/>اضبط <emphasis>التحكم</emphasis> إلى "
+"<emphasis>استثنِ</emphasis> إن كنت تريد استثناء المشروع.</para><para><note>إن "
+"كانت مشاريعك تشترك في موارد مع مشاريع ليست جزءًا من محفظتك، احتَجْ إلى ضم هذه "
+"المشاريع لكي تعمل تسوية الموارد بشكل صحيح.</note></para><para><link "
+"url='%1'>المزيد...</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
@@ -967,12 +1036,12 @@ msgstr "الوصف..."
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "خطأ داخلي. لا مكوّن جدولة إضافي موجود."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
-msgstr ""
+msgstr "لا شيء لجدولته"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -980,17 +1049,19 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"الجدولة غير ممكنة. يجب أن يكون تاريخ الانتهاء المُستهدَف للمشروع أحدث من وقت "
+"الحساب."
 
 #: SchedulingView.cpp:458
 #, kde-format
 msgid "Scheduling projects"
-msgstr ""
+msgstr "جدولة المشاريع"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
 #, kde-format
 msgid "Scheduling Control"
-msgstr ""
+msgstr "التحكم في الجدولة"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: SchedulingView.ui:60
@@ -1014,13 +1085,13 @@ msgstr "خيارات"
 #: SchedulingView.ui:84
 #, kde-format
 msgid "Sequential"
-msgstr ""
+msgstr "تسلسلي"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: SchedulingView.ui:91
 #, kde-format
 msgid "Granularity:"
-msgstr ""
+msgstr "الحُبيبيّة:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, parallel)
 #: SchedulingView.ui:101
@@ -1032,7 +1103,7 @@ msgstr "موازٍ"
 #: SchedulingView.ui:163
 #, kde-format
 msgid "Calculate From"
-msgstr ""
+msgstr "احسب من"
 
 #. i18n: ectx: property (text), widget (QRadioButton, todayRB)
 #: SchedulingView.ui:169
@@ -1065,6 +1136,8 @@ msgctxt ""
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
 msgstr ""
+"مؤشر أداء الجدول (التكلفة المُقدّرة للعمل المُجدوَل / التكلفة المُقدّرة للعمل "
+"المُنجَز)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1075,11 +1148,15 @@ msgid ""
 "shown for both cost based and effort based calculations.</para><para><nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>عرض ملخص المشاريع</title><para>يلخص هذا العرض بيانات الأداء للمشاريع "
+"في محفظتك.</para><para>تُظهَر مؤشرات الأداء لكلتا العمليات الحسابية المعتمدة "
+"على التكلفة والمُعتمدة على الجهد.</para><para><nl/><link url='%1'>المزيد...</"
+"link></para>"
 
 #: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
-msgstr ""
+msgstr "محتوى المحفظة"
 
 #: View.cpp:64
 #, kde-format
@@ -1104,9 +1181,9 @@ msgstr "الأداء"
 #: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
-msgstr ""
+msgstr "استخدام الموارد"
 
 #: View.cpp:96
 #, kde-format
 msgid "Gantt Summary"
-msgstr ""
+msgstr "ملخص غانت"
