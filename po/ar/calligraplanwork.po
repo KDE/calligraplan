@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2024-09-07 22:47+0400\n"
+"PO-Revision-Date: 2025-10-06 13:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,17 +22,18 @@ msgstr ""
 #, kde-format
 msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
 msgstr ""
+"مُخَطَّط العمل (PlanWork) - مُعالِج لحزم العمل لِأداة تخطيط المشروعات Plan المُخطِّط"
 
 #: aboutdata.h:40
 #, kde-format
 msgctxt "application name"
 msgid "Plan WorkPackage Handler"
-msgstr ""
+msgstr "مُعالِج حزمة عمل Plan"
 
 #: aboutdata.h:44
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr ""
+msgstr "حقوق النشر ١٩٩٨-%1، فريق مُخَطَّط"
 
 #: aboutdata.h:48
 #, kde-format
@@ -78,7 +79,7 @@ msgstr "الملف المراد فتحه"
 #: commandlineparser.cpp:107
 #, kde-format
 msgid "Failed to open document"
-msgstr ""
+msgstr "أخفقت محاولة فتح المستند"
 
 #: mainwindow.cpp:110
 #, kde-format
@@ -88,12 +89,12 @@ msgstr "الملفّ %1 غير موجود."
 #: part.cpp:174 part.cpp:205
 #, kde-format
 msgid "Document is already open:<br>%1"
-msgstr ""
+msgstr "المستند مفتوح بالفعل:<br>%1"
 
 #: part.cpp:186 part.cpp:213 workpackage.cpp:609
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
-msgstr ""
+msgstr "لا يمكن استخراج المستند من التخزين:<br>%1"
 
 #: part.cpp:194 part.cpp:221 workpackage.cpp:613
 #, kde-format
@@ -103,7 +104,7 @@ msgstr "المسار غير صالح: <br>%1"
 #: part.cpp:233
 #, kde-format
 msgid "Document is already open:<br> %1"
-msgstr ""
+msgstr "المستند مفتوح بالفعل:<br> %1"
 
 #: part.cpp:237
 #, kde-format
@@ -113,7 +114,7 @@ msgstr "الملف  غير موجود:<br>%1"
 #: part.cpp:263
 #, kde-format
 msgid "Edit with:"
-msgstr ""
+msgstr "حرّر بواسطة:"
 
 #: part.cpp:391
 #, kde-format
@@ -122,54 +123,62 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
+"<p>حزمة العمل موجودة بالفعل في مخزن المشروعات.</p><p>المشروع: %1<br>المهمة: "
+"%2</p><p>أتريد تحديث الحزمة الموجودة ببيانات من الجديدة؟</p>"
 
 #: part.cpp:419
 #, kde-format
 msgid "Remove failed. Cannot find work package"
-msgstr ""
+msgstr "أخفقت محاولة الإزالة. لا يمكن إيجاد حزمة العمل"
 
 #: part.cpp:422 part.cpp:433
 msgctxt "(qtundo-format)"
 msgid "Remove work package"
 msgid_plural "Remove work packages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "أزل حزمة عمل"
+msgstr[1] "أزل حزمتَي عمل"
+msgstr[2] "أزل حزم عمل"
+msgstr[3] "أزل حزم عمل"
+msgstr[4] "أزل حزم عمل"
+msgstr[5] "أزل حزم عمل"
 
 #: part.cpp:472
 #, kde-format
 msgid "Failed to load file:<br>%1"
-msgstr ""
+msgstr "أخفق تحميل الملف:<br>%1"
 
 #: part.cpp:486
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
-msgstr ""
+msgstr "ملف حزمة عمل غير صالح:<br>%1"
 
 #: part.cpp:514
 #, kde-format
 msgid "Invalid document. The document does not contain 'maindoc.xml'."
-msgstr ""
+msgstr "مستند غير صالح. المستند لا يحتوي على 'maindoc.xml'."
 
 #: part.cpp:540
 #, kde-format
 msgid "Failed to open file: %1"
-msgstr ""
+msgstr "أخفقت محاولة فتح الملف: %1"
 
 #: part.cpp:552
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
-msgstr ""
+msgstr "خطأ في تحليل الملفّ '%1' في السطر %2، العمود %3<br>رسالة الخطأ: %4"
 
 #: part.cpp:569 part.cpp:612
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr ""
+msgstr "مستند غير صالح. لا يوجد نوع MIME مُحدَّد."
 
 #: part.cpp:575
 #, kde-format
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
+"مستند غير صالح. نوع MIME المتوقَّع هو application/x-vnd.kde.plan.work، والوارد "
+"هو %1"
 
 #: part.cpp:582 part.cpp:623
 #, kde-format
@@ -177,6 +186,8 @@ msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"هذا المستند إصدار أحدث من الذي يدعمه PlanWork (إصدار البنية: %1)<br>سيؤدّي "
+"فتحه في هذا الإصدار من PlanWork إلى فقدان بعض المعلومات."
 
 #: part.cpp:584 part.cpp:625
 #, kde-format
@@ -193,16 +204,18 @@ msgstr "تنسيق الملف غير مطابق"
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.kplato.work, got %1"
 msgstr ""
+"مستند غير صالح. نوع MIME المتوقَّع هو application/x-vnd.kde.kplato.work، "
+"والوارد هو %1"
 
 #: part.cpp:713
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
-msgstr ""
+msgstr "أخفقت محاولة التحرير. لا يمكن إيجاد حزمة عمل."
 
 #: taskcompletiondialog.cpp:45
 #, kde-format
 msgid "Task Progress"
-msgstr ""
+msgstr "تقدّم المهمة"
 
 #. i18n: ectx: property (text), widget (QCheckBox, started)
 #: taskcompletionpanel.ui:33
@@ -231,34 +244,34 @@ msgstr "أزِل المدخلة"
 #: taskworkpackagemodel.cpp:298
 #, kde-format
 msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
-msgstr ""
+msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 
 #: taskworkpackagemodel.cpp:420
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Type: %1<nl/>Url: %2"
-msgstr ""
+msgstr "النّوع: %1<nl/>المسار: %2"
 
 #: taskworkpackagemodel.cpp:442
 #, no-c-format
 msgctxt "(qtundo-format)"
 msgid "Modify completion"
-msgstr ""
+msgstr "عدّل الإكمال"
 
 #: taskworkpackagemodel.cpp:477
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "اضبط الانتهاء"
 
 #: taskworkpackagemodel.cpp:498
 msgctxt "(qtundo-format)"
 msgid "Modify remaining effort"
-msgstr ""
+msgstr "عدّل الجهد المتبقّي"
 
 #: taskworkpackagemodel.cpp:511
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "عدّل الجهد الفعلي"
 
 #: taskworkpackagemodel.cpp:609
 #, kde-kuit-format
@@ -288,19 +301,19 @@ msgstr "الوصف"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Start"
-msgstr ""
+msgstr "تاريخ البدء المخطَّط"
 
 #: taskworkpackagemodel.cpp:616
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Finish"
-msgstr ""
+msgstr "تاريخ الانتهاء المخطَّط"
 
 #: taskworkpackagemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Assignments"
-msgstr ""
+msgstr "إسنادات الموارد"
 
 #: taskworkpackagemodel.cpp:620
 #, kde-kuit-format
@@ -312,25 +325,25 @@ msgstr "الإكمال"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
-msgstr ""
+msgstr "الجهد الفعلي"
 
 #: taskworkpackagemodel.cpp:622
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
-msgstr ""
+msgstr "الجهد المتبقّي"
 
 #: taskworkpackagemodel.cpp:623
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
-msgstr ""
+msgstr "الجهد المخطَّط"
 
 #: taskworkpackagemodel.cpp:624
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
-msgstr ""
+msgstr "البدء الفعلي"
 
 #: taskworkpackagemodel.cpp:625
 #, kde-kuit-format
@@ -342,7 +355,7 @@ msgstr "بدأ"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
-msgstr ""
+msgstr "الانتهاء الفعلي"
 
 #: taskworkpackagemodel.cpp:627
 #, kde-kuit-format
@@ -366,13 +379,13 @@ msgstr "ملاحظة"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Name"
-msgstr ""
+msgstr "اسم المشروع"
 
 #: taskworkpackagemodel.cpp:632
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Manager"
-msgstr ""
+msgstr "مدير المشروع"
 
 #: taskworkpackageview.cpp:416 taskworkpackageview.cpp:939
 #, kde-format
@@ -386,6 +399,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
+"المهمة: %1<nl/>الانتهاء الفعلي: %2<nl/>الانتهاء المخطَّط: %3<nl/>الحالة: %4<nl/"
+">المشروع: %5"
 
 #: taskworkpackageview.cpp:657
 #, kde-kuit-format
@@ -394,12 +409,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"المهمة: %1<nl/>الإكمال: %2 %%<nl/>البدء الفعلي: %3<nl/>المخطَّط: %4 - %5<nl/"
+">الحالة: %6<nl/>المشروع: %7"
 
 #: taskworkpackageview.cpp:678
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "المهمة: %1<nl/>المخطَّط: %2 - %3<nl/>الحالة: %4<nl/>المشروع: %5"
 
 #: view.cpp:96
 #, kde-format
@@ -409,7 +426,7 @@ msgstr "أزل الحزم"
 #: view.cpp:100
 #, kde-format
 msgid "Remove Package"
-msgstr ""
+msgstr "أزل الحزمة"
 
 #: view.cpp:104
 #, kde-format
@@ -420,18 +437,18 @@ msgstr "قائمة"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "اختر قائمة المهام"
 
 #: view.cpp:109
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "مخطَّط جانت"
 
 #: view.cpp:110
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "اختر الخط الزمني"
 
 #. i18n("Progress..."), this);
 #. collection->addAction("task_progress", actionTaskProgress);
@@ -440,7 +457,7 @@ msgstr ""
 #: view.cpp:119
 #, kde-format
 msgid "Configure PlanWork..."
-msgstr ""
+msgstr "اضبط PlanWork…"
 
 #: view.cpp:124
 #, kde-format
@@ -456,62 +473,62 @@ msgstr "عرض..."
 #: view.cpp:137
 #, kde-format
 msgid "Send Package..."
-msgstr ""
+msgstr "أرسِل الحزمة..."
 
 #: view.cpp:141
 #, kde-format
 msgid "Edit Progress..."
-msgstr ""
+msgstr "حرّر التقدّم..."
 
 #: view.cpp:145
 #, kde-format
 msgid "View Description..."
-msgstr ""
+msgstr "اعرض الوصف..."
 
 #: view.cpp:332
 #, kde-format
 msgid "This file is not editable"
-msgstr ""
+msgstr "هذا الملف غير قابل للتحرير"
 
 #: view.cpp:352
 #, kde-format
 msgid "No work package is selected"
-msgstr ""
+msgstr "لا يوجد حزمة عمل مختارة"
 
 #: view.cpp:358
 #, kde-format
 msgid "Cannot find work package"
-msgstr ""
+msgstr "لا يمكن إيجاد حزمة العمل"
 
 #: view.cpp:375
 #, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr ""
+msgstr "لا يمكن فتح الملف. أُجهِض الإرسال."
 
 #: view.cpp:383
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr ""
+msgstr "لا يمكن فتح الملف المؤقت. أُجهِض الإرسال."
 
 #: view.cpp:394
 #, kde-format
 msgid "Work Package: %1"
-msgstr ""
+msgstr "حزمة العمل: %1"
 
 #: workpackage.cpp:111
 #, kde-format
 msgid "Document is already open"
-msgstr ""
+msgstr "المستند مفتوح بالفعل"
 
 #: workpackage.cpp:184 workpackage.cpp:252
 #, kde-format
 msgid "Failed to load project: %1"
-msgstr ""
+msgstr "أخفقت محاولة تحميل المشروع: %1"
 
 #: workpackage.cpp:311
 #, kde-format
 msgid "Cannot save to empty filename"
-msgstr ""
+msgstr "لا يمكن الحفظ في اسم ملف فارغ"
 
 #: workpackage.cpp:317
 #, kde-format
@@ -529,6 +546,8 @@ msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr ""
+"أخفقت محاولة فتح المخزن:\n"
+" %1"
 
 #: workpackage.cpp:428
 #, kde-format
@@ -536,6 +555,8 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
+"لا يمكن الحفظ في مخزن المشروعات:\n"
+"%1"
 
 #: workpackage.cpp:478
 #, kde-format
@@ -543,6 +564,8 @@ msgid ""
 "Failed read file:\n"
 " %1"
 msgstr ""
+"أخفقت محاولة قراءة الملف:\n"
+" %1"
 
 #: workpackage.cpp:482
 #, kde-format
@@ -550,11 +573,13 @@ msgid ""
 "Failed write file:\n"
 " %1"
 msgstr ""
+"أخفقت محاولة كتابة الملف:\n"
+" %1"
 
 #: workpackage.cpp:525
 msgctxt "(qtundo-format)"
 msgid "Merge data"
-msgstr ""
+msgstr "ادمج البيانات"
 
 #: workpackage.cpp:634
 #, kde-format
@@ -565,21 +590,37 @@ msgid_plural ""
 "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
 "if you continue.</p>"
 msgstr[0] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستند مفتوح.</p><p>قد تفقد البيانات إن تابعت.</"
+"p>"
 msgstr[1] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستند مفتوح.</p><p>قد تفقد البيانات إن تابعت.</"
+"p>"
+msgstr[2] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستندات مفتوحة.</p><p>قد تفقد البيانات إن "
+"تابعت.</p>"
+msgstr[3] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستندات مفتوحة.</p><p>قد تفقد البيانات إن "
+"تابعت.</p>"
+msgstr[4] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستندات مفتوحة.</p><p>قد تفقد البيانات إن "
+"تابعت.</p>"
+msgstr[5] ""
+"<p>لدى حزمة العمل <b>'%2'</b> مستندات مفتوحة.</p><p>قد تفقد البيانات إن "
+"تابعت.</p>"
 
 #: workpackage.cpp:655
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
-msgstr ""
+msgstr "<p>حزمة العمل <b>'%1'</b> معدّلة.</p><p>أتريد حفظها؟</p>"
 
 #: workpackage.cpp:681
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>حزمة العمل <b>'%1'</b></p><p>لا يمكن فتح المخزن:</p><p>%2</p>"
 
 #: workpackage.cpp:697
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>حزمة العمل <b>'%1'</b></p><p>لا يمكن استخراج الملف:</p><p>%2</p>"

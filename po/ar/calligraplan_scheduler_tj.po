@@ -1,14 +1,14 @@
 # POT_PART_NORMAL only
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-03-18 08:40+0100\n"
-"PO-Revision-Date: 2024-09-07 22:47+0400\n"
+"PO-Revision-Date: 2025-10-06 13:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -29,6 +29,10 @@ msgid ""
 "all tasks as late as possible.</para><para><note>Plan does not utilize all "
 "of its functionality.</note></para>"
 msgstr ""
+"<title>جدولة TaskJuggler</title><para>هذه نسخة معدَّلة قليلًا من أداة الجدولة "
+"المستخدمة في TaskJuggler. عُزِّزت لتتعامل مع وحدات الموارد.</para><para>محاكاة "
+"الجدولة العكسية تحدث بجدولة كل المهام في أقصى وقت متأخر ممكن.</"
+"para><para><note>المُخطِط لا يستغل كامل وظائفها.</note></para>"
 
 #: PlanTJScheduler.cpp:142
 #, kde-kuit-format
@@ -40,25 +44,25 @@ msgstr "التمهيد"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Re-calculate project from start time: %1"
-msgstr ""
+msgstr "أعِد حساب المشروع بدءًا من وقت البدء: %1"
 
 #: PlanTJScheduler.cpp:150
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from start time: %1"
-msgstr ""
+msgstr "جَدْوِل المشروع بدءًا من وقت البدء: %1"
 
 #: PlanTJScheduler.cpp:152
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project target finish time: %1"
-msgstr ""
+msgstr "وقت الانتهاء المستهدَف للمشروع: %1"
 
 #: PlanTJScheduler.cpp:155
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Schedule project from end time: %1"
-msgstr ""
+msgstr "جَدْوِل المشروع بدءًا من وقت الانتهاء: %1"
 
 #: PlanTJScheduler.cpp:170
 #, kde-kuit-format
@@ -70,7 +74,7 @@ msgstr "الجدولة"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to schedule project"
-msgstr ""
+msgstr "فشل في جدولة المشروع"
 
 #: PlanTJScheduler.cpp:186
 #, kde-kuit-format
@@ -88,81 +92,81 @@ msgstr "أنهِ"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to find scenario to schedule"
-msgstr ""
+msgstr "فشل في إيجاد سيناريو للجدولة"
 
 #: PlanTJScheduler.cpp:397
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project scheduled to start at %1 and finish at %2"
-msgstr ""
+msgstr "جُدوِل المشروع ليبدأ في %1 وينتهي في %2"
 
 #: PlanTJScheduler.cpp:437
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid start time"
-msgstr ""
+msgstr "وقت بدء غير صالح"
 
 #: PlanTJScheduler.cpp:441
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Invalid end time"
-msgstr ""
+msgstr "وقت انتهاء غير صالح"
 
 #: PlanTJScheduler.cpp:464
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled milestone: %1"
-msgstr ""
+msgstr "المَعْلَم المجدوَل: %1"
 
 #: PlanTJScheduler.cpp:466
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled task: %1 - %2"
-msgstr ""
+msgstr "المهمة المجدوَلة: %1 - %2"
 
 #: PlanTJScheduler.cpp:549
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
-msgstr ""
+msgstr "%1: فشل في تلبية القيد. التعويم السلبي=%2"
 
 #: PlanTJScheduler.cpp:564
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
-msgstr ""
+msgstr "فشل في تلبية التبعية. التعويم السلبي=%1"
 
 #: PlanTJScheduler.cpp:721
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
-msgstr ""
+msgstr "نوع التبعية '%1' غير معالَج. استخدِم إنهاء-بدء."
 
 #: PlanTJScheduler.cpp:782
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid start constraint"
-msgstr ""
+msgstr "%1: قيد بدء غير صالح"
 
 #: PlanTJScheduler.cpp:795
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "%1: Invalid end constraint"
-msgstr ""
+msgstr "%1: قيد انتهاء غير صالح"
 
 #: PlanTJScheduler.cpp:818
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Unhandled time constraint type"
-msgstr ""
+msgstr "نوع قيد وقت غير معالَج"
 
 #: PlanTJScheduler.cpp:829 PlanTJScheduler.cpp:847
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
-msgstr ""
+msgstr "لا أستطيع استخدام التقويم الصحيح لحساب مدة المهمة"
 
 #: PlanTJScheduler.cpp:900
 #, kde-format
 msgid "No working hours defined for resource: %1"
-msgstr ""
+msgstr "لا توجد ساعات عمل معرَّفة للمورد: %1"
