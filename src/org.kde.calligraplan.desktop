@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Plan
+Name[ar]=المُخطِط
 Name[ca]=Plan
 Name[ca@valencia]=Plan
 Name[cs]=Plan
@@ -30,6 +31,7 @@ Name[uk]=Plan
 Name[zh_CN]=Plan
 Name[zh_TW]=Plan
 GenericName=Project Management
+GenericName[ar]=إدارة المشاريع
 GenericName[ca]=Gestió de projectes
 GenericName[ca@valencia]=Gestió de projectes
 GenericName[cs]=Správa projektů

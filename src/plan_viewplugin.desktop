@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=Plan/ViewPlugin
 Comment=GUI functionality for Plan
+Comment[ar]=وظائف واجهة المُستخدم الرسوميّة للمُخطِط
 Comment[ca]=Funcionalitat d'IGU per al Plan
 Comment[ca@valencia]=Funcionalitat de la IGU per a Plan
 Comment[cs]=Funkcionalita GUI pro Plan

@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=Plan/Filter
 Comment=Calligra Filter
+Comment[ar]=مُرشِّح كاليغرا
 Comment[ca]=Filtre del Calligra
 Comment[ca@valencia]=Filtre de Calligra
 Comment[cs]=Filtr Calligra

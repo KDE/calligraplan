@@ -2,6 +2,7 @@
 Type=Link
 URL=.source/Plain.plant
 Name=Plain
+Name[ar]=عادي
 Name[ca]=Normal
 Name[ca@valencia]=Normal
 Name[cs]=Prostý
