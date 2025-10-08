@@ -5,6 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plan</name>
+  <name xml:lang="ar">المُخطِط</name>
   <name xml:lang="bs">Plan</name>
   <name xml:lang="ca">Plan</name>
   <name xml:lang="ca-valencia">Plan</name>
@@ -37,6 +38,7 @@
   <name xml:lang="uk">Plan</name>
   <name xml:lang="zh-CN">Plan</name>
   <summary>Project Management</summary>
+  <summary xml:lang="ar">إدارة المشاريع</summary>
   <summary xml:lang="bs">Upravljanje projektom</summary>
   <summary xml:lang="ca">Gestió de projectes</summary>
   <summary xml:lang="ca-valencia">Gestió de projectes</summary>
@@ -71,6 +73,7 @@
     <p>
       Plan is a project management application. It is intended for managing moderately large projects with multiple resources.
     </p>
+    <p xml:lang="ar">المُخطِط هو تطبيق لإدارة المشاريع. القصد منه هو إدارة المشاريع الكبيرة إلى حد ما مع وجود مصادر متعددة.</p>
     <p xml:lang="bs">Plan je program za upravljanje projektima. Namijenjen je za upravljanje umjereno velikim projektima sa više resursa.</p>
     <p xml:lang="ca">El Plan és una aplicació de gestió de projectes. Està pensat per a gestionar projectes moderadament grans amb múltiples recursos.</p>
     <p xml:lang="ca-valencia">Plan és una aplicació de gestió de projectes. Està pensat per a gestionar projectes moderadament grans amb múltiples recursos.</p>
@@ -100,6 +103,7 @@
     <p xml:lang="uk">Plan — програма для керування проєктами. Її призначено для керування помірно великими проєктами з декількома ресурсами або виконавцями.</p>
     <p xml:lang="zh-CN">Plan 是一款项目管理程序。它适用于管理具有多种资源的中大型项目。</p>
     <p>Features:</p>
+    <p xml:lang="ar">الميزات:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -132,6 +136,7 @@
     <p xml:lang="zh-CN">程序功能：</p>
     <ul>
       <li>Multiple views: Gant Charts, Resource View, Accounts View</li>
+      <li xml:lang="ar">عرض متعدد: رسوم غانت البيانية، عرض المصادر، عرض الحسابات</li>
       <li xml:lang="bs">Višestruki pogledi: Gantovi dijagrami, pogled resursa, pogled računa</li>
       <li xml:lang="ca">Vistes múltiples: Diagrames de Gant, vista de recursos, vista de comptes</li>
       <li xml:lang="ca-valencia">Vistes múltiples: Diagrames de Gant, vista de recursos, vista de comptes</li>
@@ -161,6 +166,7 @@
       <li xml:lang="uk">Декілька режимів перегляду: діаграми Ґанта, перегляд виконавців, перегляд рахунків.</li>
       <li xml:lang="zh-CN">多种视图模式：甘特图、资源视图、账目视图</li>
       <li>Uses standard structures: Work breakdown structure (WBS), Resource breakdown structure (RBS), Cost breakdown structure (CBS)</li>
+      <li xml:lang="ar">يستخدم تراكيب قياسية: هيكل تجزئة العمل (WBS)، هيكل تجزئة الموارد (RBS)، هيكل تجزئة التكلفة (CBS)</li>
       <li xml:lang="bs">Koristi standardne strukture: Struktura prekida rada (WBS), Struktura prekida resursa (RBS), Struktura prekida troška (CBS)</li>
       <li xml:lang="ca">Usa estructures estàndard: Estructura de descomposició de treballs (WBS), Estructura de descomposició de recursos (RBS), Estructura de descomposició de costos (CBS)</li>
       <li xml:lang="ca-valencia">Utilitza estructures estàndard: Estructura de descomposició de treballs (WBS), Estructura de descomposició de recursos (RBS), Estructura de descomposició de costos (CBS)</li>
@@ -189,6 +195,7 @@
       <li xml:lang="uk">Використання стандартних структур: структури рознарядки робіт (СРР або WBS), структури розподілу вартості (СРВ або CBS) та структури розподілу ресурсів (СРР або RBS).</li>
       <li xml:lang="zh-CN">使用标准结构：工作细分结构 (WBS)、资源细分结构 (RBS)、成本细分结构 (CBS)</li>
       <li>Configurable level of detail on Gantt Chart</li>
+      <li xml:lang="ar">تخصيص مستوى التفاصيل على رسم غانت البياني</li>
       <li xml:lang="bs">Konfigurabilan nivo detalja na Gantt Chart</li>
       <li xml:lang="ca">Es pot configurar el nivell de detall en el diagrama de Gantt</li>
       <li xml:lang="ca-valencia">Es pot configurar el nivell de detall en el diagrama de Gantt</li>
@@ -219,6 +226,7 @@
       <li xml:lang="uk">Налаштовуваний рівень деталізації у діаграмах Ґанта.</li>
       <li xml:lang="zh-CN">甘特图可配置详情级别</li>
       <li>Supports Summarytasks, Tasks, and milestones</li>
+      <li xml:lang="ar">يتيح مهام الملخص، والمهام، والمعالم</li>
       <li xml:lang="bs">Podržava rezime zadataka, zadatke i prekretnice</li>
       <li xml:lang="ca">Permet resums de tasques, tasques i fites</li>
       <li xml:lang="ca-valencia">Permet resums de tasques, tasques i fites</li>
@@ -248,6 +256,7 @@
       <li xml:lang="uk">Підтримка підсумкових завдань, завдань та етапів.</li>
       <li xml:lang="zh-CN">支持汇总型任务、任务和里程碑</li>
       <li>Configurable Scheduling Constraints</li>
+      <li xml:lang="ar">يضبط قيود الجدولة</li>
       <li xml:lang="bs">Konfigurabilna ograničenja rasporeda</li>
       <li xml:lang="ca">Es poden configurar restriccions de planificació</li>
       <li xml:lang="ca-valencia">Es poden configurar restriccions de planificació</li>

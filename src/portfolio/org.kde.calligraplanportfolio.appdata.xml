@@ -5,6 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plan Portfolio</name>
+  <name xml:lang="ar">حافظة مشاريع المُخطِط</name>
   <name xml:lang="ca">Plan Portfolio</name>
   <name xml:lang="ca-valencia">Plan Portfolio</name>
   <name xml:lang="cs">Naplánovat portfolio</name>
@@ -29,6 +30,7 @@
   <name xml:lang="tr">Plan Portföy</name>
   <name xml:lang="uk">Портфоліо Plan</name>
   <summary>Project Portfolio Management</summary>
+  <summary xml:lang="ar">إدارة حافظة المشاريع</summary>
   <summary xml:lang="ca">Gestió de carteres de projectes</summary>
   <summary xml:lang="ca-valencia">Gestió de carteres de projectes</summary>
   <summary xml:lang="cs">Správa projektů portfolia</summary>
@@ -56,6 +58,7 @@
     <p>
       Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.
     </p>
+    <p xml:lang="ar">حافظة مشاريع المُخطِط هو تطبيق لإدارة محفظة المشاريع. وهو مخصص لإدارة مجموعة من المشاريع.</p>
     <p xml:lang="ca">El Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
     <p xml:lang="ca-valencia">Plan Portfolio és una aplicació de gestió d'una cartera de projectes. Està pensada per a gestionar una col·lecció de projectes.</p>
     <p xml:lang="en-GB">Plan Portfolio is a project portfolio management application. It is intended for managing a collection of projects.</p>

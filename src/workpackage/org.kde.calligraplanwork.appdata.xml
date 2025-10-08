@@ -5,6 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Plan Work</name>
+  <name xml:lang="ar">العمل للمُخطِط</name>
   <name xml:lang="ca">Plan Work</name>
   <name xml:lang="ca-valencia">Plan Work</name>
   <name xml:lang="cs">Plánovat práci</name>
@@ -28,6 +29,7 @@
   <name xml:lang="tr">Plan Work</name>
   <name xml:lang="uk">Робота Plan</name>
   <summary>Work Package Handler</summary>
+  <summary xml:lang="ar">معالج حزمة العمل</summary>
   <summary xml:lang="ca">Gestor de paquets de feina</summary>
   <summary xml:lang="ca-valencia">Gestor de paquets de faena</summary>
   <summary xml:lang="en-GB">Work Package Handler</summary>
@@ -53,6 +55,7 @@
     <p>
       Plan Work enables project members to handle all tasks they shall work on across projects.
     </p>
+    <p xml:lang="ar">يتيح العمل للمُخطِط لأعضاء المشروع التعامل مع جميع المهام التي سيقومون بها عبر المشاريع.</p>
     <p xml:lang="ca">El Plan Work permet que els membres del projecte gestionin totes les tasques que han de dur a terme a través dels projectes.</p>
     <p xml:lang="ca-valencia">Plan Work permet que els membres del projecte gestionen totes les tasques que han de dur a terme a través dels projectes.</p>
     <p xml:lang="en-GB">Plan Work enables project members to handle all tasks they shall work on across projects.</p>
