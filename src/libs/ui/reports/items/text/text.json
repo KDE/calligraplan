@@ -4,6 +4,7 @@
             {
                 "Email": "calligra_devel@kde.org",
                 "Name": "Calligra Team",
+                "Name[ar]": "فريق كاليغرا",
                 "Name[ca@valencia]": "Equip de Calligra",
                 "Name[ca]": "Equip del Calligra",
                 "Name[cs]": "Team Calligra",
@@ -39,6 +40,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "Text element for Reports",
+        "Description[ar]": "عنصر نص للتقارير",
         "Description[ca@valencia]": "Element de text per a informes",
         "Description[ca]": "Element de text per a informes",
         "Description[cs]": "Textové prvky pro hlášení",
@@ -73,6 +75,7 @@
         "Id": "org.kde.kreport.plan.text",
         "License": "LGPL",
         "Name": "Text",
+        "Name[ar]": "نص",
         "Name[ca@valencia]": "Text",
         "Name[ca]": "Text",
         "Name[cs]": "Text",
