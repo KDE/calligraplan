@@ -28,7 +28,7 @@
 #include <QHBoxLayout>
 #include <QCheckBox>
 
-#include "kmessagebox_copy.cpp" // themedMessageBoxIcon()
+#include <KoIcon.h>
 
 using namespace KPlato;
 
