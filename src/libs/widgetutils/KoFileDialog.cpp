@@ -485,7 +485,7 @@ QUrl KoFileDialog::getUsedDir(const QString &dialogName)
 {
     if (dialogName.isEmpty()) return QUrl();
 
-    KConfigGroup group =  KSharedConfig::openConfig()->group("File Dialogs");
+    KConfigGroup group =  KSharedConfig::openConfig()->group(QStringLiteral("File Dialogs"));
     QUrl dir = QUrl::fromUserInput(group.readEntry(dialogName));
 
     return dir;
@@ -499,7 +499,7 @@ void KoFileDialog::saveUsedDir(const QString &fileName,
     }
     const auto url = QUrl::fromUserInput(fileName);
     if (url.isValid()) {
-        KConfigGroup group = KSharedConfig::openConfig()->group("File Dialogs");
+        KConfigGroup group = KSharedConfig::openConfig()->group(QStringLiteral("File Dialogs"));
         group.writeEntry(dialogName, url.adjusted(QUrl::RemoveFilename).toString(QUrl::FullyEncoded));
     }
 }

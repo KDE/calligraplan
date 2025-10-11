@@ -408,11 +408,11 @@ void KoDocumentInfo::updateParameters()
 
     KConfig config(QStringLiteral("calligrarc"));
     config.reparseConfiguration();
-    KConfigGroup authorGroup(&config, "Author");
+    KConfigGroup authorGroup(&config, QStringLiteral("Author"));
     QStringList profiles = authorGroup.readEntry("profile-names", QStringList());
 
     config.reparseConfiguration();
-    KConfigGroup appAuthorGroup(&config, "Author");
+    KConfigGroup appAuthorGroup(&config, QStringLiteral("Author"));
     QString profile = appAuthorGroup.readEntry("active-profile", QString());
 
     if (profiles.contains(profile)) {

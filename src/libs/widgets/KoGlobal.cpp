@@ -112,7 +112,7 @@ void KoGlobal::createListOfLanguages()
         if (seenLanguages.find(tag) == seenLanguages.end()) {
             KConfig entry(*it, KConfig::SimpleConfig);
 
-            const QString name = entry.group("KCM Locale").readEntry("Name", tag);
+            const QString name = entry.group(QStringLiteral("KCM Locale")).readEntry("Name", tag);
             // e.g. name is "US English" and tag is "en_US"
             m_langMap.insert(name, tag);
 

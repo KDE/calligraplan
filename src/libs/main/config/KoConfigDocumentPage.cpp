@@ -50,8 +50,8 @@ KoConfigDocumentPage::KoConfigDocumentPage(KoPart *part)
     d->oldAutoSave = part->document() ? part->document()->defaultAutoSave() / 60 : 5;
     d->oldBackupFile = true;
 
-    if(d->config->hasGroup("Interface")) {
-        KConfigGroup interfaceGroup = d->config->group("Interface");
+    if(d->config->hasGroup(QStringLiteral("Interface"))) {
+        KConfigGroup interfaceGroup = d->config->group(QStringLiteral("Interface"));
         d->oldAutoSave = interfaceGroup.readEntry("AutoSave", d->oldAutoSave);
         d->oldBackupFile = interfaceGroup.readEntry("BackupFile", d->oldBackupFile);
     }

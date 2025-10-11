@@ -460,7 +460,7 @@ KoDocument::KoDocument(KoPart *parent, KUndo2Stack *undoStack)
     d->undoStack = undoStack;
     d->undoStack->setParent(this);
 
-    KConfigGroup cfgGrp(d->parentPart->componentData().config(), "Undo");
+    KConfigGroup cfgGrp(d->parentPart->componentData().config(), QStringLiteral("Undo"));
     d->undoStack->setUndoLimit(cfgGrp.readEntry("UndoLimit", 1000));
 
     connect(d->undoStack, &KUndo2QStack::indexChanged, this, &KoDocument::slotUndoStackIndexChanged);

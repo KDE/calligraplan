@@ -1451,7 +1451,7 @@ void View::slotCreateReportTemplate()
                     files.insert(url.fileName(), url);
                 }
             }
-            KConfigGroup cfgGrp(part->componentData().config(), "Report Templates");
+            KConfigGroup cfgGrp(part->componentData().config(), QStringLiteral("Report Templates"));
             if (cfgGrp.exists()) {
                 const auto templates = cfgGrp.readEntry(QStringLiteral("ReportTemplatePaths")).split(QLatin1Char(','));
                 for (auto &path : templates) {

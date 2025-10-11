@@ -98,7 +98,7 @@ void TemplateFileDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
             m_files.insert(url.fileName(), url);
         }
     }
-    KConfigGroup cfgGrp(m_part->componentData().config(), "Report Templates");
+    KConfigGroup cfgGrp(m_part->componentData().config(), QStringLiteral("Report Templates"));
     if (cfgGrp.exists()) {
         const auto templates = cfgGrp.readEntry(QStringLiteral("ReportTemplatePaths")).split(QLatin1Char(','));
         for (auto &path : templates) {

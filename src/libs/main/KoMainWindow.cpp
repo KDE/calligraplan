@@ -342,7 +342,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     connect(d->toggleDockers, &QAction::toggled, this, &KoMainWindow::toggleDockersVisibility);
 
     d->toggleDockerTitleBars = new KToggleAction(i18nc("@action:inmenu", "Show Docker Titlebars"), this);
-    KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
+    KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group(QStringLiteral("Interface"));
     d->toggleDockerTitleBars->setChecked(configGroupInterface.readEntry("ShowDockerTitleBars", true));
     d->toggleDockerTitleBars->setVisible(false);
     actionCollection()->addAction(QStringLiteral("view_toggledockertitlebars"), d->toggleDockerTitleBars);
@@ -357,7 +357,7 @@ KoMainWindow::KoMainWindow(const QByteArray &nativeMimeType, const KoComponentDa
     d->mainWindowGuiIsBuilt = true;
 
     // we first figure out some good default size and restore the x,y position. See bug 285804Z.
-    KConfigGroup cfg(KSharedConfig::openConfig(), "MainWindow");
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
     QByteArray geom = QByteArray::fromBase64(cfg.readEntry("ko_geometry", QByteArray()));
     if (!restoreGeometry(geom)) {
         // TODO: Handle multiple monitors
@@ -398,7 +398,7 @@ void KoMainWindow::setNoCleanup(bool noCleanup)
 
 KoMainWindow::~KoMainWindow()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(), "MainWindow");
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
     cfg.writeEntry("ko_geometry", saveGeometry().toBase64());
     cfg.writeEntry("ko_windowstate", saveState().toBase64());
 
@@ -975,7 +975,7 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
         // Not been saved yet, but there is a default url so open dialog with this url
         if (suggestedURL.path() == suggestedURL.fileName()) {
             // only a filename has been given, so add the default dir
-            KConfigGroup group =  KSharedConfig::openConfig()->group("File Dialogs");
+            KConfigGroup group =  KSharedConfig::openConfig()->group(QStringLiteral("File Dialogs"));
             QString path = group.readEntry("SaveDocument");
             path += QLatin1Char('/') + suggestedURL.fileName();
             suggestedURL.setPath(path);
@@ -1192,7 +1192,7 @@ void KoMainWindow::saveWindowSettings()
         // Save window size into the config file of our componentData
         // TODO: check if this is ever read again, seems lost over the years
         debugMain;
-        KConfigGroup mainWindowConfigGroup = config->group("MainWindow");
+        KConfigGroup mainWindowConfigGroup = config->group(QStringLiteral("MainWindow"));
         KWindowConfig::saveWindowSize(windowHandle(), mainWindowConfigGroup);
         config->sync();
         d->windowSizeDirty = false;
@@ -1570,7 +1570,7 @@ KoPrintJob* KoMainWindow::exportToPdf(const QString &_pdfFileName)
     QString pdfFileName = _pdfFileName;
 
     if (pdfFileName.isEmpty()) {
-        KConfigGroup group =  KSharedConfig::openConfig()->group("File Dialogs");
+        KConfigGroup group =  KSharedConfig::openConfig()->group(QStringLiteral("File Dialogs"));
         QString defaultDir = group.readEntry("SavePdfDialog");
         if (defaultDir.isEmpty())
             defaultDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
@@ -1968,7 +1968,7 @@ QDockWidget* KoMainWindow::createDockWidget(KoDockFactoryBase* factory)
             titleBar->setLocked(true);
 
         if (titleBar) {
-            KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
+            KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group(QStringLiteral("Interface"));
             titleBar->setVisible(configGroupInterface.readEntry("ShowDockerTitleBars", true));
         }
 
@@ -2184,7 +2184,7 @@ void KoMainWindow::setActivePart(KoPart *part, QWidget *widget)
         // Position and show toolbars according to user's preference
         setAutoSaveSettings(newPart->componentData().componentName(), false);
 
-        KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
+        KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group(QStringLiteral("Interface"));
         const bool showDockerTitleBar = configGroupInterface.readEntry("ShowDockerTitleBars", true);
         for (QDockWidget *wdg : std::as_const(d->dockWidgets)) {
             if ((wdg->features() & QDockWidget::DockWidgetClosable) == 0) {
@@ -2245,7 +2245,7 @@ void KoMainWindow::showDockerTitleBars(bool show)
         }
     }
 
-    KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group("Interface");
+    KConfigGroup configGroupInterface =  KSharedConfig::openConfig()->group(QStringLiteral("Interface"));
     configGroupInterface.writeEntry("ShowDockerTitleBars", show);
 }
 

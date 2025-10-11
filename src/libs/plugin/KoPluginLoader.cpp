@@ -58,7 +58,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     QList<QString> blacklist; // what we will save out afterwards
     if (config.whiteList && config.blacklist && config.group) {
         debugPlugin << "Loading" << directory << "with checking the config";
-        KConfigGroup configGroup(KSharedConfig::openConfig(), config.group);
+        KConfigGroup configGroup(KSharedConfig::openConfig(), QString::fromLatin1(config.group));
         QList<QString> whiteList = configGroup.readEntry(config.whiteList, config.defaults);
         QList<QString> knownList;
 
@@ -127,7 +127,7 @@ void KoPluginLoader::load(const QString & directory, const PluginsConfig &config
     }
 
     if (configChanged && config.whiteList && config.blacklist && config.group) {
-        KConfigGroup configGroup(KSharedConfig::openConfig(), config.group);
+        KConfigGroup configGroup(KSharedConfig::openConfig(), QString::fromLatin1(config.group));
         configGroup.writeEntry(config.whiteList, whiteList);
         configGroup.writeEntry(config.blacklist, blacklist);
     }

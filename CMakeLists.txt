@@ -99,7 +99,7 @@ find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 # ECM KDE macros (include first, to have their policies and settings effect all other macros)
-set(KDE_COMPILERSETTINGS_LEVEL 5.84)
+set(KDE_COMPILERSETTINGS_LEVEL 6.0)
 include(KDEInstallDirs)
 include(KDECMakeSettings NO_POLICY_SCOPE)
 include(KDECompilerSettings NO_POLICY_SCOPE)

@@ -327,7 +327,7 @@ void WelcomeView::setProjectTemplatesModel()
 {
     QStandardItemModel *m = new QStandardItemModel(ui.projectTemplates);
     KSharedConfigPtr configPtr = mainWindow()->componentData().config();
-    const QStringList dirs = configPtr->group("Project Templates").readEntry("ProjectTemplatePaths", QStringList());
+    const QStringList dirs = configPtr->group(QStringLiteral("Project Templates")).readEntry("ProjectTemplatePaths", QStringList());
     bool addgroups = dirs.count() > 1;
     ui.projectTemplates->setRootIsDecorated(addgroups);
     for (const QString &path : dirs) {
