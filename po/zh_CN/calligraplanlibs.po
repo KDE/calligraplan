@@ -5505,7 +5505,7 @@ msgstr "美国信纸 (Letter)"
 #, kde-format
 msgctxt "Page size"
 msgid "US Legal"
-msgstr "美国法律 (Legal)"
+msgstr "美国法律纸 (Legal)"
 
 #: odf/KoPageFormat.cpp:59
 #, kde-format
@@ -5529,7 +5529,7 @@ msgstr "ISO B5"
 #, kde-format
 msgctxt "Page size"
 msgid "US Executive"
-msgstr "美国行政 (Executive)"
+msgstr "美国行政纸 (Executive)"
 
 #: odf/KoPageFormat.cpp:63
 #, kde-format
@@ -5649,7 +5649,7 @@ msgstr "美国账簿 (Ledger)"
 #, kde-format
 msgctxt "Page size"
 msgid "US Tabloid"
-msgstr "美国小报 (Tabloid)"
+msgstr "美国大报纸 (Tabloid)"
 
 #: odf/KoUnit.cpp:38
 #, kde-format
