@@ -2,8 +2,8 @@
 # Copyright (C) 2010-2017 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Rafael Carreras <rcarreras@caliu.cat>, 2010.
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2015, 2016, 2017.
+# SPDX-FileCopyrightText: 2010 Rafael Carreras <rcarreras@caliu.cat>
+# SPDX-FileCopyrightText: 2010, 2011, 2015, 2016, 2017 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
