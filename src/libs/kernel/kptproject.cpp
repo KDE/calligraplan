@@ -2009,7 +2009,7 @@ bool Project::registerNodeId(Node *node)
     if (rn == nullptr) {
         //debugPlan <<"id=" << node->id() << node->name();
         nodeIdDict.insert(node->id(), node);
-        connect(node, &QObject::destroyed, this, &Project::nodeDestroyed);
+        connect(node, &QObject::destroyed, this, &Project::nodeDestroyed, Qt::QueuedConnection);
         return true;
     }
     if (rn != node) {
