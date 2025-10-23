@@ -57,7 +57,7 @@ void ReportsTester::testReportGeneration()
     report.setProject(project);
     report.setScheduleManager(scheduleManager);
     report.setTemplateFile(templateFile);
-    QTemporaryFile tmp(QStringLiteral("taskstatusreport-XXXXXX.odt"));
+    QTemporaryFile tmp(QDir::tempPath() + QDir::separator() + QStringLiteral("taskstatusreport-XXXXXX.odt"));
     QVERIFY(tmp.open());
     const auto reportFile = tmp.fileName();
     qDebug()<<reportFile;
