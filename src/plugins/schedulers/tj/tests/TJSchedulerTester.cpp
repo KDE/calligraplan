@@ -63,7 +63,7 @@ void TJSchedulerTester::populateSchedulingContext(SchedulingContext &context, co
         } else {
             sm = new KPlato::ScheduleManager(*project, project->uniqueScheduleName());
         }
-        AddScheduleManagerCmd cmd(*project, sm);
+        AddScheduleManagerCmd cmd(*project, sm, 0);
         cmd.redo();
         sm->createSchedules();
         doc->setProperty(SCHEDULEMANAGERNAME, sm->name());
