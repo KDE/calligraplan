@@ -1768,6 +1768,9 @@ bool Project::moveTask(Node* node, Node *newParent, int newPos)
     debugPlan<<node->name()<<"at"<<oldParent->indexOf(node)<<"to"<<newParent->name()<<i<<newRow<<"("<<newPos<<")";
     Q_EMIT nodeToBeMoved(node, oldPos, newParent, newRow);
     takeTask(node, false);
+    if (newPos == -1) {
+        i = newPos; // if inserted at the end (-1), update i since numChildren() could be modified and > to nb of children
+    }
     addSubTask(node, i, newParent, false);
     Q_EMIT nodeMoved(node);
     if (oldParent != this && oldParent->numChildren() == 0) {
