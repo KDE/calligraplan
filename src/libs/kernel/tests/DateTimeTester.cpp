@@ -193,7 +193,8 @@ void DateTimeTester::timeZones()
     qDebug()<<"dst:"<<dst7<<dst8;
     QCOMPARE(dst7, dst8);
 
-    dst7 = dst7 - Duration(0, 1, 0); // no change due to dst
+    dst7 = dst7 - Duration(0, 1, 0); // since Qt6.7 change see QDateTime::TransitionResolution, for a negative duration use RelativeToAfter instead of RelativeToBefore
+    dst8 = DateTime(QDate(2022, 10, 30), QTime(1, 0, 0, 0), tz);
     qDebug()<<"dst:"<<dst7<<dst8;
     QCOMPARE(dst7, dst8);
 }
