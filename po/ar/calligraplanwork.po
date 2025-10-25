@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-10-06 13:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -395,12 +395,12 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "مدير المشروع"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
 msgstr "اضبط المنظور…"
 
-#: taskworkpackageview.cpp:630
+#: taskworkpackageview.cpp:631
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -410,7 +410,7 @@ msgstr ""
 "المهمة: %1<nl/>الانتهاء الفعلي: %2<nl/>الانتهاء المخطَّط: %3<nl/>الحالة: %4<nl/"
 ">المشروع: %5"
 
-#: taskworkpackageview.cpp:645
+#: taskworkpackageview.cpp:646
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -420,106 +420,106 @@ msgstr ""
 "المهمة: %1<nl/>الإكمال: %2 %%<nl/>البدء الفعلي: %3<nl/>المخطَّط: %4 - %5<nl/"
 ">الحالة: %6<nl/>المشروع: %7"
 
-#: taskworkpackageview.cpp:666
+#: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
 msgstr "المهمة: %1<nl/>المخطَّط: %2 - %3<nl/>الحالة: %4<nl/>المشروع: %5"
 
-#: view.cpp:84
+#: view.cpp:85
 #, kde-format
 msgid "Remove Packages"
 msgstr "أزل الحزم"
 
-#: view.cpp:88
+#: view.cpp:89
 #, kde-format
 msgid "Remove Package"
 msgstr "أزل الحزمة"
 
-#: view.cpp:92
+#: view.cpp:93
 #, kde-format
 msgid "List"
 msgstr "قائمة"
 
-#: view.cpp:93
+#: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
 msgstr "اختر قائمة المهام"
 
-#: view.cpp:97
+#: view.cpp:98
 #, kde-format
 msgid "Gantt"
 msgstr "مخطَّط جانت"
 
-#: view.cpp:98
+#: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
 msgstr "اختر الخط الزمني"
 
-#: view.cpp:103
+#: view.cpp:104
 #, kde-format
 msgid "Configure PlanWork..."
 msgstr "اضبط PlanWork…"
 
-#: view.cpp:108
+#: view.cpp:109
 #, kde-format
 msgid "Edit..."
 msgstr "حرّر..."
 
-#: view.cpp:112
+#: view.cpp:113
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
 msgstr "عرض..."
 
-#: view.cpp:116
+#: view.cpp:117
 #, kde-format
 msgid "Remove document"
 msgstr "أزل المستند"
 
-#: view.cpp:120
+#: view.cpp:121
 #, kde-format
 msgid "Send Package..."
 msgstr "أرسِل الحزمة..."
 
-#: view.cpp:124
+#: view.cpp:125
 #, kde-format
 msgid "Edit Progress..."
 msgstr "حرّر التقدّم..."
 
-#: view.cpp:128
+#: view.cpp:129
 #, kde-format
 msgid "View Description..."
 msgstr "اعرض الوصف..."
 
-#: view.cpp:315
+#: view.cpp:316
 #, kde-format
 msgid "This file is not editable"
 msgstr "هذا الملف غير قابل للتحرير"
 
-#: view.cpp:335
+#: view.cpp:336
 #, kde-format
 msgid "No work package is selected"
 msgstr "لا يوجد حزمة عمل مختارة"
 
-#: view.cpp:341
+#: view.cpp:342
 #, kde-format
 msgid "Cannot find work package"
 msgstr "لا يمكن إيجاد حزمة العمل"
 
-#: view.cpp:358
+#: view.cpp:359
 #, kde-format
 msgid "Could not open file. Sending is aborted."
 msgstr "لا يمكن فتح الملف. أُجهِض الإرسال."
 
-#: view.cpp:366
+#: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
 msgstr "لا يمكن فتح الملف المؤقت. أُجهِض الإرسال."
 
-#: view.cpp:375
+#: view.cpp:376
 #, kde-format
 msgid "Work Package: %1"
 msgstr "حزمة العمل: %1"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2015-01-29 16:26+0100\n"
 "Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -419,12 +419,12 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Rukovodilac projekta"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
 msgstr "Konfiguriši pogled..."
 
-#: taskworkpackageview.cpp:630
+#: taskworkpackageview.cpp:631
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -434,7 +434,7 @@ msgstr ""
 "Zadatak: %1<nl/>Stvarni završetak: %2<nl/>Planirani završetak: %3<nl/"
 ">Status: %4<nl/>Projekat: %5"
 
-#: taskworkpackageview.cpp:645
+#: taskworkpackageview.cpp:646
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -444,108 +444,108 @@ msgstr ""
 "Zadatak: %1<nl/>Kompletnost: %2 %<nl/>Stvarni početak: %3<nl/>Planirano: %4 "
 "- %5<nl/>Status: %6<nl/>Projekt: %7"
 
-#: taskworkpackageview.cpp:666
+#: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
 msgstr "Zadatak: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Projekt: %5"
 
-#: view.cpp:84
+#: view.cpp:85
 #, kde-format
 msgid "Remove Packages"
 msgstr "Odstrani pakete"
 
-#: view.cpp:88
+#: view.cpp:89
 #, kde-format
 msgid "Remove Package"
 msgstr "Ukloni paket"
 
-#: view.cpp:92
+#: view.cpp:93
 #, kde-format
 msgid "List"
 msgstr "Lista"
 
-#: view.cpp:93
+#: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
 msgstr "Izaberi listu zadataka"
 
-#: view.cpp:97
+#: view.cpp:98
 #, kde-format
 msgid "Gantt"
 msgstr "Gant"
 
-#: view.cpp:98
+#: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
 msgstr "Izaberi vremensku liniju"
 
-#: view.cpp:103
+#: view.cpp:104
 #, kde-format
 msgid "Configure PlanWork..."
 msgstr "Konfiguriši PlanWork..."
 
-#: view.cpp:108
+#: view.cpp:109
 #, kde-format
 msgid "Edit..."
 msgstr "Izmijeni..."
 
-#: view.cpp:112
+#: view.cpp:113
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
 msgstr "Prikaz..."
 
-#: view.cpp:116
+#: view.cpp:117
 #, fuzzy, kde-format
 #| msgid "Remove Entry"
 msgid "Remove document"
 msgstr "Ukloni stavku"
 
-#: view.cpp:120
+#: view.cpp:121
 #, kde-format
 msgid "Send Package..."
 msgstr "Pošalji paket..."
 
-#: view.cpp:124
+#: view.cpp:125
 #, kde-format
 msgid "Edit Progress..."
 msgstr "Napredak izmjene..."
 
-#: view.cpp:128
+#: view.cpp:129
 #, kde-format
 msgid "View Description..."
 msgstr "Vidi opis..."
 
-#: view.cpp:315
+#: view.cpp:316
 #, kde-format
 msgid "This file is not editable"
 msgstr "Datoteka nije izmjenjiva"
 
-#: view.cpp:335
+#: view.cpp:336
 #, kde-format
 msgid "No work package is selected"
 msgstr "Nema izabranog radnog paketa"
 
-#: view.cpp:341
+#: view.cpp:342
 #, kde-format
 msgid "Cannot find work package"
 msgstr "Ne mogu naći radni paket"
 
-#: view.cpp:358
+#: view.cpp:359
 #, fuzzy, kde-format
 #| msgid "Could not open temporary file. Sending is aborted."
 msgid "Could not open file. Sending is aborted."
 msgstr "Ne mogu otvoriti privremenu datoteku. Slanje je prekinuto."
 
-#: view.cpp:366
+#: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
 msgstr "Ne mogu otvoriti privremenu datoteku. Slanje je prekinuto."
 
-#: view.cpp:375
+#: view.cpp:376
 #, kde-format
 msgid "Work Package: %1"
 msgstr "Radni paket: %1"

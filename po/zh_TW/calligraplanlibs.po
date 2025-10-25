@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-03-26 18:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -144,49 +144,49 @@ msgctxt "<milliseconds>ms"
 msgid "%1ms"
 msgstr "%1 毫秒"
 
-#: kernel/kptduration.cpp:289
+#: kernel/kptduration.cpp:288
 #, kde-format
 msgctxt "Year. Note: Letter(s) only!"
 msgid "Y"
 msgstr "Y"
 
-#: kernel/kptduration.cpp:290
+#: kernel/kptduration.cpp:289
 #, kde-format
 msgctxt "Month. Note: Letter(s) only!"
 msgid "M"
 msgstr "M"
 
-#: kernel/kptduration.cpp:291
+#: kernel/kptduration.cpp:290
 #, kde-format
 msgctxt "Week. Note: Letter(s) only!"
 msgid "w"
 msgstr "w"
 
-#: kernel/kptduration.cpp:292
+#: kernel/kptduration.cpp:291
 #, kde-format
 msgctxt "Day. Note: Letter(s) only!"
 msgid "d"
 msgstr "d"
 
-#: kernel/kptduration.cpp:293
+#: kernel/kptduration.cpp:292
 #, kde-format
 msgctxt "Hour. Note: Letter(s) only!"
 msgid "h"
 msgstr "h"
 
-#: kernel/kptduration.cpp:294
+#: kernel/kptduration.cpp:293
 #, kde-format
 msgctxt "Minute. Note: Letter(s) only!"
 msgid "m"
 msgstr "m"
 
-#: kernel/kptduration.cpp:295
+#: kernel/kptduration.cpp:294
 #, kde-format
 msgctxt "Second. Note: Letter(s) only!"
 msgid "s"
 msgstr "s"
 
-#: kernel/kptduration.cpp:296
+#: kernel/kptduration.cpp:295
 #, kde-format
 msgctxt "Millisecond. Note: Letter(s) only!"
 msgid "ms"
@@ -586,23 +586,23 @@ msgstr "完成-完成"
 msgid "Start-Start"
 msgstr "開始-開始"
 
-#: kernel/kptresourcerequest.cpp:722
+#: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr ""
 
-#: kernel/kptresourcerequest.cpp:819
+#: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
 msgstr ""
 
-#: kernel/kptresourcerequest.cpp:973
+#: kernel/kptresourcerequest.cpp:975
 #, fuzzy, kde-format
 #| msgid "Could not match effort. Want: %1 got: %2"
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
 msgstr "無法符合負擔。需要：%1，取得：%2"
 
-#: kernel/kptresourcerequest.cpp:976
+#: kernel/kptresourcerequest.cpp:978
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
 msgstr "資源 %1 在 %2 到 %3 間可取得"
@@ -622,7 +622,7 @@ msgstr "除錯"
 msgid "Info"
 msgstr "資訊"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1851
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "警告"
@@ -901,13 +901,13 @@ msgstr "重做 %1"
 msgid "<empty>"
 msgstr "<空白>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1667
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "重做"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1666
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -987,47 +987,47 @@ msgstr "分隔符號"
 msgid "--- expanding spacer ---"
 msgstr "--- 展開間隔 ---"
 
-#: main/kedittoolbar.cpp:337
+#: main/kedittoolbar.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Text"
 msgstr "變更文字"
 
-#: main/kedittoolbar.cpp:347
+#: main/kedittoolbar.cpp:344
 #, kde-format
 msgid "Icon te&xt:"
 msgstr "圖示文字(&X):"
 
-#: main/kedittoolbar.cpp:352
+#: main/kedittoolbar.cpp:349
 #, kde-format
 msgctxt "@option:check"
 msgid "&Hide text when toolbar shows text alongside icons"
 msgstr "工具列在圖示旁顯示文字時隱藏文字(&H)"
 
-#: main/kedittoolbar.cpp:601
+#: main/kedittoolbar.cpp:598
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Toolbars"
 msgstr "設定工具列"
 
-#: main/kedittoolbar.cpp:664
+#: main/kedittoolbar.cpp:661
 #, kde-format
 msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr "您真的要重設這個應用程式的所有工具列嗎？這個動作會即時生效。"
 
-#: main/kedittoolbar.cpp:665
+#: main/kedittoolbar.cpp:662
 #, kde-format
 msgid "Reset Toolbars"
 msgstr "重設工具列"
 
-#: main/kedittoolbar.cpp:666
+#: main/kedittoolbar.cpp:663
 #, kde-format
 msgid "Reset"
 msgstr "重設"
 
-#: main/kedittoolbar.cpp:997
+#: main/kedittoolbar.cpp:994
 #, kde-format
 msgid "&Toolbar:"
 msgstr "工具列(&T)："
@@ -1039,57 +1039,57 @@ msgstr "工具列(&T)："
 #. del_toolbar->setPixmap(BarIcon("edit-delete", KIconLoader::SizeSmall));
 #. del_toolbar->setEnabled(false); // disabled until implemented
 #. our list of inactive actions
-#: main/kedittoolbar.cpp:1013
+#: main/kedittoolbar.cpp:1010
 #, kde-format
 msgid "A&vailable actions:"
 msgstr "可用的動作(&V)："
 
-#: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
-#: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
+#: main/kedittoolbar.cpp:1031 main/kedittoolbar.cpp:1056
+#: ui/kptganttview.cpp:466 ui/MilestoneGanttView.cpp:476
 #, kde-format
 msgid "Filter"
 msgstr "過濾器"
 
-#: main/kedittoolbar.cpp:1037
+#: main/kedittoolbar.cpp:1034
 #, kde-format
 msgid "Curr&ent actions:"
 msgstr "目前的動作(&E)："
 
-#: main/kedittoolbar.cpp:1062
+#: main/kedittoolbar.cpp:1059
 #, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
 msgstr "變更圖示(&I)..."
 
-#: main/kedittoolbar.cpp:1071
+#: main/kedittoolbar.cpp:1068
 #, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
 msgstr "變更文字(&X)..."
 
-#: main/kedittoolbar.cpp:1233
+#: main/kedittoolbar.cpp:1230
 #, kde-format
 msgctxt "@item:intable Action name in toolbar editor"
 msgid "%1"
 msgstr "%1"
 
-#: main/kedittoolbar.cpp:1261
+#: main/kedittoolbar.cpp:1258
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
 msgstr "此元素將會被內嵌元件的所有元素取代。"
 
-#: main/kedittoolbar.cpp:1263
+#: main/kedittoolbar.cpp:1260
 #, kde-format
 msgid "<Merge>"
 msgstr "<合併>"
 
-#: main/kedittoolbar.cpp:1265
+#: main/kedittoolbar.cpp:1262
 #, kde-format
 msgid "<Merge %1>"
 msgstr "<合併 %1>"
 
-#: main/kedittoolbar.cpp:1275
+#: main/kedittoolbar.cpp:1272
 #, kde-format
 msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
@@ -1098,13 +1098,13 @@ msgstr ""
 "這是一份動作的動態清單。您可以移動它，不過如果您將它移除，您將無法重新加回"
 "它。"
 
-#: main/kedittoolbar.cpp:1276
+#: main/kedittoolbar.cpp:1273
 #, fuzzy, kde-format
 #| msgid "Account: %1"
 msgid "ActionList: %1"
 msgstr "帳號：%1"
 
-#: main/kedittoolbar.cpp:1377 main/kedittoolbar.cpp:1402
+#: main/kedittoolbar.cpp:1374 main/kedittoolbar.cpp:1399
 #, fuzzy, kde-format
 #| msgctxt "<value>%"
 #| msgid "%1%"
@@ -1112,37 +1112,37 @@ msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
 msgstr "%1%"
 
-#: main/kedittoolbar.cpp:1630
+#: main/kedittoolbar.cpp:1627
 #, kde-format
 msgid "Change Icon"
 msgstr "變更圖示"
 
-#: main/KoApplication.cpp:192
+#: main/KoApplication.cpp:188
 #, kde-format
 msgid "just load the file and then exit"
 msgstr "只載入檔案就離開"
 
-#: main/KoApplication.cpp:193
+#: main/KoApplication.cpp:189
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr "載入檔案，顯示視窗與進度列，然後離開"
 
-#: main/KoApplication.cpp:194
+#: main/KoApplication.cpp:190
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr "要寫入設定資訊的檔名。"
 
-#: main/KoApplication.cpp:195
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr "要開啟的檔案或網址"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid "%1: Critical Error"
 msgstr "%1：嚴重錯誤"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"
@@ -1166,17 +1166,17 @@ msgstr "下列自動儲存檔案可被復原："
 msgid "The following autosave files can be recovered:"
 msgstr "下列自動儲存檔案可被復原："
 
-#: main/KoDocument.cpp:560
+#: main/KoDocument.cpp:568
 #, kde-format
 msgid "Making backup..."
 msgstr "產生備份中..."
 
-#: main/KoDocument.cpp:575
+#: main/KoDocument.cpp:583
 #, kde-format
 msgid "Saving..."
 msgstr "儲存中..."
 
-#: main/KoDocument.cpp:603
+#: main/KoDocument.cpp:611
 #, kde-format
 msgid ""
 "Could not save\n"
@@ -1185,7 +1185,7 @@ msgstr ""
 "無法儲存\n"
 "%1"
 
-#: main/KoDocument.cpp:605
+#: main/KoDocument.cpp:613
 #, kde-format
 msgid ""
 "Could not save %1\n"
@@ -1194,45 +1194,45 @@ msgstr ""
 "無法儲存 %1\n"
 "原因：%2"
 
-#: main/KoDocument.cpp:634
+#: main/KoDocument.cpp:642
 #, kde-format
 msgid "Document <i>%1</i> saved"
 msgstr "文件 <i>%1</i> 已儲存"
 
-#: main/KoDocument.cpp:722
+#: main/KoDocument.cpp:729
 #, kde-format
 msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr "此加密文件的密碼未知。自動儲存將中止！請手動儲存您的工作。"
 
-#: main/KoDocument.cpp:725
+#: main/KoDocument.cpp:732
 #, kde-format
 msgid "Autosaving..."
 msgstr "自動儲存中..."
 
-#: main/KoDocument.cpp:737
+#: main/KoDocument.cpp:744
 #, kde-format
 msgid "Error during autosave! Partition full?"
 msgstr "自動儲存時發生錯誤。硬碟分割區滿了嗎？"
 
-#: main/KoDocument.cpp:831
+#: main/KoDocument.cpp:838
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "無法建立檔案以儲存"
 
-#: main/KoDocument.cpp:875 main/KoDocument.cpp:897 main/KoDocument.cpp:928
-#: main/KoDocument.cpp:962
+#: main/KoDocument.cpp:882 main/KoDocument.cpp:904 main/KoDocument.cpp:935
+#: main/KoDocument.cpp:969
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "無法寫入 %1。磁碟分割區滿了嗎？"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
+#: main/KoDocument.cpp:897 main/KoDocument.cpp:944 main/KoDocument.cpp:1955
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "寫入 %1 時發生錯誤。磁碟分割區滿了嗎？"
 
-#: main/KoDocument.cpp:1181
+#: main/KoDocument.cpp:1188
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -1241,7 +1241,7 @@ msgstr ""
 "不正確的 URL\n"
 "%1"
 
-#: main/KoDocument.cpp:1197
+#: main/KoDocument.cpp:1204
 #, kde-format
 msgid ""
 "An autosaved file exists for this document.\n"
@@ -1250,127 +1250,127 @@ msgstr ""
 "此文件中含有自動儲存的檔案。\n"
 "您要開啟它來取代這個文件嗎？"
 
-#: main/KoDocument.cpp:1198
+#: main/KoDocument.cpp:1205
 #, kde-format
 msgid "Autosave"
 msgstr "自動儲存"
 
-#: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "檔案 %1 不存在。"
 
-#: main/KoDocument.cpp:1390
+#: main/KoDocument.cpp:1397
 #, kde-format
 msgid "Opening Document"
 msgstr "正在開啟文件"
 
-#: main/KoDocument.cpp:1406
+#: main/KoDocument.cpp:1413
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "無法建立過濾器外掛程式"
 
-#: main/KoDocument.cpp:1409
+#: main/KoDocument.cpp:1416
 #, kde-format
 msgid "Could not create the output document"
 msgstr "無法建立輸出文件"
 
-#: main/KoDocument.cpp:1412
+#: main/KoDocument.cpp:1419
 #, kde-format
 msgid "File not found"
 msgstr "找不到檔案"
 
-#: main/KoDocument.cpp:1415
+#: main/KoDocument.cpp:1422
 #, kde-format
 msgid "Cannot create storage"
 msgstr "無法建立儲存"
 
-#: main/KoDocument.cpp:1418
+#: main/KoDocument.cpp:1425
 #, kde-format
 msgid "Bad MIME type"
 msgstr "錯誤的 MIME 型態"
 
-#: main/KoDocument.cpp:1421
+#: main/KoDocument.cpp:1428
 #, kde-format
 msgid "Error in embedded document"
 msgstr "嵌入文件當中有錯誤"
 
-#: main/KoDocument.cpp:1424
+#: main/KoDocument.cpp:1431
 #, kde-format
 msgid "Format not recognized"
 msgstr "格式無法辨認"
 
-#: main/KoDocument.cpp:1427
+#: main/KoDocument.cpp:1434
 #, kde-format
 msgid "Not implemented"
 msgstr "尚未實作"
 
-#: main/KoDocument.cpp:1430
+#: main/KoDocument.cpp:1437
 #, kde-format
 msgid "Parsing error"
 msgstr "剖析錯誤"
 
-#: main/KoDocument.cpp:1433
+#: main/KoDocument.cpp:1440
 #, kde-format
 msgid "Document is password protected"
 msgstr "文件以密碼保護"
 
-#: main/KoDocument.cpp:1436
+#: main/KoDocument.cpp:1443
 #, kde-format
 msgid "Invalid file format"
 msgstr "無效的檔案格式"
 
-#: main/KoDocument.cpp:1443
+#: main/KoDocument.cpp:1450
 #, kde-format
 msgid "Internal error"
 msgstr "內部錯誤"
 
-#: main/KoDocument.cpp:1446
+#: main/KoDocument.cpp:1453
 #, kde-format
 msgid "Out of memory"
 msgstr "記憶體不足"
 
-#: main/KoDocument.cpp:1449
+#: main/KoDocument.cpp:1456
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "空白過濾器外掛程式"
 
-#: main/KoDocument.cpp:1452
+#: main/KoDocument.cpp:1459
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr ""
 
-#: main/KoDocument.cpp:1455
+#: main/KoDocument.cpp:1462
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "下載遠端檔案失敗"
 
-#: main/KoDocument.cpp:1463
+#: main/KoDocument.cpp:1470
 #, kde-format
 msgid "Reading file timed out"
 msgstr ""
 
-#: main/KoDocument.cpp:1466 main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1473 main/KoDocument.cpp:1484
 #, kde-format
 msgid "Unknown error"
 msgstr "未知的錯誤"
 
-#: main/KoDocument.cpp:1469
+#: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1472
+#: main/KoDocument.cpp:1479
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr ""
 
-#: main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1482
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr ""
 
-#: main/KoDocument.cpp:1481
+#: main/KoDocument.cpp:1488
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1381,17 +1381,17 @@ msgstr ""
 "原因：%1。\n"
 "%3"
 
-#: main/KoDocument.cpp:1538
+#: main/KoDocument.cpp:1545
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "文件 <i>%1</i> 已載入"
 
-#: main/KoDocument.cpp:1607 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1613 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "找不到 %1"
 
-#: main/KoDocument.cpp:1619
+#: main/KoDocument.cpp:1625
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1400,22 +1400,22 @@ msgstr ""
 "剖析錯誤於 %1 中的第 %2 行，第 %3 個位置\n"
 "錯誤訊息：%4"
 
-#: main/KoDocument.cpp:1640
+#: main/KoDocument.cpp:1646
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 不是檔案"
 
-#: main/KoDocument.cpp:1655
+#: main/KoDocument.cpp:1661
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr "無法開啟檔案以讀取（請檢查讀取權限）。"
 
-#: main/KoDocument.cpp:1666
+#: main/KoDocument.cpp:1672
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "無法讀取檔案的開頭。"
 
-#: main/KoDocument.cpp:1696
+#: main/KoDocument.cpp:1702
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1424,41 +1424,41 @@ msgstr ""
 "剖析錯誤於主文件第 %1 行，第 %2 個位置。\n"
 "錯誤訊息：%3"
 
-#: main/KoDocument.cpp:1717
+#: main/KoDocument.cpp:1723
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "不是有效的 Calligra Plan 檔案：%1"
 
-#: main/KoDocument.cpp:1734 main/KoDocument.cpp:1765
+#: main/KoDocument.cpp:1740 main/KoDocument.cpp:1771
 #, kde-format
 msgid "Invalid password"
 msgstr "不正確的密碼"
 
-#: main/KoDocument.cpp:1805
+#: main/KoDocument.cpp:1811
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "無效檔案：沒有「maindoc.xml」檔案。"
 
-#: main/KoDocument.cpp:1831
+#: main/KoDocument.cpp:1837
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr "文件 <i>%1</i> 包含了幾個版本。請到「檔案」─「版本」中去開啟舊的版本。"
 
-#: main/KoDocument.cpp:2040 main/KoDocument.cpp:2536 main/KoMainWindow.cpp:1261
+#: main/KoDocument.cpp:2045 main/KoDocument.cpp:2541 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "未命名"
 
-#: main/KoDocument.cpp:2043 main/KoMainWindow.cpp:1264
+#: main/KoDocument.cpp:2048 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr "<p>文件 <b>%1</b> 已被修改。</p><p>您是否要儲存？</p>"
 
-#: main/KoDocument.cpp:2044 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2049 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1466,12 +1466,12 @@ msgstr "<p>文件 <b>%1</b> 已被修改。</p><p>您是否要儲存？</p>"
 msgid "Save Document"
 msgstr "儲存文件"
 
-#: main/KoDocument.cpp:2128
+#: main/KoDocument.cpp:2133
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "內部錯誤：沒有實作 saveXML"
 
-#: main/KoDocument.cpp:2166
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1480,7 +1480,7 @@ msgstr ""
 "無法開啟\n"
 "%1"
 
-#: main/KoDocument.cpp:2169
+#: main/KoDocument.cpp:2174
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1489,32 +1489,27 @@ msgstr ""
 "無法開啟 %1\n"
 "原因： %2"
 
-#: main/KoDocument.cpp:2243
-#, kde-format
+#: main/KoDocument.cpp:2248
 msgid "a word processing"
 msgstr "文字處理"
 
-#: main/KoDocument.cpp:2244
-#, kde-format
+#: main/KoDocument.cpp:2249
 msgid "a spreadsheet"
 msgstr "試算表"
 
-#: main/KoDocument.cpp:2245
-#, kde-format
+#: main/KoDocument.cpp:2250
 msgid "a presentation"
 msgstr "簡報文件"
 
-#: main/KoDocument.cpp:2246
-#, kde-format
+#: main/KoDocument.cpp:2251
 msgid "a chart"
 msgstr "流程圖"
 
-#: main/KoDocument.cpp:2247
-#, kde-format
+#: main/KoDocument.cpp:2252
 msgid "a drawing"
 msgstr "繪圖"
 
-#: main/KoDocument.cpp:2540
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1523,7 +1518,7 @@ msgstr ""
 "文件 %1 已變更。\n"
 "您要儲存變更還是放棄變更？"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2547
 #, kde-format
 msgid "Close Document"
 msgstr "關閉文件"
@@ -1555,89 +1550,89 @@ msgstr "遺失匯入過濾器"
 msgid "Choose Filter"
 msgstr "選擇過濾器"
 
-#: main/KoMainWindow.cpp:160
+#: main/KoMainWindow.cpp:157
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 未儲存的文件（%2）"
 
-#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:269 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "列印成 PDF..."
 
-#: main/KoMainWindow.cpp:285
+#: main/KoMainWindow.cpp:279
 #, kde-format
 msgid "Reload"
 msgstr "重新載入"
 
-#: main/KoMainWindow.cpp:289
+#: main/KoMainWindow.cpp:283
 #, kde-format
 msgid "Import..."
 msgstr "匯入..."
 
-#: main/KoMainWindow.cpp:293
+#: main/KoMainWindow.cpp:287
 #, kde-format
 msgid "E&xport..."
 msgstr "匯出(&X)…"
 
-#: main/KoMainWindow.cpp:297
+#: main/KoMainWindow.cpp:291
 #, fuzzy, kde-format
 #| msgid "Documents"
 msgid "En&crypt Document"
 msgstr "文件"
 
-#: main/KoMainWindow.cpp:302
+#: main/KoMainWindow.cpp:296
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "解壓縮到目錄(&U)"
 
-#: main/KoMainWindow.cpp:307
+#: main/KoMainWindow.cpp:301
 #, kde-format
 msgid "&New View"
 msgstr "新增檢視(&N)"
 
-#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:308 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "文件資訊"
 
-#: main/KoMainWindow.cpp:340
+#: main/KoMainWindow.cpp:334
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "全螢幕模式"
 
-#: main/KoMainWindow.cpp:345
+#: main/KoMainWindow.cpp:339
 #, kde-format
 msgid "Show Dockers"
 msgstr "顯示工具面板"
 
-#: main/KoMainWindow.cpp:350
+#: main/KoMainWindow.cpp:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "顯示工具面板的標題列"
 
-#: main/KoMainWindow.cpp:357
+#: main/KoMainWindow.cpp:351
 #, kde-format
 msgid "Dockers"
 msgstr "工具面板"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:662
 #, kde-format
 msgid "(write protected)"
 msgstr "（寫入保護）"
 
-#: main/KoMainWindow.cpp:676
+#: main/KoMainWindow.cpp:667
 #, kde-format
 msgid "Save as %1"
 msgstr "另存為 %1"
 
-#: main/KoMainWindow.cpp:678
+#: main/KoMainWindow.cpp:669
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
+#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1646,88 +1641,88 @@ msgid ""
 "Project Template...</interface>."
 msgstr ""
 
-#: main/KoMainWindow.cpp:899 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1（未知檔案型態）"
 
-#: main/KoMainWindow.cpp:907
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr "<qt>儲存為 %1 可能導致一些格式遺失。<p>您還是要以這個格式儲存嗎？</qt>"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "確認儲存"
 
-#: main/KoMainWindow.cpp:919
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr "<qt>匯出為 %1 可能導致一些格式遺失。<p>您還是要以這個格式匯出嗎？</qt>"
 
-#: main/KoMainWindow.cpp:922
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "確認匯出"
 
-#: main/KoMainWindow.cpp:923 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "匯出"
 
-#: main/KoMainWindow.cpp:1041
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "未命名"
 
-#: main/KoMainWindow.cpp:1334 main/WelcomeView.cpp:274
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "開啟文件"
 
-#: main/KoMainWindow.cpp:1343
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "匯入文件"
 
-#: main/KoMainWindow.cpp:1551
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "無法預覽文件"
 
-#: main/KoMainWindow.cpp:1559
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "無法開啟 PDF 檢視器"
 
-#: main/KoMainWindow.cpp:1607
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "匯出為 PDF"
 
-#: main/KoMainWindow.cpp:1644
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "無法匯出到指定檔案"
 
-#: main/KoMainWindow.cpp:1820
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "文件"
 
-#: main/KoMainWindow.cpp:1828
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "文件 — %1"
 
-#: main/KoMainWindow.cpp:1849
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1736,12 +1731,12 @@ msgstr ""
 "您將遺失上次儲存後所有的變更！\n"
 "您要繼續嗎？"
 
-#: main/KoMainWindow.cpp:2211
+#: main/KoMainWindow.cpp:2203
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "顯示%1工具列"
 
-#: main/KoMainWindow.cpp:2213
+#: main/KoMainWindow.cpp:2205
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "隱藏%1工具列"
@@ -1753,11 +1748,11 @@ msgstr "停止"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
-#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:194
+#: ui/kptdependencyeditor.cpp:2188 ui/kptganttview.cpp:195
 #: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:149
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:150
 #: ui/performance/ProjectStatusView.cpp:170
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing"
 msgstr "列印中"
@@ -1793,7 +1788,7 @@ msgstr "匿名"
 msgid "Default Author Profile"
 msgstr ""
 
-#: main/WelcomeView.cpp:119
+#: main/WelcomeView.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1804,13 +1799,13 @@ msgid ""
 "para><para>Try it on this text!</para>"
 msgstr ""
 
-#: main/WelcomeView.cpp:128
+#: main/WelcomeView.cpp:129
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
 msgstr ""
 
-#: main/WelcomeView.cpp:132
+#: main/WelcomeView.cpp:133
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1822,7 +1817,7 @@ msgid ""
 "link></para>"
 msgstr ""
 
-#: main/WelcomeView.cpp:146
+#: main/WelcomeView.cpp:147
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1834,7 +1829,7 @@ msgid ""
 "url='%1'>More...</link></para>"
 msgstr ""
 
-#: main/WelcomeView.cpp:159
+#: main/WelcomeView.cpp:160
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1845,7 +1840,7 @@ msgstr ""
 "<title>最近專案</title><para>最近開啟的 10 個專案。</para><para><nl/>這讓您快"
 "速開啟最近處理過的專案。</para>"
 
-#: main/WelcomeView.cpp:168
+#: main/WelcomeView.cpp:169
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1858,7 +1853,7 @@ msgid ""
 "information from the documentation.</para>"
 msgstr ""
 
-#: main/WelcomeView.cpp:186
+#: main/WelcomeView.cpp:187
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -5338,21 +5333,21 @@ msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup coordinator"
 msgstr "變更資源群組名稱"
 
-#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:887
+#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:888
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
 msgid_plural "Add %1 resources from address book"
 msgstr[0] "從通訊錄新增 %1 個資源"
 
-#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:950
+#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:956
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move resource"
 msgid_plural "Move %1 resources"
 msgstr[0] "移動 %1 個資源"
 
-#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:970
+#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:976
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Copy resource"
@@ -5364,7 +5359,7 @@ msgctxt "(qtundo-format)"
 msgid "Add resource group"
 msgstr "新增資源群組"
 
-#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1068
+#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1074
 msgctxt "(qtundo-format)"
 msgid "Add resource"
 msgstr "新增資源"
@@ -5642,176 +5637,147 @@ msgstr ""
 "主文件剖析錯誤於行 %1，位置 %2。\n"
 "錯誤訊息：%3"
 
-#: odf/KoPageFormat.cpp:54
-#, kde-format
+#: odf/KoPageFormat.cpp:56
 msgctxt "Page size"
 msgid "ISO A3"
 msgstr "ISO A3"
 
-#: odf/KoPageFormat.cpp:55
-#, kde-format
+#: odf/KoPageFormat.cpp:57
 msgctxt "Page size"
 msgid "ISO A4"
 msgstr "ISO A4"
 
-#: odf/KoPageFormat.cpp:56
-#, kde-format
+#: odf/KoPageFormat.cpp:58
 msgctxt "Page size"
 msgid "ISO A5"
 msgstr "ISO A5"
 
-#: odf/KoPageFormat.cpp:57
-#, kde-format
+#: odf/KoPageFormat.cpp:59
 msgctxt "Page size"
 msgid "US Letter"
 msgstr "US Letter"
 
-#: odf/KoPageFormat.cpp:58
-#, kde-format
+#: odf/KoPageFormat.cpp:60
 msgctxt "Page size"
 msgid "US Legal"
 msgstr "US Legal"
 
-#: odf/KoPageFormat.cpp:59
-#, kde-format
+#: odf/KoPageFormat.cpp:61
 msgctxt "Page size"
 msgid "Screen"
 msgstr "螢幕"
 
-#: odf/KoPageFormat.cpp:60
-#, kde-format
+#: odf/KoPageFormat.cpp:62
 msgctxt "Page size"
 msgid "Custom"
 msgstr "自訂"
 
-#: odf/KoPageFormat.cpp:61
-#, kde-format
+#: odf/KoPageFormat.cpp:63
 msgctxt "Page size"
 msgid "ISO B5"
 msgstr "ISO B5"
 
-#: odf/KoPageFormat.cpp:62
-#, kde-format
+#: odf/KoPageFormat.cpp:64
 msgctxt "Page size"
 msgid "US Executive"
 msgstr "US Executive"
 
-#: odf/KoPageFormat.cpp:63
-#, kde-format
+#: odf/KoPageFormat.cpp:65
 msgctxt "Page size"
 msgid "ISO A0"
 msgstr "ISO A0"
 
-#: odf/KoPageFormat.cpp:64
-#, kde-format
+#: odf/KoPageFormat.cpp:66
 msgctxt "Page size"
 msgid "ISO A1"
 msgstr "ISO A1"
 
-#: odf/KoPageFormat.cpp:65
-#, kde-format
+#: odf/KoPageFormat.cpp:67
 msgctxt "Page size"
 msgid "ISO A2"
 msgstr "ISO A2"
 
-#: odf/KoPageFormat.cpp:66
-#, kde-format
+#: odf/KoPageFormat.cpp:68
 msgctxt "Page size"
 msgid "ISO A6"
 msgstr "ISO A6"
 
-#: odf/KoPageFormat.cpp:67
-#, kde-format
+#: odf/KoPageFormat.cpp:69
 msgctxt "Page size"
 msgid "ISO A7"
 msgstr "ISO A7"
 
-#: odf/KoPageFormat.cpp:68
-#, kde-format
+#: odf/KoPageFormat.cpp:70
 msgctxt "Page size"
 msgid "ISO A8"
 msgstr "ISO A8"
 
-#: odf/KoPageFormat.cpp:69
-#, kde-format
+#: odf/KoPageFormat.cpp:71
 msgctxt "Page size"
 msgid "ISO A9"
 msgstr "ISO A9"
 
-#: odf/KoPageFormat.cpp:70
-#, kde-format
+#: odf/KoPageFormat.cpp:72
 msgctxt "Page size"
 msgid "ISO B0"
 msgstr "ISO B0"
 
-#: odf/KoPageFormat.cpp:71
-#, kde-format
+#: odf/KoPageFormat.cpp:73
 msgctxt "Page size"
 msgid "ISO B1"
 msgstr "ISO B1"
 
-#: odf/KoPageFormat.cpp:72
-#, kde-format
+#: odf/KoPageFormat.cpp:74
 msgctxt "Page size"
 msgid "ISO B10"
 msgstr "ISO B10"
 
-#: odf/KoPageFormat.cpp:73
-#, kde-format
+#: odf/KoPageFormat.cpp:75
 msgctxt "Page size"
 msgid "ISO B2"
 msgstr "ISO B2"
 
-#: odf/KoPageFormat.cpp:74
-#, kde-format
+#: odf/KoPageFormat.cpp:76
 msgctxt "Page size"
 msgid "ISO B3"
 msgstr "ISO B3"
 
-#: odf/KoPageFormat.cpp:75
-#, kde-format
+#: odf/KoPageFormat.cpp:77
 msgctxt "Page size"
 msgid "ISO B4"
 msgstr "ISO B4"
 
-#: odf/KoPageFormat.cpp:76
-#, kde-format
+#: odf/KoPageFormat.cpp:78
 msgctxt "Page size"
 msgid "ISO B6"
 msgstr "ISO B6"
 
-#: odf/KoPageFormat.cpp:77
-#, kde-format
+#: odf/KoPageFormat.cpp:79
 msgctxt "Page size"
 msgid "ISO C5"
 msgstr "ISO C5"
 
-#: odf/KoPageFormat.cpp:78
-#, kde-format
+#: odf/KoPageFormat.cpp:80
 msgctxt "Page size"
 msgid "US Common 10"
 msgstr "US Common 10"
 
-#: odf/KoPageFormat.cpp:79
-#, kde-format
+#: odf/KoPageFormat.cpp:81
 msgctxt "Page size"
 msgid "ISO DL"
 msgstr "ISO DL"
 
-#: odf/KoPageFormat.cpp:80
-#, kde-format
+#: odf/KoPageFormat.cpp:82
 msgctxt "Page size"
 msgid "US Folio"
 msgstr "US Folio"
 
-#: odf/KoPageFormat.cpp:81
-#, kde-format
+#: odf/KoPageFormat.cpp:83
 msgctxt "Page size"
 msgid "US Ledger"
 msgstr "US Ledger"
 
-#: odf/KoPageFormat.cpp:82
-#, kde-format
+#: odf/KoPageFormat.cpp:84
 msgctxt "Page size"
 msgid "US Tabloid"
 msgstr "US Tabloid"
@@ -5861,35 +5827,35 @@ msgstr "像素 (px)"
 msgid "Unsupported unit"
 msgstr "不支援的單位"
 
-#: store/KoEncryptedStore.cpp:231
+#: store/KoEncryptedStore.cpp:230
 #, kde-format
 msgid ""
 "This document contains an unknown checksum. When you give a password it "
 "might not be verified."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:257 store/KoEncryptedStore.cpp:274
+#: store/KoEncryptedStore.cpp:256 store/KoEncryptedStore.cpp:273
 #, kde-format
 msgid ""
 "This document contains an unknown encryption method. Some parts may be "
 "unreadable."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:289
+#: store/KoEncryptedStore.cpp:288
 #, kde-format
 msgid ""
 "This document contains incomplete encryption data. Some parts may be "
 "unreadable."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:303
+#: store/KoEncryptedStore.cpp:302
 #, kde-format
 msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:333
+#: store/KoEncryptedStore.cpp:332
 #, kde-format
 msgid ""
 "The manifest file seems to be corrupted. It cannot be modified and the "
@@ -5897,51 +5863,51 @@ msgid ""
 "prevent losing your work."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:431
+#: store/KoEncryptedStore.cpp:430
 #, kde-format
 msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
 "Please try and save the document again to prevent losing your work."
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:530
+#: store/KoEncryptedStore.cpp:529
 #, kde-format
 msgid "Read error"
 msgstr "讀取錯誤"
 
-#: store/KoEncryptedStore.cpp:555
+#: store/KoEncryptedStore.cpp:554
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:575
+#: store/KoEncryptedStore.cpp:574
 #, kde-format
 msgid "Empty decrypted file"
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:737
+#: store/KoEncryptedStore.cpp:736
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
 msgstr "請輸入此文件的加密密碼。"
 
-#: store/KoEncryptedStore.cpp:757
+#: store/KoEncryptedStore.cpp:756
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr ""
 
-#: store/KoEncryptedStore.cpp:758
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
 msgstr ""
 
-#: store/KoNetAccess.cpp:85
+#: store/KoNetAccess.cpp:87
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr ""
 
-#: store/KoNetAccess.cpp:412
+#: store/KoNetAccess.cpp:414
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "錯誤：不明的協定「%1」。"
@@ -5970,11 +5936,11 @@ msgid "Filter names"
 msgstr "圖表型態"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
-#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
-#: ui/kptganttview.cpp:194 ui/kptitemviewsettup.cpp:190
+#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2189
+#: ui/kptganttview.cpp:195 ui/kptitemviewsettup.cpp:190
 #: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
-#: ui/MilestoneGanttView.cpp:149 ui/performance/ProjectStatusView.cpp:171
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/MilestoneGanttView.cpp:150 ui/performance/ProjectStatusView.cpp:171
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing Options"
 msgstr "列印選項"
@@ -5992,7 +5958,7 @@ msgid "Show project"
 msgstr "顯示專案"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
+#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:354
 #, fuzzy, kde-format
 #| msgid "Add Milestone"
 msgid "Tasks and Milestones"
@@ -6021,7 +5987,7 @@ msgid "Unscheduled tasks"
 msgstr "未排程"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
+#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:363
 #, kde-format
 msgid "Period"
 msgstr "期間"
@@ -6057,7 +6023,7 @@ msgid "Number of days around current datetime"
 msgstr "從目前的日期與時間重新計算"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
-#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
+#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
 #, fuzzy, kde-format
 #| msgid "Periodic"
 msgid "Period:"
@@ -6305,13 +6271,13 @@ msgstr "排程錯誤"
 msgid "Time constraints"
 msgstr "時間限制"
 
-#: ui/gantt/kptganttitemdelegate.cpp:78
+#: ui/gantt/kptganttitemdelegate.cpp:79
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr "名稱：%1<nl/>實際完成：%2<nl/>計畫完成：%3<nl/>狀態：%4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:90
+#: ui/gantt/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6321,7 +6287,7 @@ msgstr ""
 "名稱：%1<nl/>完成度：%2 %<nl/>實際開始時間：%3<nl/>計劃時間：%4 - %5<nl/>狀"
 "態：%6"
 
-#: ui/gantt/kptganttitemdelegate.cpp:113 ui/gantt/kptganttitemdelegate.cpp:131
+#: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -6335,7 +6301,7 @@ msgstr ""
 "名稱：%1<nl/>計劃：%2<nl/>狀態：%3<nl/>限制型態：%4<nl/>限制時間：%5<nl/>負向"
 "浮動：%6 小時"
 
-#: ui/gantt/kptganttitemdelegate.cpp:148
+#: ui/gantt/kptganttitemdelegate.cpp:149
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4"
@@ -6343,7 +6309,7 @@ msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
 msgstr "名稱：%1<nl/>計劃時間：%2 - %3<nl/>狀態：%4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:167 ui/gantt/kptganttitemdelegate.cpp:184
+#: ui/gantt/kptganttitemdelegate.cpp:168 ui/gantt/kptganttitemdelegate.cpp:185
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6353,7 +6319,7 @@ msgstr ""
 "名稱：%1<nl/>計劃：%2<nl/>狀態：%3<nl/>限制型態：%4<nl/>限制時間：%5<nl/>負向"
 "浮動：%6 小時"
 
-#: ui/gantt/kptganttitemdelegate.cpp:200
+#: ui/gantt/kptganttitemdelegate.cpp:201
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:tooltip"
 #| msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>"
@@ -6361,7 +6327,7 @@ msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
 msgstr "名稱：%1<nl/>計劃時間：%2 <nl/>狀態：%3<nl/>"
 
-#: ui/gantt/kptganttitemdelegate.cpp:213
+#: ui/gantt/kptganttitemdelegate.cpp:214
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
@@ -6470,7 +6436,7 @@ msgid "Modify resourcegroup allocation"
 msgstr "變更資源配置"
 
 #: ui/kptaccountseditor.cpp:39 ui/kptaccountsviewconfigdialog.cpp:32
-#: ui/kptdependencyeditor.cpp:2171 ui/kptresourceappointmentsview.cpp:52
+#: ui/kptdependencyeditor.cpp:2174 ui/kptresourceappointmentsview.cpp:52
 #, kde-format
 msgid "Settings"
 msgstr "設定"
@@ -6697,7 +6663,7 @@ msgstr "新增行事曆"
 msgid "Add Subcalendar"
 msgstr "新增子行事曆"
 
-#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
+#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2587
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
@@ -6766,7 +6732,7 @@ msgstr "是"
 msgid "%"
 msgstr "%"
 
-#: ui/kptdependencyeditor.cpp:2224
+#: ui/kptdependencyeditor.cpp:2227
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -6777,126 +6743,126 @@ msgid ""
 "printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptdependencyeditor.cpp:2542
+#: ui/kptdependencyeditor.cpp:2545
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Edit Dependency"
 msgid "Edit Dependency..."
 msgstr "編輯相依性"
 
-#: ui/kptdependencyeditor.cpp:2546
+#: ui/kptdependencyeditor.cpp:2549
 #, fuzzy, kde-format
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete task dependency"
 msgid "Delete Dependency"
 msgstr "刪除工作相依性"
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
+#: ui/kptdependencyeditor.cpp:2553 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Link"
 msgstr "連結"
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kptdependencyeditor.cpp:2558 ui/kpttaskeditor.cpp:900
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "新增工作"
 
-#: ui/kptdependencyeditor.cpp:2559
+#: ui/kptdependencyeditor.cpp:2562
 #, kde-format
 msgid "Add Task..."
 msgstr "新增工作..."
 
-#: ui/kptdependencyeditor.cpp:2564
+#: ui/kptdependencyeditor.cpp:2567
 #, kde-format
 msgid "Add Milestone..."
 msgstr "新增里程碑..."
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kptdependencyeditor.cpp:2573 ui/kpttaskeditor.cpp:915
 #: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "新增子工作"
 
-#: ui/kptdependencyeditor.cpp:2574
+#: ui/kptdependencyeditor.cpp:2577
 #, kde-format
 msgid "Add Sub-Task..."
 msgstr "新增子工作..."
 
-#: ui/kptdependencyeditor.cpp:2579
+#: ui/kptdependencyeditor.cpp:2582
 #, kde-format
 msgid "Add Sub-Milestone..."
 msgstr "新增子里程碑..."
 
-#: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
+#: ui/kptdependencyeditor.cpp:2592 ui/kptdocumentseditor.cpp:203
+#: ui/kptganttview.cpp:447 ui/kptpertresult.cpp:151
 #: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
-#: ui/ResourceAppointmentsGanttView.cpp:363
+#: ui/MilestoneGanttView.cpp:458 ui/performance/PerformanceStatusView.cpp:329
+#: ui/ResourceAppointmentsGanttView.cpp:364
 #, kde-format
 msgid "Edit..."
 msgstr "編輯..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
+#: ui/kptdependencyeditor.cpp:2596 ui/kptganttview.cpp:451
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:461
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:462
 #: ui/performance/PerformanceStatusView.cpp:333
-#: ui/ResourceAppointmentsGanttView.cpp:367
+#: ui/ResourceAppointmentsGanttView.cpp:368
 #, fuzzy, kde-format
 #| msgid "Task Progress"
 msgid "Progress..."
 msgstr "工作進度"
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
+#: ui/kptdependencyeditor.cpp:2600 ui/kptganttview.cpp:455
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:465
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:466
 #: ui/performance/PerformanceStatusView.cpp:337
-#: ui/ResourceAppointmentsGanttView.cpp:371
+#: ui/ResourceAppointmentsGanttView.cpp:372
 #, fuzzy, kde-format
 #| msgid "Description"
 msgid "Description..."
 msgstr "描述"
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
+#: ui/kptdependencyeditor.cpp:2604 ui/kptganttview.cpp:459
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:469
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:470
 #: ui/performance/PerformanceStatusView.cpp:341
-#: ui/ResourceAppointmentsGanttView.cpp:375
+#: ui/ResourceAppointmentsGanttView.cpp:376
 #, fuzzy, kde-format
 #| msgid "&Documents"
 msgid "Documents..."
 msgstr "文件(&D)"
 
-#: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
+#: ui/kptdependencyeditor.cpp:2635 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
 msgid "Add task dependency"
 msgstr "新增工作相依性"
 
-#: ui/kptdependencyeditor.cpp:2701 ui/kptrelationdialog.cpp:162
+#: ui/kptdependencyeditor.cpp:2704 ui/kptrelationdialog.cpp:162
 msgctxt "(qtundo-format)"
 msgid "Delete task dependency"
 msgstr "刪除工作相依性"
 
-#: ui/kptdependencyeditor.cpp:2743
+#: ui/kptdependencyeditor.cpp:2746
 #, fuzzy
 #| msgid "Add Milestone"
 msgctxt "(qtundo-format)"
 msgid "Add milestone"
 msgstr "新增里程碑"
 
-#: ui/kptdependencyeditor.cpp:2788
+#: ui/kptdependencyeditor.cpp:2791
 #, fuzzy
 #| msgid "Add Sub-Milestone"
 msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr "新增子里程碑"
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
+#: ui/kptdependencyeditor.cpp:2813 ui/kpttaskeditor.cpp:1144
 #, fuzzy
 #| msgctxt "@action"
 #| msgid "Delete"
@@ -6916,19 +6882,19 @@ msgctxt "@action View a document"
 msgid "View..."
 msgstr "檢視..."
 
-#: ui/kptdocumentspanel.cpp:112
+#: ui/kptdocumentspanel.cpp:114
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Attach Document"
 msgstr "附加文件"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Attach Document"
 msgstr "無法附加文件"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Document is already attached:<br/><filename>%1</filename>"
@@ -6936,53 +6902,53 @@ msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
 msgstr "文件已附加：<br/><filename>%1</filename>"
 
-#: ui/kptdocumentspanel.cpp:137
+#: ui/kptdocumentspanel.cpp:139
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Modify Url"
 msgstr "變更網址"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Cannot Modify Url"
 msgstr "無法變更網址"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Document url already exists: %1"
 msgstr "已存在的文件網址：%1"
 
-#: ui/kptdocumentspanel.cpp:199
+#: ui/kptdocumentspanel.cpp:204
 msgctxt "(qtundo-format)"
 msgid "Modify documents"
 msgstr "變更文件"
 
-#: ui/kptdocumentspanel.cpp:209
+#: ui/kptdocumentspanel.cpp:214
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "移除文件"
 
-#: ui/kptdocumentspanel.cpp:217
+#: ui/kptdocumentspanel.cpp:222
 msgctxt "(qtundo-format)"
 msgid "Modify document url"
 msgstr "變更文件網址"
 
-#: ui/kptdocumentspanel.cpp:221
+#: ui/kptdocumentspanel.cpp:226
 msgctxt "(qtundo-format)"
 msgid "Modify document type"
 msgstr "變更文件類型"
 
-#: ui/kptdocumentspanel.cpp:225
+#: ui/kptdocumentspanel.cpp:230
 msgctxt "(qtundo-format)"
 msgid "Modify document status"
 msgstr "變更文件狀態"
 
-#: ui/kptdocumentspanel.cpp:229
+#: ui/kptdocumentspanel.cpp:234
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
 msgstr "變更文件傳送控制"
 
-#: ui/kptdocumentspanel.cpp:240
+#: ui/kptdocumentspanel.cpp:245
 msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "新增文件"
@@ -7052,38 +7018,38 @@ msgstr "開啟"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
-#: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
-#: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
+#: ui/kptganttview.cpp:141 ui/kptmainprojectpanel.cpp:126
+#: ui/MilestoneGanttView.cpp:97 ui/ResourceAppointmentsGanttView.cpp:113
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr ""
 
-#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:97
-#: ui/ResourceAppointmentsGanttView.cpp:113
+#: ui/kptganttview.cpp:142 ui/MilestoneGanttView.cpp:98
+#: ui/ResourceAppointmentsGanttView.cpp:114
 #, fuzzy, kde-format
 #| msgid "Project end"
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
 msgstr "專案結束"
 
-#: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
-#: ui/MilestoneGanttView.cpp:130 ui/MilestoneGanttView.cpp:147
+#: ui/kptganttview.cpp:174 ui/kptganttview.cpp:193
+#: ui/MilestoneGanttView.cpp:131 ui/MilestoneGanttView.cpp:148
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:155
-#: ui/ResourceAppointmentsGanttView.cpp:144
-#: ui/ResourceAppointmentsGanttView.cpp:161
+#: ui/ResourceAppointmentsGanttView.cpp:145
+#: ui/ResourceAppointmentsGanttView.cpp:162
 #, kde-format
 msgid "Chart"
 msgstr "圖表"
 
-#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:130
-#: ui/ResourceAppointmentsGanttView.cpp:144
+#: ui/kptganttview.cpp:174 ui/MilestoneGanttView.cpp:131
+#: ui/ResourceAppointmentsGanttView.cpp:145
 #, kde-format
 msgid "Gantt Chart Settings"
 msgstr "甘特圖設定"
 
-#: ui/kptganttview.cpp:255
+#: ui/kptganttview.cpp:256
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7095,35 +7061,35 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 
-#: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:309 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "顯示專案"
 
-#: ui/kptganttview.cpp:318
+#: ui/kptganttview.cpp:319
 #, fuzzy, kde-format
 #| msgid "Options"
 msgid "Filter Options..."
 msgstr "選項"
 
-#: ui/kptganttview.cpp:330
+#: ui/kptganttview.cpp:331
 #, fuzzy, kde-format
 #| msgid "Not scheduled"
 msgid "Show Unscheduled Tasks"
 msgstr "未排程"
 
-#: ui/kptganttview.cpp:337
+#: ui/kptganttview.cpp:338
 #, kde-format
 msgid "Show Tasks"
 msgstr "顯示工作"
 
-#: ui/kptganttview.cpp:345
+#: ui/kptganttview.cpp:346
 #, fuzzy, kde-format
 #| msgid "Milestone"
 msgid "Show Milestones"
 msgstr "里程碑"
 
-#: ui/kptganttview.cpp:354
+#: ui/kptganttview.cpp:355
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7131,103 +7097,103 @@ msgid ""
 "show all scheduled tasks and milestones."
 msgstr ""
 
-#: ui/kptganttview.cpp:363
+#: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
 msgstr ""
 
-#: ui/kptganttview.cpp:370
+#: ui/kptganttview.cpp:371
 #, fuzzy, kde-format
 #| msgid "Running"
 msgid "Show Running Tasks"
 msgstr "執行中"
 
-#: ui/kptganttview.cpp:371
+#: ui/kptganttview.cpp:372
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
 msgstr "此期間已完成工作"
 
-#: ui/kptganttview.cpp:378
+#: ui/kptganttview.cpp:379
 #, fuzzy, kde-format
 #| msgid "Not scheduled"
 msgid "Show Finished Tasks"
 msgstr "未排程"
 
-#: ui/kptganttview.cpp:379
+#: ui/kptganttview.cpp:380
 #, fuzzy, kde-format
 #| msgid "Tasks that have finished during this period"
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "此期間已完成工作"
 
-#: ui/kptganttview.cpp:386
+#: ui/kptganttview.cpp:387
 #, fuzzy, kde-format
 #| msgid "Not Started"
 msgid "Show Not Started Tasks"
 msgstr "未開始"
 
-#: ui/kptganttview.cpp:387
+#: ui/kptganttview.cpp:388
 #, fuzzy, kde-format
 #| msgid "Tasks that should have been started"
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
 msgstr "應該已開始的工作"
 
-#: ui/kptganttview.cpp:399
+#: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
 msgstr ""
 
-#: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
-#: ui/ResourceAppointmentsGanttView.cpp:322
+#: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
+#: ui/ResourceAppointmentsGanttView.cpp:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr "自動"
 
-#: ui/kptganttview.cpp:412 ui/MilestoneGanttView.cpp:423
-#: ui/ResourceAppointmentsGanttView.cpp:329
+#: ui/kptganttview.cpp:413 ui/MilestoneGanttView.cpp:424
+#: ui/ResourceAppointmentsGanttView.cpp:330
 #, fuzzy, kde-format
 #| msgid "Month"
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "月"
 
-#: ui/kptganttview.cpp:418 ui/MilestoneGanttView.cpp:429
-#: ui/ResourceAppointmentsGanttView.cpp:335
+#: ui/kptganttview.cpp:419 ui/MilestoneGanttView.cpp:430
+#: ui/ResourceAppointmentsGanttView.cpp:336
 #, fuzzy, kde-format
 #| msgid "Week"
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "週"
 
-#: ui/kptganttview.cpp:424 ui/MilestoneGanttView.cpp:435
-#: ui/ResourceAppointmentsGanttView.cpp:341
+#: ui/kptganttview.cpp:425 ui/MilestoneGanttView.cpp:436
+#: ui/ResourceAppointmentsGanttView.cpp:342
 #, fuzzy, kde-format
 #| msgid "Day"
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "日"
 
-#: ui/kptganttview.cpp:430 ui/MilestoneGanttView.cpp:441
-#: ui/ResourceAppointmentsGanttView.cpp:347
+#: ui/kptganttview.cpp:431 ui/MilestoneGanttView.cpp:442
+#: ui/ResourceAppointmentsGanttView.cpp:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr "小時"
 
-#: ui/kptganttview.cpp:436 ui/MilestoneGanttView.cpp:447
-#: ui/ResourceAppointmentsGanttView.cpp:353
+#: ui/kptganttview.cpp:437 ui/MilestoneGanttView.cpp:448
+#: ui/ResourceAppointmentsGanttView.cpp:354
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr "放大"
 
-#: ui/kptganttview.cpp:441 ui/MilestoneGanttView.cpp:452
-#: ui/ResourceAppointmentsGanttView.cpp:358
+#: ui/kptganttview.cpp:442 ui/MilestoneGanttView.cpp:453
+#: ui/ResourceAppointmentsGanttView.cpp:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom Out"
@@ -7350,12 +7316,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
 msgstr "變更貨幣設定"
 
-#: ui/kptmainprojectdialog.cpp:24
+#: ui/kptmainprojectdialog.cpp:26
 #, kde-format
 msgid "Project Settings"
 msgstr "專案設定"
 
-#: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
+#: ui/kptmainprojectdialog.cpp:66 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
 msgstr "變更主專案"
@@ -9152,7 +9118,7 @@ msgstr "貨幣符號:"
 msgid "Fractional digits:"
 msgstr "小數位數："
 
-#: ui/MilestoneGanttView.cpp:223
+#: ui/MilestoneGanttView.cpp:224
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9996,7 +9962,7 @@ msgstr "需要的資源"
 msgid "Allocate"
 msgstr "配置"
 
-#: ui/ResourceAppointmentsGanttView.cpp:234
+#: ui/ResourceAppointmentsGanttView.cpp:235
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2009-04-22 00:18+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -396,12 +396,12 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "प्रोजेक्ट"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
 msgstr ""
 
-#: taskworkpackageview.cpp:630
+#: taskworkpackageview.cpp:631
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -409,7 +409,7 @@ msgid ""
 ">Project: %5"
 msgstr ""
 
-#: taskworkpackageview.cpp:645
+#: taskworkpackageview.cpp:646
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -417,110 +417,110 @@ msgid ""
 ">Status: %6<nl/>Project: %7"
 msgstr ""
 
-#: taskworkpackageview.cpp:666
+#: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
 msgstr ""
 
-#: view.cpp:84
+#: view.cpp:85
 #, kde-format
 msgid "Remove Packages"
 msgstr ""
 
-#: view.cpp:88
+#: view.cpp:89
 #, kde-format
 msgid "Remove Package"
 msgstr ""
 
-#: view.cpp:92
+#: view.cpp:93
 #, kde-format
 msgid "List"
 msgstr ""
 
-#: view.cpp:93
+#: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
 msgstr ""
 
-#: view.cpp:97
+#: view.cpp:98
 #, kde-format
 msgid "Gantt"
 msgstr ""
 
-#: view.cpp:98
+#: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
 msgstr ""
 
-#: view.cpp:103
+#: view.cpp:104
 #, kde-format
 msgid "Configure PlanWork..."
 msgstr ""
 
-#: view.cpp:108
+#: view.cpp:109
 #, fuzzy, kde-format
 #| msgid "&Edit"
 msgid "Edit..."
 msgstr "सँपादित करू (&E)"
 
-#: view.cpp:112
+#: view.cpp:113
 #, fuzzy, kde-format
 #| msgid "&View"
 msgctxt "@verb"
 msgid "View..."
 msgstr "दृश्य (&V)"
 
-#: view.cpp:116
+#: view.cpp:117
 #, fuzzy, kde-format
 #| msgid "Open Document"
 msgid "Remove document"
 msgstr "दस्तावेज खोलू"
 
-#: view.cpp:120
+#: view.cpp:121
 #, kde-format
 msgid "Send Package..."
 msgstr ""
 
-#: view.cpp:124
+#: view.cpp:125
 #, fuzzy, kde-format
 #| msgid "&Edit"
 msgid "Edit Progress..."
 msgstr "सँपादित करू (&E)"
 
-#: view.cpp:128
+#: view.cpp:129
 #, kde-format
 msgid "View Description..."
 msgstr ""
 
-#: view.cpp:315
+#: view.cpp:316
 #, kde-format
 msgid "This file is not editable"
 msgstr ""
 
-#: view.cpp:335
+#: view.cpp:336
 #, kde-format
 msgid "No work package is selected"
 msgstr ""
 
-#: view.cpp:341
+#: view.cpp:342
 #, kde-format
 msgid "Cannot find work package"
 msgstr ""
 
-#: view.cpp:358
+#: view.cpp:359
 #, kde-format
 msgid "Could not open file. Sending is aborted."
 msgstr ""
 
-#: view.cpp:366
+#: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
 msgstr ""
 
-#: view.cpp:375
+#: view.cpp:376
 #, kde-format
 msgid "Work Package: %1"
 msgstr ""

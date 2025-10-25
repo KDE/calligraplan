@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -387,12 +387,12 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "项目管理器"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
 msgstr "配置视图..."
 
-#: taskworkpackageview.cpp:630
+#: taskworkpackageview.cpp:631
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -400,7 +400,7 @@ msgid ""
 ">Project: %5"
 msgstr "任务: %1<nl/>实际完成: %2<nl/>计划完成: %3<nl/>状态: %4<nl/>项目: %5"
 
-#: taskworkpackageview.cpp:645
+#: taskworkpackageview.cpp:646
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -410,106 +410,106 @@ msgstr ""
 "任务： %1<nl/>完成度： %2 %<nl/>实际开始： %3<nl/>计划： %4 - %5<nl/>状态： "
 "%6<nl/>项目： %7"
 
-#: taskworkpackageview.cpp:666
+#: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
 msgstr "任务： %1<nl/>计划： %2 - %3<nl/>状态： %4<nl/>项目： %5"
 
-#: view.cpp:84
+#: view.cpp:85
 #, kde-format
 msgid "Remove Packages"
 msgstr "删除包"
 
-#: view.cpp:88
+#: view.cpp:89
 #, kde-format
 msgid "Remove Package"
 msgstr "删除包"
 
-#: view.cpp:92
+#: view.cpp:93
 #, kde-format
 msgid "List"
 msgstr "列表"
 
-#: view.cpp:93
+#: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
 msgstr "选择任务列表"
 
-#: view.cpp:97
+#: view.cpp:98
 #, kde-format
 msgid "Gantt"
 msgstr "甘特图"
 
-#: view.cpp:98
+#: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
 msgstr "选择时间轴"
 
-#: view.cpp:103
+#: view.cpp:104
 #, kde-format
 msgid "Configure PlanWork..."
 msgstr "配置 PlanWork..."
 
-#: view.cpp:108
+#: view.cpp:109
 #, kde-format
 msgid "Edit..."
 msgstr "编辑..."
 
-#: view.cpp:112
+#: view.cpp:113
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
 msgstr "查看..."
 
-#: view.cpp:116
+#: view.cpp:117
 #, kde-format
 msgid "Remove document"
 msgstr ""
 
-#: view.cpp:120
+#: view.cpp:121
 #, kde-format
 msgid "Send Package..."
 msgstr "发送包..."
 
-#: view.cpp:124
+#: view.cpp:125
 #, kde-format
 msgid "Edit Progress..."
 msgstr "编辑进度..."
 
-#: view.cpp:128
+#: view.cpp:129
 #, kde-format
 msgid "View Description..."
 msgstr "查看描述..."
 
-#: view.cpp:315
+#: view.cpp:316
 #, kde-format
 msgid "This file is not editable"
 msgstr "此文件不可编辑"
 
-#: view.cpp:335
+#: view.cpp:336
 #, kde-format
 msgid "No work package is selected"
 msgstr "没有选择工作包"
 
-#: view.cpp:341
+#: view.cpp:342
 #, kde-format
 msgid "Cannot find work package"
 msgstr "找不到工作包"
 
-#: view.cpp:358
+#: view.cpp:359
 #, kde-format
 msgid "Could not open file. Sending is aborted."
 msgstr ""
 
-#: view.cpp:366
+#: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
 msgstr "无法打开临时文件。发送已中止。"
 
-#: view.cpp:375
+#: view.cpp:376
 #, kde-format
 msgid "Work Package: %1"
 msgstr "工作包：%1"

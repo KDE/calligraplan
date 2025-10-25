@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planwork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2014-03-16 20:12+0200\n"
 "Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -407,12 +407,12 @@ msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "Projektų tvarkyklė"
 
-#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:934
+#: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
 msgstr "Konfigūruoti rodinį..."
 
-#: taskworkpackageview.cpp:630
+#: taskworkpackageview.cpp:631
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -420,7 +420,7 @@ msgid ""
 ">Project: %5"
 msgstr ""
 
-#: taskworkpackageview.cpp:645
+#: taskworkpackageview.cpp:646
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -428,115 +428,115 @@ msgid ""
 ">Status: %6<nl/>Project: %7"
 msgstr ""
 
-#: taskworkpackageview.cpp:666
+#: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
 msgstr ""
 
-#: view.cpp:84
+#: view.cpp:85
 #, kde-format
 msgid "Remove Packages"
 msgstr "Šalinti paketus"
 
-#: view.cpp:88
+#: view.cpp:89
 #, fuzzy, kde-format
 #| msgid "Remove Packages"
 msgid "Remove Package"
 msgstr "Šalinti paketus"
 
-#: view.cpp:92
+#: view.cpp:93
 #, kde-format
 msgid "List"
 msgstr "Sąrašas"
 
-#: view.cpp:93
+#: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
 msgstr ""
 
-#: view.cpp:97
+#: view.cpp:98
 #, kde-format
 msgid "Gantt"
 msgstr ""
 
-#: view.cpp:98
+#: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
 msgstr ""
 
-#: view.cpp:103
+#: view.cpp:104
 #, fuzzy, kde-format
 #| msgid "Configure View..."
 msgid "Configure PlanWork..."
 msgstr "Konfigūruoti rodinį..."
 
-#: view.cpp:108
+#: view.cpp:109
 #, kde-format
 msgid "Edit..."
 msgstr "Keisti..."
 
-#: view.cpp:112
+#: view.cpp:113
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
 msgstr "Rodymas..."
 
-#: view.cpp:116
+#: view.cpp:117
 #, fuzzy, kde-format
 #| msgid "Remove Entry"
 msgid "Remove document"
 msgstr "Pašalinti įrašą"
 
-#: view.cpp:120
+#: view.cpp:121
 #, fuzzy, kde-format
 #| msgid "Remove Packages"
 msgid "Send Package..."
 msgstr "Šalinti paketus"
 
-#: view.cpp:124
+#: view.cpp:125
 #, fuzzy, kde-format
 #| msgid "Progress"
 msgid "Edit Progress..."
 msgstr "Eiga"
 
-#: view.cpp:128
+#: view.cpp:129
 #, fuzzy, kde-format
 #| msgid "Description"
 msgid "View Description..."
 msgstr "Aprašymas"
 
-#: view.cpp:315
+#: view.cpp:316
 #, fuzzy, kde-format
 #| msgid "The file %1 does not exist."
 msgid "This file is not editable"
 msgstr "Failas %1 neegzistuoja."
 
-#: view.cpp:335
+#: view.cpp:336
 #, fuzzy, kde-format
 #| msgid "Remove Packages"
 msgid "No work package is selected"
 msgstr "Šalinti paketus"
 
-#: view.cpp:341
+#: view.cpp:342
 #, fuzzy, kde-format
 #| msgid "Remove Packages"
 msgid "Cannot find work package"
 msgstr "Šalinti paketus"
 
-#: view.cpp:358
+#: view.cpp:359
 #, kde-format
 msgid "Could not open file. Sending is aborted."
 msgstr ""
 
-#: view.cpp:366
+#: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
 msgstr ""
 
-#: view.cpp:375
+#: view.cpp:376
 #, kde-format
 msgid "Work Package: %1"
 msgstr ""

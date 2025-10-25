@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2023-03-22 11:54+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -166,49 +166,49 @@ msgctxt "<milliseconds>ms"
 msgid "%1ms"
 msgstr "%1ms"
 
-#: kernel/kptduration.cpp:289
+#: kernel/kptduration.cpp:288
 #, kde-format
 msgctxt "Year. Note: Letter(s) only!"
 msgid "Y"
 msgstr "A"
 
-#: kernel/kptduration.cpp:290
+#: kernel/kptduration.cpp:289
 #, kde-format
 msgctxt "Month. Note: Letter(s) only!"
 msgid "M"
 msgstr "M"
 
-#: kernel/kptduration.cpp:291
+#: kernel/kptduration.cpp:290
 #, kde-format
 msgctxt "Week. Note: Letter(s) only!"
 msgid "w"
 msgstr "s"
 
-#: kernel/kptduration.cpp:292
+#: kernel/kptduration.cpp:291
 #, kde-format
 msgctxt "Day. Note: Letter(s) only!"
 msgid "d"
 msgstr "d"
 
-#: kernel/kptduration.cpp:293
+#: kernel/kptduration.cpp:292
 #, kde-format
 msgctxt "Hour. Note: Letter(s) only!"
 msgid "h"
 msgstr "h"
 
-#: kernel/kptduration.cpp:294
+#: kernel/kptduration.cpp:293
 #, kde-format
 msgctxt "Minute. Note: Letter(s) only!"
 msgid "m"
 msgstr "m"
 
-#: kernel/kptduration.cpp:295
+#: kernel/kptduration.cpp:294
 #, kde-format
 msgctxt "Second. Note: Letter(s) only!"
 msgid "s"
 msgstr "s"
 
-#: kernel/kptduration.cpp:296
+#: kernel/kptduration.cpp:295
 #, kde-format
 msgctxt "Millisecond. Note: Letter(s) only!"
 msgid "ms"
@@ -600,24 +600,24 @@ msgstr "Terminar-Terminar"
 msgid "Start-Start"
 msgstr "Iniciar-Iniciar"
 
-#: kernel/kptresourcerequest.cpp:722
+#: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr "A reagendar, mas não foram encontrados recursos em uso"
 
-#: kernel/kptresourcerequest.cpp:819
+#: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
 msgstr "Correspondência ao desvio: granularidade: %1, desvio: %2"
 
-#: kernel/kptresourcerequest.cpp:973
+#: kernel/kptresourcerequest.cpp:975
 #, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
 msgstr ""
 "Não é possível fazer a correspondência do esforço. Pretende-se: %1 e obteve-"
 "se: %2 (%3)"
 
-#: kernel/kptresourcerequest.cpp:976
+#: kernel/kptresourcerequest.cpp:978
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
 msgstr "O recurso %1 está disponível de %2 a %3"
@@ -637,7 +637,7 @@ msgstr "Depuração"
 msgid "Info"
 msgstr "Informação"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1851
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "Aviso"
@@ -914,13 +914,13 @@ msgstr "Refazer: %1"
 msgid "<empty>"
 msgstr "<vazio>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1667
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Refazer"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1666
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -997,30 +997,30 @@ msgstr "--- separador ---"
 msgid "--- expanding spacer ---"
 msgstr "--- espaço de expansão ---"
 
-#: main/kedittoolbar.cpp:337
+#: main/kedittoolbar.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Text"
 msgstr "Mudar o Texto"
 
-#: main/kedittoolbar.cpp:347
+#: main/kedittoolbar.cpp:344
 #, kde-format
 msgid "Icon te&xt:"
 msgstr "Te&xto do ícone:"
 
-#: main/kedittoolbar.cpp:352
+#: main/kedittoolbar.cpp:349
 #, kde-format
 msgctxt "@option:check"
 msgid "&Hide text when toolbar shows text alongside icons"
 msgstr "Esconder o texto quando a &barra mostrar o texto ao lado dos ícones"
 
-#: main/kedittoolbar.cpp:601
+#: main/kedittoolbar.cpp:598
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Toolbars"
 msgstr "Configurar as Barras de Ferramentas"
 
-#: main/kedittoolbar.cpp:664
+#: main/kedittoolbar.cpp:661
 #, kde-format
 msgid ""
 "Do you really want to reset all toolbars of this application to their "
@@ -1029,17 +1029,17 @@ msgstr ""
 "Deseja mesmo repor todas as barras de ferramentas desta aplicação no seu "
 "estado predefinido? As alterações serão aplicadas imediatamente."
 
-#: main/kedittoolbar.cpp:665
+#: main/kedittoolbar.cpp:662
 #, kde-format
 msgid "Reset Toolbars"
 msgstr "Reiniciar as Barras de Ferramentas"
 
-#: main/kedittoolbar.cpp:666
+#: main/kedittoolbar.cpp:663
 #, kde-format
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: main/kedittoolbar.cpp:997
+#: main/kedittoolbar.cpp:994
 #, kde-format
 msgid "&Toolbar:"
 msgstr "Barra de Ferramen&tas:"
@@ -1051,58 +1051,58 @@ msgstr "Barra de Ferramen&tas:"
 #. del_toolbar->setPixmap(BarIcon("edit-delete", KIconLoader::SizeSmall));
 #. del_toolbar->setEnabled(false); // disabled until implemented
 #. our list of inactive actions
-#: main/kedittoolbar.cpp:1013
+#: main/kedittoolbar.cpp:1010
 #, kde-format
 msgid "A&vailable actions:"
 msgstr "Acções disponí&veis:"
 
-#: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
-#: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
+#: main/kedittoolbar.cpp:1031 main/kedittoolbar.cpp:1056
+#: ui/kptganttview.cpp:466 ui/MilestoneGanttView.cpp:476
 #, kde-format
 msgid "Filter"
 msgstr "Filtro"
 
-#: main/kedittoolbar.cpp:1037
+#: main/kedittoolbar.cpp:1034
 #, kde-format
 msgid "Curr&ent actions:"
 msgstr "A&cções actuais:"
 
-#: main/kedittoolbar.cpp:1062
+#: main/kedittoolbar.cpp:1059
 #, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
 msgstr "Mod&ificar o Ícone..."
 
-#: main/kedittoolbar.cpp:1071
+#: main/kedittoolbar.cpp:1068
 #, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
 msgstr "Modificar o Te&xto..."
 
-#: main/kedittoolbar.cpp:1233
+#: main/kedittoolbar.cpp:1230
 #, kde-format
 msgctxt "@item:intable Action name in toolbar editor"
 msgid "%1"
 msgstr "%1"
 
-#: main/kedittoolbar.cpp:1261
+#: main/kedittoolbar.cpp:1258
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
 msgstr ""
 "Este elemento será substituído por todos os elementos do componente embebido."
 
-#: main/kedittoolbar.cpp:1263
+#: main/kedittoolbar.cpp:1260
 #, kde-format
 msgid "<Merge>"
 msgstr "<União>"
 
-#: main/kedittoolbar.cpp:1265
+#: main/kedittoolbar.cpp:1262
 #, kde-format
 msgid "<Merge %1>"
 msgstr "<União de %1>"
 
-#: main/kedittoolbar.cpp:1275
+#: main/kedittoolbar.cpp:1272
 #, kde-format
 msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
@@ -1111,49 +1111,49 @@ msgstr ""
 "Esta é uma lista dinâmica de acções. Pode movê-la, mas se a apagar não será "
 "capaz de a adicionar de novo."
 
-#: main/kedittoolbar.cpp:1276
+#: main/kedittoolbar.cpp:1273
 #, kde-format
 msgid "ActionList: %1"
 msgstr "Acções: %1"
 
-#: main/kedittoolbar.cpp:1377 main/kedittoolbar.cpp:1402
+#: main/kedittoolbar.cpp:1374 main/kedittoolbar.cpp:1399
 #, kde-format
 msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
 msgstr "%1"
 
-#: main/kedittoolbar.cpp:1630
+#: main/kedittoolbar.cpp:1627
 #, kde-format
 msgid "Change Icon"
 msgstr "Modificar o Ícone"
 
-#: main/KoApplication.cpp:192
+#: main/KoApplication.cpp:188
 #, kde-format
 msgid "just load the file and then exit"
 msgstr "basta carregar o ficheiro e depois sair"
 
-#: main/KoApplication.cpp:193
+#: main/KoApplication.cpp:189
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr ""
 "carregar o ficheiro, mostrar a janela e barra de progresso e depois sair"
 
-#: main/KoApplication.cpp:194
+#: main/KoApplication.cpp:190
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr "O nome do ficheiro onde escrever os dados de análise de performance."
 
-#: main/KoApplication.cpp:195
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr "Ficheiro(s) ou URL(s) a abrir"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid "%1: Critical Error"
 msgstr "%1: Erro Crítico"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"
@@ -1180,17 +1180,17 @@ msgstr "Pode ser recuperado o seguinte ficheiro de gravação automática:"
 msgid "The following autosave files can be recovered:"
 msgstr "Podem ser recuperados os seguintes ficheiros de gravação automática:"
 
-#: main/KoDocument.cpp:560
+#: main/KoDocument.cpp:568
 #, kde-format
 msgid "Making backup..."
 msgstr "A criar uma cópia de segurança..."
 
-#: main/KoDocument.cpp:575
+#: main/KoDocument.cpp:583
 #, kde-format
 msgid "Saving..."
 msgstr "A gravar..."
 
-#: main/KoDocument.cpp:603
+#: main/KoDocument.cpp:611
 #, kde-format
 msgid ""
 "Could not save\n"
@@ -1199,7 +1199,7 @@ msgstr ""
 "Não foi possível gravar o\n"
 "%1"
 
-#: main/KoDocument.cpp:605
+#: main/KoDocument.cpp:613
 #, kde-format
 msgid ""
 "Could not save %1\n"
@@ -1208,12 +1208,12 @@ msgstr ""
 "Não foi possível gravar o %1\n"
 "Razão: %2"
 
-#: main/KoDocument.cpp:634
+#: main/KoDocument.cpp:642
 #, kde-format
 msgid "Document <i>%1</i> saved"
 msgstr "O documento <i>%1</i> foi gravado"
 
-#: main/KoDocument.cpp:722
+#: main/KoDocument.cpp:729
 #, kde-format
 msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
@@ -1222,33 +1222,33 @@ msgstr ""
 "A senha deste documento encriptado não é conhecida. A gravação automática "
 "foi interrompida! Grave por favor o seu trabalho manualmente."
 
-#: main/KoDocument.cpp:725
+#: main/KoDocument.cpp:732
 #, kde-format
 msgid "Autosaving..."
 msgstr "A gravar automaticamente..."
 
-#: main/KoDocument.cpp:737
+#: main/KoDocument.cpp:744
 #, kde-format
 msgid "Error during autosave! Partition full?"
 msgstr "Erro durante a gravação automática! A partição está cheia?"
 
-#: main/KoDocument.cpp:831
+#: main/KoDocument.cpp:838
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Não foi possível criar o ficheiro para o gravar"
 
-#: main/KoDocument.cpp:875 main/KoDocument.cpp:897 main/KoDocument.cpp:928
-#: main/KoDocument.cpp:962
+#: main/KoDocument.cpp:882 main/KoDocument.cpp:904 main/KoDocument.cpp:935
+#: main/KoDocument.cpp:969
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Não é possível gravar em '%1'. A partição está cheia?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
+#: main/KoDocument.cpp:897 main/KoDocument.cpp:944 main/KoDocument.cpp:1955
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Erro ao tentar escrever no '%1'. A partição está cheia?"
 
-#: main/KoDocument.cpp:1181
+#: main/KoDocument.cpp:1188
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -1257,7 +1257,7 @@ msgstr ""
 "URL inválido\n"
 "%1"
 
-#: main/KoDocument.cpp:1197
+#: main/KoDocument.cpp:1204
 #, kde-format
 msgid ""
 "An autosaved file exists for this document.\n"
@@ -1266,128 +1266,128 @@ msgstr ""
 "Já existe um ficheiro auto-gravado para este documento.\n"
 "Deseja abri-lo em alternativa?"
 
-#: main/KoDocument.cpp:1198
+#: main/KoDocument.cpp:1205
 #, kde-format
 msgid "Autosave"
 msgstr "Gravação Automática"
 
-#: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "O ficheiro %1 não existe."
 
-#: main/KoDocument.cpp:1390
+#: main/KoDocument.cpp:1397
 #, kde-format
 msgid "Opening Document"
 msgstr "A Abrir o Documento"
 
-#: main/KoDocument.cpp:1406
+#: main/KoDocument.cpp:1413
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "Não foi possível criar o 'plugin' do filtro"
 
-#: main/KoDocument.cpp:1409
+#: main/KoDocument.cpp:1416
 #, kde-format
 msgid "Could not create the output document"
 msgstr "Não foi possível criar o documento de saída"
 
-#: main/KoDocument.cpp:1412
+#: main/KoDocument.cpp:1419
 #, kde-format
 msgid "File not found"
 msgstr "O ficheiro não foi encontrado"
 
-#: main/KoDocument.cpp:1415
+#: main/KoDocument.cpp:1422
 #, kde-format
 msgid "Cannot create storage"
 msgstr "Não é possível criar o armazenamento"
 
-#: main/KoDocument.cpp:1418
+#: main/KoDocument.cpp:1425
 #, kde-format
 msgid "Bad MIME type"
 msgstr "Tipo MIME inválido"
 
-#: main/KoDocument.cpp:1421
+#: main/KoDocument.cpp:1428
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Erro no documento incorporado"
 
-#: main/KoDocument.cpp:1424
+#: main/KoDocument.cpp:1431
 #, kde-format
 msgid "Format not recognized"
 msgstr "O formato não é conhecido"
 
-#: main/KoDocument.cpp:1427
+#: main/KoDocument.cpp:1434
 #, kde-format
 msgid "Not implemented"
 msgstr "Não implementado"
 
-#: main/KoDocument.cpp:1430
+#: main/KoDocument.cpp:1437
 #, kde-format
 msgid "Parsing error"
 msgstr "Erro de processamento"
 
-#: main/KoDocument.cpp:1433
+#: main/KoDocument.cpp:1440
 #, kde-format
 msgid "Document is password protected"
 msgstr "O documento está protegido com uma senha"
 
-#: main/KoDocument.cpp:1436
+#: main/KoDocument.cpp:1443
 #, kde-format
 msgid "Invalid file format"
 msgstr "Formato de ficheiro inválido"
 
-#: main/KoDocument.cpp:1443
+#: main/KoDocument.cpp:1450
 #, kde-format
 msgid "Internal error"
 msgstr "Erro interno"
 
-#: main/KoDocument.cpp:1446
+#: main/KoDocument.cpp:1453
 #, kde-format
 msgid "Out of memory"
 msgstr "Sem memória"
 
-#: main/KoDocument.cpp:1449
+#: main/KoDocument.cpp:1456
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "'Plugin' de Filtro Vazio"
 
-#: main/KoDocument.cpp:1452
+#: main/KoDocument.cpp:1459
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "A tentar carregar o tipo de documento errado"
 
-#: main/KoDocument.cpp:1455
+#: main/KoDocument.cpp:1462
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Não foi possível obter o ficheiro remoto"
 
-#: main/KoDocument.cpp:1463
+#: main/KoDocument.cpp:1470
 #, kde-format
 msgid "Reading file timed out"
 msgstr "Expirou a leitura do ficheiro"
 
-#: main/KoDocument.cpp:1466 main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1473 main/KoDocument.cpp:1484
 #, kde-format
 msgid "Unknown error"
 msgstr "Erro desconhecido"
 
-#: main/KoDocument.cpp:1469
+#: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr ""
 "O filtro 'planconvert.jar' não foi encontrado; verifique a sua instalação"
 
-#: main/KoDocument.cpp:1472
+#: main/KoDocument.cpp:1479
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr "A execução falhou; verifique a sua instalação"
 
-#: main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1482
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "A execução falhou. O controlador de ODBC não foi encontrado"
 
-#: main/KoDocument.cpp:1481
+#: main/KoDocument.cpp:1488
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1398,17 +1398,17 @@ msgstr ""
 "Razão: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1538
+#: main/KoDocument.cpp:1545
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "O documento <i>%1</i> foi carregado"
 
-#: main/KoDocument.cpp:1607 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1613 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "Não foi possível encontrar o %1"
 
-#: main/KoDocument.cpp:1619
+#: main/KoDocument.cpp:1625
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1417,24 +1417,24 @@ msgstr ""
 "Erro de leitura no %1, na linha %2 e coluna %3\n"
 "Mensagem de erro: %4"
 
-#: main/KoDocument.cpp:1640
+#: main/KoDocument.cpp:1646
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 não é um ficheiro."
 
-#: main/KoDocument.cpp:1655
+#: main/KoDocument.cpp:1661
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
 "Não foi possível abrir o ficheiro para leitura (verifique as permissões de "
 "leitura)."
 
-#: main/KoDocument.cpp:1666
+#: main/KoDocument.cpp:1672
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "Não foi possível ler o início do ficheiro."
 
-#: main/KoDocument.cpp:1696
+#: main/KoDocument.cpp:1702
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1443,22 +1443,22 @@ msgstr ""
 "erro de leitura no documento principal na linha %1, coluna %2\n"
 "Mensagem de erro: %3"
 
-#: main/KoDocument.cpp:1717
+#: main/KoDocument.cpp:1723
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "Não é um ficheiro do Calligra Plan válido: %1"
 
-#: main/KoDocument.cpp:1734 main/KoDocument.cpp:1765
+#: main/KoDocument.cpp:1740 main/KoDocument.cpp:1771
 #, kde-format
 msgid "Invalid password"
 msgstr "A senha é inválida"
 
-#: main/KoDocument.cpp:1805
+#: main/KoDocument.cpp:1811
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Documento inválido: não existe o ficheiro 'maindoc.xml'."
 
-#: main/KoDocument.cpp:1831
+#: main/KoDocument.cpp:1837
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1467,19 +1467,19 @@ msgstr ""
 "O documento <i>%1</i> contém várias versões. Vá a Ficheiro->Versões para "
 "abrir uma versão antiga."
 
-#: main/KoDocument.cpp:2040 main/KoDocument.cpp:2536 main/KoMainWindow.cpp:1261
+#: main/KoDocument.cpp:2045 main/KoDocument.cpp:2541 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "Sem Título"
 
-#: main/KoDocument.cpp:2043 main/KoMainWindow.cpp:1264
+#: main/KoDocument.cpp:2048 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
 msgstr "<p>O documento <b>'%1'</b> foi modificado.</p><p>Deseja gravá-lo?</p>"
 
-#: main/KoDocument.cpp:2044 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2049 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1487,12 +1487,12 @@ msgstr "<p>O documento <b>'%1'</b> foi modificado.</p><p>Deseja gravá-lo?</p>"
 msgid "Save Document"
 msgstr "Gravar o Documento"
 
-#: main/KoDocument.cpp:2128
+#: main/KoDocument.cpp:2133
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Erro interno: saveXML não implementado"
 
-#: main/KoDocument.cpp:2166
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1501,7 +1501,7 @@ msgstr ""
 "Não foi possível abrir o\n"
 "%1"
 
-#: main/KoDocument.cpp:2169
+#: main/KoDocument.cpp:2174
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1510,32 +1510,27 @@ msgstr ""
 "Não foi possível abrir %1\n"
 "Razão: %2"
 
-#: main/KoDocument.cpp:2243
-#, kde-format
+#: main/KoDocument.cpp:2248
 msgid "a word processing"
 msgstr "um processamento de texto"
 
-#: main/KoDocument.cpp:2244
-#, kde-format
+#: main/KoDocument.cpp:2249
 msgid "a spreadsheet"
 msgstr "uma folha de cálculo"
 
-#: main/KoDocument.cpp:2245
-#, kde-format
+#: main/KoDocument.cpp:2250
 msgid "a presentation"
 msgstr "uma apresentação"
 
-#: main/KoDocument.cpp:2246
-#, kde-format
+#: main/KoDocument.cpp:2251
 msgid "a chart"
 msgstr "um gráfico"
 
-#: main/KoDocument.cpp:2247
-#, kde-format
+#: main/KoDocument.cpp:2252
 msgid "a drawing"
 msgstr "um desenho"
 
-#: main/KoDocument.cpp:2540
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1544,7 +1539,7 @@ msgstr ""
 "O documento \"%1\" foi modificado.\n"
 "Deseja gravar as suas alterações ou ignorá-las?"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2547
 #, kde-format
 msgid "Close Document"
 msgstr "Fechar o Documento"
@@ -1578,88 +1573,88 @@ msgstr "Filtro de Importação em Falta"
 msgid "Choose Filter"
 msgstr "Escolher o Filtro"
 
-#: main/KoMainWindow.cpp:160
+#: main/KoMainWindow.cpp:157
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 documento não-gravado (%2)"
 
-#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:269 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "Imprimir para PDF..."
 
-#: main/KoMainWindow.cpp:285
+#: main/KoMainWindow.cpp:279
 #, kde-format
 msgid "Reload"
 msgstr "Actualizar"
 
-#: main/KoMainWindow.cpp:289
+#: main/KoMainWindow.cpp:283
 #, kde-format
 msgid "Import..."
 msgstr "Importar..."
 
-#: main/KoMainWindow.cpp:293
+#: main/KoMainWindow.cpp:287
 #, kde-format
 msgid "E&xport..."
 msgstr "E&xportar..."
 
-#: main/KoMainWindow.cpp:297
+#: main/KoMainWindow.cpp:291
 #, kde-format
 msgid "En&crypt Document"
 msgstr "En&criptar o Documento"
 
-#: main/KoMainWindow.cpp:302
+#: main/KoMainWindow.cpp:296
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "Descompr&imir para a Pasta"
 
-#: main/KoMainWindow.cpp:307
+#: main/KoMainWindow.cpp:301
 #, kde-format
 msgid "&New View"
 msgstr "&Nova Vista"
 
-#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:308 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "Informação do Documento"
 
-#: main/KoMainWindow.cpp:340
+#: main/KoMainWindow.cpp:334
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "Modo de Ecrã Completo"
 
-#: main/KoMainWindow.cpp:345
+#: main/KoMainWindow.cpp:339
 #, kde-format
 msgid "Show Dockers"
 msgstr "Mostrar as Áreas Acopláveis"
 
-#: main/KoMainWindow.cpp:350
+#: main/KoMainWindow.cpp:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "Mostrar os Títulos nas Áreas Acopláveis"
 
-#: main/KoMainWindow.cpp:357
+#: main/KoMainWindow.cpp:351
 #, kde-format
 msgid "Dockers"
 msgstr "Áreas Acopláveis"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:662
 #, kde-format
 msgid "(write protected)"
 msgstr "(com protecção de escrita)"
 
-#: main/KoMainWindow.cpp:676
+#: main/KoMainWindow.cpp:667
 #, kde-format
 msgid "Save as %1"
 msgstr "Gravar como %1"
 
-#: main/KoMainWindow.cpp:678
+#: main/KoMainWindow.cpp:669
 #, kde-format
 msgid "Save"
 msgstr "Gravar"
 
-#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
+#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1671,13 +1666,13 @@ msgstr ""
 "modelo, crie um novo projecto com este modelo e grave-o com a opção "
 "<interface>Ficheiro->Criar um Modelo de Projecto...</interface>."
 
-#: main/KoMainWindow.cpp:899 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (tipo de ficheiro desconhecido)"
 
-#: main/KoMainWindow.cpp:907
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1686,12 +1681,12 @@ msgstr ""
 "<qt>A gravação como um %1 pode causar algumas perdas de formatação.<p>Deseja "
 "à mesma gravar neste formato?</qt>"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "Confirmar a Gravação"
 
-#: main/KoMainWindow.cpp:919
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1700,63 +1695,63 @@ msgstr ""
 "<qt>A exportação como um %1 pode causar algumas perdas de formatação."
 "<p>Deseja à mesma exportar para este formato?</qt>"
 
-#: main/KoMainWindow.cpp:922
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "Confirmar a Exportação"
 
-#: main/KoMainWindow.cpp:923 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Exportar"
 
-#: main/KoMainWindow.cpp:1041
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "sem título"
 
-#: main/KoMainWindow.cpp:1334 main/WelcomeView.cpp:274
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Abrir um Documento"
 
-#: main/KoMainWindow.cpp:1343
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "Importar um Documento"
 
-#: main/KoMainWindow.cpp:1551
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "Não é possível antever o documento"
 
-#: main/KoMainWindow.cpp:1559
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "Não é possível abrir o visualizador de PDF's"
 
-#: main/KoMainWindow.cpp:1607
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "Exportar como PDF"
 
-#: main/KoMainWindow.cpp:1644
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "Não é possível exportar para o ficheiro indicado"
 
-#: main/KoMainWindow.cpp:1820
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "Documento"
 
-#: main/KoMainWindow.cpp:1828
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "Documento - %1"
 
-#: main/KoMainWindow.cpp:1849
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1765,12 +1760,12 @@ msgstr ""
 "Irá perder todas as alterações feitas desde a última gravação\n"
 "Deseja continuar?"
 
-#: main/KoMainWindow.cpp:2211
+#: main/KoMainWindow.cpp:2203
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Mostrar a Barra de Ferramentas %1"
 
-#: main/KoMainWindow.cpp:2213
+#: main/KoMainWindow.cpp:2205
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Esconder a Barra de Ferramentas %1"
@@ -1782,11 +1777,11 @@ msgstr "Parar"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
-#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:194
+#: ui/kptdependencyeditor.cpp:2188 ui/kptganttview.cpp:195
 #: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:149
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:150
 #: ui/performance/ProjectStatusView.cpp:170
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing"
 msgstr "Impressão"
@@ -1822,7 +1817,7 @@ msgstr "Anónimo"
 msgid "Default Author Profile"
 msgstr "Perfil Predefinido do Autor"
 
-#: main/WelcomeView.cpp:119
+#: main/WelcomeView.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1838,13 +1833,13 @@ msgstr ""
 "<b><interface>Ajuda|O que é isto</interface></b> ou ao carregar em "
 "<shortcut>Shift+F1</shortcut>.</para><para>Experimente neste texto!</para>"
 
-#: main/WelcomeView.cpp:128
+#: main/WelcomeView.cpp:129
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
 msgstr "<subtitle>Recursos 'Online'</subtitle>"
 
-#: main/WelcomeView.cpp:132
+#: main/WelcomeView.cpp:133
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1862,7 +1857,7 @@ msgstr ""
 "resource> e as datas de <resource>Início-Alvo</resource> e <resource>- Fim</"
 "resource>.<nl/><link url='%1'>Mais...</link></para>"
 
-#: main/WelcomeView.cpp:146
+#: main/WelcomeView.cpp:147
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1881,7 +1876,7 @@ msgstr ""
 "partilhados devem ser definidos num ficheiro separado.<nl/><link "
 "url='%1'>Mais...</link></para>"
 
-#: main/WelcomeView.cpp:159
+#: main/WelcomeView.cpp:160
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1893,7 +1888,7 @@ msgstr ""
 "projectos mais recentes abertos.</para><para><nl/>Isto permite-lhe abrir "
 "rapidamente os projectos com que tem trabalhado recentemente.</para>"
 
-#: main/WelcomeView.cpp:168
+#: main/WelcomeView.cpp:169
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1914,7 +1909,7 @@ msgstr ""
 "carregar nela irá mostrar mais informações dos recursos 'online' no seu "
 "navegador.</para>"
 
-#: main/WelcomeView.cpp:186
+#: main/WelcomeView.cpp:187
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -5344,7 +5339,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup coordinator"
 msgstr "Modificar o coordenador do grupo de recursos"
 
-#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:887
+#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:888
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
@@ -5352,7 +5347,7 @@ msgid_plural "Add %1 resources from address book"
 msgstr[0] "Adicionar um recurso do livro de endereços"
 msgstr[1] "Adicionar %1 recursos do livro de endereços"
 
-#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:950
+#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:956
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move resource"
@@ -5360,7 +5355,7 @@ msgid_plural "Move %1 resources"
 msgstr[0] "Mover o recurso"
 msgstr[1] "Mover os %1 recursos"
 
-#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:970
+#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:976
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Copy resource"
@@ -5373,7 +5368,7 @@ msgctxt "(qtundo-format)"
 msgid "Add resource group"
 msgstr "Adicionar um Grupo de Recursos"
 
-#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1068
+#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1074
 msgctxt "(qtundo-format)"
 msgid "Add resource"
 msgstr "Adicionar um Recurso"
@@ -5649,176 +5644,147 @@ msgstr ""
 "erro de leitura no documento principal na linha %1, coluna %2\n"
 "Mensagem de erro: %3"
 
-#: odf/KoPageFormat.cpp:54
-#, kde-format
+#: odf/KoPageFormat.cpp:56
 msgctxt "Page size"
 msgid "ISO A3"
 msgstr "ISO A3"
 
-#: odf/KoPageFormat.cpp:55
-#, kde-format
+#: odf/KoPageFormat.cpp:57
 msgctxt "Page size"
 msgid "ISO A4"
 msgstr "ISO A4"
 
-#: odf/KoPageFormat.cpp:56
-#, kde-format
+#: odf/KoPageFormat.cpp:58
 msgctxt "Page size"
 msgid "ISO A5"
 msgstr "ISO A5"
 
-#: odf/KoPageFormat.cpp:57
-#, kde-format
+#: odf/KoPageFormat.cpp:59
 msgctxt "Page size"
 msgid "US Letter"
 msgstr "Carta EUA"
 
-#: odf/KoPageFormat.cpp:58
-#, kde-format
+#: odf/KoPageFormat.cpp:60
 msgctxt "Page size"
 msgid "US Legal"
 msgstr "Legal EUA"
 
-#: odf/KoPageFormat.cpp:59
-#, kde-format
+#: odf/KoPageFormat.cpp:61
 msgctxt "Page size"
 msgid "Screen"
 msgstr "Ecrã"
 
-#: odf/KoPageFormat.cpp:60
-#, kde-format
+#: odf/KoPageFormat.cpp:62
 msgctxt "Page size"
 msgid "Custom"
 msgstr "Personalizado"
 
-#: odf/KoPageFormat.cpp:61
-#, kde-format
+#: odf/KoPageFormat.cpp:63
 msgctxt "Page size"
 msgid "ISO B5"
 msgstr "ISO B5"
 
-#: odf/KoPageFormat.cpp:62
-#, kde-format
+#: odf/KoPageFormat.cpp:64
 msgctxt "Page size"
 msgid "US Executive"
 msgstr "Executivo EUA"
 
-#: odf/KoPageFormat.cpp:63
-#, kde-format
+#: odf/KoPageFormat.cpp:65
 msgctxt "Page size"
 msgid "ISO A0"
 msgstr "ISO A0"
 
-#: odf/KoPageFormat.cpp:64
-#, kde-format
+#: odf/KoPageFormat.cpp:66
 msgctxt "Page size"
 msgid "ISO A1"
 msgstr "ISO A1"
 
-#: odf/KoPageFormat.cpp:65
-#, kde-format
+#: odf/KoPageFormat.cpp:67
 msgctxt "Page size"
 msgid "ISO A2"
 msgstr "ISO A2"
 
-#: odf/KoPageFormat.cpp:66
-#, kde-format
+#: odf/KoPageFormat.cpp:68
 msgctxt "Page size"
 msgid "ISO A6"
 msgstr "ISO A6"
 
-#: odf/KoPageFormat.cpp:67
-#, kde-format
+#: odf/KoPageFormat.cpp:69
 msgctxt "Page size"
 msgid "ISO A7"
 msgstr "ISO A7"
 
-#: odf/KoPageFormat.cpp:68
-#, kde-format
+#: odf/KoPageFormat.cpp:70
 msgctxt "Page size"
 msgid "ISO A8"
 msgstr "ISO A8"
 
-#: odf/KoPageFormat.cpp:69
-#, kde-format
+#: odf/KoPageFormat.cpp:71
 msgctxt "Page size"
 msgid "ISO A9"
 msgstr "ISO A9"
 
-#: odf/KoPageFormat.cpp:70
-#, kde-format
+#: odf/KoPageFormat.cpp:72
 msgctxt "Page size"
 msgid "ISO B0"
 msgstr "ISO B0"
 
-#: odf/KoPageFormat.cpp:71
-#, kde-format
+#: odf/KoPageFormat.cpp:73
 msgctxt "Page size"
 msgid "ISO B1"
 msgstr "ISO B1"
 
-#: odf/KoPageFormat.cpp:72
-#, kde-format
+#: odf/KoPageFormat.cpp:74
 msgctxt "Page size"
 msgid "ISO B10"
 msgstr "ISO B10"
 
-#: odf/KoPageFormat.cpp:73
-#, kde-format
+#: odf/KoPageFormat.cpp:75
 msgctxt "Page size"
 msgid "ISO B2"
 msgstr "ISO B2"
 
-#: odf/KoPageFormat.cpp:74
-#, kde-format
+#: odf/KoPageFormat.cpp:76
 msgctxt "Page size"
 msgid "ISO B3"
 msgstr "ISO B3"
 
-#: odf/KoPageFormat.cpp:75
-#, kde-format
+#: odf/KoPageFormat.cpp:77
 msgctxt "Page size"
 msgid "ISO B4"
 msgstr "ISO B4"
 
-#: odf/KoPageFormat.cpp:76
-#, kde-format
+#: odf/KoPageFormat.cpp:78
 msgctxt "Page size"
 msgid "ISO B6"
 msgstr "ISO B6"
 
-#: odf/KoPageFormat.cpp:77
-#, kde-format
+#: odf/KoPageFormat.cpp:79
 msgctxt "Page size"
 msgid "ISO C5"
 msgstr "ISO C5"
 
-#: odf/KoPageFormat.cpp:78
-#, kde-format
+#: odf/KoPageFormat.cpp:80
 msgctxt "Page size"
 msgid "US Common 10"
 msgstr "Comum 10 EUA"
 
-#: odf/KoPageFormat.cpp:79
-#, kde-format
+#: odf/KoPageFormat.cpp:81
 msgctxt "Page size"
 msgid "ISO DL"
 msgstr "ISO DL"
 
-#: odf/KoPageFormat.cpp:80
-#, kde-format
+#: odf/KoPageFormat.cpp:82
 msgctxt "Page size"
 msgid "US Folio"
 msgstr "Fólio EUA"
 
-#: odf/KoPageFormat.cpp:81
-#, kde-format
+#: odf/KoPageFormat.cpp:83
 msgctxt "Page size"
 msgid "US Ledger"
 msgstr "Panfleto EUA"
 
-#: odf/KoPageFormat.cpp:82
-#, kde-format
+#: odf/KoPageFormat.cpp:84
 msgctxt "Page size"
 msgid "US Tabloid"
 msgstr "Tablóide EUA"
@@ -5868,7 +5834,7 @@ msgstr "Pixels (px)"
 msgid "Unsupported unit"
 msgstr "Unidade não suportada"
 
-#: store/KoEncryptedStore.cpp:231
+#: store/KoEncryptedStore.cpp:230
 #, kde-format
 msgid ""
 "This document contains an unknown checksum. When you give a password it "
@@ -5877,7 +5843,7 @@ msgstr ""
 "Este documento contém um código desconhecido. Quando indicar uma senha, esta "
 "poderá não ser verificada."
 
-#: store/KoEncryptedStore.cpp:257 store/KoEncryptedStore.cpp:274
+#: store/KoEncryptedStore.cpp:256 store/KoEncryptedStore.cpp:273
 #, kde-format
 msgid ""
 "This document contains an unknown encryption method. Some parts may be "
@@ -5886,7 +5852,7 @@ msgstr ""
 "Este documento contém um método de encriptação desconhecido. Algumas partes "
 "poderão ficar inacessíveis."
 
-#: store/KoEncryptedStore.cpp:289
+#: store/KoEncryptedStore.cpp:288
 #, kde-format
 msgid ""
 "This document contains incomplete encryption data. Some parts may be "
@@ -5895,7 +5861,7 @@ msgstr ""
 "Este documento contém dados de encriptação incompletos. Algumas partes "
 "poderão ficar inacessíveis."
 
-#: store/KoEncryptedStore.cpp:303
+#: store/KoEncryptedStore.cpp:302
 #, kde-format
 msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
@@ -5904,7 +5870,7 @@ msgstr ""
 "O QCA não tem suporte de momento para o SHA1 ou o PBKDF2 a usar o SHA1. O "
 "documento não pode ser aberto."
 
-#: store/KoEncryptedStore.cpp:333
+#: store/KoEncryptedStore.cpp:332
 #, kde-format
 msgid ""
 "The manifest file seems to be corrupted. It cannot be modified and the "
@@ -5915,7 +5881,7 @@ msgstr ""
 "deste modo, o documento ficará inacessível. Por favor, tente gravar o "
 "documento de novo para evitar perder o seu trabalho."
 
-#: store/KoEncryptedStore.cpp:431
+#: store/KoEncryptedStore.cpp:430
 #, kde-format
 msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
@@ -5925,44 +5891,44 @@ msgstr ""
 "inacessível. Por favor, tente gravar o documento de novo para evitar perder "
 "o seu trabalho."
 
-#: store/KoEncryptedStore.cpp:530
+#: store/KoEncryptedStore.cpp:529
 #, kde-format
 msgid "Read error"
 msgstr "Erro de leitura"
 
-#: store/KoEncryptedStore.cpp:555
+#: store/KoEncryptedStore.cpp:554
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
 msgstr "Por favor, indique a senha para abrir este ficheiro:<nl/>%1"
 
-#: store/KoEncryptedStore.cpp:575
+#: store/KoEncryptedStore.cpp:574
 #, kde-format
 msgid "Empty decrypted file"
 msgstr "Ficheiro descodificado vazio"
 
-#: store/KoEncryptedStore.cpp:737
+#: store/KoEncryptedStore.cpp:736
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
 msgstr "Por favor, indique a senha com a qual deseja encriptar o documento."
 
-#: store/KoEncryptedStore.cpp:757
+#: store/KoEncryptedStore.cpp:756
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr "Deseja gravar a senha?"
 
-#: store/KoEncryptedStore.cpp:758
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
 msgstr "Gravar a Senha"
 
-#: store/KoNetAccess.cpp:85
+#: store/KoNetAccess.cpp:87
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "Não foi possível ler o ficheiro '%1'"
 
-#: store/KoNetAccess.cpp:412
+#: store/KoNetAccess.cpp:414
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "ERRO: Protocolo desconhecido '%1'"
@@ -5990,11 +5956,11 @@ msgid "Filter names"
 msgstr "Nomes dos filtros"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
-#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
-#: ui/kptganttview.cpp:194 ui/kptitemviewsettup.cpp:190
+#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2189
+#: ui/kptganttview.cpp:195 ui/kptitemviewsettup.cpp:190
 #: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
-#: ui/MilestoneGanttView.cpp:149 ui/performance/ProjectStatusView.cpp:171
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/MilestoneGanttView.cpp:150 ui/performance/ProjectStatusView.cpp:171
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing Options"
 msgstr "Opções de impressão"
@@ -6012,7 +5978,7 @@ msgid "Show project"
 msgstr "Mostrar o projecto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
+#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:354
 #, kde-format
 msgid "Tasks and Milestones"
 msgstr "Tarefas e Marcos"
@@ -6038,7 +6004,7 @@ msgid "Unscheduled tasks"
 msgstr "Tarefas não escalonadas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
+#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:363
 #, kde-format
 msgid "Period"
 msgstr "Período"
@@ -6070,7 +6036,7 @@ msgid "Number of days around current datetime"
 msgstr "Número de dias em torno da data/hora actual"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
-#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
+#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
 #, kde-format
 msgid "Period:"
 msgstr "Período:"
@@ -6308,13 +6274,13 @@ msgstr "Erros de escalonamento"
 msgid "Time constraints"
 msgstr "Restrições de tempo"
 
-#: ui/gantt/kptganttitemdelegate.cpp:78
+#: ui/gantt/kptganttitemdelegate.cpp:79
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr "Nome: %1<nl/>Fim actual: %2<nl/>Fim planeado: %3<nl/>Estado: %4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:90
+#: ui/gantt/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6324,7 +6290,7 @@ msgstr ""
 "Nome: %1<nl/>Completação: %2 %<nl/>Início actual: %3<nl/>Planeado: %4 - "
 "%5<nl/>Estado: %6"
 
-#: ui/gantt/kptganttitemdelegate.cpp:113 ui/gantt/kptganttitemdelegate.cpp:131
+#: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6334,13 +6300,13 @@ msgstr ""
 "Nome: %1<nl/>Planeado: %2 - %3<nl/>Estado: %4<nl/>Tipo de restrição: %5<nl/"
 ">Tempo da restrição: %6<nl/>Folga negativa: %7 h"
 
-#: ui/gantt/kptganttitemdelegate.cpp:148
+#: ui/gantt/kptganttitemdelegate.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
 msgstr "Nome: %1<nl/>Planeado: %2 - %3<nl/>Estado: %4<nl/>Escalonamento: %5"
 
-#: ui/gantt/kptganttitemdelegate.cpp:167 ui/gantt/kptganttitemdelegate.cpp:184
+#: ui/gantt/kptganttitemdelegate.cpp:168 ui/gantt/kptganttitemdelegate.cpp:185
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6350,13 +6316,13 @@ msgstr ""
 "Nome: %1<nl/>Planeado: %2<nl/>Estado: %3<nl/>Tipo de restrição: %4<nl/>Tempo "
 "da restrição: %5<nl/>Folga negativa: %6 h"
 
-#: ui/gantt/kptganttitemdelegate.cpp:200
+#: ui/gantt/kptganttitemdelegate.cpp:201
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
 msgstr "Nome: %1<nl/>Planeado: %2<nl/>Estado: %3<nl/>Escalonamento: %4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:213
+#: ui/gantt/kptganttitemdelegate.cpp:214
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
@@ -6452,7 +6418,7 @@ msgid "Modify resourcegroup allocation"
 msgstr "Modificar a alocação do grupo de recursos"
 
 #: ui/kptaccountseditor.cpp:39 ui/kptaccountsviewconfigdialog.cpp:32
-#: ui/kptdependencyeditor.cpp:2171 ui/kptresourceappointmentsview.cpp:52
+#: ui/kptdependencyeditor.cpp:2174 ui/kptresourceappointmentsview.cpp:52
 #, kde-format
 msgid "Settings"
 msgstr "Configuração"
@@ -6678,7 +6644,7 @@ msgstr "Adicionar um Calendário"
 msgid "Add Subcalendar"
 msgstr "Adicionar um Sub-Calendário"
 
-#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
+#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2587
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
@@ -6747,7 +6713,7 @@ msgstr "é"
 msgid "%"
 msgstr "%"
 
-#: ui/kptdependencyeditor.cpp:2224
+#: ui/kptdependencyeditor.cpp:2227
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -6764,115 +6730,115 @@ msgstr ""
 "para><para>Esta área suporta a impressão através do menu de contexto.<nl/"
 "><link url='%1'>Mais...</link></para>"
 
-#: ui/kptdependencyeditor.cpp:2542
+#: ui/kptdependencyeditor.cpp:2545
 #, kde-format
 msgid "Edit Dependency..."
 msgstr "Editar a Dependência..."
 
-#: ui/kptdependencyeditor.cpp:2546
+#: ui/kptdependencyeditor.cpp:2549
 #, kde-format
 msgid "Delete Dependency"
 msgstr "Apagar a Dependência"
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
+#: ui/kptdependencyeditor.cpp:2553 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Link"
 msgstr "Ligação"
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kptdependencyeditor.cpp:2558 ui/kpttaskeditor.cpp:900
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "Adicionar uma Tarefa"
 
-#: ui/kptdependencyeditor.cpp:2559
+#: ui/kptdependencyeditor.cpp:2562
 #, kde-format
 msgid "Add Task..."
 msgstr "Adicionar uma Tarefa..."
 
-#: ui/kptdependencyeditor.cpp:2564
+#: ui/kptdependencyeditor.cpp:2567
 #, kde-format
 msgid "Add Milestone..."
 msgstr "Adicionar um Marco..."
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kptdependencyeditor.cpp:2573 ui/kpttaskeditor.cpp:915
 #: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "Adicionar uma Sub-Tarefa"
 
-#: ui/kptdependencyeditor.cpp:2574
+#: ui/kptdependencyeditor.cpp:2577
 #, kde-format
 msgid "Add Sub-Task..."
 msgstr "Adicionar uma Sub-Tarefa..."
 
-#: ui/kptdependencyeditor.cpp:2579
+#: ui/kptdependencyeditor.cpp:2582
 #, kde-format
 msgid "Add Sub-Milestone..."
 msgstr "Adicionar um Sub-Marco..."
 
-#: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
+#: ui/kptdependencyeditor.cpp:2592 ui/kptdocumentseditor.cpp:203
+#: ui/kptganttview.cpp:447 ui/kptpertresult.cpp:151
 #: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
-#: ui/ResourceAppointmentsGanttView.cpp:363
+#: ui/MilestoneGanttView.cpp:458 ui/performance/PerformanceStatusView.cpp:329
+#: ui/ResourceAppointmentsGanttView.cpp:364
 #, kde-format
 msgid "Edit..."
 msgstr "Editar..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
+#: ui/kptdependencyeditor.cpp:2596 ui/kptganttview.cpp:451
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:461
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:462
 #: ui/performance/PerformanceStatusView.cpp:333
-#: ui/ResourceAppointmentsGanttView.cpp:367
+#: ui/ResourceAppointmentsGanttView.cpp:368
 #, kde-format
 msgid "Progress..."
 msgstr "Progresso..."
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
+#: ui/kptdependencyeditor.cpp:2600 ui/kptganttview.cpp:455
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:465
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:466
 #: ui/performance/PerformanceStatusView.cpp:337
-#: ui/ResourceAppointmentsGanttView.cpp:371
+#: ui/ResourceAppointmentsGanttView.cpp:372
 #, kde-format
 msgid "Description..."
 msgstr "Descrição..."
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
+#: ui/kptdependencyeditor.cpp:2604 ui/kptganttview.cpp:459
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:469
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:470
 #: ui/performance/PerformanceStatusView.cpp:341
-#: ui/ResourceAppointmentsGanttView.cpp:375
+#: ui/ResourceAppointmentsGanttView.cpp:376
 #, kde-format
 msgid "Documents..."
 msgstr "Documentos..."
 
-#: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
+#: ui/kptdependencyeditor.cpp:2635 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
 msgid "Add task dependency"
 msgstr "Adicionar uma Dependência da Tarefa"
 
-#: ui/kptdependencyeditor.cpp:2701 ui/kptrelationdialog.cpp:162
+#: ui/kptdependencyeditor.cpp:2704 ui/kptrelationdialog.cpp:162
 msgctxt "(qtundo-format)"
 msgid "Delete task dependency"
 msgstr "Apagar a Dependência da Tarefa"
 
-#: ui/kptdependencyeditor.cpp:2743
+#: ui/kptdependencyeditor.cpp:2746
 msgctxt "(qtundo-format)"
 msgid "Add milestone"
 msgstr "Adicionar um marco"
 
-#: ui/kptdependencyeditor.cpp:2788
+#: ui/kptdependencyeditor.cpp:2791
 msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr "Adicionar um sub-marco"
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
+#: ui/kptdependencyeditor.cpp:2813 ui/kpttaskeditor.cpp:1144
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
 msgstr "Apagar a tarefa"
@@ -6888,71 +6854,71 @@ msgctxt "@action View a document"
 msgid "View..."
 msgstr "Ver..."
 
-#: ui/kptdocumentspanel.cpp:112
+#: ui/kptdocumentspanel.cpp:114
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Attach Document"
 msgstr "Anexar o Documento"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Attach Document"
 msgstr "Não é Possível Anexar o Documento"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
 msgstr "O documento já está em anexo:<nl/><filename>%1</filename>"
 
-#: ui/kptdocumentspanel.cpp:137
+#: ui/kptdocumentspanel.cpp:139
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Modify Url"
 msgstr "Modificar o URL"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Cannot Modify Url"
 msgstr "Não é Possível Modificar o URL"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Document url already exists: %1"
 msgstr "O URL do documento já existe: %1"
 
-#: ui/kptdocumentspanel.cpp:199
+#: ui/kptdocumentspanel.cpp:204
 msgctxt "(qtundo-format)"
 msgid "Modify documents"
 msgstr "Modificar os documentos"
 
-#: ui/kptdocumentspanel.cpp:209
+#: ui/kptdocumentspanel.cpp:214
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Remover o documento"
 
-#: ui/kptdocumentspanel.cpp:217
+#: ui/kptdocumentspanel.cpp:222
 msgctxt "(qtundo-format)"
 msgid "Modify document url"
 msgstr "Modificar o URL do documento"
 
-#: ui/kptdocumentspanel.cpp:221
+#: ui/kptdocumentspanel.cpp:226
 msgctxt "(qtundo-format)"
 msgid "Modify document type"
 msgstr "Modificar o tipo de documento"
 
-#: ui/kptdocumentspanel.cpp:225
+#: ui/kptdocumentspanel.cpp:230
 msgctxt "(qtundo-format)"
 msgid "Modify document status"
 msgstr "Modificar o estado do documento"
 
-#: ui/kptdocumentspanel.cpp:229
+#: ui/kptdocumentspanel.cpp:234
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
 msgstr "Modificar o controlo de envio do documento"
 
-#: ui/kptdocumentspanel.cpp:240
+#: ui/kptdocumentspanel.cpp:245
 msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Adicionar um documento"
@@ -7020,37 +6986,37 @@ msgstr "Abrir"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
-#: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
-#: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
+#: ui/kptganttview.cpp:141 ui/kptmainprojectpanel.cpp:126
+#: ui/MilestoneGanttView.cpp:97 ui/ResourceAppointmentsGanttView.cpp:113
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Sem dias livres"
 
-#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:97
-#: ui/ResourceAppointmentsGanttView.cpp:113
+#: ui/kptganttview.cpp:142 ui/MilestoneGanttView.cpp:98
+#: ui/ResourceAppointmentsGanttView.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
 msgstr "Dias livres do projecto"
 
-#: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
-#: ui/MilestoneGanttView.cpp:130 ui/MilestoneGanttView.cpp:147
+#: ui/kptganttview.cpp:174 ui/kptganttview.cpp:193
+#: ui/MilestoneGanttView.cpp:131 ui/MilestoneGanttView.cpp:148
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:155
-#: ui/ResourceAppointmentsGanttView.cpp:144
-#: ui/ResourceAppointmentsGanttView.cpp:161
+#: ui/ResourceAppointmentsGanttView.cpp:145
+#: ui/ResourceAppointmentsGanttView.cpp:162
 #, kde-format
 msgid "Chart"
 msgstr "Gráfico"
 
-#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:130
-#: ui/ResourceAppointmentsGanttView.cpp:144
+#: ui/kptganttview.cpp:174 ui/MilestoneGanttView.cpp:131
+#: ui/ResourceAppointmentsGanttView.cpp:145
 #, kde-format
 msgid "Gantt Chart Settings"
 msgstr "Configuração do Diagrama de Gantt"
 
-#: ui/kptganttview.cpp:255
+#: ui/kptganttview.cpp:256
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7068,32 +7034,32 @@ msgstr ""
 "note></para><para>Esta janela suporta a configuração e impressão através do "
 "menu de contexto.<nl/><link url='%1'>Mais...</link></para>"
 
-#: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:309 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "Mostrar o Projecto"
 
-#: ui/kptganttview.cpp:318
+#: ui/kptganttview.cpp:319
 #, kde-format
 msgid "Filter Options..."
 msgstr "Opções de Filtragem..."
 
-#: ui/kptganttview.cpp:330
+#: ui/kptganttview.cpp:331
 #, kde-format
 msgid "Show Unscheduled Tasks"
 msgstr "Mostrar as Tarefas Não Escalonadas"
 
-#: ui/kptganttview.cpp:337
+#: ui/kptganttview.cpp:338
 #, kde-format
 msgid "Show Tasks"
 msgstr "Mostrar as Tarefas"
 
-#: ui/kptganttview.cpp:345
+#: ui/kptganttview.cpp:346
 #, kde-format
 msgid "Show Milestones"
 msgstr "Mostrar os Marcos"
 
-#: ui/kptganttview.cpp:354
+#: ui/kptganttview.cpp:355
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7103,94 +7069,94 @@ msgstr ""
 "Activa as opções de filtragem de Tarefas e Marcos.<nl/>Se desactivar isto, "
 "irá mostrar todas as tarefas e marcos agendados."
 
-#: ui/kptganttview.cpp:363
+#: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
 msgstr "Activa as opções de filtragem do Período."
 
-#: ui/kptganttview.cpp:370
+#: ui/kptganttview.cpp:371
 #, kde-format
 msgid "Show Running Tasks"
 msgstr "Mostrar as Tarefas em Execução"
 
-#: ui/kptganttview.cpp:371
+#: ui/kptganttview.cpp:372
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
 msgstr "Mostra as tarefas que foram iniciadas antes ou durante este período."
 
-#: ui/kptganttview.cpp:378
+#: ui/kptganttview.cpp:379
 #, kde-format
 msgid "Show Finished Tasks"
 msgstr "Mostrar as Tarefas Terminadas"
 
-#: ui/kptganttview.cpp:379
+#: ui/kptganttview.cpp:380
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Mostra as tarefas e marcos que terminaram durante este período."
 
-#: ui/kptganttview.cpp:386
+#: ui/kptganttview.cpp:387
 #, kde-format
 msgid "Show Not Started Tasks"
 msgstr "Mostrar as Tarefas Não Iniciadas"
 
-#: ui/kptganttview.cpp:387
+#: ui/kptganttview.cpp:388
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
 msgstr "Mostra as tarefas e marcos que já deveriam ter iniciado."
 
-#: ui/kptganttview.cpp:399
+#: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
 msgstr "período específico:"
 
-#: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
-#: ui/ResourceAppointmentsGanttView.cpp:322
+#: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
+#: ui/ResourceAppointmentsGanttView.cpp:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr "Automática"
 
-#: ui/kptganttview.cpp:412 ui/MilestoneGanttView.cpp:423
-#: ui/ResourceAppointmentsGanttView.cpp:329
+#: ui/kptganttview.cpp:413 ui/MilestoneGanttView.cpp:424
+#: ui/ResourceAppointmentsGanttView.cpp:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "Mês"
 
-#: ui/kptganttview.cpp:418 ui/MilestoneGanttView.cpp:429
-#: ui/ResourceAppointmentsGanttView.cpp:335
+#: ui/kptganttview.cpp:419 ui/MilestoneGanttView.cpp:430
+#: ui/ResourceAppointmentsGanttView.cpp:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "Semana"
 
-#: ui/kptganttview.cpp:424 ui/MilestoneGanttView.cpp:435
-#: ui/ResourceAppointmentsGanttView.cpp:341
+#: ui/kptganttview.cpp:425 ui/MilestoneGanttView.cpp:436
+#: ui/ResourceAppointmentsGanttView.cpp:342
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "Dia"
 
-#: ui/kptganttview.cpp:430 ui/MilestoneGanttView.cpp:441
-#: ui/ResourceAppointmentsGanttView.cpp:347
+#: ui/kptganttview.cpp:431 ui/MilestoneGanttView.cpp:442
+#: ui/ResourceAppointmentsGanttView.cpp:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr "Hora"
 
-#: ui/kptganttview.cpp:436 ui/MilestoneGanttView.cpp:447
-#: ui/ResourceAppointmentsGanttView.cpp:353
+#: ui/kptganttview.cpp:437 ui/MilestoneGanttView.cpp:448
+#: ui/ResourceAppointmentsGanttView.cpp:354
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr "Ampliar"
 
-#: ui/kptganttview.cpp:441 ui/MilestoneGanttView.cpp:452
-#: ui/ResourceAppointmentsGanttView.cpp:358
+#: ui/kptganttview.cpp:442 ui/MilestoneGanttView.cpp:453
+#: ui/ResourceAppointmentsGanttView.cpp:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom Out"
@@ -7313,12 +7279,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
 msgstr "Modificar a configuração da moeda"
 
-#: ui/kptmainprojectdialog.cpp:24
+#: ui/kptmainprojectdialog.cpp:26
 #, kde-format
 msgid "Project Settings"
 msgstr "Opções do Projecto"
 
-#: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
+#: ui/kptmainprojectdialog.cpp:66 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
 msgstr "Modificar o projecto principal"
@@ -9112,7 +9078,7 @@ msgstr "Símbolo monetário:"
 msgid "Fractional digits:"
 msgstr "Casas decimais:"
 
-#: ui/MilestoneGanttView.cpp:223
+#: ui/MilestoneGanttView.cpp:224
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9914,7 +9880,7 @@ msgstr "Necessário"
 msgid "Allocate"
 msgstr "Alocação"
 
-#: ui/ResourceAppointmentsGanttView.cpp:234
+#: ui/ResourceAppointmentsGanttView.cpp:235
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""

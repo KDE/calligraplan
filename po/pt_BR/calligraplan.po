@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2025-08-31 08:14-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1550,7 +1550,7 @@ msgctxt "Base calendar name"
 msgid "Base"
 msgstr "Base"
 
-#: kptpart.cpp:96
+#: kptpart.cpp:95
 #, kde-format
 msgid "Configure Plan..."
 msgstr "Configurar o Plan..."

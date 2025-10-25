@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:33+0000\n"
+"POT-Creation-Date: 2025-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-08-02 06:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -144,49 +144,49 @@ msgctxt "<milliseconds>ms"
 msgid "%1ms"
 msgstr "%1ms"
 
-#: kernel/kptduration.cpp:289
+#: kernel/kptduration.cpp:288
 #, kde-format
 msgctxt "Year. Note: Letter(s) only!"
 msgid "Y"
 msgstr "Y"
 
-#: kernel/kptduration.cpp:290
+#: kernel/kptduration.cpp:289
 #, kde-format
 msgctxt "Month. Note: Letter(s) only!"
 msgid "M"
 msgstr "M"
 
-#: kernel/kptduration.cpp:291
+#: kernel/kptduration.cpp:290
 #, kde-format
 msgctxt "Week. Note: Letter(s) only!"
 msgid "w"
 msgstr "w"
 
-#: kernel/kptduration.cpp:292
+#: kernel/kptduration.cpp:291
 #, kde-format
 msgctxt "Day. Note: Letter(s) only!"
 msgid "d"
 msgstr "d"
 
-#: kernel/kptduration.cpp:293
+#: kernel/kptduration.cpp:292
 #, kde-format
 msgctxt "Hour. Note: Letter(s) only!"
 msgid "h"
 msgstr "h"
 
-#: kernel/kptduration.cpp:294
+#: kernel/kptduration.cpp:293
 #, kde-format
 msgctxt "Minute. Note: Letter(s) only!"
 msgid "m"
 msgstr "m"
 
-#: kernel/kptduration.cpp:295
+#: kernel/kptduration.cpp:294
 #, kde-format
 msgctxt "Second. Note: Letter(s) only!"
 msgid "s"
 msgstr "s"
 
-#: kernel/kptduration.cpp:296
+#: kernel/kptduration.cpp:295
 #, kde-format
 msgctxt "Millisecond. Note: Letter(s) only!"
 msgid "ms"
@@ -578,22 +578,22 @@ msgstr "Konec-Konec"
 msgid "Start-Start"
 msgstr "Začetek-Začetek"
 
-#: kernel/kptresourcerequest.cpp:722
+#: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr "Ponovno razporejanje a ni najdenih uporabljenih virov"
 
-#: kernel/kptresourcerequest.cpp:819
+#: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
 msgstr "Ustreznost deviacije: zrnatost: %1, deviacija: %2"
 
-#: kernel/kptresourcerequest.cpp:973
+#: kernel/kptresourcerequest.cpp:975
 #, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
 msgstr "Usklajevanje napora ni uspelo. Želeno: %1 dobljeno: %2 (%3)"
 
-#: kernel/kptresourcerequest.cpp:976
+#: kernel/kptresourcerequest.cpp:978
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
 msgstr "Vir %1 je na voljo od %2 do %3"
@@ -613,7 +613,7 @@ msgstr "Razhrošči"
 msgid "Info"
 msgstr "Informacije"
 
-#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1851
+#: kernel/kptschedule.cpp:1462 main/KoMainWindow.cpp:1842
 #, kde-format
 msgid "Warning"
 msgstr "Opozorilo"
@@ -888,13 +888,13 @@ msgstr "Uveljavi %1"
 msgid "<empty>"
 msgstr "<prazno>"
 
-#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1667
+#: kundo2/kundo2stack.cpp:1347 main/KoMainWindow.cpp:1658
 #: main/KoUndoStackAction.cpp:34
 #, kde-format
 msgid "Redo"
 msgstr "Uveljavi"
 
-#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1666
+#: kundo2/kundo2stack.cpp:1366 main/KoMainWindow.cpp:1657
 #: main/KoUndoStackAction.cpp:26
 #, kde-format
 msgid "Undo"
@@ -970,30 +970,30 @@ msgstr "--- ločitelj ---"
 msgid "--- expanding spacer ---"
 msgstr "--- razširitveni prostor ---"
 
-#: main/kedittoolbar.cpp:337
+#: main/kedittoolbar.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Change Text"
 msgstr "Spremeni besedilo"
 
-#: main/kedittoolbar.cpp:347
+#: main/kedittoolbar.cpp:344
 #, kde-format
 msgid "Icon te&xt:"
 msgstr "Besedilo ikone:"
 
-#: main/kedittoolbar.cpp:352
+#: main/kedittoolbar.cpp:349
 #, kde-format
 msgctxt "@option:check"
 msgid "&Hide text when toolbar shows text alongside icons"
 msgstr "Skrivaj besedilo, kadar orodna vrstica prikazuje besedilo zraven ikone"
 
-#: main/kedittoolbar.cpp:601
+#: main/kedittoolbar.cpp:598
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Toolbars"
 msgstr "Nastavi orodne vrstice"
 
-#: main/kedittoolbar.cpp:664
+#: main/kedittoolbar.cpp:661
 #, kde-format
 msgid ""
 "Do you really want to reset all toolbars of this application to their "
@@ -1002,17 +1002,17 @@ msgstr ""
 "Ali zares želite ponovno nastaviti vse orodne vrstice te aplikacije na "
 "privzeto vrednost? Spremembe bodo uveljavljene takoj."
 
-#: main/kedittoolbar.cpp:665
+#: main/kedittoolbar.cpp:662
 #, kde-format
 msgid "Reset Toolbars"
 msgstr "Ponovno nastavi orodne vrstice"
 
-#: main/kedittoolbar.cpp:666
+#: main/kedittoolbar.cpp:663
 #, kde-format
 msgid "Reset"
 msgstr "Ponovno nastavi"
 
-#: main/kedittoolbar.cpp:997
+#: main/kedittoolbar.cpp:994
 #, kde-format
 msgid "&Toolbar:"
 msgstr "Orodna vrstica:"
@@ -1024,57 +1024,57 @@ msgstr "Orodna vrstica:"
 #. del_toolbar->setPixmap(BarIcon("edit-delete", KIconLoader::SizeSmall));
 #. del_toolbar->setEnabled(false); // disabled until implemented
 #. our list of inactive actions
-#: main/kedittoolbar.cpp:1013
+#: main/kedittoolbar.cpp:1010
 #, kde-format
 msgid "A&vailable actions:"
 msgstr "Razpoložljive dejavnosti:"
 
-#: main/kedittoolbar.cpp:1034 main/kedittoolbar.cpp:1059
-#: ui/kptganttview.cpp:465 ui/MilestoneGanttView.cpp:475
+#: main/kedittoolbar.cpp:1031 main/kedittoolbar.cpp:1056
+#: ui/kptganttview.cpp:466 ui/MilestoneGanttView.cpp:476
 #, kde-format
 msgid "Filter"
 msgstr "Filter"
 
-#: main/kedittoolbar.cpp:1037
+#: main/kedittoolbar.cpp:1034
 #, kde-format
 msgid "Curr&ent actions:"
 msgstr "Trenutne dejavnosti:"
 
-#: main/kedittoolbar.cpp:1062
+#: main/kedittoolbar.cpp:1059
 #, kde-format
 msgctxt "@action:button"
 msgid "Change &Icon..."
 msgstr "Spremeni ikono..."
 
-#: main/kedittoolbar.cpp:1071
+#: main/kedittoolbar.cpp:1068
 #, kde-format
 msgctxt "@action:button"
 msgid "Change Te&xt..."
 msgstr "Spremeni besedilo..."
 
-#: main/kedittoolbar.cpp:1233
+#: main/kedittoolbar.cpp:1230
 #, kde-format
 msgctxt "@item:intable Action name in toolbar editor"
 msgid "%1"
 msgstr "%1"
 
-#: main/kedittoolbar.cpp:1261
+#: main/kedittoolbar.cpp:1258
 #, kde-format
 msgid ""
 "This element will be replaced with all the elements of an embedded component."
 msgstr "Ta element bo zamenjan z vsemi elementi vdelane komponente."
 
-#: main/kedittoolbar.cpp:1263
+#: main/kedittoolbar.cpp:1260
 #, kde-format
 msgid "<Merge>"
 msgstr "<Zlij>"
 
-#: main/kedittoolbar.cpp:1265
+#: main/kedittoolbar.cpp:1262
 #, kde-format
 msgid "<Merge %1>"
 msgstr "<Zlij %1>"
 
-#: main/kedittoolbar.cpp:1275
+#: main/kedittoolbar.cpp:1272
 #, kde-format
 msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
@@ -1083,49 +1083,49 @@ msgstr ""
 "To je dinamičen seznam dejavnosti. Lahko ga premikate, a če ga odstranite, "
 "ga ne boste mogli spet dodati."
 
-#: main/kedittoolbar.cpp:1276
+#: main/kedittoolbar.cpp:1273
 #, kde-format
 msgid "ActionList: %1"
 msgstr "Seznam dejavnosti: %1"
 
-#: main/kedittoolbar.cpp:1377 main/kedittoolbar.cpp:1402
+#: main/kedittoolbar.cpp:1374 main/kedittoolbar.cpp:1399
 #, kde-format
 msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
 msgstr "%1"
 
-#: main/kedittoolbar.cpp:1630
+#: main/kedittoolbar.cpp:1627
 #, kde-format
 msgid "Change Icon"
 msgstr "Spremeni ikono"
 
-#: main/KoApplication.cpp:192
+#: main/KoApplication.cpp:188
 #, kde-format
 msgid "just load the file and then exit"
 msgstr "samo naloži datoteko in potem končaj"
 
-#: main/KoApplication.cpp:193
+#: main/KoApplication.cpp:189
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr ""
 "samo naloži datoteko, prikaži okno in letvico napredka ter potem končaj"
 
-#: main/KoApplication.cpp:194
+#: main/KoApplication.cpp:190
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr "Ime datoteke za zapisi informacij profila."
 
-#: main/KoApplication.cpp:195
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr "Datoteke in spletni naslovi za odpiranje"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid "%1: Critical Error"
 msgstr "%1: Kritična napaka"
 
-#: main/KoApplication.cpp:447 main/KoApplication.cpp:480
+#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"
@@ -1152,17 +1152,17 @@ msgstr "Naslednje avtomatično shranjene datoteke so bile obnovljene:"
 msgid "The following autosave files can be recovered:"
 msgstr "Naslednje avtomatično shranjene datoteke lahko obnovimo:"
 
-#: main/KoDocument.cpp:560
+#: main/KoDocument.cpp:568
 #, kde-format
 msgid "Making backup..."
 msgstr "Izdelujem varnostno kopijo..."
 
-#: main/KoDocument.cpp:575
+#: main/KoDocument.cpp:583
 #, kde-format
 msgid "Saving..."
 msgstr "Shranjujem..."
 
-#: main/KoDocument.cpp:603
+#: main/KoDocument.cpp:611
 #, kde-format
 msgid ""
 "Could not save\n"
@@ -1171,7 +1171,7 @@ msgstr ""
 "Ni bilo mogoča shraniti\n"
 "%1"
 
-#: main/KoDocument.cpp:605
+#: main/KoDocument.cpp:613
 #, kde-format
 msgid ""
 "Could not save %1\n"
@@ -1180,12 +1180,12 @@ msgstr ""
 "Ni bilo mogoče shraniti %1\n"
 "Razlog: %2"
 
-#: main/KoDocument.cpp:634
+#: main/KoDocument.cpp:642
 #, kde-format
 msgid "Document <i>%1</i> saved"
 msgstr "Dokument <i>%1</i> shranjen"
 
-#: main/KoDocument.cpp:722
+#: main/KoDocument.cpp:729
 #, kde-format
 msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
@@ -1194,33 +1194,33 @@ msgstr ""
 "Geslo šifriranja tega dokumenta ni znano. Samodejno shranjevanje ni uspelo! "
 "Prosimo shranite vaše delo ročno."
 
-#: main/KoDocument.cpp:725
+#: main/KoDocument.cpp:732
 #, kde-format
 msgid "Autosaving..."
 msgstr "Avtomatsko shranjevanje..."
 
-#: main/KoDocument.cpp:737
+#: main/KoDocument.cpp:744
 #, kde-format
 msgid "Error during autosave! Partition full?"
 msgstr "Napaka pri avtomatskem shranjevanju! Disk poln?"
 
-#: main/KoDocument.cpp:831
+#: main/KoDocument.cpp:838
 #, kde-format
 msgid "Could not create the file for saving"
 msgstr "Kreiranje datoteke za shranjevanje ni uspelo"
 
-#: main/KoDocument.cpp:875 main/KoDocument.cpp:897 main/KoDocument.cpp:928
-#: main/KoDocument.cpp:962
+#: main/KoDocument.cpp:882 main/KoDocument.cpp:904 main/KoDocument.cpp:935
+#: main/KoDocument.cpp:969
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
 msgstr "Ni mogoče pisati '%1'. DIsk poln?"
 
-#: main/KoDocument.cpp:890 main/KoDocument.cpp:937 main/KoDocument.cpp:1950
+#: main/KoDocument.cpp:897 main/KoDocument.cpp:944 main/KoDocument.cpp:1955
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
 msgstr "Napaka pri poskusu pisanja '%1'. Disk poln?"
 
-#: main/KoDocument.cpp:1181
+#: main/KoDocument.cpp:1188
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -1229,7 +1229,7 @@ msgstr ""
 "Napačno oblikovan spletni naslov\n"
 "%1"
 
-#: main/KoDocument.cpp:1197
+#: main/KoDocument.cpp:1204
 #, kde-format
 msgid ""
 "An autosaved file exists for this document.\n"
@@ -1238,127 +1238,127 @@ msgstr ""
 "Obstaja avtomatično shranjena datoteka za ta dokument.\n"
 "Ali morda želite odpreti to?"
 
-#: main/KoDocument.cpp:1198
+#: main/KoDocument.cpp:1205
 #, kde-format
 msgid "Autosave"
 msgstr "Samodejno shranjevanje"
 
-#: main/KoDocument.cpp:1312 main/KoDocument.cpp:1633 main/KoMainWindow.cpp:722
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Datoteka %1 ne obstaja."
 
-#: main/KoDocument.cpp:1390
+#: main/KoDocument.cpp:1397
 #, kde-format
 msgid "Opening Document"
 msgstr "Odpiram dokumente"
 
-#: main/KoDocument.cpp:1406
+#: main/KoDocument.cpp:1413
 #, kde-format
 msgid "Could not create the filter plugin"
 msgstr "Ni bilo mogoče ustvariti vtičnika za filter"
 
-#: main/KoDocument.cpp:1409
+#: main/KoDocument.cpp:1416
 #, kde-format
 msgid "Could not create the output document"
 msgstr "Ni bilo mogoče ustvariti izhodnega dokumenta"
 
-#: main/KoDocument.cpp:1412
+#: main/KoDocument.cpp:1419
 #, kde-format
 msgid "File not found"
 msgstr "Datoteke ni bilo mogoče najti"
 
-#: main/KoDocument.cpp:1415
+#: main/KoDocument.cpp:1422
 #, kde-format
 msgid "Cannot create storage"
 msgstr "Ni mogoče ustvariti shrambe"
 
-#: main/KoDocument.cpp:1418
+#: main/KoDocument.cpp:1425
 #, kde-format
 msgid "Bad MIME type"
 msgstr "Napačen tip MIME"
 
-#: main/KoDocument.cpp:1421
+#: main/KoDocument.cpp:1428
 #, kde-format
 msgid "Error in embedded document"
 msgstr "Napaka v vloženem dokumentu"
 
-#: main/KoDocument.cpp:1424
+#: main/KoDocument.cpp:1431
 #, kde-format
 msgid "Format not recognized"
 msgstr "Formata ni mogoče prepoznati"
 
-#: main/KoDocument.cpp:1427
+#: main/KoDocument.cpp:1434
 #, kde-format
 msgid "Not implemented"
 msgstr "Ni implementirano"
 
-#: main/KoDocument.cpp:1430
+#: main/KoDocument.cpp:1437
 #, kde-format
 msgid "Parsing error"
 msgstr "Napaka pri razbiranju"
 
-#: main/KoDocument.cpp:1433
+#: main/KoDocument.cpp:1440
 #, kde-format
 msgid "Document is password protected"
 msgstr "Dokument je zavarovan z geslom"
 
-#: main/KoDocument.cpp:1436
+#: main/KoDocument.cpp:1443
 #, kde-format
 msgid "Invalid file format"
 msgstr "Neveljaven format datoteke"
 
-#: main/KoDocument.cpp:1443
+#: main/KoDocument.cpp:1450
 #, kde-format
 msgid "Internal error"
 msgstr "Notranja napaka"
 
-#: main/KoDocument.cpp:1446
+#: main/KoDocument.cpp:1453
 #, kde-format
 msgid "Out of memory"
 msgstr "Premalo pomnilnika"
 
-#: main/KoDocument.cpp:1449
+#: main/KoDocument.cpp:1456
 #, kde-format
 msgid "Empty Filter Plugin"
 msgstr "Prazen vtičnik za filter"
 
-#: main/KoDocument.cpp:1452
+#: main/KoDocument.cpp:1459
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
 msgstr "Poskus nalaganja v napačno zvrst dokumenta"
 
-#: main/KoDocument.cpp:1455
+#: main/KoDocument.cpp:1462
 #, kde-format
 msgid "Failed to download remote file"
 msgstr "Ni bilo mogoče pridobiti oddaljene datoteke"
 
-#: main/KoDocument.cpp:1463
+#: main/KoDocument.cpp:1470
 #, kde-format
 msgid "Reading file timed out"
 msgstr "Branje datoteke je poteklo"
 
-#: main/KoDocument.cpp:1466 main/KoDocument.cpp:1477
+#: main/KoDocument.cpp:1473 main/KoDocument.cpp:1484
 #, kde-format
 msgid "Unknown error"
 msgstr "Neznana napaka"
 
-#: main/KoDocument.cpp:1469
+#: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
 msgstr "Ni najdenega filtra planconvert.jar, preverite vašo namestitev"
 
-#: main/KoDocument.cpp:1472
+#: main/KoDocument.cpp:1479
 #, kde-format
 msgid "Execution failed. Check your installation"
 msgstr "Izvedba se je sesula. Preverite vašo namestitev"
 
-#: main/KoDocument.cpp:1475
+#: main/KoDocument.cpp:1482
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
 msgstr "Izvajanje se je sesulo. Gonilnika ODBC ni mogoče najti"
 
-#: main/KoDocument.cpp:1481
+#: main/KoDocument.cpp:1488
 #, kde-format
 msgid ""
 "Could not open %2.\n"
@@ -1369,17 +1369,17 @@ msgstr ""
 "Razlog: %1.\n"
 "%3"
 
-#: main/KoDocument.cpp:1538
+#: main/KoDocument.cpp:1545
 #, kde-format
 msgid "Document <i>%1</i> loaded"
 msgstr "Dokument <i>%1</i> je naložen"
 
-#: main/KoDocument.cpp:1607 odf/KoOdfReadStore.cpp:107
+#: main/KoDocument.cpp:1613 odf/KoOdfReadStore.cpp:107
 #, kde-format
 msgid "Could not find %1"
 msgstr "Ni bilo mogoče najti %1"
 
-#: main/KoDocument.cpp:1619
+#: main/KoDocument.cpp:1625
 #, kde-format
 msgid ""
 "Parsing error in %1 at line %2, column %3\n"
@@ -1388,23 +1388,23 @@ msgstr ""
 "Napaka pri razbiranju v %1 v vrstici: %2, stolpec %3\n"
 "Sporočilo napake: %4"
 
-#: main/KoDocument.cpp:1640
+#: main/KoDocument.cpp:1646
 #, kde-format
 msgid "%1 is not a file."
 msgstr "%1 ni datoteka."
 
-#: main/KoDocument.cpp:1655
+#: main/KoDocument.cpp:1661
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
 msgstr ""
 "Ni bilo mogoče odpreti datoteke za branje (preverite dovoljenja za branje)."
 
-#: main/KoDocument.cpp:1666
+#: main/KoDocument.cpp:1672
 #, kde-format
 msgid "Could not read the beginning of the file."
 msgstr "Ni bilo mogoče prebrati začetka datoteke."
 
-#: main/KoDocument.cpp:1696
+#: main/KoDocument.cpp:1702
 #, kde-format
 msgid ""
 "parsing error in the main document at line %1, column %2\n"
@@ -1414,22 +1414,22 @@ msgstr ""
 "%2\n"
 "Sporočilo napake: %3"
 
-#: main/KoDocument.cpp:1717
+#: main/KoDocument.cpp:1723
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
 msgstr "Ni veljavna datoteka za Calligro plan: %1"
 
-#: main/KoDocument.cpp:1734 main/KoDocument.cpp:1765
+#: main/KoDocument.cpp:1740 main/KoDocument.cpp:1771
 #, kde-format
 msgid "Invalid password"
 msgstr "Neveljavno geslo"
 
-#: main/KoDocument.cpp:1805
+#: main/KoDocument.cpp:1811
 #, kde-format
 msgid "Invalid document: no file 'maindoc.xml'."
 msgstr "Neveljaven dokument: ni datoteke 'maindoc.xml''."
 
-#: main/KoDocument.cpp:1831
+#: main/KoDocument.cpp:1837
 #, kde-format
 msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
@@ -1438,12 +1438,12 @@ msgstr ""
 "Dokument <i>%1</i> vsebuje več verzij. Pojdite na Datoteka ->Verzije za "
 "odpiranje in odprite staro verzijo."
 
-#: main/KoDocument.cpp:2040 main/KoDocument.cpp:2536 main/KoMainWindow.cpp:1261
+#: main/KoDocument.cpp:2045 main/KoDocument.cpp:2541 main/KoMainWindow.cpp:1252
 #, kde-format
 msgid "Untitled"
 msgstr "Brez naslova"
 
-#: main/KoDocument.cpp:2043 main/KoMainWindow.cpp:1264
+#: main/KoDocument.cpp:2048 main/KoMainWindow.cpp:1255
 #, kde-format
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
@@ -1451,7 +1451,7 @@ msgid ""
 msgstr ""
 "<p>Dokument <b>'%1'</b> je bil spremenjen.</p><p>Ali jo želite shraniti?</p>"
 
-#: main/KoDocument.cpp:2044 widgets/KoDocumentInfoDlg.cpp:374
+#: main/KoDocument.cpp:2049 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
 #: widgets/KoDocumentInfoDlg.cpp:424 widgets/KoDocumentInfoDlg.cpp:481
 #: widgets/KoDocumentInfoDlg.cpp:489
@@ -1459,12 +1459,12 @@ msgstr ""
 msgid "Save Document"
 msgstr "Shrani dokument"
 
-#: main/KoDocument.cpp:2128
+#: main/KoDocument.cpp:2133
 #, kde-format
 msgid "Internal error: saveXML not implemented"
 msgstr "Interna napaka: saveXML ni implementirana"
 
-#: main/KoDocument.cpp:2166
+#: main/KoDocument.cpp:2171
 #, kde-format
 msgid ""
 "Could not open\n"
@@ -1473,7 +1473,7 @@ msgstr ""
 "Ni mogoče odpreti\n"
 "%1"
 
-#: main/KoDocument.cpp:2169
+#: main/KoDocument.cpp:2174
 #, kde-format
 msgid ""
 "Could not open %1\n"
@@ -1482,32 +1482,27 @@ msgstr ""
 "Ni mogoče odpreti %1\n"
 "Razlog: %2"
 
-#: main/KoDocument.cpp:2243
-#, kde-format
+#: main/KoDocument.cpp:2248
 msgid "a word processing"
 msgstr "obdelava besedil"
 
-#: main/KoDocument.cpp:2244
-#, kde-format
+#: main/KoDocument.cpp:2249
 msgid "a spreadsheet"
 msgstr "preglednica"
 
-#: main/KoDocument.cpp:2245
-#, kde-format
+#: main/KoDocument.cpp:2250
 msgid "a presentation"
 msgstr "predstavitev"
 
-#: main/KoDocument.cpp:2246
-#, kde-format
+#: main/KoDocument.cpp:2251
 msgid "a chart"
 msgstr "grafikon"
 
-#: main/KoDocument.cpp:2247
-#, kde-format
+#: main/KoDocument.cpp:2252
 msgid "a drawing"
 msgstr "risba"
 
-#: main/KoDocument.cpp:2540
+#: main/KoDocument.cpp:2545
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -1516,7 +1511,7 @@ msgstr ""
 "Dokument '\"%1' je bil spremenjen.\n"
 "Ali želite shraniti vaše spremembe ali jih zavreči?"
 
-#: main/KoDocument.cpp:2542
+#: main/KoDocument.cpp:2547
 #, kde-format
 msgid "Close Document"
 msgstr "Zapri dokument"
@@ -1550,88 +1545,88 @@ msgstr "Manjka filter za uvoz"
 msgid "Choose Filter"
 msgstr "Izberi filter"
 
-#: main/KoMainWindow.cpp:160
+#: main/KoMainWindow.cpp:157
 #, kde-format
 msgid "%1 unsaved document (%2)"
 msgstr "%1 neshranjen dokument (%2)"
 
-#: main/KoMainWindow.cpp:275 ui/kptviewbase.cpp:756
+#: main/KoMainWindow.cpp:269 ui/kptviewbase.cpp:756
 #, kde-format
 msgid "Print to PDF..."
 msgstr "Tiskanje na PDF..."
 
-#: main/KoMainWindow.cpp:285
+#: main/KoMainWindow.cpp:279
 #, kde-format
 msgid "Reload"
 msgstr "Ponovno nalaganje"
 
-#: main/KoMainWindow.cpp:289
+#: main/KoMainWindow.cpp:283
 #, kde-format
 msgid "Import..."
 msgstr "Uvoz..."
 
-#: main/KoMainWindow.cpp:293
+#: main/KoMainWindow.cpp:287
 #, kde-format
 msgid "E&xport..."
 msgstr "Izvoz..."
 
-#: main/KoMainWindow.cpp:297
+#: main/KoMainWindow.cpp:291
 #, kde-format
 msgid "En&crypt Document"
 msgstr "&Šifriraj dokument"
 
-#: main/KoMainWindow.cpp:302
+#: main/KoMainWindow.cpp:296
 #, kde-format
 msgid "&Uncompress to Directory"
 msgstr "&Razpakiraj v mapo"
 
-#: main/KoMainWindow.cpp:307
+#: main/KoMainWindow.cpp:301
 #, kde-format
 msgid "&New View"
 msgstr "&Novi pogled"
 
-#: main/KoMainWindow.cpp:314 widgets/KoDocumentInfoDlg.cpp:89
+#: main/KoMainWindow.cpp:308 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
 msgid "Document Information"
 msgstr "Informacija o dokumentu"
 
-#: main/KoMainWindow.cpp:340
+#: main/KoMainWindow.cpp:334
 #, kde-format
 msgid "Full Screen Mode"
 msgstr "Način polnega zaslona"
 
-#: main/KoMainWindow.cpp:345
+#: main/KoMainWindow.cpp:339
 #, kde-format
 msgid "Show Dockers"
 msgstr "Prikaži sidrišča"
 
-#: main/KoMainWindow.cpp:350
+#: main/KoMainWindow.cpp:344
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
 msgstr "Prikaži orodne vrstice sidrišč"
 
-#: main/KoMainWindow.cpp:357
+#: main/KoMainWindow.cpp:351
 #, kde-format
 msgid "Dockers"
 msgstr "Sidrišča"
 
-#: main/KoMainWindow.cpp:671
+#: main/KoMainWindow.cpp:662
 #, kde-format
 msgid "(write protected)"
 msgstr "(zavarovano pred pisanjem)"
 
-#: main/KoMainWindow.cpp:676
+#: main/KoMainWindow.cpp:667
 #, kde-format
 msgid "Save as %1"
 msgstr "Shrani kot %1"
 
-#: main/KoMainWindow.cpp:678
+#: main/KoMainWindow.cpp:669
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: main/KoMainWindow.cpp:716 main/KoMainWindow.cpp:744
+#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1643,13 +1638,13 @@ msgstr ""
 "ustvaritenov projekt s to predlogo in ga shranite s pomočjo "
 "<interface>Datoteka-> Ustvari predlogo projekta...</interface>."
 
-#: main/KoMainWindow.cpp:899 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (neznani tip datoteke)"
 
-#: main/KoMainWindow.cpp:907
+#: main/KoMainWindow.cpp:898
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1658,12 +1653,12 @@ msgstr ""
 "<qt>Shranjevanje kot %1 lahko povzroči manjšo izgubo formatiranja.<p> Ali še "
 "vedno želite shraniti v tem formatu?</qt>"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:901
 #, kde-format
 msgid "Confirm Save"
 msgstr "Potrdi shranjevanje"
 
-#: main/KoMainWindow.cpp:919
+#: main/KoMainWindow.cpp:910
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1672,63 +1667,63 @@ msgstr ""
 "<qt>Izvažanje kot %1 lahko povzroči manjšo izgubo formatiranja.<p> Ali še "
 "vedno želite izvoziti v tem formatu?</qt>"
 
-#: main/KoMainWindow.cpp:922
+#: main/KoMainWindow.cpp:913
 #, kde-format
 msgid "Confirm Export"
 msgstr "Potrdi izvoz"
 
-#: main/KoMainWindow.cpp:923 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Izvoz"
 
-#: main/KoMainWindow.cpp:1041
+#: main/KoMainWindow.cpp:1032
 #, kde-format
 msgid "untitled"
 msgstr "brez naslova"
 
-#: main/KoMainWindow.cpp:1334 main/WelcomeView.cpp:274
+#: main/KoMainWindow.cpp:1325 main/WelcomeView.cpp:276
 #, kde-format
 msgid "Open Document"
 msgstr "Odpri dokument"
 
-#: main/KoMainWindow.cpp:1343
+#: main/KoMainWindow.cpp:1334
 #, kde-format
 msgid "Import Document"
 msgstr "Uvozi dokument"
 
-#: main/KoMainWindow.cpp:1551
+#: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
 msgstr "Predogled dokumenta ni mogoč"
 
-#: main/KoMainWindow.cpp:1559
+#: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
 msgstr "Ni mogoče odpreti vpogledovalnika pdf"
 
-#: main/KoMainWindow.cpp:1607
+#: main/KoMainWindow.cpp:1598
 #, kde-format
 msgid "Export as PDF"
 msgstr "Izvoz kot PDF"
 
-#: main/KoMainWindow.cpp:1644
+#: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
 msgstr "Ne morem izvoziti v želeno datoteko"
 
-#: main/KoMainWindow.cpp:1820
+#: main/KoMainWindow.cpp:1811
 #, kde-format
 msgid "Document"
 msgstr "Dokument"
 
-#: main/KoMainWindow.cpp:1828
+#: main/KoMainWindow.cpp:1819
 #, kde-format
 msgid "Document - %1"
 msgstr "Dokument - %1"
 
-#: main/KoMainWindow.cpp:1849
+#: main/KoMainWindow.cpp:1840
 #, kde-format
 msgid ""
 "You will lose all changes made since your last save\n"
@@ -1737,12 +1732,12 @@ msgstr ""
 "Izgubili boste vse vaše spremembe od zadnjega shranjevanja\n"
 "Ali želite nadaljevati?"
 
-#: main/KoMainWindow.cpp:2211
+#: main/KoMainWindow.cpp:2203
 #, kde-format
 msgid "Show %1 Toolbar"
 msgstr "Prikaži orodno vrstico %1"
 
-#: main/KoMainWindow.cpp:2213
+#: main/KoMainWindow.cpp:2205
 #, kde-format
 msgid "Hide %1 Toolbar"
 msgstr "Skrij orodno vrstico %1"
@@ -1754,11 +1749,11 @@ msgstr "Zaustavi"
 
 #: main/KoPrintingDialog.cpp:175 ui/gantt/BasicGanttViewSettingsDialog.cpp:32
 #: ui/kptaccountseditor.cpp:53 ui/kptaccountsviewconfigdialog.cpp:76
-#: ui/kptdependencyeditor.cpp:2185 ui/kptganttview.cpp:194
+#: ui/kptdependencyeditor.cpp:2188 ui/kptganttview.cpp:195
 #: ui/kptitemviewsettup.cpp:190 ui/kptitemviewsettup.cpp:274
-#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:149
+#: ui/kptresourceappointmentsview.cpp:66 ui/MilestoneGanttView.cpp:150
 #: ui/performance/ProjectStatusView.cpp:170
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing"
 msgstr "Tiskanje"
@@ -1794,7 +1789,7 @@ msgstr "Anonimni"
 msgid "Default Author Profile"
 msgstr "Privzeti avtorjev profil"
 
-#: main/WelcomeView.cpp:119
+#: main/WelcomeView.cpp:120
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1810,13 +1805,13 @@ msgstr ""
 "to</interface></b> ali s pritiskom <shortcut>Shift+F1</shortcut>.</"
 "para><para>Poskusite jo na tem besedilu!</para>"
 
-#: main/WelcomeView.cpp:128
+#: main/WelcomeView.cpp:129
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
 msgstr "<subtitle>Spletni viri</subtitle>"
 
-#: main/WelcomeView.cpp:132
+#: main/WelcomeView.cpp:133
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1834,7 +1829,7 @@ msgstr ""
 "<resource>Ciljnega začetka</resource> in <resource>- Konca</resource> .<nl/"
 "><link url='%1'>Več...</link></para>"
 
-#: main/WelcomeView.cpp:146
+#: main/WelcomeView.cpp:147
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1852,7 +1847,7 @@ msgstr ""
 ">Skupni viri morajo biti določeni v samostojni datoteki.<nl/><link "
 "url='%1'>Več...</link></para>"
 
-#: main/WelcomeView.cpp:159
+#: main/WelcomeView.cpp:160
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1864,7 +1859,7 @@ msgstr ""
 "projektov.</para><para><nl/>To omogoča hitro odpiranje projektov na katerih "
 "ste nedavno delali.</para>"
 
-#: main/WelcomeView.cpp:168
+#: main/WelcomeView.cpp:169
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -1884,7 +1879,7 @@ msgstr ""
 "url='%1'>Več...</link> v besedilu, bo pritisk na to besedilo prikazalo več "
 "informacij iz dokumentacije.</para>"
 
-#: main/WelcomeView.cpp:186
+#: main/WelcomeView.cpp:187
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -5315,7 +5310,7 @@ msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup coordinator"
 msgstr "Spremeni koordinatorja grupe virov"
 
-#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:887
+#: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:888
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
@@ -5325,7 +5320,7 @@ msgstr[1] "Vstavite %1 vira iz vašega adresarja"
 msgstr[2] "Vstavite %1 vire iz vašega adresarja"
 msgstr[3] "Vstavite %1 virov iz vašega adresarja"
 
-#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:950
+#: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:956
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move resource"
@@ -5335,7 +5330,7 @@ msgstr[1] "Preseli %1 vira"
 msgstr[2] "Preseli %1 vire"
 msgstr[3] "Preseli %1 virov"
 
-#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:970
+#: models/ResourceGroupItemModel.cpp:688 models/ResourceItemModel.cpp:976
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Copy resource"
@@ -5350,7 +5345,7 @@ msgctxt "(qtundo-format)"
 msgid "Add resource group"
 msgstr "Dodaj grupo virov"
 
-#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1068
+#: models/ResourceGroupItemModel.cpp:800 models/ResourceItemModel.cpp:1074
 msgctxt "(qtundo-format)"
 msgid "Add resource"
 msgstr "Dodaj vir"
@@ -5626,176 +5621,147 @@ msgstr ""
 "Napaka razčlenitve v glavnem dokumentu v vrstic i%1, stolpec %2\n"
 "Sporočilo o napaki: %3"
 
-#: odf/KoPageFormat.cpp:54
-#, kde-format
+#: odf/KoPageFormat.cpp:56
 msgctxt "Page size"
 msgid "ISO A3"
 msgstr "ISO A3"
 
-#: odf/KoPageFormat.cpp:55
-#, kde-format
+#: odf/KoPageFormat.cpp:57
 msgctxt "Page size"
 msgid "ISO A4"
 msgstr "ISO A4"
 
-#: odf/KoPageFormat.cpp:56
-#, kde-format
+#: odf/KoPageFormat.cpp:58
 msgctxt "Page size"
 msgid "ISO A5"
 msgstr "ISO A5"
 
-#: odf/KoPageFormat.cpp:57
-#, kde-format
+#: odf/KoPageFormat.cpp:59
 msgctxt "Page size"
 msgid "US Letter"
 msgstr "US Letter"
 
-#: odf/KoPageFormat.cpp:58
-#, kde-format
+#: odf/KoPageFormat.cpp:60
 msgctxt "Page size"
 msgid "US Legal"
 msgstr "US Legal"
 
-#: odf/KoPageFormat.cpp:59
-#, kde-format
+#: odf/KoPageFormat.cpp:61
 msgctxt "Page size"
 msgid "Screen"
 msgstr "Zaslon"
 
-#: odf/KoPageFormat.cpp:60
-#, kde-format
+#: odf/KoPageFormat.cpp:62
 msgctxt "Page size"
 msgid "Custom"
 msgstr "Po meri"
 
-#: odf/KoPageFormat.cpp:61
-#, kde-format
+#: odf/KoPageFormat.cpp:63
 msgctxt "Page size"
 msgid "ISO B5"
 msgstr "ISO B5"
 
-#: odf/KoPageFormat.cpp:62
-#, kde-format
+#: odf/KoPageFormat.cpp:64
 msgctxt "Page size"
 msgid "US Executive"
 msgstr "US Executive"
 
-#: odf/KoPageFormat.cpp:63
-#, kde-format
+#: odf/KoPageFormat.cpp:65
 msgctxt "Page size"
 msgid "ISO A0"
 msgstr "ISO A0"
 
-#: odf/KoPageFormat.cpp:64
-#, kde-format
+#: odf/KoPageFormat.cpp:66
 msgctxt "Page size"
 msgid "ISO A1"
 msgstr "ISO A1"
 
-#: odf/KoPageFormat.cpp:65
-#, kde-format
+#: odf/KoPageFormat.cpp:67
 msgctxt "Page size"
 msgid "ISO A2"
 msgstr "ISO A2"
 
-#: odf/KoPageFormat.cpp:66
-#, kde-format
+#: odf/KoPageFormat.cpp:68
 msgctxt "Page size"
 msgid "ISO A6"
 msgstr "ISO A6"
 
-#: odf/KoPageFormat.cpp:67
-#, kde-format
+#: odf/KoPageFormat.cpp:69
 msgctxt "Page size"
 msgid "ISO A7"
 msgstr "ISO A7"
 
-#: odf/KoPageFormat.cpp:68
-#, kde-format
+#: odf/KoPageFormat.cpp:70
 msgctxt "Page size"
 msgid "ISO A8"
 msgstr "ISO A8"
 
-#: odf/KoPageFormat.cpp:69
-#, kde-format
+#: odf/KoPageFormat.cpp:71
 msgctxt "Page size"
 msgid "ISO A9"
 msgstr "ISO A9"
 
-#: odf/KoPageFormat.cpp:70
-#, kde-format
+#: odf/KoPageFormat.cpp:72
 msgctxt "Page size"
 msgid "ISO B0"
 msgstr "ISO B0"
 
-#: odf/KoPageFormat.cpp:71
-#, kde-format
+#: odf/KoPageFormat.cpp:73
 msgctxt "Page size"
 msgid "ISO B1"
 msgstr "ISO B1"
 
-#: odf/KoPageFormat.cpp:72
-#, kde-format
+#: odf/KoPageFormat.cpp:74
 msgctxt "Page size"
 msgid "ISO B10"
 msgstr "ISO B10"
 
-#: odf/KoPageFormat.cpp:73
-#, kde-format
+#: odf/KoPageFormat.cpp:75
 msgctxt "Page size"
 msgid "ISO B2"
 msgstr "ISO B2"
 
-#: odf/KoPageFormat.cpp:74
-#, kde-format
+#: odf/KoPageFormat.cpp:76
 msgctxt "Page size"
 msgid "ISO B3"
 msgstr "ISO B3"
 
-#: odf/KoPageFormat.cpp:75
-#, kde-format
+#: odf/KoPageFormat.cpp:77
 msgctxt "Page size"
 msgid "ISO B4"
 msgstr "ISO B4"
 
-#: odf/KoPageFormat.cpp:76
-#, kde-format
+#: odf/KoPageFormat.cpp:78
 msgctxt "Page size"
 msgid "ISO B6"
 msgstr "ISO B6"
 
-#: odf/KoPageFormat.cpp:77
-#, kde-format
+#: odf/KoPageFormat.cpp:79
 msgctxt "Page size"
 msgid "ISO C5"
 msgstr "ISO C5"
 
-#: odf/KoPageFormat.cpp:78
-#, kde-format
+#: odf/KoPageFormat.cpp:80
 msgctxt "Page size"
 msgid "US Common 10"
 msgstr "US Common 10"
 
-#: odf/KoPageFormat.cpp:79
-#, kde-format
+#: odf/KoPageFormat.cpp:81
 msgctxt "Page size"
 msgid "ISO DL"
 msgstr "ISO DL"
 
-#: odf/KoPageFormat.cpp:80
-#, kde-format
+#: odf/KoPageFormat.cpp:82
 msgctxt "Page size"
 msgid "US Folio"
 msgstr "US Folio"
 
-#: odf/KoPageFormat.cpp:81
-#, kde-format
+#: odf/KoPageFormat.cpp:83
 msgctxt "Page size"
 msgid "US Ledger"
 msgstr "US Ledger"
 
-#: odf/KoPageFormat.cpp:82
-#, kde-format
+#: odf/KoPageFormat.cpp:84
 msgctxt "Page size"
 msgid "US Tabloid"
 msgstr "US Tabloid"
@@ -5845,7 +5811,7 @@ msgstr "Pixels (px)"
 msgid "Unsupported unit"
 msgstr "Nepodprta enota"
 
-#: store/KoEncryptedStore.cpp:231
+#: store/KoEncryptedStore.cpp:230
 #, kde-format
 msgid ""
 "This document contains an unknown checksum. When you give a password it "
@@ -5854,7 +5820,7 @@ msgstr ""
 "Ta dokument vsebuje neznano kontrolno vsoto. Ko podate geslo, morda ne bo "
 "preverjeno."
 
-#: store/KoEncryptedStore.cpp:257 store/KoEncryptedStore.cpp:274
+#: store/KoEncryptedStore.cpp:256 store/KoEncryptedStore.cpp:273
 #, kde-format
 msgid ""
 "This document contains an unknown encryption method. Some parts may be "
@@ -5863,7 +5829,7 @@ msgstr ""
 "Ta dokument vsebuje neznano metodo šifriranja. Nekateri deli morda ne bodo "
 "berljivi."
 
-#: store/KoEncryptedStore.cpp:289
+#: store/KoEncryptedStore.cpp:288
 #, kde-format
 msgid ""
 "This document contains incomplete encryption data. Some parts may be "
@@ -5872,7 +5838,7 @@ msgstr ""
 "Ta dokument vsebuje nekompletno šifrirane podatke. Nekateri deli morda ne "
 "bodo berljivi."
 
-#: store/KoEncryptedStore.cpp:303
+#: store/KoEncryptedStore.cpp:302
 #, kde-format
 msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
@@ -5881,7 +5847,7 @@ msgstr ""
 "QCA trenutno ne podpira SHA1 ali PBKDF2 z uporabo SHA1. Takega dokumenta ne "
 "moremo odpreti."
 
-#: store/KoEncryptedStore.cpp:333
+#: store/KoEncryptedStore.cpp:332
 #, kde-format
 msgid ""
 "The manifest file seems to be corrupted. It cannot be modified and the "
@@ -5892,7 +5858,7 @@ msgstr ""
 "dokument bo ostal neberljiv. Poskusite dokument znova shraniti in tako "
 "prepreči izgubo vašega dela."
 
-#: store/KoEncryptedStore.cpp:431
+#: store/KoEncryptedStore.cpp:430
 #, kde-format
 msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
@@ -5901,44 +5867,44 @@ msgstr ""
 "Datoteke manifesta ni mogoče zapisati. Dokument bo ostal neberljiv. "
 "Poskusite znova shraniti dokument, tako da preprečite izgubo vašega dela."
 
-#: store/KoEncryptedStore.cpp:530
+#: store/KoEncryptedStore.cpp:529
 #, kde-format
 msgid "Read error"
 msgstr "Napaka pri branju"
 
-#: store/KoEncryptedStore.cpp:555
+#: store/KoEncryptedStore.cpp:554
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
 msgstr "Prosimo vnesite geslo za odpiranje te datoteke:<nl/>%1"
 
-#: store/KoEncryptedStore.cpp:575
+#: store/KoEncryptedStore.cpp:574
 #, kde-format
 msgid "Empty decrypted file"
 msgstr "Izprazni dešifrirano datoteko"
 
-#: store/KoEncryptedStore.cpp:737
+#: store/KoEncryptedStore.cpp:736
 #, kde-format
 msgid "Please enter the password to encrypt the document with."
 msgstr "Prosimo vnesite geslo, za šifriranje te datoteke."
 
-#: store/KoEncryptedStore.cpp:757
+#: store/KoEncryptedStore.cpp:756
 #, kde-format
 msgid "Do you want to save the password?"
 msgstr "Ali želite shraniti geslo?"
 
-#: store/KoEncryptedStore.cpp:758
+#: store/KoEncryptedStore.cpp:757
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
 msgstr "Shrani geslo"
 
-#: store/KoNetAccess.cpp:85
+#: store/KoNetAccess.cpp:87
 #, kde-format
 msgid "File '%1' is not readable"
 msgstr "Datoteke '%1' ni mogoče prebrati"
 
-#: store/KoNetAccess.cpp:412
+#: store/KoNetAccess.cpp:414
 #, kde-format
 msgid "ERROR: Unknown protocol '%1'"
 msgstr "NAPAKA: Neznan protokol '%1'"
@@ -5966,11 +5932,11 @@ msgid "Filter names"
 msgstr "Imena filtrov"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
-#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2186
-#: ui/kptganttview.cpp:194 ui/kptitemviewsettup.cpp:190
+#: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2189
+#: ui/kptganttview.cpp:195 ui/kptitemviewsettup.cpp:190
 #: ui/kptitemviewsettup.cpp:274 ui/kptresourceappointmentsview.cpp:67
-#: ui/MilestoneGanttView.cpp:149 ui/performance/ProjectStatusView.cpp:171
-#: ui/ResourceAppointmentsGanttView.cpp:163
+#: ui/MilestoneGanttView.cpp:150 ui/performance/ProjectStatusView.cpp:171
+#: ui/ResourceAppointmentsGanttView.cpp:164
 #, kde-format
 msgid "Printing Options"
 msgstr "Možnosti tiskanja"
@@ -5988,7 +5954,7 @@ msgid "Show project"
 msgstr "Prikaži projekt"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:353
+#: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:354
 #, kde-format
 msgid "Tasks and Milestones"
 msgstr "Naloge in mejniki"
@@ -6014,7 +5980,7 @@ msgid "Unscheduled tasks"
 msgstr "Nerazporejene  naloge"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
-#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:362
+#: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:363
 #, kde-format
 msgid "Period"
 msgstr "Perioda"
@@ -6046,7 +6012,7 @@ msgid "Number of days around current datetime"
 msgstr "Število dni okrog trenutnega datuma in časa"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
-#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:394
+#: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
 #, kde-format
 msgid "Period:"
 msgstr "Perioda:"
@@ -6284,14 +6250,14 @@ msgstr "Napake pri planiranju"
 msgid "Time constraints"
 msgstr "Časovne omejitve"
 
-#: ui/gantt/kptganttitemdelegate.cpp:78
+#: ui/gantt/kptganttitemdelegate.cpp:79
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr ""
 "Ime: %1<nl/>Dejanski zaključek: %2<nl/>Planiran zaključek: %3<nl/>Status: %4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:90
+#: ui/gantt/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6301,7 +6267,7 @@ msgstr ""
 "Ime: %1<nl/>Dokončano: %2 %<nl/>Dejanski začetek: %3<nl/>Planirano: %4 - "
 "%5<nl/>Status: %6"
 
-#: ui/gantt/kptganttitemdelegate.cpp:113 ui/gantt/kptganttitemdelegate.cpp:131
+#: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6311,13 +6277,13 @@ msgstr ""
 "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Vrsta omejitve: %5<nl/"
 ">Časovna omejitev: %6<nl/>Negative float: %7 h"
 
-#: ui/gantt/kptganttitemdelegate.cpp:148
+#: ui/gantt/kptganttitemdelegate.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
 msgstr "Ime: %1<nl/>Planirano: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
 
-#: ui/gantt/kptganttitemdelegate.cpp:167 ui/gantt/kptganttitemdelegate.cpp:184
+#: ui/gantt/kptganttitemdelegate.cpp:168 ui/gantt/kptganttitemdelegate.cpp:185
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -6327,13 +6293,13 @@ msgstr ""
 "Ime: %1<nl/>Planirano: %2 Status: %3<nl/>Vrsta omejitve: %4<nl/>Omejitveni "
 "čas: %5 Negative float: %6 h"
 
-#: ui/gantt/kptganttitemdelegate.cpp:200
+#: ui/gantt/kptganttitemdelegate.cpp:201
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
 msgstr "Ime: %1<nl/>Planirano: %2<nl/>Status: %3<nl/>Scheduling: %4"
 
-#: ui/gantt/kptganttitemdelegate.cpp:213
+#: ui/gantt/kptganttitemdelegate.cpp:214
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
@@ -6429,7 +6395,7 @@ msgid "Modify resourcegroup allocation"
 msgstr "Spremeni dodelitev skupine virov"
 
 #: ui/kptaccountseditor.cpp:39 ui/kptaccountsviewconfigdialog.cpp:32
-#: ui/kptdependencyeditor.cpp:2171 ui/kptresourceappointmentsview.cpp:52
+#: ui/kptdependencyeditor.cpp:2174 ui/kptresourceappointmentsview.cpp:52
 #, kde-format
 msgid "Settings"
 msgstr "Nastavitve"
@@ -6652,7 +6618,7 @@ msgstr "Dodaj koledar"
 msgid "Add Subcalendar"
 msgstr "Dodaj podkoledar"
 
-#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2584
+#: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2587
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
 #: ui/kpttaskeditor.cpp:929 ui/ResourceGroupEditor.cpp:291
 #, kde-kuit-format
@@ -6721,7 +6687,7 @@ msgstr "je"
 msgid "%"
 msgstr "%"
 
-#: ui/kptdependencyeditor.cpp:2224
+#: ui/kptdependencyeditor.cpp:2227
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -6737,115 +6703,115 @@ msgstr ""
 "oz. brišete odvisnosti s kontekstnim menijem.</para><para>Ta pogled podpira "
 "tiskanje s kontekstnim menijem.<nl/><link url='%1'>Več...</link></para>"
 
-#: ui/kptdependencyeditor.cpp:2542
+#: ui/kptdependencyeditor.cpp:2545
 #, kde-format
 msgid "Edit Dependency..."
 msgstr "Uredi odvisnost..."
 
-#: ui/kptdependencyeditor.cpp:2546
+#: ui/kptdependencyeditor.cpp:2549
 #, kde-format
 msgid "Delete Dependency"
 msgstr "Izbriši odvisnost"
 
-#: ui/kptdependencyeditor.cpp:2550 ui/kpttaskeditor.cpp:934
+#: ui/kptdependencyeditor.cpp:2553 ui/kpttaskeditor.cpp:934
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Link"
 msgstr "Povezava"
 
-#: ui/kptdependencyeditor.cpp:2555 ui/kpttaskeditor.cpp:900
+#: ui/kptdependencyeditor.cpp:2558 ui/kpttaskeditor.cpp:900
 #: ui/kpttaskeditor.cpp:904
 #, kde-format
 msgid "Add Task"
 msgstr "Dodaj nalogo"
 
-#: ui/kptdependencyeditor.cpp:2559
+#: ui/kptdependencyeditor.cpp:2562
 #, kde-format
 msgid "Add Task..."
 msgstr "Dodaj nalogo..."
 
-#: ui/kptdependencyeditor.cpp:2564
+#: ui/kptdependencyeditor.cpp:2567
 #, kde-format
 msgid "Add Milestone..."
 msgstr "Dodaj mejnik ..."
 
-#: ui/kptdependencyeditor.cpp:2570 ui/kpttaskeditor.cpp:915
+#: ui/kptdependencyeditor.cpp:2573 ui/kpttaskeditor.cpp:915
 #: ui/kpttaskeditor.cpp:919
 #, kde-format
 msgid "Add Sub-Task"
 msgstr "Dodaj pod-nalogo"
 
-#: ui/kptdependencyeditor.cpp:2574
+#: ui/kptdependencyeditor.cpp:2577
 #, kde-format
 msgid "Add Sub-Task..."
 msgstr "Dodaj pod-nalogo..."
 
-#: ui/kptdependencyeditor.cpp:2579
+#: ui/kptdependencyeditor.cpp:2582
 #, kde-format
 msgid "Add Sub-Milestone..."
 msgstr "Dodaj podrejeni mejnik..."
 
-#: ui/kptdependencyeditor.cpp:2589 ui/kptdocumentseditor.cpp:203
-#: ui/kptganttview.cpp:446 ui/kptpertresult.cpp:151
+#: ui/kptdependencyeditor.cpp:2592 ui/kptdocumentseditor.cpp:203
+#: ui/kptganttview.cpp:447 ui/kptpertresult.cpp:151
 #: ui/kptscheduleeditor.cpp:705 ui/kpttaskeditor.cpp:690
 #: ui/kpttaskeditor.cpp:959 ui/kpttaskeditor.cpp:1835
-#: ui/MilestoneGanttView.cpp:457 ui/performance/PerformanceStatusView.cpp:329
-#: ui/ResourceAppointmentsGanttView.cpp:363
+#: ui/MilestoneGanttView.cpp:458 ui/performance/PerformanceStatusView.cpp:329
+#: ui/ResourceAppointmentsGanttView.cpp:364
 #, kde-format
 msgid "Edit..."
 msgstr "Uredi..."
 
-#: ui/kptdependencyeditor.cpp:2593 ui/kptganttview.cpp:450
+#: ui/kptdependencyeditor.cpp:2596 ui/kptganttview.cpp:451
 #: ui/kptresourceappointmentsview.cpp:315 ui/kpttaskeditor.cpp:963
 #: ui/kpttaskeditor.cpp:1839 ui/kpttaskeditor.cpp:2434
-#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:461
+#: ui/kpttaskstatusview.cpp:362 ui/MilestoneGanttView.cpp:462
 #: ui/performance/PerformanceStatusView.cpp:333
-#: ui/ResourceAppointmentsGanttView.cpp:367
+#: ui/ResourceAppointmentsGanttView.cpp:368
 #, kde-format
 msgid "Progress..."
 msgstr "Napredovanje..."
 
-#: ui/kptdependencyeditor.cpp:2597 ui/kptganttview.cpp:454
+#: ui/kptdependencyeditor.cpp:2600 ui/kptganttview.cpp:455
 #: ui/kptresourceappointmentsview.cpp:319 ui/kpttaskeditor.cpp:967
 #: ui/kpttaskeditor.cpp:1843 ui/kpttaskeditor.cpp:2438
-#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:465
+#: ui/kpttaskstatusview.cpp:366 ui/MilestoneGanttView.cpp:466
 #: ui/performance/PerformanceStatusView.cpp:337
-#: ui/ResourceAppointmentsGanttView.cpp:371
+#: ui/ResourceAppointmentsGanttView.cpp:372
 #, kde-format
 msgid "Description..."
 msgstr "Opis..."
 
-#: ui/kptdependencyeditor.cpp:2601 ui/kptganttview.cpp:458
+#: ui/kptdependencyeditor.cpp:2604 ui/kptganttview.cpp:459
 #: ui/kptresourceappointmentsview.cpp:323 ui/kpttaskeditor.cpp:971
 #: ui/kpttaskeditor.cpp:1847 ui/kpttaskeditor.cpp:2442
-#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:469
+#: ui/kpttaskstatusview.cpp:370 ui/MilestoneGanttView.cpp:470
 #: ui/performance/PerformanceStatusView.cpp:341
-#: ui/ResourceAppointmentsGanttView.cpp:375
+#: ui/ResourceAppointmentsGanttView.cpp:376
 #, kde-format
 msgid "Documents..."
 msgstr "Dokumenti..."
 
-#: ui/kptdependencyeditor.cpp:2632 ui/kptrelationdialog.cpp:87
+#: ui/kptdependencyeditor.cpp:2635 ui/kptrelationdialog.cpp:87
 msgctxt "(qtundo-format)"
 msgid "Add task dependency"
 msgstr "Dodaj odvisnost naloge"
 
-#: ui/kptdependencyeditor.cpp:2701 ui/kptrelationdialog.cpp:162
+#: ui/kptdependencyeditor.cpp:2704 ui/kptrelationdialog.cpp:162
 msgctxt "(qtundo-format)"
 msgid "Delete task dependency"
 msgstr "Izbriši odvisnost naloge"
 
-#: ui/kptdependencyeditor.cpp:2743
+#: ui/kptdependencyeditor.cpp:2746
 msgctxt "(qtundo-format)"
 msgid "Add milestone"
 msgstr "Dodaj mejnik"
 
-#: ui/kptdependencyeditor.cpp:2788
+#: ui/kptdependencyeditor.cpp:2791
 msgctxt "(qtundo-format)"
 msgid "Add sub-milestone"
 msgstr "Dodaj podrejeni mejnik"
 
-#: ui/kptdependencyeditor.cpp:2810 ui/kpttaskeditor.cpp:1144
+#: ui/kptdependencyeditor.cpp:2813 ui/kpttaskeditor.cpp:1144
 msgctxt "(qtundo-format) Delete one task"
 msgid "Delete task"
 msgstr "Izbriši nalogo"
@@ -6861,71 +6827,71 @@ msgctxt "@action View a document"
 msgid "View..."
 msgstr "Pogled..."
 
-#: ui/kptdocumentspanel.cpp:112
+#: ui/kptdocumentspanel.cpp:114
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Attach Document"
 msgstr "Pripni dokument"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Cannot Attach Document"
 msgstr "Ni moč pripeti dokumenta"
 
-#: ui/kptdocumentspanel.cpp:116
+#: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
 msgstr "Dokument je že pripet:<nl/><filename>%1</filename>"
 
-#: ui/kptdocumentspanel.cpp:137
+#: ui/kptdocumentspanel.cpp:139
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Modify Url"
 msgstr "Spremeni spletni naslov"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Cannot Modify Url"
 msgstr "Ni mogoče spremeniti spletnega naslova"
 
-#: ui/kptdocumentspanel.cpp:142
+#: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Document url already exists: %1"
 msgstr "Spletni naslov dokumenta že obstaja: %1"
 
-#: ui/kptdocumentspanel.cpp:199
+#: ui/kptdocumentspanel.cpp:204
 msgctxt "(qtundo-format)"
 msgid "Modify documents"
 msgstr "Spremeni dokumente"
 
-#: ui/kptdocumentspanel.cpp:209
+#: ui/kptdocumentspanel.cpp:214
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Odstrani dokument"
 
-#: ui/kptdocumentspanel.cpp:217
+#: ui/kptdocumentspanel.cpp:222
 msgctxt "(qtundo-format)"
 msgid "Modify document url"
 msgstr "Spremeni spletni naslov dokumenta"
 
-#: ui/kptdocumentspanel.cpp:221
+#: ui/kptdocumentspanel.cpp:226
 msgctxt "(qtundo-format)"
 msgid "Modify document type"
 msgstr "Spremeni vrsto dokumenta"
 
-#: ui/kptdocumentspanel.cpp:225
+#: ui/kptdocumentspanel.cpp:230
 msgctxt "(qtundo-format)"
 msgid "Modify document status"
 msgstr "Spremeni stanje dokumenta"
 
-#: ui/kptdocumentspanel.cpp:229
+#: ui/kptdocumentspanel.cpp:234
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
 msgstr "Spremeni kontrolo pošiljanja dokumenta"
 
-#: ui/kptdocumentspanel.cpp:240
+#: ui/kptdocumentspanel.cpp:245
 msgctxt "(qtundo-format)"
 msgid "Add document"
 msgstr "Dodaj dokument"
@@ -6993,37 +6959,37 @@ msgstr "Odpri"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
-#: ui/kptganttview.cpp:140 ui/kptmainprojectpanel.cpp:126
-#: ui/MilestoneGanttView.cpp:96 ui/ResourceAppointmentsGanttView.cpp:112
+#: ui/kptganttview.cpp:141 ui/kptmainprojectpanel.cpp:126
+#: ui/MilestoneGanttView.cpp:97 ui/ResourceAppointmentsGanttView.cpp:113
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Brez prostih dni"
 
-#: ui/kptganttview.cpp:141 ui/MilestoneGanttView.cpp:97
-#: ui/ResourceAppointmentsGanttView.cpp:113
+#: ui/kptganttview.cpp:142 ui/MilestoneGanttView.cpp:98
+#: ui/ResourceAppointmentsGanttView.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
 msgstr "Prosti dnevi projekta"
 
-#: ui/kptganttview.cpp:173 ui/kptganttview.cpp:192
-#: ui/MilestoneGanttView.cpp:130 ui/MilestoneGanttView.cpp:147
+#: ui/kptganttview.cpp:174 ui/kptganttview.cpp:193
+#: ui/MilestoneGanttView.cpp:131 ui/MilestoneGanttView.cpp:148
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:155
-#: ui/ResourceAppointmentsGanttView.cpp:144
-#: ui/ResourceAppointmentsGanttView.cpp:161
+#: ui/ResourceAppointmentsGanttView.cpp:145
+#: ui/ResourceAppointmentsGanttView.cpp:162
 #, kde-format
 msgid "Chart"
 msgstr "Grafikon"
 
-#: ui/kptganttview.cpp:173 ui/MilestoneGanttView.cpp:130
-#: ui/ResourceAppointmentsGanttView.cpp:144
+#: ui/kptganttview.cpp:174 ui/MilestoneGanttView.cpp:131
+#: ui/ResourceAppointmentsGanttView.cpp:145
 #, kde-format
 msgid "Gantt Chart Settings"
 msgstr "Nastavitve Ganntovega grafikona"
 
-#: ui/kptganttview.cpp:255
+#: ui/kptganttview.cpp:256
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -7041,32 +7007,32 @@ msgstr ""
 "in tiskanje s kontekstnim menijem drevesnega pogleda. <nl/><link "
 "url='%1'>Več...</link></para>"
 
-#: ui/kptganttview.cpp:308 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
+#: ui/kptganttview.cpp:309 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
 msgid "Show Project"
 msgstr "Prikaži projekt"
 
-#: ui/kptganttview.cpp:318
+#: ui/kptganttview.cpp:319
 #, kde-format
 msgid "Filter Options..."
 msgstr "Možnosti filtra..."
 
-#: ui/kptganttview.cpp:330
+#: ui/kptganttview.cpp:331
 #, kde-format
 msgid "Show Unscheduled Tasks"
 msgstr "Prikaži nerazporejene naloge"
 
-#: ui/kptganttview.cpp:337
+#: ui/kptganttview.cpp:338
 #, kde-format
 msgid "Show Tasks"
 msgstr "Prikaži naloge"
 
-#: ui/kptganttview.cpp:345
+#: ui/kptganttview.cpp:346
 #, kde-format
 msgid "Show Milestones"
 msgstr "Prikaži mejnike"
 
-#: ui/kptganttview.cpp:354
+#: ui/kptganttview.cpp:355
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -7076,94 +7042,94 @@ msgstr ""
 "Aktivira možnosti filtra nalog in mejnikov.<nl/>Deaktiviranje tega bo "
 "prikazalo vsa razporejene naloge in mejnike."
 
-#: ui/kptganttview.cpp:363
+#: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
 msgstr "Aktivira možnosti filtra periode."
 
-#: ui/kptganttview.cpp:370
+#: ui/kptganttview.cpp:371
 #, kde-format
 msgid "Show Running Tasks"
 msgstr "Prikaži naloge v teku"
 
-#: ui/kptganttview.cpp:371
+#: ui/kptganttview.cpp:372
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
 msgstr "Prikaži naloge, ki so se začela pred ali med tem obdobjem."
 
-#: ui/kptganttview.cpp:378
+#: ui/kptganttview.cpp:379
 #, kde-format
 msgid "Show Finished Tasks"
 msgstr "Prikaži dokončane naloge"
 
-#: ui/kptganttview.cpp:379
+#: ui/kptganttview.cpp:380
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
 msgstr "Prikaže naloge in mejnike, ki so se zaključile v tem obdobju."
 
-#: ui/kptganttview.cpp:386
+#: ui/kptganttview.cpp:387
 #, kde-format
 msgid "Show Not Started Tasks"
 msgstr "Prikaži še ne začete naloge"
 
-#: ui/kptganttview.cpp:387
+#: ui/kptganttview.cpp:388
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
 msgstr "Prikaže naloge in mejnike, ki bi se morala že začeti."
 
-#: ui/kptganttview.cpp:399
+#: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
 msgstr "specifična perioda:"
 
-#: ui/kptganttview.cpp:405 ui/MilestoneGanttView.cpp:416
-#: ui/ResourceAppointmentsGanttView.cpp:322
+#: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
+#: ui/ResourceAppointmentsGanttView.cpp:323
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Auto"
 msgstr "Avtomatsko"
 
-#: ui/kptganttview.cpp:412 ui/MilestoneGanttView.cpp:423
-#: ui/ResourceAppointmentsGanttView.cpp:329
+#: ui/kptganttview.cpp:413 ui/MilestoneGanttView.cpp:424
+#: ui/ResourceAppointmentsGanttView.cpp:330
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Month"
 msgstr "Mesec"
 
-#: ui/kptganttview.cpp:418 ui/MilestoneGanttView.cpp:429
-#: ui/ResourceAppointmentsGanttView.cpp:335
+#: ui/kptganttview.cpp:419 ui/MilestoneGanttView.cpp:430
+#: ui/ResourceAppointmentsGanttView.cpp:336
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Week"
 msgstr "Teden"
 
-#: ui/kptganttview.cpp:424 ui/MilestoneGanttView.cpp:435
-#: ui/ResourceAppointmentsGanttView.cpp:341
+#: ui/kptganttview.cpp:425 ui/MilestoneGanttView.cpp:436
+#: ui/ResourceAppointmentsGanttView.cpp:342
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Day"
 msgstr "Dan"
 
-#: ui/kptganttview.cpp:430 ui/MilestoneGanttView.cpp:441
-#: ui/ResourceAppointmentsGanttView.cpp:347
+#: ui/kptganttview.cpp:431 ui/MilestoneGanttView.cpp:442
+#: ui/ResourceAppointmentsGanttView.cpp:348
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Hour"
 msgstr "Ura"
 
-#: ui/kptganttview.cpp:436 ui/MilestoneGanttView.cpp:447
-#: ui/ResourceAppointmentsGanttView.cpp:353
+#: ui/kptganttview.cpp:437 ui/MilestoneGanttView.cpp:448
+#: ui/ResourceAppointmentsGanttView.cpp:354
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom In"
 msgstr "Približaj"
 
-#: ui/kptganttview.cpp:441 ui/MilestoneGanttView.cpp:452
-#: ui/ResourceAppointmentsGanttView.cpp:358
+#: ui/kptganttview.cpp:442 ui/MilestoneGanttView.cpp:453
+#: ui/ResourceAppointmentsGanttView.cpp:359
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom Out"
@@ -7286,12 +7252,12 @@ msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
 msgstr "Spremeni nastavitve valute"
 
-#: ui/kptmainprojectdialog.cpp:24
+#: ui/kptmainprojectdialog.cpp:26
 #, kde-format
 msgid "Project Settings"
 msgstr "Nastavitve projekta"
 
-#: ui/kptmainprojectdialog.cpp:64 ui/kptmainprojectpanel.cpp:196
+#: ui/kptmainprojectdialog.cpp:66 ui/kptmainprojectpanel.cpp:196
 msgctxt "(qtundo-format)"
 msgid "Modify main project"
 msgstr "Spremeni glavni projekt"
@@ -9075,7 +9041,7 @@ msgstr "Simbol valute:"
 msgid "Fractional digits:"
 msgstr "Decimalnih mest:"
 
-#: ui/MilestoneGanttView.cpp:223
+#: ui/MilestoneGanttView.cpp:224
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9871,7 +9837,7 @@ msgstr "Potrebno"
 msgid "Allocate"
 msgstr "Dodeli"
 
-#: ui/ResourceAppointmentsGanttView.cpp:234
+#: ui/ResourceAppointmentsGanttView.cpp:235
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
