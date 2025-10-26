@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-25 00:42+0000\n"
-"PO-Revision-Date: 2023-02-02 08:35+0100\n"
+"PO-Revision-Date: 2025-10-25 06:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,12 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
 msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
 msgstr ""
+"PlanWork - სამუშაოს პაეკეტის დამმუშავებელი Plan პროექტის დაგეგმვის "
+"ხელსაწყოსთვის"
 
 #: aboutdata.h:27
 #, kde-format
@@ -93,7 +95,7 @@ msgstr "დოკუმენტი უკვე ღიაა:<br>%1"
 #: part.cpp:151 part.cpp:178 workpackage.cpp:608
 #, kde-format
 msgid "Could not extract document from storage:<br>%1"
-msgstr ""
+msgstr "დოკუმენტის ამოღების შეცდომა საცავიდან:<br>%1"
 
 #: part.cpp:159 part.cpp:186 workpackage.cpp:614
 #, kde-format
@@ -122,6 +124,9 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
+"<p>სამუშაოს პაკეტი უკვე არსებობს პროექტის საცავში.</p><p>პროექტი: "
+"%1<br>საცავი: %2</p><p>გნებავთ, განაახლოთ არსებული პაკეტი მონაცემებით ახალი "
+"პაკეტიდან?</p>"
 
 #: part.cpp:384
 #, kde-format
@@ -170,6 +175,7 @@ msgstr "ფაილის გახსნის შეცდომა: %1"
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr ""
+"დამუშავების შეცდომა ფაილში '%1' ხაზზე %2 სვეტი %3<br>შეცდომის შეტყობინება: %4"
 
 #: part.cpp:583 part.cpp:634
 #, kde-format
@@ -181,6 +187,8 @@ msgstr "არასწორი დოკუმენტი. Mimetype მით
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
+"არასწორი დოკუმენტი. მოველოდი mime-ის ტიპს application/x-vnd.kde.plan,work, "
+"მივიღე %1"
 
 #: part.cpp:602 part.cpp:650
 #, kde-format
@@ -188,6 +196,9 @@ msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"ეს დოკუმენტი უფრო ახალი ვერსიითაა, ვიდრე ეს მხარდაჭერილია PlanWork-ის მიერ "
+"(სინტაქსის ვერსია: %1)<br>მისი გახსნით PlanWork-ის ამ ვერსიაში, შეიძლება, "
+"გარკვეული ინფორმაცია დაკარგოთ."
 
 #: part.cpp:604 part.cpp:652
 #, kde-format
@@ -593,21 +604,25 @@ msgid_plural ""
 "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
 "if you continue.</p>"
 msgstr[0] ""
+"<p>სამუშაოს პაკეტს <b>'%2'</b> აქვს ღია დოკუმენტი.</p><p>გაგრძელების "
+"შემთხვევაში, შეიძლება, მონაცემები დაკარგოთ.</p>"
 msgstr[1] ""
+"<p>სამუშაოს პაკეტს <b>'%2'</b> აქვს ღია დოკუმენტები.</p><p>გაგრძელების "
+"შემთხვევაში, შეიძლება, მონაცემები დაკარგოთ.</p>"
 
 #: workpackage.cpp:661
 #, kde-format
 msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
-msgstr ""
+msgstr "<p>სამუშაო <b>პაკეტი '%1'</b> შეიცვალა.</p><p>გსურთ მისი შენახვა?</p>"
 
 #: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>სამუშაო პაკეტი <b>'%1'</b></p><p>ვერ გავხსენი საცავი:</p><p>%2</p>"
 
 #: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr ""
+msgstr "<p>სამუშაო პაკეტი <b>'%1'</b></p><p>ვერ ამოვიღე ფაილი:</p><p>%2</p>"

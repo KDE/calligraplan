@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2022-12-24 06:04+0100\n"
+"PO-Revision-Date: 2025-10-25 07:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: PlanTJPlugin.cpp:43
 #, kde-kuit-format
@@ -29,6 +29,11 @@ msgid ""
 "all tasks as late as possible.</para><para><note>Plan does not utilize all "
 "of its functionality.</note></para>"
 msgstr ""
+"<title>დამგეგმავი TaskJuggler</title><para>ეს TaskJuggler-ში გამოყენებული "
+"მგეგმავის ოდნავ შეცვლილი ვერსიაა, რომელიც შეიცვალა, რომ რესურსის ერთეულების "
+"მხარდაჭერა ჰქონდეს.</para><para>უკან დაგეგმვის სიმულაცია ყველა ამოცანის რაც "
+"შეიძლება, გვიან დაგეგმვით ხდება.</para><para><note>Plan არ იყენებს მის "
+"ფუნქციონალს სრულად.</note></para>"
 
 #: PlanTJScheduler.cpp:151
 #, kde-kuit-format
@@ -94,7 +99,7 @@ msgstr "დასაგეგმი სცენარი ვერ ვიპო
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Project scheduled to start at %1 and finish at %2"
-msgstr ""
+msgstr "პროექტი დაგეგმილია, რომ დაიწყოს %1-ზე და დასრულდეს %2-ზე"
 
 #: PlanTJScheduler.cpp:476
 #, kde-kuit-format
@@ -124,31 +129,31 @@ msgstr "დაგეგმილი ამოცანა: %1 - %2"
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
-msgstr ""
+msgstr "%1: შეზღუდვის დაკმაყოფილების შეცდომა. უარყოფითი მცურავმძიმიანი=%2"
 
 #: PlanTJScheduler.cpp:630
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
-msgstr ""
+msgstr "დამოკიდებულების დაკმაყოფილება ჩავარდა. უარყოფითი მცურავმძიმიანი=%1"
 
 #: PlanTJScheduler.cpp:780
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
-msgstr ""
+msgstr "წინამორბედად დამატების შეცდომა ამოცანისთვის '%1'"
 
 #: PlanTJScheduler.cpp:791
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
-msgstr ""
+msgstr "მემკვიდრედ დამატების შეცდომა ამოცანისთვის '%1'"
 
 #: PlanTJScheduler.cpp:812
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
-msgstr ""
+msgstr "დამოკიდებულების ტიპი '%1' არ დამუშავდება. გამოიყენება FinishStart."
 
 #: PlanTJScheduler.cpp:873
 #, kde-kuit-format
@@ -173,6 +178,7 @@ msgstr "დროის შეზღუდვის ტიპი დაუმუ
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
 msgstr ""
+"ამოცანის ხანგრძლივობის გამოსათვლელად სწორი კალენდრის გამოყენება შეუძლებელია"
 
 #: PlanTJScheduler.cpp:986
 #, kde-format
@@ -245,3 +251,5 @@ msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "
 "supported"
 msgstr ""
+"დანიშვნა დატვირთვით (%1), რომელიც ნაკლებია, ვიდრე ხელმისაწვდომი რესურსის "
+"ერთეულები (%2) მხარდაჭერილი არაა"

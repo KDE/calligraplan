@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2023-02-02 08:34+0100\n"
+"PO-Revision-Date: 2025-10-25 07:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -182,6 +182,10 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>განტის შეჯამება</title><para>აჩვენებს განტის დიაგრამას თქვენი "
+"პორტფოლიოს ყველა პროექტისთვის.</para><para>განტის ხედი პროექტისთვის "
+"შეგიძლია, აჩვენოთ, თუ აირჩევთ <interface>კონტექსტური მენიუ->პროექტის ნახვა</"
+"interface>.<nl/><link url='%1'>მეტი...</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -196,7 +200,7 @@ msgstr "არასწორი დოკუმენტი. Mimetype მით
 #: MainDocument.cpp:94
 #, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
-msgstr ""
+msgstr "არასწორი დოკუმენტი. მოველოდი mimetype %1, მივიღე %2"
 
 #: MainDocument.cpp:100
 #, kde-format
@@ -204,6 +208,10 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"ეს დოკუმენტი უფრო ახალი ვერსიითაა, ვიდრე ეს მხარდაჭერილია PlanWork-ის მიერ "
+"(სინტაქსის ვერსია: %1)\n"
+"მისი გახსნით PlanWork-ის ამ ვერსიაში, შეიძლება, გარკვეული ინფორმაცია "
+"დაკარგოთ."
 
 #: MainDocument.cpp:102
 #, kde-format
@@ -219,7 +227,7 @@ msgstr "გაგრძელება"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr ""
+msgstr "პროექტი უკვე არსებობს.<nl/>პროექტი: %1<nl/>დოკუმენტი: %2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
@@ -235,6 +243,8 @@ msgid ""
 "<p>The external project file <filename>%1</filename> has been modified.</"
 "p><p>Do you want to save it?</p>"
 msgstr ""
+"<p>გარე პროექტის ფაილი <filename>%1</filename> შეიცვალა.</p><p>გნებავთ, "
+"შეინახოთ ის?</p>"
 
 #: MainWindow.cpp:150
 #, kde-format
@@ -372,7 +382,7 @@ msgstr "ფაილი"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
-msgstr ""
+msgstr "განსაზღვრავს, არის თუ არა პროექტი პორტფოლიოს ნაწილი"
 
 #: PortfolioModel.cpp:79
 #, kde-format
@@ -381,6 +391,8 @@ msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
 msgstr ""
+"განსაზღვრავს, ინახება თუ არა პროექტი ჩაშენებული პორტფოლიოს ფაილში, თუ გარე "
+"ფაილში"
 
 #: PortfolioModel.cpp:81
 #, kde-format
@@ -431,6 +443,19 @@ msgid ""
 "<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects."
 "</note></para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>პორტფოლიოს შემცველობის რედაქტორი</title><para>ეს რედაქტორი საშუალებსა "
+"გაძლევთ, თქვენი პორტფოლიოს შემცველობა ჩაასწოროთ..</para><para>აირჩიეთ "
+"<interface>ჩასწორება|დამატება</interface>, აი დააჭირეთ ღილაკს "
+"<interface>დამატება...</interface>, რომ თქვენს პორტფოლიოს პროექტები დაამატოთ."
+"<nl/>აირჩიეთ <interface>ჩასწორება|წასლა</interface>, ან დააჭირეთ ღილაკს "
+"<interface>წაშლა</interface> მონიშნული პროექტების წასაშლელად.</"
+"para><para>დაამატეთ პროექტები, რომლებსაც მართავთ და დააყენეთ "
+"<emphasis>პორტფოლიო</emphasis> = <emphasis>დიახ</emphasis>.</"
+"para><para><note>თუ თქვენ გაქვთ რესურსები, რომლებიც გაზიარებულია ერთზე მეტი "
+"პროექტის მიერ და გნებავთ, გადაგეგმოთ, ან შეამოწმოთ რესურსების გამოყენება, "
+"დაგჭირდებათ დაამატოთ ყველა შესაბამისი პროექტი და შემდეგ დააყენოთ "
+"<emphasis>პორტფოლიო</emphasis> = <emphasis>არა</emphasis> ამ პროექტებისთვის."
+"</note></para><para><link url='%1'>მეტი...</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -442,6 +467,11 @@ msgid ""
 "this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
+"<subtitle>კონტექსტური დახმარება</subtitle><para>ბევრ ფუნქციას აქვს დახმარება "
+"და მინიშნებები, რომელიც შეგიძლიათ გამოიტანოთ ღილაკით <emphasis>რა არის ეს</"
+"emphasis>.</para><para>გაააქტიურეთ ის მენიუში <interface>დახმარება|რა არის "
+"ეს</interface> ან დააჭირეთ <shortcut>Shift+F1</shortcut>.</"
+"para><para>სცადეთ, ეს ამ ტექსტზე გააკეთოთ!</para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
@@ -461,6 +491,13 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>კონტექსტური დახმარება</title><para>დახმარება ბევრ ადგილასაა "
+"ხელმისაწვდომი ღილაკით <emphasis>რა არის ეს</emphasis>.<nl/>ის აქტიურდება "
+"მენიუდან <interface>დახმარება->რა არის ეს?</interface> ან კლავიატურის "
+"მალსახმობით <shortcut>Shift+F1</shortcut>.</para><para>დიალოგებში "
+"ხელმისაწვდომია ღილაკით <interface>?</interface> დიალოგის სათაურის პანელზე.</"
+"para><para>თუ ხედავთ <link url='%1'>მეტი...</link> ტექსტში, მისი დაჭერა "
+"აჩვენებს მეტ ინფორმაციას დოკუმენტაციიდან.</para>"
 
 #: PortfolioView.cpp:184
 #, kde-format
@@ -481,13 +518,13 @@ msgstr "პროექტის დამატება"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
-msgstr ""
+msgstr "პროექტის ჩატვირთვა ჩავარდა. არ წარმოადგენს სწორ Plan-ის ფაილს: <nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
-msgstr ""
+msgstr "პროექტის გახსნა ჩავარდა. არ ჰგავს პორტფოლიოს ფაილს:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -496,6 +533,8 @@ msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
 msgstr ""
+"პროექტი უკვე არსებობს. პროექტის არ დაემატება.<nl/>პროექტი: %1<nl/> "
+"დოკუმენტი: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
@@ -586,6 +625,17 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>მიმდინარეობა</title><para>ეს ხედი გამოიყენება არჩეული პროექტის "
+"ამოცანის პროგრესის ინფორმაციის შესამოწმებლად და რედაქტირებისთვის.<nl/"
+">ამოცანები იყოფა ჯგუფებად, რაც დამოკიდებულია დავალების სტატუსზე: "
+"<list><item><emphasis>არ დაწყებულია:</emphasis> ამოცანები, რომლებიც ამ "
+"დროისთვის უნდა დაწყებულიყო.</item><item><emphasis>გაშვებული:</emphasis> "
+"ამოცანები, რომლებიც დაწყებულია, მაგრამ ჯერ არ დასრულებულა.</"
+"item><item><emphasis>დასრულებული:</emphasis> ამოცანები, რომლებიც დასრულდა ამ "
+"პერიოდში.</item><item><emphasis>შემდეგი პერიოდი:</emphasis> ამოცანები, "
+"რომელთა დაწყება დაგეგმილია მომდევნო პერიოდში.</item></list>დროის პერიოდი "
+"მორგებადია.</para><para>ამ ხედს აქვს მორგების და ბეჭდვის მხარდაჭერა "
+"კონტექსტური მენიუს გამოყენებით.<nl/><link url='%1'>ვრცლად...</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -646,6 +696,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>პროექტი: %1</title><para>გეგმა: დაგეგმილი არაა</"
+"para><para><list><item>სამიზნე დასაწყისი:\t%2</item><item>სამიზნე დასასრული:"
+"\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -655,6 +708,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>პროექტი: %1</title><para>გეგმა: %4 დაგეგმილი არაა</"
+"para><para><list><item>სამიზნე დაწყება:\t%2</item><item>სამიზნე დასრულება:\t"
+"%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -664,6 +720,9 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>პროექტი: %1</title><para>გეგმა: %6</para><para><list><item>დაგეგმილი "
+"დაწყება:\t%2</item><item>დაგეგმილი დასრულება:\t%3</item><item>სამიზნე "
+"დაწყება:\t%4</item><item>სამიზნე დასრულება:\t%5</item></list></para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
@@ -681,31 +740,31 @@ msgstr "გეგმა: %1 დაგეგმილი არაა"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "განრიგი %1: დაგეგმილია დაწყება: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "განრიგი %1: დაგეგმილია დასრულება: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "განრიგი ეკუთვნის პორტფოლიოს"
 
 #: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr ""
+msgstr "განრიგი არის საბაზისო"
 
 #: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr ""
+msgstr "დაგეგმილი, მაგრამ არა საბაზისო"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
@@ -731,6 +790,9 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>რესურსების გამოყენება</title><para>ეს ხედი გაჩვენებთ რესურსების "
+"ამოცანების მინიჭებას თითოეული დღისთვის.</para><para><nl/><link "
+"url='%1'>მეტი...</link></para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
@@ -745,7 +807,7 @@ msgstr "ჩვეულებრივი"
 #: ResourceUsageView.cpp:114
 #, kde-format
 msgid "Stacked"
-msgstr ""
+msgstr "ჩალაგებული"
 
 #: ResourceUsageView.cpp:122
 #, kde-format
@@ -789,7 +851,7 @@ msgstr "ახალი ქვეგანრიგი"
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "შეიქმნება ახალი გეგმა '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -797,6 +859,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"არსებული გეგმა '%1' პორტფოლიოს მიეკუთვნება.\n"
+"'%1' დაიგეგმება."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -804,6 +868,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"არსებული გეგმა '%1' Plan-ს ეკუთვნის.\n"
+"შეიქმნება ახალი გეგმა '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -811,6 +877,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"პროექტი დაიწყო.\n"
+"'%1' შეიქმნება, როგორც '%2'-ის ქვეგეგმა."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
@@ -871,11 +939,13 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"დაგეგმვა შეუძლებელია. პროექტის სამიზნე დასრულების თარიღი გამოთვლილ დროზე "
+"გვიან უნდა იყოს"
 
 #: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
-msgstr ""
+msgstr "დაგეგმვა..."
 
 #: SchedulingModel.cpp:192
 #, kde-format
@@ -895,7 +965,7 @@ msgstr "დაიწყო"
 #: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "საბაზისო"
 
 #: SchedulingModel.cpp:200
 #, kde-format
@@ -909,6 +979,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"დაგეგმვა შეუძლებელია. პროექტის სამიზნე დასრულების თარიღი გამოთვლილ დროზე "
+"გვიან უნდა იყოს"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
@@ -920,7 +992,7 @@ msgstr "ამ პროექტის დაგეგმვა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
-msgstr ""
+msgstr "რესურსების დაჯავშნის ჩასმა ან პროექტიდან"
 
 #: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
@@ -932,7 +1004,7 @@ msgstr "ამ პროექტის გამორიცხვა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "უმაღლესი პრიორიტეტი პირველი იგეგმება"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -950,6 +1022,17 @@ msgid ""
 "needs to be included for resource leveling to work properly.</note></"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>დაგეგმვა</title><para>დაგეგმვის ხედი საშუალებას გაძლევთ დაგეგმოთ "
+"პროექტები თქვენს პორტფოლიოში. პროექტები დაგეგმილია მათი პრიორიტეტის მიხედვით."
+"</para><para>დააყენეთ <emphasis>კონტროლი</emphasis> დაგეგმილად პროექტის ან "
+"პროექტებისთვის, რომელთა დაგეგმვაც გსურთ.<emphasis></emphasis><nl/>დააყენეთ "
+"<emphasis>კონტროლი</emphasis> <emphasis>ჩართვაზე</emphasis>, რათა რესურსების "
+"დავალებები შედიოდეს რესურსების ნიველირებაში.<nl/>დააყენეთ "
+"<emphasis>კონტროლი</emphasis> <emphasis>გამორიცხვაზე</emphasis>, თუ გსურთ "
+"პროექტის გამორიცხვა.</para><para><note>თუ თქვენი პროექტები იზიარებენ "
+"რესურსებს პროექტებთან, რომლებიც არ არის თქვენი პორტფელის ნაწილი, ეს "
+"პროექტები უნდა იყოს ჩართული რესურსების გათანაბრებისთვის გამართულად "
+"მუშაობისთვის.</note></para><para><link url='%1'>ვრცლად...</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
@@ -967,12 +1050,12 @@ msgstr "აღწერა..."
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "შიდა შეცდომა. გეგმის დამატება აღმოჩენილი არაა."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
-msgstr ""
+msgstr "დასაგეგმი არაფერია"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -980,17 +1063,19 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"დაგეგმვა შეუძლებელია. პროექტის სამიზნე დასრულების თარიღი გამოთვლილ დროზე "
+"გვიან უნდა იყოს."
 
 #: SchedulingView.cpp:458
 #, kde-format
 msgid "Scheduling projects"
-msgstr ""
+msgstr "პროექტების დაგეგმვა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
 #, kde-format
 msgid "Scheduling Control"
-msgstr ""
+msgstr "დაგეგმვის კონტროლი"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: SchedulingView.ui:60
@@ -1014,7 +1099,7 @@ msgstr "პარამეტრები"
 #: SchedulingView.ui:84
 #, kde-format
 msgid "Sequential"
-msgstr ""
+msgstr "თანმიმდევრული"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: SchedulingView.ui:91
@@ -1064,7 +1149,7 @@ msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
-msgstr ""
+msgstr "გეგმის შესრულების ინდექსი (BCWS/BCWP)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1075,6 +1160,10 @@ msgid ""
 "shown for both cost based and effort based calculations.</para><para><nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>პროექტების შეჯამების ხედი</title><para>ეს ხედი აჯამებს თქვენს "
+"პორტფოლიოში არსებული პროექტების შესრულების მონაცემებს.</para><para>შესრულები "
+"ინდექსები ნაჩვენებია ორივე, ფასზე დაფუძნებით და ძალისხმევის მიხედვით.</"
+"para><para><nl/><link url='%1'>მეტი...</link></para>"
 
 #: View.cpp:58
 #, kde-format

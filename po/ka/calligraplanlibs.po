@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-10-25 00:42+0000\n"
-"PO-Revision-Date: 2023-03-23 14:24+0100\n"
+"PO-Revision-Date: 2025-10-25 14:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -343,7 +343,7 @@ msgstr "ფიქსირებული ინტერვალი"
 #: kernel/kptnode.cpp:848
 #, kde-format
 msgid "Task constraint outside project constraint"
-msgstr ""
+msgstr "ამოცანის შეზღუდვა პროექტის შეზღუდვის გარეთ"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
@@ -449,7 +449,7 @@ msgstr "პროექტი დროზე ადრე დასრულდ
 #: kernel/kptproject.cpp:390
 #, kde-format
 msgid "Schedule project forward from: %1"
-msgstr ""
+msgstr "პროექტის გადამისამართების დაგეგმვა საიდან: %1"
 
 #: kernel/kptproject.cpp:396 kernel/kptproject.cpp:432
 #, kde-format
@@ -459,7 +459,7 @@ msgstr "გვიანები დასრულების გამოთ�
 #: kernel/kptproject.cpp:399 kernel/kptproject.cpp:434
 #, kde-format
 msgid "Late finish calculated: %1"
-msgstr ""
+msgstr "დაგვიანებული დასრულება გამოთვლილია: %1"
 
 #: kernel/kptproject.cpp:402 kernel/kptproject.cpp:426
 #, kde-format
@@ -469,7 +469,7 @@ msgstr "ადრეული დასაწყისის გამოთვ�
 #: kernel/kptproject.cpp:422
 #, kde-format
 msgid "Schedule project backward from: %1"
-msgstr ""
+msgstr "პროექტის უკან დაგეგმვა საიდან: %1"
 
 #: kernel/kptproject.cpp:429
 #, kde-format
@@ -479,32 +479,32 @@ msgstr "ადრეული დაწყება გამოთვლილ�
 #: kernel/kptproject.cpp:436
 #, kde-format
 msgid "Schedule tasks backward"
-msgstr ""
+msgstr "ამოცანების დაგეგმვა უკან"
 
 #: kernel/kptproject.cpp:451
 #, kde-format
 msgid "Failed to finish project within target time"
-msgstr ""
+msgstr "პროექტის დასრულება სამიზნე დროში ვერ მოხერხდა"
 
 #: kernel/kptproject.cpp:454
 #, kde-format
 msgid "Scheduled start: %1, target time: %2"
-msgstr ""
+msgstr "დაგეგმილი დაწყება: %1, სამიზნე დრო: %2"
 
 #: kernel/kptproject.cpp:457
 #, kde-format
 msgid "Must start project early in order to finish in time: %1"
-msgstr ""
+msgstr "პროექტის დაწყება უფრო ადრე, დროულად დასასრულებლად: %1"
 
 #: kernel/kptproject.cpp:459
 #, kde-format
 msgid "Start project exactly on time: %1"
-msgstr ""
+msgstr "პროექტის დაწყება ზუსტად დროზე: %1"
 
 #: kernel/kptproject.cpp:461
 #, kde-format
 msgid "Can start project later than time: %1"
-msgstr ""
+msgstr "შემიძლია დავიწყო პროექტი გვიან, ვიდრე: %1"
 
 #: kernel/kptproject.cpp:469
 #, kde-format
@@ -514,42 +514,42 @@ msgstr "გამოთვლის დრო: %1"
 #: kernel/kptproject.cpp:871
 #, kde-format
 msgid "Start calculating forward"
-msgstr ""
+msgstr "წინ გამოთვლის დაწყება"
 
 #: kernel/kptproject.cpp:932
 #, kde-format
 msgid "Finished calculating forward: %1 ms"
-msgstr ""
+msgstr "დასრულდა წინ გამოთვლა: %1 მწმ"
 
 #: kernel/kptproject.cpp:950
 #, kde-format
 msgid "Start calculating backward"
-msgstr ""
+msgstr "უკან გამოთვლის დაწყება"
 
 #: kernel/kptproject.cpp:1007
 #, kde-format
 msgid "Finished calculating backward: %1 ms"
-msgstr ""
+msgstr "დასრულდა უკან გამოთვლა: %1 მწმ"
 
 #: kernel/kptproject.cpp:1023
 #, kde-format
 msgid "Start scheduling forward"
-msgstr ""
+msgstr "წინ დაგეგმვის დაწყება"
 
 #: kernel/kptproject.cpp:1057
 #, kde-format
 msgid "Finished scheduling forward: %1 ms"
-msgstr ""
+msgstr "დასრულდა წინ დაგეგმვა: %1 მწმ"
 
 #: kernel/kptproject.cpp:1077
 #, kde-format
 msgid "Start scheduling backward"
-msgstr ""
+msgstr "უკან დაგეგმვის დაწყება"
 
 #: kernel/kptproject.cpp:1098
 #, kde-format
 msgid "Finished scheduling backward: %1 ms"
-msgstr ""
+msgstr "დასრულდა უკან დაგეგმვა: %1 მწმ"
 
 #: kernel/kptproject.cpp:2786
 #, kde-format
@@ -578,21 +578,22 @@ msgstr "დასაწყისი-დასაწყისი"
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
 msgstr ""
+"მიმდინარეობს თავიდან დაგეგმვა, მაგრამ გამოყენებული რესურსები აღმოჩენილი არაა"
 
 #: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
-msgstr ""
+msgstr "გადახდის დამთხვევა: მარცვლოვნობა: %1, გადახრა %2"
 
 #: kernel/kptresourcerequest.cpp:975
 #, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
-msgstr ""
+msgstr "სამუშაოს რაოდენობის შეთანხმება შეუძლებელია. მინდა: %1 მაქვს %2 (%3)"
 
 #: kernel/kptresourcerequest.cpp:978
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
-msgstr ""
+msgstr "რესურსი %1 ხელმისაწვდომია %2-დან %3-მდე"
 
 #: kernel/kptschedule.cpp:165
 #, kde-format
@@ -636,7 +637,7 @@ msgstr "პორტფოლიო"
 #: kernel/kptschedule.cpp:1798
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "საბაზისო"
 
 #: kernel/kpttask.cpp:1109
 #, kde-format
@@ -651,18 +652,18 @@ msgstr "ადრეული დასრულების გამოთვ�
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint"
-msgstr ""
+msgstr "%1: შეზღუდვა ვერ დაკმაყოფილდა"
 
 #: kernel/kpttask.cpp:1277 kernel/kpttask.cpp:1530 kernel/kpttask.cpp:1933
 #: kernel/kpttask.cpp:2315
 #, kde-format
 msgid "Resource %1 booked from %2 to %3"
-msgstr ""
+msgstr "რესურსი %1 დაჯავშნილია %2-დან %3-მდე"
 
 #: kernel/kpttask.cpp:1283
 #, kde-format
 msgid "Early finish calculated: %1"
-msgstr ""
+msgstr "ადრეული დასრულება გამოთვლილია: %1"
 
 #: kernel/kpttask.cpp:1383
 #, kde-format
@@ -677,17 +678,17 @@ msgstr "გვიანი დაწყება გამოთვლილი�
 #: kernel/kpttask.cpp:1633
 #, kde-format
 msgid "Start schedule forward: %1 "
-msgstr ""
+msgstr "გეგმის დაწყება წინ: %1 "
 
 #: kernel/kpttask.cpp:1635
 #, kde-format
 msgid "Schedule from start %1"
-msgstr ""
+msgstr "დაგეგმვა დაწყებიდან %1"
 
 #: kernel/kpttask.cpp:1682
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
-msgstr ""
+msgstr "%1: დაგეგმვის გვიანი დასრულება შეუძლებელია. ვცდი ნაადრევ დასრულებას."
 
 #: kernel/kpttask.cpp:1717 kernel/kpttask.cpp:1741 kernel/kpttask.cpp:1767
 #: kernel/kpttask.cpp:1791 kernel/kpttask.cpp:1809 kernel/kpttask.cpp:1880
@@ -698,65 +699,66 @@ msgstr ""
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
-msgstr ""
+msgstr "%1: შეზღუდვის დაკმაყოფილების შეცდომა. უარყოფითი რეზერვმძიმიანი=%2"
 
 #: kernel/kpttask.cpp:1833 kernel/kpttask.cpp:2221
 #, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
 msgstr ""
+"სამუშაოს მოცულობის გადახრა. დაახლ: %1. დაგეგმილია: %2. მარცვლოვნობა: %3"
 
 #: kernel/kpttask.cpp:1841 kernel/kpttask.cpp:2229
 #, kde-format
 msgid "Effort not met. Estimate: %1, scheduled: %2"
-msgstr ""
+msgstr "სამუშაოს მოცულობა ვერ შეთანხმდა. დაახლ: %1, დაგეგმილია: %2"
 
 #: kernel/kpttask.cpp:1929 kernel/kpttask.cpp:2311
 #, kde-format
 msgid "Failed to schedule within project target time"
-msgstr ""
+msgstr "პროექტის სამიზნე დროში დაგეგმვა შეუძლებელია"
 
 #: kernel/kpttask.cpp:1936 kernel/kpttask.cpp:2318
 #, kde-format
 msgid "Starting earlier than early start"
-msgstr ""
+msgstr "ვიწყებ ადრეულ დაწყებაზე ადრე"
 
 #: kernel/kpttask.cpp:1939 kernel/kpttask.cpp:2321
 #, kde-format
 msgid "Finishing later than late finish"
-msgstr ""
+msgstr "ვასრულებ გვიან დასრულებაზე მოგვიანებით"
 
 #: kernel/kpttask.cpp:1941 kernel/kpttask.cpp:2323
 #, kde-format
 msgid "Scheduled: %1 to %2"
-msgstr ""
+msgstr "დაგეგმილია: %1-დან %2-მდე"
 
 #: kernel/kpttask.cpp:1944
 #, kde-format
 msgid "Finished schedule forward: %1 ms"
-msgstr ""
+msgstr "დასრულდა წინ დაგეგმვა: %1 მწმ"
 
 #: kernel/kpttask.cpp:2042
 #, kde-format
 msgid "Schedule from end time: %1"
-msgstr ""
+msgstr "დაგეგმვა დასრულების დროიდან: %1"
 
 #: kernel/kpttask.cpp:2066
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within late finish."
-msgstr ""
+msgstr "%1: გვიანი დასრულებით დაგეგმვა შეუძლებელია."
 
 #: kernel/kpttask.cpp:2072
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
-msgstr ""
+msgstr "%1: ჩავარდა მემკვიდრის დაწყების დროის განმავლობაში"
 
 #: kernel/kpttask.cpp:2099 kernel/kpttask.cpp:2237
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule after early start."
-msgstr ""
+msgstr "%1: ადრეული დაწყებით დაგეგმვა ჩავარდა."
 
 #: kernel/kpttask.cpp:2394
 #, kde-format
@@ -766,7 +768,7 @@ msgstr "რესურსი გამოყოფილი არააა"
 #: kernel/kpttask.cpp:2559
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
-msgstr ""
+msgstr "სამუშაოს ხანგრძლივობის შეთანხმება შეუძლებელია. მინდა: %1 მაქვს %2"
 
 #: kernel/kptwbsdefinition.cpp:28
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
@@ -815,28 +817,28 @@ msgstr "გუნდი"
 #: kernel/Resource.cpp:577
 #, kde-format
 msgid "Make appointments: Invalid time"
-msgstr ""
+msgstr "შეხვედრების დანიშვნა: არასწორი დრო"
 
 #: kernel/Resource.cpp:582 kernel/Resource.cpp:643 kernel/Resource.cpp:893
 #: kernel/Resource.cpp:968
 #, kde-format
 msgid "Resource %1 has no calendar defined"
-msgstr ""
+msgstr "რესურსს %1 კალენდარი განსაზღვრული არ აქვს"
 
 #: kernel/Resource.cpp:606
 #, kde-format
 msgid "Make appointments: Node start time is not valid"
-msgstr ""
+msgstr "შეხვედრის დანიშვნა: კვანძის დაწყების დრო არასწორია"
 
 #: kernel/Resource.cpp:610
 #, kde-format
 msgid "Make appointments: Node end time is not valid"
-msgstr ""
+msgstr "შეხვედრის დანიშვნა: კვანძის დასრულების დრო არასწორია"
 
 #: kernel/Resource.cpp:657 kernel/Resource.cpp:674
 #, kde-format
 msgid "Resource %1 not available in interval: %2 to %3"
-msgstr ""
+msgstr "რესურსი %1 ხელმიუწვდომელია ინტერვალში %2-%3"
 
 #: kernel/WorkPackage.cpp:135
 #, kde-format
@@ -908,6 +910,11 @@ msgid ""
 "anyone. You can even directly access your address book with the Choose "
 "button."
 msgstr ""
+"ამ ამოცანაზე პასუხისმგებელი პირი.\n"
+"\n"
+"ეს შემოიფარგლება რესურსების ჯგუფში არსებული პირებით და შეიძლება, ნებისმიერი "
+"პირი იყოს. შეგიძლიათ, პირდაპირ შეხვიდეთ თქვენს მისამართების წიგნში არჩევის "
+"ღილაკზე დაჭერით."
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: main/config/ConfigDocumentationPanel.ui:43
@@ -1098,12 +1105,12 @@ msgstr "უბრალოდ ჩატვირთე ფაილი და �
 #: main/KoApplication.cpp:189
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
-msgstr ""
+msgstr "ფაილის ჩატვირთვა, ფანჯრის და მიმდინარეობის პანელის ჩვენება და გასვლა"
 
 #: main/KoApplication.cpp:190
 #, kde-format
 msgid "Filename to write profiling information into."
-msgstr ""
+msgstr "ფაილის სახელი პროფილირების ინფორმაციის ჩასაწერად."
 
 #: main/KoApplication.cpp:191
 #, kde-format
@@ -1122,6 +1129,9 @@ msgid ""
 "This might be an installation issue.\n"
 "Try restarting or reinstalling."
 msgstr ""
+"ძირითადი აპლიკაციის კომპონენტები აღმოჩენილი არაა.\n"
+"ეს, შეიძლება, დაყენების პრობლემაა.\n"
+"სცადეთ გადატვირთვა ან თავიდან დაყენება."
 
 #: main/KoAutoSaveRecoveryDialog.cpp:167
 #, kde-format
@@ -1178,6 +1188,8 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
+"ამ დაშიფრული დოკუმენტისთვის პაროლი ცნობილი არაა. ავტოშენახვა გაუქმდა. "
+"შეინახეთ სამუშაო ხელით."
 
 #: main/KoDocument.cpp:732
 #, kde-format
@@ -1203,7 +1215,7 @@ msgstr "%1-ის ჩაწერის შეცდომა. დანაყ�
 #: main/KoDocument.cpp:897 main/KoDocument.cpp:944 main/KoDocument.cpp:1955
 #, kde-format
 msgid "Error while trying to write '%1'. Partition full?"
-msgstr ""
+msgstr "'%1'-ის ჩაწერის მცდელობის შეცდომა. დანაყოფი ღიაა?"
 
 #: main/KoDocument.cpp:1188
 #, kde-format
@@ -1220,6 +1232,8 @@ msgid ""
 "An autosaved file exists for this document.\n"
 "Do you want to open it instead?"
 msgstr ""
+"ამ დოკუმენტისთვის ავტოშენახვის ფაილი არსებობს.\n"
+"გნებავთ, ის ფაილი გახსნათ?"
 
 #: main/KoDocument.cpp:1205
 #, kde-format
@@ -1309,7 +1323,7 @@ msgstr "არასწორი ფილტრის დამატება"
 #: main/KoDocument.cpp:1459
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
-msgstr ""
+msgstr "ცდილობთ ჩატვირთოთ არასწორი ტიპის დოკუმენტი"
 
 #: main/KoDocument.cpp:1462
 #, kde-format
@@ -1329,7 +1343,7 @@ msgstr "უცნობი შეცდომა"
 #: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
-msgstr ""
+msgstr "ფილტრი planconvert.jar ვერ ვიპოვე. შეამოწმეთ თქვენი პროგრამის ფაილები"
 
 #: main/KoDocument.cpp:1479
 #, kde-format
@@ -1368,6 +1382,8 @@ msgid ""
 "Parsing error in %1 at line %2, column %3\n"
 "Error message: %4"
 msgstr ""
+"დამუშავების შეცდომა %1-ში ხაზზე %2, სვეტი %3\n"
+"შეცდომის შეტყობინება: %4"
 
 #: main/KoDocument.cpp:1646
 #, kde-format
@@ -1377,12 +1393,12 @@ msgstr "%1 ფაილი არაა."
 #: main/KoDocument.cpp:1661
 #, kde-format
 msgid "Could not open the file for reading (check read permissions)."
-msgstr ""
+msgstr "ფაილის წასაკითხად გახსნის შეცდომა (გადაამოწმეთ წაკითხვის უფლებები)."
 
 #: main/KoDocument.cpp:1672
 #, kde-format
 msgid "Could not read the beginning of the file."
-msgstr ""
+msgstr "ფაილის დასაწყისის წაკითხვა შეუძლებელია."
 
 #: main/KoDocument.cpp:1702
 #, kde-format
@@ -1390,11 +1406,13 @@ msgid ""
 "parsing error in the main document at line %1, column %2\n"
 "Error message: %3"
 msgstr ""
+"დამუშავების შეცდომა მთავარ დოკუმენტში ხაზე %1, სვეტი %2\n"
+"შეცდომის შეტყობინება: %3"
 
 #: main/KoDocument.cpp:1723
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
-msgstr ""
+msgstr "არასწორი Calligra Plan-ის ფაილი: %1"
 
 #: main/KoDocument.cpp:1740 main/KoDocument.cpp:1771
 #, kde-format
@@ -1412,6 +1430,8 @@ msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr ""
+"დოკუმენტი <i>%1</i> რამდენიმე ვერსიას შეიცავს. გადადით ფაილი -> ვერსიები, "
+"რომ ძველი ვერსია გახსნათ."
 
 #: main/KoDocument.cpp:2045 main/KoDocument.cpp:2541 main/KoMainWindow.cpp:1252
 #, kde-format
@@ -1423,7 +1443,7 @@ msgstr "უსახელო"
 msgid ""
 "<p>The document <b>'%1'</b> has been modified.</p><p>Do you want to save it?"
 "</p>"
-msgstr ""
+msgstr "<p>დოკუმენტი <b>'%1'</b> შეიცვალა.</p><p>გნებავთ, შეინახოთ ის?</p>"
 
 #: main/KoDocument.cpp:2049 widgets/KoDocumentInfoDlg.cpp:374
 #: widgets/KoDocumentInfoDlg.cpp:382 widgets/KoDocumentInfoDlg.cpp:416
@@ -1608,6 +1628,9 @@ msgid ""
 "a new project using this template and save it using <interface>File->Create "
 "Project Template...</interface>."
 msgstr ""
+"შაბლონის ფაილის გახსნა შეუძლებელია.<nl/>თუ გნებავთ, შეცვალოთ შაბლონი, "
+"შექმენით ახალი პროექტი ამ შაბლონით და შეინახეთ ის მენიუდან <interface>ფაილი-"
+">პროექტის შაბლონის შექმნა....</interface>."
 
 #: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
@@ -1621,6 +1644,8 @@ msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr ""
+"<qt>%1-ში შენახვამ, შეიძლება, ზოგიერთი დაფორმატების დაკარგვა გამოიწვიოს."
+"<p>მაინც გნებავთ ამ ფორმატში შენახვა?</qt>"
 
 #: main/KoMainWindow.cpp:901
 #, kde-format
@@ -1633,6 +1658,8 @@ msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr ""
+"<qt>%1-ში გატანამ, შეიძლება, ზოგიერთი დაფორმატების დაკარგვა გამოიწვიოს."
+"<p>მაინც გნებავთ ამ ფორმატში გატანა?</qt>"
 
 #: main/KoMainWindow.cpp:913
 #, kde-format
@@ -1668,7 +1695,7 @@ msgstr "დოკუმენტის მინიატურის შექ�
 #: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
-msgstr ""
+msgstr "PDF-ის გამხსნელის გაშვება შეუძლებელია"
 
 #: main/KoMainWindow.cpp:1598
 #, kde-format
@@ -1696,6 +1723,8 @@ msgid ""
 "You will lose all changes made since your last save\n"
 "Do you want to continue?"
 msgstr ""
+"დაკარგავთ ყველა ცვლილებას, რომელიც ბოლო შენახვის შემდეგ შეიტანეთ.\n"
+"გნებავთ, გააგრძელოთ?"
 
 #: main/KoMainWindow.cpp:2203
 #, kde-format
@@ -1816,6 +1845,13 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>კონტექსტური დახმარება</title><para>დახმარება ბევრ ადგილასაა "
+"ხელმისაწვდომი ღილაკით <emphasis>რა არის ეს</emphasis>.<nl/>ის აქტიურდება "
+"მენიუდან <interface>დახმარება->რა არის ეს?</interface> ან კლავიატურის "
+"მალსახმობით <shortcut>Shift+F1</shortcut>.</para><para>დიალოგებში "
+"ხელმისაწვდომია ღილაკით <interface>?</interface> დიალოგის სათაურის პანელზე.</"
+"para><para>თუ ხედავთ <link url='%1'>მეტი...</link> ტექსტში, მისი დაჭერა "
+"აჩვენებს მეტ ინფორმაციას დოკუმენტაციიდან.</para>"
 
 #: main/WelcomeView.cpp:187
 #, kde-kuit-format
@@ -1842,6 +1878,8 @@ msgid ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
 "style:italic;\">Project templates:</span></p></body></html>"
 msgstr ""
+"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
+"style:italic;\">პროექტის შაბლონები:</span></p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:156
@@ -1852,6 +1890,9 @@ msgid ""
 "p><p>Displays a file dialog enabling you to open an existing project.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">პროექტის გახსნა</"
+"span></p><p>აჩვენებს ფაილის დიალოგს, სადაც არსებული პროექტის გახსნა "
+"შეგიძლიათ.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:159
@@ -1866,6 +1907,8 @@ msgid ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
 "style:italic;\">Recent projects:</span></p></body></html>"
 msgstr ""
+"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
+"style:italic;\">უახლესი პროექტები:</span></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: main/WelcomeView.ui:280
@@ -1907,6 +1950,8 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplan\">User "
 "documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplan"
+"\">მომხმარებლის დოკუმენტაცია</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: main/WelcomeView.ui:422
@@ -1975,8 +2020,8 @@ msgstr "გამოყოფილი არაა"
 #, kde-format
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ამ ჯგუფში ხელმისაწვდომია %1 რესურსი"
+msgstr[1] "ამ ჯგუფში ხელმისაწვდომია %1 რესურსი"
 
 #: models/GroupAllocationItemModel.cpp:171 models/kptaccountsmodel.cpp:112
 #: models/kptaccountsmodel.cpp:1054 models/kptdocumentmodel.cpp:187
@@ -2023,15 +2068,15 @@ msgstr "რესურსის გამოყოფა"
 #, kde-kuit-format
 msgctxt "@info:tootip"
 msgid "Available resources or resource units"
-msgstr ""
+msgstr "ხელმისაწვდომი რესურსები ან რესურსის ერთეულები"
 
 #: models/GroupAllocationItemModel.cpp:463
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 resource requested for dynamic allocation"
 msgid_plural "%1 resources requested for dynamic allocation"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 რესურსი მოთხოვნილია დინამიკური გამოყოფისთვის"
+msgstr[1] "%1 რესურსი მოთხოვნილია დინამიკური გამოყოფისთვის"
 
 #: models/GroupAllocationItemModel.cpp:467
 #, kde-format
@@ -2068,8 +2113,8 @@ msgstr "%1 %2-დან"
 msgctxt "@info:tooltip"
 msgid "There is %1 resource available in this group"
 msgid_plural "There are %1 resources available in this group"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ამ ჯგუფში ხელმისაწვდომია %1 რესურსი"
+msgstr[1] "ამ ჯგუფში ხელმისაწვდომია %1 რესურსი"
 
 #: models/kcalendar/kdatepicker.cpp:188
 #, kde-format
@@ -2137,7 +2182,7 @@ msgstr "ანგარიშის სახელის შეცვლა"
 #: models/kptaccountsmodel.cpp:324
 msgctxt "(qtundo-format)"
 msgid "De-select as default account"
-msgstr ""
+msgstr "ნაგულისხმევი ანგარიშობის გაუქმება"
 
 #: models/kptaccountsmodel.cpp:330
 msgctxt "(qtundo-format)"
@@ -2165,7 +2210,7 @@ msgstr[1] "%1 ანგარიშის წაშლა"
 #: models/kptaccountsmodel.cpp:856
 #, kde-format
 msgid "Actual total cost: %1, planned total cost: %2"
-msgstr ""
+msgstr "ფაქტობრივი ჯამური ღირებულება: %1, დაგეგმილი ჯამური ღირებულება: %2"
 
 #: models/kptaccountsmodel.cpp:1056 models/kptresourceappointmentsmodel.cpp:753
 #, kde-format
@@ -2192,6 +2237,8 @@ msgstr "%1-%2"
 #, kde-format
 msgid "The total cost for the account shown as: Actual cost [ Planned cost ]"
 msgstr ""
+"ანგარიშის მთლიანი ღირებულება ნაჩვენებია როგორც: ფაქტობრივი ღირებულება "
+"[ დაგეგმილი ღირებულება ]"
 
 #: models/kptaccountsmodel.cpp:1136
 #, kde-format
@@ -2268,12 +2315,12 @@ msgstr "დასვენებების გარეშე"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
-msgstr ""
+msgstr "ნაგულისხმევი რეგიონი: <emphasis>%1</emphasis>"
 
 #: models/kptcalendarmodel.cpp:476
 msgctxt "(qtundo-format)"
 msgid "Modify calendar holiday region"
-msgstr ""
+msgstr "კალენდრის დასვენების დღის რეგიონის შეცვლა"
 
 #: models/kptcalendarmodel.cpp:534 models/kptnodeitemmodel.cpp:2321
 #: models/kptnodeitemmodel.cpp:5466
@@ -2310,7 +2357,7 @@ msgstr "დასვენების რეგიონი"
 #: models/kptcalendarmodel.cpp:631
 msgctxt "(qtundo-format)"
 msgid "Re-parent calendar"
-msgstr ""
+msgstr "კალენდრის თავიდან დაყენება მშობლად"
 
 #: models/kptcalendarmodel.cpp:634
 msgctxt "(qtundo-format)"
@@ -2431,7 +2478,7 @@ msgstr "რესურსების გამოყოფის სია"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The timing constraint type"
-msgstr ""
+msgstr "დროის შეზღუდვის ტიპი"
 
 #: models/kptcommonstrings.cpp:20
 #, kde-kuit-format
@@ -2455,7 +2502,7 @@ msgstr "ამოცანის შენიშვნები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work Breakdown Structure Code"
-msgstr ""
+msgstr "სამუშაოს დაშლის სტრუქტურის კოდი"
 
 #: models/kptcommonstrings.cpp:24
 #, kde-kuit-format
@@ -2476,36 +2523,37 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid "Scheduling priority.<nl/>A higher number means higher priority."
 msgstr ""
+"დაგეგმვის პრიორიტეტი.<nl/>უფრო მაღალი რიცხვი ნიშნავს უფრო მაღალ პრიორიტეტს."
 
 #: models/kptcommonstrings.cpp:27
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for running costs"
-msgstr ""
+msgstr "ანგარიში მიმდინარე ხარჯებისთვის"
 
 #: models/kptcommonstrings.cpp:28
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at startup of the task"
-msgstr ""
+msgstr "ანგარიში ამოცანის დაწყებისას გაწეული ხარჯებისთვის"
 
 #: models/kptcommonstrings.cpp:29
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at startup of the task"
-msgstr ""
+msgstr "ამოცანის დაწყებისას გაწეული ღირებულება"
 
 #: models/kptcommonstrings.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for cost incurred at shutdown of the task"
-msgstr ""
+msgstr "დავალების გამორთვის დროს გაწეული ხარჯების ანგარიში"
 
 #: models/kptcommonstrings.cpp:31
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The cost incurred at shutdown of the task"
-msgstr ""
+msgstr "ამოცანის გამორთვის შედეგად გაწეული ხარჯები"
 
 #: models/kptcommonstrings.cpp:33
 #, kde-kuit-format
@@ -2523,25 +2571,25 @@ msgstr "დაგეგმილი დასრულების დრო"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest start time allowed by dependencies"
-msgstr ""
+msgstr "დამოკიდებულებების მიერ დაშვებული უახლოესი დაწყების დრო"
 
 #: models/kptcommonstrings.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Earliest finish time allowed by dependencies"
-msgstr ""
+msgstr "დამოკიდებულებების მიერ დაშვებული უახლოესი დასრულების დრო"
 
 #: models/kptcommonstrings.cpp:37
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest start time allowed by dependencies"
-msgstr ""
+msgstr "დამოკიდებულებების მიერ დაშვებული უგვიანესი დაწყების დრო"
 
 #: models/kptcommonstrings.cpp:38
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest finish time allowed by dependencies"
-msgstr ""
+msgstr "დამოკიდებულებების მიერ დაშვებული უგვიანესი დასრულების დრო"
 
 #: models/kptcommonstrings.cpp:40
 #, kde-kuit-format
@@ -2611,7 +2659,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The duration from Early Start to Late Start"
-msgstr ""
+msgstr "ხანგრძლივობა ადრეული დაწყებიდან გვიან დაწყებამდე"
 
 #: models/kptcommonstrings.cpp:54
 #, kde-kuit-format
@@ -2623,7 +2671,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The duration from Early Finish to Late Finish"
-msgstr ""
+msgstr "ხანგრძლივობა ადრეული დასრულებიდან გვიან დასრულებამდე"
 
 #: models/kptcommonstrings.cpp:57
 #, kde-kuit-format
@@ -2683,7 +2731,7 @@ msgstr "ფაქტობრივი ღირებულება"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually started"
-msgstr ""
+msgstr "დრო, როდესაც ამოცანა რეალურად დაიწყო"
 
 #: models/kptcommonstrings.cpp:69
 #, kde-kuit-format
@@ -2695,13 +2743,13 @@ msgstr "აჩვენებს, გაშვებულია ამოცა
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually finished"
-msgstr ""
+msgstr "დრო, როდესაც ამოცანა რეალურად დასრულდა"
 
 #: models/kptcommonstrings.cpp:71
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows if the task is finished"
-msgstr ""
+msgstr "აჩვენებს, დასრულდა თუ არა დავალება"
 
 #: models/kptcommonstrings.cpp:72
 #, kde-kuit-format
@@ -2713,13 +2761,13 @@ msgstr "სტატუსის შენიშვნა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculated expected estimate"
-msgstr ""
+msgstr "გამოთვლილი მოსალოდნელი შეფასება"
 
 #: models/kptcommonstrings.cpp:75
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculated estimate variance"
-msgstr ""
+msgstr "გამოთვლილი შეფასების დისპერსია"
 
 #: models/kptcommonstrings.cpp:76 models/kptcommonstrings.cpp:81
 #, kde-kuit-format
@@ -2743,13 +2791,13 @@ msgstr "დაახლოების დრო"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The calendar used when estimate type is Duration"
-msgstr ""
+msgstr "კალენდარი, რომელიც გამოიყენება, როცა შეფასების ტიპი ხანგრძლივობაა"
 
 #: models/kptcommonstrings.cpp:80
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The most likely estimate"
-msgstr ""
+msgstr "ყველაზე სავარაუდო შეფასება"
 
 #: models/kptcommonstrings.cpp:83
 #, kde-kuit-format
@@ -2761,48 +2809,48 @@ msgstr "რისკის ტიპი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Shows the tasks scheduling status"
-msgstr ""
+msgstr "აჩვენებს ამოცანის დაგეგმვის სტატუსს"
 
 #: models/kptcommonstrings.cpp:86
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task has not been scheduled"
-msgstr ""
+msgstr "ამოცანა არ დაგეგმილა"
 
 #: models/kptcommonstrings.cpp:87
 #, kde-format
 msgid "An effort has been estimated, but no resource has been assigned"
-msgstr ""
+msgstr "ძალისხმევა შეფასდა, მაგრამ რესურსი არ არის მინიჭებული"
 
 #: models/kptcommonstrings.cpp:88
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is overbooked"
-msgstr ""
+msgstr "ამ ამოცანაზე მინიჭებული რესურსი ზედმეტად არის დაჯავშნილი"
 
 #: models/kptcommonstrings.cpp:89
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource assigned to this task is not available"
-msgstr ""
+msgstr "ამ ამოცანისთვის მინიჭებული რესურსი მიუწვდომელია"
 
 #: models/kptcommonstrings.cpp:90
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A timing constraint could not be met"
-msgstr ""
+msgstr "დროის შეზღუდვა ვერ დაკმაყოფილდა"
 
 #: models/kptcommonstrings.cpp:91
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resource could not meet the estimated effort"
-msgstr ""
+msgstr "მინიჭებულმა რესურსმა ვერ შეძლო სავარაუდო სამუშაოს მოცულობის შესრულება"
 
 #: models/kptcommonstrings.cpp:92
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A scheduling error occurred"
-msgstr ""
+msgstr "დაგეგმვის შეცდომა"
 
 #: models/kptcommonstrings.cpp:94 models/kptnodechartmodel.cpp:529
 #, kde-kuit-format
@@ -2820,12 +2868,12 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed"
-msgstr ""
+msgstr "შესრულებული სამუშაოს ფაქტობრივი ღირებულება"
 
 #: models/kptcommonstrings.cpp:97
 #, kde-format
 msgid "Schedule performance index (BCWP/BCWS)"
-msgstr ""
+msgstr "გეგმის შესრულების ინდექსი (BCWS/BCWP)"
 
 #: models/kptcommonstrings.cpp:99
 #, kde-kuit-format
@@ -2861,19 +2909,19 @@ msgstr "რესურსის ელფოსტის მისამარ�
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The calendar defines when the resource is working"
-msgstr ""
+msgstr "კალენდარი განსაზღვრავს, როდის მუშაობს რესურსი"
 
 #: models/kptcommonstrings.cpp:105
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The maximum load that can be assigned"
-msgstr ""
+msgstr "მაქსიმალური დატვირთვა, რომელიც შეიძლება მიენიჭოს"
 
 #: models/kptcommonstrings.cpp:106 models/kptcommonstrings.cpp:107
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Defines when the resource is available to the project"
-msgstr ""
+msgstr "განსაზღვრავს, როდის არის რესურსი ხელმისაწვდომი პროექტისთვის"
 
 #: models/kptcommonstrings.cpp:108
 #, kde-kuit-format
@@ -2897,7 +2945,7 @@ msgstr "ფიქსირებული ღირებულება"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The account where the resource cost is accumulated"
-msgstr ""
+msgstr "ანგარიში, სადაც გროვდება რესურსის ღირებულება"
 
 #: models/kptcommonstrings.cpp:113
 #, kde-kuit-format
@@ -2921,7 +2969,7 @@ msgstr "რესურსების ჯგუფის ტიპი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The aggregated units for the resources in the resource group"
-msgstr ""
+msgstr "აგრეგირებული ერთეულები რესურსების ჯგუფში არსებული რესურსებისთვის"
 
 #: models/kptcommonstrings.cpp:117
 #, kde-kuit-format
@@ -2945,7 +2993,7 @@ msgstr "ანგარიშის აღწერა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The name and scheduling mode of the schedule"
-msgstr ""
+msgstr "განრიგის სახელი და დაგეგმვის რეჟიმი"
 
 #: models/kptcommonstrings.cpp:123
 #, kde-kuit-format
@@ -2957,7 +3005,7 @@ msgstr "განრიგის მდგომარეობა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Controls resource overbooking when scheduling"
-msgstr ""
+msgstr "აკონტროლებს რესურსების ზედმეტ დაჯავშნას დაგეგმვისას"
 
 #: models/kptcommonstrings.cpp:127
 #, kde-kuit-format
@@ -2976,7 +3024,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The distribution to be used during scheduling"
-msgstr ""
+msgstr "განაწილება, რომელიც გამოიყენება დაგეგმვის დროს"
 
 #: models/kptcommonstrings.cpp:135
 #, kde-kuit-format
@@ -2993,7 +3041,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Defines the schedules to be calculated"
-msgstr ""
+msgstr "განსაზღვრავს გამოსათვლელ განრიგებს"
 
 #: models/kptcommonstrings.cpp:142
 #, kde-kuit-format
@@ -3005,13 +3053,13 @@ msgstr "დაგეგმილი დაწყების დრო"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduled finish time"
-msgstr ""
+msgstr "დაგეგმილი დასრულების დრო"
 
 #: models/kptcommonstrings.cpp:144
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduling direction"
-msgstr ""
+msgstr "დაგეგმვის მიმართულება"
 
 #: models/kptcommonstrings.cpp:146
 #, kde-kuit-format
@@ -3028,7 +3076,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The scheduler used for calculating the project schedule"
-msgstr ""
+msgstr "განრიგი, რომელიც გამოიყენება პროექტის განრიგის გამოსათვლელად"
 
 #: models/kptcommonstrings.cpp:154
 #, kde-kuit-format
@@ -3147,70 +3195,70 @@ msgstr "%1%"
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Scheduled"
 msgid "BCWS Cost"
-msgstr ""
+msgstr "BCWS ღირებულება"
 
 #: models/kptnodechartmodel.cpp:233
 #: models/reportgenerator/ReportGenerator.cpp:53
 #, kde-format
 msgctxt "Cost based Budgeted Cost of Work Performed"
 msgid "BCWP Cost"
-msgstr ""
+msgstr "BCWP ღირებულება"
 
 #: models/kptnodechartmodel.cpp:234
 #: models/reportgenerator/ReportGenerator.cpp:54
 #, kde-format
 msgctxt "Cost based Actual Cost of Work Performed"
 msgid "ACWP Cost"
-msgstr ""
+msgstr "ACWP ღირებულება"
 
 #: models/kptnodechartmodel.cpp:235
 #: models/reportgenerator/ReportGenerator.cpp:57
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Scheduled"
 msgid "BCWS Effort"
-msgstr ""
+msgstr "BCWS ძალისხმევა"
 
 #: models/kptnodechartmodel.cpp:236
 #: models/reportgenerator/ReportGenerator.cpp:58
 #, kde-format
 msgctxt "Effort based Budgeted Cost of Work Performed"
 msgid "BCWP Effort"
-msgstr ""
+msgstr "BCWP ძალისხმევა"
 
 #: models/kptnodechartmodel.cpp:237
 #: models/reportgenerator/ReportGenerator.cpp:59
 #, kde-format
 msgctxt "Effort based Actual Cost of Work Performed"
 msgid "ACWP Effort"
-msgstr ""
+msgstr "ACWP ძალისხმევა"
 
 #: models/kptnodechartmodel.cpp:238
 #: models/reportgenerator/ReportGenerator.cpp:55
 #, kde-format
 msgctxt "Cost based Schedule Performance Index"
 msgid "SPI Cost"
-msgstr ""
+msgstr "SPI ღირებულება"
 
 #: models/kptnodechartmodel.cpp:239
 #: models/reportgenerator/ReportGenerator.cpp:56
 #, kde-format
 msgctxt "Cost based Cost Performance Index"
 msgid "CPI Cost"
-msgstr ""
+msgstr "CPI ღირებულება"
 
 #: models/kptnodechartmodel.cpp:240
 #: models/reportgenerator/ReportGenerator.cpp:60
 #, kde-format
 msgctxt "Effort based Schedule Performance Index"
 msgid "SPI Effort"
-msgstr ""
+msgstr "SPI ძალისხმევა"
 
 #: models/kptnodechartmodel.cpp:241
 #: models/reportgenerator/ReportGenerator.cpp:61
 #, kde-format
 msgctxt "Effort based Cost Performance Index"
 msgid "CPI Effort"
-msgstr ""
+msgstr "ძალისხმევა"
 
 #: models/kptnodechartmodel.cpp:245
 #, kde-format
@@ -3330,25 +3378,25 @@ msgstr "ძალისხმევა:"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index"
-msgstr ""
+msgstr "გეგმის შესრულების ინდექსი"
 
 #: models/kptnodechartmodel.cpp:533
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cost Performance Index"
-msgstr ""
+msgstr "ფასების შესრულების ინდექი"
 
 #: models/kptnodechartmodel.cpp:538
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Performance indicators based on cost"
-msgstr ""
+msgstr "შესრულების ინდიკატორები ღირებულების მიხედვით"
 
 #: models/kptnodechartmodel.cpp:539
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Performance indicators based on effort"
-msgstr ""
+msgstr "შესრულების ინდიკატორები ძალისხმევის მიხედვით"
 
 #: models/kptnodeitemmodel.cpp:97
 #, kde-format
@@ -3406,32 +3454,32 @@ msgstr "უახლოესი დასაწყისი და უკან
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not applicable, estimate type is Effort"
-msgstr ""
+msgstr "არ გამოიყენება, შეფასების ტიპია სამუშაოს მოცულობა"
 
 #: models/kptnodeitemmodel.cpp:493 models/kptnodeitemmodel.cpp:552
 #: models/kptnodeitemmodel.cpp:599
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not applicable, constraint is Fixed Interval"
-msgstr ""
+msgstr "არ გამოიყენება, შეზღუდვა არის ფიქსირებული ინტერვალი"
 
 #: models/kptnodeitemmodel.cpp:498
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1"
-msgstr ""
+msgstr "სავარაუდო ძალისხმევა: %1"
 
 #: models/kptnodeitemmodel.cpp:500
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1"
-msgstr ""
+msgstr "სავარაუდო ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:504
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr ""
+msgstr "სავარაუდო სამუშაოს მოცულობა: %1<nl/>მოსალოდნელი სამუშაოს მოცულობა: %2"
 
 #: models/kptnodeitemmodel.cpp:507
 #, kde-kuit-format
@@ -3443,61 +3491,61 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic effort: %1"
-msgstr ""
+msgstr "ოპტიმისტური ძალისხმევა: %1"
 
 #: models/kptnodeitemmodel.cpp:556
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic duration: %1"
-msgstr ""
+msgstr "ოპტიმისტური ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:601
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic effort: %1"
-msgstr ""
+msgstr "პესიმისტური ძალისხმევა: %1"
 
 #: models/kptnodeitemmodel.cpp:603
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Pessimistic duration: %1"
-msgstr ""
+msgstr "პესიმისტური ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:684
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for resource cost: %1"
-msgstr ""
+msgstr "ანგარიში რესურსის ღირებულებისთვის: %1"
 
 #: models/kptnodeitemmodel.cpp:685
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for resource cost"
-msgstr ""
+msgstr "ანგარიში რესურსის ღირებულებისთვის"
 
 #: models/kptnodeitemmodel.cpp:720
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task startup cost: %1"
-msgstr ""
+msgstr "ანგარიში ამოცანის გაშვების ღირებულებისთვის: %1"
 
 #: models/kptnodeitemmodel.cpp:721
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task startup cost"
-msgstr ""
+msgstr "ანგარიში ამოცანის გაშვების ღირებულებისთვის"
 
 #: models/kptnodeitemmodel.cpp:772
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost: %1"
-msgstr ""
+msgstr "ანგარიში ამოცანის დასრულების ღირებულებისთვის: %1"
 
 #: models/kptnodeitemmodel.cpp:773
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Account for task shutdown cost"
-msgstr ""
+msgstr "ანგარიში ამოცანის დასრულების ღირებულებისთვის"
 
 #: models/kptnodeitemmodel.cpp:819
 #, kde-kuit-format
@@ -3521,37 +3569,37 @@ msgstr "დაგეგმილი ხანგრძლივობა: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT duration variance: %1"
-msgstr ""
+msgstr "PERT ხანგრძლივობის დისპერსია: %1"
 
 #: models/kptnodeitemmodel.cpp:935
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT estimate variance: %1"
-msgstr ""
+msgstr "PERT შეფასების დისპერსია: %1"
 
 #: models/kptnodeitemmodel.cpp:977
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT optimistic duration: %1"
-msgstr ""
+msgstr "PERT ოპტიმისტური ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:1009
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Optimistic estimate: %1"
-msgstr ""
+msgstr "ოპტიმისტური შეფასება: %1"
 
 #: models/kptnodeitemmodel.cpp:1042
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT expected estimate: %1"
-msgstr ""
+msgstr "PERT მოსალოდნელი შეფასება: %1"
 
 #: models/kptnodeitemmodel.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "PERT pessimistic duration: %1"
-msgstr ""
+msgstr "PERT პესიმისტური ხანგრძლივობა: %1"
 
 #: models/kptnodeitemmodel.cpp:1115
 #, kde-kuit-format
@@ -3653,13 +3701,13 @@ msgstr "დაწყება შეუძლებელია"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finished %1 late"
-msgstr ""
+msgstr "დასრულდა %1-ით გვიან"
 
 #: models/kptnodeitemmodel.cpp:1424
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finished %1 early"
-msgstr ""
+msgstr "დასრულდა %1-ით ადრე"
 
 #: models/kptnodeitemmodel.cpp:1426
 #, kde-kuit-format
@@ -3671,13 +3719,13 @@ msgstr "დასრულდა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 late"
-msgstr ""
+msgstr "დაიწყო %1-ით გვიან"
 
 #: models/kptnodeitemmodel.cpp:1435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 early"
-msgstr ""
+msgstr "დაიწყო %1-ით ადრე"
 
 #: models/kptnodeitemmodel.cpp:1437
 #, kde-kuit-format
@@ -3713,67 +3761,67 @@ msgstr "არ არის გაშვებული"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual start: %1"
-msgstr ""
+msgstr "ფაქტიური დასაწყისი: %1"
 
 #: models/kptnodeitemmodel.cpp:1501
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task started at: %1"
-msgstr ""
+msgstr "ამოცანის დაწყების დრო: %1"
 
 #: models/kptnodeitemmodel.cpp:1503
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not started"
-msgstr ""
+msgstr "ამოცანა არ დაწყებულა"
 
 #: models/kptnodeitemmodel.cpp:1525
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual finish: %1"
-msgstr ""
+msgstr "ფაქტიური დასასრული: %1"
 
 #: models/kptnodeitemmodel.cpp:1552
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task finished at: %1"
-msgstr ""
+msgstr "ამოცანის დასრულების დრო: %1"
 
 #: models/kptnodeitemmodel.cpp:1554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not finished"
-msgstr ""
+msgstr "ამოცანა არ დასრულებულა"
 
 #: models/kptnodeitemmodel.cpp:1568
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort until %1: %2"
-msgstr ""
+msgstr "დაგეგმილი ძალისხმევა %1-მდე: %2"
 
 #: models/kptnodeitemmodel.cpp:1587
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual effort used up to %1: %2"
-msgstr ""
+msgstr "%1-მდე გამოყენებული ნამდვილი სამუშაოს მოცულობა: %2"
 
 #: models/kptnodeitemmodel.cpp:1612
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Remaining effort: %1"
-msgstr ""
+msgstr "დარჩენილი სამუშაოს მოცულობა: %1"
 
 #: models/kptnodeitemmodel.cpp:1639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned cost until %1: %2"
-msgstr ""
+msgstr "დაგეგმილი ღირებულება %1-მდე: %2"
 
 #: models/kptnodeitemmodel.cpp:1656
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual cost until %1: %2"
-msgstr ""
+msgstr "ნამდვილი ღირებულება %1-მდე: %2"
 
 #: models/kptnodeitemmodel.cpp:1712
 #, kde-kuit-format
@@ -3787,31 +3835,33 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A resource has been overbooked"
-msgstr ""
+msgstr "რესურსი ზედმეტად დაჯავშნილია"
 
 #: models/kptnodeitemmodel.cpp:1778
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resource is available for this task"
-msgstr ""
+msgstr "ამ ამოცანისთვის რესურსები ხელმისაწვდომი არაა"
 
 #: models/kptnodeitemmodel.cpp:1811
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Failed to comply with a timing constraint"
-msgstr ""
+msgstr "დროის შეზღუდვები დაცული არაა"
 
 #: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "This task has not been scheduled"
-msgstr ""
+msgstr "ეს ამოცანა დაგეგმილი არაა"
 
 #: models/kptnodeitemmodel.cpp:1877
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resources cannot deliver the required estimated effort"
 msgstr ""
+"მინიჭებულ რესურსს მოთხოვნილი სავარაუდო სამუშაოს მოცულობის შესრულება არ "
+"შეუძლია"
 
 #: models/kptnodeitemmodel.cpp:1910
 #, kde-kuit-format
@@ -3823,7 +3873,7 @@ msgstr "დაგეგმვის შეცდომა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work breakdown structure code: %1"
-msgstr ""
+msgstr "სამუშაოს დაშლის სტრუქტურის კოდი: %1"
 
 #: models/kptnodeitemmodel.cpp:1955
 #, kde-kuit-format
@@ -3847,13 +3897,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed at %1: %2"
-msgstr ""
+msgstr "%1-ზე შესრულებული სამუშაოს ფაქტობრივი ღირებულება: %2"
 
 #: models/kptnodeitemmodel.cpp:2019
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index at %1: %2"
-msgstr ""
+msgstr "შესრულების ინდექსის დაგეგმვა %1-ზე: %2"
 
 #: models/kptnodeitemmodel.cpp:2089 models/kptnodeitemmodel.cpp:2124
 #: models/kptnodeitemmodel.cpp:2153
@@ -3866,13 +3916,13 @@ msgstr "NA"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent to %1 at %2"
-msgstr ""
+msgstr "სამუშაო პაკეტი გაგზავნილია %1-სთან. დრო: %2"
 
 #: models/kptnodeitemmodel.cpp:2104
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received from %1 at %2"
-msgstr ""
+msgstr "უახლესი სამუშაო პაკეტი მიღებულია %1-სგან. დრო: %2"
 
 #: models/kptnodeitemmodel.cpp:2106 models/kptnodeitemmodel.cpp:2170
 #, kde-kuit-format
@@ -3884,13 +3934,13 @@ msgstr "მიუწვდომელია"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტი გაგზავნილია. დრო: %1"
 
 #: models/kptnodeitemmodel.cpp:2168
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტის გადაცემა მიღებულია. დრო: %1"
 
 #: models/kptnodeitemmodel.cpp:2322 ui/RelationEditorDialog.cpp:243
 #, kde-kuit-format
@@ -3968,31 +4018,31 @@ msgstr "შეზღუდვის დასასრული"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Running Account"
-msgstr ""
+msgstr "მიმდინარე ანგარიში"
 
 #: models/kptnodeitemmodel.cpp:2336
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Account"
-msgstr ""
+msgstr "საწყისი ანგარიში"
 
 #: models/kptnodeitemmodel.cpp:2337
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Cost"
-msgstr ""
+msgstr "საწყისი ფასი"
 
 #: models/kptnodeitemmodel.cpp:2338
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Account"
-msgstr ""
+msgstr "ნაშთის ანგარიში"
 
 #: models/kptnodeitemmodel.cpp:2339
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Cost"
-msgstr ""
+msgstr "ნაშთი ღირებულება"
 
 #: models/kptnodeitemmodel.cpp:2340
 #, kde-kuit-format
@@ -4010,7 +4060,7 @@ msgstr "მოსალოდნელი"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Est)"
-msgstr ""
+msgstr "დისპერსია (დაახლ)"
 
 #: models/kptnodeitemmodel.cpp:2345
 #, kde-kuit-format
@@ -4064,37 +4114,37 @@ msgstr "გვიან დასრულება"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Positive Float"
-msgstr ""
+msgstr "დადებითი რეზერვი"
 
 #: models/kptnodeitemmodel.cpp:2356
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Free Float"
-msgstr ""
+msgstr "თავისუფალი რეზერვი"
 
 #: models/kptnodeitemmodel.cpp:2357
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Negative Float"
-msgstr ""
+msgstr "უარყოფითი რეზერვი"
 
 #: models/kptnodeitemmodel.cpp:2358
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Float"
-msgstr ""
+msgstr "საწყისი რეზერვი"
 
 #: models/kptnodeitemmodel.cpp:2359
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finish Float"
-msgstr ""
+msgstr "დასრულების რეზერვი"
 
 #: models/kptnodeitemmodel.cpp:2360
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignments"
-msgstr ""
+msgstr "მინიჭებები"
 
 #: models/kptnodeitemmodel.cpp:2363
 #, kde-kuit-format
@@ -4106,19 +4156,19 @@ msgstr "ხანგრძლოვობა"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Dur)"
-msgstr ""
+msgstr "დისპერსია (ხანგრ)"
 
 #: models/kptnodeitemmodel.cpp:2365
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (Dur)"
-msgstr ""
+msgstr "ოპტიმისტური (ხანგრ)"
 
 #: models/kptnodeitemmodel.cpp:2366
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (Dur)"
-msgstr ""
+msgstr "პესიმისტური (ხანგრ)"
 
 #: models/kptnodeitemmodel.cpp:2369 models/kptnodeitemmodel.cpp:2406
 #, kde-kuit-format
@@ -4154,13 +4204,13 @@ msgstr "დარჩენილი სამუშაოები"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Cost"
-msgstr ""
+msgstr "დაგეგმილი ფასი"
 
 #: models/kptnodeitemmodel.cpp:2376
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Cost"
-msgstr ""
+msgstr "ფაქტობრივი ღირებულება"
 
 #: models/kptnodeitemmodel.cpp:2377
 #, kde-kuit-format
@@ -4196,37 +4246,37 @@ msgstr "სტატუსის შენიშვნა"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Status"
-msgstr ""
+msgstr "დაგეგმვის სტატუსი"
 
 #: models/kptnodeitemmodel.cpp:2385
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Not Scheduled"
-msgstr ""
+msgstr "დაგეგმილი არაა"
 
 #: models/kptnodeitemmodel.cpp:2386
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignment Missing"
-msgstr ""
+msgstr "მინიჭება მითითებული არაა"
 
 #: models/kptnodeitemmodel.cpp:2387
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Overbooked"
-msgstr ""
+msgstr "რესურსი ზედმეტად დაჯავშნილია"
 
 #: models/kptnodeitemmodel.cpp:2388
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Unavailable"
-msgstr ""
+msgstr "რესურსი ხელმიუწვდომელია"
 
 #: models/kptnodeitemmodel.cpp:2389
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraints Error"
-msgstr ""
+msgstr "შეზღუდვების შეცდომა"
 
 #: models/kptnodeitemmodel.cpp:2390
 #, kde-kuit-format
@@ -4280,19 +4330,19 @@ msgstr "დრო"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package owner"
-msgstr ""
+msgstr "სამუშაო პაკეტის მფლობელი"
 
 #: models/kptnodeitemmodel.cpp:2589
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package status"
-msgstr ""
+msgstr "სამუშაო პაკეტის სტატუსი"
 
 #: models/kptnodeitemmodel.cpp:2590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package send/receive time"
-msgstr ""
+msgstr "სამუშაო პაკეტის გაგზავნის/მიღების დრო"
 
 #: models/kptnodeitemmodel.cpp:2726
 msgctxt "(qtundo-format)"
@@ -4322,52 +4372,52 @@ msgstr "პროექტის სახელის შეცვლა"
 #: models/kptnodeitemmodel.cpp:2744
 msgctxt "(qtundo-format)"
 msgid "Modify responsible"
-msgstr ""
+msgstr "პასუხისმგებლის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2769 ui/kpttaskdescriptiondialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
-msgstr ""
+msgstr "ამოცანის აღწერის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2792
 msgctxt "(qtundo-format)"
 msgid "Modify constraint type"
-msgstr ""
+msgstr "შეზღუდვის ტიპის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2809
 msgctxt "(qtundo-format)"
 msgid "Modify constraint start time"
-msgstr ""
+msgstr "შეზღუდვის დაწყების დროის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2826
 msgctxt "(qtundo-format)"
 msgid "Modify constraint end time"
-msgstr ""
+msgstr "შეზღუდვის დასრულების დროის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2851
 msgctxt "(qtundo-format)"
 msgid "Modify estimate type"
-msgstr ""
+msgstr "შეფასების ტიპის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2877
 msgctxt "(qtundo-format)"
 msgid "Modify estimate calendar"
-msgstr ""
+msgstr "შეფასების კალენდრის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2910 models/kptnodeitemmodel.cpp:2914
 msgctxt "(qtundo-format)"
 msgid "Modify estimate"
-msgstr ""
+msgstr "შეფასების შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2936
 msgctxt "(qtundo-format)"
 msgid "Modify optimistic estimate"
-msgstr ""
+msgstr "ოპტიმისტური შეფასების შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2953
 msgctxt "(qtundo-format)"
 msgid "Modify pessimistic estimate"
-msgstr ""
+msgstr "პესიმისტური შეფასების შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:2977
 msgctxt "(qtundo-format)"
@@ -4382,27 +4432,27 @@ msgstr "პრიორიტეტისშეცვლა"
 #: models/kptnodeitemmodel.cpp:3012
 msgctxt "(qtundo-format)"
 msgid "Modify running account"
-msgstr ""
+msgstr "გაშვებული ანგარიშის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3034
 msgctxt "(qtundo-format)"
 msgid "Modify startup account"
-msgstr ""
+msgstr "გაშვების ანგარიშის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3051
 msgctxt "(qtundo-format)"
 msgid "Modify startup cost"
-msgstr ""
+msgstr "გაშვების ღირებულების შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3071
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown account"
-msgstr ""
+msgstr "ნაშთი ანგარიშის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3088
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown cost"
-msgstr ""
+msgstr "ნაშთის ფასის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3113 models/kpttaskstatusmodel.cpp:447
 msgctxt "(qtundo-format)"
@@ -4417,22 +4467,22 @@ msgstr "მიმდინარე სამუშაოების ჩას�
 #: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
-msgstr ""
+msgstr "რეალური დაწყების დროის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3167 models/kpttaskstatusmodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
-msgstr ""
+msgstr "რეალური დასრულების დროის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:3638
 msgctxt "(qtundo-format)"
 msgid "Add resource allocation"
-msgstr ""
+msgstr "რესურსების განაწილების დამატება"
 
 #: models/kptnodeitemmodel.cpp:3640
 msgctxt "(qtundo-format)"
 msgid "Removed resource allocation"
-msgstr ""
+msgstr "რესურსის გამოყოფა წაიშალა"
 
 #: models/kptnodeitemmodel.cpp:3663 models/kpttaskstatusmodel.cpp:391
 #, no-c-format
@@ -4455,12 +4505,12 @@ msgstr "ამოცანების ჩასმა"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Task Module Parameters"
-msgstr ""
+msgstr "დავალების მოდულის პარამეტრები"
 
 #: models/kptnodeitemmodel.cpp:4142
 msgctxt "(qtundo-format)"
 msgid "Insert task module"
-msgstr ""
+msgstr "ამოცანის მოდულის ჩასმა"
 
 #: models/kptnodeitemmodel.cpp:4202
 #, kde-format
@@ -4472,7 +4522,7 @@ msgstr "%1-ის ჩასმა"
 #: ui/ResourceAllocationView.cpp:141
 msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
-msgstr ""
+msgstr "რესურსების გამოყოფის შეცვლა"
 
 #: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5071
 msgctxt "(qtundo-format)"
@@ -4528,25 +4578,25 @@ msgstr "ურთიერთობის ტიპის შეცვლა"
 #: models/kptrelationmodel.cpp:333
 msgctxt "(qtundo-format)"
 msgid "Modify relation time lag"
-msgstr ""
+msgstr "დამოკიდებული ამოცანების დაგვიანების დროის შეცვლა"
 
 #: models/kptresourceallocationmodel.cpp:146
 #: models/kptresourceallocationmodel.cpp:798
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1 allocated out of %2 available"
-msgstr ""
+msgstr "გამოყოფილია %1 %2 ხელმისაწვდომიდან"
 
 #: models/kptresourceallocationmodel.cpp:411
 #, no-c-format, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allocated units: %1%"
-msgstr ""
+msgstr "გამოყოფილი ერთეულები: %1%"
 
 #: models/kptresourceallocationmodel.cpp:437
 #, no-c-format, kde-format
 msgid "Maximum units available: %1%"
-msgstr ""
+msgstr "ხელმისაწვდომი ერთეულების მაქსიმალური რაოდენობა: %1%"
 
 #: models/kptresourceallocationmodel.cpp:460
 #: models/kptresourceallocationmodel.cpp:556
@@ -4572,60 +4622,60 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Alternative Resources"
-msgstr ""
+msgstr "ალტერნატიული რესურსები"
 
 #: models/kptresourceallocationmodel.cpp:531
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Required Resources"
-msgstr ""
+msgstr "საჭირო რესურსები"
 
 #: models/kptresourceallocationmodel.cpp:544
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Available resources or resource units"
-msgstr ""
+msgstr "ხელმისაწვდომი რესურსები ან რესურსის ერთეულები"
 
 #: models/kptresourceallocationmodel.cpp:545
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "List of resources that can be used as an alternative"
-msgstr ""
+msgstr "რესურსების სია, რომლებიც შეიძლება გამოყენებულ იქნას ალტერნატივად"
 
 #: models/kptresourceallocationmodel.cpp:546
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Required material resources"
-msgstr ""
+msgstr "საჭირო მატერიალური რესურსები"
 
 #: models/kptresourceallocationmodel.cpp:887
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No material resources available"
-msgstr ""
+msgstr "მატერიალური რესურსები ხელმისაწვდომი არაა"
 
 #: models/kptresourceallocationmodel.cpp:896
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No required resources"
-msgstr ""
+msgstr "საჭირო რესურსების გარეშე"
 
 #: models/kptresourceallocationmodel.cpp:899
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Material resources cannot have required resources"
-msgstr ""
+msgstr "მატერიალურ რესურსებს არ შეიძლება ჰქონდეს საჭირო რესურსები"
 
 #: models/kptresourceallocationmodel.cpp:901
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Team resources cannot have required resources"
-msgstr ""
+msgstr "გუნდის რესურსებს არ შეიძლება ჰქონდეს საჭირო რესურსები"
 
 #: models/kptresourceappointmentsmodel.cpp:588
 #, kde-format
 msgid "The total booking on %1, along with the maximum hours for the resource"
-msgstr ""
+msgstr "ჯამური დაჯავშნა %1-ზე, რესურსისთვის მაქსიმალურ საათებთან ერთად"
 
 #: models/kptresourceappointmentsmodel.cpp:622
 #, kde-kuit-format
@@ -4636,17 +4686,17 @@ msgstr "%1: %2<nl/>%3: %4<nl/>დროის სარტყელი: %5<nl/>�
 #: models/kptresourceappointmentsmodel.cpp:673
 #, kde-format
 msgid "Booking by this task on %1"
-msgstr ""
+msgstr "დაჯავშნა ამ ამოცანის მიერ %1-ზე"
 
 #: models/kptresourceappointmentsmodel.cpp:768
 #, kde-format
 msgid "The total hours booked"
-msgstr ""
+msgstr "დაჯავშნილი საათების ჯამი"
 
 #: models/kptresourceappointmentsmodel.cpp:772
 #, kde-format
 msgid "Bookings on %1"
-msgstr ""
+msgstr "ჯავშნები %1-ზე"
 
 #: models/kptresourceappointmentsmodel.cpp:919
 #, kde-kuit-format
@@ -4664,6 +4714,8 @@ msgstr "ინტერვალი"
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7"
 msgstr ""
+"%1: %2<nl/>%3: %4<nl/>დროის სარტყელი: %5<nl/>მინიჭებულია: %6<nl/"
+">ხელმისაწვდომია: %7"
 
 #: models/kptresourceappointmentsmodel.cpp:1168
 #, kde-format
@@ -4684,19 +4736,19 @@ msgstr "ჩატვირთვა"
 #: models/kptschedulemodel.cpp:407
 msgctxt "(qtundo-format)"
 msgid "Modify schedule name"
-msgstr ""
+msgstr "განრიგის სახელის შეცვლა"
 
 #: models/kptschedulemodel.cpp:430
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Manual Mode, calculation must be initiated manually"
-msgstr ""
+msgstr "განრიგი ხელით რეჟიმშია, გაანგარიშება ხელით უნდა დაიწყოს"
 
 #: models/kptschedulemodel.cpp:432
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Auto Mode, it will be calculated automatically"
-msgstr ""
+msgstr "განრიგი ავტომატურ რეჟიმშია, ის ავტომატურად გამოითვლება"
 
 #: models/kptschedulemodel.cpp:436
 #, kde-kuit-format
@@ -4713,13 +4765,13 @@ msgstr "ხელით"
 #: models/kptschedulemodel.cpp:453
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
-msgstr ""
+msgstr "დაგეგმვის რეჟიმის შეცვლა"
 
 #: models/kptschedulemodel.cpp:489
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "ეს განრიგი შექმნილია პორტფოლიოს მმართველის მიერ"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -4729,47 +4781,47 @@ msgstr "დაშვება"
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "Avoid"
-msgstr ""
+msgstr "აცილება"
 
 #: models/kptschedulemodel.cpp:550
 #, kde-format
 msgid "(Avoid)"
-msgstr ""
+msgstr "(თავიდან აცილება)"
 
 #: models/kptschedulemodel.cpp:553
 #, kde-format
 msgid "(Allow)"
-msgstr ""
+msgstr "(დაშვება)"
 
 #: models/kptschedulemodel.cpp:561
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
-msgstr ""
+msgstr "რესურსების ზედმეტად დაჯავშნის დაშვება"
 
 #: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
-msgstr ""
+msgstr "რესურსების ზედმეტად დაჯავშნის დაშვება"
 
 #: models/kptschedulemodel.cpp:566
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
-msgstr ""
+msgstr "რესურსების ზედმეტად დაჯავშნის დაშვება"
 
 #: models/kptschedulemodel.cpp:567
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
-msgstr ""
+msgstr "%1 ყოველთვის შვებს რესურსების ზედმეტად დაჯავშნას"
 
 #: models/kptschedulemodel.cpp:571
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
-msgstr ""
+msgstr "%1 ყოველთვის თავიდან იცილებს რესურსების ზედმეტად დაჯავშნას"
 
 #: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
@@ -4781,12 +4833,12 @@ msgstr "დაშვება"
 #, kde-kuit-format
 msgctxt "@label:listbox"
 msgid "Avoid"
-msgstr ""
+msgstr "აცილება"
 
 #: models/kptschedulemodel.cpp:596
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
-msgstr ""
+msgstr "ზედმეტად დაჯავშნის დაშვების შეცვლა"
 
 #: models/kptschedulemodel.cpp:613
 #, kde-format
@@ -4803,7 +4855,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
-msgstr ""
+msgstr "ამოცანების მოსალოდნელი შეფასების პირდაპირ გამოყენება"
 
 #: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
@@ -4820,31 +4872,31 @@ msgstr "PERT"
 #: models/kptschedulemodel.cpp:639
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
-msgstr ""
+msgstr "დაგეგმვის განაწილების შეცვლა"
 
 #: models/kptschedulemodel.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
-msgstr ""
+msgstr "დაგეგმილი დაწყება: %1<nl/>სამიზნე დაწყება: %2"
 
 #: models/kptschedulemodel.cpp:670
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
-msgstr ""
+msgstr "სამიზნე დაწყება: %1"
 
 #: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
-msgstr ""
+msgstr "დაგეგმილი დასრულება: %1<nl/>სამიზნე დასრულება: %2"
 
 #: models/kptschedulemodel.cpp:706
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
-msgstr ""
+msgstr "სამიზნე დასრულება: %1"
 
 #: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
@@ -4859,36 +4911,36 @@ msgstr "წინ"
 #: models/kptschedulemodel.cpp:739
 #, kde-format
 msgid "(Backwards)"
-msgstr ""
+msgstr "(უკან)"
 
 #: models/kptschedulemodel.cpp:742
 #, kde-format
 msgid "(Forward)"
-msgstr ""
+msgstr "(წინ)"
 
 #: models/kptschedulemodel.cpp:750 models/kptschedulemodel.cpp:760
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
-msgstr ""
+msgstr "პროექტის დაგეგმვა სამიზნის დასრულების დროიდან"
 
 #: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
-msgstr ""
+msgstr "პროექტის დაგეგმვა სამიზნის დაწყების დროიდან"
 
 #: models/kptschedulemodel.cpp:755
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
-msgstr ""
+msgstr "%1 ყოველთვის გეგმავს სამიზნე დაწყების დროიდან"
 
 #: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
-msgstr ""
+msgstr "%1 ყოველთვის გეგმავს სამიზნე დასრულების დროიდან"
 
 #: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
@@ -4905,7 +4957,7 @@ msgstr "წინ"
 #: models/kptschedulemodel.cpp:785
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
-msgstr ""
+msgstr "განრიგის მიმართულების შეცვლა"
 
 #: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, kde-format
@@ -4915,7 +4967,7 @@ msgstr "უცნობი"
 #: models/kptschedulemodel.cpp:830
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
-msgstr ""
+msgstr "განრიგის შეცვლა"
 
 #: models/kptschedulemodel.cpp:873
 #, kde-format
@@ -4927,18 +4979,18 @@ msgstr "არაფერი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
-msgstr ""
+msgstr "granularityIndex-ის დაგეგმვა მხარდაჭერილი არაა"
 
 #: models/kptschedulemodel.cpp:886
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
-msgstr ""
+msgstr "არჩეული დაგეგმვის დეტალიზაცია: %1"
 
 #: models/kptschedulemodel.cpp:912
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
-msgstr ""
+msgstr "დაგეგმვის დეტალიზაციის შეცვლა"
 
 #: models/kptschedulemodel.cpp:987
 #, kde-format
@@ -4958,7 +5010,7 @@ msgstr "მიმართულება"
 #: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
-msgstr ""
+msgstr "დამატებითი დატვირთვა"
 
 #: models/kptschedulemodel.cpp:991
 #, kde-format
@@ -5010,7 +5062,7 @@ msgstr "არ დაწყებულა"
 #: models/kpttaskstatusmodel.cpp:41
 #, kde-format
 msgid "Tasks that should have been started"
-msgstr ""
+msgstr "ამოცანები, რომლებიც უნდა დაწყებულიყო"
 
 #: models/kpttaskstatusmodel.cpp:45
 #, kde-format
@@ -5020,7 +5072,7 @@ msgstr "გაშვებული ამოცანები"
 #: models/kpttaskstatusmodel.cpp:49
 #, kde-format
 msgid "Tasks that have finished during this period"
-msgstr ""
+msgstr "ამოცანები, რომლებიც ამ პერიოდში დასრულდა"
 
 #: models/kpttaskstatusmodel.cpp:52
 #, kde-format
@@ -5030,17 +5082,17 @@ msgstr "შემდეგი პერიოდი"
 #: models/kpttaskstatusmodel.cpp:53
 #, kde-format
 msgid "Tasks that are scheduled to start next period"
-msgstr ""
+msgstr "ამოცანები, რომლებიც დაგეგმილია შემდეგი პერიოდის დასაწყებად"
 
 #: models/kptworkpackagemodel.cpp:70
 #, kde-format
 msgid "Sent to %1 at %2"
-msgstr ""
+msgstr "გაიგზავნა %1-ისთან. დრო: %2"
 
 #: models/kptworkpackagemodel.cpp:73
 #, kde-format
 msgid "Received from %1 at %2"
-msgstr ""
+msgstr "მიღებულია %1-სგან. დრო: %2"
 
 #: models/kptworkpackagemodel.cpp:75 models/kptworkpackagemodel.cpp:103
 #, kde-format
@@ -5050,17 +5102,17 @@ msgstr "მიუწვდომელია"
 #: models/kptworkpackagemodel.cpp:98
 #, kde-format
 msgid "Work package sent at: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტი გაგზავნილია. დრო: %1"
 
 #: models/kptworkpackagemodel.cpp:101
 #, kde-format
 msgid "Work package transmission received at: %1"
-msgstr ""
+msgstr "სამუშაო პაკეტის გადაცემა მიღებულია. დრო: %1"
 
 #: models/kptworkpackagemodel.cpp:128
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr ""
+msgstr "ამოცანამ მოიწერა %1% დასრულებულოვა"
 
 #: models/reportgenerator/ReportGenerator.cpp:31
 #: models/reportgenerator/ReportGenerator.cpp:51
@@ -5072,69 +5124,69 @@ msgstr "მმართველი"
 #: models/reportgenerator/ReportGenerator.cpp:247
 #, kde-format
 msgid "Missing report template file"
-msgstr ""
+msgstr "ანგარიშის შაბლონის ფაილი ვერ ვიპოვე"
 
 #: models/reportgenerator/ReportGenerator.cpp:251
 #, kde-format
 msgid "Missing report result file"
-msgstr ""
+msgstr "ანგარიშის შედეგის ფაილი ვერ ვიპოვე"
 
 #: models/reportgenerator/ReportGenerator.cpp:255
 #, kde-format
 msgid "Report template file does not exist"
-msgstr ""
+msgstr "ანგარიშის შაბლონის ფაილი არ არსებობს"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr ""
+msgstr "ვერ გავხსენი შაბლონის ფაილი: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
 msgid "Report generator has not been correctly opened"
-msgstr ""
+msgstr "ანგარიშის გენერატორი არასწორად გაიხსნა"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:155
 #: models/reportgenerator/ReportGeneratorOdt.cpp:182
 #: models/reportgenerator/ReportGeneratorOdt.cpp:789
 #, kde-format
 msgid "Failed to write to store: %1"
-msgstr ""
+msgstr "ვერ ჩავწერე საცავში: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:197
 #, kde-format
 msgid "Failed to write report file: %1"
-msgstr ""
+msgstr "ვერ ჩავწერე ანგარიშის ფაილში: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:590
 #, kde-format
 msgid "Failed to extract file: %1"
-msgstr ""
+msgstr "ვერ ამოვიღე ფაილი: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:596
 #, kde-format
 msgid "Failed to add file to store: %1"
-msgstr ""
+msgstr "ვერ დავამატე ფაილი საცავში: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:620
 #, kde-format
 msgid "Report generator can only generate local files"
-msgstr ""
+msgstr "ანგარიშების გენერატორს, მხოლოდ, ლოკალური ფაილების გენერაცია შეუძლია"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:627
 #, kde-format
 msgid "Failed to open report file: %1"
-msgstr ""
+msgstr "ვერ გავხსენი ანგარიშის ფაილი: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:636
 #, kde-format
 msgid "Failed to load mimetype file"
-msgstr ""
+msgstr "ვერ ჩავტვირთე mimetype-ის ფაილი"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:645
 #, kde-format
 msgid "Failed to write manifest file"
-msgstr ""
+msgstr "ვერ ჩავწერე მანიფესტის ფაილი"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
@@ -5145,36 +5197,36 @@ msgstr "შემნახველი პროგრამის გარე�
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
-msgstr ""
+msgstr "ფაილის <filename>%1</filename> საცავიდან გახსნა შეუძლებელია."
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:714
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "აკლია სახელის სივრცის დეკლარაციები:<nl/><filename>%1</filename>"
 
 #: models/ResourceGroupItemModel.cpp:356
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup name"
-msgstr ""
+msgstr "რესურსჯგუფის სახელის შეცვლა"
 
 #: models/ResourceGroupItemModel.cpp:382
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup type"
-msgstr ""
+msgstr "რესურსჯგუფის ტიპის შეცვლა"
 
 #: models/ResourceGroupItemModel.cpp:401
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup coordinator"
-msgstr ""
+msgstr "რესურსჯგუფის კოორდინატორის შეცვლა"
 
 #: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:888
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
 msgid_plural "Add %1 resources from address book"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "რესურსის დამატება მისამართების წიგნიდან"
+msgstr[1] "%1 რესურსის დამატება მისამართების წიგნიდან"
 
 #: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:956
 #, kde-format
@@ -5317,7 +5369,7 @@ msgstr "ხელით"
 #: models/ResourceModel.cpp:82
 #, kde-format
 msgid "On task creation"
-msgstr ""
+msgstr "ამოცანის შექმნისას"
 
 #: models/ResourceModel.cpp:109
 #, kde-kuit-format
@@ -5363,7 +5415,7 @@ msgstr "ნაგულისხმები (%1)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A team resource does not have a calendar"
-msgstr ""
+msgstr "გუნდის რესურსს კალენდარი არ აქვს"
 
 #: models/ResourceModel.cpp:225
 #, kde-kuit-format
@@ -5387,7 +5439,7 @@ msgstr "ხელმისაწვდომია: %1-დან"
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available from project target start time: %1"
-msgstr ""
+msgstr "ხელმისაწვდომია პროექტის სამიზნე დაწყების დროიდან: %1"
 
 #: models/ResourceModel.cpp:309
 #, kde-kuit-format
@@ -5399,17 +5451,17 @@ msgstr "ხელმისაწვდომია: %1-მდე"
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available until project target finish time: %1"
-msgstr ""
+msgstr "ხელმისაწვდომია პროექტის სამიზნე დასრულების დრომდე: %1"
 
 #: models/ResourceModel.cpp:330
 #, kde-format
 msgid "Cost per hour, normal time: %1"
-msgstr ""
+msgstr "ღირებულება საათში, ნორმალური დრო: %1"
 
 #: models/ResourceModel.cpp:348
 #, kde-format
 msgid "Cost per hour, overtime: %1"
-msgstr ""
+msgstr "ღირებულება საათში, ზეგანაკვეთური საათები: %1"
 
 #: models/ResourceModel.cpp:365
 #, kde-format
@@ -5434,27 +5486,27 @@ msgstr "კალენდარი"
 #: models/ResourceModel.cpp:424
 #, kde-format
 msgid "Limit (%)"
-msgstr ""
+msgstr "ლიმიტი (%)"
 
 #: models/ResourceModel.cpp:425
 #, kde-format
 msgid "Available From"
-msgstr ""
+msgstr "ხელმისაწვდომია საიდან"
 
 #: models/ResourceModel.cpp:426
 #, kde-format
 msgid "Available Until"
-msgstr ""
+msgstr "ხელმისაწვდომია სადამდე"
 
 #: models/ResourceModel.cpp:427
 #, kde-format
 msgid "Normal Rate"
-msgstr ""
+msgstr "ნორმალური განაკვეთი"
 
 #: models/ResourceModel.cpp:428
 #, kde-format
 msgid "Overtime Rate"
-msgstr ""
+msgstr "ზეგანაკვეთური განაკვეთი"
 
 #: odf/KoOdfReadStore.cpp:136
 #, kde-format
@@ -5462,6 +5514,8 @@ msgid ""
 "Parsing error in the main document at line %1, column %2\n"
 "Error message: %3"
 msgstr ""
+"მთავარი დოკუმენტის დამუშავების შეცდომა ხაზზე %1, სვეტი %2,\n"
+"შეცდომის შეტყობინება: %3"
 
 #: odf/KoPageFormat.cpp:56
 msgctxt "Page size"
@@ -5659,6 +5713,8 @@ msgid ""
 "This document contains an unknown checksum. When you give a password it "
 "might not be verified."
 msgstr ""
+"ეს დოკუმენტი უცნობ საკონტროლო ჯამს შეიცავს. როცა პაროლს შეიყვან, ის შეიძლება "
+"არ შემოწმდეს."
 
 #: store/KoEncryptedStore.cpp:256 store/KoEncryptedStore.cpp:273
 #, kde-format
@@ -5666,6 +5722,8 @@ msgid ""
 "This document contains an unknown encryption method. Some parts may be "
 "unreadable."
 msgstr ""
+"დოკუმენტი უცნობ დაშიფვრის მეთოდს შეიცავს. მისი ზოგიერთი ნაწილი შეიძლება ვერ "
+"წაიკითხოთ."
 
 #: store/KoEncryptedStore.cpp:288
 #, kde-format
@@ -5673,6 +5731,8 @@ msgid ""
 "This document contains incomplete encryption data. Some parts may be "
 "unreadable."
 msgstr ""
+"დოკუმენტი არასრულ დაშიფვრის მეთოდს შეიცავს. მისი ზოგიერთი ნაწილი შეიძლება "
+"ვერ წაიკითხოთ."
 
 #: store/KoEncryptedStore.cpp:302
 #, kde-format
@@ -5680,6 +5740,8 @@ msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
 msgstr ""
+"QCA-ს ამჟამად SHA1-ის, ან PBKDF2-ის SHA1-ის გამოყენებით მხარდაჭერა არ "
+"გააჩნია. დოკუმენტის გახსნა შეუძლებელია."
 
 #: store/KoEncryptedStore.cpp:332
 #, kde-format
@@ -5688,6 +5750,9 @@ msgid ""
 "document will remain unreadable. Please try and save the document again to "
 "prevent losing your work."
 msgstr ""
+"როგორც ჩანს, მანიფესტის ფაილი დაზიანებულია. მას ვერ შეცვლით და დოკუმენტის "
+"წაკითხვა შეუძლებელი იქნება. იმისათვის, რომ თავიდან აიცილოთ თქვენი სამუშაოს "
+"დაკარგვა, დოკუმენტის შენახვა კიდევ სცადეთ."
 
 #: store/KoEncryptedStore.cpp:430
 #, kde-format
@@ -5695,6 +5760,9 @@ msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
 "Please try and save the document again to prevent losing your work."
 msgstr ""
+"მანიფესტის ფაილის ჩაწერა შეუძლებელია. მას ვერ შეცვლით და დოკუმენტის წაკითხვა "
+"შეუძლებელი იქნება. იმისათვის, რომ თავიდან აიცილოთ თქვენი სამუშაოს დაკარგვა, "
+"დოკუმენტის შენახვა კიდევ სცადეთ."
 
 #: store/KoEncryptedStore.cpp:529
 #, kde-format
@@ -5705,7 +5773,7 @@ msgstr "წაკითხვის შეცდომა"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
-msgstr ""
+msgstr "შეიყვანეთ პაროლი ამ ფაილის გასახსნელად:<nl/>%1"
 
 #: store/KoEncryptedStore.cpp:574
 #, kde-format
@@ -5752,7 +5820,7 @@ msgstr "Calligra -ის საცავი"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "გაფართოებული ფილტრის პარამეტრების გადართვა"
 
 #: ui/FilterWidget.cpp:45
 #, kde-format
@@ -5838,7 +5906,7 @@ msgstr "არ გაშვებული ამოცანები"
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
 #, kde-format
 msgid "Number of days around current datetime"
-msgstr ""
+msgstr "დღეების რაოდენობა მიმდინარე თარიღის გარშემო"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
@@ -5873,7 +5941,7 @@ msgstr "თაიმლაინი"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:28
 #, kde-format
 msgid "Do not show the timeline"
-msgstr ""
+msgstr "ვადები ნაჩვენები არ იქნება"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineHide)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
@@ -5891,7 +5959,7 @@ msgstr "დამალვა"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:38
 #, kde-format
 msgid "Show timeline in the foreground"
-msgstr ""
+msgstr "ვადების ჩვენება წინა პლანზე"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineForeground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
@@ -5909,7 +5977,7 @@ msgstr "წინა პლანი"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:48
 #, kde-format
 msgid "Show timeline in the background"
-msgstr ""
+msgstr "ვადების ჩვენება ფონზე"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineBackground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
@@ -5926,7 +5994,7 @@ msgstr "ფონი"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:60
 #, kde-format
 msgid "Update interval in minutes, 0 disables update"
-msgstr ""
+msgstr "განაახლეთ ინტერვალი წუთებში, 0 გამორთავს განახლებას"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/gantt/kptganttchartdisplayoptions.ui:63
@@ -6002,7 +6070,7 @@ msgstr "მწკრივის გამყოფების ჩვენე�
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "თავისუფალი დღეები:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -6047,7 +6115,7 @@ msgstr "ამოცანის დამოკიდებულებებ�
 #: ui/gantt/kptganttchartdisplayoptions.ui:249
 #, kde-format
 msgid "Negative float"
-msgstr "უარყოფითი მცურავი"
+msgstr "უარყოფითი რეზერვი"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
 #: ui/gantt/kptganttchartdisplayoptions.ui:256
@@ -6065,7 +6133,7 @@ msgstr "ამოცანის დასრულება"
 #: ui/gantt/kptganttchartdisplayoptions.ui:270
 #, kde-format
 msgid "Positive float"
-msgstr "დადებითი მცურავი"
+msgstr "დადებითი რეზერვი"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
 #: ui/gantt/kptganttchartdisplayoptions.ui:277
@@ -6084,6 +6152,8 @@ msgstr "დროის შეზღუდვები"
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr ""
+"სახელი: %1<nl/>რეალური დასრულება: %2<nl/>დაგეგმილი დასრულება: %3<nl/"
+">სტატუსი: %4"
 
 #: ui/gantt/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
@@ -6092,6 +6162,8 @@ msgid ""
 "Name: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6"
 msgstr ""
+"სახელი: %1<nl/>დასრულება: %2 %<nl/>რეალური დასაწყისი: %3<nl/>დაგეგმილი: %4 - "
+"%5<nl/>სტატუსი: %6"
 
 #: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
 #, kde-kuit-format
@@ -6100,12 +6172,14 @@ msgid ""
 "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Constraint type: %5<nl/"
 ">Constraint time: %6<nl/>Negative float: %7 h"
 msgstr ""
+"სახელი: %1<nl/>დაგეგმილი: %2 - %3<nl/>სტატუსი: %4<nl/>შეზღუდვის ტიპი: %5<nl/"
+">შეზღუდვის დრო: %6<nl/>უარყოფითი რეზერვი: %7 სთ"
 
 #: ui/gantt/kptganttitemdelegate.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
-msgstr ""
+msgstr "სახელი: %1<nl/>დაგეგმილია: %2 - %3<nl/>სტატუსი: %4<nl/>დაგეგმვა: %5"
 
 #: ui/gantt/kptganttitemdelegate.cpp:168 ui/gantt/kptganttitemdelegate.cpp:185
 #, kde-kuit-format
@@ -6114,18 +6188,20 @@ msgid ""
 "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Constraint type: %4<nl/"
 ">Constraint time: %5<nl/>Negative float: %6 h"
 msgstr ""
+"სახელი: %1<nl/>დაგეგმილია: %2<nl/>სტატუსი: %3<nl/>შეზღუდვის ტიპი: %4<nl/"
+">შეზღუდვის დრო: %5<nl/>უარყოფითი რეზერვი: %6 h"
 
 #: ui/gantt/kptganttitemdelegate.cpp:201
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
-msgstr ""
+msgstr "სახელი: %1<nl/>დაგეგმილია: %2<nl/>სტატუსი: %3<nl/>დაგეგმვა: %4"
 
 #: ui/gantt/kptganttitemdelegate.cpp:214
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
-msgstr ""
+msgstr "სახელი: %1<nl/>დაგეგმილია: %2 - %3"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/gantt/kptganttprintingoptions.ui:17
@@ -6160,21 +6236,21 @@ msgstr "მასშტაბირება"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Divide chart on multiple pages"
-msgstr ""
+msgstr "დიაგრამის გაყოფა მრავალ გვერდზე"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
 #: ui/gantt/kptganttprintingoptions.ui:53
 #, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to page height"
-msgstr ""
+msgstr "დიაგრამის ჩატევა გვერდის სიმაღლეში"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
 #: ui/gantt/kptganttprintingoptions.ui:60
 #, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to a single page"
-msgstr ""
+msgstr "დიაგრამის ჩატევა ერთ გვერდზე"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #: ui/gantt/kptganttprintingoptions.ui:73
@@ -6188,7 +6264,7 @@ msgstr "დიაპაზონი"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Chart start:"
-msgstr ""
+msgstr "დიაგრამის დაწყება:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
 #: ui/gantt/kptganttprintingoptions.ui:105
@@ -6214,7 +6290,7 @@ msgstr "დასასრული:"
 #: ui/GroupAllocationPanel.cpp:53 ui/GroupAllocationPanel.cpp:82
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup allocation"
-msgstr ""
+msgstr "რესურსების ჯგუფის გამოყოფის შეცვლა"
 
 #: ui/kptaccountseditor.cpp:39 ui/kptaccountsviewconfigdialog.cpp:32
 #: ui/kptdependencyeditor.cpp:2174 ui/kptresourceappointmentsview.cpp:52
@@ -6386,7 +6462,7 @@ msgstr "მუშაობა..."
 #: ui/kptcalendareditor.cpp:263 ui/kptcalendareditor.cpp:293
 msgctxt "(qtundo-format)"
 msgid "Modify Weekday State"
-msgstr ""
+msgstr "სამუშაო დღის მდგომარეობის შეცვლა"
 
 #: ui/kptcalendareditor.cpp:377
 #, kde-kuit-format
@@ -6434,13 +6510,13 @@ msgstr "კალენდარის შეცვლა"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "%1: Set to Non-Working"
-msgstr ""
+msgstr "%1: დაყენება, როგორც არა-მუშა"
 
 #: ui/kptcalendareditor.cpp:794
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set %1 to Undefined"
-msgstr ""
+msgstr "%1-ის დაყენება განუსაზღვრელად"
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
@@ -6467,7 +6543,7 @@ msgstr "..."
 #: ui/kptcpmwidget.ui:71
 #, kde-format
 msgid "Probability of finishing before"
-msgstr ""
+msgstr "დასრულების ალბათობა თარიღამდე"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptcpmwidget.ui:91
@@ -6637,7 +6713,7 @@ msgstr "დოკუმენტის მიმაგრების შეც�
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "დოკუმენტი უკვე მიმაგრებულია:<nl/><filename>%1</filename>"
 
 #: ui/kptdocumentspanel.cpp:139
 #, kde-kuit-format
@@ -6832,7 +6908,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "ააქტიურებს პერიოდის ფილტრის პარამეტრებს."
 
 #: ui/kptganttview.cpp:371
 #, kde-format
@@ -6978,13 +7054,13 @@ msgstr "სუფთა ცა"
 #: ui/kptitemviewsettings.ui:28
 #, kde-format
 msgid "Stretch last section"
-msgstr ""
+msgstr "ბოლო სექციის გაჭიმვრა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/kptitemviewsettings.ui:35
 #, kde-format
 msgid "Select columns to be shown:"
-msgstr ""
+msgstr "აირჩიეთ ნაჩვენები სვეტები:"
 
 #. i18n: ectx: property (availableLabel), widget (KActionSelector, selector)
 #: ui/kptitemviewsettings.ui:56
@@ -7006,7 +7082,7 @@ msgstr "ხისმაგვარი ხედი"
 #: ui/kptitemviewsettup.cpp:138
 #, kde-format
 msgid "Tree View Column Configuration"
-msgstr ""
+msgstr "ხის ხედის სვეტის კონფიგურაცია"
 
 #: ui/kptitemviewsettup.cpp:212
 #, kde-format
@@ -7016,7 +7092,7 @@ msgstr "მთავარი ხედი"
 #: ui/kptitemviewsettup.cpp:213
 #, kde-format
 msgid "Main View Column Configuration"
-msgstr ""
+msgstr "მტავარი ხედის სვეტის კონფიგურაცია"
 
 #: ui/kptitemviewsettup.cpp:218
 #, kde-format
@@ -7026,7 +7102,7 @@ msgstr "დამატებითი ხედი"
 #: ui/kptitemviewsettup.cpp:219
 #, kde-format
 msgid "Auxiliary View Column Configuration"
-msgstr ""
+msgstr "დამხმარე ხედის სვეტის კონფიგურაცია"
 
 #: ui/kptlocaleconfigmoneydialog.cpp:21
 #, kde-format
@@ -7062,7 +7138,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Enables sharing resources with other projects"
-msgstr ""
+msgstr "ჩართავს სხვა პროექტებთან რესურსების გაზიარებას"
 
 #: ui/kptmainprojectpanel.cpp:111
 #, kde-kuit-format
@@ -7078,7 +7154,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "File where shared resources are defined"
-msgstr ""
+msgstr "ფაილი, სადაც გაზიარებული რესურსებია აღწერილი"
 
 #: ui/kptmainprojectpanel.cpp:370
 #, kde-format
@@ -7122,7 +7198,7 @@ msgstr "&მმართველი:"
 #: ui/kptmainprojectpanelbase.ui:132
 #, kde-format
 msgid "Choose a project leader from your address book."
-msgstr ""
+msgstr "აირჩიეთ პროექტის ლიდერი თქვენი მისამართების წიგნიდან."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: ui/kptmainprojectpanelbase.ui:135
@@ -7171,7 +7247,7 @@ msgstr "მოძებნა..."
 #: ui/kptmainprojectpanelbase.ui:255
 #, kde-format
 msgid "Freedays"
-msgstr ""
+msgstr "თავისუფალი დღეები"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -7262,17 +7338,17 @@ msgstr "ლოკალური ამოცანის მოდულებ�
 #: ui/kptmilestoneprogressdialog.cpp:26
 #, kde-format
 msgid "Milestone Progress"
-msgstr ""
+msgstr "ეტაპის პროგრესი"
 
 #: ui/kptmilestoneprogresspanel.cpp:39
 msgctxt "(qtundo-format)"
 msgid "Modify milestone completion"
-msgstr ""
+msgstr "ეტაპის დასრულების შეცვლა"
 
 #: ui/kptperteditor.cpp:152
 msgctxt "(qtundo-format)"
 msgid "Remove task dependency"
-msgstr ""
+msgstr "ამოცანის დამოკიდებულების წაშლა"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, available)
 #: ui/kptperteditor.ui:29
@@ -7284,19 +7360,19 @@ msgstr "ხელმისაწვდომი ამოცანები"
 #: ui/kptperteditor.ui:64
 #, kde-format
 msgid "Add required task"
-msgstr ""
+msgstr "აუცილებელი ამოცანის დამატება"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, removeBtn)
 #: ui/kptperteditor.ui:80
 #, kde-format
 msgid "Remove required task"
-msgstr ""
+msgstr "აუცილებელი ამოცანის წაშლა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/kptpertresult.ui:90
 #, kde-format
 msgid "Total Float:"
-msgstr ""
+msgstr "ჯამური რეზერვი:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_header)
 #: ui/kptprintingheaderfooter.ui:16
@@ -7334,19 +7410,19 @@ msgstr "ქვესართი"
 #: ui/kptrecalculatedialog.cpp:35
 #, kde-format
 msgid "Re-calculate Schedule"
-msgstr ""
+msgstr "განრიგის ხელახლა გამოთვლა"
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
 #: ui/kptrecalculatedialog.ui:26
 #, kde-format
 msgid "Re-calculate from current date/time"
-msgstr ""
+msgstr "ხელახლა გამოთვლა მიმდინარე თარიღიდან/დროიდან"
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
 #: ui/kptrecalculatedialog.ui:33
 #, kde-format
 msgid "Re-calculate from:"
-msgstr ""
+msgstr "ხელახლა გამოთვლა საიდან:"
 
 #: ui/kptrelationdialog.cpp:24
 #, kde-kuit-format
@@ -7381,7 +7457,7 @@ msgstr "წაშლა"
 #: ui/kptrelationdialog.cpp:166
 msgctxt "(qtundo-format)"
 msgid "Modify task dependency"
-msgstr ""
+msgstr "ამოცანის დამოკიდებულების შეცვლა"
 
 #: ui/kptresourceappointmentsview.cpp:157
 #, kde-kuit-format
@@ -7402,7 +7478,7 @@ msgstr "ჯგუფები"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Select team members"
-msgstr ""
+msgstr "აირჩიეთ გუნდის წევრები"
 
 #: ui/kptresourcedialog.cpp:238
 #, kde-format
@@ -7441,26 +7517,26 @@ msgstr "რესურსის ჩასწორება..."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Resource Groups"
-msgstr ""
+msgstr "რესურსის ჯგუფების ჩვენება"
 
 #: ui/kptresourceeditor.cpp:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Team Members"
-msgstr ""
+msgstr "გუნდის წევრების ჩვენება"
 
 #: ui/kptresourceeditor.cpp:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Required Resources"
-msgstr ""
+msgstr "საჭირო რესურსების ჩვენება"
 
 #: ui/kptresourceeditor.cpp:396
 #, kde-format
 msgid ""
 "A resource that has been scheduled will be deleted. This will invalidate the "
 "schedule."
-msgstr ""
+msgstr "რესურსი რიგშია წასაშლელად. ეს რიგს გააუქმებს."
 
 #: ui/kptresourceeditor.cpp:416
 msgctxt "(qtundo-format)"
@@ -7526,7 +7602,7 @@ msgstr "მოძრობა"
 #, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr ""
+msgstr "განრიგი"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7534,6 +7610,8 @@ msgid ""
 "This schedule cannot be calculated.\n"
 "The parent schedule must be calculated first"
 msgstr ""
+"ამ გეგმის გამოთვლა შეუძლებელია.\n"
+"ჯერ მშობელი გეგმა უნდა გამოთვალოთ."
 
 #: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, kde-format
@@ -7546,12 +7624,14 @@ msgid ""
 "The project has been started.\n"
 "Do you really want to calculate this schedule?"
 msgstr ""
+"პროექტი დაწყებულია.\n"
+"მართლა გნებავთ ამ გეგმის გამოთვლა?"
 
 #: ui/kptscheduleeditor.cpp:388
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
-msgstr ""
+msgstr "%1-ის გამოთვლა"
 
 #: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 msgctxt "(qtundo-format)"
@@ -7562,53 +7642,53 @@ msgstr "ქვეგეგმის დამატება"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add schedule %1"
-msgstr ""
+msgstr "%1 გეგმის დამატება"
 
 #: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
-msgstr ""
+msgstr "პროექტის აკრეფა შეუძლებელია. ის უკვე აკრეფილია."
 
 #: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
-msgstr ""
+msgstr "პროექტი აკრეფილია. გნებავთ აკრეფის წაშლა?"
 
 #: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
-msgstr ""
+msgstr "აკრეფის %1 ჩამოყრა"
 
 #: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
-msgstr ""
+msgstr "აკრეფა %1"
 
 #: ui/kptscheduleeditor.cpp:485
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete schedule %1"
-msgstr ""
+msgstr "გეგმის %1 წაშლა"
 
 #: ui/kptscheduleeditor.cpp:501
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Move schedule %1"
-msgstr ""
+msgstr "გეგმის %1 გადატანა"
 
 #: ui/kptscheduleeditor.cpp:510
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr ""
+msgstr "გეგმის %1 გამოთხოვა"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
-msgstr ""
+msgstr "გამართვის ინფორმაციის ჩვენება"
 
 #: ui/kptscheduleeditor.cpp:788
 #, kde-format
@@ -7618,23 +7698,23 @@ msgstr "შედეგი"
 #: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
-msgstr ""
+msgstr "დაგეგმვის ჟურნალი"
 
 #: ui/kptscheduleeditor.cpp:983
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
-msgstr ""
+msgstr "პროექტის სამიზნე დაწყების დროის შეცვლა"
 
 #: ui/kptscheduleeditor.cpp:995
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
-msgstr ""
+msgstr "პროექტის სამიზნე დასრულების დროის შეცვლა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptscheduleeditor.ui:35
 #, kde-format
 msgid "Scheduling range:"
-msgstr ""
+msgstr "დაგეგმვის დიაპაზონი:"
 
 #: ui/kptstandardworktimedialog.cpp:73
 #, kde-format
@@ -7644,17 +7724,17 @@ msgstr "დაახლოებითი გარდაქმნები"
 #: ui/kptstandardworktimedialog.cpp:91
 msgctxt "(qtundo-format)"
 msgid "Modify Estimate Conversions"
-msgstr ""
+msgstr "სავარაუდო გადაყვანების შეცვლა"
 
 #: ui/kptsummarytaskdialog.cpp:26
 #, kde-format
 msgid "Summary Task Settings"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის პარამეტრები"
 
 #: ui/kptsummarytaskdialog.cpp:51
 msgctxt "(qtundo-format)"
 msgid "Modify Summary Task"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის შეცვლა"
 
 #: ui/kptsummarytaskgeneralpanel.cpp:44 ui/kpttaskgeneralpanel.cpp:40
 #, kde-format
@@ -7669,13 +7749,13 @@ msgstr ""
 #: ui/kptsummarytaskgeneralpanel.cpp:76 ui/kpttaskdialog.cpp:97
 msgctxt "(qtundo-format)"
 msgid "Modify task"
-msgstr ""
+msgstr "ამოცანის ჩასწორება"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, wbslabel)
 #: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
 #, kde-format
 msgid "Work Breakdown Structure"
-msgstr ""
+msgstr "სამუშაოს დაშლის სტრუქტურა"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
@@ -7718,7 +7798,7 @@ msgstr "პრიორიტეტი:"
 #: ui/kpttaskcostpanel.cpp:88
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
-msgstr ""
+msgstr "ამოცანის ღირებულების შეცვლა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
@@ -7752,17 +7832,17 @@ msgstr "გამორთვა"
 #: ui/kpttaskdescriptiondialog.cpp:40
 msgctxt "(qtundo-format)"
 msgid "Modify milestone description"
-msgstr ""
+msgstr "ეტაპის აღწერის შეცვლა"
 
 #: ui/kpttaskdescriptiondialog.cpp:42
 msgctxt "(qtundo-format)"
 msgid "Modify summary task description"
-msgstr ""
+msgstr "შემაჯამებელი ამოცანის აღწერის შეცვლა"
 
 #: ui/kpttaskdescriptiondialog.cpp:44
 msgctxt "(qtundo-format)"
 msgid "Modify project description"
-msgstr ""
+msgstr "პროექტის აღწერის შეცვლა"
 
 #: ui/kpttaskdescriptiondialog.cpp:122
 #, kde-format
@@ -7808,7 +7888,7 @@ msgstr "&აღწერა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
-msgstr ""
+msgstr "ამოცანის ტიპი ან დავალების შეფასების ტიპი"
 
 #: ui/kpttaskeditor.cpp:99
 #, kde-kuit-format
@@ -7824,7 +7904,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
-msgstr ""
+msgstr "ამოცანა შეფასების ტიპით: %1"
 
 #: ui/kpttaskeditor.cpp:145
 #, kde-kuit-format
@@ -7835,7 +7915,7 @@ msgstr "ამოცანის ტიპი: %1"
 #: ui/kpttaskeditor.cpp:181 ui/kpttaskeditor.cpp:183
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
-msgstr ""
+msgstr "ეტაპის ტიპის დაყენება"
 
 #: ui/kpttaskeditor.cpp:190
 #, kde-format
@@ -7938,7 +8018,7 @@ msgstr "გაყოფა"
 msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
-msgstr ""
+msgstr "დაგეგმილი ამოცანა წაიშლება. ეს გააუქმებს გრაფიკს."
 
 #: ui/kpttaskeditor.cpp:1148
 msgctxt "(qtundo-format)"
@@ -8007,7 +8087,7 @@ msgstr "სამუშაო პაკეტები..."
 #: ui/kpttaskeditor.cpp:2468
 msgctxt "(qtundo-format)"
 msgid "Log Send Workpackage"
-msgstr ""
+msgstr "ჟურნალში ჩაწერა გაგზავნილი სამუშაო პაკეტის შესახებ"
 
 #: ui/kpttaskgeneralpanel.cpp:102
 msgctxt "(qtundo-format)"
@@ -8027,12 +8107,14 @@ msgid ""
 "The person responsible for this task.\n"
 "        "
 msgstr ""
+"ამ ამოცანაზე პასუხისმგებელი პირი.\n"
+"        "
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: ui/kpttaskgeneralpanelbase.ui:82
 #, kde-format
 msgid "Responsi&ble:"
-msgstr ""
+msgstr "პასუხისმგე&ბელი:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, chooseLeader)
 #: ui/kpttaskgeneralpanelbase.ui:118 ui/TasksGeneralPanel.ui:67
@@ -8057,13 +8139,13 @@ msgstr ""
 #: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
 #, kde-format
 msgid "Timing"
-msgstr ""
+msgstr "ქრონომეტრაჟი"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: ui/kpttaskgeneralpanelbase.ui:194
 #, kde-format
 msgid "&Schedule:"
-msgstr ""
+msgstr "გეგ&მა:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, scheduleType)
 #: ui/kpttaskgeneralpanelbase.ui:217 ui/TasksGeneralPanel.ui:169
@@ -8164,24 +8246,24 @@ msgstr ""
 #: ui/kpttaskprogressdialog.cpp:75
 msgctxt "(qtundo-format)"
 msgid "Modify Task Progress"
-msgstr ""
+msgstr "ამოცანის მიმდინარეობის შეცვლა"
 
 #: ui/kpttaskprogresspanel.cpp:96
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Select the tasks finish time"
-msgstr ""
+msgstr "აირჩიეთ ამოცანის დასრულების დრო"
 
 #: ui/kpttaskprogresspanel.cpp:97
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finish the task at the selected time"
-msgstr ""
+msgstr "დაასრულეთ ამოცანა არჩეულ დროს"
 
 #: ui/kpttaskprogresspanel.cpp:113
 msgctxt "(qtundo-format)"
 msgid "Modify task completion"
-msgstr ""
+msgstr "ამოცანის დასრულების შეცვლა"
 
 #: ui/kpttaskprogresspanel.cpp:401 ui/kpttaskprogresspanel.cpp:416
 #, kde-format
@@ -8225,13 +8307,13 @@ msgstr "ჩასწორების რეჟიმი:"
 #: ui/kpttaskprogresspanelbase.ui:125
 #, kde-format
 msgid "Per resource"
-msgstr ""
+msgstr "თითო რესურსისთვის"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, editmode)
 #: ui/kpttaskprogresspanelbase.ui:130
 #, kde-format
 msgid "Per task"
-msgstr ""
+msgstr "თითო ამოცანისთვის"
 
 #. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
 #: ui/kpttaskprogresspanelbase.ui:177
@@ -8249,7 +8331,7 @@ msgstr "შემდეგი"
 #: ui/kpttaskprogresspanelbase.ui:230
 #, kde-format
 msgid "Add resource:"
-msgstr ""
+msgstr "რესურსის დამატება:"
 
 #. i18n: ectx: property (text), widget (QPushButton, addEntryBtn)
 #: ui/kpttaskprogresspanelbase.ui:278
@@ -8287,13 +8369,13 @@ msgstr "ზოგადი პარამეტრები"
 #: ui/kpttaskstatusviewsettingspanel.ui:16
 #, kde-format
 msgid "Period Definition"
-msgstr ""
+msgstr "პერიოდის აღწერა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskstatusviewsettingspanel.ui:25
 #, kde-format
 msgid "Period length (days):"
-msgstr ""
+msgstr "პერიოდის ხანგრძლივობა (დღეები):"
 
 #. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
 #: ui/kpttaskstatusviewsettingspanel.ui:48
@@ -8305,7 +8387,7 @@ msgstr "მიმდინარე თარიღის გამოყენ�
 #: ui/kpttaskstatusviewsettingspanel.ui:68
 #, kde-format
 msgid "Use weekday:"
-msgstr ""
+msgstr "კვირის დღის გამოყენება:"
 
 #: ui/kptusedefforteditor.cpp:32
 #, kde-format
@@ -8320,7 +8402,7 @@ msgstr "ამ კვირაში"
 #: ui/kptusedefforteditor.cpp:210
 #, kde-format
 msgid "Total effort this week"
-msgstr ""
+msgstr "სულ ძალისხმევა ამ კვირაში"
 
 #: ui/kptusedefforteditor.cpp:397
 #, no-c-format, kde-format
@@ -8330,7 +8412,7 @@ msgstr "% დასრულებული"
 #: ui/kptusedefforteditor.cpp:398
 #, kde-format
 msgid "Used Effort"
-msgstr ""
+msgstr "გამოყენებული ძალისხმევა"
 
 #: ui/kptusedefforteditor.cpp:399
 #, kde-format
@@ -8346,7 +8428,7 @@ msgstr "დაგეგმილი სამუშაოები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Accumulated effort %1"
-msgstr ""
+msgstr "დაგროვებული სამუშაოს მოცულობა %1"
 
 #: ui/kptusedefforteditor.cpp:725
 #, kde-kuit-format
@@ -8355,29 +8437,31 @@ msgid ""
 "Accumulated used effort.<nl/><note>Used effort must be entered per resource</"
 "note>"
 msgstr ""
+"დაგროვილი გამოყენებული სამუშაოს მოცულობა.<nl/><note>გამოყენებული სამუშაოს "
+"მოცულობა უნდა შეიყვანოთ თითო რესურსისთვის</note>"
 
 #: ui/kptusedefforteditor.cpp:727
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Accumulated used effort"
-msgstr ""
+msgstr "დაგროვებული გამოყენებული მუშაობის მოცულობა"
 
 #: ui/kptusedefforteditor.cpp:729
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Remaining effort to complete the task"
-msgstr ""
+msgstr "დარჩენილი სამუშაო მოცულობა ამოცანის დასასრულებლად"
 
 #: ui/kptusedefforteditor.cpp:731
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort accumulated until date"
-msgstr ""
+msgstr "დაგეგმილი დაგროვებული სამუშაოს მოცულობა თარიღამდე"
 
 #: ui/kptviewbase.cpp:199
 #, kde-format
 msgid "Header and Footer"
-msgstr ""
+msgstr "ზედა და ქვედა კოლონტიტული"
 
 #: ui/kptviewbase.cpp:421
 #, kde-format
@@ -8408,7 +8492,7 @@ msgstr "პროექტი:"
 #: ui/kptviewbase.cpp:669
 #, kde-format
 msgid "This view does not support printing."
-msgstr ""
+msgstr "ამ ხედს დაბეჭდვის მხარდაჭერა არ აქვს."
 
 #: ui/kptviewbase.cpp:678
 #, kde-kuit-format
@@ -8420,7 +8504,7 @@ msgstr "გვერდის განლაგება"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Header and Footer"
-msgstr ""
+msgstr "ზედა და ქვედა კოლონტიტული"
 
 #: ui/kptviewbase.cpp:725
 #, kde-format
@@ -8435,7 +8519,7 @@ msgstr "ყველას ჩაკეცვა"
 #: ui/kptviewbase.cpp:762
 #, kde-format
 msgid "Print Options..."
-msgstr ""
+msgstr "ბეჭდვის მორგება..."
 
 #: ui/kptviewbase.cpp:773
 #, kde-format
@@ -8445,7 +8529,7 @@ msgstr "ხედის მორგება..."
 #: ui/kptviewbase.cpp:2704
 #, kde-format
 msgid "Unsplit View"
-msgstr ""
+msgstr "ხედის გაყოფის გაუქმება"
 
 #: ui/kptviewbase.cpp:2707
 #, kde-format
@@ -8455,25 +8539,25 @@ msgstr "ხედის გაყოფა"
 #: ui/kptwbsdefinitiondialog.cpp:22
 #, kde-format
 msgid "WBS Definition"
-msgstr ""
+msgstr "WBS-ის აღწერა"
 
 #: ui/kptwbsdefinitionpanel.cpp:134
 msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
-msgstr ""
+msgstr "WBS-ის კოდის აღწრეის შეცვლა"
 
 #. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
 #: ui/kptwbsdefinitionpanelbase.ui:21
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define WBS code for the project"
-msgstr ""
+msgstr "WBS კოდის აღწერა პროექტისთვის"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptwbsdefinitionpanelbase.ui:33
 #, kde-format
 msgid "Project Code Definition"
-msgstr ""
+msgstr "პროექტის კოდის აღწერა"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
@@ -8494,7 +8578,7 @@ msgstr "გამყოფი:"
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define default WBS code"
-msgstr ""
+msgstr "ნაგულისხმევი WBS კოდის აღწერა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptwbsdefinitionpanelbase.ui:98
@@ -8507,13 +8591,13 @@ msgstr "ნაგულისხმები აღწერა"
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define separate WBS codes for individual levels"
-msgstr ""
+msgstr "ცალ-ცალკე WBS კოდების აღწერა ინდივიდუალური დონეებისთვის"
 
 #. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
 #: ui/kptwbsdefinitionpanelbase.ui:151
 #, kde-format
 msgid "Use Levels Definition"
-msgstr ""
+msgstr "დონეების აღწერის გამოყენება"
 
 #. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
 #: ui/kptwbsdefinitionpanelbase.ui:167
@@ -8549,7 +8633,7 @@ msgstr "დასრულება"
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Used Effort"
-msgstr ""
+msgstr "გამოყენებული ძალისხმევა"
 
 #: ui/kptworkpackagemergedialog.cpp:56
 #, kde-kuit-format
@@ -8561,13 +8645,13 @@ msgstr "დარჩენილი სამუშაოები"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Update started"
-msgstr ""
+msgstr "განახლება დაიწყო"
 
 #: ui/kptworkpackagemergedialog.cpp:60
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Update finished"
-msgstr ""
+msgstr "განახლება დასრულდა"
 
 #: ui/kptworkpackagemergedialog.cpp:81
 #, kde-format
@@ -8578,7 +8662,7 @@ msgstr "შერწყმა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Merge the changes and display the resulting progress information"
-msgstr ""
+msgstr "ცვლილებების შერწყმა და შედეგად მიღებული პროგრესის ინფორმაციის ჩვენება"
 
 #: ui/kptworkpackagemergedialog.cpp:84
 #, kde-format
@@ -8589,13 +8673,13 @@ msgstr "უარყოფა"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
-msgstr ""
+msgstr "ამ პაკეტის უარყოფა და შემდეგზე გადასვლა"
 
 #: ui/kptworkpackagemergedialog.cpp:92
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Commit the changes and go to next package"
-msgstr ""
+msgstr "ცვლილებების გადაცემა და შემდეგ პაკეტზე გადასვლა"
 
 #: ui/kptworkpackagemergedialog.cpp:93
 #, kde-format
@@ -8606,25 +8690,25 @@ msgstr "უკან"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Revert the changes and go back to the current package"
-msgstr ""
+msgstr "ცვლილებების გაუქმება და მიმდინარე პაკეტზე დაბრუნება"
 
 #: ui/kptworkpackagemergedialog.cpp:165
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not started"
-msgstr ""
+msgstr "ამოცანა არ დაწყებულა"
 
 #: ui/kptworkpackagemergedialog.cpp:173
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not finished"
-msgstr ""
+msgstr "ამოცანა არ დასრულებულა"
 
 #: ui/kptworkpackagemergedialog.cpp:185
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Existing entry"
-msgstr ""
+msgstr "არსებული ჩანაწერი"
 
 #: ui/kptworkpackagemergedialog.cpp:187
 #, kde-kuit-format
@@ -8636,13 +8720,13 @@ msgstr "ახალი ჩანაწერი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1%<nl/>Current value: %2%"
-msgstr ""
+msgstr "ახალი მნიშვნელობა: %1%<nl/>მიმდინარე მნიშვნელობა: %2%"
 
 #: ui/kptworkpackagemergedialog.cpp:205 ui/kptworkpackagemergedialog.cpp:216
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1<nl/>Current value: %2"
-msgstr ""
+msgstr "ახალი მნიშვნელობა: %1<nl/>მიმდინარე მნიშვნელობა: %2"
 
 #: ui/kptworkpackagemergedialog.cpp:226
 #, kde-format
@@ -8654,7 +8738,7 @@ msgstr "დოკუმენტების გარეშე"
 msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
-msgstr ""
+msgstr "პაკეტის მფლობელი '%1' ამ პროექტის რესურსი არაა. ის ხელით უნდა მართოთ."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptworkpackagemergepanel.ui:70
@@ -8672,7 +8756,7 @@ msgstr "ვისგან:"
 #: ui/kptworkpackagemergepanel.ui:96
 #, kde-format
 msgid "<package time>"
-msgstr ""
+msgstr "<პაკეტის დრო>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
@@ -8693,7 +8777,7 @@ msgstr "მონაცემები აღარ დარჩა. დას�
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Send Work Packages"
-msgstr ""
+msgstr "სამუშაო პაკეტების გაგზავნა"
 
 #: ui/kptworkpackagesendpanel.cpp:36
 #, kde-kuit-format
@@ -8717,7 +8801,7 @@ msgstr "ვალუტის სიმბოლო:"
 #: ui/locale/localemon.ui:32
 #, kde-format
 msgid "Fractional digits:"
-msgstr ""
+msgstr "წილადი ციფრები:"
 
 #: ui/MilestoneGanttView.cpp:224
 #, kde-kuit-format
@@ -8743,7 +8827,7 @@ msgstr "ფასი (%1)"
 #, kde-format
 msgctxt "Chart axis title"
 msgid "Effort (hours)"
-msgstr ""
+msgstr "ძალისხმევა (საათები)"
 
 #: ui/performance/PerformanceStatusView.cpp:221
 #, kde-kuit-format
@@ -8777,7 +8861,7 @@ msgstr "ხაზოვანი გრაფიკი"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:33
 #, kde-format
 msgid "Bar chart"
-msgstr ""
+msgstr "ჰისტოგრამა"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_table)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:40
@@ -8789,7 +8873,7 @@ msgstr "ცხრილი"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
 #, kde-format
 msgid "Base values"
-msgstr ""
+msgstr "საბაზისო მნიშვნელობები"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
@@ -8811,7 +8895,7 @@ msgstr "ფასი"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
 #, kde-format
 msgid "Show BCWS plot"
-msgstr ""
+msgstr "BCWS-ის გრაფიკის ჩვენება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
@@ -8819,7 +8903,7 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
 #, kde-format
 msgid "Show BCWP plot"
-msgstr ""
+msgstr "BCWP-ის გრაფიკის ჩვენება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
@@ -8827,31 +8911,31 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
 #, kde-format
 msgid "Show ACWP plot"
-msgstr ""
+msgstr "ACWP-ის გრაფიკის ჩვენება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
 #, kde-format
 msgid "SPI Cost"
-msgstr ""
+msgstr "SPI-ის ფასი"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
 #, kde-format
 msgid "SPI Effort"
-msgstr ""
+msgstr "SPI-ის ძალისხმევა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
 #, kde-format
 msgid "CPI Effort"
-msgstr ""
+msgstr "CPI-ის ძალისხმევა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
 #, kde-format
 msgid "CPI Cost"
-msgstr ""
+msgstr "CPI-ის ღირებულება"
 
 #: ui/performance/ProjectStatusView.cpp:53
 #, kde-kuit-format
@@ -8905,7 +8989,7 @@ msgstr ""
 #: ui/RelationEditorDialog.cpp:306
 #, kde-format
 msgid "Un-Delete"
-msgstr ""
+msgstr "წაშლის გაუქმება"
 
 #: ui/RelationEditorDialog.cpp:384
 msgctxt "(qtundo-format)"
@@ -8956,12 +9040,12 @@ msgstr "რესურსის მინიჭებები"
 #: ui/reports/reportdata.cpp:787
 #, kde-format
 msgid "Cost Performance"
-msgstr ""
+msgstr "ღირებულების ინდექსი"
 
 #: ui/reports/reportdata.cpp:841
 #, kde-format
 msgid "Effort Performance"
-msgstr ""
+msgstr "პროდუქტიულობის ინდექსი"
 
 #: ui/reports/reportdata.cpp:894
 #, kde-format
@@ -9081,7 +9165,7 @@ msgstr "კენტ გვერდებზე თავსართის ჩ
 #: ui/reports/reportsectionswidget.ui:85 ui/reports/reportsectionswidget.ui:140
 #, kde-format
 msgid "Odd pages"
-msgstr ""
+msgstr "კენტი გვერდები"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerEvenpages)
@@ -9102,7 +9186,7 @@ msgstr "ლუწი გვერდები"
 #: ui/reports/reportsectionswidget.ui:102
 #, kde-format
 msgid "Enable header on all pages"
-msgstr ""
+msgstr "თავსართის ჩართვა ყველა გვერდზე"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
@@ -9123,73 +9207,73 @@ msgstr "გვერდის ქვესართი"
 #: ui/reports/reportsectionswidget.ui:127
 #, kde-format
 msgid "Enable footer on first page"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის ჩართვა პირველ გვერდზე"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
 #: ui/reports/reportsectionswidget.ui:137
 #, kde-format
 msgid "Enable footer on odd pages"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის ჩართვა კენტ გვერდებზე"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
 #: ui/reports/reportsectionswidget.ui:147
 #, kde-format
 msgid "Enable footer on even pages"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის ჩართვა ლუწ გვერდებზე"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
 #: ui/reports/reportsectionswidget.ui:157
 #, kde-format
 msgid "Enable footer on last page"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის ჩართვა ბოლო გვერდზე"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
 #: ui/reports/reportsectionswidget.ui:167
 #, kde-format
 msgid "Enable footer on all pages"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის ჩართვა ყველა გვერდზე"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Report"
-msgstr ""
+msgstr "ანგარიშის გატანა"
 
 #: ui/reports/reportview.cpp:381
 #, kde-format
 msgid "Export to text document is not supported"
-msgstr ""
+msgstr "ტექსტურ დოკუმენტში გატანა მხარდაჭერილი არაა"
 
 #: ui/reports/reportview.cpp:392
 #, kde-format
 msgid "Export to text document failed"
-msgstr ""
+msgstr "ტექსტურ დოკუმენტში გატანა ჩავარდა"
 
 #: ui/reports/reportview.cpp:392 ui/reports/reportview.cpp:412
 #: ui/reports/reportview.cpp:433
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr ""
+msgstr "ჩავარდა გატანა ფაილში <filename>%1</filename>"
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
 msgid "Export to spreadsheet document is not supported"
-msgstr ""
+msgstr "ელცხრილის დოკუმენტში გატანა მხარდაჭერილი არაა"
 
 #: ui/reports/reportview.cpp:412
 #, kde-format
 msgid "Export to spreadsheet failed"
-msgstr ""
+msgstr "ელცხრილში გატანა ჩავარდა"
 
 #: ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export to HTML document is not supported"
-msgstr ""
+msgstr "HTML დოკუმენტში გატანა მხარდაჭერილი არაა"
 
 #: ui/reports/reportview.cpp:433
 #, kde-format
@@ -9199,19 +9283,19 @@ msgstr "HTML-ში გატანის შეცდომა"
 #: ui/reports/reportview.cpp:443
 #, kde-format
 msgid "Edit Report"
-msgstr ""
+msgstr "ანგარიშის ჩასწორება"
 
 #: ui/reports/reportview.cpp:444
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit the report definition"
-msgstr ""
+msgstr "ანგარიშის აღწერის ჩასწორება"
 
 #: ui/reports/reportview.cpp:445
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the report design in the report design dialog."
-msgstr ""
+msgstr "ხსნის ანგარიშის დიზაინს ანგარიშის დიზაინის დიალოგში."
 
 #: ui/reports/reportview.cpp:681
 #, kde-format
@@ -9221,30 +9305,30 @@ msgstr "ანგარიშის ნახვა"
 #: ui/reports/reportview.cpp:686
 #, kde-format
 msgid "Undo all changes"
-msgstr ""
+msgstr "ყველა ცვლილების გაუქმება"
 
 #: ui/reports/reportview.cpp:692
 #, kde-format
 msgid "Export report definition"
-msgstr ""
+msgstr "ანგარიშის აღწერის გატანა"
 
 #: ui/reports/reportview.cpp:709
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Cannot open file:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "ვერ გავხსენი ფაილი:<nl/><filename>%1</filename>"
 
 #: ui/reports/reportview.cpp:818
 #, kde-kuit-format
 msgctxt "@title:window report data elements"
 msgid "Data Elements"
-msgstr ""
+msgstr "მონაცემთა ელემენტები"
 
 #: ui/reports/reportview.cpp:873
 #, kde-kuit-format
 msgctxt "@title:window report section docker"
 msgid "Headers && Footers"
-msgstr ""
+msgstr "თავსართები და ქვედა კოლონტიტულები"
 
 #: ui/reports/reportview.cpp:907
 #, kde-kuit-format
@@ -9280,37 +9364,37 @@ msgstr "ქვესართი"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Page Break"
-msgstr ""
+msgstr "გვერდის გაყოფა"
 
 #: ui/reports/reportview.cpp:1080
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Groups data by the selected column"
-msgstr ""
+msgstr "დააჯგუფებს მონაცემებს მონიშნული სვეტის მიხედვით"
 
 #: ui/reports/reportview.cpp:1081
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Sorts data"
-msgstr ""
+msgstr "დაალაგებს მონაცემებს"
 
 #: ui/reports/reportview.cpp:1082
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show header section"
-msgstr ""
+msgstr "თავსართის განყოფილების ჩვენება"
 
 #: ui/reports/reportview.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show footer section"
-msgstr ""
+msgstr "ქვედა კოლონტიტულის განყოფილების ჩვენება"
 
 #: ui/reports/reportview.cpp:1084
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Insert page break"
-msgstr ""
+msgstr "ფურცლის წყვეტის ჩასმა"
 
 #: ui/reports/reportview.cpp:1249
 #, kde-format
@@ -9375,19 +9459,19 @@ msgstr "ანგარიშის სახელი"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
-msgstr ""
+msgstr "ანგარიშის შაბლონის ფაილის სახელი"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
-msgstr ""
+msgstr "ფაილის სახელზე დამატებული ინფორმაცია"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:263
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
-msgstr ""
+msgstr "გენერირებული ანგარიშის ფაილის სახელი"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:289
 #, kde-kuit-format
@@ -9435,17 +9519,17 @@ msgstr "ანგარიშის გენერაცია"
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:473
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
-msgstr ""
+msgstr "%1-ის გენერაცია ჩავარდა.<nl/>შაბლონის ფაილის სახელი ცარიელია."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
-msgstr ""
+msgstr "%1-ის გენერაცია ჩავარდა.<nl/>შაბლონის ფაილი არ არსებობს:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
-msgstr ""
+msgstr "%1-ის გენერაცია ჩავარდა.<nl/>ანგარიშის ფაილის სახელი ცარიელია."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
@@ -9458,23 +9542,23 @@ msgstr "ფალი არსებობს:<nl/>%1"
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
-msgstr ""
+msgstr "ანგარიშის გენერაცია"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
-msgstr ""
+msgstr "ანგარიშის გენერატორის გახსნა ჩავარდა"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
-msgstr ""
+msgstr "ანგარიშის გახსნა ცავარდა"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "ანგარიშის ფაილი დაგენერირდა:<nl/><filename>%1</filename>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: ui/ResourceAllocationPanel.ui:52
@@ -9529,7 +9613,7 @@ msgstr "ინიციალები:"
 #: ui/resourcedialogbase.ui:143
 #, kde-format
 msgid "Choose resource from address book"
-msgstr ""
+msgstr "აირჩიეთ რესურსი მისამართების წიგნიდან"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: ui/resourcedialogbase.ui:172
@@ -9621,14 +9705,14 @@ msgstr "შვილის რესურსის ჯგუფის დამ
 #: ui/ResourceGroupEditor.cpp:352
 msgctxt "(qtundo-format) @action"
 msgid "Delete resourcegroup"
-msgstr ""
+msgstr "რესურსების ჯგუფის წაშლა"
 
 #: ui/ResourceGroupEditor.cpp:374
 msgctxt "(qtundo-format)"
 msgid "Delete resourcegroup"
 msgid_plural "Delete resourcegroups"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "რესურსების ჯგუფის წაშლა"
+msgstr[1] "რესურსის ჯგუფების წაშლა"
 
 #: ui/RichTextWidget.cpp:26 ui/RichTextWidget.cpp:39
 #, kde-kuit-format
@@ -9647,13 +9731,13 @@ msgstr "ფანჯარა"
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "ამოცანის შენარჩუნება შეჯამების ამოცანის სახით"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "ნაწილებად დაყოფა:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -9665,6 +9749,12 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"ეს მნიშვნელობები გამოიყენება, თუ თქვენი შეფასება საათებში არაა.\n"
+"ვთქვათ, დღეში არის 8 საათი. თუ თქვენი შეფასებაა, რომ ამ ამოცანას 3 დღე "
+"სჭირდება დასასრულებლად, ეს გადაყვანილი იქნება 24 საათში, როცა ამოცანა "
+"იგეგმება. რეალური დრო, რომელიც დასრულებას სჭირდება, რა თქმა უნდა, "
+"დამოკიდებულია იმ პიროვნების (ან პიროვნებების) ხელმისაწვდომობაზე, რომელიც ამ "
+"ამოცანას ასრულებს."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: ui/standardworktimedialogbase.ui:25
@@ -9690,6 +9780,8 @@ msgstr "საათი კვირაში:"
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
 msgstr ""
+"ეს მნიშვნელობები გამოიყენება, როცა ხდება ძალისხმევის განსაზღვრა, რომელიც ამ "
+"ამოცანის დასრულებას სჭირდება."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: ui/standardworktimedialogbase.ui:118
@@ -9763,7 +9855,7 @@ msgstr "ამოცანების რაოდენობა:"
 #: ui/TaskSplitDialog.ui:64
 #, kde-format
 msgid "Migrate estimate"
-msgstr ""
+msgstr "შეფასების შეცვლა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
@@ -9807,25 +9899,25 @@ msgstr "დახმარების მიღება..."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Float Docker"
-msgstr ""
+msgstr "რეზერვი პანელი"
 
 #: widgets/KoDockWidgetTitleBar.cpp:60
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Close Docker"
-msgstr ""
+msgstr "პანელის დახურვა"
 
 #: widgets/KoDockWidgetTitleBar.cpp:68
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Collapse Docker"
-msgstr ""
+msgstr "პანელის ჩამოშლა"
 
 #: widgets/KoDockWidgetTitleBar.cpp:77
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Lock Docker"
-msgstr ""
+msgstr "პანელის დაბლოკვა"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbEncrypt)
 #: widgets/koDocumentInfoAboutWidget.ui:23 widgets/KoDocumentInfoDlg.cpp:242
@@ -9987,12 +10079,12 @@ msgstr "ავტორი"
 #: widgets/KoDocumentInfoDlg.cpp:139
 #, kde-format
 msgid "Last saved by"
-msgstr ""
+msgstr "ბოლოს შენახვის ავტორი"
 
 #: widgets/KoDocumentInfoDlg.cpp:196
 #, kde-format
 msgid "Use ';' (Example: Office;KDE;Calligra)"
-msgstr ""
+msgstr "';'-ის გამოყენება (მაგ: Office;KDE;Calligra)"
 
 #: widgets/KoDocumentInfoDlg.cpp:226 widgets/KoDocumentInfoDlg.cpp:322
 #, kde-format
@@ -10040,6 +10132,8 @@ msgid ""
 "<qt>Decrypting the document will remove the password protection from it."
 "<p>Do you still want to decrypt the file?</qt>"
 msgstr ""
+"<qt>დოკუმენტის გაშიფვრა მის პაროლით დაცვას მოაცილებს. <p>მართლა გნებავთ "
+"ფაილის გაშიფვრა?</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:360
 #, kde-format
@@ -10057,6 +10151,8 @@ msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "decryption, please save the document.</qt>"
 msgstr ""
+"<qt>დოკუმენტის ავტომატური შენახვა შეუძლებელია. <p>გაშიფვრის დასასრულებლად "
+"საჭიროა, შეინახოთ დოკუმენტი.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:380
 #, kde-format
@@ -10073,6 +10169,9 @@ msgid ""
 "to <b>OASIS OpenDocument</b> to be encrypted.<p>Do you want to change the "
 "file to OASIS OpenDocument?</qt>"
 msgstr ""
+"<qt>დოკუმენტი ამჟამად შენახულია, როგორც %1. დასაშიფრად საჭიროა, რომ "
+"დოკუმენტი <b>OASIS OpenDocument</b>-ში გადაიყვანოთ. <p>გნებავთ ფაილის OASIS "
+"OpenDocument-ში გადაყვანა?</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:400 widgets/KoDocumentInfoDlg.cpp:445
 #, kde-format
@@ -10090,6 +10189,8 @@ msgid ""
 "<qt>Your document could not be saved automatically.<p>To complete the "
 "encryption, please save the document.</qt>"
 msgstr ""
+"<qt>დოკუმენტის ავტომატური შენახვა შეუძლებელია. <p>დაშიფვრის დასასრულებლად "
+"საჭიროა, შეინახოთ დოკუმენტი.</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:422 widgets/KoDocumentInfoDlg.cpp:487
 #, kde-format
@@ -10098,6 +10199,9 @@ msgid ""
 "encryption the document needs to be saved.<p>Do you want to save the "
 "document now?</qt>"
 msgstr ""
+"<qt>დოკუმენტი შეიცვალა მას შემდეგ, რაც ის გახსენით. დოკუმენტის დაშიფვრის "
+"დასასრულებლად საჭიროა, შეინახოთ ის. <p>გნებავთ დოკუმენტის შენახვა ახლავე?</"
+"qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:443
 #, kde-format
@@ -10129,7 +10233,7 @@ msgstr "მარჯვენა კიდე:"
 #: widgets/KoPageLayoutWidget.cpp:180
 #, kde-format
 msgid "Binding Edge:"
-msgstr ""
+msgstr "მიმაგრება წიბოზე:"
 
 #: widgets/KoPageLayoutWidget.cpp:181
 #, kde-format
@@ -10139,13 +10243,13 @@ msgstr "გვერდის კიდე:"
 #: widgets/KoPageLayoutWidget.cpp:277
 #, kde-format
 msgid "Facing Pages:"
-msgstr ""
+msgstr "შემხვედრი გვერდები:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, facingPages)
 #: widgets/KoPageLayoutWidget.cpp:278 widgets/KoPageLayoutWidget.ui:160
 #, kde-format
 msgid "Facing pages"
-msgstr ""
+msgstr "შემხვედრი გვერდები"
 
 #: widgets/KoPageLayoutWidget.cpp:281
 #, kde-format
@@ -10155,7 +10259,7 @@ msgstr "გვერდის განლაგება:"
 #: widgets/KoPageLayoutWidget.cpp:282
 #, kde-format
 msgid "Page spread"
-msgstr ""
+msgstr "გვერდის გაწელვა"
 
 #. i18n: ectx: property (text), widget (QLabel, unitsLabel)
 #: widgets/KoPageLayoutWidget.ui:25
@@ -10167,7 +10271,7 @@ msgstr "ერთეული:"
 #: widgets/KoPageLayoutWidget.ui:45
 #, kde-format
 msgid "Follow style:"
-msgstr ""
+msgstr "სტილის მიყოლა:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/KoPageLayoutWidget.ui:61
@@ -10209,13 +10313,13 @@ msgstr "ლანდშაფტი"
 #: widgets/KoPageLayoutWidget.ui:143
 #, kde-format
 msgid "Facing pages:"
-msgstr ""
+msgstr "შემხვედრი გვერდები:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, singleSided)
 #: widgets/KoPageLayoutWidget.ui:153
 #, kde-format
 msgid "Single sided"
-msgstr ""
+msgstr "ერთმხრივი"
 
 #. i18n: ectx: property (text), widget (QLabel, directionLabel)
 #: widgets/KoPageLayoutWidget.ui:167
@@ -10257,13 +10361,13 @@ msgstr "ზედა:"
 #: widgets/KoPageLayoutWidget.ui:230
 #, kde-format
 msgid "Binding edge:"
-msgstr ""
+msgstr "აკინძვის წიბო:"
 
 #. i18n: ectx: property (text), widget (QLabel, rightLabel)
 #: widgets/KoPageLayoutWidget.ui:250
 #, kde-format
 msgid "Page edge:"
-msgstr ""
+msgstr "გვერდის კიდე:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_12)
 #: widgets/KoPageLayoutWidget.ui:270
@@ -10281,7 +10385,7 @@ msgstr "პარამეტრი"
 #, kde-kuit-format
 msgctxt "title@column"
 msgid "Substitution"
-msgstr ""
+msgstr "ჩანაცვლება"
 
 #: widgetutils/KoFileDialog.cpp:470
 #, kde-format
