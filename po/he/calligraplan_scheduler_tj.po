@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-10-25 08:43+0300\n"
+"PO-Revision-Date: 2025-10-25 15:41+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -175,76 +175,76 @@ msgstr "סוג מגבלת זמן לא מטופל"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
-msgstr ""
+msgstr "לא ניתן להשתמש בלוח השנה הנכון לחישוב משך המשימה"
 
 #: PlanTJScheduler.cpp:986
 #, kde-format
 msgid "Recalculate, earliest start: %1"
-msgstr ""
+msgstr "לחשב מחדש, ההתחלה המאוחרת ביותר: %1"
 
 #: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
-msgstr ""
+msgstr "המשימה התחילה. מאמץ שנותר: %1 hnho"
 
 #: PlanTJScheduler.cpp:1018
 #, kde-format
 msgid "No working hours defined for resource: %1"
-msgstr ""
+msgstr "לא הוגדרו שעות עבודה למשאב: %1"
 
 #: PlanTJScheduler.cpp:1080
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "התזמון החל: %1"
 
 #: PlanTJScheduler.cpp:1082
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "מתבצע חישוב מחדש מאז: %1"
 
 #: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
 #, kde-format
 msgid "Scheduling canceled"
-msgstr ""
+msgstr "התזמון בוטל"
 
 #: PlanTJScheduler.cpp:1094
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "התזמון הסתיים ב־%1, זמן שעבר: %2 שניות"
 
 #: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
-msgstr ""
+msgstr "משך תזמון: %1 - %2, הפרש: %3 דקות"
 
 #: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
 #, kde-format
 msgid "Invalid project, start > end"
-msgstr ""
+msgstr "מיזם שגוי, התחלה > סיום"
 
 #: PlanTJScheduler.cpp:1125 PlanTJScheduler.cpp:1170
 #, kde-format
 msgid "Project check failed"
-msgstr ""
+msgstr "בדיקת המיזם נכשלה"
 
 #: PlanTJScheduler.cpp:1133
 #, kde-format
 msgid "Scheduled: %1 - %2"
-msgstr ""
+msgstr "מתוזמן: %1 - %2"
 
 #: PlanTJScheduler.cpp:1135
 #, kde-format
 msgid "Scheduling failed"
-msgstr ""
+msgstr "התזמון נכשל"
 
 #: PlanTJScheduler.cpp:1139 PlanTJScheduler.cpp:1180
 #, kde-format
 msgid "Project scheduling failed"
-msgstr ""
+msgstr "תזמון המיזם נכשל"
 
 #: PlanTJScheduler.cpp:1241
 #, kde-format
 msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "
 "supported"
-msgstr ""
+msgstr "אין תמיכה בפגישה עם מטען (%1) שקטן מיחידות המשאב הזמינות (%2)"
