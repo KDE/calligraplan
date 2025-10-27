@@ -2,6 +2,17 @@
     "KPlugin": {
         "Icon": "",
         "Name": "Plan iCalendar Export Filter",
+        "Name[ar]": "مُرشِّح تصدير آي-روزنامة للمُخطِط",
+        "Name[ca@valencia]": "Filtre d'exportació iCalendar de Plan",
+        "Name[ca]": "Filtre d'exportació iCalendar del Plan",
+        "Name[es]": "Filtro de exportación a iCalendar para Plan",
+        "Name[he]": "מסנן ייצוא iCalendar מתכנון",
+        "Name[ka]": "Plan-ის iCalendar-ში გატანის ფილტრი",
+        "Name[nl]": "Plan iCalendar-exportfilter",
+        "Name[pt_BR]": "Filtro de exportação para o iCalendar do Plan",
+        "Name[sl]": "Plan iCalendar Export Filter",
+        "Name[tr]": "Plan iCalendar Dışa Aktarma Süzgeci",
+        "Name[uk]": "Фільтр експорту до iCalendar Plan",
         "ServiceTypes": [
             "Plan/Filter"
         ]

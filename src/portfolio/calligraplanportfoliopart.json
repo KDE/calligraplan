@@ -5,6 +5,17 @@
             "application/x-vnd.kde.plan.portfolio"
         ],
         "Name": "CalligraPlanPortfolioPart",
+        "Name[ar]": "جزء حافظة مشاريع كاليغرا المُخطِط",
+        "Name[ca@valencia]": "CalligraPlanPortfolioPart",
+        "Name[ca]": "CalligraPlanPortfolioPart",
+        "Name[es]": "CalligraPlanPortfolioPart",
+        "Name[he]": "חלק_תיק_תכנון_Calligra",
+        "Name[ka]": "CalligraPlanPortfolioPart",
+        "Name[nl]": "CalligraPlanPortfolioPart",
+        "Name[pt_BR]": "CalligraPlanPortfolioPart",
+        "Name[sl]": "CalligraPlanPortfolioPart",
+        "Name[tr]": "Calligra Plan Portföy Part’ı",
+        "Name[uk]": "Модуль портфоліо Calligra Plan",
         "ServiceTypes": [
             "KParts/ReadOnlyPart",
             "KParts/ReadWritePart"

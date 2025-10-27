@@ -1,6 +1,17 @@
 {
     "KPlugin": {
         "Name": "Plan KPlato Import Filter",
+        "Name[ar]": "مُرشِّح استيراد كِبلاتو للمُخطِط",
+        "Name[ca@valencia]": "Filtre d'importació de KPlato de Plan",
+        "Name[ca]": "Filtre d'importació del KPlato del Plan",
+        "Name[es]": "Filtro de importación de KPlato para Plan",
+        "Name[he]": "מסנן ייבוא מ־KPlato לתכנון",
+        "Name[ka]": "Plan-ის KPlato-დან შემოტანის ფილტრი",
+        "Name[nl]": "Plan importfilter voor KPlato",
+        "Name[pt_BR]": "Filtro de importação do KPlato para o Plan",
+        "Name[sl]": "Plan KPlato Import Filter",
+        "Name[tr]": "Plan KPlato İçe Aktarma Süzgeci",
+        "Name[uk]": "Фільтр імпортування даних KPlato для Plan",
         "ServiceTypes": [
             "Plan/Filter"
         ]

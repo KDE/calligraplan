@@ -1,7 +1,30 @@
 {
     "KPlugin": {
         "Description": "The TaskJuggler scheduler",
+        "Description[ar]": "مُجدوِل مُناور المُهام",
+        "Description[ca@valencia]": "El planificador TaskJuggler",
+        "Description[ca]": "El planificador TaskJuggler",
+        "Description[es]": "El programador TaskJuggler",
+        "Description[he]": "מתזמן TaskJuggler",
+        "Description[ka]": "TaskJuggler დამგეგმავი",
+        "Description[nl]": "De planner van TaskJuggler",
+        "Description[pt_BR]": "O agendador TaskJuggler",
+        "Description[sl]": "The TaskJuggler scheduler",
+        "Description[tr]": "TaskJuggler zamanlayıcısı",
+        "Description[uk]": "Засіб планування TaskJuggler",
         "Name": "TJ Scheduler",
+        "Name[ar]": "مُجدوِل تي جي",
+        "Name[ca@valencia]": "Planificador TJ",
+        "Name[ca]": "Planificador TJ",
+        "Name[cs]": "Plánovač TJ",
+        "Name[es]": "Programador TJ",
+        "Name[he]": "מתזמן TJ",
+        "Name[ka]": "TJ დამგეგმავი",
+        "Name[nl]": "TJ-planner",
+        "Name[pt_BR]": "Agendador TJ",
+        "Name[sl]": "TJ Scheduler",
+        "Name[tr]": "TJ Zamanlayıcısı",
+        "Name[uk]": "Засіб планування TJ",
         "ServiceTypes": [
             "Plan/SchedulerPlugin"
         ]

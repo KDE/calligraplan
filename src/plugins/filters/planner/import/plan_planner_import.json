@@ -1,6 +1,18 @@
 {
     "KPlugin": {
         "Name": "Plan Planner Import Filter",
+        "Name[ar]": "مُرشِّح استيراد المُخطِط للمُخطِط",
+        "Name[ca@valencia]": "Filtre d'importació de Planner de Plan",
+        "Name[ca]": "Filtre d'importació del Planner del Plan",
+        "Name[cs]": "Importní filtr plánovaní Planner",
+        "Name[es]": "Filtro de importación de Planner para Plan",
+        "Name[he]": "מסנן ייבוא מ־Planner לתכנון",
+        "Name[ka]": "Plan-ის Planner-დან შემოტანის ფილტრი",
+        "Name[nl]": "Plan importfilter voor Planner",
+        "Name[pt_BR]": "Filtro de importação do Planner para o Plan",
+        "Name[sl]": "Plan Planner Import Filter",
+        "Name[tr]": "Plan Planner İçe Aktarma Süzgeci",
+        "Name[uk]": "Фільтр імпортування даних Planner для Plan",
         "ServiceTypes": [
             "Plan/Filter"
         ]
