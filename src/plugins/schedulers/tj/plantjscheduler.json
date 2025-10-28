@@ -10,6 +10,7 @@
         "Description[nl]": "De planner van TaskJuggler",
         "Description[pt_BR]": "O agendador TaskJuggler",
         "Description[sl]": "The TaskJuggler scheduler",
+        "Description[sv]": "TaskJuggler schemaläggning",
         "Description[tr]": "TaskJuggler zamanlayıcısı",
         "Description[uk]": "Засіб планування TaskJuggler",
         "Name": "TJ Scheduler",
@@ -23,6 +24,7 @@
         "Name[nl]": "TJ-planner",
         "Name[pt_BR]": "Agendador TJ",
         "Name[sl]": "TJ Scheduler",
+        "Name[sv]": "TJ schemaläggning",
         "Name[tr]": "TJ Zamanlayıcısı",
         "Name[uk]": "Засіб планування TJ",
         "ServiceTypes": [
