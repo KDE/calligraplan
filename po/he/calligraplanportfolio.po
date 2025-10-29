@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-10-27 21:34+0200\n"
+"PO-Revision-Date: 2025-10-28 13:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
 "X-Generator: Lokalize 25.08.2\n"
 
 #: AboutData.h:21
@@ -207,7 +208,7 @@ msgstr ""
 #: MainDocument.cpp:102
 #, kde-format
 msgid "File-Format Mismatch"
-msgstr ""
+msgstr "אי התאמה בתבנית הקובץ"
 
 #: MainDocument.cpp:102
 #, kde-format
@@ -465,29 +466,29 @@ msgstr ""
 #: PortfolioView.cpp:184
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: PortfolioView.cpp:189
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "הסרה"
 
 #: PortfolioView.cpp:210
 #, kde-format
 msgid "Add Project"
-msgstr ""
+msgstr "הוספת מיזם"
 
 #: PortfolioView.cpp:256 PortfolioView.cpp:320
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
-msgstr ""
+msgstr "טעינת המיזם נכשלה. זה לא קובץ תכנון תקין:<nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
-msgstr ""
+msgstr "פתיחת המיזם נכשלה. זה נראה כמו קובץ תיק:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -495,13 +496,13 @@ msgctxt "@info"
 msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
-msgstr ""
+msgstr "המיזם כבר קיים, הוא לא יתווסף.<nl/>מיזם: %1<nl/> מסמך: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "פרטים"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:243
@@ -518,6 +519,9 @@ msgid ""
 "text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">דף הבית</span></a></p></body></"
+"html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:259
@@ -534,6 +538,8 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
 "\">User documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">תיעוד למשתמשים</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: PortfolioView.ui:278
@@ -562,7 +568,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
-msgstr ""
+msgstr "<a href=\"https://userbase.kde.org/Plan\">קהילה</a>"
 
 #: ProgressView.cpp:68
 #, kde-kuit-format
@@ -583,53 +589,53 @@ msgstr ""
 #: ProjectsDashboard.cpp:79
 #, kde-format
 msgid "Projects"
-msgstr ""
+msgstr "מיזמים"
 
 #: ProjectsModel.cpp:142
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project name"
-msgstr ""
+msgstr "שם מיזם"
 
 #: ProjectsModel.cpp:151
 #, kde-format
 msgid "Target Start"
-msgstr ""
+msgstr "התחלת יעד"
 
 #: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
-msgstr ""
+msgstr "טווח תזמון: זמן ההתחלה המוקדם ביותר"
 
 #: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
-msgstr ""
+msgstr "סיום יעד"
 
 #: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
-msgstr ""
+msgstr "טווח תזמון: זמן הסיום המאוחר ביותר"
 
 #: ProjectsModel.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
-msgstr ""
+msgstr "תיאור מיזם"
 
 #: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
 #: SchedulingModel.cpp:29
 #, kde-format
 msgid "Schedule"
-msgstr ""
+msgstr "תזמון"
 
 #: ProjectsModel.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select schedule"
-msgstr ""
+msgstr "בחירת תזמון"
 
 #: ProjectsModel.cpp:231
 #, kde-kuit-format
@@ -639,6 +645,8 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>מיזם: %1</title><para>תזמון: לא מתוזמן</para><para><list><item>יעד "
+"התחלה:\t%2</item><item>יעד סיום:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -648,6 +656,8 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>מיזם: %1</title><para>תזמון: %4 לא מתוזמן</para><para><list><item>יעד "
+"התחלה:\t%2</item><item>יעד סיום:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -662,7 +672,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
-msgstr ""
+msgstr "לא מתוזמן"
 
 #: ProjectsModel.cpp:295 ProjectsModel.cpp:316
 #, kde-format
@@ -728,56 +738,56 @@ msgstr ""
 #: ResourceUsageView.cpp:106
 #, kde-format
 msgid "Diagram Types"
-msgstr ""
+msgstr "סוגי תרשימים"
 
 #: ResourceUsageView.cpp:110
 #, kde-format
 msgid "Normal"
-msgstr ""
+msgstr "רגיל"
 
 #: ResourceUsageView.cpp:114
 #, kde-format
 msgid "Stacked"
-msgstr ""
+msgstr "מוערם"
 
 #: ResourceUsageView.cpp:122
 #, kde-format
 msgid "Range"
-msgstr ""
+msgstr "טווח"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr ""
+msgstr "מיזם"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
-msgstr ""
+msgstr "תזמון"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr ""
+msgstr "פעולה"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "State"
-msgstr ""
+msgstr "מצב"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, kde-format
 msgid "New schedule"
-msgstr ""
+msgstr "תזמון חדש"
 
 #: ScheduleManagerInfoDialog.cpp:34
 #, kde-format
 msgid "New sub-schedule"
-msgstr ""
+msgstr "תת־תזמון חדש"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
@@ -809,53 +819,53 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: SchedulingLogModel.cpp:54
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Phase"
-msgstr ""
+msgstr "שלב"
 
 #: SchedulingLogModel.cpp:55
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Severity"
-msgstr ""
+msgstr "חומרה"
 
 #: SchedulingLogModel.cpp:56
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Message"
-msgstr ""
+msgstr "הודעה"
 
 #: SchedulingModel.cpp:24
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
-msgstr ""
+msgstr "מצב"
 
 #: SchedulingModel.cpp:25
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Control"
-msgstr ""
+msgstr "בקרה"
 
 #: SchedulingModel.cpp:26
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
-msgstr ""
+msgstr "עדיפות"
 
 #: SchedulingModel.cpp:29
 #, kde-format
 msgid "Include"
-msgstr ""
+msgstr "לכלול"
 
 #: SchedulingModel.cpp:29 SchedulingModel.cpp:121
 #, kde-format
 msgid "Exclude"
-msgstr ""
+msgstr "להחריג"
 
 #: SchedulingModel.cpp:91 SchedulingModel.cpp:107
 #, kde-format
@@ -863,27 +873,27 @@ msgctxt "@into:tooltip"
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
-msgstr ""
+msgstr "אי אפשר לתזמן. זמן סיום יעד המיזם חייב להיות מאוחר מזמן החישוב"
 
 #: SchedulingModel.cpp:190
 #, kde-format
 msgid "Scheduling..."
-msgstr ""
+msgstr "תזמון…"
 
 #: SchedulingModel.cpp:192
 #, kde-format
 msgid "Not scheduled"
-msgstr ""
+msgstr "לא מתוזמן"
 
 #: SchedulingModel.cpp:194
 #, kde-format
 msgid "Finished"
-msgstr ""
+msgstr "הסתיים"
 
 #: SchedulingModel.cpp:196
 #, kde-format
 msgid "Started"
-msgstr ""
+msgstr "החל"
 
 #: SchedulingModel.cpp:198
 #, kde-format
@@ -893,7 +903,7 @@ msgstr ""
 #: SchedulingModel.cpp:200
 #, kde-format
 msgid "Scheduled"
-msgstr ""
+msgstr "מתוזמן"
 
 #: SchedulingModel.cpp:235
 #, kde-format
@@ -901,31 +911,31 @@ msgctxt "@info:tooltip"
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
-msgstr ""
+msgstr "אי אפשר לתזמן. זמן סיום יעד המיזם חייב להיות מאוחר מזמן החישוב"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "לתזמן את המיזם הזה"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
-msgstr ""
+msgstr "לכלול הזמנת משאים מהמיזם הזה"
 
 #: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "להחריג את המיזם הזה"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "העדיפות הגבוהה ביותר מתוזמנת ראשונה"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -949,30 +959,32 @@ msgstr ""
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "דקה"
+msgstr[1] "שתי דקות"
+msgstr[2] "%1 דקות"
+msgstr[3] "%1 דקות"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr ""
+msgstr "תיאור…"
 
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "שגיאה פנימית. לא נמצא תוסף תזמון."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
-msgstr ""
+msgstr "אין מה לתזמן"
 
 #: SchedulingView.cpp:446
 #, kde-format
 msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
-msgstr ""
+msgstr "אי אפשר לתזמן. זמן סיום יעד המיזם חייב להיות מאוחר מזמן החישוב."
 
 #: SchedulingView.cpp:458
 #, kde-format
@@ -1072,34 +1084,34 @@ msgstr ""
 #: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
-msgstr ""
+msgstr "תוכן תיק"
 
 #: View.cpp:64
 #, kde-format
 msgid "Scheduling"
-msgstr ""
+msgstr "תזמון"
 
 #: View.cpp:70
 #, kde-format
 msgid "Summary"
-msgstr ""
+msgstr "תקציר"
 
 #: View.cpp:78
 #, kde-format
 msgid "Progress"
-msgstr ""
+msgstr "התקדמות"
 
 #: View.cpp:83
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "ביצועים"
 
 #: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
-msgstr ""
+msgstr "שימוש במשאבים"
 
 #: View.cpp:96
 #, kde-format
 msgid "Gantt Summary"
-msgstr ""
+msgstr "תקציר גאנט"
