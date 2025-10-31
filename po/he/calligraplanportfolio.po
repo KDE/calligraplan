@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-10-28 13:16+0200\n"
+"PO-Revision-Date: 2025-10-29 11:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -678,25 +678,25 @@ msgstr "לא מתוזמן"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr ""
+msgstr "תזמון: %1 לא מתוזמן"
 
 #: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "תזמון %1 מתוזמן להתחיל ב־: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "תזמון  מתוזמן להסתיים ב־: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "התזמון הוא בבעלות תיק"
 
 #: ProjectsModel.cpp:340
 #, kde-format
@@ -713,7 +713,7 @@ msgstr ""
 #: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
-msgstr ""
+msgstr "אין משימה"
 
 #: ResourceUsageModel.cpp:138
 #, kde-kuit-format
@@ -724,7 +724,7 @@ msgstr ""
 #: ResourceUsageView.cpp:51
 #, kde-format
 msgid "Tasks"
-msgstr ""
+msgstr "משימות"
 
 #: ResourceUsageView.cpp:89
 #, kde-kuit-format
@@ -734,6 +734,8 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>שימוש במשאבים</title><para>התצוגה הזאת מציגה את הקצאות משימות המשאבים "
+"לכל יום.</para><para><nl/><link url='%1'>עוד…</link></para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
@@ -792,7 +794,7 @@ msgstr "תת־תזמון חדש"
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "ייווצר תזמון חדש ‚%1’."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -800,6 +802,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"התזמון הנוכחי ‚%1’ הוא בבעלות תיק.\n"
+"‚%1’ יתוזמן."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -807,6 +811,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"התזמון הנוכחי ‚%1’ הוא בבעלות תכנון.\n"
+"ייווצר תזמון חדש ‚%2’."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -814,6 +820,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"המיזם החל.\n"
+"‚%1’ ייווצר כתת־תזמון של ‚%2’."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
