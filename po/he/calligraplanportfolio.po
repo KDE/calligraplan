@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:33+0000\n"
-"PO-Revision-Date: 2025-10-29 11:24+0200\n"
+"PO-Revision-Date: 2025-11-07 10:42+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -204,6 +204,8 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"המסמך הזה נוצר עם גרסה חדשה שיותר של תכנון (גרסת תחביר: %1)\n"
+"פתיחתו עם הגרסה הזאת של תכנון עלול לגרום לאובדן מידע."
 
 #: MainDocument.cpp:102
 #, kde-format
@@ -667,6 +669,9 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>מיזם: %1</title><para>לוח זמנים: %6</para><para><list><item>התחלה "
+"מתוכננת:\t%2</item><item>סיום מתוכנן:\t%3</item><item>יעד התחלה:\t%4</"
+"item><item>יעד סיום:\t%5</item></list></para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
