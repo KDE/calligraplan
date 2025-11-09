@@ -2941,10 +2941,16 @@ void Project::addMainSchedule(MainSchedule *sch, int minId)
         return;
     }
     //debugPlan<<"No of schedules:"<<m_schedules.count();
-    long i = std::max(minId, 1); // keep this positive (negative values are special...)
-    while (m_schedules.contains(i)) {
-        ++i;
+    QHashIterator<long, Schedule*> it(m_schedules);
+    // keep this positive (negative values are special...)
+    long i = minId;
+    while (it.hasNext()) {
+      it.next();
+      //debugPlan<<it.key()<< ": "<<it.value();
+      i = std::max(it.key(), i);
     }
+    ++i;
+
     sch->setId(i);
     sch->setNode(this);
     addSchedule(sch);
