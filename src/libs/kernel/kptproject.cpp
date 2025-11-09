@@ -1026,7 +1026,7 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     if (!m_priorityNodes.isEmpty()) {
         for (Node *n : std::as_const(m_priorityNodes)) {
             cs->logDebug(QStringLiteral("Schedule task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
-            DateTime time = n->scheduleFromStartTime(use); // do not do predeccessors
+            DateTime time = n->scheduleForward(earliest, use);
             if (time > end) {
                 end = time;
                 cs->setLatestFinish(time);
