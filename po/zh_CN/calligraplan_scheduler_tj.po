@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/calligraplan/calligraplan_scheduler_tj."
+"X-Crowdin-File: /kf6-trunk/messages/calligraplan/calligraplan_scheduler_tj."
 "pot\n"
-"X-Crowdin-File-ID: 5515\n"
+"X-Crowdin-File-ID: 58568\n"
 
 #: PlanTJPlugin.cpp:43
 #, kde-kuit-format
