@@ -1790,7 +1790,7 @@ void TreeViewBase::saveContext(const QMetaEnum &map, QDomElement &element, bool 
                 QString n = QLatin1String(map.key(h->logicalIndex(i)));
                 if (! n.isEmpty()) {
                     e.setAttribute(QStringLiteral("section-%1").arg(i), n);
-                    e.setAttribute(QStringLiteral("size-%1").arg(i), h->sectionSize(h->logicalIndex(i)));
+                    e.setAttribute(QStringLiteral("size-%1").arg(h->logicalIndex(i)), h->sectionSize(h->logicalIndex(i)));
                 }
             }
         }
