@@ -16,6 +16,7 @@
         "Name[sv]": "Plan iCalendar-exportfilter",
         "Name[tr]": "Plan iCalendar Dışa Aktarma Süzgeci",
         "Name[uk]": "Фільтр експорту до iCalendar Plan",
+        "Name[zh_CN]": "Plan iCalendar 导出过滤器",
         "ServiceTypes": [
             "Plan/Filter"
         ]

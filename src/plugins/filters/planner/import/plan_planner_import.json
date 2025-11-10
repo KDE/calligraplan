@@ -16,6 +16,7 @@
         "Name[sv]": "Plan Planner-importfilter",
         "Name[tr]": "Plan Planner İçe Aktarma Süzgeci",
         "Name[uk]": "Фільтр імпортування даних Planner для Plan",
+        "Name[zh_CN]": "Plan Planner 导入过滤器",
         "ServiceTypes": [
             "Plan/Filter"
         ]

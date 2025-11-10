@@ -15,6 +15,7 @@
         "Name[sv]": "Plan MS Project-importfilter",
         "Name[tr]": "Plan MS Project İçe Aktarma Süzgeci",
         "Name[uk]": "Фільтр імпортування даних MS Project для Plan",
+        "Name[zh_CN]": "Plan MS Project 导入过滤器",
         "ServiceTypes": [
             "Plan/Filter"
         ]

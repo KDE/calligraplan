@@ -19,6 +19,7 @@
         "Name[sv]": "Calligra Plan-portföljdel",
         "Name[tr]": "Calligra Plan Portföy Part’ı",
         "Name[uk]": "Модуль портфоліо Calligra Plan",
+        "Name[zh_CN]": "CalligraPlanPortfolioPart",
         "ServiceTypes": [
             "KParts/ReadOnlyPart",
             "KParts/ReadWritePart"
