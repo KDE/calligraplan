@@ -362,14 +362,14 @@ void RelationEditorDialog::removeRelation()
         if (item->data().toBool()) {
             // undelete
             item->setIcon(QIcon());
-            item->setData(false); // deleted
+            item->setData(false, TASKDELETED_ROLE); // deleted
             idx = idx.sibling(idx.row(), 1);
             m->itemFromIndex(idx)->setEnabled(true);
             idx = idx.sibling(idx.row(), 2);
             m->itemFromIndex(idx)->setEnabled(true);
         } else {
             item->setIcon(koIcon("edit-delete"));
-            item->setData(true); // deleted
+            item->setData(true, TASKDELETED_ROLE); // deleted
             idx = idx.sibling(idx.row(), 1);
             m->itemFromIndex(idx)->setEnabled(false);
             idx = idx.sibling(idx.row(), 2);
@@ -406,10 +406,10 @@ MacroCommand *RelationEditorDialog::buildCommand() {
             Relation *r = it.key();
             if (pred == r->parent()) {
                 it.setValue(Skip);
-                if (type == r->type()) {
+                if (type != r->type()) {
                     c->addCommand(new ModifyRelationTypeCmd(r, type));
                 }
-                if (lag == r->lag()) {
+                if (lag != r->lag()) {
                     c->addCommand(new ModifyRelationLagCmd(r, lag));
                 }
                 found = true;
