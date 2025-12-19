@@ -285,6 +285,7 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
     }
     slotDisableInsert(false);
     connect(ui.view->selectionModel(), &QItemSelectionModel::currentChanged, this, &RelationEditorDialog::slotCurrentChanged);
+    slotCurrentChanged(ui.view->selectionModel()->currentIndex());
 
     setWhatsThis( xi18nc("@info:whatsthis",
                            "<title>Task Dependency Dialog</title>"
@@ -301,7 +302,12 @@ void RelationEditorDialog::slotCurrentChanged(const QModelIndex &idx)
 {
     QStandardItemModel *m = static_cast<QStandardItemModel*>(ui.view->model());
     QStandardItem *item = m->itemFromIndex(idx);
-    if (!item) return;
+    if (!item) {
+        ui.removeBtn->setEnabled(false);
+        return;
+    } else {
+        ui.removeBtn->setEnabled(true);
+    }
 
     if (item->data().toBool()) {
         ui.removeBtn->defaultAction()->setIcon(koIcon("edit-undo"));
