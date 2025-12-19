@@ -301,6 +301,8 @@ void RelationEditorDialog::slotCurrentChanged(const QModelIndex &idx)
 {
     QStandardItemModel *m = static_cast<QStandardItemModel*>(ui.view->model());
     QStandardItem *item = m->itemFromIndex(idx);
+    if (!item) return;
+
     if (item->data().toBool()) {
         ui.removeBtn->defaultAction()->setIcon(koIcon("edit-undo"));
         ui.removeBtn->defaultAction()->setText(i18n("Un-Delete"));
@@ -354,6 +356,8 @@ void RelationEditorDialog::addRelation()
 void RelationEditorDialog::removeRelation()
 {
     QModelIndex cidx = ui.view->selectionModel()->currentIndex();
+    if (!cidx.isValid()) return;
+
     cidx = cidx.sibling(cidx.row(), 0);
     if (cidx.isValid()) {
         QModelIndex idx = cidx;
