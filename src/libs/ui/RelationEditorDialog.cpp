@@ -263,15 +263,15 @@ RelationEditorDialog::RelationEditorDialog(Project *project, Node *task, QWidget
 
     BaseDelegate *del = new PredeccessorDelegate(project, task, ui.view);
     connect(del, &BaseDelegate::editModeChanged, this, &RelationEditorDialog::slotDisableInsert);
-    connect(del, &BaseDelegate::editModeChanged, ui.removeBtn, &QAbstractButton::setDisabled);
+    connect(del, &BaseDelegate::editModeChanged, this, &RelationEditorDialog::slotDisableRemove);
     ui.view->setItemDelegateForColumn(0, del);
     del = new TypeDelegate(ui.view);
     connect(del, &BaseDelegate::editModeChanged, ui.addBtn, &QAbstractButton::setDisabled);
-    connect(del, &BaseDelegate::editModeChanged, ui.removeBtn, &QAbstractButton::setDisabled);
+    connect(del, &BaseDelegate::editModeChanged, this, &RelationEditorDialog::slotDisableRemove);
     ui.view->setItemDelegateForColumn(1, del);
     del = new LagDelegate(ui.view);
     connect(del, &BaseDelegate::editModeChanged, ui.addBtn, &QAbstractButton::setDisabled);
-    connect(del, &BaseDelegate::editModeChanged, ui.removeBtn, &QAbstractButton::setDisabled);
+    connect(del, &BaseDelegate::editModeChanged, this, &RelationEditorDialog::slotDisableRemove);
     ui.view->setItemDelegateForColumn(2, del);
     ui.view->setColumnWidth(0, 280);
 
@@ -338,6 +338,12 @@ void RelationEditorDialog::slotDisableInsert(bool _disable)
         disable = tasks.isEmpty();
     }
     ui.addBtn->setDisabled(disable);
+}
+
+void RelationEditorDialog::slotDisableRemove(bool disable)
+{
+    QModelIndex cidx = ui.view->selectionModel()->currentIndex();
+    ui.removeBtn->setDisabled(disable || !cidx.isValid());
 }
 
 void RelationEditorDialog::addRelation()

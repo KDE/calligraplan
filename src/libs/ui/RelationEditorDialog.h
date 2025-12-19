@@ -36,6 +36,7 @@ public Q_SLOTS:
     void removeRelation();
 
 private Q_SLOTS:
+    void slotDisableRemove(bool disable);
     void slotDisableInsert(bool disable);
     void slotCurrentChanged(const QModelIndex &idx);
 
