@@ -318,9 +318,8 @@ void RelationEditorDialog::slotCurrentChanged(const QModelIndex &idx)
     }
 }
 
-void RelationEditorDialog::slotDisableInsert(bool _disable)
+void RelationEditorDialog::slotDisableInsert(bool disable)
 {
-    bool disable = _disable;
     if (!disable) {
         QList<Task*> tasks = m_project->allTasks();
         tasks.removeAll(m_task);
