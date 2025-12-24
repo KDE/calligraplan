@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2023-03-22 13:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -9565,7 +9565,7 @@ msgstr "Ід."
 msgid "File"
 msgstr "Файл"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, kde-format
 msgid "Delete"
 msgstr "Вилучити"
@@ -9582,7 +9582,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "Проміжок"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9601,12 +9601,12 @@ msgstr ""
 "спадному списку завдань-попередників найімовірніші записи розташовано на "
 "початку.</para>"
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
 msgstr "Скасувати вилучення"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr ""

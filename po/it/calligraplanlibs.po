@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2025-05-24 15:41+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -9245,7 +9245,7 @@ msgstr "ID"
 msgid "File"
 msgstr "File"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, kde-format
 msgid "Delete"
 msgstr "Elimina"
@@ -9262,7 +9262,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "Ritardo"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9281,12 +9281,12 @@ msgstr ""
 "<interface>OK</interface>.<nl/>L'elenco a tendina dei possibili predecessori "
 "è ordinato con le attività più probabili per prime.</para>"
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
 msgstr "Ripristina"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Modifica la dipendenza"

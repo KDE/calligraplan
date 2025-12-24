@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2025-10-06 13:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -9162,7 +9162,7 @@ msgstr "المُعرّف"
 msgid "File"
 msgstr "ملف"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, kde-format
 msgid "Delete"
 msgstr "احذف"
@@ -9179,7 +9179,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "التخلف"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9196,12 +9196,12 @@ msgstr ""
 "<interface>حسنًا</interface>.<nl/>قائمة المنسدلة للسوالف الممكنة ترتب مع "
 "المهام الأكثر احتمالًا أولًا.</para>"
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
 msgstr "تراجع عن الحذف"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "غيّر الاعتمادية"

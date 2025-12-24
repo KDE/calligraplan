@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2009-03-03 10:19+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -9838,7 +9838,7 @@ msgstr ""
 msgid "File"
 msgstr "खोलव"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "Delete"
@@ -9857,7 +9857,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "लेग:"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9869,13 +9869,13 @@ msgid ""
 "sorted with the most likely tasks first.</para>"
 msgstr ""
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "Un-Delete"
 msgstr "मेटाव"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 #, fuzzy
 #| msgid "Remove task dependency"
 msgctxt "(qtundo-format)"

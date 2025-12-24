@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2023-03-22 11:54+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -9246,7 +9246,7 @@ msgstr "ID"
 msgid "File"
 msgstr "Ficheiro"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, kde-format
 msgid "Delete"
 msgstr "Apagar"
@@ -9263,7 +9263,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "Atraso"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9282,12 +9282,12 @@ msgstr ""
 "<nl/>A lista de possíveis antecessores está ordenada pelas tarefas mais "
 "prováveis em primeiro lugar.</para>"
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
 msgstr "Recuperar"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "Modificar a dependência"

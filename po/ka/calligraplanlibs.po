@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2025-10-26 05:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -9207,7 +9207,7 @@ msgstr "ID"
 msgid "File"
 msgstr "ფაილი"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, kde-format
 msgid "Delete"
 msgstr "წაშლა"
@@ -9224,7 +9224,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "ლაგი"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9243,12 +9243,12 @@ msgstr ""
 "წინამორბედების ჩამოსაშლელი სია პირველ რიგში დალაგებულია ყველაზე სავარაუდო "
 "ამოცანებით.</para>"
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
 msgstr "წაშლის გაუქმება"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
 msgstr "დამოკიდებულების შეცვლა"

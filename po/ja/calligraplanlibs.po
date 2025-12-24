@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2012-06-09 22:24-0700\n"
 "Last-Translator: Fumiaki Okushi <okushi@kde.gr.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -9416,7 +9416,7 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Delete"
@@ -9436,7 +9436,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "ラグ"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9448,14 +9448,14 @@ msgid ""
 "sorted with the most likely tasks first.</para>"
 msgstr ""
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Delete"
 msgid "Un-Delete"
 msgstr "削除"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Modify task dependency"

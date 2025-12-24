@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:52+0000\n"
+"POT-Creation-Date: 2025-12-24 00:44+0000\n"
 "PO-Revision-Date: 2009-04-22 00:17+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -9855,7 +9855,7 @@ msgstr ""
 msgid "File"
 msgstr "खोलू"
 
-#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:309
+#: ui/RelationEditorDialog.cpp:230 ui/RelationEditorDialog.cpp:317
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "Delete"
@@ -9874,7 +9874,7 @@ msgctxt "@title:column"
 msgid "Lag"
 msgstr "पाछाँ"
 
-#: ui/RelationEditorDialog.cpp:290
+#: ui/RelationEditorDialog.cpp:291
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -9886,13 +9886,13 @@ msgid ""
 "sorted with the most likely tasks first.</para>"
 msgstr ""
 
-#: ui/RelationEditorDialog.cpp:306
+#: ui/RelationEditorDialog.cpp:314
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "Un-Delete"
 msgstr "मेटाबू"
 
-#: ui/RelationEditorDialog.cpp:384
+#: ui/RelationEditorDialog.cpp:399
 #, fuzzy
 #| msgid "Description"
 msgctxt "(qtundo-format)"
