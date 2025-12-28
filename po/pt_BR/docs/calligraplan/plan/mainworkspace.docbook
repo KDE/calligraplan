@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>Descrição</title>
+  <para
+>O espaço de trabalho principal é normalmente organizado com o seletor de visualização à esquerda e a visualização de dados à direita.</para
+><para
+>Como de costume, você também encontrará a barra de menu e a barra de ferramentas na parte superior e a barra de status na parte inferior. </para>
+  <para
+>Como o seletor de visualização e o painel de scripts são painéis, eles podem ser movidos para bordas diferentes, tornados flutuantes ou ocultos. Para exibir um painel oculto, use a entrada de menu <menuchoice
+><guimenu
+>Configurações</guimenu
+><guimenuitem
+>Painéis</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>O seletor de visualização</title>
+  <para
+>O <link linkend="the-view-selector"
+>seletor de visualização</link
+> permite que você selecione a visualização de dados que deseja exibir dentre as visualizações listadas no momento. </para>
+  <para
+>As visualizações são agrupadas em categorias para facilitar a recuperação: Editores, Visualizações, Execução e Relatórios por padrão: </para>
+  <itemizedlist>
+    <listitem
+><para
+>O grupo Editores contém os editores necessários para definir e agendar seu projeto.</para
+></listitem>
+    <listitem
+><para
+>O grupo Visualizações contém as visualizações que são usadas para inspecionar seu projeto.</para
+></listitem>
+    <listitem
+><para
+>O grupo Execução contém visualizações que são especialmente úteis durante a execução do seu projeto.</para
+></listitem>
+    <listitem
+><para
+>O grupo Relatórios contém visualizações para a geração de relatórios.</para
+></listitem>
+  </itemizedlist>
+  <para
+>As visualizações também podem ser movidas dentro ou entre categorias, ou adicionadas ou removidas do <link linkend="the-view-selector"
+>Seletor de visualizações</link
+>. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>Seletor de agendamento</title>
+  <para
+>O seletor de agendamento permite que você selecione o agendamento a partir do qual todas as visualizações (&eg;, a <link linkend="task-gantt-view"
+>Visualização de Gantt</link
+>) exibirão valores. As tarefas que não foram agendadas no agendamento selecionado normalmente não são exibidas em nenhuma das visualizações. (Elas são exibidas nos editores, é claro.) </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>Barra de status</title>
+  <para
+>A barra de status exibe mensagens e informações de progresso. A mais notável é a agenda selecionada, exibida à direita da barra de status. Observe que a maioria das visualizações na categoria <emphasis
+>Visualizações</emphasis
+> exibe informações dependendo da agenda selecionada; portanto, se o projeto não estiver agendado (<emphasis
+>Não agendado</emphasis
+>), a maioria das visualizações estará vazia. </para>
+</sect3>
+</sect2>

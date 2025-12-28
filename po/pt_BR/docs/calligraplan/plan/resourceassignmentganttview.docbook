@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Descrição</title>
+  <para
+>A visualização Gantt de atribuição de recursos exibe as atribuições de tarefas e recursos agendadas em um gráfico de Gantt. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Dados</title>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome do objeto (grupo de recursos, recurso, tarefa)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>Tipo de objeto</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora inicial</para>
+            </entry>
+            <entry>
+              <para
+>O início da atribuição</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora final</para>
+            </entry>
+            <entry>
+              <para
+>O fim da atribuição</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Editando dados</title>
+  <para
+>A descrição da tarefa e o progresso podem ser editados usando o menu de contexto. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Configuração</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Usando o menu de contexto, a visualização pode ser configurada através da caixa de diálogo de configuração.</para
+><para
+>A caixa de diálogo de configuração permite selecionar quais colunas exibir. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Janela de configuração</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Janela de configuração</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

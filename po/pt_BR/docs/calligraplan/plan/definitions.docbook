@@ -1,0 +1,354 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Introdução</title>
+  <para
+>Em gerenciamento de projetos, os termos podem ser usados ​​de maneiras diferentes em diferentes programas, empresas ou tipos de projeto. Consultando glossários de gerenciamento de projetos mais abrangentes, é possível encontrar definições alternativas para a maioria dos termos. </para>
+  <para
+>Esta lista define como certos termos são usados ​​no <guilabel
+>Plano</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Termos</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Conta</emphasis
+></term>
+      <listitem>
+      <para
+>Uma conta é usada em uma <emphasis
+>Estrutura Analítica de Custos</emphasis
+> (<link linkend="cbs"
+>EAC</link
+>) para representar um local onde os custos de <link linkend="task"
+>tarefas</link
+> ou <link linkend="resource"
+>recursos</link
+> podem ser agregados.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ACWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Custo Real do Trabalho Executado (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Custo Real do Trabalho Executado</emphasis
+></term>
+      <listitem>
+      <para
+>O custo (ou esforço) real que foi realizado.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Alocação</emphasis
+></term>
+      <listitem>
+      <para
+>As tarefas são alocadas aos <link linkend="resource"
+>Recursos</link
+> durante a fase de planejamento do projeto. A atribuição propriamente dita é feita durante o agendamento. Observe que a atribuição não é garantida, pois o recurso pode não estar disponível.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Atribuição</emphasis
+></term>
+      <listitem>
+      <para
+>As tarefas são atribuídas aos <link linkend="resource"
+>Recursos</link
+> durante o agendamento.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>BCWS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Custo Orçado do Trabalho Agendado (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Custo Orçado do Trabalho Agendado</emphasis
+></term>
+      <listitem>
+      <para
+>O custo (ou esforço) que deveria ter sido empregado para alcançar o progresso declarado.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>BCWP</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Custo Orçado do Trabalho Executado (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Custo Orçado do Trabalho Executado</emphasis
+></term>
+      <listitem>
+      <para
+>O custo (ou esforço) que foi realizado.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>CBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Estrutura de Repartição de Custos (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>O <emphasis
+>Índice de Desempenho de Custos (Cost Performance Index)</emphasis
+> é igual a BCWP/ACWP. Quando este índice é inferior a 1, significa que você está acima do orçamento. Se o índice for superior a 1, significa que os custos estão abaixo do orçamento.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Estrutura de Repartição de Custos</emphasis
+></term>
+      <listitem>
+      <para
+>O CBS organiza <link linkend="account"
+>contas</link
+> em uma estrutura para permitir que o custo seja agregado independentemente do <link linkend="wbs"
+>WBS</link
+> e do <link linkend="rbs"
+>RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Estimativa</emphasis
+></term>
+      <listitem>
+      <para
+>A estimativa é a quantidade esperada de esforço ou tempo necessário para concluir uma <link linkend="task"
+>tarefa</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Marco</emphasis
+></term>
+      <listitem>
+      <para
+>Um marco é uma <link linkend="task"
+>tarefa</link
+> com um esforço de 0,00h. Normalmente, é usado para marcar um resultado importante, por exemplo, a conclusão de uma entrega após a aceitação do cliente.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Técnica de Avaliação e Revisão de Programas (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Técnica de Avaliação e Revisão de Programas</emphasis
+></term>
+      <listitem>
+      <para
+>A Técnica de Avaliação e Revisão de Programas (PERT) é um aprimoramento do Método do Caminho Crítico (CPM). As estimativas de esforço da tarefa no CPM são estimativas pontuais, enquanto as estimativas de esforço da tarefa no PERT são calculadas ponderando as estimativas Otimista, Mais Provável e Pessimista (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Distribuição PERT</emphasis
+></term>
+      <listitem>
+      <para
+>Uma maneira simplificada de calcular a estimativa esperada a partir das estimativas otimista, mais provável e pessimista.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>RBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Estrutura de Repartição de Recursos (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Estrutura de Repartição de Recursos</emphasis
+></term>
+      <listitem>
+      <para
+>O RBS organiza os recursos em <link linkend="Resource-Group"
+>grupos de recursos</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Recurso</emphasis
+></term>
+      <listitem>
+      <para
+>Um recurso pode ser do tipo <emphasis
+>Trabalho</emphasis
+>, <emphasis
+>Material</emphasis
+> ou <emphasis
+>Equipe</emphasis
+>. Um recurso deve sempre pertencer a um <link linkend="Resource-Group"
+>Grupo de Recursos</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Grupo de recursos</emphasis
+></term>
+      <listitem>
+      <para
+>Um grupo de recursos é usado para agrupar <link linkend="resource"
+>recursos</link
+> semelhantes.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Equipe de recursos</emphasis
+></term>
+      <listitem>
+      <para
+>Uma equipe de <link linkend="resource"
+>recursos</link
+> é um recurso que consiste em vários outros recursos.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>O Índice de Desempenho do Cronograma (SPI, em inglês) é igual a BCWP/BCWS. Quando este índice é inferior a 1, significa que você está atrasado no cronograma. Se o índice for superior a 1, significa que você está adiantado no cronograma.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Tarefa resumo</emphasis
+></term>
+      <listitem>
+      <para
+>Uma tarefa resumo possui subtarefas subordinadas e consolida informações com base nas subtarefas.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Tarefa</emphasis
+></term>
+      <listitem>
+      <para
+>Uma tarefa é uma unidade de trabalho. <link linkend="resource"
+>Recursos</link
+> são geralmente alocados no nível da tarefa.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard é um formato de arquivo padrão para cartões de visita eletrônicos.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>WBS</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Estrutura de Repartição de Trabalho (sigla em inglês)</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Estrutura de Repartição de Trabalho</emphasis
+></term>
+      <listitem>
+      <para
+>A WBS é usada para dividir grandes projetos em partes gerenciáveis ​​para facilitar o planejamento e o gerenciamento.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

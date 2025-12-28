@@ -1,0 +1,13 @@
+<!-- Note: Set id of chapter to the id the first section should have had -->
+<chapter id="introduction-chapter"
+><title
+>Introdução ao &portfolio;</title>
+  <sect1 id="introduction"
+><title
+>Introdução</title
+>&introduction; </sect1>
+  <sect1 id="context-help"
+><title
+>Ajuda de contexto</title
+>&context-help; </sect1>
+</chapter>

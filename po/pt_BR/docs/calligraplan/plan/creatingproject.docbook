@@ -1,0 +1,42 @@
+<sect2
+><title/>
+<para
+>Um novo projeto pode ser criado pressionando o botão <guibutton
+>Novo projeto</guibutton
+> ou selecionando um <emphasis
+>modelo de projeto</emphasis
+> na <link linkend="startup-view"
+>Visão inicial</link
+>. </para>
+<para
+>Isso criará um novo projeto com valores padrão definidos em <xref linkend="configure-plan-dialog" xrefstyle="select:title"/> ou a partir de valores definidos no modelo. A caixa de diálogo de configurações do projeto será aberta para permitir que você defina propriedades específicas do projeto, como <emphasis
+>nome do projeto</emphasis
+>, <emphasis
+>gerente</emphasis
+> e <emphasis
+>horários de destino</emphasis
+>. </para>
+<para
+>Ao criar seu primeiro projeto, considere criar recursos em um arquivo separado. Ao se referir a esse arquivo em seus projetos, você não precisará definir seus recursos novamente e poderá coordenar o uso de recursos entre projetos. </para>
+<para
+>Veja <xref linkend="managing-resources" xrefstyle="select:title"/>. </para>
+<para
+>Para coordenar o uso de recursos entre projetos, você pode usar o &portfolio;. </para>
+<para
+>Uma estrutura útil poderia ser algo como isto: </para>
+<para
+><screen
+>Plano
+    &nbsp;!-- Recursos
+    &nbsp;!      !-- SharedResources.plan
+    &nbsp;!-- Taskmodules
+    &nbsp;!      !-- Módulos de tarefa (se houver)
+    &nbsp;!-- Modelos
+    &nbsp;!      !-- Modelos de projetos (se houver)
+    &nbsp;!-- Projetos
+    &nbsp;!      !-- &lt;projeto 1&gt;.plan
+    &nbsp;!      !-- &lt;projeto 2&gt;.plan
+    &nbsp;!      !-- etc
+  </screen>
+</para>
+</sect2>

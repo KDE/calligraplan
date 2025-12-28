@@ -1,0 +1,57 @@
+<sect2
+><title/>
+<sect3 id="description"
+><title
+>Descrição</title>
+  <para
+>Você pode criar recursos para um projeto usando o <link linkend="resource-editor"
+>Editor de recursos</link
+> e o <link linkend="work-and-vacation-editor"
+>Editor de trabalho e férias</link
+>. </para>
+  <para
+>No entanto, se você for usar os mesmos recursos em muitos projetos (o que frequentemente acontece), é mais conveniente manter os recursos em um arquivo separado. A melhor maneira de fazer isso é criar primeiro o arquivo de recursos e, em seguida, configurar o &plan; para sempre carregar esse arquivo ao criar um novo projeto. </para>
+</sect3>
+<sect3 id="shared-resources"
+><title
+>Recursos compartilhados</title>
+  <para
+>Recursos compartilhados são recursos que podem ser compartilhados entre projetos e, portanto, facilitam o nivelamento de recursos entre os projetos. </para>
+  <para
+>Se você estiver gerenciando projetos que usam conjuntos de recursos totalmente diferentes, você pode criar vários arquivos de recursos, mas um projeto só pode se referir a um arquivo de recursos. </para>
+  <para
+>Você pode selecionar o arquivo de recursos a ser usado ao criar um novo projeto. Os recursos podem ser carregados automaticamente ao abrir o projeto ou você pode atualizá-los manualmente selecionando <menuchoice
+><guimenu
+>Ferramentas</guimenu
+><guimenuitem
+>Atualizar recursos compartilhados</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Observe que o projeto ainda pode ser aberto mesmo que o arquivo de recursos não esteja disponível. </para>
+  <para
+>Se algum item tiver sido excluído no arquivo de recursos compartilhados, você verá uma caixa de diálogo onde poderá selecionar como tratar os itens excluídos. </para>
+  <para
+>Você pode selecionar se um item deve ser: <itemizedlist>
+  <listitem
+><para
+><emphasis
+>Removido:</emphasis
+> Remove o item do seu projeto. Esta é a ação que você normalmente selecionaria, pois mantém seu projeto sincronizado com o arquivo de recursos. No entanto, se o item for usado em seu projeto, você pode querer convertê-lo em um item local.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Convertido:</emphasis
+> Converte o item em um item local.</para>
+  </listitem>
+  <listitem
+><para
+><emphasis
+>Mantido:</emphasis
+> Mantém o item como um item compartilhado em seu projeto. Na próxima vez que o arquivo de recurso for carregado, você será perguntado novamente como tratar o item.</para>
+  </listitem>
+  </itemizedlist>
+  </para>
+</sect3>
+</sect2>

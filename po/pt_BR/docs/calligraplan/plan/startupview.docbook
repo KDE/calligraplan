@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>A visualização de inicialização é exibida na inicialização e quando <menuchoice
+><guimenu
+>Arquivo</guimenu
+><guimenuitem
+>Novo</guimenuitem
+></menuchoice
+> é selecionado. </para>
+<para
+>Ela tem 3 seções para: </para>
+<itemizedlist>
+  <listitem
+><para
+>Criação de novos projetos. Veja também <link linkend="creating-a-project"
+>Criação de um projeto</link
+> e <link linkend="managing-resources"
+>Gerenciamento de recursos</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Abrindo projetos existentes. Esta seção oferece a possibilidade de abrir um arquivo de projeto existente ou um dos 10 projetos mais recentes que você abriu.</para
+></listitem>
+  <listitem
+><para
+>A seção Ajuda fornece links para páginas introdutórias, documentação e fórum da comunidade.</para
+></listitem>
+</itemizedlist>
+</sect2>

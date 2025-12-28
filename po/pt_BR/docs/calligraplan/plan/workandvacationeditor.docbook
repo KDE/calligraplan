@@ -1,0 +1,135 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Descrição</title>
+  <para
+>O editor de trabalho e férias é usado para criar, editar e excluir calendários.</para
+><para
+>Os calendários definem o horário de trabalho dos recursos. Os calendários também podem ser usados por tarefas com tipo de estimativa <emphasis
+>Duração</emphasis
+>. </para>
+  <para
+>Os calendários possuem uma especificação de fuso horário para que você possa definir o horário de trabalho no horário local do recurso. </para>
+  <para
+>Um calendário consiste em definições para dias da semana e datas. Se a data tiver uma definição, essa definição será usada. Se o estado da data for <emphasis
+>Indefinido</emphasis
+>, a definição para o dia da semana será usada. Se <emphasis
+>Indefinido</emphasis
+> também for <emphasis
+>Indefinido</emphasis
+>, o calendário principal será verificado. </para>
+  <para
+>Um calendário pode ser definido como <emphasis
+>Padrão</emphasis
+> e então é usado por todos os recursos de trabalho sem uma referência de calendário. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>A barra de ferramentas permite criar e excluir calendários: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Adicionar calendário</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar um calendário. O novo calendário é adicionado no mesmo nível que o calendário selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adicionar subcalendário</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar um calendário filho. O novo calendário é adicionado como filho do calendário atualmente selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Excluir calendário selecionado</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Excluir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Exclui o calendário selecionado.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Editando dados</title>
+  <para
+>O nome do calendário e o fuso horário podem ser editados diretamente, conforme descrito <link linkend="using-the-views"
+>aqui</link
+>. </para>
+  <para
+>O estado dos dias e dias da semana é editado selecionando o dia ou os dias que você deseja editar e abrindo o menu de contexto. </para>
+  <para
+>Selecionar <emphasis
+>Trabalho...</emphasis
+> abre a caixa de diálogo editar intervalos de trabalho. </para>
+  
+</sect3>
+</sect2>

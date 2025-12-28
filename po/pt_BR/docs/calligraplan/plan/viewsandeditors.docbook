@@ -1,0 +1,72 @@
+<chapter id="startup-view"
+><title
+>Visualizações e Editores</title>
+  <sect1 id="startup-view-section"
+><title
+>Visualização inicial</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>Editor de tarefa</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>Editor de recurso</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>Editor de trabalho e férias</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>Editor de Estrutura de Repartição de Custos</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>Editor de dependência de tarefa (gráfico)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>Editor de dependência de tarefa (lista)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>Editor de agendamentos</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>Visualização de desempenho do projeto</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>Visualização de desempenho da tarefa</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>Visualização de status da tarefa</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>Visualização de execução da tarefa</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>Visualização Gantt da tarefa</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>Visão Gantt de marco</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>Visualização Gantt de atribuição de recurso</title
+>&resource-assignment-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>Visualização de atribuição de recurso</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="cost-breakdown-view"
+><title
+>Visualização de repartição de custo</title
+>&cost-breakdown-view-section; </sect1>
+</chapter>

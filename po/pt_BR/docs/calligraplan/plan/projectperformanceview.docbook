@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Descrição</title>
+  <para
+>A visão de desempenho do projeto é um gráfico de gerenciamento de projetos onde se pode compreender a situação real do projeto de acordo com o método do Valor Agregado. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>onde: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS significa Orçamento de Custo e Trabalho Programado (sigla em inglês),</para
+></listitem>
+    <listitem
+><para
+>BCWP significa Trabalho Executado ao Custo Orçado (sigla em inglês),</para
+></listitem>
+    <listitem
+><para
+>ACWP significa Trabalho Realizado ao Custo Real (sigla em inglês).</para
+></listitem>
+  </itemizedlist>
+  <para
+>Tudo isso é considerado como esforço em termos de horas e custos. </para>
+  <para
+>PI são os Índices de Desempenho (sigla em inglês), onde: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI é o Índice de Desempenho do Custo (sigla em inglês),</para
+></listitem>
+    <listitem
+><para
+>SPI é o Índice de Desempenho do Agendamento (sigla em inglês).</para
+></listitem>
+  </itemizedlist>
+</sect2>

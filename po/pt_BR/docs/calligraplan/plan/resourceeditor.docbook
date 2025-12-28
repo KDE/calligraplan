@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Descrição</title>
+  <para
+>O editor de recursos é usado para criar, editar e excluir recursos e grupos de recursos. Os recursos devem pertencer a um grupo de recursos. No momento, subgrupos não são permitidos. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Os recursos de trabalho devem se referir a um <emphasis
+>calendário</emphasis
+> que define o horário de trabalho do recurso. Os calendários são criados usando o <link linkend="work-and-vacation-editor"
+>Editor de trabalho e férias</link
+>. </para>
+  <para
+>Os recursos materiais estão sempre disponíveis por padrão. Você pode usar um calendário para limitar sua disponibilidade. </para>
+  <para
+>Os recursos podem ser <emphasis
+>Compartilhados</emphasis
+> ou <emphasis
+>Locais</emphasis
+>. Um recurso local é usado apenas no projeto atual. Um recurso compartilhado pode ser compartilhado entre vários projetos e é armazenado em um arquivo separado. Consulte <link linkend="managing-resources"
+>Gerenciando recursos</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Barra de ferramentas</title>
+  <para
+>A barra de ferramentas fornece os meios para criar e excluir recursos e grupos de recursos. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Adicionar grupo de recurso</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar um grupo de recursos. O novo grupo é adicionado ao final da lista de grupos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adicionar recurso</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar um recurso. O novo recurso é adicionado como filho do grupo atualmente selecionado. Se um recurso for selecionado, o novo recurso será adicionado ao seu grupo pai.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Excluir</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Excluir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Exclui os recursos e/ou grupos de recursos selecionados.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Os recursos podem ser criados arrastando e soltando dados de qualquer aplicativo que suporte o recurso de arrastar e soltar informações do vCard, como o <emphasis
+>KAddressBook</emphasis
+> ou o <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Os recursos podem ser copiados ou movidos para um grupo de recursos diferente usando o recurso de arrastar e soltar. </para>
+  <para
+><note
+><para
+>Ao mover um recurso, este perderá todas as alocações feitas a ele.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Editando dados</title>
+  <para
+>Os dados podem ser editados diretamente conforme descrito <link linkend="using-the-views"
+>aqui</link
+>. </para>
+  <para
+>Os recursos também podem ser editados usando a caixa de diálogo de configurações de recursos. </para>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome do recurso ou grupo de recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Escopo</para>
+            </entry>
+            <entry>
+              <para
+>Um recurso pode ser <emphasis
+>Compartilhado</emphasis
+> ou <emphasis
+>Local</emphasis
+>. Um recurso compartilhado não pode ser editado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Tipo</para>
+            </entry>
+            <entry>
+              <para
+>O tipo do recurso ou grupo de recursos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Iniciais</para>
+            </entry>
+            <entry>
+              <para
+>As iniciais do recurso.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>E-mail</para>
+            </entry>
+            <entry>
+              <para
+>O endereço de e-mail do recurso.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Calendário</para>
+            </entry>
+            <entry>
+              <para
+>O calendário define quando o recurso está trabalhando.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Limite (%)</para>
+            </entry>
+            <entry>
+              <para
+>A carga máxima que poderá ser atribuída.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponível de</para>
+            </entry>
+            <entry>
+              <para
+>Define quando o recurso está disponível para o projeto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Disponível até</para>
+            </entry>
+            <entry>
+              <para
+>Define quando o recurso está disponível para o projeto.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Proporção normal</para>
+            </entry>
+            <entry>
+              <para
+>O custo por hora, em horário normal.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Conta</para>
+            </entry>
+            <entry>
+              <para
+>A conta onde o custo dos recursos é acumulado.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Configuração</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Usando o menu de contexto, a visualização pode ser configurada para dividir/desdividir a visualização em árvore. Ou pode ser configurada usando a caixa de diálogo de configuração.</para
+><para
+>A caixa de diálogo de configuração permite que você personalize a quantidade de informações que a visualização exibe para atender às suas necessidades. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>No gráfico de desempenho da tarefa, podemos analisar detalhadamente cada subtarefa ou tarefa com os mesmos índices da visualização de desempenho do projeto. </para>
+<para
+>Isso é realmente útil em um projeto longo e complexo. </para>
+<para
+>Na janela da esquerda, você pode escolher cada subtarefa, bem como uma tarefa inteira, e então, na janela da direita, aparecerá o gráfico correspondente. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>onde: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS significa Orçamento de Custo e Trabalho Programado (sigla em inglês),</para
+></listitem>
+  <listitem
+><para
+>BCWP significa Trabalho Executado ao Custo Orçado (sigla em inglês),</para
+></listitem>
+  <listitem
+><para
+>ACWP significa Trabalho Realizado ao Custo Real (sigla em inglês).</para
+></listitem>
+</itemizedlist>
+<para
+>Tudo isso é considerado como esforço em termos de horas e custos. </para>
+<para
+>PI são os Índices de Desempenho (sigla em inglês), onde: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI é o Índice de Desempenho do Custo (sigla em inglês),</para
+></listitem>
+  <listitem
+><para
+>SPI é o Índice de Desempenho do Agendamento (sigla em inglês).</para
+></listitem>
+</itemizedlist>
+</sect2>

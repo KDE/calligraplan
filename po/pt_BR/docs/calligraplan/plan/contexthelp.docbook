@@ -1,0 +1,23 @@
+<sect2
+><title/>
+<para
+>Muitas funções e visualizações têm ajuda e dicas que podem ser exibidas com a função <emphasis
+>O que é isto</emphasis
+>. </para>
+<para
+>Você pode ativá-lo com a entrada de menu <menuchoice
+><guimenu
+>Ajuda</guimenu
+><guimenuitem
+>O que é isto</guimenuitem
+></menuchoice
+> ou com o atalho de teclado <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>Em diálogos, ele é ativado pressionando <varname
+>?</varname
+> na barra de título do diálogo. </para>
+</sect2>

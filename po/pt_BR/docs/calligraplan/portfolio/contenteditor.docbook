@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Conteúdo do portfólio</title
+>&WORK-IN-PROGRESS; <para
+>Este editor permite que você configure o conteúdo do seu portfólio. </para
+><para
+>Selecione <menuchoice
+> <shortcut
+><keycap
+>Inserir</keycap
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Adicionar</guimenuitem
+> </menuchoice
+> ou pressione <guibutton
+>Adicionar</guibutton
+> para adicionar projetos ao seu portfólio. </para
+><para
+>Selecione <menuchoice
+> <shortcut
+><keycap
+>Excluir</keycap
+></shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Remover</guimenuitem
+> </menuchoice
+> ou pressione <guibutton
+>Remover</guibutton
+> para remover os projetos selecionados. </para
+><para
+>Adicione os projetos que você está gerenciando e defina <guilabel
+>Portfólio</guilabel
+> = <emphasis
+>Sim</emphasis
+>. </para
+><para
+>Se você tiver recursos que estão sendo usados ​​por projetos que não fazem parte do seu portfólio e quiser reprogramar ou inspecionar o uso de recursos, você precisa adicionar todos os projetos relevantes e definir <guilabel
+>Portfólio</guilabel
+> = <emphasis
+>Não</emphasis
+> para esses projetos. </para>
+<formalpara
+><title
+>Armazenamento</title>
+<para
+></para>
+</formalpara>
+<para
+>As alterações do projeto podem ser salvas no arquivo original do projeto ou podem ser incorporadas ao arquivo do portfólio. Se você estiver gerenciando projetos, eles normalmente devem ser salvos em seus arquivos originais. Defina <guilabel
+>Armazenar</guilabel
+> = <emphasis
+>Externo</emphasis
+> neste caso. No entanto, se você quiser apenas ver o impacto que as alterações podem ter, talvez queira armazenar os projetos incorporados enquanto trabalha em diferentes cenários. Defina <guilabel
+>Armazenar</guilabel
+> = <emphasis
+>Incorporado</emphasis
+> neste caso. A URL externa do projeto é preservada caso você queira salvar as alterações no arquivo original posteriormente. </para>
+</chapter>

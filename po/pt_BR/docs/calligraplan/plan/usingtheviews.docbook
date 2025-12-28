@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Descrição</title>
+  <para
+>O editor de tarefas é uma visualização que exibe os dados da tarefa em uma estrutura de árvore. A maioria dos dados no editor de tarefas pode ser editada no próprio local. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Navegação</title>
+  <para
+>Você pode navegar pela estrutura em árvore usando o teclado: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Expande uma linha expansível.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Recolhe um item dobrável.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Seta para esquerda</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a coluna anterior na mesma linha.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Seta para direita</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a próxima coluna na mesma linha.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Seta para cima</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a linha anterior na mesma coluna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Seta para baixo</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a próxima linha na mesma coluna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Home</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a primeira linha, primeira coluna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>End</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para a última linha, última coluna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page up</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vá para a primeira linha visível na mesma coluna.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Page down</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Vá para a última linha visível na mesma coluna.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Editando dados</title>
+  <para
+>Os itens editáveis ​​são abertos para edição clicando duas vezes no item ou, se estiver usando o teclado, pressionando <keycap
+>F2</keycap
+> para abrir o item atual. </para>
+  <para
+>Ao editar um item, você pode navegar para o próximo item editável da seguinte forma: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Seta esquerda</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para o item editável anterior na mesma linha.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Seta direita</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para o próximo item editável na mesma linha.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Seta para cima</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para o próximo item editável na linha anterior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Seta para baixo</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Vai para o próximo item editável na próxima linha.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Arrastar e soltar e copiar/colar</title>
+  <para
+>A maioria das visualizações suporta arrastar e soltar e copiar/colar. Gráficos e diagramas de Gantt podem ser arrastados para aplicativos que suportam imagens. Os dados da tabela usam o tipo MIME HTML e, portanto, podem ser soltos em qualquer aplicativo que o suporte. Se a visualização suportar mover ou copiar itens internamente (por exemplo, o <link linkend="task-editor"
+>Editor de tarefas</link
+>), os itens também podem ser movidos ou copiados. </para>
+</sect3>
+</sect2>

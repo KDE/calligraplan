@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Descrição</title>
+  <para
+>A visualização de atribuição de recursos exibe as atribuições de tarefas e recursos agendadas em uma tabela. <note
+><para
+>Essa perspectiva pode afetar seriamente o desempenho em grandes projetos.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Dados</title>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome do objeto (grupo de recursos, recurso, tarefa)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Total</para>
+            </entry>
+            <entry>
+              <para
+>A atribuição total de um recurso</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Datas</para>
+            </entry>
+            <entry>
+              <para
+>O total de atribuições para um recurso por dia e as atribuições para o recurso por tarefa.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Editando dados</title>
+  <para
+>A descrição da tarefa e o progresso podem ser editados usando o menu de contexto. </para>
+</sect3>
+</sect2>

@@ -1,0 +1,144 @@
+<chapter id="scheduling"
+><title
+>Agendamento</title>
+<sect1 id="scheduling-description"
+><title
+>Descrição</title
+>&WORK-IN-PROGRESS; <para
+>A visualização de agendamento permite que você agende os projetos em seu portfólio. Os projetos são agendados de acordo com sua prioridade. </para
+><para
+>Defina <emphasis
+>Controle</emphasis
+> como <emphasis
+>Agendar</emphasis
+> para o(s) projeto(s) que deseja agendar. Defina <emphasis
+>Controle</emphasis
+> como <emphasis
+>Incluir</emphasis
+> para que as atribuições de recursos sejam incluídas no nivelamento de recursos. Defina <emphasis
+>Controle</emphasis
+> como <emphasis
+>Excluir</emphasis
+> se desejar excluir o projeto. </para>
+  <tip
+><para
+>Se seus projetos compartilham recursos com projetos que não fazem parte do seu portfólio, esses projetos precisam ser incluídos para que o nivelamento de recursos funcione corretamente. Veja <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>A visualização possui três seções: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Tabela de projetos</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Nome</guilabel
+></entry>
+          <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Nome</entry
+><entry
+>Nome do projeto</entry
+></row>
+      <row
+><entry
+>Agendamento</entry
+><entry
+>Nome do agendamento</entry
+></row>
+      <row
+><entry
+>Status</entry
+><entry
+>Status do agendamento</entry
+></row>
+      <row
+><entry
+>Controle</entry>
+        <entry
+>O controle de agendamento pode ter os seguintes valores: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Agendar:</emphasis
+> O projeto será agendado.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Incluir:</emphasis
+> As reservas de recursos serão incluídas no nivelamento de recursos.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Excluir:</emphasis
+> O projeto não será incluído.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Prioridade</entry
+><entry
+>Prioridade do projeto. Um número maior significa maior prioridade.</entry
+></row>
+      <row
+><entry
+>Início alvo</entry
+><entry
+>O horário de início mais cedo do projeto</entry
+></row>
+      <row
+><entry
+>Fim alvo</entry
+><entry
+>O horário mais cedo de término do projeto</entry
+></row>
+      <row
+><entry
+>Descrição</entry
+><entry
+>Descrição do projeto</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Controle do agendamento</title
+>&WORK-IN-PROGRESS; </sect1>
+<sect1 id="scheduling-log"
+><title
+>Registro do agendamento</title
+>&WORK-IN-PROGRESS; </sect1>
+</chapter>

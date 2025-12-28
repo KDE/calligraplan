@@ -1,0 +1,41 @@
+<sect2
+><title/>&WORK-IN-PROGRESS; <para
+>O &portfolio; permite gerenciar vários projetos a partir de um único aplicativo. </para>
+<para
+>Dois casos de uso: <itemizedlist>
+  <listitem>
+    <para
+>Gerenciar múltiplos projetos, fornecendo uma visão geral de onde concentrar a atenção.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspecionar e planejar projetos em toda a empresa. Auxiliar no gerenciamento de atrasos, mudanças de prioridades ou incorporação de novos projetos.</para>
+  </listitem>
+</itemizedlist>
+</para>
+
+<para
+>Funcionalidades: <itemizedlist>
+  <listitem>
+    <para
+>Agendar ou reagendar vários projetos.</para>
+  </listitem>
+  <listitem>
+    <para
+>Nivelamento de recursos entre projetos.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspecionar a utilização planejada de recursos em todos os projetos.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspecionar e atualizar as informações de progresso em formato de tabela e também em gráficos.</para>
+  </listitem>
+  <listitem>
+    <para
+>Inspecionar os diagramas de Gantt do projeto.</para>
+  </listitem>
+</itemizedlist>
+</para>
+</sect2>

@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Descrição</title>
+  <para
+>A visualização de Gantt é usada para mostrar tarefas em uma linha do tempo. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Visualização de Gantt</phrase>
+        </textobject>
+        <caption>
+          <para
+>Visualização de Gantt</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Editando dados</title>
+  <para
+>A descrição e o progresso da tarefa podem ser editados usando o menu de contexto. </para>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome da tarefa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora inicial</para>
+            </entry>
+            <entry>
+              <para
+>A hora inicial agendada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora final</para>
+            </entry>
+            <entry>
+              <para
+>A hora final agendada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% Completado</para>
+            </entry>
+            <entry>
+              <para
+>Completamento</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Configuração</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Usando o menu de contexto, a visualização pode ser configurada através da caixa de diálogo de configuração.</para>
+              <para
+>A caixa de diálogo de configuração permite que você personalize a quantidade de informações que a visualização exibe para atender às suas necessidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Janela de configuração</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Janela de configuração</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

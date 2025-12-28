@@ -1,0 +1,13 @@
+<sect2
+><title/>
+<para
+><note
+><para
+>Esta visualização não é exibida por padrão. Para projetos grandes, isso pode afetar severamente o desempenho.</para
+></note>
+</para>
+<para
+>Ele pode ser ativado usando o menu de contexto <link linkend="the-view-selector"
+>Seletor de visualização</link
+>. </para>
+</sect2>

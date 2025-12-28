@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Resumo Gantt</title>
+<sect1 id="description"
+><title
+>Descrição</title
+>&WORK-IN-PROGRESS; <para
+>Exibe um gráfico de Gantt de todos os projetos em seu portfólio. </para
+><para
+>É possível visualizar o gráfico de Gantt de um projeto selecionando <userinput
+>Menu de contexto->Abrir projeto</userinput
+>. </para>
+</sect1>
+</chapter>

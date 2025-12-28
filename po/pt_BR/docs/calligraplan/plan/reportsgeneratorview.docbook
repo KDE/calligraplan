@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Descrição</title>
+  <para
+>A visualização do gerador de relatórios é usada para adicionar e gerar relatórios no formato Open Document Text (odt).</para
+><para
+>Os relatórios podem ser baseados nos modelos de relatório fornecidos ou você pode <link linkedin="creating-odt-report-templates"
+>escrever seus próprios modelos</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>Um nome de sua escolha</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Modelo do relatório</para>
+            </entry>
+            <entry>
+              <para
+>Caminho para o arquivo do modelo de relatório. Você pode selecionar um dos modelos padrão fornecidos ou pode inserir o nome do arquivo de um modelo que você mesmo fornecer.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Arquivo do relatório</para>
+            </entry>
+            <entry>
+              <para
+>O nome do arquivo que será gerado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adicionar</para>
+            </entry>
+            <entry>
+              <para
+>Informações que podem ser adicionadas ao nome do arquivo de relatório para diferenciá-lo de versões geradas anteriormente. Isso pode ser:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Nada</emphasis
+>; usa o nome do arquivo como está</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Número</emphasis
+>; adiciona um número sequencial ao nome do arquivo</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Data</emphasis
+>; adiciona a data atual ao nome do arquivo</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Barra de ferramentas</title>
+  <para
+>A barra de ferramentas permite adicionar, remover e gerar relatórios. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Adicionar relatório</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Adiciona um novo relatório</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Remover relatório</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Remove o relatório selecionado</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Gerar relatório</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Gera o relatório selecionado</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

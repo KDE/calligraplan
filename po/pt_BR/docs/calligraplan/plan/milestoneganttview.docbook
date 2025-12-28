@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Descrição</title>
+  <para
+>A visualização de marcos de Gantt é usada para mostrar marcos em uma linha do tempo. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Visualização Gantt</phrase>
+        </textobject>
+        <caption>
+          <para
+>Visualização Gantt</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Editando dados</title>
+  <para
+>A descrição e o progresso dos marcos podem ser editados usando o menu de contexto. </para>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Código WBS</para>
+            </entry>
+            <entry>
+              <para
+>O código da Estrutura de Repartição de Trabalho (sigla em inglês)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome do marco.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Hora inicial</para>
+            </entry>
+            <entry>
+              <para
+>A hora inicial agendada.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Configuração</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Usando o menu de contexto, a visualização pode ser configurada através da caixa de diálogo de configuração.</para>
+              <para
+>A caixa de diálogo de configuração permite que você personalize a quantidade de informações que a visualização exibe para atender às suas necessidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Janela de configuração</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Janela de configuração</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

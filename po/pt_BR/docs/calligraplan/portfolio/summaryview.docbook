@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>Resumo</title
+>&WORK-IN-PROGRESS; <para
+>Esta visualização resume os dados de desempenho dos projetos em seu portfólio. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Nome</guilabel
+></entry>
+          <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Nome</entry
+><entry
+>Nome do projeto</entry
+></row>
+      <row
+><entry
+>Agendamento</entry
+><entry
+>Nome do agendamento</entry
+></row>
+      <row
+><entry
+>Custo SPI</entry
+><entry
+>Índice de Desempenho do Agendamento (baseado em custo)</entry
+></row>
+      <row
+><entry
+>Custo CPI</entry
+><entry
+>Índice de Desempenho do Agendamento (baseado em custo)</entry
+></row>
+      <row
+><entry
+>Esforço SPI</entry
+><entry
+>Índice de Desempenho do Agendamento (baseado no esforço)</entry
+></row>
+      <row
+><entry
+>Esforço CPI</entry
+><entry
+>Índice de Desempenho do Agendamento (baseado no esforço)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>O SPI indica se o progresso está dentro do cronograma (1), atrasado (menos de 1) ou adiantado (mais de 1). O CPI indica quanto custou para obter o progresso real. Um valor de 1 significa que o progresso está conforme o planejado, menos de 1 significa que custou mais do que o previsto e um valor maior que 1 significa que o progresso foi obtido com menos recursos do que o planejado. </para>
+</chapter>

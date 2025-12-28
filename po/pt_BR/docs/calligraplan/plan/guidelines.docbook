@@ -1,0 +1,16 @@
+<chapter id="creating-a-project"
+><title
+>Diretrizes</title>
+  <sect1 id="creating-a-project-section"
+><title
+>Criando um projeto</title
+>&creating-project-section; </sect1>
+  <sect1 id="managing-resources"
+><title
+>Gerenciando recursos</title
+>&managing-resources-section; </sect1>
+  <sect1 id="creating-odt-report-templates"
+><title
+>Criando modelos de relatório ODT</title
+>&creating-odt-report-templates-section; </sect1>
+</chapter>

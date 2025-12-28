@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Descrição</title>
+  <para
+>O editor de dependências de tarefas é usado para criar, editar e excluir dependências de tarefas. Para maior conveniência, as tarefas também podem ser inseridas, excluídas ou editadas.</para
+><para
+>As tarefas são ordenadas de acordo com a Estrutura de Repartição do Trabalho (WBS, sigla em inglês). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Os símbolos para tarefas de resumo, tarefas e marcos são mostrados abaixo: </para>
+  <para
+>Como a <emphasis
+>Tarefa</emphasis
+> e o <emphasis
+>Marco</emphasis
+> são subitens da <emphasis
+>Tarefa Resumo</emphasis
+>, eles são recuados. Além disso, observe que o código WBS é exibido junto com o nome. </para>
+  <para
+>Na figura a seguir, uma dependência <emphasis
+>Término-Início</emphasis
+> foi inserida para fazer com que <emphasis
+>Marco</emphasis
+> dependa da <emphasis
+>Tarefa</emphasis
+>. </para>
+  <para
+>Conforme mostrado abaixo, um item consiste em três áreas de seleção diferentes: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Área do item</para>
+            </entry>
+            <entry>
+              <para
+>Selecione o item que deseja editar</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Área de início</para>
+            </entry>
+            <entry>
+              <para
+>Usado para criar dependências <emphasis
+>Término-Início</emphasis
+> e <emphasis
+>Início-Início</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Área de fim</para>
+            </entry>
+            <entry>
+              <para
+>Usado para criar dependências <emphasis
+>Término-Início</emphasis
+> e <emphasis
+>Término-Término</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Editando dependências</title>
+  <para
+>As dependências são criadas selecionando-se primeiro uma área de início ou de fim da tarefa predecessora e, em seguida, selecionando-se a área de início ou de fim da tarefa sucessora. </para>
+  <para
+>Isso pode ser feito usando o mouse ou o teclado. </para>
+  <para
+>Alternativamente, você pode arrastar a área de conexão do predecessor para a área de conexão do sucessor. </para>
+  <para
+>Para editar ou excluir uma dependência existente, você pode abrir uma dependência selecionando-a ou abrindo seu menu de contexto. </para>
+  <para
+>Você também pode abrir o menu de contexto em uma área de conexão, o que lhe permitirá editar todas as dependências conectadas a essa área. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Barra de ferramentas</title>
+  <para
+>A barra de ferramentas permite criar e excluir tarefas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Adicionar tarefa</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Caixa suspensa para criar uma tarefa ou marco. O novo item é posicionado após o item atualmente selecionado, no mesmo nível que ele. Se nenhum item for selecionado, o novo item será adicionado no nível superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adicionar sub-tarefa</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Caixa suspensa para criar uma subtarefa ou marco. O novo item é anexado como um filho do item atualmente selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Excluir tarefa</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Excluir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Exclui as tarefas selecionadas.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

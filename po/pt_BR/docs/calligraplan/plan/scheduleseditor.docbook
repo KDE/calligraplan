@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Descrição</title>
+  <para
+>O editor de agendamentos é usado para criar, editar, calcular e excluir agendamentos. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>O editor de agendamento possui três sub-visualizações que mostram os resultados do agendamento. </para>
+  <para
+>A sub-visualização de Resultados mostra os valores necessários para a análise PERT, incluindo início e término antecipados, início e término tardios, juntamente com diferentes tipos de folga. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>A sub-visualização de caminho crítico mostra as tarefas que pertencem ao caminho crítico. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>A sub-visualização do registro de agendamento mostra uma lista de mensagens produzidas durante o agendamento. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Barra de ferramentas</title>
+  <para
+>A barra de ferramentas permite criar, excluir e calcular agendamentos: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Adicionar agendamento</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar um grupo de recursos. O novo grupo é adicionado ao final da lista de grupos.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Adicionar sub-agendamento</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar uma sub-agendamento. O novo agendamento é anexado como filho do agendamento atualmente selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Excluir</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Excluir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Exclui o agendamento selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Calcular</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Calcula o agendamento selecionado.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Linha base</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Define a linha de base do agendamento selecionado. Impede que o agendamento seja recalculado ou excluído.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Desanexar</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Transforme o sub-agendamento selecionado em um agendamento principal.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Editando dados</title>
+  <para
+>Os dados podem ser editados diretamente conforme descrito <link linkend="using-the-views"
+>aqui</link
+>. </para>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome do agendamento.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Estado</para>
+            </entry>
+            <entry>
+              <para
+>O sistema de agendamento exibe uma barra de progresso durante o processo.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Direção</para>
+            </entry>
+            <entry>
+              <para
+>A direção do agendamento.</para
+><para
+>Se a direção for "Para a frente", o projeto será agendado a partir do horário de início mais cedo especificado na caixa de diálogo principal do projeto. Se a direção for "Para trás", o projeto será agendado a partir do horário de término mais tarde especificado na caixa de diálogo principal do projeto. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Sobrecarga</para>
+            </entry>
+            <entry>
+              <para
+>Controla a sobrecarga dos recursos ao agendar.</para
+><para
+>Se a sobrecarga for permitida, um recurso poderá ser reservado (em dias úteis) para trabalhar mais do que está disponível. Isso pode acontecer se o recurso for alocado a várias tarefas ou estiver reservado para outros projetos. </para>
+              <para
+>Para evitar a sobrecarga de recursos, estes não serão reservados além da sua disponibilidade. Em caso de conflito de recursos, as tarefas serão adiadas até que o recurso esteja disponível. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Distribuição</para>
+            </entry>
+            <entry>
+              <para
+>A distribuição a usar durante o agendamento.</para
+><para
+>Se a distribuição for 'Nenhuma', a estimativa da tarefa será usada tal como está durante o agendamento. </para>
+              <para
+>Se a distribuição for 'PERT', a estimativa (E) utilizada é calculada com base nas estimativas otimista (O), pessimista (P) e mais provável (M) inseridas. A fórmula utilizada para isso é: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Início planejado</para>
+            </entry>
+            <entry>
+              <para
+>A hora inicial agendada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fim planejado</para>
+            </entry>
+            <entry>
+              <para
+>A hora final agendada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Agendador</para>
+            </entry>
+            <entry>
+              <para
+>O agendador usado para calcular o agendamento do projeto.</para
+><para
+>O agendador padrão integrado é o Agendador de Rede. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Configuração</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Usando o menu de contexto, a visualização pode ser configurada para dividir/desdividir a visualização em árvore. Ou pode ser configurada usando a caixa de diálogo de configuração.</para
+><para
+>A caixa de diálogo de configuração permite que você personalize a quantidade de informações que a visualização exibe para atender às suas necessidades. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

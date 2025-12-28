@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>As funcionalidades incluem: </para>
+<itemizedlist>
+  <listitem
+><para
+>Gerenciamento de tarefas usando o <link linkend="task-editor"
+>Editor de tarefas</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estrutura de repartição do trabalho com códigos WBS configuráveis</para
+></listitem>
+        <listitem
+><para
+>Tarefas, tarefas resumo e marcos</para
+></listitem>
+        <listitem
+><para
+>Diferentes tipos de restrições de tempo</para
+></listitem>
+        <listitem
+><para
+>Diferentes tipos de dependências.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Gerenciamento de recursos usando o <link linkend="resource-editor"
+>Editor de recursos</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Estrutura de repartição de recurso</para
+></listitem>
+        <listitem
+><para
+>Tipos de recursos de trabalho e materiais</para
+></listitem>
+        <listitem
+><para
+>Alocação de recursos em nível de grupo</para
+></listitem>
+        <listitem
+><para
+>Equipes de recursos</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Definição de tempo de trabalho e férias usando o <link linkend="work-and-vacation-editor"
+>Editor de trabalho e férias</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestão de custos usando o <link linkend="cost-breakdown-structure-editor"
+>Editor de estrutura de repartição de custos</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Gestão do valor agregado</para
+></listitem>
+  <listitem
+><para
+>Planejamento de projetos usando o <link linkend="schedules-editor"
+>Editor de agendas</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Agendar a partir do horário de início ou retroativamente a partir do horário de término</para
+></listitem>
+        <listitem
+><para
+>Permitir ou evitar a sobrecarga de recursos</para
+></listitem>
+        <listitem
+><para
+>Distribuição PERT com estimativas otimistas, pessimistas e mais prováveis</para
+></listitem>
+        <listitem
+><para
+>Vários cronogramas com possibilidade de agendamento a partir de informações de progresso atuais</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Rastreamento de tarefas usando a <link linkend="task-execution-view"
+>Visualização da execução de tarefas</link
+> ou a <link linkend="task-status-view"
+>Visualização do status da tarefa</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

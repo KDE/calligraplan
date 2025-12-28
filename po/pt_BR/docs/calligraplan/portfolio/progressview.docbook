@@ -1,0 +1,269 @@
+<chapter id="progress"
+><title
+>Progresso</title>
+<sect1 id="progress-description"
+><title
+>Descrição</title
+>&WORK-IN-PROGRESS; <para
+>A visualização de progresso lista os projetos em seu portfólio à esquerda e mostra informações de progresso para o projeto selecionado à direita. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="progressview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>As tarefas são divididas em grupos dependendo do status da tarefa: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Não iniciado</para>
+            </entry>
+            <entry>
+              <para
+>Tarefas que já deveriam ter sido iniciadas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Em execução</para>
+            </entry>
+            <entry>
+              <para
+>Tarefas que foram iniciadas, mas ainda não concluídas.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Concluído</para>
+            </entry>
+            <entry>
+              <para
+>Tarefas concluídas neste período</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Próximo período</para>
+            </entry>
+            <entry>
+              <para
+>Tarefas que estão programadas para serem iniciadas no próximo período.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-editing-data"
+><title
+>Editando dados</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>As informações de progresso podem ser editadas diretamente na página ou através da caixa de diálogo de progresso da tarefa.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>As colunas a seguir são exibidas por padrão: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome da tarefa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Status</para>
+            </entry>
+            <entry>
+              <para
+>Status da tarefa</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% Completamento</para>
+            </entry>
+            <entry>
+              <para
+>Completamento de tarefa</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforço planejado</para>
+            </entry>
+            <entry>
+              <para
+>A quantidade de trabalho planejada para ser utilizada ao final do período atual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforço atual</para>
+            </entry>
+            <entry>
+              <para
+>A quantidade de trabalho despendido.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Esforço restante</para>
+            </entry>
+            <entry>
+              <para
+>O esforço restante necessário para concluir a tarefa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Custo planejado</para>
+            </entry>
+            <entry>
+              <para
+>O custo previsto para o final do período atual.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Custo real</para>
+            </entry>
+            <entry>
+              <para
+>O custo real incorrido.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Início real</para>
+            </entry>
+            <entry>
+              <para
+>O horário de início real da tarefa.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Fim real</para>
+            </entry>
+            <entry>
+              <para
+>O horário real de término da tarefa.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+<sect1 id="progress-configuration"
+><title
+>Configuração</title>
+  <para
+>Usando o menu de contexto, a visualização pode ser configurada para dividir/desdividir a visualização em árvore. Ou pode ser configurada usando a caixa de diálogo de configuração. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>A caixa de diálogo de configuração permite que você personalize a quantidade de informações que a visualização exibe para atender às suas necessidades.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="progressview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                </screenshot>
+              </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect1>
+</chapter>

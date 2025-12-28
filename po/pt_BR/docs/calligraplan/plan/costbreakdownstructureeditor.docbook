@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Descrição</title>
+  <para
+>O Editor de Estrutura Analítica de Custos é usado para criar, editar e excluir contas. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>As contas podem ser conectadas por tarefas e recursos para acumular custos dessas tarefas e recursos. </para>
+  <para
+>A conta padrão acumula os custos incorridos em tarefas que não estão conectadas a uma conta. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Barra de ferramentas</title>
+  <para
+>A barra de ferramentas permite criar e excluir contas: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Botão</guilabel
+></entry>
+            <entry
+><guilabel
+>Atalho</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Adicionar conta</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar uma conta. A nova conta é inserida após a conta selecionada. Se nenhuma conta for selecionada, a nova conta será adicionada no nível superior.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Adicionar subconta</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Botão para criar uma subconta. A nova conta é adicionada como filha da conta selecionada.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Excluir</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Excluir</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Exclui a conta selecionada.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Editando dados</title>
+  <para
+>Os dados podem ser editados diretamente conforme descrito <link linkend="using-the-views"
+>aqui</link
+>. </para>
+  <para
+>As seguintes colunas estão disponíveis: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Coluna</guilabel
+></entry>
+            <entry
+><guilabel
+>Descrição</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Nome</para>
+            </entry>
+            <entry>
+              <para
+>O nome da conta.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Descrição</para>
+            </entry>
+            <entry>
+              <para
+>A descrição da conta.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>
