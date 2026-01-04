@@ -43,6 +43,7 @@
 #include <KSharedConfig>
 #include <KDBusService>
 #include <KRecentFilesAction>
+#include <KStyleManager>
 
 #include <QFile>
 #include <QWidget>
@@ -86,6 +87,8 @@ KoApplication::KoApplication(const QByteArray &nativeMimeType,
 {
     QScopedPointer<KAboutData> aboutData(aboutDataGenerator());
     KAboutData::setApplicationData(*aboutData);
+
+    KStyleManager::initStyle();
 
     setWindowIcon(QIcon::fromTheme(windowIconName, windowIcon()));
 
