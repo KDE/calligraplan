@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:43+0000\n"
 "PO-Revision-Date: 2021-04-03 23:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1117,33 +1117,33 @@ msgstr "%1h"
 msgid "Change Icon"
 msgstr "Aldatu"
 
-#: main/KoApplication.cpp:188
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "just load the file and then exit"
 msgstr "soilik fitxategia zamatu eta, gero, irten"
 
-#: main/KoApplication.cpp:189
+#: main/KoApplication.cpp:192
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr ""
 "fitxategia zamatu, erakutsi leihoa eta aurrerapen-barra eta, gero, irten"
 
-#: main/KoApplication.cpp:190
+#: main/KoApplication.cpp:193
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr "Profilatzeko informazioa idazteko fitxategiaren izena."
 
-#: main/KoApplication.cpp:191
+#: main/KoApplication.cpp:194
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr "Ireki beharreko fitxategia(k) edo URLa(k)"
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, kde-format
 msgid "%1: Critical Error"
 msgstr "%1: Errore larria"
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"

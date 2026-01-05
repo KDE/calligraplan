@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatoui.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:43+0000\n"
 "PO-Revision-Date: 2007-10-24 08:22-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -1134,33 +1134,33 @@ msgstr "%1%"
 msgid "Change Icon"
 msgstr "Athraigh..."
 
-#: main/KoApplication.cpp:188
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "just load the file and then exit"
 msgstr ""
 
-#: main/KoApplication.cpp:189
+#: main/KoApplication.cpp:192
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr ""
 
-#: main/KoApplication.cpp:190
+#: main/KoApplication.cpp:193
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr ""
 
-#: main/KoApplication.cpp:191
+#: main/KoApplication.cpp:194
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr ""
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, fuzzy, kde-format
 #| msgid "Critical"
 msgid "%1: Critical Error"
 msgstr "Criticiúil"
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"

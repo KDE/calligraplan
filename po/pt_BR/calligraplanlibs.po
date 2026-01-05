@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-24 00:44+0000\n"
+"POT-Creation-Date: 2026-01-05 00:43+0000\n"
 "PO-Revision-Date: 2025-08-31 09:34-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1108,32 +1108,32 @@ msgstr "%1"
 msgid "Change Icon"
 msgstr "Alterar ícone"
 
-#: main/KoApplication.cpp:188
+#: main/KoApplication.cpp:191
 #, kde-format
 msgid "just load the file and then exit"
 msgstr "apenas carrega o arquivo e sai"
 
-#: main/KoApplication.cpp:189
+#: main/KoApplication.cpp:192
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
 msgstr "carrega o arquivo, exibe a janela e barra de progresso e sai"
 
-#: main/KoApplication.cpp:190
+#: main/KoApplication.cpp:193
 #, kde-format
 msgid "Filename to write profiling information into."
 msgstr "O nome do arquivo onde gravar as informações de análise de desempenho."
 
-#: main/KoApplication.cpp:191
+#: main/KoApplication.cpp:194
 #, kde-format
 msgid "File(s) or URL(s) to open"
 msgstr "Arquivo ou URL a abrir"
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, kde-format
 msgid "%1: Critical Error"
 msgstr "%1: Erro crítico"
 
-#: main/KoApplication.cpp:443 main/KoApplication.cpp:476
+#: main/KoApplication.cpp:446 main/KoApplication.cpp:479
 #, kde-format
 msgid ""
 "Essential application components could not be found.\n"
