@@ -17,13 +17,12 @@
 #include <kptdocuments.h>
 #include "kptdebug.h"
 
-#ifdef USE_KCalendarCore
 #include <KCalendarCore/Attendee>
 #include <KCalendarCore/Attachment>
 #include <KCalendarCore/CalFormat>
+#include <KCalendarCore/ICalFormat>
 #include <KCalendarCore/MemoryCalendar>
 #include <kcalendarcore_version.h>
-#endif
 
 #include <QByteArray>
 #include <QString>
@@ -101,203 +100,6 @@ KoFilter::ConversionStatus ICalendarExport::convert(const QByteArray& from, cons
     return status;
 }
 
-#ifndef USE_KCALCORE
-QString beginCalendar()
-{
-    QString s;
-    s += QStringLiteral("BEGIN:VCALENDAR") + QStringLiteral("\r\n");
-    s += QStringLiteral("PRODID:-//K Desktop Environment//NONSGML Calligra Plan %1//EN").arg(QStringLiteral(PLAN_VERSION_STRING)) + QStringLiteral("\r\n");
-    s += QStringLiteral("VERSION:2.0") + QStringLiteral("\r\n");
-    s += QStringLiteral("CALSCALE:GREGORIAN") + QStringLiteral("\r\n");
-    s += QStringLiteral("METHOD:PUBLISH") + QStringLiteral("\r\n");
-    return s;
-}
-QString endCalendar()
-{
-    return QString() + QStringLiteral("END:VCALENDAR") + QStringLiteral("\r\n");
-}
-
-QString dtToString(const QDateTime &dt)
-{
-    return dt.toUTC().toString(QStringLiteral("yyyyMMddTHHmmssZ")); // 20160707T010000Z
-}
-
-QString doAttendees(const Node &node, long sid)
-{
-    QString s;
-    Schedule *schedule = node.schedule(sid);
-    if (schedule) {
-        const auto resources = schedule->resources();
-        for (const Resource *r : resources) {
-            if (r->type() == Resource::Type_Work) {
-                s += QStringLiteral("ATTENDEE;CN=") + r->name() + QStringLiteral("\r\n\t");
-                s += QStringLiteral(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + QStringLiteral("\r\n\t");
-                s += QStringLiteral("CUTYPE=INDIVIDUAL;") + QStringLiteral("\r\n\t");
-                s += QStringLiteral("X-UID=") + r->id();
-                s += QStringLiteral(":MAILTO:") + r->email() + QStringLiteral("\r\n");
-            }
-        }
-    } else {
-        const QList<Resource*> lst = static_cast<const Task&>(node).requestedResources();
-        for (const Resource *r :lst) {
-            if (r->type() == Resource::Type_Work) {
-                s += QStringLiteral("ATTENDEE;CN=") + r->name() + QStringLiteral("\r\n\t");
-                s += QStringLiteral(";RSVP=FALSE;PARTSTAT=NEEDS-ACTION;ROLE=REQ-PARTICIPANT;") + QStringLiteral("\r\n\t");
-                s += QStringLiteral("CUTYPE=INDIVIDUAL;") + QStringLiteral("\r\n\t");
-                s += QStringLiteral("X-UID=") + r->id();
-                s += QStringLiteral(":MAILTO:") + r->email() + QStringLiteral("\r\n");
-            }
-        }
-    }
-    return s;
-}
-
-QString doAttachment(const Documents &docs)
-{
-    QString s;
-    const auto documents = docs.documents();
-    for (const Document *doc : documents) {
-        s += QStringLiteral("ATTACH:") + doc->url().url() + QStringLiteral("\r\n");
-    }
-    return s;
-}
-
-void escape(QString &txt)
-{
-    txt.replace(u'\\', QStringLiteral("\\\\"));
-    txt.replace(u'\n', QStringLiteral("\\n"));
-    txt.replace(u',', QStringLiteral("\\,"));
-    txt.replace(u':', QStringLiteral("\\:"));
-    txt.replace(u';', QStringLiteral("\\;"));
-}
-
-QString ICalendarExport::doDescription(const QString &description)
-{
-    QTextEdit te;
-    te.setHtml(description);
-    QString txt = te.toPlainText().trimmed();
-    QString s;
-    if (!txt.isEmpty()) {
-        s = QStringLiteral("DESCRIPTION") + QString::number(m_descriptions.count()) + u':' + QStringLiteral("\r\n");
-        escape(txt);
-        m_descriptions << txt;
-        txt = description;
-        txt.remove(u'\n');
-        txt.remove(u'\r'); // in case...
-        escape(txt);
-        s += QStringLiteral("X-ALT-DESC;FMTTYPE=text/html:") + txt + QStringLiteral("\r\n");
-    }
-    return s;
-}
-
-QString ICalendarExport::createTodo(const Node &node, long sid)
-{
-    QString s;
-    s += QStringLiteral("BEGIN:VTODO") + QStringLiteral("\r\n");
-    QString txt = node.name();
-    escape(txt);
-    s += QStringLiteral("SUMMARY:") + txt + QStringLiteral("\r\n");
-    s += doDescription(node.description());
-    s += QStringLiteral("UID:") + node.id() + QStringLiteral("\r\n");
-    s += QStringLiteral("DTSTAMP:") + dtToString(QDateTime::currentDateTime()) + QStringLiteral("\r\n");
-    s += QStringLiteral("CREATED:") + dtToString(QDateTime::currentDateTime()) + QStringLiteral("\r\n");
-    s += QStringLiteral("LAST-MODIFIED:") + dtToString(QDateTime::currentDateTime()) + QStringLiteral("\r\n");
-    s += QStringLiteral("CATEGORIES:Plan") + QStringLiteral("\r\n");
-    DateTime dt = node.startTime(sid);
-    if (dt.isValid()) {
-        s += QStringLiteral("DTSTART:") + dtToString(dt) + QStringLiteral("\r\n");
-    }
-    dt = node.endTime(sid);
-    if (dt.isValid()) {
-        s += QStringLiteral("DUE:") + dtToString(dt) + QStringLiteral("\r\n");
-    }
-    if (node.parentNode()) {
-        if (m_includeSummarytasks && node.parentNode()->type() == Node::Type_Summarytask) {
-            s += QStringLiteral("RELATED-TO:") + node.parentNode()->id() + QStringLiteral("\r\n");
-        } else if (m_includeProject) {
-            s += QStringLiteral("RELATED-TO:") + node.projectNode()->id() + QStringLiteral("\r\n");
-        }
-    }
-    if (node.type() == Node::Type_Task) {
-        s += QStringLiteral("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + QStringLiteral("\r\n");
-        s += doAttendees(node, sid);
-    } else if (node.type() == Node::Type_Milestone) {
-        s += QStringLiteral("PERCENT-COMPLETE:") + QString::number(static_cast<const Task&>(node).completion().percentFinished()) + QStringLiteral("\r\n");
-    } else if (node.type() == Node::Type_Project) {
-        if (!node.leader().isEmpty()) {
-            s += QStringLiteral("ORGANIZER:") + node.leader() + QStringLiteral("\r\n");
-        }
-    }
-    s += doAttachment(node.documents());
-    s += QStringLiteral("END:VTODO") + QStringLiteral("\r\n");
-    return s;
-}
-
-QString ICalendarExport::doNode(const Node *node, long sid)
-{
-    QString s;
-    bool create = true;
-    if (node->type() == Node::Type_Project) {
-        create = m_includeProject;
-    } else if (node->type() == Node::Type_Summarytask) {
-        create = m_includeSummarytasks;
-    }
-    debugPlanICalExport<<node<<"create:"<<create;
-    if (create) {
-         s = createTodo(*node, sid);
-    }
-    for (int i = 0; i < node->numChildren(); ++i) {
-        s += doNode(node->childNode(i), sid);
-    }
-    return s;
-}
-
-void foldData(QString &data)
-{
-    int count = 0; // bytecount
-    for (int i = 0; i < data.length() - 6; ++i) {
-        if (data.at(i) == u'\r' && data.at(i+1) == u'\n') {
-            count = 0;
-            ++i; // skip past LF
-            continue;
-        }
-        if (count >= 70) {
-            data.insert(i, QStringLiteral("\r\n\t"));
-            count = 0;
-            i += 2; // skip past CRLFTAB
-            continue;
-        }
-        // we count bytes, so need to know bytesize of character
-        count += QByteArray::fromStdString(QString(data.at(i)).toStdString()).size();
-    }
-    // remove any empty lines (not allowed)
-    while (data.contains(QStringLiteral("\r\n\r\n"))) {
-        data.replace(QStringLiteral("\r\n\r\n"), QStringLiteral("\r\n"));
-    }
-}
-
-KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
-{
-    long sid = m_scheduleId;
-    QString data = beginCalendar();
-    data += doNode(&project, sid);
-    data += endCalendar();
-
-    foldData(data);
-    for (int i = 0; i < m_descriptions.count(); ++i) {
-        QString rs = QStringLiteral("DESCRIPTION") + QString::number(i) + u':';
-        QString s = QStringLiteral("DESCRIPTION:") + m_descriptions.at(i);
-        foldData(s);
-        data.replace(rs, s);
-    }
-    qint64 n = file.write(data.toUtf8());
-    if (n < 0) {
-        return KoFilter::InternalError;
-    }
-    return KoFilter::OK;
-}
-
-#else
 KoFilter::ConversionStatus ICalendarExport::convert(const Project &project, QFile &file)
 {
     KCalendarCore::Calendar::Ptr cal(new KCalendarCore::MemoryCalendar("UTC"));
@@ -340,15 +142,9 @@ void ICalendarExport::createTodos(KCalendarCore::Calendar::Ptr cal, const Node *
         todo->setOrganizer(node->projectNode()->leader());
     }
     if (node->type() != Node::Type_Project && ! node->leader().isEmpty()) {
-#if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
         KCalendarCore::Person p = KCalendarCore::Person::fromFullName(node->leader());
         KCalendarCore::Attendee a(p.name(), p.email());
         a.setRole(KCalendarCore::Attendee::NonParticipant);
-#else
-        KCalendarCore::Person::Ptr p = KCalendarCore::Person::fromFullName(node->leader());
-        KCalendarCore::Attendee::Ptr a(new KCalendarCore::Attendee(p->name(), p->email()));
-        a->setRole(KCalendarCore::Attendee::NonParticipant);
-#endif
         todo->addAttendee(a);
     }
     DateTime st = node->startTime(id);
@@ -367,22 +163,14 @@ void ICalendarExport::createTodos(KCalendarCore::Calendar::Ptr cal, const Node *
             const QList<Resource*> lst = task->requestedResources();
             for (const Resource *r : lst) {
                 if (r->type() == Resource::Type_Work) {
-#if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
                     todo->addAttendee(KCalendarCore::Attendee(r->name(), r->email()));
-#else
-                    todo->addAttendee(KCalendarCore::Attendee::Ptr(new KCalendarCore::Attendee(r->name(), r->email())));
-#endif
                 }
             }
         } else {
             const auto resources = s->resources();
             for (const Resource *r : resources) {
                 if (r->type() == Resource::Type_Work) {
-#if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
                     todo->addAttendee(KCalendarCore::Attendee(r->name(), r->email()));
-#else
-                    todo->addAttendee(KCalendarCore::Attendee::Ptr(new KCalendarCore::Attendee(r->name(), r->email())));
-#endif
                 }
             }
 
@@ -394,11 +182,7 @@ void ICalendarExport::createTodos(KCalendarCore::Calendar::Ptr cal, const Node *
     }
     const auto documents = node->documents().documents();
     for (const Document *doc : documents) {
-#if KCALCORE_VERSION >= QT_VERSION_CHECK(5, 11, 80)
         todo->addAttachment(KCalendarCore::Attachment(doc->url().url()));
-#else
-        todo->addAttachment(KCalendarCore::Attachment::Ptr(new KCalendarCore::Attachment(doc->url().url())));
-#endif
     }
     if (! parent.isNull()) {
         todo->setRelatedTo(parent->uid(), KCalendarCore::Incidence::RelTypeParent);
@@ -409,5 +193,4 @@ void ICalendarExport::createTodos(KCalendarCore::Calendar::Ptr cal, const Node *
         createTodos(cal, n, id, todo);
     }
 }
-#endif
 #include "icalendarexport.moc"
