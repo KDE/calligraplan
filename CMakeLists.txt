@@ -193,13 +193,6 @@ set_package_properties(Qt5DBus PROPERTIES
     TYPE OPTIONAL
 )
 
-find_package(X11)
-if(X11_FOUND)
-     set(HAVE_X11 TRUE)
-else()
-     set(HAVE_X11 FALSE)
-endif()
-
 ##
 ## Test SharedMimeInfo
 ##

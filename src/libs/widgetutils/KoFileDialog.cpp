@@ -53,7 +53,6 @@ public:
         // KDE, which gives working Qt dialogs.
         //
         // Only show the GTK dialog in Gnome, where people deserve it
-#ifdef HAVE_X11
         if (qgetenv("KDE_FULL_SESSION").size() > 0) {
             useStaticForNative = true;
         }
@@ -63,8 +62,6 @@ public:
             cb->blockSignals(true);
             swapExtensionOrder = true;
         }
-
-#endif
     }
 
     ~Private()
