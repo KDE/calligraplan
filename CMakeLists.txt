@@ -187,7 +187,7 @@ find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED
         Xml
 )
 find_package(Qt6DBus ${REQUIRED_QT_VERSION} QUIET)
-set_package_properties(Qt5DBus PROPERTIES
+set_package_properties(Qt6DBus PROPERTIES
     DESCRIPTION "Library for dbus access"
     PURPOSE "Required for dbus support (optional)"
     TYPE OPTIONAL
