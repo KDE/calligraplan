@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2025-09-20 21:03+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -10707,7 +10707,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Sustitución"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr "Todos los formatos permitidos"

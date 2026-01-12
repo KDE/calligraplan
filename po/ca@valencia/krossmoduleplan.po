@@ -178,7 +178,7 @@ msgstr ""
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
-msgstr "No s'ha pogut iniciar Sheets. S'ha instal·lat Sheets?"
+msgstr "Ha fallat mentre s'iniciava Sheets. S'ha instal·lat Sheets?"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
 msgid "No data to export"

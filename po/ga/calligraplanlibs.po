@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kplatoui.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2007-10-24 08:22-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -10844,7 +10844,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Dáileadh"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr ""

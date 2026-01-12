@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2024-08-02 06:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -10660,7 +10660,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Zamenjava"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr "Vsi podprti formati"

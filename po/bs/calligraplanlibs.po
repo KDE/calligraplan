@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2015-02-04 14:43+0000\n"
 "Last-Translator: Samir Ribic <Unknown>\n"
 "Language-Team: Bosnian <kde-i18n-doc@kde.org>\n"
@@ -10966,7 +10966,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Distribucija"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr ""

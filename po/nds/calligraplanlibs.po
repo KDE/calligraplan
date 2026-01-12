@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2011-10-06 09:19+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -11173,7 +11173,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Verdelen"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr ""

@@ -1472,19 +1472,20 @@ msgstr ""
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
-"No s'ha pogut guardar en el fitxer temporal. No s'ha especificat cap recurs"
+"Ha fallat mentre es guardava al fitxer temporal. No s'ha especificat cap "
+"recurs"
 
 #: kptmaindocument.cpp:474
 #, kde-format
 msgid "Failed to open work package file"
-msgstr "No s'ha pogut obrir el fitxer de paquet de faena"
+msgstr "Ha fallat mentre s'obria el fitxer de paquet de faena"
 
 #: kptmaindocument.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr ""
-"No s'ha pogut guardar en el fitxer temporal:<br/><filename>%1</filename>"
+"Ha fallat mentre es guardava al fitxer temporal:<br/><filename>%1</filename>"
 
 #: kptmaindocument.cpp:557
 #, kde-format
@@ -1528,7 +1529,7 @@ msgstr ""
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr "S'ha produït un error intern, ha fallat en inserir el fitxer."
+msgstr "S'ha produït un error intern, ha fallat mentre s'inseria el fitxer."
 
 #: kptmaindocument.cpp:1185
 #, kde-kuit-format
@@ -1537,15 +1538,16 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
-"No s'han pogut carregar els recursos compartits en el projecte %1:<nl/>S'ha "
-"produït un error intern, ha fallat en inserir el fitxer."
+"Ha fallat mentre es carregaven els recursos compartits en el projecte %1:<nl/"
+">S'ha produït un error intern, ha fallat mentre s'inseria el fitxer."
 
 #: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
 msgstr ""
-"No s'han pogut carregar els recursos compartits dins del projecte %1:<nl/>%2"
+"Ha fallat mentre es carregaven els recursos compartits dins del projecte %1:"
+"<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"

@@ -144,13 +144,13 @@ msgstr "No s'ha trobat cap dependència. Marge negatiu=%1"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
-msgstr "No s'ha pogut afegir com a predecessora a la tasca «%1»"
+msgstr "Ha fallat mentre s'afegia com a predecessora a la tasca «%1»"
 
 #: PlanTJScheduler.cpp:791
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
-msgstr "No s'ha pogut afegir com a successora a la tasca «%1»"
+msgstr "Ha fallat mentre s'afegia com a successora a la tasca «%1»"
 
 #: PlanTJScheduler.cpp:812
 #, kde-kuit-format

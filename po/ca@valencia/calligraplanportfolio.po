@@ -409,7 +409,7 @@ msgstr "S'ha produït un error"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
-msgstr "No s'ha pogut carregar el document"
+msgstr "Ha fallat mentre es carregava el document"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
@@ -518,14 +518,16 @@ msgstr "Afig un projecte"
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
 msgstr ""
-"No s'ha pogut carregar el projecte. No és un fitxer vàlid de Plan:<nl/>%1"
+"Ha fallat mentre es carregava el projecte. No és un fitxer vàlid de Plan:<nl/"
+">%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
 msgstr ""
-"No s'ha pogut obrir el projecte. Pareix que és un fitxer de cartera:<nl/>%1"
+"Ha fallat mentre s'obria el projecte. Pareix que és un fitxer de cartera:<nl/"
+">%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format

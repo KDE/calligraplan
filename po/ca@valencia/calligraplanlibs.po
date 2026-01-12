@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:43+0000\n"
+"POT-Creation-Date: 2026-01-12 00:43+0000\n"
 "PO-Revision-Date: 2023-03-22 12:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1206,7 +1206,7 @@ msgstr "S'està guardant automàticament…"
 #: main/KoDocument.cpp:744
 #, kde-format
 msgid "Error during autosave! Partition full?"
-msgstr "Error durant la guardada automàtica! Partició plena?"
+msgstr "S'ha produït un error durant la guardada automàtica! Partició plena?"
 
 #: main/KoDocument.cpp:838
 #, kde-format
@@ -1336,7 +1336,7 @@ msgstr "S'ha intentat carregar dins la classe de document incorrecta"
 #: main/KoDocument.cpp:1462
 #, kde-format
 msgid "Failed to download remote file"
-msgstr "No s'ha pogut baixar el fitxer remot"
+msgstr "Ha fallat mentre es baixava el fitxer remot"
 
 #: main/KoDocument.cpp:1470
 #, kde-format
@@ -5233,7 +5233,7 @@ msgstr "El fitxer de plantilla d'informe no existix"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr "No s'ha pogut obrir el fitxer de plantilla: %1"
+msgstr "Ha fallat mentre s'obria el fitxer de plantilla: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
@@ -5245,22 +5245,22 @@ msgstr "El generador d'informes no s'ha obert correctament"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:789
 #, kde-format
 msgid "Failed to write to store: %1"
-msgstr "No s'ha pogut escriure al magatzem: %1"
+msgstr "Ha fallat mentre s'escrivia al magatzem: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:197
 #, kde-format
 msgid "Failed to write report file: %1"
-msgstr "No s'ha pogut escriure el fitxer d'informe: %1"
+msgstr "Ha fallat mentre s'escrivia el fitxer d'informe: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:590
 #, kde-format
 msgid "Failed to extract file: %1"
-msgstr "No s'ha pogut extraure el fitxer: %1"
+msgstr "Ha fallat mentre s'extreia el fitxer: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:596
 #, kde-format
 msgid "Failed to add file to store: %1"
-msgstr "No s'ha pogut afegir el fitxer al magatzem: %1"
+msgstr "Ha fallat mentre s'afegia el fitxer al magatzem: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:620
 #, kde-format
@@ -5270,17 +5270,17 @@ msgstr "El generador d'informes només pot generar fitxers locals"
 #: models/reportgenerator/ReportGeneratorOdt.cpp:627
 #, kde-format
 msgid "Failed to open report file: %1"
-msgstr "No s'ha pogut obrir el fitxer d'informe: %1"
+msgstr "Ha fallat mentre s'obria el fitxer d'informe: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:636
 #, kde-format
 msgid "Failed to load mimetype file"
-msgstr "No s'ha pogut carregar el fitxer de tipus MIME"
+msgstr "Ha fallat mentre es carregava el fitxer de tipus MIME"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:645
 #, kde-format
 msgid "Failed to write manifest file"
-msgstr "No s'ha pogut escriure el fitxer «manifest»"
+msgstr "Ha fallat mentre s'escrivia el fitxer «manifest»"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
 #, kde-format
@@ -5292,7 +5292,7 @@ msgstr "Ni hi ha cap dorsal d'emmagatzematge"
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr ""
-"No s'ha pogut obrir el fitxer <filename>%1</filename> des del magatzem."
+"Ha fallat mentre s'obria el fitxer <filename>%1</filename> des del magatzem."
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:714
 #, kde-kuit-format
@@ -9520,14 +9520,14 @@ msgstr "L'exportació cap a document de text no està admesa"
 #: ui/reports/reportview.cpp:392
 #, kde-format
 msgid "Export to text document failed"
-msgstr "No s'ha pogut exportar el document de text"
+msgstr "Ha fallat mentre s'exportava el document de text"
 
 #: ui/reports/reportview.cpp:392 ui/reports/reportview.cpp:412
 #: ui/reports/reportview.cpp:433
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr "No s'ha pogut exportar cap a <filename>%1</filename>"
+msgstr "Ha fallat mentre s'exportava a <filename>%1</filename>"
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
@@ -9537,7 +9537,7 @@ msgstr "L'exportació cap a full de càlcul no està admesa"
 #: ui/reports/reportview.cpp:412
 #, kde-format
 msgid "Export to spreadsheet failed"
-msgstr "No s'ha pogut exportar el full de càlcul"
+msgstr "Ha fallat mentre s'exportava el full de càlcul"
 
 #: ui/reports/reportview.cpp:423
 #, kde-format
@@ -9547,7 +9547,7 @@ msgstr "L'exportació cap a document HTML no està admesa"
 #: ui/reports/reportview.cpp:433
 #, kde-format
 msgid "Export to HTML failed"
-msgstr "No s'ha pogut exportar cap a HTML"
+msgstr "Ha fallat mentre s'exportava a HTML"
 
 #: ui/reports/reportview.cpp:443
 #, kde-format
@@ -9793,18 +9793,21 @@ msgstr "Genera informe"
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
 msgstr ""
-"No s'ha pogut generar %1.<nl/>El nom del fitxer de plantilla està buit."
+"Ha fallat mentre es generava %1.<nl/>El nom del fitxer de plantilla està "
+"buit."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
 msgstr ""
-"No s'ha pogut generar %1.<nl/>El fitxer de plantilla no existix:<nl/>%2"
+"Ha fallat mentre es generava %1.<nl/>El fitxer de plantilla no existix:<nl/>"
+"%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
-msgstr "No s'ha pogut generar %1.<nl/>El nom del fitxer d'informe està buit."
+msgstr ""
+"Ha fallat mentre es generava %1.<nl/>El nom del fitxer d'informe està buit."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
@@ -9822,12 +9825,12 @@ msgstr "Generació de l'informe"
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
-msgstr "No s'ha pogut obrir el generador d'informes"
+msgstr "Ha fallat mentre s'obria el generador d'informes"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
-msgstr "No s'ha pogut crear l'informe"
+msgstr "Ha fallat mentre es creava l'informe"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
@@ -10676,7 +10679,7 @@ msgctxt "title@column"
 msgid "Substitution"
 msgstr "Substitució"
 
-#: widgetutils/KoFileDialog.cpp:470
+#: widgetutils/KoFileDialog.cpp:467
 #, kde-format
 msgid "All supported formats"
 msgstr "Tots els formats acceptats"
