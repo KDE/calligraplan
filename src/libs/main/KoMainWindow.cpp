@@ -398,10 +398,6 @@ void KoMainWindow::setNoCleanup(bool noCleanup)
 
 KoMainWindow::~KoMainWindow()
 {
-    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
-    cfg.writeEntry("ko_geometry", saveGeometry().toBase64());
-    cfg.writeEntry("ko_windowstate", saveState().toBase64());
-
     // The doc and view might still exist (this is the case when closing the window)
     if (d->rootPart)
         d->rootPart->removeMainWindow(this);
@@ -1156,6 +1152,10 @@ bool KoMainWindow::saveDocumentInternal(bool saveas, bool silent, int specialOut
 
 void KoMainWindow::closeEvent(QCloseEvent *e)
 {
+    KConfigGroup cfg(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
+    cfg.writeEntry("ko_geometry", saveGeometry().toBase64());
+    cfg.writeEntry("ko_windowstate", saveState().toBase64());
+
     // If we are in the process of opening a new document, rootDocument() may not have been set yet,
     // so we must prevent closing to avoid crash.
     if(d->blockClose || d->openingDocument || (rootDocument() && rootDocument()->isLoading())) {
