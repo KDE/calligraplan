@@ -32,6 +32,8 @@ FilterWidget::FilterWidget(bool enableExtendedOptions, QWidget *parent)
 void FilterWidget::init(bool enableExtendedOptions)
 {
     auto l = new QHBoxLayout(this);
+    l->setContentsMargins(0, 0, 0, 0);
+
     if (enableExtendedOptions) {
         extendedOptions = new QToolButton(this);
         extendedOptions->setIcon(koIcon("view-filter"));
