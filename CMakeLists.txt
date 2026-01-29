@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.16)
+
 if (POLICY CMP0048)
     cmake_policy(SET CMP0048 NEW)
 endif ()
@@ -10,7 +12,6 @@ endif ()
 project(calligraplan VERSION 4.0.1)
 set(PLAN_YEAR 2026) # update every year
 
-cmake_minimum_required(VERSION 3.16)
 if (POLICY CMP0002)
     cmake_policy(SET CMP0002 NEW)
 endif ()
