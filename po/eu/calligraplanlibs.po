@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2021-04-03 23:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "Autosave"
 msgstr "Automatikoki gordetzen..."
 
-#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "%1 fitxategia ez da existitzen."
@@ -1625,22 +1625,22 @@ msgstr "Erakutsi zamaketarien titulu-barrak"
 msgid "Dockers"
 msgstr "Zamaketariak"
 
-#: main/KoMainWindow.cpp:662
+#: main/KoMainWindow.cpp:658
 #, kde-format
 msgid "(write protected)"
 msgstr "(idazketarako babestuta)"
 
-#: main/KoMainWindow.cpp:667
+#: main/KoMainWindow.cpp:663
 #, kde-format
 msgid "Save as %1"
 msgstr "Gorde %1 gisa"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:665
 #, kde-format
 msgid "Save"
 msgstr "Gorde"
 
-#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
+#: main/KoMainWindow.cpp:703 main/KoMainWindow.cpp:731
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1649,13 +1649,13 @@ msgid ""
 "Project Template...</interface>."
 msgstr ""
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (fitxategi mota ezezaguna)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1664,12 +1664,12 @@ msgstr ""
 "<qt>%1 gisa gordetzeak formatu-galeraren bat eragin lezake.<p>Hala ere, "
 "formatu horrekin gorde nahi duzu?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:897
 #, kde-format
 msgid "Confirm Save"
 msgstr "Berretsi gordetzea"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:906
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1678,18 +1678,18 @@ msgstr ""
 "<qt>%1 gisa esportatzeak formatu-galeraren bat eragin lezake.<p>Hala ere, "
 "formatu horretara esportatu nahi duzu?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:909
 #, kde-format
 msgid "Confirm Export"
 msgstr "Berretsi esportatzea"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:910 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Esportatu"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1028
 #, kde-format
 msgid "untitled"
 msgstr "izengabea"
@@ -5849,13 +5849,13 @@ msgstr "Direktorio-modua ez da onartzen urruneko kokalekuentzako."
 msgid "Calligra Storage"
 msgstr "Calligraren biltegiratzea"
 
-#: ui/FilterWidget.cpp:38
+#: ui/FilterWidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
 msgstr ""
 
-#: ui/FilterWidget.cpp:45
+#: ui/FilterWidget.cpp:47
 #, fuzzy, kde-format
 #| msgid "Choose Filter"
 msgctxt "@info:tooltip"

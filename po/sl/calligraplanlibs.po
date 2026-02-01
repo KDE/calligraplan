@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-08-02 06:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1243,7 +1243,7 @@ msgstr ""
 msgid "Autosave"
 msgstr "Samodejno shranjevanje"
 
-#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Datoteka %1 ne obstaja."
@@ -1611,22 +1611,22 @@ msgstr "Prikaži orodne vrstice sidrišč"
 msgid "Dockers"
 msgstr "Sidrišča"
 
-#: main/KoMainWindow.cpp:662
+#: main/KoMainWindow.cpp:658
 #, kde-format
 msgid "(write protected)"
 msgstr "(zavarovano pred pisanjem)"
 
-#: main/KoMainWindow.cpp:667
+#: main/KoMainWindow.cpp:663
 #, kde-format
 msgid "Save as %1"
 msgstr "Shrani kot %1"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:665
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
+#: main/KoMainWindow.cpp:703 main/KoMainWindow.cpp:731
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1638,13 +1638,13 @@ msgstr ""
 "ustvaritenov projekt s to predlogo in ga shranite s pomočjo "
 "<interface>Datoteka-> Ustvari predlogo projekta...</interface>."
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (neznani tip datoteke)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1653,12 +1653,12 @@ msgstr ""
 "<qt>Shranjevanje kot %1 lahko povzroči manjšo izgubo formatiranja.<p> Ali še "
 "vedno želite shraniti v tem formatu?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:897
 #, kde-format
 msgid "Confirm Save"
 msgstr "Potrdi shranjevanje"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:906
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1667,18 +1667,18 @@ msgstr ""
 "<qt>Izvažanje kot %1 lahko povzroči manjšo izgubo formatiranja.<p> Ali še "
 "vedno želite izvoziti v tem formatu?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:909
 #, kde-format
 msgid "Confirm Export"
 msgstr "Potrdi izvoz"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:910 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Izvoz"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1028
 #, kde-format
 msgid "untitled"
 msgstr "brez naslova"
@@ -5919,13 +5919,13 @@ msgstr "Način imenika ni podprt za oddaljene lokacije."
 msgid "Calligra Storage"
 msgstr "Calligra Storage"
 
-#: ui/FilterWidget.cpp:38
+#: ui/FilterWidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
 msgstr "Preklopi razširjene možnosti filtra"
 
-#: ui/FilterWidget.cpp:45
+#: ui/FilterWidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"

@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-05-06 16:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1268,7 +1268,7 @@ msgstr ""
 msgid "Autosave"
 msgstr "Enregistrer automatiquement"
 
-#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Le fichier %1 n'existe pas."
@@ -1636,22 +1636,22 @@ msgstr "Afficher les barres de titres des panneaux"
 msgid "Dockers"
 msgstr "Panneaux"
 
-#: main/KoMainWindow.cpp:662
+#: main/KoMainWindow.cpp:658
 #, kde-format
 msgid "(write protected)"
 msgstr "(protégé en écriture)"
 
-#: main/KoMainWindow.cpp:667
+#: main/KoMainWindow.cpp:663
 #, kde-format
 msgid "Save as %1"
 msgstr "Enregistrer sous %1"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:665
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
+#: main/KoMainWindow.cpp:703 main/KoMainWindow.cpp:731
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1663,13 +1663,13 @@ msgstr ""
 "modèle, créez un nouveau projet utilisant ce modèle et enregistrez-le en "
 "utilisant <interface>Fichier / Créer un modèle de projet…</interface>."
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (type de fichier inconnu)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1678,12 +1678,12 @@ msgstr ""
 "<qt>Enregistrer sous %1 peut provoquer des pertes de formatage.<p>Voulez-"
 "vous encore enregistrer dans ce format ? </qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:897
 #, kde-format
 msgid "Confirm Save"
 msgstr "Confirmer l'enregistrement"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:906
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1692,18 +1692,18 @@ msgstr ""
 "<qt>Exporter comme %1 peut provoquer des pertes de formatage <p>Voulez-vous "
 "encore exporter dans ce format ? </qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:909
 #, kde-format
 msgid "Confirm Export"
 msgstr "Confirmer l'exportation"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:910 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Exporter"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1028
 #, kde-format
 msgid "untitled"
 msgstr "sans titre"
@@ -5962,13 +5962,13 @@ msgstr ""
 msgid "Calligra Storage"
 msgstr "Stockage Calligra"
 
-#: ui/FilterWidget.cpp:38
+#: ui/FilterWidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
 msgstr "Basculer les options de filtres étendus"
 
-#: ui/FilterWidget.cpp:45
+#: ui/FilterWidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"

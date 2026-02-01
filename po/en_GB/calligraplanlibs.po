@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2023-03-26 14:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -1238,7 +1238,7 @@ msgstr ""
 msgid "Autosave"
 msgstr "Autosave"
 
-#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "The file %1 does not exist."
@@ -1605,22 +1605,22 @@ msgstr "Show Docker Titlebars"
 msgid "Dockers"
 msgstr "Dockers"
 
-#: main/KoMainWindow.cpp:662
+#: main/KoMainWindow.cpp:658
 #, kde-format
 msgid "(write protected)"
 msgstr "(write protected)"
 
-#: main/KoMainWindow.cpp:667
+#: main/KoMainWindow.cpp:663
 #, kde-format
 msgid "Save as %1"
 msgstr "Save as %1"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:665
 #, kde-format
 msgid "Save"
 msgstr "Save"
 
-#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
+#: main/KoMainWindow.cpp:703 main/KoMainWindow.cpp:731
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1632,13 +1632,13 @@ msgstr ""
 "a new project using this template and save it using <interface>File->Create "
 "Project Template...</interface>."
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (unknown file type)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1647,12 +1647,12 @@ msgstr ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:897
 #, kde-format
 msgid "Confirm Save"
 msgstr "Confirm Save"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:906
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1661,18 +1661,18 @@ msgstr ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:909
 #, kde-format
 msgid "Confirm Export"
 msgstr "Confirm Export"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:910 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Export"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1028
 #, kde-format
 msgid "untitled"
 msgstr "untitled"
@@ -5890,13 +5890,13 @@ msgstr "The directory mode is not supported for remote locations."
 msgid "Calligra Storage"
 msgstr "Calligra Storage"
 
-#: ui/FilterWidget.cpp:38
+#: ui/FilterWidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
 msgstr "Toggle extended filter options"
 
-#: ui/FilterWidget.cpp:45
+#: ui/FilterWidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatolibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:43+0000\n"
+"POT-Creation-Date: 2026-02-01 00:43+0000\n"
 "PO-Revision-Date: 2025-01-14 11:52+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Autosave"
 msgstr "Automatisch opslaan"
 
-#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:713
+#: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
 msgid "The file %1 does not exist."
 msgstr "Het bestand %1 bestaat niet."
@@ -1613,22 +1613,22 @@ msgstr "Titelbalken van vastzetters tonen"
 msgid "Dockers"
 msgstr "Vastzetters"
 
-#: main/KoMainWindow.cpp:662
+#: main/KoMainWindow.cpp:658
 #, kde-format
 msgid "(write protected)"
 msgstr "(schrijfbeveiligd)"
 
-#: main/KoMainWindow.cpp:667
+#: main/KoMainWindow.cpp:663
 #, kde-format
 msgid "Save as %1"
 msgstr "Opslaan als %1"
 
-#: main/KoMainWindow.cpp:669
+#: main/KoMainWindow.cpp:665
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: main/KoMainWindow.cpp:707 main/KoMainWindow.cpp:735
+#: main/KoMainWindow.cpp:703 main/KoMainWindow.cpp:731
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1640,13 +1640,13 @@ msgstr ""
 "een nieuw project aan met dit sjabloon en sla het op met <interface>Bestand-"
 ">Projectsjabloon aanmaken...</interface>."
 
-#: main/KoMainWindow.cpp:890 widgets/KoDocumentInfoDlg.cpp:395
+#: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
 #, kde-format
 msgid "%1 (unknown file type)"
 msgstr "%1 (onbekend bestandstype)"
 
-#: main/KoMainWindow.cpp:898
+#: main/KoMainWindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1655,12 +1655,12 @@ msgstr ""
 "<qt>Opslaan als een %1 kan resulteren in het verlies van de opmaak. <p>Wilt "
 "u werkelijk in dit formaat opslaan?</qt>"
 
-#: main/KoMainWindow.cpp:901
+#: main/KoMainWindow.cpp:897
 #, kde-format
 msgid "Confirm Save"
 msgstr "Opslaan bevestigen"
 
-#: main/KoMainWindow.cpp:910
+#: main/KoMainWindow.cpp:906
 #, kde-format
 msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
@@ -1669,18 +1669,18 @@ msgstr ""
 "<qt>Exporteren naar een %1 kan resulteren in enig verlies van de opmaak. "
 "<p>Wilt u werkelijk naar dit formaat exporteren?</qt>"
 
-#: main/KoMainWindow.cpp:913
+#: main/KoMainWindow.cpp:909
 #, kde-format
 msgid "Confirm Export"
 msgstr "Exporteren bevestigen"
 
-#: main/KoMainWindow.cpp:914 ui/reports/reportview.cpp:381
+#: main/KoMainWindow.cpp:910 ui/reports/reportview.cpp:381
 #: ui/reports/reportview.cpp:401 ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export"
 msgstr "Exporteren"
 
-#: main/KoMainWindow.cpp:1032
+#: main/KoMainWindow.cpp:1028
 #, kde-format
 msgid "untitled"
 msgstr "zonder titel"
@@ -5920,13 +5920,13 @@ msgstr "De mapmodus wordt niet ondersteund voor externe locaties."
 msgid "Calligra Storage"
 msgstr "Calligra-opslag"
 
-#: ui/FilterWidget.cpp:38
+#: ui/FilterWidget.cpp:40
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
 msgstr "Uitgebreide filteropties"
 
-#: ui/FilterWidget.cpp:45
+#: ui/FilterWidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
