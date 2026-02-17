@@ -100,19 +100,27 @@
     <release version="4.0.1" date="2026-01-07">
       <description>
         <p>Fix version in the cmake</p>
+        <p xml:lang="ar">إصلاح الإصدرة في cmake</p>
         <p xml:lang="ca">Corregeix la versió al «cmake»</p>
+        <p xml:lang="ca-valencia">Corregix la versió a «cmake»</p>
         <p xml:lang="ka">გასწორდა ვერსია cmake-ში</p>
+        <p xml:lang="nl">De versie in cmake corrigeren</p>
         <p xml:lang="pt-BR">Corrigida versão no cmake</p>
         <p xml:lang="sl">Popravi različico v cmake</p>
+        <p xml:lang="uk">Виправлено версію у cmake</p>
       </description>
     </release>
     <release version="4.0.0" date="2026-01-06">
       <description>
         <p>Port to Qt6 and KF6</p>
+        <p xml:lang="ar">النّقل إلى كيوت 6 و KF6</p>
         <p xml:lang="ca">Adaptació a les Qt6 i els KF6</p>
+        <p xml:lang="ca-valencia">Adaptació a les Qt6 i els KF6</p>
         <p xml:lang="ka">გადატანა Qt6-ზე და KF6-ზე</p>
+        <p xml:lang="nl">Overzetten naar Qt6 en KF6</p>
         <p xml:lang="pt-BR">Porte para o Qt6 e o KF6</p>
         <p xml:lang="sl">Prenos na Qt6 in KF6</p>
+        <p xml:lang="uk">Портовано на Qt6 і KF6</p>
       </description>
     </release>
     <release version="3.3.0" date="2021-01-28">
