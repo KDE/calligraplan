@@ -238,6 +238,7 @@ TaskGeneralPanelImpl::TaskGeneralPanelImpl(QWidget *p)
     connect(pessimisticValue, SIGNAL(valueChanged(int)), SLOT(checkAllFieldsFilled()));
     connect(risk, SIGNAL(activated(int)), SLOT(checkAllFieldsFilled()));
     connect(calendarCombo, SIGNAL(activated(int)), SLOT(calendarChanged(int)));
+    connect(ui_priority, &QSpinBox::valueChanged, this, &TaskGeneralPanelImpl::checkAllFieldsFilled);
 
 }
 
