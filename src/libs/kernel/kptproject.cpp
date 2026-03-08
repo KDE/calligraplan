@@ -2012,7 +2012,6 @@ bool Project::registerNodeId(Node *node)
     if (rn == nullptr) {
         //debugPlan <<"id=" << node->id() << node->name();
         nodeIdDict.insert(node->id(), node);
-        connect(node, &QObject::destroyed, this, &Project::nodeDestroyed, Qt::QueuedConnection);
         return true;
     }
     if (rn != node) {
@@ -3196,14 +3195,6 @@ ulong Project::granularity() const
     auto sm = m_currentSchedule ? m_currentSchedule->manager() : nullptr;
     auto g = sm ? sm->granularity() : 0;
     return g;
-}
-
-void Project::nodeDestroyed(QObject *obj)
-{
-    auto node = qobject_cast<Node*>(obj);
-    if (node) {
-        removeId(node->id());
-    }
 }
 
 void Project::emitProjectCalculated(KPlato::Project *project, KPlato::ScheduleManager *sm)
