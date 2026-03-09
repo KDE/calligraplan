@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-01 00:43+0000\n"
-"PO-Revision-Date: 2026-02-24 22:51+0400\n"
+"PO-Revision-Date: 2026-03-08 22:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -688,7 +688,7 @@ msgstr "جدْوِل من البدء %1"
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
-"%1: فشلت الجدولة باستخدام الانتهاء المتأخر، أجرِّب الانتهاء المُبكِّر بدلاً منه."
+"%1: فشلت الجدولة باستخدام الانتهاء المتأخر، أحاول الانتهاء المُبكِّر بدلاً منه."
 
 #: kernel/kpttask.cpp:1717 kernel/kpttask.cpp:1741 kernel/kpttask.cpp:1767
 #: kernel/kpttask.cpp:1791 kernel/kpttask.cpp:1809 kernel/kpttask.cpp:1880
