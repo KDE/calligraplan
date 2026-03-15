@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-01 00:43+0000\n"
+"POT-Creation-Date: 2026-03-15 00:45+0000\n"
 "PO-Revision-Date: 2024-04-23 19:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -550,7 +550,7 @@ msgstr "开始向后调度"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "完成向后调度，用时：%1 毫秒"
 
-#: kernel/kptproject.cpp:2786
+#: kernel/kptproject.cpp:2785
 #, kde-format
 msgid "Plan"
 msgstr "计划"
