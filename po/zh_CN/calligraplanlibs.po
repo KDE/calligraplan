@@ -954,7 +954,7 @@ msgstr ""
 #: main/kedittoolbar.cpp:43
 #, kde-format
 msgid "--- separator ---"
-msgstr ""
+msgstr "--- 间隔 ---"
 
 #: main/kedittoolbar.cpp:44
 #, kde-format
