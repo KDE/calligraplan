@@ -10,7 +10,7 @@
 >Durada</emphasis
 >. </para>
   <para
->Els calendaris tenen una especificació de zona horària perquè pugueu definir les hores de treball en l'hora local dels recursos. </para>
+>Els calendaris tenen una especificació de fus horari perquè pugueu definir les hores de treball en l'hora local dels recursos. </para>
   <para
 >Un calendari consisteix en definicions per als dies de la setmana i dates. Si la data té una definició, s'utilitzarà aquesta definició. Si l'estat de la data està <emphasis
 >Sense definir</emphasis
@@ -119,7 +119,7 @@
 ><title
 >Editar les dades</title>
   <para
->El nom del calendari i la zona horària es poden editar a la línia com es descriu <link linkend="using-the-views"
+>El nom del calendari i el fus horari es poden editar a la línia com es descriu <link linkend="using-the-views"
 >aquí</link
 >. </para>
   <para

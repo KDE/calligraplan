@@ -1,23 +1,23 @@
 # Translation of calligraplanlibs.po to Catalan
-# Copyright (C) 2008-2023 This_file_is_part_of_KDE
+# Copyright (C) 2008-2026 This_file_is_part_of_KDE
 # This file is distributed under the same license as the calligraplanlibs package.
 #
 # SPDX-FileCopyrightText: 2008, 2010 Rafael Carreras <rcarreras@caliu.cat>
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2026 Josep M. Ferrer <txemaq@gmail.com>
 # SPDX-FileCopyrightText: 2016, 2020, 2021, 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-15 00:45+0000\n"
-"PO-Revision-Date: 2023-03-22 12:56+0100\n"
+"PO-Revision-Date: 2026-03-29 13:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Poedit-Language: Catalan\n"
@@ -2339,7 +2339,7 @@ msgstr "Selecciona com a calendari per defecte"
 #: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
-msgstr "Modifica la zona horària del calendari"
+msgstr "Modifica el fus horari del calendari"
 
 #: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, kde-format
@@ -2381,7 +2381,7 @@ msgstr "Origen"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Timezone"
-msgstr "Zona horària"
+msgstr "Fus horari"
 
 #: models/kptcalendarmodel.cpp:538
 #, kde-kuit-format
@@ -3221,7 +3221,7 @@ msgstr "El nom del calendari"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The timezone of the calendar"
-msgstr "La zona horària del calendari"
+msgstr "El fus horari del calendari"
 
 #: models/kptcommonstrings.cpp:179
 #, kde-kuit-format
@@ -4771,7 +4771,7 @@ msgstr "El total reservat en %1, juntament amb el màxim d'hores per al recurs"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6"
-msgstr "%1: %2<nl/>%3: %4<nl/>Zona horària: %5<nl/>Disponible: %6"
+msgstr "%1: %2<nl/>%3: %4<nl/>Fus horari: %5<nl/>Disponible: %6"
 
 #: models/kptresourceappointmentsmodel.cpp:673
 #, kde-format
@@ -4792,7 +4792,7 @@ msgstr "Reservats a %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5"
-msgstr "%1: %2<nl/>%3: %4<nl/>Zona horària: %5"
+msgstr "%1: %2<nl/>%3: %4<nl/>Fus horari: %5"
 
 #: models/kptresourceappointmentsmodel.cpp:953
 #, kde-format
@@ -4804,7 +4804,7 @@ msgstr "Interval"
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7"
 msgstr ""
-"%1: %2<nl/>%3: %4<nl/>Zona horària: %5<nl/>Assignat: %6<nl/>Disponible: %7"
+"%1: %2<nl/>%3: %4<nl/>Fus horari: %5<nl/>Assignat: %6<nl/>Disponible: %7"
 
 #: models/kptresourceappointmentsmodel.cpp:1168
 #, kde-format
@@ -7376,7 +7376,7 @@ msgstr "Final més tardà:"
 #: ui/kptmainprojectpanelbase.ui:192
 #, kde-format
 msgid "<html><head/><body><p align=\"right\">Time zone:</p></body></html>"
-msgstr "<html><head/><body><p align=\"right\">Zona horària:</p></body></html>"
+msgstr "<html><head/><body><p align=\"right\">Fus horari:</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, useSharedResources)
 #: ui/kptmainprojectpanelbase.ui:220
