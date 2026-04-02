@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-03-20 08:13+0200\n"
+"PO-Revision-Date: 2026-04-01 17:41+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Poedit 3.8\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -628,4 +628,4 @@ msgstr ""
 #: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr "<p>חבילת העבודה <b>‚%1’</b>p><p>לא ניתן לחלץ קובץ:</p><p>%2</p>"
+msgstr "<p>חבילת העבודה <b>‚%1’</b><p><p>לא ניתן לחלץ קובץ:</p><p>%2</p>"
