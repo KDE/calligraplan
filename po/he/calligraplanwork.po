@@ -628,4 +628,4 @@ msgstr ""
 #: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
-msgstr "<p>חבילת העבודה <b>‚%1’</b><p><p>לא ניתן לחלץ קובץ:</p><p>%2</p>"
+msgstr "<p>חבילת העבודה <b>‚%1’</b></p><p>לא ניתן לחלץ קובץ:</p><p>%2</p>"
