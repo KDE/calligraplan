@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.04.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.04.3\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -127,11 +127,10 @@ msgstr ""
 "%1<br>Úloha: %2</p><p>Chcete obnoviť existujúci balík s dátami z nového?</p>"
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "Pracovný balík: %1"
+msgstr "Update Work Package"
 
 #: part.cpp:414
 #, kde-format
@@ -139,10 +138,6 @@ msgid "Remove failed. Cannot find work package"
 msgstr "Odstránenie zlyhalo. Nemôžem nájsť pracovný balík"
 
 #: part.cpp:418
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Remove work package"
-#| msgid_plural "Remove work packages"
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "Odstrániť pracovný balík"
@@ -214,14 +209,9 @@ msgid "File-Format Mismatch"
 msgstr "Nevyhovujúci formátu súboru"
 
 #: part.cpp:640
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
-#| "%1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan.work, "
-"získané %1"
+msgstr "Neplatný dokument. Očakávaný typ MIME %2, ale získaný %1"
 
 #: part.cpp:742
 #, kde-format
@@ -483,8 +473,7 @@ msgid "View..."
 msgstr "&Zobraziť..."
 
 #: view.cpp:117
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
+#, kde-format
 msgid "Remove document"
 msgstr "Odstrániť záznam"
 
@@ -577,8 +566,6 @@ msgstr ""
 "%1"
 
 #: workpackage.cpp:455
-#, fuzzy
-#| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove document"
 msgstr "Odstrániť záznam"
@@ -654,10 +641,6 @@ msgstr ""
 #~ msgstr "Nastavenia pracovného balíka"
 
 #, fuzzy
-#~| msgid ""
-#~| "Package data:\n"
-#~| "These settings indicates to the receiver of the package which "
-#~| "information is relevant."
 #~ msgid ""
 #~ "Package: %1\n"
 #~ "These settings indicates to the receiver of the package which information "

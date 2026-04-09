@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -107,13 +107,13 @@ msgstr "%1d %2h:%3m"
 #, kde-format
 msgctxt "<minutes>m:<seconds>s.<milliseconds>"
 msgid "%1m:%2s.%3"
-msgstr ""
+msgstr "%1m:%2s.%3"
 
 #: kernel/kptduration.cpp:217
 #, kde-format
 msgctxt "<minutes>m:<seconds>s"
 msgid "%1m:%2s"
-msgstr ""
+msgstr "%1m:%2s"
 
 #: kernel/kptduration.cpp:219
 #, fuzzy, kde-format
@@ -135,13 +135,13 @@ msgstr "%1h"
 #, kde-format
 msgctxt "<seconds>s.<milliseconds>"
 msgid "%1s.%2"
-msgstr ""
+msgstr "%1s.%2"
 
 #: kernel/kptduration.cpp:228
 #, kde-format
 msgctxt "<milliseconds>ms"
 msgid "%1ms"
-msgstr ""
+msgstr "%1ms"
 
 #: kernel/kptduration.cpp:288
 #, kde-format
@@ -346,7 +346,7 @@ msgstr "Pevný úsek"
 #: kernel/kptnode.cpp:848
 #, kde-format
 msgid "Task constraint outside project constraint"
-msgstr ""
+msgstr "Obmedzenie úlohy mimo obmedzenia projektu"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
@@ -581,12 +581,12 @@ msgstr "Štart-Štart"
 #: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
-msgstr ""
+msgstr "Preplánovanie, ale neboli nájdené žiadne použité zdroje"
 
 #: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
-msgstr ""
+msgstr "Zhoda odchýlky: granularita: %1, odchýlka: %2"
 
 #: kernel/kptresourcerequest.cpp:975
 #, fuzzy, kde-format
@@ -934,13 +934,13 @@ msgstr "Informácie o dokumente"
 #: main/config/ConfigDocumentationPanel.ui:79
 #, kde-format
 msgid "Context help:"
-msgstr ""
+msgstr "Kontextová pomoc:"
 
 #. i18n: ectx: property (text), widget (QLabel, languageLabel)
 #: main/config/ConfigDocumentationPanel.ui:95
 #, kde-format
 msgid "Context language"
-msgstr ""
+msgstr "Jazyk kontextu"
 
 #: main/config/KoConfigDocumentPage.cpp:60
 #, kde-format
@@ -1358,7 +1358,7 @@ msgstr "Zlyhalo stiahnutie vzdialeného súboru"
 #: main/KoDocument.cpp:1470
 #, kde-format
 msgid "Reading file timed out"
-msgstr ""
+msgstr "Čítanie súboru vypršalo"
 
 #: main/KoDocument.cpp:1473 main/KoDocument.cpp:1484
 #, kde-format
@@ -1368,12 +1368,12 @@ msgstr "Neznáma chyba"
 #: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
-msgstr ""
+msgstr "Filter planconvert.jar nebol nájdený, skontrolujte vašu inštaláciu"
 
 #: main/KoDocument.cpp:1479
 #, kde-format
 msgid "Execution failed. Check your installation"
-msgstr ""
+msgstr "Spustenie zlyhalo. Skontrolujte vašu inštaláciu"
 
 #: main/KoDocument.cpp:1482
 #, kde-format
@@ -1837,7 +1837,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>Online zdroje</subtitle>"
 
 #: main/WelcomeView.cpp:133
 #, fuzzy, kde-kuit-format
@@ -1935,6 +1935,12 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Project Templates</title><para>Select a template to create a new "
+"project based on the selected template.</para><para>Plan searches for "
+"templates in the places you can define in the settings dialog: "
+"<interface>Settings->Configure Plan</interface>.</para><para>You can create "
+"new templates from a project using the <interface>File->Create Project "
+"Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -2620,7 +2626,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling priority.<nl/>A higher number means higher priority."
-msgstr ""
+msgstr "Priorita plánovania.<nl/>A higher number means higher priority."
 
 #: models/kptcommonstrings.cpp:27
 #, kde-kuit-format
@@ -3245,6 +3251,9 @@ msgid ""
 "Calculation must be initiated manually.</item><item><emphasis>Auto:</"
 "emphasis> Calculation is initiated automatically.</item></list></para>"
 msgstr ""
+"<para>The scheduling mode:<list><item><emphasis>Manual:</emphasis> "
+"Calculation must be initiated manually.</item><item><emphasis>Auto:</"
+"emphasis> Calculation is initiated automatically.</item></list></para>"
 
 #: models/kptcommonstrings.cpp:171
 #, kde-kuit-format
@@ -3557,7 +3566,7 @@ msgstr "Žiadny zdroj nebol alokovaný"
 #, kde-format
 msgctxt "list of alternative resources"
 msgid " [%1]"
-msgstr ""
+msgstr " [%1]"
 
 #: models/kptnodeitemmodel.cpp:184
 #, fuzzy, kde-format
@@ -4791,6 +4800,9 @@ msgid ""
 "or more alternative resource assigned to it. The scheduling software will "
 "then select the most appropriate resource to use.</para>"
 msgstr ""
+"<title>Alternative Resource Allocation</title><para>A resource can have one "
+"or more alternative resource assigned to it. The scheduling software will "
+"then select the most appropriate resource to use.</para>"
 
 #: models/kptresourceallocationmodel.cpp:530
 #, fuzzy, kde-kuit-format
@@ -4956,7 +4968,7 @@ msgstr "Zmeniť režim plánovania"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Tento rozvrh bol vytvorený Správcom portfólia"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -5999,7 +6011,7 @@ msgstr "Prosím zadajte heslo na otvorenie tohto súboru."
 #: store/KoEncryptedStore.cpp:574
 #, kde-format
 msgid "Empty decrypted file"
-msgstr ""
+msgstr "Prázdny dešifrovaný súbor"
 
 #: store/KoEncryptedStore.cpp:736
 #, kde-format
@@ -6042,7 +6054,7 @@ msgstr "Úložisko Calligra"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Prepnúť rozšírené možnosti filtra"
 
 #: ui/FilterWidget.cpp:47
 #, fuzzy, kde-format
@@ -6153,7 +6165,7 @@ msgstr "Periodické"
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Konkrétne obdobie:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -6246,7 +6258,7 @@ msgstr "Interval:"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:93
 #, kde-format
 msgid "Use custom line"
-msgstr ""
+msgstr "Použiť vlastný riadok"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:102
@@ -6307,7 +6319,7 @@ msgstr "Oddeľovač"
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Voľné dni:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -6535,7 +6547,7 @@ msgstr "Typ grafu"
 #, kde-format
 msgctxt "@option:radio"
 msgid "End:"
-msgstr ""
+msgstr "Koniec:"
 
 #: ui/GroupAllocationPanel.cpp:53 ui/GroupAllocationPanel.cpp:82
 #, fuzzy
@@ -7210,12 +7222,14 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Aktivuje možnosti filtrovania úloh a míľnikov.<nl/>Deactivating this will "
+"show all scheduled tasks and milestones."
 
 #: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Aktivuje možnosti filtrovania podľa obdobia."
 
 #: ui/kptganttview.cpp:371
 #, fuzzy, kde-format
@@ -7259,7 +7273,7 @@ msgstr "Úlohy, ktoré mali byť spustené"
 #: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "konkrétne obdobie:"
 
 #: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
 #: ui/ResourceAppointmentsGanttView.cpp:323
@@ -7887,6 +7901,8 @@ msgid ""
 "A resource that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
+"Zdroj, ktorý bol naplánovaný, bude odstránený. This will invalidate the "
+"schedule."
 
 #: ui/kptresourceeditor.cpp:416
 #, fuzzy
@@ -7927,6 +7943,16 @@ msgid ""
 "start and remaining effort for the tasks.<nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>Schedule Editor</title><para>The Schedule Editor is used to create, "
+"edit, calculate and delete schedules.</para><para>If <emphasis>Mode</"
+"emphasis> is set to <emphasis>Auto</emphasis>, the schedule is calculated "
+"automatically. <note>Only one schedule can be in <emphasis>Auto Mode</"
+"emphasis> simultaneously and it must be a top level schedule without sub-"
+"schedules.</note></para><para>A schedule can have sub-schedules. A sub-"
+"schedule can use the projects progress data in order to reschedule only "
+"tasks that are not yet finished. Rescheduling will then use e.g. actual "
+"start and remaining effort for the tasks.<nl/><link url='%1'>More...</link></"
+"para>"
 
 #: ui/kptscheduleeditor.cpp:301
 #, kde-format
@@ -7967,6 +7993,8 @@ msgid ""
 "This schedule cannot be calculated.\n"
 "The parent schedule must be calculated first"
 msgstr ""
+"Tento rozvrh nie je možné vypočítať.\n"
+"The parent schedule must be calculated first"
 
 #: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, fuzzy, kde-format
@@ -7980,6 +8008,8 @@ msgid ""
 "The project has been started.\n"
 "Do you really want to calculate this schedule?"
 msgstr ""
+"Projekt bol spustený.\n"
+"Do you really want to calculate this schedule?"
 
 #: ui/kptscheduleeditor.cpp:388
 #, fuzzy, kde-format
@@ -8007,13 +8037,13 @@ msgstr ""
 #: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
-msgstr ""
+msgstr "Tento rozvrh má základnú líniu. Do you want to remove the baseline?"
 
 #: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
-msgstr ""
+msgstr "Obnoviť základnú líniu %1"
 
 #: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, fuzzy, kde-format
@@ -8356,6 +8386,11 @@ msgid ""
 "regular plan file and typically includes tasks, estimates and dependencies.</"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Task Modules</title><para>Task Modules are a group of tasks that can "
+"be reused across projects. This makes it possible draw on past experience "
+"and to standardize similar operations.</para><para>A task module is a "
+"regular plan file and typically includes tasks, estimates and dependencies.</"
+"para><para><link url='%1'>More...</link></para>"
 
 #: ui/kpttaskeditor.cpp:909
 #, kde-format
@@ -8399,6 +8434,8 @@ msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
+"A task that has been scheduled will be deleted. This will invalidate the "
+"schedule."
 
 #: ui/kpttaskeditor.cpp:1148
 #, fuzzy
@@ -8657,6 +8694,19 @@ msgid ""
 "item></list><note>You should select the desired edit mode when starting the "
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Edit Task Progress</title><para>This dialog consists of the following "
+"parts:<list><item>Edit mode control to define the behavior of the dialog.</"
+"item><item>Controls to mark the task as started and finished.</"
+"item><item>Table to enter used effort for each resource.</item><item>Table "
+"for entry of task completion and remaining effort.</item></list></"
+"para><para>Edit modes:<list><item><emphasis>Per resource</emphasis> requires "
+"you to enter used effort for each resource assigned to this task. This "
+"enables the most detailed tracking of effort- and cost usage.</"
+"item><item><emphasis>Per task</emphasis> enables you to enter the minimum of "
+"information. When completion is changed, used effort and remaining effort is "
+"automatically calculated, but can of course be manually modified if needed.</"
+"item></list><note>You should select the desired edit mode when starting the "
+"task.</note><nl/><link url='%1'>More...</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:75
 msgctxt "(qtundo-format)"
@@ -8675,7 +8725,7 @@ msgstr "Ukáže, či je úloha ukončená"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Finish the task at the selected time"
-msgstr ""
+msgstr "Dokončiť úlohu vo vybranom čase"
 
 #: ui/kpttaskprogresspanel.cpp:113
 msgctxt "(qtundo-format)"
@@ -8862,6 +8912,8 @@ msgid ""
 "Accumulated used effort.<nl/><note>Used effort must be entered per resource</"
 "note>"
 msgstr ""
+"Kumulované využité úsilie.<nl/><note>Used effort must be entered per "
+"resource</note>"
 
 #: ui/kptusedefforteditor.cpp:727
 #, kde-kuit-format
@@ -9096,13 +9148,13 @@ msgstr "Odmietnuť"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
-msgstr ""
+msgstr "Odmietnuť tento balík a prejsť na nasledujúci balík"
 
 #: ui/kptworkpackagemergedialog.cpp:92
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Commit the changes and go to next package"
-msgstr ""
+msgstr "Potvrdiť zmeny a prejsť na nasledujúci balík"
 
 #: ui/kptworkpackagemergedialog.cpp:93
 #, kde-format
@@ -9113,7 +9165,7 @@ msgstr "Späť"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Revert the changes and go back to the current package"
-msgstr ""
+msgstr "Vrátiť zmeny a prejsť späť na aktuálny balík"
 
 #: ui/kptworkpackagemergedialog.cpp:165
 #, kde-kuit-format
@@ -9420,6 +9472,12 @@ msgid ""
 "<interface>OK</interface>.<nl/>The dropdown list of possible predecessors is "
 "sorted with the most likely tasks first.</para>"
 msgstr ""
+"<title>Task Dependency Dialog</title><para>The task dependency dialog "
+"enables you to easily add a predecessor to the selected task.<nl/>When "
+"opened, it presents the previous task as the default predecessor. This is "
+"often the desired predecessor, and can be added by just pressing "
+"<interface>OK</interface>.<nl/>The dropdown list of possible predecessors is "
+"sorted with the most likely tasks first.</para>"
 
 #: ui/RelationEditorDialog.cpp:314
 #, kde-format
@@ -10062,7 +10120,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "<title>%1</title><para>Available: %2<nl/>Booked: %3</para>"
-msgstr ""
+msgstr "<title>%1</title><para>Available: %2<nl/>Booked: %3</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
 #. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
@@ -10160,6 +10218,10 @@ msgid ""
 "and has no impact on resource allocations.<nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Resource Breakdown Structure</title><para>Resources can be organized "
+"in a Resource Breakdown Structure. The structure is purely organizational "
+"and has no impact on resource allocations.<nl/><link url='%1'>More...</"
+"link></para>"
 
 #: ui/ResourceGroupEditor.cpp:281
 #, kde-format
@@ -10208,13 +10270,13 @@ msgstr ""
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "Ponechať úlohu ako súhrnnú úlohu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "Rozdeliť na časti:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -10326,7 +10388,7 @@ msgstr "Vymazať"
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Počet úloh:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
@@ -10984,17 +11046,11 @@ msgstr "Všetky podporované formáty"
 #~ msgstr "Načítať"
 
 #, fuzzy
-#~| msgid "Plan"
 #~ msgctxt "application name"
 #~ msgid "Plan"
 #~ msgstr "Plán"
 
 #, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<title>Recent Projects</title><para>A list of the 10 most recent project "
-#~| "files opened.</para><para><nl/>This enables you to quickly open projects "
-#~| "you have worked on recently.</para>"
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""
 #~ "<title>Recent Portfolios</title><para>A list of the most recent portfolio "
@@ -11006,11 +11062,6 @@ msgstr "Všetky podporované formáty"
 #~ "projekty, na ktorých ste nedávno pracovali.</para>"
 
 #, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<html><head/><body><p><span style=\" font-weight:600;\">Open Project</"
-#~| "span></p><p>Displays a file dialog enabling you to open an existing "
-#~| "project.</p></body></html>"
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""
 #~ "<html><head/><body><p><span style=\" font-weight:600;\">Open Portfolio</"
@@ -11022,9 +11073,6 @@ msgstr "Všetky podporované formáty"
 #~ "projekt.</p></body></html>"
 
 #, fuzzy
-#~| msgid ""
-#~| "<html><head/><body><p><span style=\" font-size:8pt; font-style:italic;"
-#~| "\">Recent projects:</span></p></body></html>"
 #~ msgid ""
 #~ "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
 #~ "style:italic;\">Recent portfolios:</span></p></body></html>"
@@ -11102,14 +11150,6 @@ msgstr "Všetky podporované formáty"
 #~ "emphasis>.</para>"
 
 #, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<title>Required Resources</title><para>A working resource can be "
-#~| "assigned to one or more required resources. A required resource is a "
-#~| "material resource that the working resource depends on in order to do "
-#~| "the work.</para><para>To be able to use a material resource as a "
-#~| "required resource, the material resource must be part of a group of type "
-#~| "<emphasis>Material</emphasis>.</para>"
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""
 #~ "<title>Alternative Resource Allocation</title><para>A working resource "
@@ -11157,14 +11197,11 @@ msgstr "Všetky podporované formáty"
 #~ msgstr "Generovanie reportov"
 
 #, fuzzy
-#~| msgid "Remove"
 #~ msgctxt "Remove selected dependencies"
 #~ msgid "Remove"
 #~ msgstr "Odstrániť"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Report Designer"
 #~ msgid "Report file generated: %1"
 #~ msgstr "Dizajnér reportov"
 
@@ -11186,50 +11223,39 @@ msgstr "Všetky podporované formáty"
 #~ msgstr "Vložiť %1"
 
 #, fuzzy
-#~| msgctxt "@into:tooltip"
-#~| msgid "Label"
 #~ msgid "TextLabel"
 #~ msgstr "Štítok"
 
 #, fuzzy
-#~| msgid "Result"
 #~ msgid "Results:"
 #~ msgstr "Výsledok"
 
 #, fuzzy
-#~| msgid "Name"
 #~ msgid "Named"
 #~ msgstr "Názov"
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Select as default calendar"
 #~ msgid "Set default filter"
 #~ msgstr "Vybrať ako predvolený kalendár"
 
 #, fuzzy
-#~| msgid "Save To File"
 #~ msgid "Save File"
 #~ msgstr "Uložiť do súboru"
 
 #, fuzzy
-#~| msgid "Report File"
 #~ msgid "Import Files"
 #~ msgstr "Súbor správy"
 
 #, fuzzy
-#~| msgid "Direction"
 #~ msgid "Open Directory"
 #~ msgstr "Smer"
 
 #, fuzzy
-#~| msgid "Default Definition"
 #~ msgctxt "@info:tooltip"
 #~ msgid "Default region"
 #~ msgstr "Predvolená definícia"
 
 #, fuzzy
-#~| msgid "External project: %1"
 #~ msgid "Recent projects:"
 #~ msgstr "Externý projekt: %1"
 
@@ -11285,10 +11311,6 @@ msgstr "Všetky podporované formáty"
 #~ msgstr "Uložiť do pohľadu"
 
 #, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "The report definition has been modified.<br/><emphasis>If you continue, "
-#~| "the modifications will be lost.</emphasis>"
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "The report definition has been modified.<nl/><emphasis>If you continue, "

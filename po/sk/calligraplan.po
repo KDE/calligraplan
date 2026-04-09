@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.08.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.08.2\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -65,10 +65,9 @@ msgstr "&Pomocník"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "&Súbor"
+msgstr "Súbor"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
@@ -317,8 +316,7 @@ msgstr "Odhadnutá časová jednotka"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
 msgstr "Typ odhadu:"
 
@@ -326,7 +324,7 @@ msgstr "Typ odhadu:"
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "Riziko"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -529,8 +527,7 @@ msgstr "Zoznam ciest k modulom úloh"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
-#, fuzzy, kde-format
-#| msgid "List of paths to project templates"
+#, kde-format
 msgid "List of paths to report templates"
 msgstr "Zoznam ciest k projektovým šablónam"
 
@@ -544,13 +541,13 @@ msgstr "Zoznam ciest k projektovým šablónam"
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "Interval automatického ukladania"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "Vytvoriť záložný súbor"
 
 #: config/ConfigDialog.cpp:36
 #, kde-format
@@ -583,40 +580,35 @@ msgid "Work Package"
 msgstr "Pracovný balík"
 
 #: config/ConfigDialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Project Templates"
-msgstr "Vytvoriť projektovú šablónu..."
+msgstr "Šablóny projektov"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Report Templates"
 msgstr "Vytvoriť projektovú šablónu..."
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Documents..."
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "Dokumenty..."
+msgstr "Dokument"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "Projektový manažér tohto projektu."
 
 #: config/ConfigProjectPanel.cpp:39
-#, fuzzy, kde-kuit-format
-#| msgid "File to contain shared resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
 msgstr "Súbor obsahujúci zdieľané zdroje"
 
 #: config/ConfigProjectPanel.cpp:42
-#, fuzzy, kde-kuit-format
-#| msgid "Directory that contains projects that share resources"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
 msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
@@ -659,8 +651,7 @@ msgid "Description"
 msgstr "Popis"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Project Templates Path"
 msgstr "Vytvoriť projektovú šablónu..."
 
@@ -683,16 +674,13 @@ msgstr "Odstrániť"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Task module changed"
+#, kde-format
 msgid "Task Modules Path"
 msgstr "Modul úloh bol zmenený"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
-#, fuzzy, kde-format
-#| msgid "List of paths to task modules"
+#, kde-format
 msgid "Use local task modules"
 msgstr "Zoznam ciest k modulom úloh"
 
@@ -1133,25 +1121,25 @@ msgstr "Obmedzenie plánovania:"
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "Riziko:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Žiadne"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "Nízka"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "Vysoká"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1211,27 +1199,25 @@ msgstr "Publikovať:"
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Dialógové okno"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Základná šablóna:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "Premenovať"
+msgstr "Názov súboru:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Otvoriť asistenta"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1370,31 +1356,29 @@ msgstr ""
 "para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "Obmedzenie plánovania:"
+msgstr "Naplánovaný míľnik: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Prepočítať projekt od času spustenia: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
 msgstr "Správca plánu"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "Plánovanie dokončené o %1, uplynulý čas: %2 sekúnd"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Vkladanie rezervácií zdrojov z projektu: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1447,11 +1431,9 @@ msgstr ""
 "Otvorením v tejto verzii Plan dôjde k strate niektorých dát."
 
 #: kptmaindocument.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
-msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
+msgstr "Nepodarilo sa save to temporary file. No resource has been specified"
 
 #: kptmaindocument.cpp:474
 #, kde-format
@@ -1480,13 +1462,9 @@ msgid "Saving..."
 msgstr "Ukladám..."
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
-"Neplatný dokument. Očakávané typy MIME sú application/x-vnd.kde.plan, "
-"získané %1"
+msgstr "Neplatný dokument. Očakávaný typ MIME %2, ale získaný %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1510,13 +1488,14 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Nepodarilo sa load shared resources into project %1:<nl/>Internal error, "
+"failed to insert file."
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgid "File to contain shared resources"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "Súbor obsahujúci zdieľané zdroje"
+msgstr "Nepodarilo sa load shared resources into project %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1539,19 +1518,15 @@ msgid "Calendar: %1"
 msgstr "Kalendár: %1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
 msgstr "Zdieľané zdroje"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "Projekt:"
+msgstr "Projekt: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
@@ -1615,9 +1590,7 @@ msgid "Insert Project File..."
 msgstr "Vložiť súbor projektu..."
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgid "Update Shared Resources"
 msgstr "Zdieľané zdroje"
 
@@ -1627,8 +1600,7 @@ msgid "Open Report Definition File..."
 msgstr "Otvoriť súbor definície správy..."
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgid "Create Report Template..."
 msgstr "Vytvoriť projektovú šablónu..."
 
@@ -1705,9 +1677,7 @@ msgid "Edit cost breakdown structure."
 msgstr "Upraviť štruktúru rozpisu nákladov."
 
 #: kptview.cpp:644
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit resource breakdown structure"
+#, kde-format
 msgid "Resource Breakdown Structure"
 msgstr "Upraviť štruktúru rozdelenia zdrojov"
 
@@ -1723,10 +1693,7 @@ msgid "Resources"
 msgstr "Zdroje"
 
 #: kptview.cpp:648
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resourcegroup"
-#| msgid_plural "Delete resourcegroups"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
 msgstr "Odstrániť skupinu zdrojov"
@@ -1858,8 +1825,7 @@ msgid "View resource assignments in Gantt chart"
 msgstr "Zobraziť priradenia prostriedkov v Ganttovom diagrame"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Coverage"
 msgstr "Editor prostriedkov"
 
@@ -1867,7 +1833,7 @@ msgstr "Editor prostriedkov"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "Skontrolovať pokrytie zdrojov"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
@@ -1938,19 +1904,16 @@ msgstr "Správy"
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "Súbor '%1' už existuje, chcete ho prepísať?"
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Create Project Template..."
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
 msgstr "Vytvoriť projektovú šablónu..."
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Shared resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
 msgstr "Zdieľané zdroje"
@@ -1961,6 +1924,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Používanie zdieľaných zdrojov bolo aktivované.<nl/>Shall resources be "
+"updated?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -2185,8 +2150,7 @@ msgid "Add View"
 msgstr "Pridať pohľad"
 
 #: kptviewlistdialog.cpp:93
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Group Editor"
 msgstr "Editor prostriedkov"
 
@@ -2392,25 +2356,21 @@ msgid "The description of the category"
 msgstr "Popis kategórie"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Trvanie"
+msgstr "Akcia"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
-msgstr "Meno"
+msgstr "Názov"
 
 #: SharedResourcesDialog.cpp:33
-#, fuzzy, kde-format
-#| msgid "Calendar: %1"
+#, kde-format
 msgid "Calendars"
-msgstr "Kalendár: %1"
+msgstr "Kalendáre"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2425,6 +2385,14 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Shared Resource Dialog</title><para>Enables you to decide how to "
+"treat shared resources, shared resource groups and shared calendars when "
+"they have been deleted from the shared resources file.</para><para>You can "
+"select if an item shall be:<list><item><emphasis>Removed:</emphasis> Removes "
+"the item from your project too.</item><item><emphasis>Converted:</emphasis> "
+"Converts the item to local item.</item><item><emphasis>Kept:</emphasis> "
+"Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
+"link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
@@ -2441,27 +2409,26 @@ msgstr "Ponechať"
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Označiť všetky vybrané položky na odstránenie z vášho projektu"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Označiť ako: Odstrániť"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "Označiť všetky vybrané položky na prevod na lokálne zdroje"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
-#, fuzzy, kde-format
-#| msgid "Convert"
+#, kde-format
 msgid "Mark as: Convert"
 msgstr "Konvertovať"
 
@@ -2470,22 +2437,19 @@ msgstr "Konvertovať"
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "Označiť všetky vybrané položky na zachovanie ako zdieľané zdroje"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "Označiť ako: Ponechať"
 
 #~ msgid "Expected estimate"
 #~ msgstr "Očakávaný odhad"
 
 #, fuzzy
-#~| msgid ""
-#~| "Shared resources has been removed from the shared resources file.\n"
-#~| "Select how they shall be treated in this project."
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "Shared resources have been removed from the shared resources file.<nl/"
@@ -2495,13 +2459,11 @@ msgstr ""
 #~ "Vyberte, ako s nimi bude naložené v tomto projekte."
 
 #, fuzzy
-#~| msgid "Use shared resources"
 #~ msgctxt "@info:tooltip"
 #~ msgid "Convert shared resources to local"
 #~ msgstr "Použiť zdieľané zdroje"
 
 #, fuzzy
-#~| msgid "Use shared resources"
 #~ msgctxt "@info:tooltip"
 #~ msgid "Keep as shared resources"
 #~ msgstr "Použiť zdieľané zdroje"
@@ -2537,7 +2499,6 @@ msgstr ""
 #~ msgstr "Kontextový pomocník:"
 
 #, fuzzy
-#~| msgid "Context help:"
 #~ msgid "Context language"
 #~ msgstr "Kontextový pomocník:"
 
@@ -2545,7 +2506,6 @@ msgstr ""
 #~ msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
 
 #, fuzzy
-#~| msgid "Directory that contains projects that share resources"
 #~ msgctxt "@info:tooltip"
 #~ msgid "The directory where projects sharing the resources are placed"
 #~ msgstr "Adresár, ktorý obsahuje projekty, ktoré zdieľajú zdroje"
@@ -2561,23 +2521,18 @@ msgstr ""
 #~ msgstr "Načítať zdieľané projekty..."
 
 #, fuzzy
-#~| msgid "Documents..."
 #~ msgid "Open Document"
 #~ msgstr "Dokumenty..."
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Insert project"
 #~ msgid "New Project"
 #~ msgstr "Vložiť projekt"
 
 #, fuzzy
-#~| msgid "Edit Main Project..."
 #~ msgid "Open Project..."
 #~ msgstr "Upraviť hlavný projekt..."
 
 #, fuzzy
-#~| msgid "Next: Introduction"
 #~ msgid "Introduction"
 #~ msgstr "Ďalej: Úvod"
 
@@ -2655,9 +2610,6 @@ msgstr ""
 #~ msgstr "Úloha, ktorá bola plánovaná, bude vymazaná. Toto zneplatní plán."
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Delete task"
-#~| msgid_plural "Delete tasks"
 #~ msgctxt "(qtundo-format) Delete one task"
 #~ msgid "Delete task"
 #~ msgstr "Odstráinť úlohu"
@@ -2670,9 +2622,6 @@ msgstr ""
 #~ msgstr[2] "Odstrániť úlohy"
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Delete task"
-#~| msgid_plural "Delete tasks"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete task"
 #~ msgstr "Odstráinť úlohu"
@@ -2705,17 +2654,11 @@ msgstr ""
 #~ msgstr "Odstrániť závislosť úlohy"
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Delete resource"
-#~| msgid_plural "Delete resources"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete resource"
 #~ msgstr "Odstrániť zdroj"
 
 #, fuzzy
-#~| msgctxt "(qtundo-format)"
-#~| msgid "Delete resourcegroup"
-#~| msgid_plural "Delete resourcegroups"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete resourcegroup"
 #~ msgstr "Odstrániť skupinu zdrojov"
@@ -2743,8 +2686,6 @@ msgstr ""
 #~ msgstr "Plan"
 
 #, fuzzy
-#~| msgctxt "KDE 4 tag line, see http://kde.org/img/kde40.png"
-#~| msgid "Be free."
 #~ msgctxt "KDE 4 tag line"
 #~ msgid "Be free."
 #~ msgstr "Buďte slobodní."
@@ -2892,7 +2833,6 @@ msgstr ""
 #~ msgstr "Vymazať skupiny zdrojov a zdroje"
 
 #, fuzzy
-#~| msgid "Resources"
 #~ msgid "Resource groups"
 #~ msgstr "Zdroje"
 
@@ -4126,8 +4066,6 @@ msgstr ""
 #~ msgstr "Pracovný balík pre projekt: %1"
 
 #, fuzzy
-#~| msgctxt "(qtundo-format) @info"
-#~| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
 #~ msgctxt "(qtundo-format) @info"
 #~ msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 #~ msgstr "Zlyhalo uloženie do dočasného súboru:<br/> <filename>%1</filename>"
