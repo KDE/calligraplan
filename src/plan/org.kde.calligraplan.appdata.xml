@@ -330,6 +330,7 @@
         <p xml:lang="nl">De versie in cmake corrigeren</p>
         <p xml:lang="pt-BR">Corrigida versão no cmake</p>
         <p xml:lang="ru">Исправление версии в cmake</p>
+        <p xml:lang="sk">Opraviť verziu v cmake</p>
         <p xml:lang="sl">Popravi različico v cmake</p>
         <p xml:lang="tr">CMake sürümünü düzelt</p>
         <p xml:lang="uk">Виправлено версію у cmake</p>
@@ -349,6 +350,7 @@
         <p xml:lang="nl">Overzetting naar Qt6 en KF6</p>
         <p xml:lang="pt-BR">Porte para o Qt6 e o KF6</p>
         <p xml:lang="ru">Перенос на Qt6 и KF6</p>
+        <p xml:lang="sk">Portovať na Qt6 a KF6</p>
         <p xml:lang="sl">Prenos na Qt6 in KF6</p>
         <p xml:lang="tr">Qt6 ve KF6 geçişi</p>
         <p xml:lang="uk">Портовано на Qt6 і KF6</p>

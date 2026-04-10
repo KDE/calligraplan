@@ -78,6 +78,7 @@
     <p xml:lang="pl">Plan Portfolio jest aplikacją do zarządzania Portfolio Projektu. Został pomyślany do zarządzania zbiorami projektów.</p>
     <p xml:lang="pt">O Plan Portfolio é uma aplicação de gestão de portfólios de projectos. Pretende servir para gerir uma colecção de projectos.</p>
     <p xml:lang="pt-BR">O Plan Portfolio é um aplicativo de gerenciamento de portfólio de projetos. Ele foi criado para gerenciar um conjunto de projetos.</p>
+    <p xml:lang="sk">Plan Portfolio je aplikácia na správu portfólia projektov. Je určená na správu zbierky projektov.</p>
     <p xml:lang="sl">Plan Portfolio je aplikacija za upravljanje portfelja projektov. Namenjena je za upravljanje zbirke projektov.</p>
     <p xml:lang="sv">Plan Portfölj är ett program för hantering av projektportföljer. Det är avsett för att hantera en projektsamling.</p>
     <p xml:lang="tr">Plan Portföy, bir proje portföy yönetimi uygulamasıdır. Bir proje koleksiyonunu yönetmek için tasarlanmıştır.</p>
@@ -109,6 +110,7 @@
         <p xml:lang="ka">გასწორდა ვერსია cmake-ში</p>
         <p xml:lang="nl">De versie in cmake corrigeren</p>
         <p xml:lang="pt-BR">Corrigida versão no cmake</p>
+        <p xml:lang="sk">Opraviť verziu v cmake</p>
         <p xml:lang="sl">Popravi različico v cmake</p>
         <p xml:lang="tr">CMake sürümünü düzelt</p>
         <p xml:lang="uk">Виправлено версію у cmake</p>
@@ -127,6 +129,7 @@
         <p xml:lang="ka">გადატანა Qt6-ზე და KF6-ზე</p>
         <p xml:lang="nl">Overzetten naar Qt6 en KF6</p>
         <p xml:lang="pt-BR">Porte para o Qt6 e o KF6</p>
+        <p xml:lang="sk">Portovať na Qt6 a KF6</p>
         <p xml:lang="sl">Prenos na Qt6 in KF6</p>
         <p xml:lang="tr">Qt6 ve KF6 geçişi</p>
         <p xml:lang="uk">Портовано на Qt6 і KF6</p>
