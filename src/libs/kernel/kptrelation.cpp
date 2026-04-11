@@ -131,6 +131,16 @@ void Relation::printDebug(const QByteArray& _indent) {
 }
 #endif
 
+bool Relation::compareParentByPrio(Relation* lsh, Relation* rhs)
+{
+    return (lsh->parent()->priority() > rhs->parent()->priority());
+}
+
+bool Relation::compareChildByPrio(Relation* lsh, Relation* rhs)
+{
+    return (lsh->child()->priority() > rhs->child()->priority());
+}
+
 
 }  //KPlato namespace
 

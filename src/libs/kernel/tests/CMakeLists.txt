@@ -49,3 +49,5 @@ plankernel_add_unit_test(PerformanceTester PerformanceTester.cpp  LINK_LIBRARIES
 plankernel_add_unit_test(ReScheduleTester ReScheduleTester.cpp  LINK_LIBRARIES calligraplankernel Qt::Test)
 
 plankernel_add_unit_test(AlternativeRequestTester AlternativeRequestTester.cpp  LINK_LIBRARIES calligraplankernel Qt::Test)
+
+plankernel_add_unit_test(SchedulerDepAndPrioTask SchedulerDepAndPrioTask.cpp  LINK_LIBRARIES calligraplankernel Qt::Test)

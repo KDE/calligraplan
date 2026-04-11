@@ -1016,15 +1016,12 @@ void Task::initiateCalculationLists(MainSchedule &sch) {
 
 DateTime Task::calculatePredeccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
-    // do them forward
-    QMultiMap<int, Relation*> lst;
-    for (Relation* r : list_) {
-        lst.insert(-r->parent()->priority(), r);
-    }
-    const QList<Relation*> list = lst.values();
-    for (Relation *r : list) {
+    QList<Relation*> sortedList = list_;
+    //retrieve parent sorted by priority and keep others in wbs order
+    std::stable_sort(sortedList.begin(), sortedList.end(), Relation::compareParentByPrio);
+    for (Relation *r : sortedList) {
         if (r->parent()->type() == Type_Summarytask) {
-            //debugPlan<<"Skip summarytask:"<<it.current()->parent()->name();
+            //debugPlan<<"Skip summarytask:"<<r->parent()->name();
             continue; // skip summarytasks
         }
         DateTime t = r->parent()->calculateForward(use); // early finish
@@ -1073,14 +1070,14 @@ DateTime Task::calculateForward(int use)
         DateTime time = calculatePredeccessors(dependParentNodes(), use);
         if (time.isValid() && time > cs->earlyStart) {
             cs->earlyStart = time;
-            //cs->logDebug(QString("calculate forward: early start moved to: %1").arg(cs->earlyStart.toString()));
+            //cs->logDebug(QStringLiteral("calculate forward: early start moved to: %1").arg(cs->earlyStart.toString()));
         }
     }
     if (!m_parentProxyRelations.isEmpty()) {
         DateTime time = calculatePredeccessors(m_parentProxyRelations, use);
         if (time.isValid() && time > cs->earlyStart) {
             cs->earlyStart = time;
-            //cs->logDebug(QString("calculate forward: early start moved to: %1").arg(cs->earlyStart.toString()));
+            //cs->logDebug(QStringLiteral("calculate forward: early start moved to: %1").arg(cs->earlyStart.toString()));
         }
     }
     m_calculateForwardRun = true;
@@ -1290,12 +1287,12 @@ DateTime Task::calculateEarlyFinish(int use) {
 
 DateTime Task::calculateSuccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
-    QMultiMap<int, Relation*> lst;
-    for (Relation* r : list_) {
-        lst.insert(-r->child()->priority(), r);
-    }
-    const QList<Relation*> list = lst.values();
-    for (Relation *r : list) {
+    QList<Relation*> sortedList = list_;
+    //sort succ. by prio but keep others in wbs order
+    std::stable_sort(sortedList.begin(), sortedList.end(), Relation::compareChildByPrio);
+    //do in reverse order to keep wbs order in backward schedule
+    for (auto it = sortedList.crbegin(); it != sortedList.crend(); ++it) {
+        Relation *r = *it;
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
             continue; // skip summarytasks
@@ -1543,12 +1540,9 @@ DateTime Task::calculateLateStart(int use) {
 
 DateTime Task::schedulePredeccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
-    QMultiMap<int, Relation*> lst;
-    for (Relation* r : list_) {
-        lst.insert(-r->parent()->priority(), r);
-    }
-    const QList<Relation*> list = lst.values();
-    for (Relation *r : list) {
+    QList<Relation*> sortedList = list_;
+    std::stable_sort(sortedList.begin(), sortedList.end(), Relation::compareParentByPrio);
+    for (Relation *r : sortedList) {
         if (r->parent()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->parent()->name();
             continue; // skip summarytasks
@@ -1947,12 +1941,9 @@ DateTime Task::scheduleFromStartTime(int use) {
 
 DateTime Task::scheduleSuccessors(const QList<Relation*> &list_, int use) {
     DateTime time;
-    QMultiMap<int, Relation*> lst;
-    for (Relation* r : list_) {
-        lst.insert(-r->child()->priority(), r);
-    }
-    const QList<Relation*> relations = lst.values();
-    for (Relation *r : relations) {
+    QList<Relation*> sortedList = list_;
+    std::stable_sort(sortedList.begin(), sortedList.end(), Relation::compareChildByPrio);
+    for (Relation *r : sortedList) {
         if (r->child()->type() == Type_Summarytask) {
             //debugPlan<<"Skip summarytask:"<<r->child()->name();
             continue;

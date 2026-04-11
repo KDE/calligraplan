@@ -764,40 +764,32 @@ void Project::tasksForward()
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
-    m_priorityNodes.clear();
-    int prio = 0;
-    bool priorityUsed = false;
 
-    // Do these in reverse order to get tasks with same prio in wbs order
+    // Take all tasks and sort them by prio and keep others in wbs order
     const QList<Task*> tasks = allTasks();
-    for (int i = tasks.count() -1; i >= 0; --i) {
+    for (int i = 0; i < tasks.count(); i++) {
         Task *t = tasks.at(i);
-        if (i == tasks.count() -1) {
-            prio = t->priority();
-        } else if (!priorityUsed && t->priority() != prio) {
-            priorityUsed = true;
-        }
-        m_priorityNodes.insert(-t->priority(), t);
         switch (t->constraint()) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
             case Node::FixedInterval:
-                m_hardConstraints.prepend(t);
+                m_hardConstraints.append(t);
                 break;
             case Node::StartNotEarlier:
             case Node::FinishNotLater:
-                m_softConstraints.prepend(t);
+                m_softConstraints.append(t);
                 break;
             default:
                 if (t->isEndNode()) {
-                    m_terminalNodes.insert(-t->priority(), t);
+                    m_terminalNodes.append(t);
                 }
                 break;
         }
     }
-    if (!priorityUsed) {
-        m_priorityNodes.clear();
-    }
+    std::stable_sort(m_terminalNodes.begin(), m_terminalNodes.end(),
+                     [](const Task* a, const Task* b) {
+                         return a->priority() > b->priority();
+                     });
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"End nodes:"<<m_terminalNodes;
     for (Node* n : std::as_const(m_terminalNodes)) {
@@ -813,20 +805,11 @@ void Project::tasksBackward()
     m_hardConstraints.clear();
     m_softConstraints.clear();
     m_terminalNodes.clear();
-    m_priorityNodes.clear();
-    int prio = 0;
-    bool priorityUsed = false;
 
-    // Do these in reverse order to get tasks with same prio in wbs order
+    // Take all tasks and sort them by prio and keep others in wbs order
     const QList<Task*> tasks = allTasks();
-    for (int i = tasks.count() -1; i >= 0; --i) {
+    for (int i = 0; i < tasks.count(); i++) {
         Task *t = tasks.at(i);
-        if (i == tasks.count() -1) {
-            prio = t->priority();
-        } else if (!priorityUsed && t->priority() != prio) {
-            priorityUsed = true;
-        }
-        m_priorityNodes.insert(-t->priority(), t);
         switch (t->constraint()) {
             case Node::MustStartOn:
             case Node::MustFinishOn:
@@ -839,14 +822,15 @@ void Project::tasksBackward()
                 break;
             default:
                 if (t->isStartNode()) {
-                    m_terminalNodes.insert(-t->priority(), t);
+                    m_terminalNodes.prepend(t);
                 }
                 break;
         }
     }
-    if (!priorityUsed) {
-        m_priorityNodes.clear();
-    }
+    std::stable_sort(m_terminalNodes.begin(), m_terminalNodes.end(),
+                     [](const Task* a, const Task* b) {
+                         return a->priority() < b->priority();
+                     });
 #ifndef PLAN_NLOGDEBUG
     debugPlan<<"Start nodes:"<<m_terminalNodes;
     for (Node* n : std::as_const(m_terminalNodes)) {
@@ -873,17 +857,6 @@ DateTime Project::calculateForward(int use)
         if (! m_visitedBackward) {
             // setup tasks
             tasksForward();
-            if (!m_priorityNodes.isEmpty()) {
-                for (Node *n : std::as_const(m_priorityNodes)) {
-                    cs->logDebug(QStringLiteral("Calculate task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
-                    DateTime time = n->calculateForward(use);
-                    if (time > finish) {
-                        finish = time;
-                        cs->setLatestFinish(time);
-                    }
-                }
-                return finish;
-            }
             // Do all hard constrained first
             for (Node *n : std::as_const(m_hardConstraints)) {
                 cs->logDebug(QStringLiteral("Calculate task with hard constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
@@ -918,14 +891,11 @@ DateTime Project::calculateForward(int use)
             }
         } else {
             // Tasks have been calculated backwards in this order
-            // Do backwords if priority is not used
-            if (m_priorityNodes.isEmpty()) {
-                const auto nodes =  cs->backwardNodes();
-                for (Node *n : nodes) {
-                    DateTime time = n->calculateForward(use);
-                    if (time > finish) {
-                        finish = time;
-                    }
+            const auto nodes = cs->backwardNodes();
+            for (Node *n : nodes) {
+                DateTime time = n->calculateForward(use);
+                if (time > finish) {
+                    finish = time;
                 }
             }
         }
@@ -952,16 +922,6 @@ DateTime Project::calculateBackward(int use)
         if (! m_visitedForward) {
             // setup tasks
             tasksBackward();
-            if (!m_priorityNodes.isEmpty()) {
-                for (Node *n : std::as_const(m_priorityNodes)) {
-                    cs->logDebug(QStringLiteral("Calculate task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
-                    DateTime time = n->calculateBackward(use);
-                    if (! start.isValid() || time < start) {
-                        start = time;
-                    }
-                }
-                return start;
-            }
             // Do all hard constrained first
             for (Task *n : std::as_const(m_hardConstraints)) {
                 cs->logDebug(QStringLiteral("Calculate task with hard constraint: ") + n->name() + QStringLiteral(" : ") + n->constraintToString());
@@ -1022,18 +982,6 @@ DateTime Project::scheduleForward(const DateTime &earliest, int use)
     timer.start();
     cs->logInfo(i18n("Start scheduling forward"));
     resetVisited();
-
-    if (!m_priorityNodes.isEmpty()) {
-        for (Node *n : std::as_const(m_priorityNodes)) {
-            cs->logDebug(QStringLiteral("Schedule task '%1' by priority: %2").arg(n->name()).arg(n->priority()));
-            DateTime time = n->scheduleForward(earliest, use);
-            if (time > end) {
-                end = time;
-                cs->setLatestFinish(time);
-            }
-        }
-        return end;
-    }
 
     // Schedule in the same order as calculated forward
     // Do all hard constrained first

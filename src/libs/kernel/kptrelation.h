@@ -84,6 +84,9 @@ public:
     // NOTE: Saving is done here, loading is done using the XmlLoaderObject
     void save(QDomElement &element, const XmlSaveContext &context) const;
 
+    static bool compareParentByPrio(Relation* lsh, Relation* rhs);
+    static bool compareChildByPrio(Relation* lsh, Relation* rhs);
+
 protected: // variables
     Node *m_parent;
     Node *m_child;
