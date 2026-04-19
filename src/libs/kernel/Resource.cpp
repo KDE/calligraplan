@@ -79,9 +79,7 @@ Resource::~Resource() {
         removeId(); // only remove myself (I may be just a working copy)
     }
     removeRequests();
-    for (Schedule *s : std::as_const(m_schedules)) {
-        delete s;
-    }
+    removeSchedules();
     clearExternalAppointments();
     if (m_cost.account) {
         m_cost.account->removeRunning(*this);
@@ -89,6 +87,14 @@ Resource::~Resource() {
     for (ResourceGroup *g : std::as_const(m_parents)) {
         g->takeResource(this);
     }
+}
+
+void Resource::removeSchedules()
+{
+    for (Schedule *s : std::as_const(m_schedules)) {
+        delete s;
+    }
+    m_schedules.clear();
 }
 
 void Resource::removeRequests() {

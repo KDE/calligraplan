@@ -172,6 +172,7 @@ public:
 
     /// Delete all requests for me
     void removeRequests();
+    void removeSchedules();
     /**
      * Used to clean up requests when the resource is deleted.
      */

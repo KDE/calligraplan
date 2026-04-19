@@ -130,6 +130,7 @@ void InsertProjectCmd::createCommands(Project &fromProject)
     QHash<Resource*, QList<AddParentGroupCmd*> > resourceparentgroupcmds;
     const auto resources = fromProject.resourceList();
     for (Resource *r : resources) {
+        r->removeSchedules(); // firstly, remove schedule of the resource
         if (r->account()) {
             resourceaccountmap.insert(r, r->account()->name());
             r->setAccount(nullptr);
