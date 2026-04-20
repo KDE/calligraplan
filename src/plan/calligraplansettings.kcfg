@@ -398,11 +398,11 @@
   </group>
 
   <group name="Interface">
-      <entry name="AutoSave" type="int">
+      <entry name="AutoSave" type="Int">
           <label>Autosave interval</label>
           <default>5</default>
       </entry>
-      <entry name="CreateBackupFile" type="bool">
+      <entry name="CreateBackupFile" type="Bool">
           <label>Create a backup file</label>
           <default>true</default>
       </entry>
