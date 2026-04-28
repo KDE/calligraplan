@@ -6977,7 +6977,7 @@ msgstr ""
 "<title>Ganttov pohľad</title><para>Zobrazí plánované úlohy v Ganttovom "
 "diagrame. Oblasť diagramu sa dá priblížiť a oddialiť posuvníkom v hornom "
 "ľavom rohu na časovej mierke. <note>Musíte prejsť myšou cez to, aby sa to "
-"zobrazilo.</note></para> <para>Tento pohľad podporuje nastavenie a tlač "
+"zobrazilo.</note></para><para>Tento pohľad podporuje nastavenie a tlač "
 "pomocou kontextovej ponuky stromového zobrazenia.<nl/><link url='%1'>Viac..."
 "</link></para>"
 
@@ -7013,8 +7013,8 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
-"Aktivuje možnosti filtrovania úloh a míľnikov.<nl/>Deactivating this will "
-"show all scheduled tasks and milestones."
+"Aktivuje možnosti filtrovania úloh a míľnikov.<nl/>Deaktivácia tohto "
+"nastavenia zobrazí všetky plánované úlohy a míľniky."
 
 #: ui/kptganttview.cpp:364
 #, kde-format
@@ -7665,9 +7665,7 @@ msgstr "Potrebné zdroje"
 msgid ""
 "A resource that has been scheduled will be deleted. This will invalidate the "
 "schedule."
-msgstr ""
-"Zdroj, ktorý bol naplánovaný, bude odstránený. This will invalidate the "
-"schedule."
+msgstr "Zdroj, ktorý bol naplánovaný, bude odstránený. Tým sa plán zneplatní."
 
 #: ui/kptresourceeditor.cpp:416
 msgctxt "(qtundo-format)"
@@ -7767,7 +7765,7 @@ msgid ""
 "Do you really want to calculate this schedule?"
 msgstr ""
 "Projekt bol spustený.\n"
-"Do you really want to calculate this schedule?"
+"Naozaj chcete vypočítať tento plán?"
 
 #: ui/kptscheduleeditor.cpp:388
 #, kde-format
@@ -7794,7 +7792,7 @@ msgstr "Nie je možné vytvoriť základňu. Projekt už má základňu."
 #: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
-msgstr "Tento rozvrh má základnú líniu. Do you want to remove the baseline?"
+msgstr "Tento plán má základnú líniu. Chcete odstrániť základnú líniu?"
 
 #: ui/kptscheduleeditor.cpp:468
 #, kde-format
@@ -9819,9 +9817,9 @@ msgid ""
 "context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>Priradenia zdrojov (Gantt)</title><para>Zobrazí plánované priradenia "
-"zdroj - úloha v Ganttovom diagrame. Oblasť diagramu sa dá priblížiť a "
+"zdroj – úloha v Ganttovom diagrame. Oblasť diagramu sa dá priblížiť a "
 "oddialiť posuvníkom v ľavom hornom rohu na časovej mierke. <note>Musíte "
-"prejsť myšou cez to, aby sa to zobrazilo.</note></para> <para>Tento pohľad "
+"prejsť myšou cez to, aby sa to zobrazilo.</note></para><para>Tento pohľad "
 "podporuje nastavenie a tlač pomocou kontextovej ponuky.<nl/><link "
 "url='%1'>Viac...</link></para>"
 

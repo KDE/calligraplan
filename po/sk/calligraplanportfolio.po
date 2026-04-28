@@ -385,8 +385,8 @@ msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
 msgstr ""
-"Určuje, či je projekt uložený vložený in the portfolio file or in the "
-"external file"
+"Určuje, či je projekt uložený vložený do súboru portfólia alebo do externého "
+"súboru"
 
 #: PortfolioModel.cpp:81
 #, kde-format
@@ -459,11 +459,11 @@ msgid ""
 "this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
-"<subtitle>Kontextová pomoc</subtitle><para>Many functions have help and "
-"hints that can be displayed with <emphasis>What's this</emphasis>.</"
-"para><para>Activate it by selecting the menu item <interface>Help|What's "
-"this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
-"para><para>Try it on this text!</para>"
+"<subtitle>Kontextová pomoc</subtitle><para>Veľa funkcií má nápovedu a tipy, "
+"ktoré sa dajú zobraziť s <emphasis>Čo je toto</emphasis>.</"
+"para><para>Aktivujte to vybraním položky ponuky <interface>Pomoc|Čo je toto</"
+"interface> alebo stlačením <shortcut>Shift+F1</shortcut>.</para><para>Skúste "
+"to na tomto texte!</para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
@@ -870,7 +870,7 @@ msgid ""
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
 "Projekt bol spustený.\n"
-"'%1' will be created as sub-schedule to '%2'."
+"'%1' bude vytvorený ako podplán pre '%2'."
 
 #: SchedulingLogModel.cpp:53
 #, kde-kuit-format
