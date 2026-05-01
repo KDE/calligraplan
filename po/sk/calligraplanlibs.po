@@ -7669,15 +7669,12 @@ msgid ""
 msgstr "Zdroj, ktorý bol naplánovaný, bude odstránený. Tým sa plán zneplatní."
 
 #: ui/kptresourceeditor.cpp:416
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
 msgctxt "(qtundo-format)"
 msgid "Delete resource"
 msgid_plural "Delete resources"
 msgstr[0] "Vymazať zdroj"
-msgstr[1] "Vymazať zdroj"
-msgstr[2] "Vymazať zdroj"
+msgstr[1] "Vymazať zdroje"
+msgstr[2] "Vymazať zdroje"
 
 #: ui/kptresourceeditor.cpp:423
 msgctxt "(qtundo-format) @action"
