@@ -122,27 +122,33 @@ TaskList::compareItemsLevel(CoreAttributes* c1, CoreAttributes* c2, int level)
         return cd1 == cd2 ? 0 : cd1 > cd2 ? -1 : 1;
     }
     case PrioUp:
-        if (t1->priority == t2->priority)
-        {
-            if (t1->scheduling == t2->scheduling)
+        if (t1->priority == t2->priority) {
+            if (t1->scheduling == t2->scheduling) {
                 return 0;
-            else if (t1->scheduling == Task::ASAP)
-                return -1;
-        }
-        else
+            } else {
+                if (t1->scheduling == Task::ASAP) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            }
+        } else {
             return (t1->priority - t2->priority);
-        Q_FALLTHROUGH();
-    case PrioDown:
-        if (t1->priority == t2->priority)
-        {
-            if (t1->scheduling == t2->scheduling)
-                return 0;
-            else if (t1->scheduling == Task::ASAP)
-                return 1;
         }
-        else
+    case PrioDown:
+        if (t1->priority == t2->priority) {
+            if (t1->scheduling == t2->scheduling) {
+                return 0;
+            } else {
+                if (t1->scheduling == Task::ASAP) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        } else {
             return (t2->priority - t1->priority);
-        Q_FALLTHROUGH();
+        }
     case ResponsibleUp:
     {
         QString fn1;
