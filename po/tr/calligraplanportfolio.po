@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-03-09 21:38+0300\n"
+"PO-Revision-Date: 2026-05-02 18:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -158,7 +158,7 @@ msgstr "Belgeleri Kaydet"
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr "Dosya halihazırda var. Üzerine yazmak istiyor musunuz?"
+msgstr "Dosya hâlihazırda var. Üzerine yazmak istiyor musunuz?"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
@@ -225,7 +225,7 @@ msgstr "Sürdür"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr "Proje halihazırda var.<nl/>Proje: %1<nl/>Belge: %2"
+msgstr "Proje hâlihazırda var.<nl/>Proje: %1<nl/>Belge: %2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
@@ -529,7 +529,7 @@ msgctxt "@info"
 msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
-msgstr "Proje halihazırda var, eklenmeyecek.<nl/>Proje: %1<nl/> Belge: %2"
+msgstr "Proje hâlihazırda var, eklenmeyecek.<nl/>Proje: %1<nl/> Belge: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
@@ -622,7 +622,7 @@ msgstr ""
 "<title>İlerleme</title><para>Bu görünüm, seçili projeyi denetlemek ve görev "
 "ilerleme bilgisini düzenlemek için kullanılır.<nl/>Görevler, görev durumuna "
 "göre gruplara bölünürler:<list><item><emphasis>Başlatılmadı:</emphasis> "
-"Halihazırda başlatılmış olması gereken görevler.</"
+"Hâlihazırda başlatılmış olması gereken görevler.</"
 "item><item><emphasis>Çalışıyor:</emphasis> Başlatılan ve henüz bitirilmeyen "
 "görevler.</item><item><emphasis>Bitirildi:</emphasis> Bu periyotta bitirilen "
 "görevler.</item><item><emphasis>Sonraki Periyot:</emphasis> Sonraki "
