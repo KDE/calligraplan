@@ -1309,7 +1309,7 @@ msgstr "Raphael Langerhorst"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Stanislav Višňovský, Roman Paholík"
+msgstr "Stanislav Višňovský, Roman Paholík, Jose Riha"
 
 #: kptaboutdata.h:39
 #, kde-format
