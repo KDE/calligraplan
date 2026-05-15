@@ -1,13 +1,13 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the calligraplan package.
 #
-# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-01-10 22:28+0200\n"
+"PO-Revision-Date: 2026-05-14 21:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -1337,7 +1337,7 @@ msgstr ""
 #: kptinsertfiledlg.cpp:21
 #, kde-format
 msgid "Insert File"
-msgstr ""
+msgstr "הוספת קובץ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
@@ -1404,17 +1404,17 @@ msgstr ""
 #: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr ""
+msgstr "לא ניתן לכתוב את „%1”. המחיצה מלאה?"
 
 #: kptmaindocument.cpp:592
 #, kde-format
 msgid "Saving..."
-msgstr ""
+msgstr "מתבצעת שמירה…"
 
 #: kptmaindocument.cpp:686
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
+msgstr "מסמך שגוי. סוג התוכן שאמור היה להיות הוא %2, התקבל %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1427,7 +1427,7 @@ msgstr ""
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr ""
+msgstr "שגיאה פנימית, הוספת קובץ נכשלה."
 
 #: kptmaindocument.cpp:1185
 #, kde-kuit-format
@@ -1446,69 +1446,69 @@ msgstr ""
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
 msgid "Insert project"
-msgstr ""
+msgstr "הוספת מיזם"
 
 #: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
-msgstr ""
+msgstr "קבוצה: %1"
 
 #: kptmaindocument.cpp:1457
 #, kde-format
 msgid "Resource: %1"
-msgstr ""
+msgstr "משאב: %1"
 
 #: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
-msgstr ""
+msgstr "לוח שנה: %1"
 
 #: kptmaindocument.cpp:1464
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr ""
+msgstr "עדכון משאבים משותפים"
 
 #: kptmaindocument.cpp:1481
 #, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr ""
+msgstr "מיזם: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "בסיס"
 
 #: kptpart.cpp:95
 #, kde-format
 msgid "Configure Plan..."
-msgstr ""
+msgstr "הגדרת תוכנית…"
 
 #: kptschedulesdocker.cpp:26
 #, kde-format
 msgid "Schedule Selector"
-msgstr ""
+msgstr "בורר לוח זמנים"
 
 #: kptview.cpp:186
 #, kde-format
 msgid "Create Project Template..."
-msgstr ""
+msgstr "יצירת תבנית מיזם…"
 
 #: kptview.cpp:190
 #, kde-format
 msgid "Create New Project..."
-msgstr ""
+msgstr "יצירת מיזם חדש…"
 
 #: kptview.cpp:202
 #, kde-format
 msgid "Show Selector"
-msgstr ""
+msgstr "הצגת בורר"
 
 #: kptview.cpp:209 kptview.cpp:250
 #, kde-format
 msgid "Edit..."
-msgstr ""
+msgstr "עריכה…"
 
 #: kptview.cpp:213
 #, kde-format
@@ -1523,22 +1523,22 @@ msgstr ""
 #: kptview.cpp:221
 #, kde-format
 msgid "Define Currency..."
-msgstr ""
+msgstr "הגדרת מטבע…"
 
 #: kptview.cpp:225
 #, kde-format
 msgid "Edit Description..."
-msgstr ""
+msgstr "עריכת תיאור…"
 
 #: kptview.cpp:230
 #, kde-format
 msgid "Insert Project File..."
-msgstr ""
+msgstr "הוספת קובץ מיזם…"
 
 #: kptview.cpp:234
 #, kde-format
 msgid "Update Shared Resources"
-msgstr ""
+msgstr "עדכון משאבים משותפים"
 
 #: kptview.cpp:239
 #, kde-format
