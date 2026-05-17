@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2011, 2013, 2018.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2023-02-08 12:39+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-05-16 23:36+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: PlanTJPlugin.cpp:43
@@ -28,6 +29,11 @@ msgid ""
 "all tasks as late as possible.</para><para><note>Plan does not utilize all "
 "of its functionality.</note></para>"
 msgstr ""
+"<title>Plánovač TaskJuggler</title><para>Toto je mírně upravená verze "
+"plánovače používaného v programu TaskJuggler. Byl vylepšen tak, aby "
+"podporoval jednotky zdrojů.</para><para>Zpětné plánování je simulováno tak, "
+"že jsou všechny úkoly naplánovány na co nejpozdější termín.</"
+"para><para><note>Plán nevyužívá všechny své funkce.</note></para>"
 
 #: PlanTJScheduler.cpp:151
 #, kde-kuit-format
@@ -130,24 +136,26 @@ msgstr "%1: Nesplnil omezení. Záporný posun=%2"
 msgctxt "@info/plain"
 msgid "Failed to meet dependency. Negative float=%1"
 msgstr ""
+"Nebylo splněno závislostní omezení. Záporné číslo s plovoucí desetinnou "
+"čárkou = %1"
 
 #: PlanTJScheduler.cpp:780
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as predecessor to task '%1'"
-msgstr ""
+msgstr "Nepodařilo se přidat jako předchůdce k úkolu '%1'"
 
 #: PlanTJScheduler.cpp:791
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Failed to add as successor to task '%1'"
-msgstr ""
+msgstr "Nepodařilo se přidat jako nástupce úkolu '%1'"
 
 #: PlanTJScheduler.cpp:812
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Dependency type '%1' not handled. Using FinishStart."
-msgstr ""
+msgstr "Typ závislosti '%1' není podporován. Použije se FinishStart."
 
 #: PlanTJScheduler.cpp:873
 #, kde-kuit-format
@@ -171,17 +179,17 @@ msgstr "Neošetřený typ časového omezení"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Could not use the correct calendar for calculation of task duration"
-msgstr ""
+msgstr "Nelze použít správný kalendář pro výpočet délky trvání úkolu"
 
 #: PlanTJScheduler.cpp:986
 #, kde-format
 msgid "Recalculate, earliest start: %1"
-msgstr ""
+msgstr "Přepočítat, nejbližší začátek: %1"
 
 #: PlanTJScheduler.cpp:1000
 #, kde-format
 msgid "Task has started. Remaining effort: %1d"
-msgstr ""
+msgstr "Úloha byla spuštěna. Zbývající práce: %1d"
 
 #: PlanTJScheduler.cpp:1018
 #, kde-format
@@ -191,12 +199,12 @@ msgstr "Nebyla stanovena žádná pracovní doba pro zdroj: %1"
 #: PlanTJScheduler.cpp:1080
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "Zahájení plánování: %1"
 
 #: PlanTJScheduler.cpp:1082
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Přepočítává se z: %1"
 
 #: PlanTJScheduler.cpp:1091 PlanTJScheduler.cpp:1174
 #, kde-format
@@ -206,22 +214,22 @@ msgstr "Plánování bylo zrušeno"
 #: PlanTJScheduler.cpp:1094
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "Plánování dokončeno na %1, uplynulý čas: %2 sekund"
 
 #: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
-msgstr ""
+msgstr "Interval plánování: %1 – %2, přesnost: %3 minut"
 
 #: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
 #, kde-format
 msgid "Invalid project, start > end"
-msgstr ""
+msgstr "Neplatný projekt, začátek > konec"
 
 #: PlanTJScheduler.cpp:1125 PlanTJScheduler.cpp:1170
 #, kde-format
 msgid "Project check failed"
-msgstr ""
+msgstr "Kontrola projektu se nezdařila"
 
 #: PlanTJScheduler.cpp:1133
 #, kde-format
@@ -231,12 +239,12 @@ msgstr "Naplánováno: %1 - %2"
 #: PlanTJScheduler.cpp:1135
 #, kde-format
 msgid "Scheduling failed"
-msgstr ""
+msgstr "Plánování se nezdařilo"
 
 #: PlanTJScheduler.cpp:1139 PlanTJScheduler.cpp:1180
 #, kde-format
 msgid "Project scheduling failed"
-msgstr ""
+msgstr "Plánování projektu se nezdařilo"
 
 #: PlanTJScheduler.cpp:1241
 #, kde-format
@@ -244,3 +252,5 @@ msgid ""
 "Appointment with load (%1) less than available resource units (%2) not "
 "supported"
 msgstr ""
+"Není podporováno přiřazení s náplní (%1) menší než počet dostupných jednotek "
+"(%2)"
