@@ -33,6 +33,7 @@
   <summary xml:lang="ar">معالج حزمة العمل</summary>
   <summary xml:lang="ca">Gestor de paquets de feina</summary>
   <summary xml:lang="ca-valencia">Gestor de paquets de faena</summary>
+  <summary xml:lang="cs">Správce pracovních balíčků</summary>
   <summary xml:lang="en-GB">Work Package Handler</summary>
   <summary xml:lang="eo">Laborpakaĵa Pritraktilo</summary>
   <summary xml:lang="es">Gestor de paquetes de Work</summary>
@@ -60,6 +61,7 @@
     <p xml:lang="ar">يتيح العمل للمُخطِط لأعضاء المشروع التعامل مع جميع المهام التي سيقومون بها عبر المشاريع.</p>
     <p xml:lang="ca">El Plan Work permet que els membres del projecte gestionin totes les tasques que han de dur a terme a través dels projectes.</p>
     <p xml:lang="ca-valencia">Plan Work permet que els membres del projecte gestionen totes les tasques que han de dur a terme a través dels projectes.</p>
+    <p xml:lang="cs">Plán práce umožňuje členům projektového týmu spravovat všechny úkoly, na kterých mají v rámci jednotlivých projektů pracovat.</p>
     <p xml:lang="en-GB">Plan Work enables project members to handle all tasks they shall work on across projects.</p>
     <p xml:lang="eo">Plan Work ebligas al projektanoj pritrakti ĉiujn taskojn, pri kiuj ili laboru trans projektoj.</p>
     <p xml:lang="es">Plan Work permite que los miembros de un proyecto gestionen todas las tareas en las que deben trabajar en proyectos cruzados.</p>
