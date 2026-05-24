@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-15 00:45+0000\n"
+"POT-Creation-Date: 2026-05-24 00:44+0000\n"
 "PO-Revision-Date: 2009-08-20 10:18+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -528,55 +528,55 @@ msgstr "On n' sait ataker l' pordjet pus tård kel date/eure: %1"
 msgid "Calculation took: %1"
 msgstr ""
 
-#: kernel/kptproject.cpp:871
+#: kernel/kptproject.cpp:855
 #, fuzzy, kde-format
 #| msgid "Schedule tasks forward"
 msgid "Start calculating forward"
 msgstr "Programer bouyes en avant"
 
-#: kernel/kptproject.cpp:932
+#: kernel/kptproject.cpp:902
 #, fuzzy, kde-format
 #| msgid "Early finish calculated: %1"
 msgid "Finished calculating forward: %1 ms"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kptproject.cpp:950
+#: kernel/kptproject.cpp:920
 #, fuzzy, kde-format
 #| msgid "Schedule tasks backward"
 msgid "Start calculating backward"
 msgstr "Programer en erî les bouyes"
 
-#: kernel/kptproject.cpp:1007
+#: kernel/kptproject.cpp:967
 #, fuzzy, kde-format
 #| msgid "Early finish calculated: %1"
 msgid "Finished calculating backward: %1 ms"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kptproject.cpp:1023
+#: kernel/kptproject.cpp:983
 #, fuzzy, kde-format
 #| msgid "Schedule tasks forward"
 msgid "Start scheduling forward"
 msgstr "Programer bouyes en avant"
 
-#: kernel/kptproject.cpp:1057
+#: kernel/kptproject.cpp:1005
 #, fuzzy, kde-format
 #| msgid "Early finish calculated: %1"
 msgid "Finished scheduling forward: %1 ms"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kptproject.cpp:1077
+#: kernel/kptproject.cpp:1025
 #, fuzzy, kde-format
 #| msgid "Schedule tasks backward"
 msgid "Start scheduling backward"
 msgstr "Programer en erî les bouyes"
 
-#: kernel/kptproject.cpp:1098
+#: kernel/kptproject.cpp:1046
 #, fuzzy, kde-format
 #| msgid "Early finish calculated: %1"
 msgid "Finished scheduling backward: %1 ms"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kptproject.cpp:2785
+#: kernel/kptproject.cpp:2733
 #, fuzzy, kde-format
 msgid "Plan"
 msgstr "Parint"
@@ -666,112 +666,112 @@ msgstr "Pordjet"
 msgid "Baselined"
 msgstr "Referince"
 
-#: kernel/kpttask.cpp:1109
+#: kernel/kpttask.cpp:1106
 #, kde-format
 msgid "Calculate early finish "
 msgstr "Cårculer finixhaedje timpe"
 
-#: kernel/kpttask.cpp:1147 kernel/kpttask.cpp:1165 kernel/kpttask.cpp:1182
-#: kernel/kpttask.cpp:1205 kernel/kpttask.cpp:1231 kernel/kpttask.cpp:1238
-#: kernel/kpttask.cpp:1248 kernel/kpttask.cpp:1421 kernel/kpttask.cpp:1444
-#: kernel/kpttask.cpp:1459 kernel/kpttask.cpp:1482 kernel/kpttask.cpp:1491
-#: kernel/kpttask.cpp:1500 kernel/kpttask.cpp:1508
+#: kernel/kpttask.cpp:1144 kernel/kpttask.cpp:1162 kernel/kpttask.cpp:1179
+#: kernel/kpttask.cpp:1202 kernel/kpttask.cpp:1228 kernel/kpttask.cpp:1235
+#: kernel/kpttask.cpp:1245 kernel/kpttask.cpp:1418 kernel/kpttask.cpp:1441
+#: kernel/kpttask.cpp:1456 kernel/kpttask.cpp:1479 kernel/kpttask.cpp:1488
+#: kernel/kpttask.cpp:1497 kernel/kpttask.cpp:1505
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint"
 msgstr "%1: Li passaedje do stronna a fwait berwete"
 
-#: kernel/kpttask.cpp:1277 kernel/kpttask.cpp:1530 kernel/kpttask.cpp:1933
-#: kernel/kpttask.cpp:2315
+#: kernel/kpttask.cpp:1274 kernel/kpttask.cpp:1527 kernel/kpttask.cpp:1927
+#: kernel/kpttask.cpp:2306
 #, kde-format
 msgid "Resource %1 booked from %2 to %3"
 msgstr "Rissource %1 rezervé di %2 a %3"
 
-#: kernel/kpttask.cpp:1283
+#: kernel/kpttask.cpp:1280
 #, kde-format
 msgid "Early finish calculated: %1"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kpttask.cpp:1383
+#: kernel/kpttask.cpp:1380
 #, fuzzy, kde-format
 msgid "Calculate late start"
 msgstr "Cårculer"
 
-#: kernel/kpttask.cpp:1536
+#: kernel/kpttask.cpp:1533
 #, kde-format
 msgid "Late start calculated: %1"
 msgstr "Tård cominçmint cårculé: %1"
 
-#: kernel/kpttask.cpp:1633
+#: kernel/kpttask.cpp:1627
 #, fuzzy, kde-format
 #| msgid "Schedule project forward from: %1"
 msgid "Start schedule forward: %1 "
 msgstr "Programer en avant li pordjet di: %1"
 
-#: kernel/kpttask.cpp:1635
+#: kernel/kpttask.cpp:1629
 #, kde-format
 msgid "Schedule from start %1"
 msgstr "Programer a pårti do cominçmint %1"
 
-#: kernel/kpttask.cpp:1682
+#: kernel/kpttask.cpp:1676
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
 
-#: kernel/kpttask.cpp:1717 kernel/kpttask.cpp:1741 kernel/kpttask.cpp:1767
-#: kernel/kpttask.cpp:1791 kernel/kpttask.cpp:1809 kernel/kpttask.cpp:1880
-#: kernel/kpttask.cpp:1897 kernel/kpttask.cpp:1909 kernel/kpttask.cpp:2123
-#: kernel/kpttask.cpp:2142 kernel/kpttask.cpp:2164 kernel/kpttask.cpp:2180
-#: kernel/kpttask.cpp:2199 kernel/kpttask.cpp:2263 kernel/kpttask.cpp:2276
-#: kernel/kpttask.cpp:2293
+#: kernel/kpttask.cpp:1711 kernel/kpttask.cpp:1735 kernel/kpttask.cpp:1761
+#: kernel/kpttask.cpp:1785 kernel/kpttask.cpp:1803 kernel/kpttask.cpp:1874
+#: kernel/kpttask.cpp:1891 kernel/kpttask.cpp:1903 kernel/kpttask.cpp:2114
+#: kernel/kpttask.cpp:2133 kernel/kpttask.cpp:2155 kernel/kpttask.cpp:2171
+#: kernel/kpttask.cpp:2190 kernel/kpttask.cpp:2254 kernel/kpttask.cpp:2267
+#: kernel/kpttask.cpp:2284
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
 msgstr "%1: Li passaedje do stronna a fwait berwete. Flotant negatif=%2"
 
-#: kernel/kpttask.cpp:1833 kernel/kpttask.cpp:2221
+#: kernel/kpttask.cpp:1827 kernel/kpttask.cpp:2212
 #, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
 msgstr ""
 
-#: kernel/kpttask.cpp:1841 kernel/kpttask.cpp:2229
+#: kernel/kpttask.cpp:1835 kernel/kpttask.cpp:2220
 #, kde-format
 msgid "Effort not met. Estimate: %1, scheduled: %2"
 msgstr ""
 
-#: kernel/kpttask.cpp:1929 kernel/kpttask.cpp:2311
+#: kernel/kpttask.cpp:1923 kernel/kpttask.cpp:2302
 #, kde-format
 msgid "Failed to schedule within project target time"
 msgstr "Li programaedje do pordjet divant l' date/eure såme a fwait berwete"
 
-#: kernel/kpttask.cpp:1936 kernel/kpttask.cpp:2318
+#: kernel/kpttask.cpp:1930 kernel/kpttask.cpp:2309
 #, kde-format
 msgid "Starting earlier than early start"
 msgstr "Cominçmint pus timpe kel timpe cominçmint"
 
-#: kernel/kpttask.cpp:1939 kernel/kpttask.cpp:2321
+#: kernel/kpttask.cpp:1933 kernel/kpttask.cpp:2312
 #, kde-format
 msgid "Finishing later than late finish"
 msgstr "Finixhaedje pus tård kel tårdfinixhaedje"
 
-#: kernel/kpttask.cpp:1941 kernel/kpttask.cpp:2323
+#: kernel/kpttask.cpp:1935 kernel/kpttask.cpp:2314
 #, fuzzy, kde-format
 msgid "Scheduled: %1 to %2"
 msgstr "Programaedje:"
 
-#: kernel/kpttask.cpp:1944
+#: kernel/kpttask.cpp:1938
 #, fuzzy, kde-format
 #| msgid "Early finish calculated: %1"
 msgid "Finished schedule forward: %1 ms"
 msgstr "Timpe finixhaedje cårculé: %1"
 
-#: kernel/kpttask.cpp:2042
+#: kernel/kpttask.cpp:2033
 #, fuzzy, kde-format
 #| msgid "Schedule from start %1"
 msgid "Schedule from end time: %1"
 msgstr "Programer a pårti do cominçmint %1"
 
-#: kernel/kpttask.cpp:2066
+#: kernel/kpttask.cpp:2057
 #, fuzzy, kde-format
 #| msgctxt "1=type of constraint"
 #| msgid "%1: Failed to schedule within late finish. Negative float=%2"
@@ -781,7 +781,7 @@ msgstr ""
 "%1: Li programaedje divant l' tård finixhaedje a fwait berwete. Flotant "
 "negatif=%2"
 
-#: kernel/kpttask.cpp:2072
+#: kernel/kpttask.cpp:2063
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
@@ -789,7 +789,7 @@ msgstr ""
 "%1: Li programaedje divant l' tins d' enondaedje do ci d' après a fwait "
 "berwete"
 
-#: kernel/kpttask.cpp:2099 kernel/kpttask.cpp:2237
+#: kernel/kpttask.cpp:2090 kernel/kpttask.cpp:2228
 #, fuzzy, kde-format
 #| msgctxt "1=type of constraint"
 #| msgid "%1: Failed to schedule after early start. Negative float=%2"
@@ -799,13 +799,13 @@ msgstr ""
 "%1: Li programaedje après l' timpe cominçmint a fwait berwete. Flotant "
 "negatif=%2 "
 
-#: kernel/kpttask.cpp:2394
+#: kernel/kpttask.cpp:2385
 #, fuzzy, kde-format
 #| msgid "No resource allocated"
 msgid "No resource has been allocated"
 msgstr "Nole rissource acoirdêye"
 
-#: kernel/kpttask.cpp:2559
+#: kernel/kpttask.cpp:2550
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
 msgstr ""
@@ -838,48 +838,48 @@ msgstr "Lete, grandès letes"
 msgid "Letter, lower case"
 msgstr "Lete, pititès letes"
 
-#: kernel/Resource.cpp:194
+#: kernel/Resource.cpp:200
 #, fuzzy, kde-kuit-format
 #| msgid "Work"
 msgctxt "@item:inlistbox resource type"
 msgid "Work"
 msgstr "Ovraedje"
 
-#: kernel/Resource.cpp:195
+#: kernel/Resource.cpp:201
 #, fuzzy, kde-kuit-format
 #| msgid "Material"
 msgctxt "@item:inlistbox resource type"
 msgid "Material"
 msgstr "Haerna"
 
-#: kernel/Resource.cpp:196
+#: kernel/Resource.cpp:202
 #, kde-kuit-format
 msgctxt "@item:inlistbox resource type"
 msgid "Team"
 msgstr ""
 
-#: kernel/Resource.cpp:577
+#: kernel/Resource.cpp:583
 #, kde-format
 msgid "Make appointments: Invalid time"
 msgstr "Fé des radjoûs: date/eure nén valåbe"
 
-#: kernel/Resource.cpp:582 kernel/Resource.cpp:643 kernel/Resource.cpp:893
-#: kernel/Resource.cpp:968
+#: kernel/Resource.cpp:588 kernel/Resource.cpp:649 kernel/Resource.cpp:899
+#: kernel/Resource.cpp:974
 #, kde-format
 msgid "Resource %1 has no calendar defined"
 msgstr "Li rsource %1 n' a pont d' calindrî defini"
 
-#: kernel/Resource.cpp:606
+#: kernel/Resource.cpp:612
 #, kde-format
 msgid "Make appointments: Node start time is not valid"
 msgstr "Fé des radjoûs: li date di cominçmint do nuk n' est nén valåbe"
 
-#: kernel/Resource.cpp:610
+#: kernel/Resource.cpp:616
 #, kde-format
 msgid "Make appointments: Node end time is not valid"
 msgstr "Fé des radjoûs: li date di dfén do nuk n' est nén valåbe"
 
-#: kernel/Resource.cpp:657 kernel/Resource.cpp:674
+#: kernel/Resource.cpp:663 kernel/Resource.cpp:680
 #, kde-format
 msgid "Resource %1 not available in interval: %2 to %3"
 msgstr "Rissource %1 nén disponibe inte %2 et %3"
