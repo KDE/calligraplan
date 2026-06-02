@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: plan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2013-09-08 07:04+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-29 17:14-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -45,7 +46,7 @@ msgstr "قۇرۇلۇش(&P)"
 #: calligraplan.rc:52
 #, kde-format
 msgid "&Tools"
-msgstr "قوراللار(&T)"
+msgstr "قورال(&T)"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplan.rc:58 calligraplan_shell.rc:12
@@ -61,17 +62,15 @@ msgstr "ياردەم(&H)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: calligraplan.rc:66
-#, fuzzy, kde-format
-#| msgid "&File"
+#, kde-format
 msgid "File"
-msgstr "ھۆججەت(&F)"
+msgstr "ھۆججەت"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: calligraplan.rc:72
-#, fuzzy, kde-format
-#| msgid "&Edit"
+#, kde-format
 msgid "Edit"
-msgstr "تەھرىر(&E)"
+msgstr "تەھرىر"
 
 #. i18n: ectx: label, entry (HoursPrYear), group (EstimateConversion)
 #: calligraplansettings.kcfg:9
@@ -121,7 +120,7 @@ msgstr ""
 #: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "ھەمىشە"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
@@ -242,33 +241,27 @@ msgstr ""
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
-#, fuzzy, kde-format
-#| msgid "Modify project name"
+#, kde-format
 msgid "Name of project manager"
-msgstr "قۇرۇلۇش ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgid "Use shared resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
 #: calligraplansettings.kcfg:168
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgid "File to contain shared resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
 #: calligraplansettings.kcfg:171
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Project description"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #. i18n: ectx: label, entry (Leader), group (Task defaults)
 #: calligraplansettings.kcfg:176
@@ -278,10 +271,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
 #: calligraplansettings.kcfg:179
-#, fuzzy, kde-format
-#| msgid "Delete Task"
+#, kde-format
 msgid "Scheduling constraint type"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: label, entry (StartTimeUsage), group (Task defaults)
 #: calligraplansettings.kcfg:192
@@ -291,10 +283,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ConstraintStartTime), group (Task defaults)
 #: calligraplansettings.kcfg:201
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint start date and time"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: label, entry (EndTimeUsage), group (Task defaults)
 #: calligraplansettings.kcfg:204
@@ -304,10 +295,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ConstraintEndTime), group (Task defaults)
 #: calligraplansettings.kcfg:213
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint end date and time"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: label, entry (EstimateType), group (Task defaults)
 #: calligraplansettings.kcfg:217
@@ -323,23 +313,21 @@ msgstr ""
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "Estimate"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "خەتەرلىكلىكى"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
-#, fuzzy, kde-format
-#| msgid "Pessimistic estimate"
+#, kde-format
 msgid "Optimistic estimate"
-msgstr "چۈشكۈن مۆلچەر"
+msgstr ""
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:256
@@ -349,10 +337,9 @@ msgstr "چۈشكۈن مۆلچەر"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
 #: calligraplansettings.kcfg:261
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Task description"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #. i18n: ectx: label, entry (ColorGradientType), group (TaskColors)
 #: calligraplansettings.kcfg:267
@@ -506,10 +493,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Path to the documentation"
-msgstr "ۋاقتى"
+msgstr ""
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: calligraplansettings.kcfg:370
@@ -561,11 +547,9 @@ msgid "Create a backup file"
 msgstr ""
 
 #: config/ConfigDialog.cpp:36
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Project Defaults"
-msgstr "كۆڭۈلدىكى:"
+msgstr ""
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
@@ -573,48 +557,40 @@ msgid "Work & Vacation"
 msgstr ""
 
 #: config/ConfigDialog.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Task Defaults"
-msgstr "كۆڭۈلدىكى:"
+msgstr ""
 
 #: config/ConfigDialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Colors"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #: config/ConfigDialog.cpp:41
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Modules"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #: config/ConfigDialog.cpp:45
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgid "Work Package"
-msgstr "ئىش بوغچىسى: %1"
+msgstr ""
 
 #: config/ConfigDialog.cpp:48
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Project Templates"
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr "قۇرۇلۇش قېلىپلىرى"
 
 #: config/ConfigDialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Report Templates"
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #: config/ConfigDialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr "ۋاقتى"
+msgstr "پۈتۈك"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
@@ -623,20 +599,16 @@ msgid "The project manager of this project."
 msgstr ""
 
 #: config/ConfigProjectPanel.cpp:39
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: config/ConfigProjectPanel.cpp:42
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -646,34 +618,27 @@ msgstr "ئادەتتىكى"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #: config/ConfigProjectPanel.ui:44
-#, fuzzy, kde-format
-#| msgid "Choose..."
+#, kde-format
 msgid "Browse..."
-msgstr "تاللا…"
+msgstr "كۆز يۈگۈرت…"
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgid "Shared resource file:"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:67
-#, fuzzy, kde-format
-#| msgctxt "Project manager"
-#| msgid "Manager:"
+#, kde-format
 msgid "&Manager:"
-msgstr "باشقۇرغۇچى:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgid "Use shared resources:"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
@@ -683,38 +648,32 @@ msgid "Description"
 msgstr "چۈشەندۈرۈش"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Project Templates Path"
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:17
 #: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Insert View"
-#| msgid "Insert..."
+#, kde-format
 msgid "Insert"
-msgstr "قىستۇر…"
+msgstr "قىستۇر"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
 #: config/ConfigProjectTemplatesPanel.ui:41
 #: config/ConfigReportTemplatesPanel.ui:41 config/ConfigTaskModulesPanel.ui:48
 #: SharedResourcesDialog.cpp:248
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu remove view"
-#| msgid "Remove"
+#, kde-format
 msgid "Remove"
 msgstr "چىقىرىۋەت"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Modules Path"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
@@ -723,11 +682,9 @@ msgid "Use local task modules"
 msgstr ""
 
 #: config/ConfigWorkVacationPanel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@label:chooser"
-#| msgid "Default:"
+#, kde-format
 msgid "Default"
-msgstr "كۆڭۈلدىكى:"
+msgstr "كۆڭۈلدىكى"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
@@ -765,14 +722,14 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr ""
+msgstr "ھەپتە"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "دەم ئېلىش كۈنى"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
@@ -955,11 +912,10 @@ msgstr "خاتالىق:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: config/kptcolorsconfigpanel.ui:373
-#, fuzzy, kde-format
-#| msgid "Modify task name"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Milestone"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
@@ -993,41 +949,36 @@ msgstr "ۋاقتى"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: config/kptconfigtaskpanelbase.ui:110
-#, fuzzy, kde-format
-#| msgid "Pessimistic estimate"
+#, kde-format
 msgid "Pessimistic estimate:"
-msgstr "چۈشكۈن مۆلچەر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: config/kptconfigtaskpanelbase.ui:132
-#, fuzzy, kde-format
-#| msgid "Pessimistic estimate"
+#, kde-format
 msgid "Optimistic estimate:"
-msgstr "چۈشكۈن مۆلچەر"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:155 config/kptconfigtaskpanelbase.ui:331
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current date and time"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current date, specified time"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Specified date and time"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
 #: config/kptconfigtaskpanelbase.ui:186
@@ -1037,10 +988,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
 #: config/kptconfigtaskpanelbase.ui:208
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint Start time usage:"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
@@ -1051,24 +1001,21 @@ msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
 #: config/kptconfigtaskpanelbase.ui:257
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint End time usage:"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
 #: config/kptconfigtaskpanelbase.ui:279
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "Expected estimate:"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #: config/kptconfigtaskpanelbase.ui:301
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint start time:"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:356
@@ -1086,13 +1033,13 @@ msgstr "ئامال بار كېيىن"
 #: config/kptconfigtaskpanelbase.ui:366
 #, kde-format
 msgid "Must Start On"
-msgstr "بۇ كۈنى چوقۇم باشلانسۇن"
+msgstr "چوقۇم باشلىنىشى"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:371
 #, kde-format
 msgid "Must Finish On"
-msgstr "بۇ كۈنى چوقۇم تاماملانسۇن"
+msgstr "چوقۇم تاماملىنىشى"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:376
@@ -1110,14 +1057,13 @@ msgstr "بۇنىڭدىن بۇرۇن تاماملاش"
 #: config/kptconfigtaskpanelbase.ui:386
 #, kde-format
 msgid "Fixed Interval"
-msgstr "مۇقىم ئىنتېرۋال"
+msgstr "مۇقىم ئېنتېرۋال"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
 #: config/kptconfigtaskpanelbase.ui:400
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Constraint end time:"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, chooseLeader)
 #: config/kptconfigtaskpanelbase.ui:458
@@ -1139,10 +1085,9 @@ msgstr "تاللا…"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: config/kptconfigtaskpanelbase.ui:482
-#, fuzzy, kde-format
-#| msgid "Delete Task"
+#, kde-format
 msgid "Scheduling constraint:"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptconfigtaskpanelbase.ui:498
@@ -1154,19 +1099,19 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "يوق"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "تۆۋەن"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "يۇقىرى"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
@@ -1190,7 +1135,7 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:47
 #, kde-format
 msgid "Archive"
-msgstr ""
+msgstr "ئارخىپ"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
 #: config/kptworkpackageconfigpanel.ui:53
@@ -1214,7 +1159,7 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "ئېلان قىلىش"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
@@ -1226,7 +1171,7 @@ msgstr ""
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "سۆزلەشكۈ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
@@ -1236,11 +1181,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu rename view"
-#| msgid "Rename"
+#, kde-format
 msgid "File name:"
-msgstr "ئات ئۆزگەرت"
+msgstr "ھۆججەت ئىسمى:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
@@ -1262,10 +1205,9 @@ msgid "Continue"
 msgstr "داۋاملاشتۇر"
 
 #: KPlatoXmlLoader.cpp:58
-#, fuzzy, kde-format
-#| msgid "File-Format Mismatch"
+#, kde-format
 msgid "File-Format Error"
-msgstr "ھۆججەت پىچىمى ماسلاشمىدى"
+msgstr ""
 
 #: KPlatoXmlLoader.cpp:67
 #, kde-format
@@ -1294,7 +1236,7 @@ msgstr ""
 #, kde-format
 msgctxt "application name"
 msgid "Plan"
-msgstr "Plan"
+msgstr ""
 
 #: kptaboutdata.h:26
 #, kde-format
@@ -1309,7 +1251,7 @@ msgstr ""
 #: kptaboutdata.h:32
 #, kde-format
 msgid "Dag Andersen"
-msgstr "Dag Andersen"
+msgstr ""
 
 #: kptaboutdata.h:33
 #, kde-format
@@ -1324,28 +1266,26 @@ msgstr "Bo Thorsen"
 #: kptaboutdata.h:35
 #, kde-format
 msgid "Raphael Langerhorst"
-msgstr "Raphael Langerhorst"
+msgstr ""
 
 #. i18n translator strings
 #: kptaboutdata.h:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #: kptaboutdata.h:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: kptbuiltinschedulerplugin.cpp:29
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Not scheduled"
+#, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
-msgstr "پىلانلانمىغان"
+msgstr ""
 
 #: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
@@ -1370,10 +1310,9 @@ msgid ""
 msgstr ""
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Delete Task"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
@@ -1381,10 +1320,9 @@ msgid "Recalculating from: %1"
 msgstr ""
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedules"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
@@ -1403,17 +1341,15 @@ msgstr "ھۆججەت قىستۇر"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kptinsertfilepanel.ui:40
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Current node:"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
 #: kptinsertfilepanel.ui:68
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert on top level"
-msgstr "ھۆججەت قىستۇر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
 #: kptinsertfilepanel.ui:75
@@ -1430,13 +1366,12 @@ msgstr ""
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
+msgstr "ئىناۋەتسىز پۈتۈك. mime تۈرى كۆرسىتىلمىگەن."
 
 #: kptmaindocument.cpp:364
-#, fuzzy, kde-format
-#| msgid "Invalid document. No mimetype specified."
+#, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
-msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
+msgstr ""
 
 #: kptmaindocument.cpp:373
 #, kde-format
@@ -1451,10 +1386,9 @@ msgid "Failed to save to temporary file. No resource has been specified"
 msgstr ""
 
 #: kptmaindocument.cpp:474
-#, fuzzy, kde-format
-#| msgid "Failed to open temporary file"
+#, kde-format
 msgid "Failed to open work package file"
-msgstr "ۋاقىتلىق ھۆججەتنى ئاچالمىدى"
+msgstr ""
 
 #: kptmaindocument.cpp:481
 #, kde-kuit-format
@@ -1470,7 +1404,7 @@ msgstr ""
 #: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "‹%1› غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
+msgstr "«%1» غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
 
 #: kptmaindocument.cpp:592
 #, kde-format
@@ -1478,10 +1412,9 @@ msgid "Saving..."
 msgstr "ساقلاۋاتىدۇ…"
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid "Invalid document. No mimetype specified."
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
+msgstr ""
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1505,19 +1438,15 @@ msgid ""
 msgstr ""
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: kptmaindocument.cpp:1365
-#, fuzzy
-#| msgid "Insert File"
 msgctxt "(qtundo-format)"
 msgid "Insert project"
-msgstr "ھۆججەت قىستۇر"
+msgstr ""
 
 #: kptmaindocument.cpp:1450
 #, kde-format
@@ -1525,10 +1454,9 @@ msgid "Group: %1"
 msgstr ""
 
 #: kptmaindocument.cpp:1457
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource: %1"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: kptmaindocument.cpp:1462
 #, kde-format
@@ -1536,56 +1464,46 @@ msgid "Calendar: %1"
 msgstr ""
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "قۇرۇلۇش:"
+msgstr "قۇرۇلۇش: %1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "ئاساسى"
 
 #: kptpart.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu configure view"
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure Plan..."
-msgstr "سەپلە…"
+msgstr ""
 
 #: kptschedulesdocker.cpp:26
-#, fuzzy, kde-format
-#| msgid "Schedules"
+#, kde-format
 msgid "Schedule Selector"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: kptview.cpp:186
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Create Project Template..."
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #: kptview.cpp:190
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Create New Project..."
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #: kptview.cpp:202
-#, fuzzy, kde-format
-#| msgid "Schedules"
+#, kde-format
 msgid "Show Selector"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: kptview.cpp:209 kptview.cpp:250
 #, kde-format
@@ -1608,23 +1526,19 @@ msgid "Define Currency..."
 msgstr ""
 
 #: kptview.cpp:225
-#, fuzzy, kde-format
-#| msgid "Description..."
+#, kde-format
 msgid "Edit Description..."
-msgstr "چۈشەندۈرۈش…"
+msgstr ""
 
 #: kptview.cpp:230
-#, fuzzy, kde-format
-#| msgid "Insert File"
+#, kde-format
 msgid "Insert Project File..."
-msgstr "ھۆججەت قىستۇر"
+msgstr ""
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:239
 #, kde-format
@@ -1632,23 +1546,20 @@ msgid "Open Report Definition File..."
 msgstr ""
 
 #: kptview.cpp:244
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgid "Create Report Template..."
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #: kptview.cpp:260
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgid "Work Packages..."
-msgstr "ئىش بوغچىسى: %1"
+msgstr ""
 
 #: kptview.cpp:261
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr "ئىش بوغچىسى: %1"
+msgstr ""
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1661,28 +1572,24 @@ msgid ""
 msgstr ""
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Delete Task"
+#, kde-format
 msgid "Edit task scheduling constraints"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Task Constraints"
-msgstr "چەكلىمىلەر"
+msgstr ""
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgid "Delete Task"
+#, kde-format
 msgid "Edit task cost"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Cost"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #: kptview.cpp:551
 #, kde-format
@@ -1690,10 +1597,9 @@ msgid "Generate reports"
 msgstr ""
 
 #: kptview.cpp:557 kptview.cpp:2461
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Status Report"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #: kptview.cpp:639
 #, kde-kuit-format
@@ -1702,30 +1608,26 @@ msgid "Edit working- and vacation days for resources"
 msgstr ""
 
 #: kptview.cpp:641
-#, fuzzy, kde-format
-#| msgid "Cost Breakdown"
+#, kde-format
 msgid "Cost Breakdown Structure"
-msgstr "تەننەرخىنى تۆۋەنلىتىش"
+msgstr ""
 
 #: kptview.cpp:642
-#, fuzzy, kde-kuit-format
-#| msgid "Cost Breakdown"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
-msgstr "تەننەرخىنى تۆۋەنلىتىش"
+msgstr ""
 
 #: kptview.cpp:644
-#, fuzzy, kde-format
-#| msgid "Cost Breakdown"
+#, kde-format
 msgid "Resource Breakdown Structure"
-msgstr "تەننەرخىنى تۆۋەنلىتىش"
+msgstr ""
 
 #: kptview.cpp:645
-#, fuzzy, kde-kuit-format
-#| msgid "Cost Breakdown"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr "تەننەرخىنى تۆۋەنلىتىش"
+msgstr ""
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
@@ -1733,24 +1635,21 @@ msgid "Resources"
 msgstr "مەنبەلەر"
 
 #: kptview.cpp:648
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:650
 #, kde-format
 msgid "Tasks"
-msgstr "ۋەزىپىلەر"
+msgstr "ۋەزىپە"
 
 #: kptview.cpp:651
-#, fuzzy, kde-kuit-format
-#| msgid "Cost Breakdown"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
-msgstr "تەننەرخىنى تۆۋەنلىتىش"
+msgstr ""
 
 #: kptview.cpp:653
 #, kde-format
@@ -1758,11 +1657,10 @@ msgid "Dependencies (Graphic)"
 msgstr ""
 
 #: kptview.cpp:654 kptview.cpp:657
-#, fuzzy, kde-kuit-format
-#| msgid "Delete Task"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
-msgstr "ۋەزىپە ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:656
 #, kde-format
@@ -1792,10 +1690,9 @@ msgid "View project status information"
 msgstr ""
 
 #: kptview.cpp:668 kptviewlistdialog.cpp:101
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Task Status"
-msgstr "ۋەزىپىلەر"
+msgstr ""
 
 #: kptview.cpp:669
 #, kde-kuit-format
@@ -1804,11 +1701,9 @@ msgid "View task progress information"
 msgstr ""
 
 #: kptview.cpp:671
-#, fuzzy, kde-format
-#| msgctxt "Project execution views"
-#| msgid "Execution"
+#, kde-format
 msgid "Task Execution"
-msgstr "ئىجرا قىلىش"
+msgstr ""
 
 #: kptview.cpp:672
 #, kde-kuit-format
@@ -1817,10 +1712,9 @@ msgid "View task execution information"
 msgstr ""
 
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgid "Work Package View"
-msgstr "ئىش بوغچىسى: %1"
+msgstr ""
 
 #: kptview.cpp:675
 #, kde-kuit-format
@@ -1840,17 +1734,15 @@ msgid "View Gantt chart"
 msgstr ""
 
 #: kptview.cpp:680
-#, fuzzy, kde-format
-#| msgid "Modify task name"
+#, kde-format
 msgid "Milestone Gantt"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #: kptview.cpp:681
-#, fuzzy, kde-kuit-format
-#| msgid "Modify task name"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
@@ -1858,30 +1750,26 @@ msgid "Resource Assignments"
 msgstr "مەنبە تەقسىملەش"
 
 #: kptview.cpp:684
-#, fuzzy, kde-kuit-format
-#| msgid "Resource Assignments"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
-msgstr "مەنبە تەقسىملەش"
+msgstr ""
 
 #: kptview.cpp:686 kptviewlistdialog.cpp:107
-#, fuzzy, kde-format
-#| msgid "Resource Assignments"
+#, kde-format
 msgid "Resource Assignments (Gantt)"
-msgstr "مەنبە تەقسىملەش"
+msgstr ""
 
 #: kptview.cpp:687
-#, fuzzy, kde-kuit-format
-#| msgid "Resource Assignments"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr "مەنبە تەقسىملەش"
+msgstr ""
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource Coverage"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: kptview.cpp:690
 #, kde-kuit-format
@@ -1942,7 +1830,7 @@ msgstr "تەھرىرلىگۈچ"
 #: kptview.cpp:715
 #, kde-format
 msgid "Views"
-msgstr "كۆرۈنۈشلەر"
+msgstr "كۆرۈنۈش"
 
 #: kptview.cpp:717
 #, kde-format
@@ -1961,19 +1849,16 @@ msgid "The file '%1' already exists, do you want to overwrite it?"
 msgstr ""
 
 #: kptview.cpp:1482
-#, fuzzy, kde-format
-#| msgid "&Create Template From Document..."
+#, kde-format
 msgctxt "@window:title"
 msgid "Report Template"
-msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
+msgstr ""
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resource"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "مەنبەنى ئۆچۈر"
+msgstr ""
 
 #: kptview.cpp:1824
 #, kde-kuit-format
@@ -1989,36 +1874,26 @@ msgid "Cannot open file:<br/><filename>%1</filename>"
 msgstr ""
 
 #: kptview.cpp:2152
-#, fuzzy
-#| msgid "Modify name"
 msgctxt "(qtundo-format)"
 msgid "Modify name"
 msgstr "ئاتىنى ئۆزگەرت"
 
 #: kptview.cpp:2154
-#, fuzzy
-#| msgid "Modify task name"
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
 msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
 
 #: kptview.cpp:2155
-#, fuzzy
-#| msgid "Modify task name"
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #: kptview.cpp:2156
-#, fuzzy
-#| msgid "Modify task name"
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #: kptview.cpp:2157
-#, fuzzy
-#| msgid "Modify project name"
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
 msgstr "قۇرۇلۇش ئاتىنى ئۆزگەرت"
@@ -2030,10 +1905,9 @@ msgid "Not scheduled"
 msgstr "پىلانلانمىغان"
 
 #: kptview.cpp:2303
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgid "Work Package for project: %1"
-msgstr "ئىش بوغچىسى: %1"
+msgstr ""
 
 #: kptview.cpp:2459
 #, kde-format
@@ -2050,7 +1924,7 @@ msgstr "قۇرۇلۇش:"
 #, kde-format
 msgctxt "As in: Page 1 of 2"
 msgid "of"
-msgstr "نىڭ"
+msgstr "/"
 
 #: kptview.cpp:2463
 #, kde-format
@@ -2138,16 +2012,15 @@ msgstr "قىستۇر…"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The category of the view"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
 #, kde-format
 msgid "Category:"
-msgstr "تۈرى:"
+msgstr "سەھىپە:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
@@ -2164,10 +2037,9 @@ msgstr "داۋامى"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:72
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The type of view"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:75
@@ -2177,10 +2049,9 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
 #: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The name of the view"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
@@ -2192,18 +2063,16 @@ msgstr "ئاتى:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "The views description"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
 #: kptviewlisteditview.ui:97
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Description:"
-msgstr "چۈشەندۈرۈش"
+msgstr "چۈشەندۈرۈش:"
 
 #: kptviewlistdialog.cpp:29
 #, kde-kuit-format
@@ -2212,22 +2081,19 @@ msgid "Add View"
 msgstr "كۆرۈنۈش قوش"
 
 #: kptviewlistdialog.cpp:93
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource Group Editor"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: kptviewlistdialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource Editor"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: kptviewlistdialog.cpp:95
-#, fuzzy, kde-format
-#| msgid "Editors"
+#, kde-format
 msgid "Task Editor"
-msgstr "تەھرىرلىگۈچ"
+msgstr ""
 
 #: kptviewlistdialog.cpp:96
 #, kde-format
@@ -2235,10 +2101,9 @@ msgid "Work & Vacation Editor"
 msgstr ""
 
 #: kptviewlistdialog.cpp:97
-#, fuzzy, kde-format
-#| msgid "Editors"
+#, kde-format
 msgid "Accounts Editor"
-msgstr "تەھرىرلىگۈچ"
+msgstr ""
 
 #: kptviewlistdialog.cpp:98
 #, kde-format
@@ -2251,30 +2116,24 @@ msgid "Dependency Editor (List)"
 msgstr ""
 
 #: kptviewlistdialog.cpp:100
-#, fuzzy, kde-format
-#| msgid "Schedules"
+#, kde-format
 msgid "Schedule Handler"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: kptviewlistdialog.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Task"
+#, kde-format
 msgid "Task View"
-msgstr "ۋەزىپە"
+msgstr "ۋەزىپە كۆرۈنۈشى"
 
 #: kptviewlistdialog.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Task"
+#, kde-format
 msgid "Gantt View"
-msgstr "ۋەزىپە"
+msgstr ""
 
 #: kptviewlistdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Modify task name"
+#, kde-format
 msgid "Milestone Gantt View"
-msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
+msgstr ""
 
 #: kptviewlistdialog.cpp:112
 #, kde-format
@@ -2297,12 +2156,10 @@ msgid "Top"
 msgstr "ئۈستى"
 
 #: kptviewlistdialog.cpp:305
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:inmenu configure view"
-#| msgid "Configure..."
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Configure View"
-msgstr "سەپلە…"
+msgstr ""
 
 #: kptviewlistdialog.cpp:362
 #, kde-kuit-format
@@ -2315,19 +2172,16 @@ msgid ""
 msgstr ""
 
 #: kptviewlistdialog.cpp:431
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:inmenu configure view"
-#| msgid "Configure..."
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Configure Category"
-msgstr "سەپلە…"
+msgstr ""
 
 #: kptviewlistdialog.cpp:522
-#, fuzzy, kde-kuit-format
-#| msgid "Report"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add Report"
-msgstr "دوكلات"
+msgstr ""
 
 #: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
 #, kde-kuit-format
@@ -2336,11 +2190,10 @@ msgid "View Selector [modified]"
 msgstr ""
 
 #: kptviewlistdocker.cpp:62
-#, fuzzy, kde-kuit-format
-#| msgid "Schedules"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:22
@@ -2370,13 +2223,13 @@ msgstr "سىزىقلار"
 #: kptviewlistdocker.ui:42
 #, kde-format
 msgid "Characters incl. spaces"
-msgstr "بوشلۇقنى ئۆز ئىچىگە ئالغان ھەرپ سانى:"
+msgstr "بوشلۇقنى ئۆز ئىچىگە ئالغان ھەرپ سانى"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:47
 #, kde-format
 msgid "Characters without spaces"
-msgstr "بوشلۇقنى ئۆز ئىچىگە ئالمىغان ھەرپ سانى:"
+msgstr "بوشلۇقنى ئۆز ئىچىگە ئالمىغان ھەرپ سانى"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:52
@@ -2410,36 +2263,30 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlisteditcategory.ui:20
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The category is placed after this category"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlisteditcategory.ui:43
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The name of the category"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlisteditcategory.ui:59
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The description of the category"
-msgstr "مۆلچەر تىپى"
+msgstr ""
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "ۋاقتى"
+msgstr "مەشغۇلات"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ئاتى"
@@ -2447,7 +2294,7 @@ msgstr "ئاتى"
 #: SharedResourcesDialog.cpp:33
 #, kde-format
 msgid "Calendars"
-msgstr ""
+msgstr "يىلنامىلەر"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2466,12 +2313,12 @@ msgstr ""
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Convert"
-msgstr ""
+msgstr "CONVERT"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Keep"
-msgstr ""
+msgstr "ساقلاپ قال"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
@@ -2515,14 +2362,12 @@ msgstr ""
 msgid "Mark as: Keep"
 msgstr ""
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "@info:tooltip"
 #~ msgid "Convert shared resources to local"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "@info:tooltip"
@@ -2543,58 +2388,48 @@ msgstr ""
 #~ "%1\n"
 #~ "%2"
 
-#, fuzzy
 #~| msgid "Invalid document. No mimetype specified."
 #~ msgid ""
 #~ "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
 #~ "%1"
 #~ msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
 
-#, fuzzy
 #~| msgid "Duration"
 #~ msgid "Documentation"
 #~ msgstr "ۋاقتى"
 
-#, fuzzy
 #~| msgid "Duration"
 #~ msgid "Documentation:"
 #~ msgstr "ۋاقتى"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgid "Directory that contains projects that share resources"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgid "Shared projects:"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Resource Assignments"
 #~ msgctxt "@title:window"
 #~ msgid "Load Resource Assignments"
 #~ msgstr "مەنبە تەقسىملەش"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgid "Load Shared Projects..."
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Duration"
 #~ msgid "Open Document"
 #~ msgstr "ۋاقتى"
 
-#, fuzzy
 #~| msgid "Insert File"
 #~ msgid "New Project"
 #~ msgstr "ھۆججەت قىستۇر"
 
-#, fuzzy
 #~| msgid "&Create Template From Document..."
 #~ msgid "Open Project..."
 #~ msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
@@ -2605,37 +2440,30 @@ msgstr ""
 #~ msgid "Description..."
 #~ msgstr "چۈشەندۈرۈش…"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgid "Indent Task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgid "Unindent Task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Modify task name"
 #~ msgid "Move Task Up"
 #~ msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
 
-#, fuzzy
 #~| msgid "Modify task name"
 #~ msgid "Move Task Down"
 #~ msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
 
-#, fuzzy
 #~| msgid "Resources"
 #~ msgid "Edit Resource..."
 #~ msgstr "مەنبەلەر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgid "Delete Dependency"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Calculation"
 #~ msgctxt "(qtundo-format) @info:status 1=schedule name"
 #~ msgid "Calculate %1"
@@ -2645,84 +2473,71 @@ msgstr ""
 #~ msgid "Add schedule %1"
 #~ msgstr "كۈنتەرتىپ %1 نى قوش"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Add schedule %1"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Delete schedule %1"
 #~ msgstr "كۈنتەرتىپ %1 نى قوش"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Add schedule %1"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Move schedule %1"
 #~ msgstr "كۈنتەرتىپ %1 نى قوش"
 
-#, fuzzy
 #~| msgid "Modify task name"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Add milestone"
 #~ msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format) Delete one task"
 #~ msgid "Delete task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Delete task"
 #~ msgid_plural "Delete tasks"
 #~ msgstr[0] "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Indent task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Unindent task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Modify task name"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Move task down"
 #~ msgstr "ۋەزىپە ئاتىنى ئۆزگەرت"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Delete task dependency"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete resource"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "(qtundo-format) @action"
 #~ msgid "Delete resourcegroup"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "(qtundo-format)"
@@ -2730,7 +2545,6 @@ msgstr ""
 #~ msgid_plural "Delete resources"
 #~ msgstr[0] "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "(qtundo-format)"
@@ -2741,14 +2555,12 @@ msgstr ""
 #~ msgid "Plan"
 #~ msgstr "Plan"
 
-#, fuzzy
 #~| msgctxt "(qtundo-format)"
 #~| msgid "Delete resource"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Delete resourcegroups and resources"
 #~ msgstr "مەنبەنى ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Resources"
 #~ msgid "Resource groups"
 #~ msgstr "مەنبەلەر"
@@ -2768,542 +2580,454 @@ msgstr ""
 #~ msgid "&Create Template From Document..."
 #~ msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
 
-#, fuzzy
 #~| msgid "Gradient:"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Gradient:"
 #~ msgstr "گۈل نۇسخىسى:"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Default:"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Default:"
 #~ msgstr "كۆڭۈلدىكى:"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Level 1"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Level 1"
 #~ msgstr "دەرىجە 1"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Level 2"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Level 2"
 #~ msgstr "دەرىجە 2"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Level 3"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Level 3"
 #~ msgstr "دەرىجە 3"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Level 4"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Level 4"
 #~ msgstr "دەرىجە 4"
 
-#, fuzzy
 #~| msgctxt "@title:tab"
 #~| msgid "Task"
 #~ msgctxt "(qtundo-format) @title:tab"
 #~ msgid "Task"
 #~ msgstr "ۋەزىپە"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Normal:"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Normal:"
 #~ msgstr "نورمال:"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Finished:"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Finished:"
 #~ msgstr "تاماملاندى:"
 
-#, fuzzy
 #~| msgctxt "@label:chooser"
 #~| msgid "Error:"
 #~ msgctxt "(qtundo-format) @label:chooser"
 #~ msgid "Error:"
 #~ msgstr "خاتالىق:"
 
-#, fuzzy
 #~| msgid "Calculation"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Calculation"
 #~ msgstr "ھېسابلاش"
 
-#, fuzzy
 #~| msgid "Manual"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Manual"
 #~ msgstr "قولدا"
 
-#, fuzzy
 #~| msgid "Constraints"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Constraints"
 #~ msgstr "چەكلىمىلەر"
 
-#, fuzzy
 #~| msgid "General"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "General"
 #~ msgstr "ئادەتتىكى"
 
-#, fuzzy
 #~| msgid "Responsible:"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Responsible:"
 #~ msgstr "مەسئۇلى:"
 
-#, fuzzy
 #~| msgid "Insert a person from your address book"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Insert a person from your address book"
 #~ msgstr "ئادرېس دەپتىرىدىن قىستۇرۇڭ"
 
-#, fuzzy
 #~| msgid "Insert a person from your address book."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Insert a person from your address book."
 #~ msgstr "ئادرېس دەپتىرىدىن قىستۇرۇڭ."
 
-#, fuzzy
 #~| msgid "Choose..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Choose..."
 #~ msgstr "تاللا…"
 
-#, fuzzy
 #~| msgid "As Soon as Possible"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "As Soon as Possible"
 #~ msgstr "ئامال بار تېز"
 
-#, fuzzy
 #~| msgid "As Late as Possible"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "As Late as Possible"
 #~ msgstr "ئامال بار كېيىن"
 
-#, fuzzy
 #~| msgid "Must Start On"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Must Start On"
 #~ msgstr "بۇ كۈنى چوقۇم باشلانسۇن"
 
-#, fuzzy
 #~| msgid "Must Finish On"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Must Finish On"
 #~ msgstr "بۇ كۈنى چوقۇم تاماملانسۇن"
 
-#, fuzzy
 #~| msgid "Start Not Earlier Than"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Start Not Earlier Than"
 #~ msgstr "بۇنىڭدىن كېيىن باشلاش"
 
-#, fuzzy
 #~| msgid "Finish Not Later Than"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Finish Not Later Than"
 #~ msgstr "بۇنىڭدىن بۇرۇن تاماملاش"
 
-#, fuzzy
 #~| msgid "Fixed Interval"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Fixed Interval"
 #~ msgstr "مۇقىم ئىنتېرۋال"
 
-#, fuzzy
 #~| msgid "Effort"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Effort"
 #~ msgstr "خىزمەت مىقدارى"
 
-#, fuzzy
 #~| msgid "Duration"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Duration"
 #~ msgstr "ۋاقتى"
 
-#, fuzzy
 #~| msgid "%"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "%"
 #~ msgstr "%"
 
-#, fuzzy
 #~| msgid "Description"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Description"
 #~ msgstr "چۈشەندۈرۈش"
 
-#, fuzzy
 #~| msgid "Category:"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Category:"
 #~ msgstr "تۈرى:"
 
-#, fuzzy
 #~| msgid "After"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "After"
 #~ msgstr "داۋامى"
 
-#, fuzzy
 #~| msgid "Type of estimate"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "The type of view"
 #~ msgstr "مۆلچەر تىپى"
 
-#, fuzzy
 #~| msgid "Name:"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Name:"
 #~ msgstr "ئاتى:"
 
-#, fuzzy
 #~| msgid "Description"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "The views description"
 #~ msgstr "چۈشەندۈرۈش"
 
-#, fuzzy
 #~| msgid "Description"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Description:"
 #~ msgstr "چۈشەندۈرۈش"
 
-#, fuzzy
 #~| msgid "Words"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Words"
 #~ msgstr "سۆزلەر"
 
-#, fuzzy
 #~| msgid "Sentences"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Sentences"
 #~ msgstr "جۈملىلەر"
 
-#, fuzzy
 #~| msgid "Syllables"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Syllables"
 #~ msgstr "بوغۇملار"
 
-#, fuzzy
 #~| msgid "Lines"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Lines"
 #~ msgstr "سىزىقلار"
 
-#, fuzzy
 #~| msgid "Characters incl. spaces"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Characters incl. spaces"
 #~ msgstr "بوشلۇقنى ئۆز ئىچىگە ئالغان ھەرپ سانى:"
 
-#, fuzzy
 #~| msgid "Characters without spaces"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Characters without spaces"
 #~ msgstr "بوشلۇقنى ئۆز ئىچىگە ئالمىغان ھەرپ سانى:"
 
-#, fuzzy
 #~| msgid "0"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "0"
 #~ msgstr "0"
 
-#, fuzzy
 #~| msgid "..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "..."
 #~ msgstr "…"
 
-#, fuzzy
 #~| msgid "Type of estimate"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Type of estimate"
 #~ msgstr "مۆلچەر تىپى"
 
-#, fuzzy
 #~| msgid "Pessimistic estimate"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Pessimistic estimate"
 #~ msgstr "چۈشكۈن مۆلچەر"
 
-#, fuzzy
 #~| msgid "Gradient"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Gradient"
 #~ msgstr "گۈل نۇسخىسى"
 
-#, fuzzy
 #~| msgid "&File"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&File"
 #~ msgstr "ھۆججەت(&F)"
 
-#, fuzzy
 #~| msgid "&Edit"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Edit"
 #~ msgstr "تەھرىر(&E)"
 
-#, fuzzy
 #~| msgid "&View"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&View"
 #~ msgstr "كۆرۈنۈش(&V)"
 
-#, fuzzy
 #~| msgid "&Project"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Project"
 #~ msgstr "قۇرۇلۇش(&P)"
 
-#, fuzzy
 #~| msgid "&Tools"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Tools"
 #~ msgstr "قوراللار(&T)"
 
-#, fuzzy
 #~| msgid "&Settings"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Settings"
 #~ msgstr "تەڭشەك(&S)"
 
-#, fuzzy
 #~| msgid "&Help"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Help"
 #~ msgstr "ياردەم(&H)"
 
-#, fuzzy
 #~| msgid "Project"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Project"
 #~ msgstr "قۇرۇلۇش"
 
-#, fuzzy
 #~| msgid "Plan"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Plan"
 #~ msgstr "Plan"
 
-#, fuzzy
 #~| msgid "Continue"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Continue"
 #~ msgstr "داۋاملاشتۇر"
 
-#, fuzzy
 #~| msgid "File-Format Mismatch"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "File-Format Mismatch"
 #~ msgstr "ھۆججەت پىچىمى ماسلاشمىدى"
 
-#, fuzzy
 #~| msgid "Plan"
 #~ msgctxt "(qtundo-format) application name"
 #~ msgid "Plan"
 #~ msgstr "Plan"
 
-#, fuzzy
 #~| msgid "Thomas Zander"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Thomas Zander"
 #~ msgstr "Thomas Zander"
 
-#, fuzzy
 #~| msgid "Bo Thorsen"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Bo Thorsen"
 #~ msgstr "Bo Thorsen"
 
-#, fuzzy
 #~| msgid "Dag Andersen"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Dag Andersen"
 #~ msgstr "Dag Andersen"
 
-#, fuzzy
 #~| msgid "Raphael Langerhorst"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Raphael Langerhorst"
 #~ msgstr "Raphael Langerhorst"
 
-#, fuzzy
 #~| msgctxt "NAME OF TRANSLATORS"
 #~| msgid "Your names"
 #~ msgctxt "(qtundo-format) NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
 
-#, fuzzy
 #~| msgctxt "EMAIL OF TRANSLATORS"
 #~| msgid "Your emails"
 #~ msgctxt "(qtundo-format) EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
 #~ msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
-#, fuzzy
 #~| msgid "Linear"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Linear"
 #~ msgstr "سىزىقلىق"
 
-#, fuzzy
 #~| msgid "Flat"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Flat"
 #~ msgstr "تەكشى"
 
-#, fuzzy
 #~| msgid "Insert File"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Insert File"
 #~ msgstr "ھۆججەت قىستۇر"
 
-#, fuzzy
 #~| msgid "Invalid document. No mimetype specified."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Invalid document. No mimetype specified."
 #~ msgstr "ئىناۋەتسىز پۈتۈك. MIME تىپى كۆرسىتىلمىگەن."
 
-#, fuzzy
 #~| msgid "Not able to write '%1'. Partition full?"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Not able to write '%1'. Partition full?"
 #~ msgstr "‹%1› غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
 
-#, fuzzy
 #~| msgid "Saving..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Saving..."
 #~ msgstr "ساقلاۋاتىدۇ…"
 
-#, fuzzy
 #~| msgid "&Create Template From Document..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Create Template From Document..."
 #~ msgstr "پۈتۈكتىن قېلىپ قۇر(&C)…"
 
-#, fuzzy
 #~| msgid "Edit..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Edit..."
 #~ msgstr "تەھرىر…"
 
-#, fuzzy
 #~| msgid "Delete Task"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Delete Task"
 #~ msgstr "ۋەزىپە ئۆچۈر"
 
-#, fuzzy
 #~| msgid "Description..."
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Description..."
 #~ msgstr "چۈشەندۈرۈش…"
 
-#, fuzzy
 #~| msgid "Resources"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Resources"
 #~ msgstr "مەنبەلەر"
 
-#, fuzzy
 #~| msgid "Tasks"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Tasks"
 #~ msgstr "ۋەزىپىلەر"
 
-#, fuzzy
 #~| msgid "Schedules"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Schedules"
 #~ msgstr "كۈن-تەرتىپلەر"
 
-#, fuzzy
 #~| msgid "Resource Assignments"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Resource Assignments"
 #~ msgstr "مەنبە تەقسىملەش"
 
-#, fuzzy
 #~| msgid "Cost Breakdown"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Cost Breakdown"
 #~ msgstr "تەننەرخىنى تۆۋەنلىتىش"
 
-#, fuzzy
 #~| msgid "Report"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Report"
 #~ msgstr "دوكلات"
 
-#, fuzzy
 #~| msgid "Editors"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Editors"
 #~ msgstr "تەھرىرلىگۈچ"
 
-#, fuzzy
 #~| msgid "Views"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Views"
 #~ msgstr "كۆرۈنۈشلەر"
 
-#, fuzzy
 #~| msgctxt "Project execution views"
 #~| msgid "Execution"
 #~ msgctxt "(qtundo-format) Project execution views"
 #~ msgid "Execution"
 #~ msgstr "ئىجرا قىلىش"
 
-#, fuzzy
 #~| msgid "Reports"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Reports"
 #~ msgstr "دوكلات"
 
-#, fuzzy
 #~| msgctxt "@info:status"
 #~| msgid "Not scheduled"
 #~ msgctxt "(qtundo-format) @info:status"
 #~ msgid "Not scheduled"
 #~ msgstr "پىلانلانمىغان"
 
-#, fuzzy
 #~| msgid "Failed to open temporary file"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Failed to open temporary file"
 #~ msgstr "ۋاقىتلىق ھۆججەتنى ئاچالمىدى"
 
-#, fuzzy
 #~| msgid "Work Package: %1"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Work Package: %1"
 #~ msgstr "ئىش بوغچىسى: %1"
 
-#, fuzzy
 #~| msgctxt "1=project name, 2=task name"
 #~| msgid ""
 #~| "%1\n"
@@ -3316,96 +3040,82 @@ msgstr ""
 #~ "%1\n"
 #~ "%2"
 
-#, fuzzy
 #~| msgctxt "Project manager"
 #~| msgid "Manager:"
 #~ msgctxt "(qtundo-format) Project manager"
 #~ msgid "Manager:"
 #~ msgstr "باشقۇرغۇچى:"
 
-#, fuzzy
 #~| msgid "Project:"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Project:"
 #~ msgstr "قۇرۇلۇش:"
 
-#, fuzzy
 #~| msgctxt "As in: Page 1 of 2"
 #~| msgid "of"
 #~ msgctxt "(qtundo-format) As in: Page 1 of 2"
 #~ msgid "of"
 #~ msgstr "نىڭ"
 
-#, fuzzy
 #~| msgid "Page"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Page"
 #~ msgstr "بەت"
 
-#, fuzzy
 #~| msgctxt "Task name"
 #~| msgid "Name"
 #~ msgctxt "(qtundo-format) Task name"
 #~ msgid "Name"
 #~ msgstr "ئاتى"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu rename view"
 #~| msgid "Rename"
 #~ msgctxt "(qtundo-format) @action:inmenu rename view"
 #~ msgid "Rename"
 #~ msgstr "ئات ئۆزگەرت"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu configure view"
 #~| msgid "Configure..."
 #~ msgctxt "(qtundo-format) @action:inmenu configure view"
 #~ msgid "Configure..."
 #~ msgstr "سەپلە…"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu remove view"
 #~| msgid "Remove"
 #~ msgctxt "(qtundo-format) @action:inmenu remove view"
 #~ msgid "Remove"
 #~ msgstr "چىقىرىۋەت"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu rename view"
 #~| msgid "Rename"
 #~ msgctxt "(qtundo-format) @action:inmenu rename view category"
 #~ msgid "Rename"
 #~ msgstr "ئات ئۆزگەرت"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu configure view"
 #~| msgid "Configure..."
 #~ msgctxt "(qtundo-format) @action:inmenu configure view category"
 #~ msgid "Configure..."
 #~ msgstr "سەپلە…"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu remove view"
 #~| msgid "Remove"
 #~ msgctxt "(qtundo-format) @action:inmenu Remove view category"
 #~ msgid "Remove"
 #~ msgstr "چىقىرىۋەت"
 
-#, fuzzy
 #~| msgctxt "@action:inmenu Insert View"
 #~| msgid "Insert..."
 #~ msgctxt "(qtundo-format) @action:inmenu Insert View"
 #~ msgid "Insert..."
 #~ msgstr "قىستۇر…"
 
-#, fuzzy
 #~| msgctxt "@title:window"
 #~| msgid "Add View"
 #~ msgctxt "(qtundo-format) @title:window"
 #~ msgid "Add View"
 #~ msgstr "كۆرۈنۈش قوش"
 
-#, fuzzy
 #~| msgid "Top"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Top"

@@ -8,36 +8,30 @@ msgstr ""
 "Project-Id-Version: krossmoduleplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2013-09-08 07:04+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-29 17:14-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
-#, fuzzy
-#| msgctxt "(qtundo_format)"
-#| msgid "Add task"
 msgctxt "(qtundo-format)"
 msgid "Add task"
 msgstr "ۋەزىپە قوش"
 
 #: Project.cpp:420 Project.cpp:428
-#, fuzzy
-#| msgid "Resources"
 msgctxt "(qtundo-format)"
 msgid "Add resource group"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: Project.cpp:506 Project.cpp:524
-#, fuzzy
-#| msgid "Resources"
 msgctxt "(qtundo-format)"
 msgid "Add resource"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: Project.cpp:627
 msgctxt "(qtundo-format)"
@@ -63,7 +57,7 @@ msgstr ""
 #: scripting.rc:4
 #, kde-format
 msgid "&Tools"
-msgstr "قوراللار(&T)"
+msgstr "قورال(&T)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ScriptingDataQueryView.ui:22
@@ -75,7 +69,7 @@ msgstr ""
 #: ScriptingDataQueryView.ui:30
 #, kde-format
 msgid "Tasks"
-msgstr "ۋەزىپىلەر"
+msgstr "ۋەزىپە"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, ui_objectType)
 #: ScriptingDataQueryView.ui:35
@@ -87,7 +81,7 @@ msgstr "مەنبەلەر"
 #: ScriptingDataQueryView.ui:40
 #, kde-format
 msgid "Accounts"
-msgstr "ھېساباتلار"
+msgstr "ھېساب"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_includeHeaders)
 #: ScriptingDataQueryView.ui:63
@@ -96,10 +90,9 @@ msgid "Include headers"
 msgstr ""
 
 #: ScriptingWidgets.cpp:62
-#, fuzzy, kde-format
-#| msgid "Schedules"
+#, kde-format
 msgid "Schedule Name"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: scripts/busyinfoclear.py:10
 msgctxt "(qtundoformat)"
@@ -107,16 +100,12 @@ msgid "Clear all external appointments"
 msgstr ""
 
 #: scripts/busyinfoexport.py:26
-#, fuzzy
-#| msgid "Information"
 msgid "Busy Information Export"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #: scripts/busyinfoexport.py:30
-#, fuzzy
-#| msgid "Schedules"
 msgid "Export Selected Schedule"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: scripts/busyinfoexport.py:30 scripts/plan2csvexport.py:94
 #: scripts/plan2odsexport.py:106
@@ -124,10 +113,8 @@ msgid "Schedules"
 msgstr "كۈن-تەرتىپلەر"
 
 #: scripts/busyinfoexport.py:33
-#, fuzzy
-#| msgid "Export content"
 msgid "Export Busy Info File"
-msgstr "مەزمۇننى ئېكسپورت قىل"
+msgstr ""
 
 #: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
 #: scripts/plan2odsexport.py:112
@@ -138,7 +125,7 @@ msgstr "ساقلا"
 #: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
 #: scripts/resourcesimport.py:26
 msgid "All Files"
-msgstr "بارلىق ھۆججەتلەر"
+msgstr "بارلىق ھۆججەت"
 
 #: scripts/busyinfoexport.py:42 scripts/busyinfoexport.py:47
 #: scripts/busyinfoexport.py:51 scripts/busyinfoimport.py:34
@@ -159,33 +146,25 @@ msgid "No file selected"
 msgstr "ھۆججەت تاللانمىغان"
 
 #: scripts/busyinfoexport.py:51
-#, fuzzy
-#| msgid "No file selected"
 msgid "No schedule selected"
-msgstr "ھۆججەت تاللانمىغان"
+msgstr ""
 
 #: scripts/busyinfoimport.py:18
-#, fuzzy
-#| msgid "Information"
 msgid "Busy Information Import"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #: scripts/busyinfoimport.py:22
-#, fuzzy
-#| msgid "Information"
 msgid "Import Busy Info File"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
 msgid "Open"
 msgstr "ئاچ"
 
 #: scripts/busyinfoimport.py:29
-#, fuzzy
-#| msgid "Information"
 msgctxt "(qtundo_format)"
 msgid "Import resource busy information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
@@ -218,26 +197,20 @@ msgid "No properties to export"
 msgstr ""
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
-#, fuzzy
-#| msgid "Schedules"
 msgid "Select schedule"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Data"
-msgstr "سانلىق-مەلۇمات"
+msgstr "سانلىق مەلۇمات"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
-#, fuzzy
-#| msgid "Schedules"
 msgid "Select data"
-msgstr "كۈن-تەرتىپلەر"
+msgstr ""
 
 #: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
-#, fuzzy
-#| msgid "Export content"
 msgid "Export ods file"
-msgstr "مەزمۇننى ئېكسپورت قىل"
+msgstr ""
 
 #: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
 msgid "Spreadsheet"
@@ -270,27 +243,21 @@ msgid "Warning"
 msgstr "ئاگاھلاندۇرۇش"
 
 #: scripts/resourcesimport.py:17
-#, fuzzy
-#| msgid "Resources"
 msgid "Resources Import"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: scripts/resourcesimport.py:23
-#, fuzzy
-#| msgid "Resources"
 msgid "Plan Resources"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: scripts/resourcesimport.py:26
 msgid "Plan"
-msgstr "Plan"
+msgstr ""
 
 #: scripts/resourcesimport.py:30
-#, fuzzy
-#| msgid "Resources"
 msgctxt "(qtundo_format )"
 msgid "Import resources"
-msgstr "مەنبەلەر"
+msgstr ""
 
 #: scripts/resourcesimport.py:44
 msgid "Could not open document: %1"
@@ -326,24 +293,21 @@ msgstr ""
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:7
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Resource Busy Information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:7
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Handle resource busy information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:8
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Export Resource Busy Information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:8
@@ -353,10 +317,9 @@ msgstr ""
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:12
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Import Resource Busy Information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:12
@@ -366,36 +329,33 @@ msgstr ""
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:16
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Clear Resource Busy Information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:16
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Python script to clear the imported resource busy information"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
 #, kde-format
 msgid "Import"
-msgstr "ئىمپورت قىل"
+msgstr "ئەكىر"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:21
 #, kde-format
 msgid "Import content"
-msgstr "مەزمۇن ئىمپورت قىلىش"
+msgstr "مەزمۇن ئەكىرىش"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:22
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Resources from Plan File"
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:22
@@ -407,7 +367,7 @@ msgstr ""
 #: scripts/scripts.rc:31
 #, kde-format
 msgid "Export"
-msgstr "ئېكسپورت قىل"
+msgstr "چىقار"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:31
@@ -443,7 +403,7 @@ msgstr ""
 #: scripts/scripts.rc:46
 #, kde-format
 msgid "Tools"
-msgstr "قوراللار"
+msgstr "قورال"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:46
@@ -479,10 +439,9 @@ msgstr ""
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:59
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Print Project Information..."
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:59
@@ -492,85 +451,71 @@ msgstr ""
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:63
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Print Resource busy Information..."
-msgstr "ئۇچۇر"
+msgstr ""
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
-#, fuzzy, kde-format
-#| msgid "Information"
+#, kde-format
 msgid "Example python script that print resource busy information"
-msgstr "ئۇچۇر"
+msgstr ""
 
-#, fuzzy
 #~| msgid "Tasks"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Tasks"
 #~ msgstr "ۋەزىپىلەر"
 
-#, fuzzy
 #~| msgid "Resources"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Resources"
 #~ msgstr "مەنبەلەر"
 
-#, fuzzy
 #~| msgid "Accounts"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Accounts"
 #~ msgstr "ھېساباتلار"
 
-#, fuzzy
 #~| msgid "&Tools"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "&Tools"
 #~ msgstr "قوراللار(&T)"
 
-#, fuzzy
 #~| msgid "Import"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Import"
 #~ msgstr "ئىمپورت قىل"
 
-#, fuzzy
 #~| msgid "Import content"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Import content"
 #~ msgstr "مەزمۇن ئىمپورت قىلىش"
 
-#, fuzzy
 #~| msgid "Export"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Export"
 #~ msgstr "ئېكسپورت قىل"
 
-#, fuzzy
 #~| msgid "Export content"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Export content"
 #~ msgstr "مەزمۇننى ئېكسپورت قىل"
 
-#, fuzzy
 #~| msgid "Tools"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Tools"
 #~ msgstr "قوراللار"
 
-#, fuzzy
 #~| msgid "Miscellaneous scripts"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Miscellaneous scripts"
 #~ msgstr "باشقا قوليازمىلار(script)"
 
-#, fuzzy
 #~| msgid "Online Help"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Online Help"
 #~ msgstr "توردىكى ياردەم"
 
-#, fuzzy
 #~| msgid "Samples"
 #~ msgctxt "(qtundo-format)"
 #~ msgid "Samples"
