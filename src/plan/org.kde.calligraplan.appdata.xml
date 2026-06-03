@@ -69,6 +69,7 @@
   <summary xml:lang="sl">Upravljanje projektov</summary>
   <summary xml:lang="sv">Projekthantering</summary>
   <summary xml:lang="tr">Proje Yönetimi</summary>
+  <summary xml:lang="ug">قۇرۇلۇش باشقۇرۇش</summary>
   <summary xml:lang="uk">Керування проєктами</summary>
   <summary xml:lang="zh-CN">项目管理程序</summary>
   <description>
@@ -138,6 +139,7 @@
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">程序功能：</p>
     <ul>
