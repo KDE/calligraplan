@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-05-14 21:08+0300\n"
+"PO-Revision-Date: 2026-06-06 21:46+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -363,109 +363,109 @@ msgstr "שטוח"
 #: calligraplansettings.kcfg:275
 #, kde-format
 msgid "Enable summary task level colors"
-msgstr ""
+msgstr "הפעלת צבעי רמות משימות תקציר"
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
 #: calligraplansettings.kcfg:279
 #, kde-format
 msgid "Summary task default color"
-msgstr ""
+msgstr "צבע ברירת מחדל למשימת תקציר"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
 #: calligraplansettings.kcfg:283
 #, kde-format
 msgid "Summary task color, level 1"
-msgstr ""
+msgstr "צבע משימת תקציר, רמה 1"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
 #: calligraplansettings.kcfg:287
 #, kde-format
 msgid "Summary task color, level 2"
-msgstr ""
+msgstr "צבע משימת תקציר, רמה 2"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
 #: calligraplansettings.kcfg:291
 #, kde-format
 msgid "Summary task color, level 3"
-msgstr ""
+msgstr "צבע משימת תקציר, רמה 3"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
 #: calligraplansettings.kcfg:295
 #, kde-format
 msgid "Summary task color, level 4"
-msgstr ""
+msgstr "צבע משימת תקציר, רמה 4"
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:299
 #, kde-format
 msgid "Task color in normal state"
-msgstr ""
+msgstr "צבע משימה במצב רגיל"
 
 #. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:303
 #, kde-format
 msgid "Task color in critical state"
-msgstr ""
+msgstr "צבע משימה במצב מכריע"
 
 #. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:307
 #, kde-format
 msgid "Task color in finished state"
-msgstr ""
+msgstr "צבע משימה במצב גמר"
 
 #. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:311
 #, kde-format
 msgid "Task color in error state"
-msgstr ""
+msgstr "צבע משימה במצב שגיאה"
 
 #. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:315
 #, kde-format
 msgid "Milestone color in normal state"
-msgstr ""
+msgstr "צבע אבן דרך במצב רגיל"
 
 #. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:319
 #, kde-format
 msgid "Milestone color in critical state"
-msgstr ""
+msgstr "צבע אבן דרך במצב מכריע"
 
 #. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:323
 #, kde-format
 msgid "Milestone color in finished state"
-msgstr ""
+msgstr "צבע אבן דרך במצב גמר"
 
 #. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:327
 #, kde-format
 msgid "Milestone color in error state"
-msgstr ""
+msgstr "צבע אבן דרך במצב שגיאה"
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
 #: calligraplansettings.kcfg:334
 #, kde-format
 msgid "Automatically check for new work packages"
-msgstr ""
+msgstr "לבדוק אוטומטית לאיתור חבילות עבודה חדשות"
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
 #: calligraplansettings.kcfg:337
 #, kde-format
 msgid "Directory where Plan retrieves work packages from project members"
-msgstr ""
+msgstr "התיקייה אליה התכנון מקבל חבילות עבודה מחברי מיזם"
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
 #: calligraplansettings.kcfg:340
 #, kde-format
 msgid "If set, Plan will delete the file after it has been read"
-msgstr ""
+msgstr "אם הוגדר, תכנון ימחק את הקובץ לאחר שנקרא"
 
 #. i18n: ectx: label, entry (SaveFile), group (Work Package)
 #: calligraplansettings.kcfg:343
 #, kde-format
 msgid "If set, Plan will save the file after it has been read"
-msgstr ""
+msgstr "אם הוגדר, תכנון ישמור את הקובץ לאחר שנקרא"
 
 #. i18n: ectx: label, entry (SaveUrl), group (Work Package)
 #: calligraplansettings.kcfg:346
@@ -538,59 +538,59 @@ msgstr ""
 #: calligraplansettings.kcfg:402
 #, kde-format
 msgid "Autosave interval"
-msgstr ""
+msgstr "הפרש בין שמירות אוטומטית"
 
 #. i18n: ectx: label, entry (CreateBackupFile), group (Interface)
 #: calligraplansettings.kcfg:406
 #, kde-format
 msgid "Create a backup file"
-msgstr ""
+msgstr "יצירת קובץ גיבוי"
 
 #: config/ConfigDialog.cpp:36
 #, kde-format
 msgid "Project Defaults"
-msgstr ""
+msgstr "ערכי ברירת מחדל של המיזם"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
 msgid "Work & Vacation"
-msgstr ""
+msgstr "עבודה וחופשות"
 
 #: config/ConfigDialog.cpp:38
 #, kde-format
 msgid "Task Defaults"
-msgstr ""
+msgstr "ברירות מחדל של משימות"
 
 #: config/ConfigDialog.cpp:39
 #, kde-format
 msgid "Task Colors"
-msgstr ""
+msgstr "צבעי משימות"
 
 #: config/ConfigDialog.cpp:41
 #, kde-format
 msgid "Task Modules"
-msgstr ""
+msgstr "מודולים של משימות"
 
 #: config/ConfigDialog.cpp:45
 #, kde-format
 msgid "Work Package"
-msgstr ""
+msgstr "חבילת עבודה"
 
 #: config/ConfigDialog.cpp:48
 #, kde-format
 msgid "Project Templates"
-msgstr ""
+msgstr "תבניות מיזמים"
 
 #: config/ConfigDialog.cpp:54
 #, kde-format
 msgid "Report Templates"
-msgstr ""
+msgstr "תבניות דוחות"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
 msgctxt "@title:tab Document settings page"
 msgid "Document"
-msgstr ""
+msgstr "מסמך"
 
 #: config/ConfigProjectPanel.cpp:36
 #, kde-kuit-format
@@ -614,43 +614,43 @@ msgstr ""
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
 #, kde-format
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #. i18n: ectx: property (text), widget (QPushButton, resourceFileBrowseBtn)
 #: config/ConfigProjectPanel.ui:44
 #, kde-format
 msgid "Browse..."
-msgstr ""
+msgstr "עיון…"
 
 #. i18n: ectx: property (text), widget (QLabel, srflabel)
 #: config/ConfigProjectPanel.ui:57
 #, kde-format
 msgid "Shared resource file:"
-msgstr ""
+msgstr "קובץ משאב משותף:"
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: config/ConfigProjectPanel.ui:67
 #, kde-format
 msgid "&Manager:"
-msgstr ""
+msgstr "&ניהול:"
 
 #. i18n: ectx: property (text), widget (QLabel, usrlabel)
 #: config/ConfigProjectPanel.ui:90
 #, kde-format
 msgid "Use shared resources:"
-msgstr ""
+msgstr "שימוש במשאבים משותפים:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #. i18n: ectx: attribute (title), widget (QWidget, widget)
 #: config/ConfigProjectPanel.ui:124 config/kptconfigtaskpanelbase.ui:528
 #, kde-format
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
 #: config/ConfigProjectTemplatesPanel.cpp:48
 #, kde-format
 msgid "Project Templates Path"
-msgstr ""
+msgstr "נתיב תבניות מיזמים"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
@@ -658,7 +658,7 @@ msgstr ""
 #: config/ConfigReportTemplatesPanel.ui:17 config/ConfigTaskModulesPanel.ui:37
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "הוספה"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeModule)
 #. i18n: ectx: property (text), widget (QToolButton, removeTemplatePath)
@@ -667,30 +667,30 @@ msgstr ""
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "הסרה"
 
 #: config/ConfigReportTemplatesPanel.cpp:48
 #: config/ConfigTaskModulesPanel.cpp:48
 #, kde-format
 msgid "Task Modules Path"
-msgstr ""
+msgstr "נתיב מודולים של משימות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseLocalTaskModules)
 #: config/ConfigTaskModulesPanel.ui:17
 #, kde-format
 msgid "Use local task modules"
-msgstr ""
+msgstr "להשתמש במודולים מקומיים של משימות"
 
 #: config/ConfigWorkVacationPanel.cpp:38
 #, kde-format
 msgid "Default"
-msgstr ""
+msgstr "ברירת מחדל"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
 #, kde-format
 msgid "Working Hours"
-msgstr ""
+msgstr "שעות עבודה"
 
 #. i18n: info@whatsthis
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox_3)
@@ -716,45 +716,45 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:31
 #, kde-format
 msgid "Calendar generation"
-msgstr ""
+msgstr "יצירת לוחות שנה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateWeek)
 #: config/ConfigWorkVacationPanel.ui:37
 #, kde-format
 msgid "Week"
-msgstr ""
+msgstr "שבוע"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_GenerateHolidays)
 #: config/ConfigWorkVacationPanel.ui:73 kptmaindocument.cpp:1758
 #: kptmaindocument.cpp:1762
 #, kde-format
 msgid "Holidays"
-msgstr ""
+msgstr "חגים"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: config/ConfigWorkVacationPanel.ui:81
 #, kde-format
 msgid "In week calendar"
-msgstr ""
+msgstr "לוח שנה תוך שבועי"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/ConfigWorkVacationPanel.ui:99
 #, kde-format
 msgid "Holida&y region:"
-msgstr ""
+msgstr "אזור &חגים:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/ConfigWorkVacationPanel.ui:131
 #, kde-format
 msgid "Working week"
-msgstr ""
+msgstr "שבוע עבודה"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
 #: config/ConfigWorkVacationPanel.ui:192 config/ConfigWorkVacationPanel.ui:252
 #, kde-format
 msgid "Tick  if working day"
-msgstr ""
+msgstr "לסמן אם זה יום עבודה"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wednesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Thursday)
@@ -766,7 +766,7 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:242
 #, kde-format
 msgid "Tick if working day"
-msgstr ""
+msgstr "לסמן אם זה יום עבודה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigWorkVacationPanel.ui:266
@@ -789,19 +789,19 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:282
 #, kde-format
 msgid "Hours &per year:"
-msgstr ""
+msgstr "שעות בש&נה:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: config/ConfigWorkVacationPanel.ui:311
 #, kde-format
 msgid "Hours per &month:"
-msgstr ""
+msgstr "שעות ב&חודש:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabe3)
 #: config/ConfigWorkVacationPanel.ui:356
 #, kde-format
 msgid "Hours per wee&k:"
-msgstr ""
+msgstr "שעות ב&שבוע:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:385
@@ -814,69 +814,69 @@ msgstr ""
 #: config/ConfigWorkVacationPanel.ui:388
 #, kde-format
 msgid "Hours per &day:"
-msgstr ""
+msgstr "שעות &ביום:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: config/kptcolorsconfigpanel.ui:28
 #, kde-format
 msgid "Gradient:"
-msgstr ""
+msgstr "מדרג:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/kptcolorsconfigpanel.ui:57
 #, kde-format
 msgctxt "@title:tab"
 msgid "Summary task"
-msgstr ""
+msgstr "משימת תקציר"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptcolorsconfigpanel.ui:69
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Default:"
-msgstr ""
+msgstr "ברירת מחדל:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
 #: config/kptcolorsconfigpanel.ui:92
 #, kde-format
 msgctxt "@title:group"
 msgid "Use level colors"
-msgstr ""
+msgstr "להשתמש בצבעי רמות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: config/kptcolorsconfigpanel.ui:110
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Level 1"
-msgstr ""
+msgstr "רמה 1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: config/kptcolorsconfigpanel.ui:139
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Level 2"
-msgstr ""
+msgstr "רמה 2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptcolorsconfigpanel.ui:168
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Level 3"
-msgstr ""
+msgstr "רמה 3"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: config/kptcolorsconfigpanel.ui:197
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Level 4"
-msgstr ""
+msgstr "רמה 4"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/kptcolorsconfigpanel.ui:231
 #, kde-format
 msgctxt "@title:tab"
 msgid "Task"
-msgstr ""
+msgstr "משימה"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_12)
@@ -884,7 +884,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Normal:"
-msgstr ""
+msgstr "רגילה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #. i18n: ectx: property (text), widget (QLabel, label_14)
@@ -892,7 +892,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Critical:"
-msgstr ""
+msgstr "מכריעה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_13)
@@ -900,7 +900,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Finished:"
-msgstr ""
+msgstr "גמורה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #. i18n: ectx: property (text), widget (QLabel, label_11)
@@ -908,14 +908,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Error:"
-msgstr ""
+msgstr "שגיאה:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: config/kptcolorsconfigpanel.ui:373
 #, kde-format
 msgctxt "@title:tab"
 msgid "Milestone"
-msgstr ""
+msgstr "אבן דרך"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, leaderlabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, kcfg_Leader)
@@ -1153,37 +1153,37 @@ msgstr ""
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "ארכיון:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "פרסום"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "פרסום:"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
 #: CreateReportTemplateDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "חלונית"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "תבנית בסיס:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
 #, kde-format
 msgid "File name:"
-msgstr ""
+msgstr "שם קובץ:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openAssistant)
 #: CreateReportTemplateDialog.ui:66
@@ -1197,6 +1197,8 @@ msgid ""
 "This document has no syntax version.\n"
 "Opening it in Plan may lose information."
 msgstr ""
+"למסמך הזה אין גרסת תחביר.\n"
+"פתיחתו בתכנון עלולה לגרום לאובדן נתונים."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
 #: kptmaindocument.cpp:375 kptmaindocument.cpp:699
@@ -1236,56 +1238,56 @@ msgstr ""
 #, kde-format
 msgctxt "application name"
 msgid "Plan"
-msgstr ""
+msgstr "תכנון"
 
 #: kptaboutdata.h:26
 #, kde-format
 msgid "Project Planning and Management Tool"
-msgstr ""
+msgstr "כלי לניהול ותכנון מיזמים"
 
 #: kptaboutdata.h:28
 #, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr ""
+msgstr "כל הזכויות שמורות 1998-‏%1, קבוצת התכנון"
 
 #: kptaboutdata.h:32
 #, kde-format
 msgid "Dag Andersen"
-msgstr ""
+msgstr "דאג אנדרסן"
 
 #: kptaboutdata.h:33
 #, kde-format
 msgid "Thomas Zander"
-msgstr ""
+msgstr "תומס זנדר"
 
 #: kptaboutdata.h:34
 #, kde-format
 msgid "Bo Thorsen"
-msgstr ""
+msgstr "בו ת׳ורסן"
 
 #: kptaboutdata.h:35
 #, kde-format
 msgid "Raphael Langerhorst"
-msgstr ""
+msgstr "רפאל לנגרהורסט"
 
 #. i18n translator strings
 #: kptaboutdata.h:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "צוות התרגום של KDE ישראל"
 
 #: kptaboutdata.h:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-l10n-he@kde.org"
 
 #: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
-msgstr ""
+msgstr "מתזמן רשת"
 
 #: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
@@ -1543,23 +1545,23 @@ msgstr "עדכון משאבים משותפים"
 #: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr ""
+msgstr "פתיחת קובץ הגדרות דוח…"
 
 #: kptview.cpp:244
 #, kde-format
 msgid "Create Report Template..."
-msgstr ""
+msgstr "יצירת תבנית דוח…"
 
 #: kptview.cpp:260
 #, kde-format
 msgid "Work Packages..."
-msgstr ""
+msgstr "חבילות עבודה…"
 
 #: kptview.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr ""
+msgstr "חבילות עבודה זמינות"
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1574,60 +1576,60 @@ msgstr ""
 #: kptview.cpp:492
 #, kde-format
 msgid "Edit task scheduling constraints"
-msgstr ""
+msgstr "עריכת מגבלות תזמון משימות"
 
 #: kptview.cpp:492
 #, kde-format
 msgid "Task Constraints"
-msgstr ""
+msgstr "מגבלות משימות"
 
 #: kptview.cpp:502
 #, kde-format
 msgid "Edit task cost"
-msgstr ""
+msgstr "עריכת עלות משימה"
 
 #: kptview.cpp:502
 #, kde-format
 msgid "Task Cost"
-msgstr ""
+msgstr "עלות משימה"
 
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr ""
+msgstr "יצירת דוחות"
 
 #: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
 msgid "Task Status Report"
-msgstr ""
+msgstr "דוח מצב משימה"
 
 #: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
-msgstr ""
+msgstr "עריכת ימי עבודה וחופשה למשאבים"
 
 #: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
-msgstr ""
+msgstr "מבנה פילוג עלויות"
 
 #: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
-msgstr ""
+msgstr "עריכת מבנה פילוג עלויות."
 
 #: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
-msgstr ""
+msgstr "מבנה פילוג משאבים"
 
 #: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr ""
+msgstr "עריכת מבנה פילוג משאבים"
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
@@ -1769,13 +1771,13 @@ msgstr "הצגת הקצאות משאבים בתרשים גאנט"
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
-msgstr ""
+msgstr "כיסוי משאבים"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "חקירת כיסוי משאבים"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
@@ -1797,7 +1799,7 @@ msgstr "תרשים ביצועי משימות"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
-msgstr ""
+msgstr "הצגת פרטי מצב ביצועי משימות"
 
 #: kptview.cpp:698
 #, kde-format
@@ -1865,7 +1867,7 @@ msgstr "משאבים משותפים"
 msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
-msgstr ""
+msgstr "שימוש במשאבים משותפים הופעל.<nl/>האם לעדכן משאבים?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -2108,12 +2110,12 @@ msgstr "עורך חשבונות"
 #: kptviewlistdialog.cpp:98
 #, kde-format
 msgid "Dependency Editor (Graphic)"
-msgstr ""
+msgstr "עורך תלויות (גרפי)"
 
 #: kptviewlistdialog.cpp:99
 #, kde-format
 msgid "Dependency Editor (List)"
-msgstr ""
+msgstr "עורך תלויות (רשימה)"
 
 #: kptviewlistdialog.cpp:100
 #, kde-format
