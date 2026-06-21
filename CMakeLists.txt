@@ -262,6 +262,16 @@ set_package_properties(KChart6 PROPERTIES
 )
 
 ##
+## Test for KDocTools
+##
+macro_optional_find_package(KF6DocTools ${KF_MIN_VERSION} QUIET)
+set_package_properties(KF6DocTools PROPERTIES
+    DESCRIPTION "Library to generate offline documentation"
+    URL "https://www.kde.org/"
+    TYPE REQUIRED
+)
+
+##
 ## Test for QCA2
 ##
 macro_optional_find_package(Qca-qt6 2.1.0 QUIET)
@@ -352,11 +362,11 @@ endif (TEST_FOR_KREPORT)
 
 add_subdirectory(src)
 add_subdirectory(devtools)
-add_subdirectory(doc)
 add_subdirectory(data)
 
 ki18n_install(po)
 if(KF6DocTools_FOUND)
+    add_subdirectory(doc)
     kdoctools_install(po)
 endif()
 
