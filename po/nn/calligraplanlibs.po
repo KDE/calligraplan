@@ -1,12 +1,11 @@
 # Translation of calligraplanlibs to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2010, 2016, 2018, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-24 00:44+0000\n"
-"PO-Revision-Date: 2020-05-09 23:39+0200\n"
+"PO-Revision-Date: 2026-06-23 22:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -17,7 +16,7 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 20.04.0\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7605,7 +7604,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
-msgstr ""
+msgstr "Vis feilsøkingsinformasjon"
 
 #: ui/kptscheduleeditor.cpp:788
 #, kde-format
