@@ -25,7 +25,7 @@ msgstr ""
 #, kde-format
 msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
 msgstr ""
-"PlanWork - Gestor de paquets de faena per a l'eina de planificació de "
+"PlanWork – Gestor de paquets de faena per a l'eina de planificació de "
 "projectes Plan"
 
 #: aboutdata.h:27
@@ -422,14 +422,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
-"Tasca: %1<nl/>Compleció: %2%<nl/>Inici real: %3<nl/>Planificada: %4 - %5<nl/"
+"Tasca: %1<nl/>Compleció: %2%<nl/>Inici real: %3<nl/>Planificada: %4 – %5<nl/"
 ">Estat: %6<nl/>Projecte: %7"
 
 #: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr "Tasca: %1<nl/>Planificada: %2 - %3<nl/>Estat: %4<nl/>Projecte: %5"
+msgstr "Tasca: %1<nl/>Planificada: %2 – %3<nl/>Estat: %4<nl/>Projecte: %5"
 
 #: view.cpp:85
 #, kde-format

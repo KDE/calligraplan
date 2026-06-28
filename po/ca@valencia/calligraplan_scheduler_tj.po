@@ -126,7 +126,7 @@ msgstr "Fita planificada: %1"
 #, kde-kuit-format
 msgctxt "@info/plain"
 msgid "Scheduled task: %1 - %2"
-msgstr "Tasca planificada: %1 - %2"
+msgstr "Tasca planificada: %1 – %2"
 
 #: PlanTJScheduler.cpp:614
 #, kde-format
@@ -223,7 +223,7 @@ msgstr "La planificació finalitzarà d'ací a %1, temps transcorregut: %2 segon
 #: PlanTJScheduler.cpp:1111 PlanTJScheduler.cpp:1155
 #, kde-format
 msgid "Scheduling interval: %1 - %2, granularity: %3 minutes"
-msgstr "Interval de planificació: %1 - %2, granularitat: %3 minuts"
+msgstr "Interval de planificació: %1 – %2, granularitat: %3 minuts"
 
 #: PlanTJScheduler.cpp:1116 PlanTJScheduler.cpp:1161
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "Ha fallat la comprovació del projecte"
 #: PlanTJScheduler.cpp:1133
 #, kde-format
 msgid "Scheduled: %1 - %2"
-msgstr "Planificada: %1 - %2"
+msgstr "Planificada: %1 – %2"
 
 #: PlanTJScheduler.cpp:1135
 #, kde-format
