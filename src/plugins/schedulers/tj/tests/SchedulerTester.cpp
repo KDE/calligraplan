@@ -29,34 +29,33 @@ namespace KPlato
 QStringList SchedulerTester::data()
 {
     return QStringList()
-            << "test1.plan"
-            << "startnotearlier.plan"
+            << QFINDTESTDATA("data/test1.plan")
+            << QFINDTESTDATA("data/startnotearlier.plan")
             ;
 }
 
-void SchedulerTester::loadDocument(const QString &dir, const QString &fname, KoXmlDocument &doc) const
+void SchedulerTester::loadDocument(const QString &path, KoXmlDocument &doc) const
 {
-    QFile file(dir + fname);
-    QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
+    QFile file(path);
+    QVERIFY2(file.open(QIODevice::ReadOnly), path.toLatin1());
 
     QString error;
     bool setContent;
     int line, column;
     if (! (setContent = doc.setContent(&file, &error, &line, &column))) {
         file.close();
-        QString s = QString("%1: %2 Line %3, column %4").arg(fname).arg(error).arg(line).arg(column);
+        QString s = QString("%1: %2 Line %3, column %4").arg(path).arg(error).arg(line).arg(column);
         QVERIFY2(setContent, s.toLatin1());
     }
 }
 
 void SchedulerTester::testSingle()
 {
-    QString dir = QFINDTESTDATA("data/");
     const auto lst = data();
     for (const QString &fname : lst) {
         qDebug()<<"Testing file:"<<fname;
         KoXmlDocument doc;
-        loadDocument(dir, fname, doc);
+        loadDocument(fname, doc);
 
         testProject(fname, doc);
     }
@@ -125,17 +124,6 @@ void SchedulerTester::compare(const QString &fname, Node *n, long id1, long id2)
     QString s = QString("%1: '%2' Compare task schedules:\n Expected: %3\n   Result: %4").arg(fname).arg(n->name());
     QVERIFY2(n->startTime(id1) == n->startTime(id2), (s.arg(n->startTime(id1).toString(Qt::ISODate)).arg(n->startTime(id2).toString(Qt::ISODate))).toLatin1());
     QVERIFY2(n->endTime(id1) == n->endTime(id2), (s.arg(n->endTime(id1).toString(Qt::ISODate)).arg(n->endTime(id2).toString(Qt::ISODate))).toLatin1());
-}
-
-void SchedulerTester::loadDocuments(QString &dir, QList<QString> files, QList<KoXmlDocument> &docs) const
-{
-    for (const QString &fname : files) {
-        QFile file(dir + fname);
-        QVERIFY2(file.open(QIODevice::ReadOnly), fname.toLatin1());
-        KoXmlDocument doc;
-        loadDocument(dir, fname, doc);
-        docs << doc;
-    }
 }
 
 } //namespace KPlato

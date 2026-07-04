@@ -23,10 +23,9 @@ private Q_SLOTS:
 
 private:
     QStringList data();
-    void loadDocument(const QString &dir, const QString &fname, KoXmlDocument &doc) const;
+    void loadDocument(const QString &path, KoXmlDocument &doc) const;
     void testProject(const QString &fname, const KoXmlDocument &doc);
     void compare(const QString &fname, Node *n, long id1, long id2);
-    void loadDocuments(QString &dir, QList<QString> files, QList<KoXmlDocument> &docs) const;
 };
 
 } //namespace KPlato
