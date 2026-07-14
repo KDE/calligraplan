@@ -142,11 +142,9 @@ void KoProgressUpdaterTest::testSimpleProgress()
     pu.start();
     QPointer<KoUpdater> updater = pu.startSubtask();
     updater->setProgress(50);
-    QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
-    QCOMPARE(bar.value, 50);
+    QTRY_COMPARE(bar.value, 50);
     updater->setProgress(100);
-    QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
-    QCOMPARE(bar.value, 100);
+    QTRY_COMPARE(bar.value, 100);
 }
 void KoProgressUpdaterTest::testSimpleThreadedProgress()
 {
@@ -174,13 +172,11 @@ void KoProgressUpdaterTest::testSubUpdaters()
     QPointer<KoUpdater> u1 = pu.startSubtask(4);
     QPointer<KoUpdater> u2 = pu.startSubtask(6);
     u1->setProgress(100);
-    QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
     QCoreApplication::processEvents(); // allow the actions 'gui' stuff to run.
-    QCOMPARE(bar.value, 40);
+    QTRY_COMPARE(bar.value, 40);
     u2->setProgress(100);
-    QTest::qWait(WAIT_FOR_PROGRESSUPDATER_UI_UPDATES); // allow the action to do its job.
     QCoreApplication::processEvents(); // allow the actions 'gui' stuff to run.
-    QCOMPARE(bar.value, 100);
+    QTRY_COMPARE(bar.value, 100);
 }
 
 void KoProgressUpdaterTest::testThreadedSubUpdaters()
