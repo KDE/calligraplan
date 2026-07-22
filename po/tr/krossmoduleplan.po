@@ -5,13 +5,13 @@
 # Anıl Özbek <ozbekanil@gmail.com>, 2012.
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2015.
-# SPDX-FileCopyrightText: 2022, 2023, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2023, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-03-09 21:34+0300\n"
+"PO-Revision-Date: 2026-07-21 21:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
 msgctxt "(qtundo-format)"
@@ -104,7 +104,7 @@ msgstr "Dış atamaların tümünü temizle"
 
 #: scripts/busyinfoexport.py:26
 msgid "Busy Information Export"
-msgstr "Meşgul Bilgisini Dışa Aktar"
+msgstr "Meşgûl Bilgisini Dışa Aktar"
 
 #: scripts/busyinfoexport.py:30
 msgid "Export Selected Schedule"
@@ -117,7 +117,7 @@ msgstr "Zamanlamalar"
 
 #: scripts/busyinfoexport.py:33
 msgid "Export Busy Info File"
-msgstr "Meşgul Bilgi Dosyasını Dışa Aktar"
+msgstr "Meşgûl Bilgi Dosyasını Dışa Aktar"
 
 #: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
 #: scripts/plan2odsexport.py:112
@@ -154,11 +154,11 @@ msgstr "Hiç zamanlama seçilmedi"
 
 #: scripts/busyinfoimport.py:18
 msgid "Busy Information Import"
-msgstr "Meşgul Bilgisini İçe Aktar"
+msgstr "Meşgûl Bilgisini İçe Aktar"
 
 #: scripts/busyinfoimport.py:22
 msgid "Import Busy Info File"
-msgstr "Meşgul Bilgisi Dosyası İçe Aktar"
+msgstr "Meşgûl Bilgisi Dosyası İçe Aktar"
 
 #: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
 msgid "Open"
@@ -167,7 +167,7 @@ msgstr "Aç"
 #: scripts/busyinfoimport.py:29
 msgctxt "(qtundo_format)"
 msgid "Import resource busy information"
-msgstr "Özkaynak meşgul bilgisini içe aktar"
+msgstr "Özkaynak meşgûl bilgisini içe aktar"
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
@@ -302,49 +302,49 @@ msgstr "Takvimin kopyası oluşturulamadı: %1"
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Resource Busy Information"
-msgstr "Özkaynak Meşgul Bilgisi"
+msgstr "Özkaynak Meşgûl Bilgisi"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Handle resource busy information"
-msgstr "Özkaynak meşgul bilgisini işle"
+msgstr "Özkaynak meşgûl bilgisini işle"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Export Resource Busy Information"
-msgstr "Özkaynak Meşgul Bilgisini Dışa Aktar"
+msgstr "Özkaynak Meşgûl Bilgisini Dışa Aktar"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Python script to export busy information to file"
-msgstr "Meşgul bilgisini dosyaya dışa aktarmak için Python betiği"
+msgstr "Meşgûl bilgisini dosyaya dışa aktarmak için Python betiği"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Import Resource Busy Information"
-msgstr "Özkaynak Meşgul Bilgisini İçe Aktar"
+msgstr "Özkaynak Meşgûl Bilgisini İçe Aktar"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Python script to import busy information from file"
-msgstr "Meşgul bilgisini dosyadan içe aktarmak için Python betiği"
+msgstr "Meşgûl bilgisini dosyadan içe aktarmak için Python betiği"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Clear Resource Busy Information"
-msgstr "Özkaynak Meşgul Bilgisini Sil"
+msgstr "Özkaynak Meşgûl Bilgisini Sil"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Python script to clear the imported resource busy information"
-msgstr "İçe aktarılmış özkaynak meşgul bilgisini silmek için Python betiği"
+msgstr "İçe aktarılmış özkaynak meşgûl bilgisini silmek için Python betiği"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
@@ -462,10 +462,10 @@ msgstr "Proje bilgisini yazdırmayı sağlayan örnek Python betiği"
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr "Özkaynak meşgul bilgisini yazdır..."
+msgstr "Özkaynak meşgûl bilgisini yazdır..."
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Example python script that print resource busy information"
-msgstr "Özkaynak meşgul bilgisini yazdıran örnek Python betiği"
+msgstr "Özkaynak meşgûl bilgisini yazdıran örnek Python betiği"
