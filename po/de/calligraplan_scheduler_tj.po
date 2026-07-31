@@ -30,8 +30,8 @@ msgstr ""
 "Version der von TaskJuggler verwendet wird. Er wurde verbessert, um "
 "Ressourceneinheiten zu behandeln.</para><para>Zeitplanung rückwärts wird "
 "simuliert, indem alle Aufgaben so spät wie möglich geplant werden.</"
-"para><para><note>Plan benutzt nicht alle Funktionen dieses Planers.</note></"
-"para>"
+"para><para><note>Plan verwendet nicht alle Funktionen dieses Planers.</"
+"note></para>"
 
 #: PlanTJScheduler.cpp:151
 #, kde-kuit-format

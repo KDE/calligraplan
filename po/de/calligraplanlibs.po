@@ -695,7 +695,7 @@ msgstr "Zeitplan erstellen ausgehend vom Beginn %1"
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
 "%1: Zeitplanung mit spätestem Ende fehlgeschlagen, es wird frühestes Ende "
-"statt dessen benutzt."
+"statt dessen verwendet."
 
 #: kernel/kpttask.cpp:1711 kernel/kpttask.cpp:1735 kernel/kpttask.cpp:1761
 #: kernel/kpttask.cpp:1785 kernel/kpttask.cpp:1803 kernel/kpttask.cpp:1874
@@ -3099,7 +3099,7 @@ msgstr ""
 "bei der Planung verwendet.</para><para>Ist als Verteilung „PERT“ gesetzt, "
 "wird die Berechnung auf der Basis der eingegebenen optimistischen (O), "
 "pessimistischen (P) und wahrscheinlichen (M) Schätzung durchgeführt. Dazu "
-"wird die Formel (O + 4 * M + P) / 6 benutzt.</para>"
+"wird die Formel (O + 4 * M + P) / 6 verwendet.</para>"
 
 #: models/kptcommonstrings.cpp:141
 #, kde-kuit-format
@@ -5383,7 +5383,7 @@ msgid ""
 "with other projects"
 msgstr ""
 "%1 ist eine <emphasis>geteilte</emphasis> Ressourcengruppe und kann daher in "
-"anderen Projekten benutzt werden"
+"anderen Projekten verwendet werden"
 
 #: models/ResourceGroupModel.cpp:95
 #, kde-kuit-format
@@ -5393,7 +5393,7 @@ msgid ""
 "this project"
 msgstr ""
 "%1 ist ein <emphasis>lokale</emphasis> Ressourcengruppe, die nur in diesem "
-"Projekt benutzt werden kann"
+"Projekt verwendet werden kann"
 
 #: models/ResourceGroupModel.cpp:191 models/ResourceModel.cpp:419
 #, kde-format
@@ -5497,7 +5497,7 @@ msgid ""
 "project"
 msgstr ""
 "%1 ist ein <emphasis>lokale</emphasis> Ressource, die nur in diesem Projekt "
-"benutzt werden kann"
+"verwendet werden kann"
 
 #: models/ResourceModel.cpp:111
 #, kde-kuit-format
@@ -5507,7 +5507,7 @@ msgid ""
 "other projects"
 msgstr ""
 "%1 ist eine <emphasis>geteilte</emphasis> Ressource und kann daher in "
-"anderen Projekten benutzt werden"
+"anderen Projekten verwendet werden"
 
 #: models/ResourceModel.cpp:140
 #, fuzzy, kde-format
@@ -6629,12 +6629,13 @@ msgstr ""
 "para><para>Ein Kalender kann weitere Unterkalender enthalten. Ist ein Tag in "
 "einem Kalender nicht definiert, wird er übergeordnete Kalender überprüft. "
 "Ein <emphasis>Undefinierter</emphasis> Tag hat als Voreinstellung den Typ "
-"<emphasis>Arbeitsfrei</emphasis>, wenn er von einer Ressource benutzt wird, "
-"oder <emphasis>jeden Tag verfügbar</emphasis>, wenn er von einer Aufgabe "
-"benutzt wird. </para><para>Ein Kalender kann als <emphasis>Standard-"
-"Kalender</emphasis> definiert werden. Ein Standard-Kalender wird von einer "
-"Arbeitsressourcen benutzt, wenn für diese Ressource kein Kalender definiert "
-"ist.<nl/><link url='%1'>Mehr ...</link></para>"
+"<emphasis>Arbeitsfrei</emphasis>, wenn er von einer Ressource verwendet "
+"wird, oder <emphasis>jeden Tag verfügbar</emphasis>, wenn er von einer "
+"Aufgabe verwendet wird. </para><para>Ein Kalender kann als "
+"<emphasis>Standard-Kalender</emphasis> definiert werden. Ein Standard-"
+"Kalender wird von einer Arbeitsressourcen verwendet, wenn für diese "
+"Ressource kein Kalender definiert ist.<nl/><link url='%1'>Mehr ...</link></"
+"para>"
 
 #: ui/kptcalendareditor.cpp:585
 #, kde-format
@@ -9023,7 +9024,7 @@ msgstr "Ressource"
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr ""
-"Hier können Sie das für Sie übliche Währungssymbol eingeben, z. B. € oder $."
+"Hier können Sie das für Sie übliche Währungssymbol eingeben, z. B. € oder $."
 
 #. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
 #: ui/locale/localemon.ui:19
