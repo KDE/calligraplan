@@ -15,6 +15,7 @@
 
 #include <QDomDocument>
 #include <QSortFilterProxyModel>
+#include <QFile>
 
 class QIODevice;
 class QString;
@@ -61,7 +62,7 @@ protected:
     void writeChildElements(KoXmlWriter &writer, const KoXmlElement &parent);
     bool copyFile(KoStore &from, KoStore &to, const QString &file);
     bool copyFile(KoStore &from, KoStore &to, const char *file);
-    KoStore *copyStore(KoOdfReadStore &reader, const QString &outfile);
+    KoStore *copyStore(KoOdfReadStore &reader, QFile &outfile);
     KoXmlWriter *createOasisXmlWriter(KoOdfReadStore &reader, QBuffer *buffer, const QString fileName, const char *rootElementName);
 
     void treatEmbededObjects(KoOdfReadStore &reader, KoStore &outStore);

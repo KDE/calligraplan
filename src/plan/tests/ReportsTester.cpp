@@ -15,6 +15,7 @@
 
 #include <QTest>
 #include <QTemporaryFile>
+#include <QStandardPaths>
 
 #include <tests/debug.cpp>
 
@@ -57,7 +58,8 @@ void ReportsTester::testReportGeneration()
     report.setProject(project);
     report.setScheduleManager(scheduleManager);
     report.setTemplateFile(templateFile);
-    QTemporaryFile tmp(QDir::currentPath() + QDir::separator() + QStringLiteral("taskstatusreport-XXXXXX.odt"));
+    QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    QTemporaryFile tmp(tempDir + QDir::separator() + QStringLiteral("taskstatusreport-XXXXXX.odt"));
     QVERIFY(tmp.open());
     const auto reportFile = tmp.fileName();
     qDebug()<<reportFile;

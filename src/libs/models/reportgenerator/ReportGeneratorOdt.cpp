@@ -129,10 +129,25 @@ bool ReportGeneratorOdt::createReportOdt()
         dbgRG<<"Failed to loadAndParse:"<<m_lastError;
         return false;
     }
+    QUrl url = QUrl::fromUserInput(m_reportFile);
+    if (!url.isLocalFile()) {
+        // FIXME: KoStore only handles local files
+        dbgRG<<"KoStore only handles local files:"<<url;
+        m_lastError = i18n("Report generator can only generate local files");
+        return false;
+    }
+    const auto path = url.toLocalFile();
+    QFile* file = new QFile(path);
+    if (!file->open(QIODevice::WriteOnly)) {
+        m_lastError = i18n("Failed to open report file: %1", path);
+        delete file;
+        return false;
+    }
     // copy manifest file and store a list of file references
-    KoStore *outStore = copyStore(reader, m_reportFile);
+    KoStore *outStore = copyStore(reader, *file);
     if (!outStore) {
         dbgRG<<"Failed to copy template";
+        delete file;
         return false;
     }
     dbgRG << '\n' << "---- treat main content.xml ----" << '\n';
@@ -141,6 +156,7 @@ bool ReportGeneratorOdt::createReportOdt()
 
     if (!writer) {
         dbgRG<<"Failed to create content.xml writer";
+        delete file;
         return false;
     }
     KoXmlDocument kodoc = reader.contentDoc();
@@ -155,6 +171,7 @@ bool ReportGeneratorOdt::createReportOdt()
         m_lastError = i18n("Failed to write to store: %1", QStringLiteral("content.xml"));
         delete writer;
         delete outStore;
+        delete file;
         return false;
     }
     buffer.close();
@@ -172,6 +189,7 @@ bool ReportGeneratorOdt::createReportOdt()
             debugPlan<<"Failed to read styles.xml"<<m_lastError;
             delete writer;
             delete outStore;
+            delete file;
             return false;
         }
         writeChildElements(*styles, stylesDoc.documentElement());
@@ -182,6 +200,8 @@ bool ReportGeneratorOdt::createReportOdt()
             m_lastError = i18n("Failed to write to store: %1", QStringLiteral("styles.xml"));
             delete writer;
             delete outStore;
+            delete file;
+            return false;
         }
         m_manifestfiles.removeAt(m_manifestfiles.indexOf(QStringLiteral("styles.xml")));
     }
@@ -197,10 +217,12 @@ bool ReportGeneratorOdt::createReportOdt()
         m_lastError = i18n("Failed to write report file: %1", outStore->urlOfStore().path());
         delete writer;
         delete outStore;
+        delete file;
         return false;
     }
     delete writer;
     delete outStore;
+    delete file;
     dbgRG<<"finished";
     return true;
 }
@@ -602,7 +624,7 @@ bool ReportGeneratorOdt::copyFile(KoStore &from, KoStore &to, const QString &fil
     return ok;
 }
 
-KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &outfile)
+KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, QFile &outfile)
 {
     if (!reader.store()->hasFile("META-INF/manifest.xml")) {
         dbgRG<<"No manifest file";
@@ -613,18 +635,10 @@ KoStore *ReportGeneratorOdt::copyStore(KoOdfReadStore &reader, const QString &ou
         dbgRG<<"Failed to read manifest:"<<m_lastError;
         return nullptr;
     }
-    QUrl url = QUrl::fromUserInput(outfile);
-    if (!url.isLocalFile()) {
-        // FIXME: KoStore only handles local files
-        dbgRG<<"KoStore only handles local files:"<<url;
-        m_lastError = i18n("Report generator can only generate local files");
-        return nullptr;
-    }
-    const auto path = url.toLocalFile();
-    KoStore *out = KoStore::createStore(path, KoStore::Write);
+    KoStore *out = KoStore::createStore(&outfile, KoStore::Write);
     if (!out) {
         dbgRG<<"Failed to create store";
-        m_lastError = i18n("Failed to open report file: %1", url.path());
+        m_lastError = i18n("Failed to open report file: %1", outfile.fileName());
         return nullptr;
     }
     // This should go first, see OpenDocument v1.2 part 3: Packages
