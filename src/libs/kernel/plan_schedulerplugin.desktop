@@ -29,6 +29,7 @@ Name[sv]=Plan schemaläggningsinsticksprogram
 Name[tr]=Plan Zamanlayıcı Eklentisi
 Name[uk]=Додаток планування Plan
 Name[zh_CN]=Plan 调度器插件
+Name[zh_TW]=Plan 排程器外掛程式
 Type=ServiceType
 X-KDE-ServiceType=Plan/SchedulerPlugin
 Comment=A plugin that calculates a project schedule
