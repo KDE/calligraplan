@@ -3,19 +3,20 @@
 #
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2010.
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011.
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: krossmodulekplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2011-09-20 08:48+0800\n"
-"Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
-"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2026-08-04 06:40+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
@@ -172,93 +173,79 @@ msgstr "無法從相同身份的專案載入資料"
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
-msgstr ""
+msgstr "無法啟動 Sheets。Sheets 有安裝嗎？"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
-#, fuzzy
-#| msgid "No project to import from"
 msgid "No data to export"
-msgstr "沒來源可匯入專案"
+msgstr "沒有要匯出的資料"
 
 #: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
 msgid "You must select a file to write to"
-msgstr ""
+msgstr "您必須選擇要寫入的檔案"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
-#, fuzzy
-#| msgid "Could not open document: %1"
 msgid ""
 "Data saved to file:\n"
 "%1"
-msgstr "無法開啟文件：%1"
+msgstr ""
+"資料已儲存到檔案：\n"
+"%1"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
-#, fuzzy
-#| msgid "Busy Information Export"
 msgid "Information"
-msgstr "忙碌資訊匯出"
+msgstr "資訊"
 
 #: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
-#, fuzzy
-#| msgid "No project to import from"
 msgid "No properties to export"
-msgstr "沒來源可匯入專案"
+msgstr "沒有可匯出的屬性"
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
-#, fuzzy
-#| msgid "Export Selected Schedule"
 msgid "Select schedule"
-msgstr "匯出選取的排程"
+msgstr "選取排程"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
 msgid "Data"
-msgstr ""
+msgstr "資料"
 
 #: scripts/plan2csvexport.py:97 scripts/plan2odsexport.py:109
-#, fuzzy
-#| msgid "Select from:"
 msgid "Select data"
-msgstr "選取從："
+msgstr "選擇資料"
 
 #: scripts/plan2csvexport.py:100 scripts/plan2odsexport.py:112
-#, fuzzy
-#| msgid "Export Busy Info File"
 msgid "Export ods file"
-msgstr "匯出忙碌資訊檔案"
+msgstr "匯出 ODS 檔案"
 
 #: scripts/plan2csvexport.py:103 scripts/plan2odsexport.py:115
 msgid "Spreadsheet"
-msgstr ""
+msgstr "工作表"
 
 #: scripts/plan2odsexport.py:37
 msgid "No current sheet."
-msgstr ""
+msgstr "沒有目前工作表。"
 
 #: scripts/plan2odsexport.py:39
 msgid "Invalid sheet '%1' defined."
-msgstr ""
+msgstr "定義了無效工作表 '%1'。"
 
 #: scripts/plan2odsexport.py:42
-#, fuzzy
-#| msgid "Could not open document: %1"
 msgid "Could not select cell 'A1'"
-msgstr "無法開啟文件：%1"
+msgstr "無法選取儲存格 A1"
 
 #: scripts/plan2odsexport.py:58
-#, fuzzy
-#| msgid "Could not open document: %1"
 msgid ""
 "Could not write to file:\n"
 "%1"
-msgstr "無法開啟文件：%1"
+msgstr ""
+"無法寫入檔案：\n"
+"%1"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Failed to set all properties of '%1' to cell '%2'"
-msgstr ""
+msgstr "未能將所有 '%1' 的屬性設至儲存格 '%2'"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: scripts/resourcesimport.py:17
 msgid "Resources Import"
@@ -283,7 +270,7 @@ msgstr "無法開啟文件：%1"
 
 #: scripts/resourcesimport.py:48
 msgid "No project to import from"
-msgstr "沒來源可匯入專案"
+msgstr "沒有可匯入的專案"
 
 #: scripts/resourcesimport.py:51
 msgid "Project identities are identical"
@@ -389,8 +376,7 @@ msgstr "匯出"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:31
-#, fuzzy, kde-format
-#| msgid "Import content"
+#, kde-format
 msgid "Export content"
 msgstr "匯入內容"
 
@@ -398,25 +384,25 @@ msgstr "匯入內容"
 #: scripts/scripts.rc:32
 #, kde-format
 msgid "To csv"
-msgstr ""
+msgstr "到 CSV"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:32
 #, kde-format
 msgid "Export data as comma separated values"
-msgstr ""
+msgstr "將資料匯出成 CSV"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:36
 #, kde-format
 msgid "To ods"
-msgstr ""
+msgstr "到 ODS"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:36
 #, kde-format
 msgid "Export data to Open Spreadsheet document"
-msgstr ""
+msgstr "將資料匯出成開放試算表文件"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:46

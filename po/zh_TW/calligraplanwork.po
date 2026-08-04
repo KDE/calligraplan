@@ -5,19 +5,20 @@
 #
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2011-12-10 19:42+0800\n"
-"Last-Translator: Franklin <franklin@goodhorse.idv.tw>\n"
-"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2026-08-04 06:02+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: aboutdata.h:20 aboutdata.h:29
@@ -32,10 +33,9 @@ msgid "Plan WorkPackage Handler"
 msgstr "Plan 工作套件處理器"
 
 #: aboutdata.h:31
-#, fuzzy, kde-format
-#| msgid "(c) 2007-2011, The Plan Team"
+#, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr "(c) 2007-2011，Plan 開發團隊"
+msgstr "Copyright 1998-%1, Plan 團隊"
 
 #: aboutdata.h:35
 #, kde-format
@@ -63,10 +63,9 @@ msgstr "編輯(&E)"
 
 #. i18n: ectx: ToolBar (view_selection)
 #: calligraplanwork.rc:8
-#, fuzzy, kde-format
-#| msgid "&View"
+#, kde-format
 msgid "View"
-msgstr "檢視(&V)"
+msgstr "檢視"
 
 #. i18n: ectx: Menu (view)
 #: calligraplanwork_readonly.rc:4
@@ -130,11 +129,10 @@ msgstr ""
 "新資料更新現有的套件嗎？</p>"
 
 #: part.cpp:384
-#, fuzzy, kde-format
-#| msgid "Work Package: %1"
+#, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr "工作套件：%1"
+msgstr "更新工作套件"
 
 #: part.cpp:414
 #, kde-format
@@ -142,10 +140,6 @@ msgid "Remove failed. Cannot find work package"
 msgstr "寅除失敗。找不到工作套件"
 
 #: part.cpp:418
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Remove work package"
-#| msgid_plural "Remove work packages"
 msgctxt "(qtundo-format) @action"
 msgid "Remove work package"
 msgstr "移除工作套件"
@@ -212,12 +206,9 @@ msgid "File-Format Mismatch"
 msgstr "檔案格式不符"
 
 #: part.cpp:640
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got "
-#| "%1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr "無效的文件。MIME 類型應為 application/x-vnd.kde.plan.work，但是得到 %1"
+msgstr "無效的文件。MIME 類型應為 %2，但是得到 %1"
 
 #: part.cpp:742
 #, kde-format
@@ -256,13 +247,13 @@ msgstr "移除項目"
 #: taskworkpackagemodel.cpp:289
 #, kde-format
 msgid "<p><strong>%1: %2</strong></p><p>%3</p>"
-msgstr ""
+msgstr "<p><strong>%1：%2</strong></p><p>%3</p>"
 
 #: taskworkpackagemodel.cpp:411
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Type: %1<nl/>Url: %2"
-msgstr ""
+msgstr "類型：%1<nl/>網址：%2"
 
 #: taskworkpackagemodel.cpp:433
 #, no-c-format
@@ -286,106 +277,91 @@ msgid "Modify actual effort"
 msgstr "變更實際負擔"
 
 #: taskworkpackagemodel.cpp:600
-#, fuzzy, kde-kuit-format
-#| msgid "Name"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "名稱"
 
 #: taskworkpackagemodel.cpp:601
-#, fuzzy, kde-kuit-format
-#| msgid "Type"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Type"
 msgstr "類型"
 
 #: taskworkpackagemodel.cpp:602
-#, fuzzy, kde-kuit-format
-#| msgid "Responsible"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Responsible"
 msgstr "負責人"
 
 #: taskworkpackagemodel.cpp:603
-#, fuzzy, kde-kuit-format
-#| msgid "Description"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Description"
 msgstr "描述"
 
 #: taskworkpackagemodel.cpp:606
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Start"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Start"
 msgstr "預計開始時間"
 
 #: taskworkpackagemodel.cpp:607
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Finish"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Finish"
 msgstr "預計完成時間"
 
 #: taskworkpackagemodel.cpp:608
-#, fuzzy, kde-kuit-format
-#| msgid "Resource Assignments"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Assignments"
 msgstr "資源分配"
 
 #: taskworkpackagemodel.cpp:611
-#, fuzzy, kde-kuit-format
-#| msgid "Completion"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Completion"
 msgstr "完成度"
 
 #: taskworkpackagemodel.cpp:612
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Effort"
-msgstr "實際花費時間"
+msgstr "實際的負擔"
 
 #: taskworkpackagemodel.cpp:613
-#, fuzzy, kde-kuit-format
-#| msgid "Remaining Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Remaining Effort"
 msgstr "剩餘的負擔"
 
 #: taskworkpackagemodel.cpp:614
-#, fuzzy, kde-kuit-format
-#| msgid "Planned Effort"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Planned Effort"
 msgstr "計畫的負擔"
 
 #: taskworkpackagemodel.cpp:615
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Start"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
 msgstr "實際開始"
 
 #: taskworkpackagemodel.cpp:616
-#, fuzzy, kde-kuit-format
-#| msgid "Started"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Started"
 msgstr "已開始"
 
 #: taskworkpackagemodel.cpp:617
-#, fuzzy, kde-kuit-format
-#| msgid "Actual Finish"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Finish"
 msgstr "實際完成"
 
 #: taskworkpackagemodel.cpp:618
-#, fuzzy, kde-kuit-format
-#| msgid "Finished"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finished"
 msgstr "已完成"
@@ -394,25 +370,22 @@ msgstr "已完成"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: taskworkpackagemodel.cpp:620
-#, fuzzy, kde-kuit-format
-#| msgid "Note"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Note"
 msgstr "備註"
 
 #: taskworkpackagemodel.cpp:622
-#, fuzzy, kde-kuit-format
-#| msgid "Project Name"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Name"
 msgstr "專案名稱"
 
 #: taskworkpackagemodel.cpp:623
-#, fuzzy, kde-kuit-format
-#| msgid "Project Manager"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Project Manager"
 msgstr "專案管理員"
@@ -428,7 +401,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
-msgstr ""
+msgstr "工作：%1<nl/>實際完成：%2<nl/>計畫完成：%3<nl/>狀態：%4<nl/>專案：%5"
 
 #: taskworkpackageview.cpp:646
 #, kde-kuit-format
@@ -437,12 +410,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"工作：%1<nl/>完成度：%2<nl/>實際開始：%3<nl/>計畫：%4 - %5<nl/>狀態：%6<nl/>"
+"專案：%7"
 
 #: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "工作：%1<nl/>計畫：%2 - %3<nl/>狀態：%4<nl/>專案：%5"
 
 #: view.cpp:85
 #, kde-format
@@ -457,24 +432,24 @@ msgstr "移除套件"
 #: view.cpp:93
 #, kde-format
 msgid "List"
-msgstr ""
+msgstr "清單"
 
 #: view.cpp:94
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "選取工作清單"
 
 #: view.cpp:98
 #, kde-format
 msgid "Gantt"
-msgstr ""
+msgstr "甘特圖"
 
 #: view.cpp:99
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "選取時間軸"
 
 #: view.cpp:104
 #, kde-format
@@ -493,10 +468,9 @@ msgid "View..."
 msgstr "檢視..."
 
 #: view.cpp:117
-#, fuzzy, kde-format
-#| msgid "Remove Entry"
+#, kde-format
 msgid "Remove document"
-msgstr "移除項目"
+msgstr "移除文件"
 
 #: view.cpp:121
 #, kde-format
@@ -529,10 +503,9 @@ msgid "Cannot find work package"
 msgstr "無法找到工作套件"
 
 #: view.cpp:359
-#, fuzzy, kde-format
-#| msgid "Could not open temporary file. Sending is aborted."
+#, kde-format
 msgid "Could not open file. Sending is aborted."
-msgstr "無法開啟暫存檔。傳送已取消。"
+msgstr "無法開啟檔案。傳送已取消。"
 
 #: view.cpp:367
 #, kde-format
@@ -586,11 +559,9 @@ msgid ""
 msgstr "無法儲存專案：%1"
 
 #: workpackage.cpp:455
-#, fuzzy
-#| msgid "Remove Entry"
 msgctxt "(qtundo-format)"
 msgid "Remove document"
-msgstr "移除項目"
+msgstr "移除文件"
 
 #: workpackage.cpp:464
 #, kde-format

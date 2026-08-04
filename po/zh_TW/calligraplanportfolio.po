@@ -5,13 +5,13 @@
 # This file is distributed under the same license as the calligraplan package.
 # Automatically generated, 2022.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-03-26 19:01+0900\n"
+"PO-Revision-Date: 2026-08-04 06:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -510,7 +510,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:246
@@ -526,7 +526,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "https://docs.kde.org"
-msgstr ""
+msgstr "https://docs.kde.org"
 
 #. i18n: ectx: property (text), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:262
@@ -542,7 +542,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "https://forum.kde.org/viewforum.php?f=203"
-msgstr ""
+msgstr "https://forum.kde.org/viewforum.php?f=203"
 
 #. i18n: ectx: property (text), widget (QLabel, forumLabel)
 #: PortfolioView.ui:281
@@ -557,7 +557,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "https://userbase.kde.org/Plan"
-msgstr ""
+msgstr "https://userbase.kde.org/Plan"
 
 #. i18n: ectx: property (text), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:300
@@ -585,13 +585,13 @@ msgstr ""
 #: ProjectsDashboard.cpp:79
 #, kde-format
 msgid "Projects"
-msgstr ""
+msgstr "專案"
 
 #: ProjectsModel.cpp:142
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project name"
-msgstr ""
+msgstr "專案名稱"
 
 #: ProjectsModel.cpp:151
 #, kde-format
@@ -625,13 +625,13 @@ msgstr ""
 #: SchedulingModel.cpp:29
 #, kde-format
 msgid "Schedule"
-msgstr ""
+msgstr "排程"
 
 #: ProjectsModel.cpp:190
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select schedule"
-msgstr ""
+msgstr "選取排程"
 
 #: ProjectsModel.cpp:231
 #, kde-kuit-format
@@ -664,25 +664,25 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
-msgstr ""
+msgstr "未排程"
 
 #: ProjectsModel.cpp:295 ProjectsModel.cpp:316
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr ""
+msgstr "排程：%1 未排程"
 
 #: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "排程 %1：排程開始時間：%1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "排程 %1：排程結束時間：%1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
@@ -694,13 +694,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr ""
+msgstr "排程已設基線"
 
 #: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr ""
+msgstr "已排程但未設基線"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
@@ -757,34 +757,34 @@ msgstr "專案"
 #, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
-msgstr ""
+msgstr "排程"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr ""
+msgstr "動作"
 
 #: ScheduleManagerInfoDialog.cpp:22
 #, kde-format
 msgctxt "@title:column"
 msgid "State"
-msgstr ""
+msgstr "狀態"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, kde-format
 msgid "New schedule"
-msgstr ""
+msgstr "新增排程"
 
 #: ScheduleManagerInfoDialog.cpp:34
 #, kde-format
 msgid "New sub-schedule"
-msgstr ""
+msgstr "新增子排程"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "將會建立新排程「%1」"
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -909,7 +909,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "排程此專案"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
@@ -921,13 +921,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "排除這個專案"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "最高優先度的會優先排程"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -951,22 +951,22 @@ msgstr ""
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
+msgstr[0] "%1 分鐘"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr ""
+msgstr "描述..."
 
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "內部錯誤。找不到排程器外掛程式。"
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
-msgstr ""
+msgstr "無項目可排程"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -984,7 +984,7 @@ msgstr ""
 #: SchedulingView.ui:54
 #, kde-format
 msgid "Scheduling Control"
-msgstr ""
+msgstr "排程控制"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: SchedulingView.ui:60
@@ -1058,7 +1058,7 @@ msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
-msgstr ""
+msgstr "排程績效指數 (BCWS/BCWP)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1073,7 +1073,7 @@ msgstr ""
 #: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
-msgstr ""
+msgstr "Portfolio 內容"
 
 #: View.cpp:64
 #, kde-format
@@ -1093,7 +1093,7 @@ msgstr "進度"
 #: View.cpp:83
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "效能"
 
 #: View.cpp:90
 #, kde-format

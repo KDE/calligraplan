@@ -6,20 +6,20 @@
 # Translator: Chao-Hsiung Liao <pesder@seed.net.tw, 2002.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2008, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
-# SPDX-FileCopyrightText: 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2025-03-26 18:32+0900\n"
+"PO-Revision-Date: 2026-08-04 05:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. i18n: ectx: Menu (file)
@@ -104,72 +104,72 @@ msgstr "每天幾小時"
 #: calligraplansettings.kcfg:27
 #, kde-format
 msgid "Generate working week"
-msgstr ""
+msgstr "產生工作週"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
 #, kde-format
 msgid "Generate working week options"
-msgstr ""
+msgstr "產生工作週選項"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:34 config/ConfigWorkVacationPanel.ui:45
 #, kde-format
 msgid "If none exists"
-msgstr ""
+msgstr "如果沒有的話"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
 #: calligraplansettings.kcfg:37 config/ConfigWorkVacationPanel.ui:50
 #, kde-format
 msgid "Always"
-msgstr ""
+msgstr "總是"
 
 #. i18n: ectx: label, entry (GenerateHolidays), group (CalendarGeneration)
 #: calligraplansettings.kcfg:43
 #, kde-format
 msgid "Generate holidays"
-msgstr ""
+msgstr "產生假日"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
 #, kde-format
 msgid "Generate holidays options"
-msgstr ""
+msgstr "產生假日選項"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
 #, kde-format
 msgid "In base calendar"
-msgstr ""
+msgstr "在基礎行事曆裡面"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:53 config/ConfigWorkVacationPanel.ui:86
 #, kde-format
 msgid "As sub-calendar"
-msgstr ""
+msgstr "作為子行事曆"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
 #: calligraplansettings.kcfg:56 config/ConfigWorkVacationPanel.ui:91
 #, kde-format
 msgid "As separate calendar"
-msgstr ""
+msgstr "作為分開的行事曆"
 
 #. i18n: ectx: label, entry (Region), group (CalendarGeneration)
 #: calligraplansettings.kcfg:62
 #, kde-format
 msgid "Holiday region"
-msgstr ""
+msgstr "假日區域"
 
 #. i18n: ectx: label, entry (Monday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Monday)
 #: calligraplansettings.kcfg:68 config/ConfigWorkVacationPanel.ui:255
 #, kde-format
 msgid "Monday:"
-msgstr ""
+msgstr "星期一："
 
 #. i18n: ectx: label, entry (MondayStart), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayStart), group (WorkingWeek)
@@ -184,7 +184,7 @@ msgstr ""
 #: calligraplansettings.kcfg:150
 #, kde-format
 msgid "Start of working day"
-msgstr ""
+msgstr "工作日的開始"
 
 #. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
@@ -199,77 +199,73 @@ msgstr ""
 #: calligraplansettings.kcfg:154
 #, kde-format
 msgid "End of working day"
-msgstr ""
+msgstr "工作日的結束"
 
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
 #: calligraplansettings.kcfg:81 config/ConfigWorkVacationPanel.ui:195
 #, kde-format
 msgid "Tuesday:"
-msgstr ""
+msgstr "星期二："
 
 #. i18n: ectx: label, entry (Wednesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wednesday)
 #: calligraplansettings.kcfg:94 config/ConfigWorkVacationPanel.ui:205
 #, kde-format
 msgid "Wednesday:"
-msgstr ""
+msgstr "星期三："
 
 #. i18n: ectx: label, entry (Thursday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Thursday)
 #: calligraplansettings.kcfg:107 config/ConfigWorkVacationPanel.ui:215
 #, kde-format
 msgid "Thursday:"
-msgstr ""
+msgstr "星期四："
 
 #. i18n: ectx: label, entry (Friday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Friday)
 #: calligraplansettings.kcfg:120 config/ConfigWorkVacationPanel.ui:225
 #, kde-format
 msgid "Friday:"
-msgstr ""
+msgstr "星期五："
 
 #. i18n: ectx: label, entry (Saturday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Saturday)
 #: calligraplansettings.kcfg:133 config/ConfigWorkVacationPanel.ui:235
 #, kde-format
 msgid "Saturday:"
-msgstr ""
+msgstr "星期六："
 
 #. i18n: ectx: label, entry (Sunday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Sunday)
 #: calligraplansettings.kcfg:146 config/ConfigWorkVacationPanel.ui:245
 #, kde-format
 msgid "Sunday:"
-msgstr ""
+msgstr "星期日："
 
 #. i18n: ectx: label, entry (Manager), group (Project settings)
 #: calligraplansettings.kcfg:161
-#, fuzzy, kde-format
-#| msgid "Project manager:"
+#, kde-format
 msgid "Name of project manager"
-msgstr "專案經理："
+msgstr "專案經理姓名"
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Use shared resources"
-msgstr "依資源檢視工作狀態"
+msgstr "使用共享資源"
 
 #. i18n: ectx: label, entry (SharedResourcesFile), group (Project settings)
 #: calligraplansettings.kcfg:168
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "File to contain shared resources"
-msgstr "依資源檢視工作狀態"
+msgstr "包含共享資源的檔案"
 
 #. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
 #: calligraplansettings.kcfg:171
-#, fuzzy, kde-format
-#| msgid "Task description"
+#, kde-format
 msgid "Project description"
-msgstr "工作描述"
+msgstr "專案描述"
 
 #. i18n: ectx: label, entry (Leader), group (Task defaults)
 #: calligraplansettings.kcfg:176
@@ -321,16 +317,15 @@ msgstr "估計時間單位"
 
 #. i18n: ectx: label, entry (ExpectedEstimate), group (Task defaults)
 #: calligraplansettings.kcfg:239
-#, fuzzy, kde-format
-#| msgid "Estimate type:"
+#, kde-format
 msgid "Estimate"
-msgstr "估計類型："
+msgstr "估計"
 
 #. i18n: ectx: label, entry (Risk), group (Task defaults)
 #: calligraplansettings.kcfg:243
 #, kde-format
 msgid "Risk"
-msgstr ""
+msgstr "風險"
 
 #. i18n: ectx: label, entry (OptimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:252
@@ -484,10 +479,9 @@ msgstr "Plan 讀取套件後要將工作套件儲存在哪裡"
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
 #: calligraplansettings.kcfg:349
-#, fuzzy, kde-format
-#| msgid "Directory where Plan retrieves work packages from project members"
+#, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr "Plan 從專案成員中取得工作套件的目錄"
+msgstr "Plan 發布工作套件的目錄"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
@@ -503,35 +497,34 @@ msgstr "允許的最大期間單位"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgid "Path to the documentation"
-msgstr "期間"
+msgstr "說明文件的路徑"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: calligraplansettings.kcfg:370
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "內文說明文件的路徑"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: calligraplansettings.kcfg:374
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "內文說明文件必須已翻譯至該語言"
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
 #: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
-msgstr ""
+msgstr "使用來自您的私人儲存的工作模組"
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
 #: calligraplansettings.kcfg:384
 #, kde-format
 msgid "List of paths to task modules"
-msgstr ""
+msgstr "工作模組路徑列表"
 
 #. i18n: ectx: label, entry (ReportTemplatePaths), group (Report Templates)
 #: calligraplansettings.kcfg:390
@@ -722,6 +715,15 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>用來產生工作週與假日的預設行事曆的數值。</p><p><span "
+"style=\" font-style:italic;\">週</span>行事曆會使用<span style=\" font-style:"
+"italic;\">工作週</span>所定義的值。</p><p><span style=\" font-style:italic;"
+"\">週</span>行事曆可以<span style=\" font-style:italic;\">總是</span>產生，或"
+"是<span style=\" font-style:italic;\">如果沒有的話</span>才產生。後者常在有用"
+"樣本或在共享資源定義行事曆時使用。</p><p><span style=\" font-style:italic;\">"
+"假日</span>可以為您的區域產生（這是預設），您也可以選擇用任何別的區域。假日可"
+"以加入週行事曆、週行事曆的子行事曆，或是在它自己的行事曆裡。</p><p>如果週行事"
+"曆沒有產生，假日就會放在它們自己的行事曆裡。</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: config/ConfigWorkVacationPanel.ui:31
@@ -746,19 +748,19 @@ msgstr "假日"
 #: config/ConfigWorkVacationPanel.ui:81
 #, kde-format
 msgid "In week calendar"
-msgstr ""
+msgstr "在週行事曆裡"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/ConfigWorkVacationPanel.ui:99
 #, kde-format
 msgid "Holida&y region:"
-msgstr ""
+msgstr "假日區域(&Y)："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/ConfigWorkVacationPanel.ui:131
 #, kde-format
 msgid "Working week"
-msgstr ""
+msgstr "工作週"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Tuesday)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Monday)
@@ -781,10 +783,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigWorkVacationPanel.ui:266
-#, fuzzy, kde-format
-#| msgid "Define Estimate Conversions..."
+#, kde-format
 msgid "Estimate Conversions"
-msgstr "定義估計轉換..."
+msgstr "估計轉換"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, groupBox)
 #: config/ConfigWorkVacationPanel.ui:273
@@ -796,37 +797,40 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"這些值用於您的估計不是以小時為單位時。\n"
+"比方說，每天時數為八小時。若您估計某工作需要三天完成，則在排程工作時會轉換成 "
+"24 小時。實際完成的時間當然是相依於配置到此工作的資源（人）而定。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: config/ConfigWorkVacationPanel.ui:282
 #, kde-format
 msgid "Hours &per year:"
-msgstr ""
+msgstr "每年幾小時(&P)："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: config/ConfigWorkVacationPanel.ui:311
 #, kde-format
 msgid "Hours per &month:"
-msgstr ""
+msgstr "每月幾小時(&M)："
 
 #. i18n: ectx: property (text), widget (QLabel, textLabe3)
 #: config/ConfigWorkVacationPanel.ui:356
 #, kde-format
 msgid "Hours per wee&k:"
-msgstr ""
+msgstr "每週幾小時(&K)："
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:385
 #, kde-format
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
-msgstr ""
+msgstr "這些值用於您估計完成一件工作所花費的時間。"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:388
 #, kde-format
 msgid "Hours per &day:"
-msgstr ""
+msgstr "每天幾小時(&D)："
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: config/kptcolorsconfigpanel.ui:28
@@ -1108,32 +1112,31 @@ msgstr "排程限制："
 #: config/kptconfigtaskpanelbase.ui:498
 #, kde-format
 msgid "Risk:"
-msgstr ""
+msgstr "風險："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:509
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "無"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:514
 #, kde-format
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_Risk)
 #: config/kptconfigtaskpanelbase.ui:519
 #, kde-format
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: config/kptworkpackageconfigpanel.ui:17
-#, fuzzy, kde-format
-#| msgid "Retrieve URL:"
+#, kde-format
 msgid "Retrieve"
-msgstr "取得網址："
+msgstr "取得"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_CheckForWorkPackages)
 #: config/kptworkpackageconfigpanel.ui:23
@@ -1143,16 +1146,15 @@ msgstr "檢查工作套件"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: config/kptworkpackageconfigpanel.ui:32
-#, fuzzy, kde-format
-#| msgid "Retrieve URL:"
+#, kde-format
 msgid "Retrieve:"
-msgstr "取得網址："
+msgstr "取得："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: config/kptworkpackageconfigpanel.ui:47
 #, kde-format
 msgid "Archive"
-msgstr ""
+msgstr "封存"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_DeleteFile)
 #: config/kptworkpackageconfigpanel.ui:53
@@ -1162,28 +1164,27 @@ msgstr "在取得後刪除檔案"
 
 #. i18n: ectx: property (text), widget (QRadioButton, kcfg_SaveFile)
 #: config/kptworkpackageconfigpanel.ui:60
-#, fuzzy, kde-format
-#| msgid "Save file after it has been retrieved"
+#, kde-format
 msgid "Archive file after it has been retrieved"
-msgstr "在取得後儲存檔案"
+msgstr "在取得後封存檔案"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: config/kptworkpackageconfigpanel.ui:69
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "封存："
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_publishGroup)
 #: config/kptworkpackageconfigpanel.ui:84
 #, kde-format
 msgid "Publish"
-msgstr ""
+msgstr "發布"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: config/kptworkpackageconfigpanel.ui:92
 #, kde-format
 msgid "Publish:"
-msgstr ""
+msgstr "發布："
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CreateReportTemplateDialog)
 #: CreateReportTemplateDialog.ui:14
@@ -1264,16 +1265,14 @@ msgid "Plan"
 msgstr "Plan"
 
 #: kptaboutdata.h:26
-#, fuzzy, kde-format
-#| msgid "Calligra Plan - KDE Project Planning and Management Tool"
+#, kde-format
 msgid "Project Planning and Management Tool"
-msgstr "Calligra Plan - KDE 專案計畫與管理工具"
+msgstr "專案計畫與管理工具"
 
 #: kptaboutdata.h:28
-#, fuzzy, kde-format
-#| msgid "(c) 1998-2012, The Plan Team"
+#, kde-format
 msgid "Copyright 1998-%1, The Plan Team"
-msgstr "(c) 1998-2012, Plan 開發團隊"
+msgstr "Copyright 1998-%1, Plan 團隊"
 
 #: kptaboutdata.h:32
 #, kde-format
@@ -1343,31 +1342,29 @@ msgstr ""
 "para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Scheduling started: %1"
-msgstr "排程限制："
+msgstr "排程開始：%1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "重新計算來源：%1"
 
 #: kptbuiltinschedulerplugin.cpp:265
-#, fuzzy, kde-format
-#| msgid "Schedule Handler"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "排程處理器"
+msgstr "排程已取消"
 
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "排程已於 %1 完成，經過時間：%2 秒"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "從專案中插入資源預訂：%1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1418,22 +1415,17 @@ msgstr ""
 "以此版本的 Plan 開啟可能會遺失某些資訊。"
 
 #: kptmaindocument.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
-msgstr "儲存暫存檔失敗：<br/><filename>%1</filename>"
+msgstr "儲存暫存檔失敗。沒有指定資源"
 
 #: kptmaindocument.cpp:474
-#, fuzzy, kde-format
-#| msgid "Failed to open temporary file"
+#, kde-format
 msgid "Failed to open work package file"
-msgstr "開啟暫存檔失敗"
+msgstr "開啟工作套件檔案失敗"
 
 #: kptmaindocument.cpp:481
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Failed to save to temporary file:<br/> <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to save to temporary file:<br/><filename>%1</filename>"
 msgstr "儲存暫存檔失敗：<br/><filename>%1</filename>"
@@ -1454,11 +1446,9 @@ msgid "Saving..."
 msgstr "儲存中..."
 
 #: kptmaindocument.cpp:686
-#, fuzzy, kde-format
-#| msgid ""
-#| "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
+#, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr "無效的文件。MIME 類型應為 application/x-vnd.kde.plan，但是得到 %1"
+msgstr "無效的文件。MIME 類型應為 %2，但是得到 %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1473,7 +1463,7 @@ msgstr ""
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr ""
+msgstr "內部錯誤，插入檔案失敗。"
 
 #: kptmaindocument.cpp:1185
 #, kde-kuit-format
@@ -1481,14 +1471,13 @@ msgctxt "@info"
 msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
-msgstr ""
+msgstr "將共享資源載入至專案 %1 失敗：<nl/>內部錯誤，插入檔案失敗。"
 
 #: kptmaindocument.cpp:1195
-#, fuzzy, kde-kuit-format
-#| msgid "Tasks by resources"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr "依資源檢視工作狀態"
+msgstr "將共享資源載入至專案 %1 失敗：<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1498,38 +1487,34 @@ msgstr "插入專案"
 #: kptmaindocument.cpp:1450
 #, kde-format
 msgid "Group: %1"
-msgstr ""
+msgstr "群組：%1"
 
 #: kptmaindocument.cpp:1457
-#, fuzzy, kde-format
-#| msgid "Resources"
+#, kde-format
 msgid "Resource: %1"
-msgstr "資源"
+msgstr "資源：%1"
 
 #: kptmaindocument.cpp:1462
 #, kde-format
 msgid "Calendar: %1"
-msgstr ""
+msgstr "行事曆：%1"
 
 #: kptmaindocument.cpp:1464
-#, fuzzy
-#| msgid "Tasks by resources"
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr "依資源檢視工作狀態"
+msgstr "更新共享資源"
 
 #: kptmaindocument.cpp:1481
-#, fuzzy, kde-format
-#| msgid "Project:"
+#, kde-format
 msgctxt "@title:window"
 msgid "Project: %1"
-msgstr "專案："
+msgstr "專案：%1"
 
 #: kptmaindocument.cpp:1728
 #, kde-format
 msgctxt "Base calendar name"
 msgid "Base"
-msgstr ""
+msgstr "基礎"
 
 #: kptpart.cpp:95
 #, kde-format
@@ -1577,10 +1562,9 @@ msgid "Define Currency..."
 msgstr "定義貨幣..."
 
 #: kptview.cpp:225
-#, fuzzy, kde-format
-#| msgid "Description..."
+#, kde-format
 msgid "Edit Description..."
-msgstr "描述..."
+msgstr "編輯描述..."
 
 #: kptview.cpp:230
 #, kde-format
@@ -1588,15 +1572,14 @@ msgid "Insert Project File..."
 msgstr "插入專案檔..."
 
 #: kptview.cpp:234
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgid "Update Shared Resources"
-msgstr "依資源檢視工作狀態"
+msgstr "更新共享資源"
 
 #: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr ""
+msgstr "開啟報告定義檔案..."
 
 #: kptview.cpp:244
 #, kde-format
@@ -1604,17 +1587,15 @@ msgid "Create Report Template..."
 msgstr "建立報告樣本…"
 
 #: kptview.cpp:260
-#, fuzzy, kde-format
-#| msgid "Work Package"
+#, kde-format
 msgid "Work Packages..."
-msgstr "工作套件"
+msgstr "工作套件..."
 
 #: kptview.cpp:261
-#, fuzzy, kde-format
-#| msgid "Work Package View"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Work packages available"
-msgstr "工作套件檢視"
+msgstr "工作套件可用"
 
 #: kptview.cpp:352
 #, kde-kuit-format
@@ -1627,34 +1608,29 @@ msgid ""
 msgstr ""
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Scheduling constraint:"
+#, kde-format
 msgid "Edit task scheduling constraints"
-msgstr "排程限制："
+msgstr "編輯工作排程限制"
 
 #: kptview.cpp:492
-#, fuzzy, kde-format
-#| msgid "Constraints"
+#, kde-format
 msgid "Task Constraints"
-msgstr "強制"
+msgstr "工作限制"
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit task dependencies"
+#, kde-format
 msgid "Edit task cost"
-msgstr "編輯工作相依性"
+msgstr "編輯工作花費"
 
 #: kptview.cpp:502
-#, fuzzy, kde-format
-#| msgid "Task Colors"
+#, kde-format
 msgid "Task Cost"
-msgstr "工作顏色"
+msgstr "工作花費"
 
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr ""
+msgstr "產生報告"
 
 #: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
@@ -1679,11 +1655,9 @@ msgid "Edit cost breakdown structure."
 msgstr "編輯成本分析結構。"
 
 #: kptview.cpp:644
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Edit resource breakdown structure"
+#, kde-format
 msgid "Resource Breakdown Structure"
-msgstr "編輯資源分析結構。"
+msgstr "資源分析結構"
 
 #: kptview.cpp:645
 #, kde-kuit-format
@@ -1697,12 +1671,10 @@ msgid "Resources"
 msgstr "資源"
 
 #: kptview.cpp:648
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete resourcegroup"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resources"
-msgstr "刪除資源群組"
+msgstr "編輯資源"
 
 #: kptview.cpp:650
 #, kde-format
@@ -1792,9 +1764,7 @@ msgid "Gantt"
 msgstr "甘特圖"
 
 #: kptview.cpp:678
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "View gantt chart"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View Gantt chart"
 msgstr "檢視甘特圖"
@@ -1805,9 +1775,7 @@ msgid "Milestone Gantt"
 msgstr "里程碑甘特圖"
 
 #: kptview.cpp:681
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "View milestone gantt chart"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
 msgstr "檢視里程碑甘特圖"
@@ -1829,12 +1797,10 @@ msgid "Resource Assignments (Gantt)"
 msgstr "資源分配（甘特圖）"
 
 #: kptview.cpp:687
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "View resource assignments in gantt chart"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr "在甘特圖中檢視資源分配"
+msgstr "用甘特圖檢視資源分配"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, fuzzy, kde-format
@@ -1873,13 +1839,13 @@ msgstr "檢視工作效能狀態資訊"
 #: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
-msgstr ""
+msgstr "報告產生器"
 
 #: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr ""
+msgstr "產生報告"
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
@@ -1917,7 +1883,7 @@ msgstr "報告"
 #: kptview.cpp:1481
 #, kde-format
 msgid "The file '%1' already exists, do you want to overwrite it?"
-msgstr ""
+msgstr "檔案「%1」已經存在，您要覆寫它嗎？"
 
 #: kptview.cpp:1482
 #, kde-format
@@ -1926,11 +1892,10 @@ msgid "Report Template"
 msgstr "報告樣本"
 
 #: kptview.cpp:1824
-#, fuzzy, kde-format
-#| msgid "Tasks by resources"
+#, kde-format
 msgctxt "ªtitle:window"
 msgid "Shared Resources"
-msgstr "依資源檢視工作狀態"
+msgstr "共享資源"
 
 #: kptview.cpp:1824
 #, kde-kuit-format
@@ -2094,10 +2059,9 @@ msgstr "插入..."
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:17 kptviewlisteditview.ui:20
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The category of the view"
-msgstr "估計類型"
+msgstr "檢視的類別"
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #: kptviewlistaddview.ui:20 kptviewlisteditview.ui:23
@@ -2109,7 +2073,7 @@ msgstr "類別："
 #: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
 #, kde-format
 msgid "The view is placed after this view"
-msgstr ""
+msgstr "此檢視會放在這個檢視後面"
 
 #. i18n: ectx: property (text), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
@@ -2120,10 +2084,9 @@ msgstr "之後"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:72
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The type of view"
-msgstr "估計類型"
+msgstr "檢視的型態"
 
 #. i18n: ectx: property (text), widget (QLabel, viewtypeLabel)
 #: kptviewlistaddview.ui:75
@@ -2133,10 +2096,9 @@ msgstr "檢視型態："
 
 #. i18n: ectx: property (toolTip), widget (QLabel, viewnameLabel)
 #: kptviewlistaddview.ui:92 kptviewlisteditview.ui:78
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The name of the view"
-msgstr "估計類型"
+msgstr "檢視的名稱"
 
 #. i18n: ectx: property (text), widget (QLabel, categoryLabel)
 #. i18n: ectx: property (text), widget (QLabel, viewnameLabel)
@@ -2148,18 +2110,16 @@ msgstr "名稱："
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:108 kptviewlisteditview.ui:94
-#, fuzzy, kde-format
-#| msgid "Task description"
+#, kde-format
 msgid "The views description"
-msgstr "工作描述"
+msgstr "檢視的描述"
 
 #. i18n: ectx: property (text), widget (QLabel, tooltipLabel)
 #: kptviewlistaddview.ui:111 kptviewlisteditcategory.ui:62
 #: kptviewlisteditview.ui:97
-#, fuzzy, kde-format
-#| msgid "Description"
+#, kde-format
 msgid "Description:"
-msgstr "描述"
+msgstr "描述："
 
 #: kptviewlistdialog.cpp:29
 #, kde-kuit-format
@@ -2168,10 +2128,9 @@ msgid "Add View"
 msgstr "新增檢視"
 
 #: kptviewlistdialog.cpp:93
-#, fuzzy, kde-format
-#| msgid "Resource Editor"
+#, kde-format
 msgid "Resource Group Editor"
-msgstr "資源編輯器"
+msgstr "資源群組編輯器"
 
 #: kptviewlistdialog.cpp:94
 #, kde-format
@@ -2226,7 +2185,7 @@ msgstr "里程碑甘特圖檢視"
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr ""
+msgstr "報告產生器"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
@@ -2353,32 +2312,28 @@ msgstr "自動重新整理資料"
 #: kptviewlisteditcategory.ui:20
 #, kde-format
 msgid "The category is placed after this category"
-msgstr ""
+msgstr "此類別會放在這個類別後面"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, categoryLabel)
 #: kptviewlisteditcategory.ui:43
-#, fuzzy, kde-format
-#| msgid "Type of estimate"
+#, kde-format
 msgid "The name of the category"
-msgstr "估計類型"
+msgstr "類別的名稱"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, tooltipLabel)
 #: kptviewlisteditcategory.ui:59
 #, kde-format
 msgid "The description of the category"
-msgstr ""
+msgstr "類別的描述"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Duration"
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "期間"
+msgstr "動作"
 
 #: SharedResourcesDialog.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "Task name"
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "名稱"
@@ -2386,7 +2341,7 @@ msgstr "名稱"
 #: SharedResourcesDialog.cpp:33
 #, kde-format
 msgid "Calendars"
-msgstr ""
+msgstr "行事曆"
 
 #: SharedResourcesDialog.cpp:84
 #, kde-kuit-format
@@ -2405,54 +2360,54 @@ msgstr ""
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Convert"
-msgstr ""
+msgstr "轉換"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
 msgid "Keep"
-msgstr ""
+msgstr "保留"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "將所有選取項目標記成要從您的專案移除"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "標記為：移除"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "將所有選取項目標記成要轉換為本機資源"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
 #, kde-format
 msgid "Mark as: Convert"
-msgstr ""
+msgstr "標記為：轉換"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "將所有選取項目標記成要保留為共享資源"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "標記為：保留"
 
 #~ msgid "Expected estimate"
 #~ msgstr "預期估計"
