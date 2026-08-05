@@ -29,6 +29,7 @@
   <name xml:lang="sv">Plan Arbete</name>
   <name xml:lang="tr">Plan Work</name>
   <name xml:lang="uk">Робота Plan</name>
+  <name xml:lang="zh-TW">Plan Work</name>
   <summary>Work Package Handler</summary>
   <summary xml:lang="ar">معالج حزمة العمل</summary>
   <summary xml:lang="ca">Gestor de paquets de feina</summary>
@@ -55,6 +56,7 @@
   <summary xml:lang="tr">İş Paketi İşleyicisi</summary>
   <summary xml:lang="ug">خىزمەت بوغچا بىر تەرەپ قىلغۇچ</summary>
   <summary xml:lang="uk">Обробник робочих пакунків</summary>
+  <summary xml:lang="zh-TW">工作套件處理器</summary>
   <description>
     <p>
       Plan Work enables project members to handle all tasks they shall work on across projects.
@@ -83,6 +85,7 @@
     <p xml:lang="sv">Plan Arbete gör det möjligt för projektmedlemmar att hantera alla uppgifter de kommer att arbeta med i olika projekt.</p>
     <p xml:lang="tr">Plan Work, proje üyelerinin projeler arasında yapacakları görevleri işlemelerine izin verir.</p>
     <p xml:lang="uk">«Робота Plan» уможливлює для учасників проєктів обробляти всі завдання, над якими вони працюють на міжпроєктному рівні.</p>
+    <p xml:lang="zh-TW">Plan Work 讓專案成員可以處理各專案間要進行的所有工作。</p>
   </description>
   <url type="homepage">https://www.calligra.org/plan/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=calligraplan</url>
