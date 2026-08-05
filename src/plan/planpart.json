@@ -25,6 +25,7 @@
         "Name[tr]": "Calligra Proje Yönetimi Bileşeni",
         "Name[uk]": "Компонент керування проєктами Calligra",
         "Name[zh_CN]": "Calligra 项目管理组件",
+        "Name[zh_TW]": "Calligra 專案管理組件",
         "ServiceTypes": [
             "Calligra/Part"
         ]

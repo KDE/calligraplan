@@ -20,6 +20,7 @@
         "Name[ug]": "Plan MS قۇرۇلۇش ئەكىرىش سۈزگۈچى",
         "Name[uk]": "Фільтр імпортування даних MS Project для Plan",
         "Name[zh_CN]": "Plan MS Project 导入过滤器",
+        "Name[zh_TW]": "Plan Microsoft 專案匯入過濾程式",
         "ServiceTypes": [
             "Plan/Filter"
         ]
