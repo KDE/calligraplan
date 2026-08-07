@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-06-06 21:46+0300\n"
+"PO-Revision-Date: 2026-08-06 11:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -483,32 +483,32 @@ msgstr ""
 #: calligraplansettings.kcfg:355
 #, kde-format
 msgid "The smallest duration unit allowed"
-msgstr ""
+msgstr "יחידת משך הזמן הקטנה ביותר שמורשית"
 
 #. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:359
 #, kde-format
 msgid "The largest duration unit allowed"
-msgstr ""
+msgstr "יחידת משך הזמן הגדולה ביותר שמורשית"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
 #, kde-format
 msgid "Path to the documentation"
-msgstr ""
+msgstr "נתיב לתיעוד"
 
 #. i18n: ectx: label, entry (ContextPath), group (Documentation)
 #: calligraplansettings.kcfg:370
 #, kde-format
 msgid "Path to the context help documentation"
-msgstr ""
+msgstr "נתיב לתיעוד עזרה לפי הקשר"
 
 #. i18n: ectx: label, entry (ContextLanguage), group (Documentation)
 #: calligraplansettings.kcfg:374
 #, kde-format
 msgid ""
 "The context help documentation must have been translated to the language"
-msgstr ""
+msgstr "תיעוד עזרה לפי הקשר חייב להיות מתורגם לשפה"
 
 #. i18n: ectx: label, entry (UseLocalTaskModules), group (Task Modules)
 #: calligraplansettings.kcfg:380
@@ -596,19 +596,19 @@ msgstr "מסמך"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "הנהלת המיזם הזה."
 
 #: config/ConfigProjectPanel.cpp:39
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr ""
+msgstr "יש לסמן כדי להפעיל משאבים משותפים"
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr ""
+msgstr "הקובץ בו מוגדרים המשאבים המשותפים"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -933,101 +933,101 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:45
 #, kde-format
 msgid "Responsible:"
-msgstr ""
+msgstr "אחריות:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:78
 #, kde-format
 msgid "Effort"
-msgstr ""
+msgstr "מאמץ"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:83
 #, kde-format
 msgid "Duration"
-msgstr ""
+msgstr "משך"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: config/kptconfigtaskpanelbase.ui:110
 #, kde-format
 msgid "Pessimistic estimate:"
-msgstr ""
+msgstr "הערכה פסימית:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_3)
 #: config/kptconfigtaskpanelbase.ui:132
 #, kde-format
 msgid "Optimistic estimate:"
-msgstr ""
+msgstr "הערכה אופטימית:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:155 config/kptconfigtaskpanelbase.ui:331
 #, kde-format
 msgid "Current date and time"
-msgstr ""
+msgstr "התאריך והשעה הנוכחיים"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
 #, kde-format
 msgid "Current date, specified time"
-msgstr ""
+msgstr "התאריך הנוכחי, שעה מוגדרת"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
 #, kde-format
 msgid "Specified date and time"
-msgstr ""
+msgstr "תאריך ושעה מוגדרים"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
 #: config/kptconfigtaskpanelbase.ui:186
 #, kde-format
 msgid "Estimate type:"
-msgstr ""
+msgstr "סוג הערכה:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_5)
 #: config/kptconfigtaskpanelbase.ui:208
 #, kde-format
 msgid "Constraint Start time usage:"
-msgstr ""
+msgstr "הגבלת שימוש בשעת ההתחלה:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_PessimisticRatio)
 #. i18n: ectx: property (suffix), widget (QSpinBox, kcfg_OptimisticRatio)
 #: config/kptconfigtaskpanelbase.ui:234 config/kptconfigtaskpanelbase.ui:416
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
 #: config/kptconfigtaskpanelbase.ui:257
 #, kde-format
 msgid "Constraint End time usage:"
-msgstr ""
+msgstr "הגבלת שימוש בשעת הסיום:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_8)
 #: config/kptconfigtaskpanelbase.ui:279
 #, kde-format
 msgid "Expected estimate:"
-msgstr ""
+msgstr "הערכה מצופה:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_3)
 #: config/kptconfigtaskpanelbase.ui:301
 #, kde-format
 msgid "Constraint start time:"
-msgstr ""
+msgstr "הגבלת שעת ההתחלה:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:356
 #, kde-format
 msgid "As Soon as Possible"
-msgstr ""
+msgstr "כמה שיותר מוקדם"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:361
 #, kde-format
 msgid "As Late as Possible"
-msgstr ""
+msgstr "הכי מאוחר שאפשר"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_ConstraintType)
 #: config/kptconfigtaskpanelbase.ui:366
@@ -1057,7 +1057,7 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:386
 #, kde-format
 msgid "Fixed Interval"
-msgstr ""
+msgstr "הפרש קבוע"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_4)
 #: config/kptconfigtaskpanelbase.ui:400
