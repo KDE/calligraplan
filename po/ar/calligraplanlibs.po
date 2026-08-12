@@ -688,7 +688,7 @@ msgstr "جدْوِل من البدء %1"
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
-"%1: فشلت الجدولة باستخدام الانتهاء المتأخر، أحاول الانتهاء المُبكِّر بدلاً منه."
+"%1: فشلت الجدولة باستخدام الانتهاء المتأخر، أحاول الانتهاء المُبكِّر بدلًا منه."
 
 #: kernel/kpttask.cpp:1711 kernel/kpttask.cpp:1735 kernel/kpttask.cpp:1761
 #: kernel/kpttask.cpp:1785 kernel/kpttask.cpp:1803 kernel/kpttask.cpp:1874
@@ -994,8 +994,8 @@ msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr ""
-"هل تريد فعلاً استرجاع كل أشرطة الأدوات الخاصة بهذا التطبيق إلى قيمها "
-"المبدئية ؟ ستطبق التغييرات فوراً."
+"هل تريد فعلًا استرجاع كل أشرطة الأدوات الخاصة بهذا التطبيق إلى قيمها "
+"المبدئية ؟ ستطبق التغييرات فورًا."
 
 #: main/kedittoolbar.cpp:662
 #, kde-format
@@ -1384,7 +1384,7 @@ msgstr ""
 #: main/KoDocument.cpp:1646
 #, kde-format
 msgid "%1 is not a file."
-msgstr "%1 ليس ملفاً."
+msgstr "%1 ليس ملفًا."
 
 #: main/KoDocument.cpp:1661
 #, kde-format
@@ -2773,7 +2773,7 @@ msgstr "التكلفة الفعلية"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually started"
-msgstr "الوقت الذي بدأت فيه المُهمّة فعلاً"
+msgstr "الوقت الذي بدأت فيه المُهمّة فعلًا"
 
 #: models/kptcommonstrings.cpp:69
 #, kde-kuit-format
@@ -2785,7 +2785,7 @@ msgstr "اعرض إن بدأت المُهمّة"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Time when task was actually finished"
-msgstr "الوقت الذي انتهت فيه المُهمّة فعلاً"
+msgstr "الوقت الذي انتهت فيه المُهمّة فعلًا"
 
 #: models/kptcommonstrings.cpp:71
 #, kde-kuit-format
@@ -4555,7 +4555,7 @@ msgstr "عدّل الإكمال"
 #: models/kpttaskstatusmodel.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr "اجعل منتهياً"
+msgstr "اجعل منتهيًا"
 
 #: models/kptnodeitemmodel.cpp:4066
 msgctxt "(qtundo-format)"
@@ -4807,13 +4807,13 @@ msgstr "عدّل اسم الجدول"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Manual Mode, calculation must be initiated manually"
-msgstr "الجدول في الوضع اليدوي، يجب بدء الحساب يدوياً"
+msgstr "الجدول في الوضع اليدوي، يجب بدء الحساب يدويًا"
 
 #: models/kptschedulemodel.cpp:432
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Auto Mode, it will be calculated automatically"
-msgstr "الجدول في الوضع الآلي، سيُحسب آلياً"
+msgstr "الجدول في الوضع الآلي، سيُحسب آليًا"
 
 #: models/kptschedulemodel.cpp:436
 #, kde-kuit-format
@@ -4880,13 +4880,13 @@ msgstr "اسمح بالحجز الزائد للموارد"
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
-msgstr "%1 يسمح دائماً بالحجز الزائد للموارد"
+msgstr "%1 يسمح دائمًا بالحجز الزائد للموارد"
 
 #: models/kptschedulemodel.cpp:571
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
-msgstr "%1 يتجنب دائماً الحجز الزائد للموارد"
+msgstr "%1 يتجنب دائمًا الحجز الزائد للموارد"
 
 #: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
@@ -4999,13 +4999,13 @@ msgstr "جدول المشروع من وقت البدء المستهدف"
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
-msgstr "%1 يجدول دائماً من وقت البدء المستهدف"
+msgstr "%1 يجدول دائمًا من وقت البدء المستهدف"
 
 #: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
-msgstr "%1 يجدول دائماً من وقت الانتهاء المستهدف"
+msgstr "%1 يجدول دائمًا من وقت الانتهاء المستهدف"
 
 #: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
@@ -5819,7 +5819,7 @@ msgstr ""
 msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
-msgstr "لا يدعم QCA حالياً SHA1 أو PBKDF2 باستخدام SHA1. لا يمكن فتح المستند."
+msgstr "لا يدعم QCA حاليًا SHA1 أو PBKDF2 باستخدام SHA1. لا يمكن فتح المستند."
 
 #: store/KoEncryptedStore.cpp:332
 #, kde-format
@@ -5828,7 +5828,7 @@ msgid ""
 "document will remain unreadable. Please try and save the document again to "
 "prevent losing your work."
 msgstr ""
-"ملف البيان يبدو فاسداً. لا يمكن تعديله والمستنند سيبقى غير قابل للقراءة. يرجى "
+"ملف البيان يبدو فاسدًا. لا يمكن تعديله والمستنند سيبقى غير قابل للقراءة. يرجى "
 "المحاولة وحفظ المستند مجددا لمنع فقدان عملك."
 
 #: store/KoEncryptedStore.cpp:430
@@ -6087,7 +6087,7 @@ msgstr "الفترة:"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:93
 #, kde-format
 msgid "Use custom line"
-msgstr "استخدم سطراً مخصصاً"
+msgstr "استخدم سطرًا مخصصًا"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:102
@@ -6400,7 +6400,7 @@ msgstr "أضف حسابًا"
 #, kde-kuit-format
 msgctxt "@action:inmenu"
 msgid "Add Subaccount"
-msgstr "أضف حساباً فرعياً"
+msgstr "أضف حسابًا فرعيًا"
 
 #: ui/kptaccountseditor.cpp:280
 #, kde-kuit-format
@@ -6566,13 +6566,13 @@ msgid ""
 "><link url='%1'>More...</link></para>"
 msgstr ""
 "<title>محرر العمل والإجازات</title><para>يحدد التقويم التوفر للموارد أو "
-"المهام من نوع <emphasis>المدة</emphasis>. يمكن أن يكون التقويم خاصاً بمورد أو "
-"مهمة، أو مشتركاً بين موارد أو مهام متعددة. يمكن أن يكون اليوم من نوع "
+"المهام من نوع <emphasis>المدة</emphasis>. يمكن أن يكون التقويم خاصًا بمورد أو "
+"مهمة، أو مشتركًا بين موارد أو مهام متعددة. يمكن أن يكون اليوم من نوع "
 "<emphasis>غير محدد</emphasis>، <emphasis>يوم غير عامل</emphasis> أو "
 "<emphasis>يوم عامل</emphasis>. يحتوي اليوم العامل على فترة عمل واحدة أو أكثر "
 "محددة.</para><para>يمكن أن يحتوي التقويم على تقويمات فرعية. إذا كان يوم غير "
 "محدد في تقويم، يفحص التقويم الأصل. يوم <emphasis>غير محدد</emphasis> يكون "
-"مبدئياً <emphasis>غير عامل</emphasis> إذا استخدمه مورد، أو <emphasis>متاح "
+"مبدئيًا <emphasis>غير عامل</emphasis> إذا استخدمه مورد، أو <emphasis>متاح "
 "طوال اليوم</emphasis> إذا استخدمته مهمة.</para><para>يمكن تعريف التقويم على "
 "أنه <emphasis>التقويم المبدئي</emphasis>. يستخدم التقويم المبدئي بواسطة مورد "
 "عامل، عندما لا يحدد تقويم الموارد بشكل صريح.<nl/><link url='%1'>المزيد...</"
@@ -6586,7 +6586,7 @@ msgstr "إضافة التّقويم"
 #: ui/kptcalendareditor.cpp:590
 #, kde-format
 msgid "Add Subcalendar"
-msgstr "أضف تقويماً فرعياً"
+msgstr "أضف تقويمًا فرعيًا"
 
 #: ui/kptcalendareditor.cpp:595 ui/kptdependencyeditor.cpp:2587
 #: ui/kptresourceeditor.cpp:302 ui/kptscheduleeditor.cpp:311
@@ -6801,7 +6801,7 @@ msgstr "عرض..."
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Attach Document"
-msgstr "أرفق مستنداً"
+msgstr "أرفق مستندًا"
 
 #: ui/kptdocumentspanel.cpp:118
 #, kde-kuit-format
@@ -6839,7 +6839,7 @@ msgstr "عدّل المستندات"
 #: ui/kptdocumentspanel.cpp:214
 msgctxt "(qtundo-format)"
 msgid "Remove document"
-msgstr "أزل مستنداً"
+msgstr "أزل مستندًا"
 
 #: ui/kptdocumentspanel.cpp:222
 msgctxt "(qtundo-format)"
@@ -7704,7 +7704,7 @@ msgstr ""
 "في <emphasis>الوضع الآلي</emphasis> في نفس الوقت ويجب أن يكون جدولًا من "
 "المستوى العلوي دون جداول فرعية.</note></para><para>يمكن أن يحتوي الجدول على "
 "جداول فرعية. يمكن للجدول الفرعي استخدام بيانات تقدم المشروع لإعادة جدولة "
-"المهام التي لَم تنته بعد. إعادة الجدولة ستستخدم حينها مثلاً البدء الفعلي "
+"المهام التي لَم تنته بعد. إعادة الجدولة ستستخدم حينها مثلًا البدء الفعلي "
 "والجهد المتبقي للمهام.<nl/><link url='%1'>المزيد...</link></para>"
 
 #: ui/kptscheduleeditor.cpp:301
@@ -10390,7 +10390,7 @@ msgid ""
 "to <b>OASIS OpenDocument</b> to be encrypted.<p>Do you want to change the "
 "file to OASIS OpenDocument?</qt>"
 msgstr ""
-"<qt>المستند محفوظ حالياً على أنه %1. يحتاج المستند أن يغير  إلى <b>OASIS "
+"<qt>المستند محفوظ حاليًا على أنه %1. يحتاج المستند أن يغير  إلى <b>OASIS "
 "OpenDocument</b> حتى يعمى.<p>هل تريد تغيير  الملف إلى OASIS OpenDocument؟</"
 "qt>"
 

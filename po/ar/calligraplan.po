@@ -449,7 +449,7 @@ msgstr "لون المعلم في حالة الخطأ"
 #: calligraplansettings.kcfg:334
 #, kde-format
 msgid "Automatically check for new work packages"
-msgstr "افحص آلياً حزم العمل الجديدة"
+msgstr "افحص آليًا حزم العمل الجديدة"
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
 #: calligraplansettings.kcfg:337
@@ -717,7 +717,7 @@ msgstr ""
 "والعطلات.</p><p>يستخدم تقويم <span style=\" font-style:italic;\">الأسبوع</"
 "span> القيم المحددة في <span style=\" font-style:italic;\">أسبوع العمل</"
 "span>.</p><p>يمكن توليد تقويم <span style=\" font-style:italic;\">الأسبوع</"
-"span> <span style=\" font-style:italic;\">دائماً</span> أو توليده فقط <span "
+"span> <span style=\" font-style:italic;\">دائمًا</span> أو توليده فقط <span "
 "style=\" font-style:italic;\">إن لم يوجد أحد</span>. الخيار الأخير هو الأكثر "
 "شيوعًا حيث غالبًا ما لديك تقاويم محددة كجزء من القوالب أو الموارد المشتركة.</"
 "p><p>يمكن توليد <span style=\" font-style:italic;\">العطلات</span> لمنطقتك "
@@ -1339,7 +1339,7 @@ msgstr ""
 "<title>مُجدوِل الشبكة (PERT)</title><para>يجدول مُجدوِل الشبكة المهام عمومًا وفقًا "
 "لاعتماديتها. عندما تُجدوَل مهمة، تُجدوَل بالكامل، محجِزة الموارد المخصصة إذا "
 "توفرت. إذا لم يسمح بالحجز المفرط، فستُجدوَل المهام اللاحقة التي تطلب المورد "
-"ذاته لاحقًا في الوقت.</para><para>ستُجدوَل المهام ذات قيود الوقت أولاً لتقليل "
+"ذاته لاحقًا في الوقت.</para><para>ستُجدوَل المهام ذات قيود الوقت أولًا لتقليل "
 "مشكلة تعارضات الموارد</para><para><note>هذا المُجدوِل لا يعالج تعارضات الموارد "
 "جيدًا.<nl/>يمكنك تجربة مُجدوِل مختلف إذا كان متوفرًا. يمكنك أيضًا تغيير تخصيصات "
 "الموارد أو إضافة اعتماديات وهمية لتجنب التعارضات.</note></para>"
