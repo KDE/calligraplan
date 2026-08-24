@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the calligraplanlibs package.
 #
 # SPDX-FileCopyrightText: 2008, 2010 Rafael Carreras <rcarreras@caliu.cat>
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2026 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2016, 2020, 2021, 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2008-2023, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2016, 2020, 2021, 2022, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-24 00:44+0000\n"
-"PO-Revision-Date: 2026-03-29 13:54+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2026-08-23 21:26+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Poedit-Language: Catalan\n"
@@ -1306,7 +1306,7 @@ msgstr "S'ha produït un error d'anàlisi"
 #: main/KoDocument.cpp:1440
 #, kde-format
 msgid "Document is password protected"
-msgstr "El document està protegit per contrasenya"
+msgstr "El document està protegit amb contrasenya"
 
 #: main/KoDocument.cpp:1443
 #, kde-format
@@ -1642,7 +1642,7 @@ msgid ""
 msgstr ""
 "No s'ha pogut obrir un fitxer de plantilla.<nl/>Si voleu modificar la "
 "plantilla, creeu un projecte nou utilitzant esta plantilla i guardeu-la "
-"utilitzant <interface>Fitxer->Crea una plantilla de projectes…</interface>."
+"utilitzant <interface>Fitxer → Crea una plantilla de projectes…</interface>."
 
 #: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
@@ -7280,7 +7280,8 @@ msgstr ""
 "L'estructura de descomposició de costos (WBS) introduïx una numeració per a "
 "totes les tasques del projecte, d'acord amb l'estructura de tasca.<nl/>El "
 "codi WBS és generat automàticament.<nl/>Podeu definir el patró del codi WBS "
-"utilitzant l'entrada de menú <interface>Definix el patró WBS</interface>."
+"utilitzant l'entrada de menú <interface>Projecte → Definix el patró WBS</"
+"interface>."
 
 #: ui/kptmainprojectpanel.cpp:109
 #, kde-kuit-format
@@ -10421,7 +10422,7 @@ msgid ""
 "<qt>Decrypting the document will remove the password protection from it."
 "<p>Do you still want to decrypt the file?</qt>"
 msgstr ""
-"<qt>Desencriptar el document n'eliminarà la protecció per contrasenya."
+"<qt>Desencriptar el document n'eliminarà la protecció amb contrasenya."
 "<p>Encara voleu desencriptar el fitxer?</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:360
