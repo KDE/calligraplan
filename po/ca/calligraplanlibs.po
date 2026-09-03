@@ -4,7 +4,7 @@
 #
 # SPDX-FileCopyrightText: 2008, 2010 Rafael Carreras <rcarreras@caliu.cat>
 # SPDX-FileCopyrightText: 2008-2023, 2026 Josep M. Ferrer <txemaq@gmail.com>
-# SPDX-FileCopyrightText: 2016, 2020, 2021, 2022, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2016, 2020-2022, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
