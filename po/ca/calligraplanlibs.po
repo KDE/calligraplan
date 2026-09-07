@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-24 00:44+0000\n"
-"PO-Revision-Date: 2026-08-23 21:26+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2026-09-06 18:43+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Poedit-Language: Catalan\n"
@@ -6342,7 +6342,7 @@ msgstr "Divideix el diagrama en múltiples pàgines"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to page height"
-msgstr "Ajusta a l'alçada de la pàgina"
+msgstr "Ajusta a l'altura de la pàgina"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
 #: ui/gantt/kptganttprintingoptions.ui:60
@@ -10572,7 +10572,7 @@ msgstr "Amplada:"
 #: widgets/KoPageLayoutWidget.ui:104
 #, kde-format
 msgid "Height:"
-msgstr "Alçada:"
+msgstr "Altura:"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: widgets/KoPageLayoutWidget.ui:119
