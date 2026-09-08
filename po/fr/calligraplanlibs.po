@@ -9313,7 +9313,7 @@ msgid ""
 "<interface>OK</interface>.<nl/>The dropdown list of possible predecessors is "
 "sorted with the most likely tasks first.</para>"
 msgstr ""
-"<title>Boîte de dialogue des dépendances de tâche</title><para>La boite de "
+"<title>Boite de dialogue des dépendances de tâche</title><para>La boite de "
 "dialogue des dépendances de tâche vous permet d'ajouter facilement un "
 "prédécesseur à la tâche sélectionnée.<nl/>A l'ouverture, elle propose la "
 "tâche précédente comme prédécesseur par défaut. C'est souvent le "
@@ -10083,7 +10083,7 @@ msgstr "Ouvrir le lien"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Boîte de dialogue"
+msgstr "Boite de dialogue"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
