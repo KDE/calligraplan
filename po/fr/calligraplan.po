@@ -2382,7 +2382,7 @@ msgstr "Inclure le texte des notes de bas de page et de fin"
 #: kptviewlistdocker.ui:91
 #, kde-format
 msgid "Automatically refresh data"
-msgstr "Rafraîchir automatiquement les données"
+msgstr "Rafraichir automatiquement les données"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, afterLabel)
 #: kptviewlisteditcategory.ui:20
