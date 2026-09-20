@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 00:44+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2008-04-20 12:32+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frisian <kde-i18n-doc@kde.org>\n"
@@ -5703,67 +5703,68 @@ msgstr "Koe sjabloantriem net ynlade: %1"
 msgid "Report generator has not been correctly opened"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:155
-#: models/reportgenerator/ReportGeneratorOdt.cpp:182
-#: models/reportgenerator/ReportGeneratorOdt.cpp:789
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
-msgid "Failed to write to store: %1"
-msgstr "Koe sjabloantriem net ynlade: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:197
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
-msgid "Failed to write report file: %1"
-msgstr "Koe sjabloantriem net ynlade: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:590
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
-msgid "Failed to extract file: %1"
-msgstr "Koe sjabloantriem net ynlade: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:596
-#, fuzzy, kde-format
-#| msgid "Unable to download template file: %1"
-msgid "Failed to add file to store: %1"
-msgstr "Koe sjabloantriem net ynlade: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:620
+#: models/reportgenerator/ReportGeneratorOdt.cpp:136
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:627
+#: models/reportgenerator/ReportGeneratorOdt.cpp:142
+#: models/reportgenerator/ReportGeneratorOdt.cpp:641
 #, fuzzy, kde-format
 #| msgid "Unable to download template file: %1"
 msgid "Failed to open report file: %1"
 msgstr "Koe sjabloantriem net ynlade: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:636
+#: models/reportgenerator/ReportGeneratorOdt.cpp:171
+#: models/reportgenerator/ReportGeneratorOdt.cpp:200
+#: models/reportgenerator/ReportGeneratorOdt.cpp:803
+#, fuzzy, kde-format
+#| msgid "Unable to download template file: %1"
+msgid "Failed to write to store: %1"
+msgstr "Koe sjabloantriem net ynlade: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:217
+#, fuzzy, kde-format
+#| msgid "Unable to download template file: %1"
+msgid "Failed to write report file: %1"
+msgstr "Koe sjabloantriem net ynlade: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:612
+#, fuzzy, kde-format
+#| msgid "Unable to download template file: %1"
+msgid "Failed to extract file: %1"
+msgstr "Koe sjabloantriem net ynlade: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:618
+#, fuzzy, kde-format
+#| msgid "Unable to download template file: %1"
+msgid "Failed to add file to store: %1"
+msgstr "Koe sjabloantriem net ynlade: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:650
 #, fuzzy, kde-format
 #| msgid "Unable to download template file: %1"
 msgid "Failed to load mimetype file"
 msgstr "Koe sjabloantriem net ynlade: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:645
+#: models/reportgenerator/ReportGeneratorOdt.cpp:659
 #, fuzzy, kde-format
 #| msgid "Unable to download template file: %1"
 msgid "Failed to write manifest file"
 msgstr "Koe sjabloantriem net ynlade: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:685 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:681
+#: models/reportgenerator/ReportGeneratorOdt.cpp:695
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr ""
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:714
+#: models/reportgenerator/ReportGeneratorOdt.cpp:728
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"

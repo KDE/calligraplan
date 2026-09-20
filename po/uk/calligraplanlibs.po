@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplanlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 00:44+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2023-03-22 13:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -5383,60 +5383,61 @@ msgstr "Не вдалося відкрити файл шаблона: %1"
 msgid "Report generator has not been correctly opened"
 msgstr "Не вдалося успішно відкрити засіб створення звітів"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:155
-#: models/reportgenerator/ReportGeneratorOdt.cpp:182
-#: models/reportgenerator/ReportGeneratorOdt.cpp:789
-#, kde-format
-msgid "Failed to write to store: %1"
-msgstr "Не вдалося записати до сховища: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:197
-#, kde-format
-msgid "Failed to write report file: %1"
-msgstr "Не вдалося записати файл звіту: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:590
-#, kde-format
-msgid "Failed to extract file: %1"
-msgstr "Не вдалося видобути файл: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:596
-#, kde-format
-msgid "Failed to add file to store: %1"
-msgstr "Не вдалося додати файл для зберігання: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:620
+#: models/reportgenerator/ReportGeneratorOdt.cpp:136
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr "Засіб створення звітів може створювати лише файли на вашому комп'ютері"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:627
+#: models/reportgenerator/ReportGeneratorOdt.cpp:142
+#: models/reportgenerator/ReportGeneratorOdt.cpp:641
 #, kde-format
 msgid "Failed to open report file: %1"
 msgstr "Не вдалося відкрити файл звіту: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:636
+#: models/reportgenerator/ReportGeneratorOdt.cpp:171
+#: models/reportgenerator/ReportGeneratorOdt.cpp:200
+#: models/reportgenerator/ReportGeneratorOdt.cpp:803
+#, kde-format
+msgid "Failed to write to store: %1"
+msgstr "Не вдалося записати до сховища: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:217
+#, kde-format
+msgid "Failed to write report file: %1"
+msgstr "Не вдалося записати файл звіту: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:612
+#, kde-format
+msgid "Failed to extract file: %1"
+msgstr "Не вдалося видобути файл: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:618
+#, kde-format
+msgid "Failed to add file to store: %1"
+msgstr "Не вдалося додати файл для зберігання: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:650
 #, kde-format
 msgid "Failed to load mimetype file"
 msgstr "Не вдалося завантажити файл типів MIME"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:645
+#: models/reportgenerator/ReportGeneratorOdt.cpp:659
 #, kde-format
 msgid "Failed to write manifest file"
 msgstr "Не вдалося виконати запис до файла маніфесту"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:685 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr "Немає програми збереження"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:681
+#: models/reportgenerator/ReportGeneratorOdt.cpp:695
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "Не вдалося відкрити файл <filename>%1</filename> зі сховища."
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:714
+#: models/reportgenerator/ReportGeneratorOdt.cpp:728
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"

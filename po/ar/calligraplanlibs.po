@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-24 00:44+0000\n"
+"POT-Creation-Date: 2026-09-20 00:45+0000\n"
 "PO-Revision-Date: 2026-08-10 17:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -5211,60 +5211,61 @@ msgstr "فشل فتح ملف القالب: %1"
 msgid "Report generator has not been correctly opened"
 msgstr "لم يفتح مولد التقارير بشكل صحيح"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:155
-#: models/reportgenerator/ReportGeneratorOdt.cpp:182
-#: models/reportgenerator/ReportGeneratorOdt.cpp:789
-#, kde-format
-msgid "Failed to write to store: %1"
-msgstr "فشل الكتابة في المخزن: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:197
-#, kde-format
-msgid "Failed to write report file: %1"
-msgstr "فشل كتابة ملف التقرير: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:590
-#, kde-format
-msgid "Failed to extract file: %1"
-msgstr "فشل استخراج الملف: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:596
-#, kde-format
-msgid "Failed to add file to store: %1"
-msgstr "فشل إضافة الملف إلى المخزن: %1"
-
-#: models/reportgenerator/ReportGeneratorOdt.cpp:620
+#: models/reportgenerator/ReportGeneratorOdt.cpp:136
 #, kde-format
 msgid "Report generator can only generate local files"
 msgstr "يمكن لمولد التقارير إنشاء ملفات محلية فقط"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:627
+#: models/reportgenerator/ReportGeneratorOdt.cpp:142
+#: models/reportgenerator/ReportGeneratorOdt.cpp:641
 #, kde-format
 msgid "Failed to open report file: %1"
 msgstr "فشل فتح ملف التقرير: %1"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:636
+#: models/reportgenerator/ReportGeneratorOdt.cpp:171
+#: models/reportgenerator/ReportGeneratorOdt.cpp:200
+#: models/reportgenerator/ReportGeneratorOdt.cpp:803
+#, kde-format
+msgid "Failed to write to store: %1"
+msgstr "فشل الكتابة في المخزن: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:217
+#, kde-format
+msgid "Failed to write report file: %1"
+msgstr "فشل كتابة ملف التقرير: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:612
+#, kde-format
+msgid "Failed to extract file: %1"
+msgstr "فشل استخراج الملف: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:618
+#, kde-format
+msgid "Failed to add file to store: %1"
+msgstr "فشل إضافة الملف إلى المخزن: %1"
+
+#: models/reportgenerator/ReportGeneratorOdt.cpp:650
 #, kde-format
 msgid "Failed to load mimetype file"
 msgstr "فشل تحميل ملف نوع الوسائط"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:645
+#: models/reportgenerator/ReportGeneratorOdt.cpp:659
 #, kde-format
 msgid "Failed to write manifest file"
 msgstr "فشل كتابة ملف البيان"
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:671 odf/KoOdfReadStore.cpp:97
+#: models/reportgenerator/ReportGeneratorOdt.cpp:685 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
 msgstr "لا نهاية خلفية للتخزين "
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:681
+#: models/reportgenerator/ReportGeneratorOdt.cpp:695
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
 msgstr "فشل فتح الملف <filename>%1</filename> من المخزن."
 
-#: models/reportgenerator/ReportGeneratorOdt.cpp:714
+#: models/reportgenerator/ReportGeneratorOdt.cpp:728
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
