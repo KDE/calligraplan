@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: plan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-05-29 17:14-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -997,7 +997,7 @@ msgstr ""
 #: config/kptconfigtaskpanelbase.ui:234 config/kptconfigtaskpanelbase.ui:416
 #, no-c-format, kde-format
 msgid "%"
-msgstr "%"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_6)
 #: config/kptconfigtaskpanelbase.ui:257
@@ -1256,12 +1256,12 @@ msgstr ""
 #: kptaboutdata.h:33
 #, kde-format
 msgid "Thomas Zander"
-msgstr "Thomas Zander"
+msgstr ""
 
 #: kptaboutdata.h:34
 #, kde-format
 msgid "Bo Thorsen"
-msgstr "Bo Thorsen"
+msgstr ""
 
 #: kptaboutdata.h:35
 #, kde-format
@@ -1366,7 +1366,7 @@ msgstr ""
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
 msgid "Invalid document. No mimetype specified."
-msgstr "ئىناۋەتسىز پۈتۈك. mime تۈرى كۆرسىتىلمىگەن."
+msgstr ""
 
 #: kptmaindocument.cpp:364
 #, kde-format
@@ -1404,7 +1404,7 @@ msgstr ""
 #: kptmaindocument.cpp:565
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "«%1» غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
+msgstr ""
 
 #: kptmaindocument.cpp:592
 #, kde-format
@@ -2223,7 +2223,7 @@ msgstr "سىزىقلار"
 #: kptviewlistdocker.ui:42
 #, kde-format
 msgid "Characters incl. spaces"
-msgstr "بوشلۇقنى ئۆز ئىچىگە ئالغان ھەرپ سانى"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:47
@@ -2241,7 +2241,7 @@ msgstr ""
 #: kptviewlistdocker.ui:63
 #, kde-format
 msgid "0"
-msgstr "0"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, refresh)
 #: kptviewlistdocker.ui:73

@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: planlibs\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-05-29 17:14-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +126,7 @@ msgstr ""
 #, kde-format
 msgctxt "<seconds>s"
 msgid "%1s"
-msgstr "%1s"
+msgstr ""
 
 #: kernel/kptduration.cpp:225
 #, kde-format
@@ -144,19 +144,19 @@ msgstr ""
 #, kde-format
 msgctxt "Year. Note: Letter(s) only!"
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 #: kernel/kptduration.cpp:289
 #, kde-format
 msgctxt "Month. Note: Letter(s) only!"
 msgid "M"
-msgstr "M"
+msgstr ""
 
 #: kernel/kptduration.cpp:290
 #, kde-format
 msgctxt "Week. Note: Letter(s) only!"
 msgid "w"
-msgstr "w"
+msgstr ""
 
 #: kernel/kptduration.cpp:291
 #, kde-format
@@ -174,19 +174,19 @@ msgstr ""
 #, kde-format
 msgctxt "Minute. Note: Letter(s) only!"
 msgid "m"
-msgstr "m"
+msgstr ""
 
 #: kernel/kptduration.cpp:294
 #, kde-format
 msgctxt "Second. Note: Letter(s) only!"
 msgid "s"
-msgstr "s"
+msgstr ""
 
 #: kernel/kptduration.cpp:295
 #, kde-format
 msgctxt "Millisecond. Note: Letter(s) only!"
 msgid "ms"
-msgstr "ms"
+msgstr ""
 
 #: kernel/kptglobal.cpp:18
 #, kde-format
@@ -991,8 +991,6 @@ msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr ""
-"پىروگراممىنىڭ بارلىق قورال بالدىقىنى ئەسلىگە قايتۇرۇپ كۆڭۈلدىكى قىممەتلىرىنى "
-"ئىشلىتەمسىز؟ ئۆزگەرتىشلەر شۇ ھامان كۈچكە ئىگە بولىدۇ."
 
 #: main/kedittoolbar.cpp:662
 #, kde-format
@@ -1048,7 +1046,7 @@ msgstr "تېكىست ئۆزگەرت(&X)…"
 #, kde-format
 msgctxt "@item:intable Action name in toolbar editor"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: main/kedittoolbar.cpp:1258
 #, kde-format
@@ -1073,8 +1071,6 @@ msgid ""
 "This is a dynamic list of actions. You can move it, but if you remove it you "
 "will not be able to re-add it."
 msgstr ""
-"بۇ ھەرىكەتلەرنىڭ ھەرىكەتچان تىزىملىكىدۇر. ھەرىكەتنى ئۆچۈرگىلى بولىدۇ، بىراق "
-"ئۆچۈرۈلگەندىن كېيىن ئۇنى قايتا قوشقىلى بولمايدۇ."
 
 #: main/kedittoolbar.cpp:1273
 #, kde-format
@@ -1085,7 +1081,7 @@ msgstr "ھەرىكەت تىزىملىكى: %1"
 #, kde-format
 msgctxt "@label Action tooltip in toolbar editor, below the action list"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: main/kedittoolbar.cpp:1627
 #, kde-format
@@ -1196,7 +1192,7 @@ msgstr "ساقلايدىغان ھۆججەتنى قۇرالمىدى"
 #: main/KoDocument.cpp:969
 #, kde-format
 msgid "Not able to write '%1'. Partition full?"
-msgstr "«%1» غا يازغىلى بولمىدى. دىسكا رايونى توشۇپ كەتتىمۇ؟"
+msgstr ""
 
 #: main/KoDocument.cpp:897 main/KoDocument.cpp:944 main/KoDocument.cpp:1955
 #, kde-format
@@ -1473,8 +1469,6 @@ msgid ""
 "The document \"%1\" has been modified.\n"
 "Do you want to save your changes or discard them?"
 msgstr ""
-"پۈتۈك %1 ئۆزگەرتىلدى\n"
-"ئۆزگىرىشنى ساقلامسىز؟ تاشلىۋېتەمسىز؟"
 
 #: main/KoDocument.cpp:2547
 #, kde-format
@@ -1944,7 +1938,7 @@ msgstr "تەقسىملەش"
 #, no-c-format, kde-format
 msgctxt "<value>%"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: models/AllocatedResourceItemModel.cpp:156
 #: models/kptresourceallocationmodel.cpp:142
@@ -2323,7 +2317,7 @@ msgstr "غەربىي شىمال"
 #, kde-format
 msgctxt "Working"
 msgid "W"
-msgstr "W"
+msgstr ""
 
 #: models/kptcalendarmodel.cpp:913
 msgctxt "(qtundo-format)"
@@ -3119,7 +3113,7 @@ msgstr "ئاتا"
 #, kde-format
 msgctxt "task progress"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: models/kptnodechartmodel.cpp:232
 #: models/reportgenerator/ReportGenerator.cpp:52
@@ -6463,7 +6457,7 @@ msgstr "بولسا"
 #: ui/TasksGeneralPanel.ui:268 ui/TasksGeneralPanel.ui:372
 #, no-c-format, kde-format
 msgid "%"
-msgstr "%"
+msgstr ""
 
 #: ui/kptdependencyeditor.cpp:2227
 #, kde-kuit-format
@@ -6718,7 +6712,7 @@ msgstr "چىقىرىۋەت"
 #: ui/kptdocumentspanel.ui:89
 #, kde-format
 msgid "Del"
-msgstr "Del"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pbView)
 #: ui/kptdocumentspanel.ui:96
@@ -6926,7 +6920,7 @@ msgstr ""
 #: ui/kptintervaleditbase.ui:21
 #, kde-format
 msgid "1"
-msgstr "1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: ui/kptintervaleditbase.ui:31
@@ -8357,7 +8351,7 @@ msgstr "بەت قېشى ۋە بەت ئاستى"
 #, kde-format
 msgctxt "1=page number, 2=last page number"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: ui/kptviewbase.cpp:446 ui/kptviewbase.cpp:551
 #, kde-format
