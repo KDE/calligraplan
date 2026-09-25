@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2022-05-10 21:41+0300\n"
+"PO-Revision-Date: 2026-09-24 20:41+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -61,9 +61,9 @@ msgstr "&Файл"
 
 #. i18n: ectx: Menu (settings)
 #: calligraplanportfolio_shell.rc:11
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Settings"
-msgstr "&Настройка"
+msgstr "&Параметры"
 
 #. i18n: ectx: Menu (help)
 #: calligraplanportfolio_shell.rc:25 Portfolio_ViewUi.rc:40
@@ -117,38 +117,38 @@ msgid "Portfolio"
 msgstr "Портфель"
 
 #: DocumentsSaveDialog.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Modified"
 msgstr "Изменён"
 
 #: DocumentsSaveDialog.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Сохранение"
 
 #: DocumentsSaveDialog.cpp:30
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Internal"
 msgstr "Встроенный"
 
 #: DocumentsSaveDialog.cpp:31
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Url"
 msgstr "URL"
 
 #: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
 #: PortfolioModel.cpp:114
-#, fuzzy, kde-format
+#, kde-format
 msgid "Yes"
 msgstr "Да"
 
 #: DocumentsSaveDialog.cpp:57 DocumentsSaveDialog.cpp:63 PortfolioModel.cpp:103
 #: PortfolioModel.cpp:114
-#, fuzzy, kde-format
+#, kde-format
 msgid "No"
 msgstr "Нет"
 
@@ -161,19 +161,19 @@ msgstr "Сохранить документы"
 #: DocumentsSaveDialog.cpp:136
 #, kde-format
 msgid "The file already exists. Do you want to overwrite?"
-msgstr ""
+msgstr "Файл уже существует. Заменить его?"
 
 #: DocumentsSaveDialog.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite file?"
-msgstr ""
+msgstr "Замена файла"
 
 #. i18n: ectx: property (text), widget (QCheckBox, saveMain)
 #: DocumentsSaveDialog.ui:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Сохранять"
 
 #: GanttView.cpp:81
 #, kde-kuit-format
@@ -184,9 +184,13 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Сводка диаграммы Ганта</title><para>Показывает диаграмму Ганта для "
+"всех проектов портфеля.</para><para>Представление диаграммы Ганта для "
+"проекта можно показать, выбрав <interface>Контекстное меню->Открыть проект</"
+"interface>.<nl/><link url='%1'>Подробнее…</link></para>"
 
 #: GanttView.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open Project"
 msgstr "Открыть проект"
 
@@ -196,9 +200,9 @@ msgid "Invalid document. No mimetype specified."
 msgstr "Недопустимый формат документа. Не указан тип MIME."
 
 #: MainDocument.cpp:94
-#, fuzzy, kde-format
+#, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
-msgstr "Недопустимый документ. Ожидался тип MIME %2, обнаружен тип %1"
+msgstr "Недопустимый документ. Ожидался тип MIME %1, обнаружен тип %2"
 
 #: MainDocument.cpp:100
 #, kde-format
@@ -216,7 +220,7 @@ msgid "File-Format Mismatch"
 msgstr "Несоответствие формата файла"
 
 #: MainDocument.cpp:102
-#, fuzzy, kde-format
+#, kde-format
 msgid "Continue"
 msgstr "Продолжить"
 
@@ -224,14 +228,14 @@ msgstr "Продолжить"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The project already exists.<nl/>Project: %1<nl/>Document: %2"
-msgstr ""
+msgstr "Проект уже существует.<nl/>Проект: %1<nl/>Документ: %2"
 
 #: MainDocument.cpp:166 PortfolioView.cpp:257 PortfolioView.cpp:262
 #: PortfolioView.cpp:321 PortfolioView.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Could not add project"
-msgstr ""
+msgstr "Не удалось добавить проект"
 
 #: MainWindow.cpp:149
 #, kde-kuit-format
@@ -240,34 +244,35 @@ msgid ""
 "<p>The external project file <filename>%1</filename> has been modified.</"
 "p><p>Do you want to save it?</p>"
 msgstr ""
+"<p>Внешний файл проекта <filename>%1</filename> был изменён.</p><p>Сохранить "
+"его?</p>"
 
 #: MainWindow.cpp:150
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Save Documents"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Document"
-msgstr "Сохранить документы"
+msgstr "Сохранение документа"
 
 #: Part.cpp:61
 #, kde-format
 msgid "Configure Portfolio..."
-msgstr ""
+msgstr "Настроить портфель…"
 
+# BUGME: context marker misses the leading '@': 'title:window' should be '@title:window' --ayavorsky 2026-09-24
 #: Part.cpp:69
 #, kde-kuit-format
 msgctxt "title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "Параметры портфеля"
 
 #: Part.cpp:72
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "Параметры портфеля"
 
 #: PerformanceView.cpp:170
-#, fuzzy, kde-format
+#, kde-format
 msgid "No data"
 msgstr "Нет данных"
 
@@ -279,32 +284,32 @@ msgstr "Стоимость (%1)"
 #: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
-msgstr ""
+msgstr "Объём работ (час)"
 
 #: PerformanceView.cpp:190 PerformanceView.cpp:210
-#, fuzzy, kde-format
+#, kde-format
 msgid "SPI: %1"
-msgstr "ИВСР"
+msgstr "ИВСР: %1"
 
 #: PerformanceView.cpp:194 PerformanceView.cpp:214
-#, fuzzy, kde-format
+#, kde-format
 msgid "CPI: %1"
-msgstr "ИЗСР"
+msgstr "ИЗСР: %1"
 
 #: PerformanceView.cpp:198 PerformanceView.cpp:218
-#, fuzzy, kde-format
+#, kde-format
 msgid "BCWS: %1"
-msgstr "ПСЗР"
+msgstr "ПСЗР: %1"
 
 #: PerformanceView.cpp:202 PerformanceView.cpp:222
-#, fuzzy, kde-format
+#, kde-format
 msgid "BCWP: %1"
-msgstr "ПСВР"
+msgstr "ПСВР: %1"
 
 #: PerformanceView.cpp:206 PerformanceView.cpp:226
-#, fuzzy, kde-format
+#, kde-format
 msgid "ACWP: %1"
-msgstr "ФСВР"
+msgstr "ФСВР: %1"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: PerformanceView.ui:57
@@ -314,9 +319,9 @@ msgstr "Стоимость"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: PerformanceView.ui:237
-#, fuzzy, kde-format
+#, kde-format
 msgid "Effort"
-msgstr "Загрузка"
+msgstr "Объём работ"
 
 #. i18n: ectx: Menu (view)
 #. i18n: ectx: Menu (gantt_context_menu)
@@ -325,7 +330,7 @@ msgstr "Загрузка"
 #: Portfolio_ProgressViewUi.rc:5 Portfolio_ResourceUsageViewUi.rc:5
 #: Portfolio_SchedulingViewUi.rc:8 Portfolio_SummaryViewUi.rc:5
 #: Portfolio_ViewUi.rc:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "&View"
 msgstr "&Вид"
 
@@ -340,37 +345,37 @@ msgstr "&Вид"
 #: Portfolio_PortfolioViewUi.rc:18 Portfolio_ProgressViewUi.rc:14
 #: Portfolio_ResourceUsageViewUi.rc:14 Portfolio_SchedulingViewUi.rc:17
 #: Portfolio_SummaryViewUi.rc:13
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tools"
 msgstr "Инструменты"
 
 #. i18n: ectx: Menu (edit)
 #: Portfolio_PortfolioViewUi.rc:5 Portfolio_SchedulingViewUi.rc:5
 #: Portfolio_ViewUi.rc:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Edit"
 msgstr "&Правка"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: Portfolio_ViewUi.rc:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "File"
 msgstr "Файл"
 
 #. i18n: ectx: ToolBar (edit_toolbar)
 #: Portfolio_ViewUi.rc:49
-#, fuzzy, kde-format
+#, kde-format
 msgid "Edit"
-msgstr "Изменить"
+msgstr "Правка"
 
 #: PortfolioModel.cpp:24
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Storage"
 msgstr "Хранение"
 
 #: PortfolioModel.cpp:25
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "File"
 msgstr "Файл"
@@ -379,7 +384,7 @@ msgstr "Файл"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
-msgstr ""
+msgstr "Определяет, является ли проект частью портфеля"
 
 #: PortfolioModel.cpp:79
 #, kde-format
@@ -388,15 +393,17 @@ msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
 msgstr ""
+"Определяет, сохраняется ли проект встроенным в файл портфеля или во внешнем "
+"файле."
 
 #: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
-msgstr ""
+msgstr "Внешний URL-адрес файла проекта"
 
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error"
 msgstr "Ошибка"
 
@@ -404,7 +411,7 @@ msgstr "Ошибка"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Failed to load the document"
-msgstr ""
+msgstr "Не удалось загрузить документ"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
 #, kde-format
@@ -412,17 +419,15 @@ msgid "Embedded"
 msgstr "Встроенный"
 
 #: PortfolioModel.cpp:126 PortfolioModel.cpp:131
-#, fuzzy, kde-format
+#, kde-format
 msgid "External"
-msgstr "Внешние"
+msgstr "Внешний"
 
 #: PortfolioView.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "application name"
-#| msgid "Plan Portfolio"
+#, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
-msgstr "Портфель Plan"
+msgstr "Недавние портфели"
 
 #: PortfolioView.cpp:133
 #, kde-kuit-format
@@ -440,6 +445,18 @@ msgid ""
 "<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects."
 "</note></para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Редактор содержимого портфеля</title><para>Этот редактор позволяет "
+"настроить содержимое портфеля.</para><para>Чтобы добавить проекты в "
+"портфель, выберите <interface>Правка|Добавить</interface> или нажмите "
+"<interface>Добавить…</interface>.<nl/>Чтобы удалить выбранные проекты, "
+"выберите <interface>Правка|Удалить</interface> или нажмите "
+"<interface>Удалить</interface>.</para><para>Добавьте проекты, которыми "
+"управляете, и задайте <emphasis>Портфель</emphasis> = <emphasis>Да</"
+"emphasis>.</para><para><note>Если ресурсы используются несколькими проектами "
+"и требуется перепланировать работу или проверить использование ресурсов, "
+"добавьте все соответствующие проекты и задайте для них <emphasis>Портфель</"
+"emphasis> = <emphasis>Нет</emphasis>.</note></para><para><link "
+"url='%1'>Подробнее…</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -451,12 +468,17 @@ msgid ""
 "this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
+"<subtitle>Контекстная справка</subtitle><para>Многие функции имеют справку и "
+"подсказки, которые можно показать с помощью <emphasis>Что это?</emphasis>.</"
+"para><para>Чтобы включить её, выберите пункт меню <interface>Справка|Что это?"
+"</interface> или нажмите <shortcut>Shift+F1</shortcut>.</"
+"para><para>Попробуйте на этом тексте!</para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<subtitle>Online Resources</subtitle>"
-msgstr ""
+msgstr "<subtitle>Ресурсы в Интернете</subtitle>"
 
 #: PortfolioView.cpp:165
 #, kde-kuit-format
@@ -470,33 +492,40 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>Контекстная справка</title><para>Справка доступна во многих местах с "
+"помощью <emphasis>Что это?</emphasis>.<nl/>Она вызывается через пункт меню "
+"<interface>Справка->Что это?</interface> или комбинацию клавиш "
+"<shortcut>Shift+F1</shortcut>.</para><para>В диалоговых окнах она доступна "
+"через <interface>?</interface> в заголовке окна.</para><para>Если в тексте "
+"есть ссылка <link url='%1'>Подробнее…</link>, нажатие на неё покажет "
+"дополнительные сведения из документации.</para>"
 
 #: PortfolioView.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add"
 msgstr "Добавить"
 
 #: PortfolioView.cpp:189
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove"
 msgstr "Удалить"
 
 #: PortfolioView.cpp:210
 #, kde-format
 msgid "Add Project"
-msgstr ""
+msgstr "Добавить проект"
 
 #: PortfolioView.cpp:256 PortfolioView.cpp:320
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
-msgstr ""
+msgstr "Не удалось загрузить проект. Недопустимый файл Plan:<nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
-msgstr ""
+msgstr "Не удалось открыть проект. Похоже, это файл портфеля:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -505,19 +534,21 @@ msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
 msgstr ""
+"Проект уже существует, проект не будет добавлен.<nl/>Проект: %1<nl/> "
+"Документ: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Сведения"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:243
 #, kde-format
 msgctxt "@info:status"
 msgid "https://calligra.org/plan"
-msgstr ""
+msgstr "https://calligra.org/plan"
 
 #. i18n: ectx: property (text), widget (QLabel, calligraPlanLabel)
 #: PortfolioView.ui:246
@@ -527,13 +558,16 @@ msgid ""
 "text-decoration: underline; color:#2980b9;\">Home</span></a></p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p><a href=\"https://calligra.org/plan\"><span style=\" "
+"text-decoration: underline; color:#2980b9;\">Домашняя страница</span></a></"
+"p></body></html>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:259
 #, kde-format
 msgctxt "@info:status"
 msgid "https://docs.kde.org"
-msgstr ""
+msgstr "https://docs.kde.org"
 
 #. i18n: ectx: property (text), widget (QLabel, userDocLabel)
 #: PortfolioView.ui:262
@@ -543,13 +577,15 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
 "\">User documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">Документация пользователя</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: PortfolioView.ui:278
 #, kde-format
 msgctxt "@info:status"
 msgid "https://forum.kde.org/viewforum.php?f=203"
-msgstr ""
+msgstr "https://forum.kde.org/viewforum.php?f=203"
 
 #. i18n: ectx: property (text), widget (QLabel, forumLabel)
 #: PortfolioView.ui:281
@@ -558,20 +594,21 @@ msgctxt "@action:button"
 msgid ""
 "<a href=\"https://forum.kde.org/viewforum.php?f=203\">Community forum</a>"
 msgstr ""
+"<a href=\"https://forum.kde.org/viewforum.php?f=203\">Форум сообщества</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:297
 #, kde-format
 msgctxt "@info:status"
 msgid "https://userbase.kde.org/Plan"
-msgstr ""
+msgstr "https://userbase.kde.org/Plan"
 
 #. i18n: ectx: property (text), widget (QLabel, commuityLabel)
 #: PortfolioView.ui:300
 #, kde-format
 msgctxt "@action:button"
 msgid "<a href=\"https://userbase.kde.org/Plan\">Community</a>"
-msgstr ""
+msgstr "<a href=\"https://userbase.kde.org/Plan\">Сообщество</a>"
 
 #: ProgressView.cpp:68
 #, kde-kuit-format
@@ -588,6 +625,17 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Ход выполнения</title><para>Это представление служит для просмотра и "
+"изменения сведений о ходе выполнения задач выбранного проекта.<nl/>Задачи "
+"разделяются на группы в зависимости от состояния:<list><item><emphasis>Не "
+"начатые:</emphasis> задачи, которые должны были начаться к настоящему "
+"моменту.</item><item><emphasis>Выполняемые:</emphasis> задачи, которые "
+"начались, но ещё не завершены.</item><item><emphasis>Завершённые:</emphasis> "
+"задачи, завершённые в этом периоде.</item><item><emphasis>Следующий период:</"
+"emphasis> задачи, начало которых запланировано на следующий период.</item></"
+"list>Период времени настраивается.</para><para>Это представление "
+"поддерживает настройку и печать с помощью контекстного меню.<nl/><link "
+"url='%1'>Подробнее…</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -601,36 +649,36 @@ msgid "Project name"
 msgstr "Название проекта"
 
 #: ProjectsModel.cpp:151
-#, fuzzy, kde-format
+#, kde-format
 msgid "Target Start"
-msgstr "Целевое начало: %1"
+msgstr "Целевое начало"
 
 #: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
-msgstr ""
+msgstr "Диапазон планирования: самое раннее время начала"
 
 #: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
-msgstr ""
+msgstr "Целевое окончание"
 
 #: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
-msgstr ""
+msgstr "Диапазон планирования: самое позднее время окончания"
 
 #: ProjectsModel.cpp:175
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Project description"
-msgstr ""
+msgstr "Описание проекта"
 
 #: ProjectsModel.cpp:187 ScheduleManagerInfoDialog.cpp:36
 #: SchedulingModel.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Schedule"
 msgstr "Расписание"
 
@@ -648,6 +696,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Проект: %1</title><para>Расписание: не запланировано</"
+"para><para><list><item>Планируемое начало:\t%2</item><item>Планируемое "
+"окончание:\t%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -657,6 +708,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Проект: %1</title><para>Расписание: %4 Не запланировано</"
+"para><para><list><item>Целевое начало:\t%2</item><item>Целевое окончание:\t"
+"%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -666,64 +720,66 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>Проект: %1</title><para>Расписание: %6</"
+"para><para><list><item>Плановое начало:\t%2</item><item>Плановое окончание:\t"
+"%3</item><item>Целевое начало:\t%4</item><item>Целевое окончание:\t%5</"
+"item></list></para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Not scheduled"
 msgstr "Не запланировано"
 
 #: ProjectsModel.cpp:295 ProjectsModel.cpp:316
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "Select schedule"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr "Выберите расписание"
+msgstr "Расписание: %1 не запланировано"
 
 #: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "Расписание %1: запланированное начало: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "Расписание «%1»: запланированное завершение: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Расписание принадлежит портфелю."
 
 #: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr ""
+msgstr "План скомпонован"
 
 #: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr ""
+msgstr "Запланировано, но план не скомпонован"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
 msgid "No task"
-msgstr ""
+msgstr "Нет задачи"
 
 #: ResourceUsageModel.cpp:138
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr ""
+msgstr "ИСР: %1<nl/>Задача: %2<nl/>Проект: %3"
 
 #: ResourceUsageView.cpp:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tasks"
 msgstr "Задачи"
 
@@ -735,14 +791,17 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>Использование ресурсов</title><para>В этом представлении показаны "
+"назначения задач ресурсам на каждый день.</para><para><nl/><link "
+"url='%1'>Подробнее…</link></para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
 msgid "Diagram Types"
-msgstr ""
+msgstr "Типы диаграмм"
 
 #: ResourceUsageView.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "Normal"
 msgstr "Обычный"
 
@@ -752,49 +811,48 @@ msgid "Stacked"
 msgstr "Составная"
 
 #: ResourceUsageView.cpp:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Range"
 msgstr "Диапазон"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
-#| msgid "Projects"
+#, kde-format
 msgctxt "@title:column"
 msgid "Project"
-msgstr "Проекты"
+msgstr "Проект"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Schedule"
 msgstr "Расписание"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Action"
-msgstr "Параметры"
+msgstr "Действие"
 
 #: ScheduleManagerInfoDialog.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "State"
 msgstr "Состояние"
 
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "New schedule"
-msgstr "Не запланировано"
+msgstr "Новое расписание"
 
 #: ScheduleManagerInfoDialog.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "New sub-schedule"
-msgstr "Не запланировано"
+msgstr "Новое подчинённое расписание"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Будет создано новое расписание «%1»."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -802,6 +860,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Существующее расписание «%1» принадлежит Портфелю.\n"
+"Расписание «%1» будет запланировано."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -809,6 +869,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"Существующее расписание «%1» принадлежит Plan.\n"
+"Будет создано новое расписание «%2»."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -816,15 +878,17 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Проект запущен.\n"
+"«%1» будет создано в качестве подчинённого расписания для «%2»."
 
 #: SchedulingLogModel.cpp:53
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Name"
-msgstr "Имя"
+msgstr "Название"
 
 #: SchedulingLogModel.cpp:54
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Phase"
 msgstr "Стадия"
@@ -836,39 +900,40 @@ msgid "Severity"
 msgstr "Важность"
 
 #: SchedulingLogModel.cpp:56
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Message"
 msgstr "Сообщение"
 
 #: SchedulingModel.cpp:24
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Status"
 msgstr "Состояние"
 
 #: SchedulingModel.cpp:25
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Control"
 msgstr "Управление"
 
 #: SchedulingModel.cpp:26
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Priority"
 msgstr "Приоритет"
 
 #: SchedulingModel.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Include"
 msgstr "Включить"
 
 #: SchedulingModel.cpp:29 SchedulingModel.cpp:121
-#, fuzzy, kde-format
+#, kde-format
 msgid "Exclude"
 msgstr "Исключить"
 
+# BUGME: typo in context marker: '@into:tooltip' should be '@info:tooltip' --ayavorsky 2026-09-24
 #: SchedulingModel.cpp:91 SchedulingModel.cpp:107
 #, kde-format
 msgctxt "@into:tooltip"
@@ -876,34 +941,36 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Планирование невозможно. Планируемое окончание проекта должно быть позже "
+"времени расчёта."
 
 #: SchedulingModel.cpp:190
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheduling..."
-msgstr "Периодичность"
+msgstr "Планирование…"
 
 #: SchedulingModel.cpp:192
-#, fuzzy, kde-format
+#, kde-format
 msgid "Not scheduled"
 msgstr "Не запланировано"
 
 #: SchedulingModel.cpp:194
-#, fuzzy, kde-format
+#, kde-format
 msgid "Finished"
-msgstr "Готово"
+msgstr "Завершено"
 
 #: SchedulingModel.cpp:196
-#, fuzzy, kde-format
+#, kde-format
 msgid "Started"
-msgstr "Запущено"
+msgstr "Начато"
 
 #: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
-msgstr "Скомпоновать план"
+msgstr "План скомпонован"
 
 #: SchedulingModel.cpp:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheduled"
 msgstr "Запланировано"
 
@@ -914,30 +981,34 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Планирование невозможно. Целевое окончание проекта должно быть позже времени "
+"расчёта."
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "Составить расписание этого проекта"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
 msgstr ""
+"При включении этого параметра учитываются бронирования ресурсов из этого "
+"проекта."
 
 #: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "Исключает этот проект"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "Задачи с наивысшим приоритетом планируются первыми."
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -955,31 +1026,43 @@ msgid ""
 "needs to be included for resource leveling to work properly.</note></"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Планирование</title><para>В режиме «Планирование» можно планировать "
+"проекты портфеля. Проекты планируются в соответствии с их приоритетом.</"
+"para><para>Установите для параметра <emphasis>Управление</emphasis> значение "
+"<emphasis>Планировать</emphasis> для проекта или проектов, которые требуется "
+"запланировать.<nl/>Установите для параметра <emphasis>Управление</emphasis> "
+"значение <emphasis>Включить</emphasis>, чтобы назначения ресурсов "
+"учитывались при выравнивании ресурсов.<nl/>Установите для параметра "
+"<emphasis>Управление</emphasis> значение <emphasis>Исключить</emphasis>, "
+"чтобы исключить проект.</para><para><note>Если проекты совместно используют "
+"ресурсы с проектами, не входящими в портфель, эти проекты необходимо "
+"включить, чтобы выравнивание ресурсов работало правильно.</note></"
+"para><para><link url='%1'>Подробнее…</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
 msgctxt "@label:listbox range: 0-60"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 минута"
+msgstr[1] "%1 минуты"
+msgstr[2] "%1 минут"
+msgstr[3] "%1 минута"
 
 #: SchedulingView.cpp:237 SummaryView.cpp:102
 #, kde-format
 msgid "Description..."
-msgstr ""
+msgstr "Описание…"
 
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "Внутренняя ошибка. Не найден модуль планировщика."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nothing to schedule"
-msgstr "Не запланировано"
+msgstr "Нечего планировать"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -987,33 +1070,35 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"Планирование невозможно. Целевое окончание проекта должно быть позже времени "
+"расчёта."
 
 #: SchedulingView.cpp:458
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheduling projects"
-msgstr "Периодичность"
+msgstr "Планирование проектов"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
 #, kde-format
 msgid "Scheduling Control"
-msgstr ""
+msgstr "Управление планированием"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: SchedulingView.ui:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheduler:"
-msgstr "планировщик"
+msgstr "Планировщик:"
 
 #. i18n: ectx: property (text), widget (QPushButton, calculate)
 #: SchedulingView.ui:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "Calculate"
 msgstr "Вычислить"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: SchedulingView.ui:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Options"
 msgstr "Параметры"
 
@@ -1021,46 +1106,46 @@ msgstr "Параметры"
 #: SchedulingView.ui:84
 #, kde-format
 msgid "Sequential"
-msgstr ""
+msgstr "Последовательный"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: SchedulingView.ui:91
 #, kde-format
 msgid "Granularity:"
-msgstr ""
+msgstr "Детализация:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, parallel)
 #: SchedulingView.ui:101
-#, fuzzy, kde-format
+#, kde-format
 msgid "Parallel"
-msgstr "Среднее гармоническое"
+msgstr "Параллельный"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: SchedulingView.ui:163
 #, kde-format
 msgid "Calculate From"
-msgstr ""
+msgstr "Расчёт с"
 
 #. i18n: ectx: property (text), widget (QRadioButton, todayRB)
 #: SchedulingView.ui:169
-#, fuzzy, kde-format
+#, kde-format
 msgid "Today"
 msgstr "Сегодня"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeRB)
 #: SchedulingView.ui:186
-#, fuzzy, kde-format
+#, kde-format
 msgid "Time:"
-msgstr "Время"
+msgstr "Время:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, tomorrowRB)
 #: SchedulingView.ui:193
-#, fuzzy, kde-format
+#, kde-format
 msgid "Tomorrow"
 msgstr "Завтра"
 
 #: SummaryModel.cpp:83
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column Schedule Performance Index"
 msgid "SPI"
 msgstr "ИВСР"
@@ -1071,7 +1156,7 @@ msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
-msgstr ""
+msgstr "Индекс выполнения расписания (BCWS/BCWP)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1082,41 +1167,46 @@ msgid ""
 "shown for both cost based and effort based calculations.</para><para><nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Сводное представление проектов</title><para>В этом представлении "
+"обобщены данные о производительности проектов портфеля.</"
+"para><para>Показатели производительности выводятся как для расчётов по "
+"затратам, так и для расчётов по трудозатратам.</para><para><nl/><link "
+"url='%1'>Подробнее…</link></para>"
 
 #: View.cpp:58
 #, kde-format
 msgid "Portfolio Content"
-msgstr ""
+msgstr "Содержимое портфеля"
 
 #: View.cpp:64
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scheduling"
-msgstr "Периодичность"
+msgstr "Планирование"
 
 #: View.cpp:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Summary"
 msgstr "Сводка"
 
 #: View.cpp:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Progress"
 msgstr "Ход выполнения"
 
 #: View.cpp:83
-#, fuzzy, kde-format
+#, kde-format
 msgid "Performance"
-msgstr "Быстродействие"
+msgstr "Выполнение"
 
 #: View.cpp:90
 #, kde-format
 msgid "Resource Usage"
-msgstr ""
+msgstr "Использование ресурсов"
 
 #: View.cpp:96
 #, kde-format
 msgid "Gantt Summary"
-msgstr ""
+msgstr "Сводка диаграммы Ганта"
 
 #, fuzzy
 #~ msgid "Scheduling running..."

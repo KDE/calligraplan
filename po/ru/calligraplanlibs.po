@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2022-03-09 17:39+0300\n"
+"PO-Revision-Date: 2026-09-24 20:41+0200\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -116,41 +116,37 @@ msgstr "%1д %2ч:%3м"
 #, kde-format
 msgctxt "<minutes>m:<seconds>s.<milliseconds>"
 msgid "%1m:%2s.%3"
-msgstr ""
+msgstr "%1м:%2с.%3"
 
 #: kernel/kptduration.cpp:217
 #, kde-format
 msgctxt "<minutes>m:<seconds>s"
 msgid "%1m:%2s"
-msgstr ""
+msgstr "%1м:%2с"
 
 #: kernel/kptduration.cpp:219
-#, fuzzy, kde-format
-#| msgctxt "@item:intable Action name in toolbar editor"
-#| msgid "%1"
+#, kde-format
 msgctxt "<minutes>m"
 msgid "%1m"
-msgstr "%1"
+msgstr "%1 м"
 
 #: kernel/kptduration.cpp:223
-#, fuzzy, kde-format
-#| msgctxt "@item:intable Action name in toolbar editor"
-#| msgid "%1"
+#, kde-format
 msgctxt "<seconds>s"
 msgid "%1s"
-msgstr "%1"
+msgstr "%1 с"
 
 #: kernel/kptduration.cpp:225
 #, kde-format
 msgctxt "<seconds>s.<milliseconds>"
 msgid "%1s.%2"
-msgstr ""
+msgstr "%1с.%2"
 
 #: kernel/kptduration.cpp:228
 #, kde-format
 msgctxt "<milliseconds>ms"
 msgid "%1ms"
-msgstr ""
+msgstr "%1 мс"
 
 #: kernel/kptduration.cpp:288
 #, kde-format
@@ -251,7 +247,7 @@ msgstr "Ошибка планирования"
 #, kde-format
 msgctxt "project scheduling canceled by user"
 msgid "Canceled"
-msgstr ""
+msgstr "Отменено"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, freedays)
 #. i18n: ectx: property (text), item, widget (KComboBox, risk)
@@ -434,10 +430,9 @@ msgid "Schedule tasks forward"
 msgstr "Прямое планирование задач"
 
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
-#, fuzzy, kde-format
-#| msgid "Scheduling Range"
+#, kde-format
 msgid "Scheduling canceled"
-msgstr "Диапазон планирования"
+msgstr "Планирование отменено"
 
 #: kernel/kptproject.cpp:299 kernel/kptproject.cpp:409
 #, kde-format
@@ -590,18 +585,17 @@ msgstr "Начало ‒ Начало"
 #: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
-msgstr ""
+msgstr "Повторное планирование, но используемые ресурсы не найдены"
 
 #: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
-msgstr ""
+msgstr "Согласование отклонения: детализация: %1, отклонение: %2"
 
 #: kernel/kptresourcerequest.cpp:975
-#, fuzzy, kde-format
-#| msgid "Could not match effort. Want: %1 got: %2"
+#, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
-msgstr "Не удалось согласовать объём работ. Требуется: %1, имеем: %2"
+msgstr "Не удалось согласовать объём работ. Требуется: %1, имеем: %2 (%3)"
 
 #: kernel/kptresourcerequest.cpp:978
 #, kde-format
@@ -643,14 +637,14 @@ msgid "Scheduling"
 msgstr "Планирование"
 
 #: kernel/kptschedule.cpp:1792
-#, fuzzy, kde-format
+#, kde-format
 msgid "Portfolio"
-msgstr "Изменить отчёт"
+msgstr "Портфель"
 
 #: kernel/kptschedule.cpp:1798
 #, kde-format
 msgid "Baselined"
-msgstr "Скомпоновать план"
+msgstr "План скомпонован"
 
 #: kernel/kpttask.cpp:1106
 #, kde-format
@@ -717,16 +711,15 @@ msgid "%1: Failed to meet constraint. Negative float=%2"
 msgstr "%1: не удалось удовлетворить ограничения. Отрицательный резерв=%2"
 
 #: kernel/kpttask.cpp:1827 kernel/kpttask.cpp:2212
-#, fuzzy, kde-format
-#| msgid "Effort not met. Estimate: %1, planned: %2"
+#, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
-msgstr "Неподходящий объём работ. Оценка: %1, запланировано: %2"
+msgstr ""
+"Отклонение объёма работ. Оценка: %1, запланировано: %2, детализация: %3"
 
 #: kernel/kpttask.cpp:1835 kernel/kpttask.cpp:2220
-#, fuzzy, kde-format
-#| msgid "Effort not met. Estimate: %1, planned: %2"
+#, kde-format
 msgid "Effort not met. Estimate: %1, scheduled: %2"
-msgstr "Неподходящий объём работ. Оценка: %1, запланировано: %2"
+msgstr "Объём работ не выполнен. Оценка: %1, запланировано: %2"
 
 #: kernel/kpttask.cpp:1923 kernel/kpttask.cpp:2302
 #, kde-format
@@ -1254,10 +1247,9 @@ msgstr ""
 "Открыть автосохранение?"
 
 #: main/KoDocument.cpp:1205
-#, fuzzy, kde-format
-#| msgid "No autosave"
+#, kde-format
 msgid "Autosave"
-msgstr "Без автосохранения"
+msgstr "Автосохранение"
 
 #: main/KoDocument.cpp:1319 main/KoDocument.cpp:1639 main/KoMainWindow.cpp:709
 #, kde-format
@@ -1370,10 +1362,9 @@ msgid "Execution failed. Check your installation"
 msgstr "Ошибка выполнения. Проверьте правильность установки"
 
 #: main/KoDocument.cpp:1482
-#, fuzzy, kde-format
-#| msgid "Execution failed. Check your installation"
+#, kde-format
 msgid "Execution failed. ODBC Driver not found"
-msgstr "Ошибка выполнения. Проверьте правильность установки"
+msgstr "Ошибка выполнения. Драйвер ODBC не найден."
 
 #: main/KoDocument.cpp:1488
 #, kde-format
@@ -1708,17 +1699,14 @@ msgid "Import Document"
 msgstr "Импорт документа"
 
 #: main/KoMainWindow.cpp:1542
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Cannot Attach Document"
+#, kde-format
 msgid "Cannot preview the document"
-msgstr "Не удаётся прикрепить документ"
+msgstr "Не удаётся показать предварительный просмотр документа"
 
 #: main/KoMainWindow.cpp:1550
-#, fuzzy, kde-format
-#| msgid "Cannot Modify Url"
+#, kde-format
 msgid "Cannot open pdf viewer"
-msgstr "Не удалось изменить адрес"
+msgstr "Не удалось открыть программу просмотра PDF"
 
 #: main/KoMainWindow.cpp:1598
 #, kde-format
@@ -2305,7 +2293,7 @@ msgstr "Фактически"
 #, kde-format
 msgctxt "@title:column week-year"
 msgid "%1-%2"
-msgstr ""
+msgstr "%1-%2"
 
 #: models/kptaccountsmodel.cpp:1123
 #, kde-format
@@ -2315,11 +2303,10 @@ msgstr ""
 "[Запланированная стоимость]"
 
 #: models/kptaccountsmodel.cpp:1136
-#, fuzzy, kde-format
-#| msgid "Week %1"
+#, kde-format
 msgctxt "@info:tooltip week-year"
 msgid "Week %1-%2"
-msgstr "Неделя %1"
+msgstr "Неделя %1-%2"
 
 #: models/kptcalendarmodel.cpp:291
 #, kde-kuit-format
@@ -2623,7 +2610,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling priority.<nl/>A higher number means higher priority."
-msgstr ""
+msgstr "Приоритет планирования.<nl/>Чем больше число, тем выше приоритет."
 
 #: models/kptcommonstrings.cpp:27
 #, kde-kuit-format
@@ -3323,12 +3310,10 @@ msgid "Parent"
 msgstr "Родитель"
 
 #: models/kptitemmodelbase.cpp:242
-#, fuzzy, kde-format
-#| msgctxt "<value>%"
-#| msgid "%1%"
+#, kde-format
 msgctxt "task progress"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: models/kptnodechartmodel.cpp:232
 #: models/reportgenerator/ReportGenerator.cpp:52
@@ -3616,20 +3601,16 @@ msgid "Estimated duration: %1"
 msgstr "Предполагаемая длительность: %1"
 
 #: models/kptnodeitemmodel.cpp:504
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated effort: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated effort: %1<nl/>Expected effort: %2"
-msgstr "Предполагаемый объём работ: %1"
+msgstr "Предполагаемый объём работ: %1<nl/>Ожидаемый объём работ: %2"
 
 #: models/kptnodeitemmodel.cpp:507
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Estimated duration: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Estimated duration: %1<nl/>Expected duration: %2"
-msgstr "Предполагаемая длительность: %1"
+msgstr "Предполагаемая длительность: %1<nl/>Ожидаемая длительность: %2"
 
 #: models/kptnodeitemmodel.cpp:554
 #, kde-kuit-format
@@ -3758,9 +3739,7 @@ msgid "Assigned resources:<nl/>%1"
 msgstr "Назначенные ресурсы:<nl/>%1"
 
 #: models/kptnodeitemmodel.cpp:1343
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task finished at %1"
 msgstr "Задача завершена: %1"
@@ -3772,12 +3751,10 @@ msgid "Task is %1% completed"
 msgstr "Задача завершена на %1%"
 
 #: models/kptnodeitemmodel.cpp:1348
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "The task finished at: %1"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Milestone finished at %1"
-msgstr "Задача завершена: %1"
+msgstr "Этап завершён: %1"
 
 #: models/kptnodeitemmodel.cpp:1372
 #, kde-format
@@ -3951,7 +3928,7 @@ msgstr "Запланированный объём работ до %1: %2"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual effort used up to %1: %2"
-msgstr "Фактический объём работ до  %1: %2"
+msgstr "Фактический объём работ до %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1612
 #, kde-kuit-format
@@ -4122,20 +4099,16 @@ msgid "Estimate"
 msgstr "Оценка"
 
 #: models/kptnodeitemmodel.cpp:2328
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Optimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (%)"
-msgstr "Оптимистичное (Длит.)"
+msgstr "Оптимистичное (%)"
 
 #: models/kptnodeitemmodel.cpp:2329
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:column"
-#| msgid "Pessimistic (Dur)"
+#, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (%)"
-msgstr "Пессимистичное (Длит.)"
+msgstr "Пессимистичное (%)"
 
 #: models/kptnodeitemmodel.cpp:2330
 #, kde-kuit-format
@@ -5012,7 +4985,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Это расписание создано менеджером портфеля"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -5224,9 +5197,7 @@ msgid "None"
 msgstr "Нет"
 
 #: models/kptschedulemodel.cpp:882
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Scheduling granularity not supported"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
 msgstr "Детализация планирования не поддерживается"
@@ -5422,22 +5393,19 @@ msgid "Failed to write report file: %1"
 msgstr "Не удалось записать файл отчёта: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:612
-#, fuzzy, kde-format
-#| msgid "Failed to open template file: %1"
+#, kde-format
 msgid "Failed to extract file: %1"
-msgstr "Не удалось открыть файл шаблона: %1"
+msgstr "Не удалось извлечь файл: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:618
-#, fuzzy, kde-format
-#| msgid "Failed to write to store: %1"
+#, kde-format
 msgid "Failed to add file to store: %1"
-msgstr "Не удалось записать в хранилище: %1"
+msgstr "Не удалось добавить файл в хранилище: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:650
-#, fuzzy, kde-format
-#| msgid "Failed to load manifest file"
+#, kde-format
 msgid "Failed to load mimetype file"
-msgstr "Не удалось загрузить файл манифеста"
+msgstr "Не удалось загрузить файл типа MIME"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:659
 #, kde-format
@@ -5668,25 +5636,20 @@ msgstr ""
 "изменение счёта ресурса"
 
 #: models/ResourceModel.cpp:79
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip"
-#| msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
+#, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4"
-msgstr "Название: %1<nl/>Запланировано: %2<nl/>Статус: %3<nl/>Планирование: %4"
+msgstr "%1<nl/>Тип: %2<nl/>Распределение: %3<nl/>Источник: %4"
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Manual"
+#, kde-format
 msgid "Manual"
 msgstr "Вручную"
 
 #: models/ResourceModel.cpp:82
-#, fuzzy, kde-format
-#| msgid "Task completion"
+#, kde-format
 msgid "On task creation"
-msgstr "Завершённость задачи"
+msgstr "При создании задачи"
 
 #: models/ResourceModel.cpp:109
 #, kde-kuit-format
@@ -5709,26 +5672,22 @@ msgstr ""
 "другим проектам"
 
 #: models/ResourceModel.cpp:140
-#, fuzzy, kde-format
-#| msgctxt "title:column"
-#| msgid "Select team members"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team: No team members"
-msgstr "Выберите участников команды"
+msgstr "Команда: нет участников"
 
 #: models/ResourceModel.cpp:142
-#, fuzzy, kde-format
-#| msgid "Team"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Team: %1"
-msgstr "Команда"
+msgstr "Команда: %1"
 
 #: models/ResourceModel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Required"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Required: %1"
-msgstr "Необходимо"
+msgstr "Необходимо: %1"
 
 #: models/ResourceModel.cpp:216 models/ResourceModel.cpp:242
 #, kde-format
@@ -6115,11 +6074,10 @@ msgid "Do you want to save the password?"
 msgstr "Сохранить пароль?"
 
 #: store/KoEncryptedStore.cpp:757
-#, fuzzy, kde-format
-#| msgid "Invalid password"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save Password"
-msgstr "Неверный пароль"
+msgstr "Сохранение пароля"
 
 #: store/KoNetAccess.cpp:87
 #, kde-format
@@ -6145,14 +6103,13 @@ msgstr "Хранилище данных Calligra"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Переключает дополнительные параметры фильтра"
 
 #: ui/FilterWidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Filter"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr "Фильтр"
+msgstr "Названия фильтров"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2189
@@ -6166,24 +6123,21 @@ msgstr "Параметры печати"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/gantt/GanttFilterOptionsWidget.ui:49
-#, fuzzy, kde-format
-#| msgid "Printing Options"
+#, kde-format
 msgid "Filter Options"
-msgstr "Параметры печати"
+msgstr "Параметры фильтра"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_project)
 #: ui/gantt/GanttFilterOptionsWidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Show Project"
+#, kde-format
 msgid "Show project"
-msgstr "Показ проект"
+msgstr "Показывать проект"
 
 #. i18n: ectx: property (title), widget (QGroupBox, tasks_and_milestones_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:354
-#, fuzzy, kde-format
-#| msgid "Add Milestone"
+#, kde-format
 msgid "Tasks and Milestones"
-msgstr "Добавить этап"
+msgstr "Задачи и этапы"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -6195,67 +6149,59 @@ msgstr "Задачи"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_milestones)
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Milestones"
-msgstr "Этап"
+msgstr "Этапы"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Unscheduled tasks"
-msgstr "Показать незапланированные задачи"
+msgstr "Незапланированные задачи"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:363
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period"
-msgstr "Периодичность"
+msgstr "Период"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_running)
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Running tasks"
-msgstr "Опоздание"
+msgstr "Выполняющиеся задачи"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
-#, fuzzy, kde-format
-#| msgid "Finished late"
+#, kde-format
 msgid "Finished tasks"
-msgstr "Позднее завершение"
+msgstr "Завершённые задачи"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Not started"
+#, kde-format
 msgid "Not started tasks"
-msgstr "Не начато"
+msgstr "Неначатые задачи"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:195
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
-#, fuzzy, kde-format
-#| msgid "Re-calculate from current date/time"
+#, kde-format
 msgid "Number of days around current datetime"
-msgstr "Пересчитать из текущего даты/времени"
+msgstr "Количество дней вокруг текущей даты и времени"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
-#, fuzzy, kde-format
-#| msgid "Periodic"
+#, kde-format
 msgid "Period:"
-msgstr "Периодичность"
+msgstr "Периодичность:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_spesific_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Определённый период:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -6407,7 +6353,7 @@ msgstr "Показывать разделители ряда"
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Нерабочие дни:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
@@ -7237,21 +7183,17 @@ msgstr "Ctrl+O"
 
 #: ui/kptganttview.cpp:141 ui/kptmainprojectpanel.cpp:126
 #: ui/MilestoneGanttView.cpp:97 ui/ResourceAppointmentsGanttView.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
 msgstr "Без праздничных дней"
 
 #: ui/kptganttview.cpp:142 ui/MilestoneGanttView.cpp:98
 #: ui/ResourceAppointmentsGanttView.cpp:114
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr "Без праздничных дней"
+msgstr "Свободные дни проекта"
 
 #: ui/kptganttview.cpp:174 ui/kptganttview.cpp:193
 #: ui/MilestoneGanttView.cpp:131 ui/MilestoneGanttView.cpp:148
@@ -7294,10 +7236,9 @@ msgid "Show Project"
 msgstr "Показ проект"
 
 #: ui/kptganttview.cpp:319
-#, fuzzy, kde-format
-#| msgid "Print Options..."
+#, kde-format
 msgid "Filter Options..."
-msgstr "Параметры печати..."
+msgstr "Параметры фильтра..."
 
 #: ui/kptganttview.cpp:331
 #, kde-format
@@ -7305,16 +7246,14 @@ msgid "Show Unscheduled Tasks"
 msgstr "Показать незапланированные задачи"
 
 #: ui/kptganttview.cpp:338
-#, fuzzy, kde-format
-#| msgid "Tasks"
+#, kde-format
 msgid "Show Tasks"
-msgstr "Задачи"
+msgstr "Показать задачи"
 
 #: ui/kptganttview.cpp:346
-#, fuzzy, kde-format
-#| msgid "Milestone"
+#, kde-format
 msgid "Show Milestones"
-msgstr "Этап"
+msgstr "Показать этапы"
 
 #: ui/kptganttview.cpp:355
 #, kde-kuit-format
@@ -7323,56 +7262,53 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Включает параметры фильтра «Задачи и вехи».<nl/>При отключении будут "
+"показаны все запланированные задачи и вехи."
 
 #: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Включает параметры фильтра «Период»."
 
 #: ui/kptganttview.cpp:371
-#, fuzzy, kde-format
-#| msgid "Running late"
+#, kde-format
 msgid "Show Running Tasks"
-msgstr "Опоздание"
+msgstr "Показать выполняющиеся задачи"
 
 #: ui/kptganttview.cpp:372
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
-msgstr "Задачи, которые были завершены в данном периоде"
+msgstr "Показывает задачи, которые были начаты до или в течение этого периода."
 
 #: ui/kptganttview.cpp:379
-#, fuzzy, kde-format
-#| msgid "Show Unscheduled Tasks"
+#, kde-format
 msgid "Show Finished Tasks"
-msgstr "Показать незапланированные задачи"
+msgstr "Показать завершённые задачи"
 
 #: ui/kptganttview.cpp:380
-#, fuzzy, kde-format
-#| msgid "Tasks that have finished during this period"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
-msgstr "Задачи, которые были завершены в данном периоде"
+msgstr "Показывает задачи и вехи, которые были завершены в данном периоде."
 
 #: ui/kptganttview.cpp:387
-#, fuzzy, kde-format
-#| msgid "Not Started"
+#, kde-format
 msgid "Show Not Started Tasks"
-msgstr "Не начатые"
+msgstr "Показать неначатые задачи"
 
 #: ui/kptganttview.cpp:388
-#, fuzzy, kde-format
-#| msgid "Tasks that should have been started"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
-msgstr "Задачи, которые должны начаться"
+msgstr ""
+"Показывает задачи и этапы, которые должны были начаться к настоящему моменту"
 
 #: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "определённый период:"
 
 #: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
 #: ui/ResourceAppointmentsGanttView.cpp:323
@@ -7683,11 +7619,9 @@ msgstr "Обзор..."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/kptmainprojectpanelbase.ui:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "No holidays"
+#, kde-format
 msgid "Freedays"
-msgstr "Без праздничных дней"
+msgstr "Нерабочие дни"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -7974,28 +7908,22 @@ msgid "Edit Resource..."
 msgstr "Изменить ресурс..."
 
 #: ui/kptresourceeditor.cpp:311
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Resource Groups"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Resource Groups"
-msgstr "Группы ресурсов"
+msgstr "Показать группы ресурсов"
 
 #: ui/kptresourceeditor.cpp:317
-#, fuzzy, kde-format
-#| msgctxt "title:column"
-#| msgid "Select team members"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Team Members"
-msgstr "Выберите участников команды"
+msgstr "Показать участников команды"
 
 #: ui/kptresourceeditor.cpp:325
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Required Resources"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Required Resources"
-msgstr "Требуемые ресурсы"
+msgstr "Показать требуемые ресурсы"
 
 #: ui/kptresourceeditor.cpp:396
 #, kde-format
@@ -8091,11 +8019,10 @@ msgid "Detach"
 msgstr "Открепить"
 
 #: ui/kptscheduleeditor.cpp:330
-#, fuzzy, kde-format
-#| msgid "Schedule"
+#, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr "Расписание"
+msgstr "Заявить расписание"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -8184,14 +8111,10 @@ msgstr ""
 "перемещение расписания %1"
 
 #: ui/kptscheduleeditor.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Add schedule %1"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr ""
-"Добавление расписания %1\n"
-"добавление расписания %1"
+msgstr "Добавление расписания %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
@@ -8557,8 +8480,7 @@ msgid "Move Down"
 msgstr "Ниже"
 
 #: ui/kpttaskeditor.cpp:955
-#, fuzzy, kde-format
-#| msgid "Split View"
+#, kde-format
 msgid "Split"
 msgstr "Разделить области просмотра"
 
@@ -9462,11 +9384,11 @@ msgid ""
 "supports configuration and printing using the context menu.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
-"<title>Область просмотра этапа диаграммы Ганта</title><para>Отображает "
+"<title>Просмотр этапов на диаграмме Ганта</title><para>Отображает "
 "запланированные этапы задач в виде диаграммы Ганта. Область диаграммы "
 "возможно масштабировать с помощью ползунка в верхнем левом углу временной "
-"шкалы.<note>Yобы ползунок отобразился, наведите курсор мыши на временную "
-"шкалу.</note></para><para>>Этот режим просмотра поддерживает настройку и "
+"шкалы.<note>Чтобы ползунок отобразился, наведите курсор мыши на временную "
+"шкалу.</note></para><para>Этот режим просмотра поддерживает настройку и "
 "печать с помощью контекстного меню.<nl/><link url='%1'>Подробнее...</link></"
 "para>"
 
@@ -10105,22 +10027,19 @@ msgid "Nothing"
 msgstr "Ничего"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
-#, fuzzy, kde-format
-#| msgid "Report Template"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
 msgstr "Шаблон отчёта"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
-#, fuzzy, kde-format
-#| msgid "Add"
+#, kde-format
 msgctxt "@title:column"
 msgid "Add"
 msgstr "Добавить"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:257
-#, fuzzy, kde-format
-#| msgid "Report File"
+#, kde-format
 msgctxt "@title:column"
 msgid "Report File"
 msgstr "Файл отчёта"
@@ -10179,10 +10098,9 @@ msgid "Generate Report"
 msgstr "Сгенирировать отчёт"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:395
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgid "Open..."
-msgstr "Открыть"
+msgstr "Открыть…"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
@@ -10198,42 +10116,25 @@ msgid "Generate Report"
 msgstr "Сгенерировать отчёт"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:473
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Template file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
-msgstr ""
-"Не удалось сгенерировать %1.\n"
-"Имя файла шаблона пустое."
+msgstr "Не удалось сгенерировать %1.<nl/>Имя файла шаблона пустое."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Template file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
-msgstr ""
-"Не удалось сгенерировать %1.\n"
-"Имя файла шаблона пустое."
+msgstr "Не удалось сгенерировать %1.<nl/>Файл шаблона не существует:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Failed to generate %1.\n"
-#| "Report file name is empty."
+#, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
-msgstr ""
-"Не удалось сгенерировать %1.\n"
-"Имя файла отчёта пустое."
+msgstr "Не удалось сгенерировать %1.<nl/>Имя файла отчёта пустое."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:tooltip 1=list of resources"
-#| msgid "Assigned resources:<nl/>%1"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "File exists:<nl/>%1"
-msgstr "Назначенные ресурсы:<nl/>%1"
+msgstr "Файл существует:<nl/>%1"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:535
@@ -10446,19 +10347,19 @@ msgstr "Открыть ссылку"
 #: ui/SplitTaskDialog.ui:14 ui/TaskSplitDialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Диалог"
 
 #. i18n: ectx: property (text), widget (QCheckBox, keep)
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "Оставить задачу суммарной"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "Разделить на части:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -10563,45 +10464,33 @@ msgid "Pessimistic:"
 msgstr "Пессимистичное:"
 
 #: ui/TaskSplitDialog.cpp:22
-#, fuzzy
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete task"
-#| msgid_plural "Delete tasks"
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr ""
-"Удаление задачи\n"
-"удаление задачи"
+msgstr "Разделение задачи"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Количество задач:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
-#, fuzzy, kde-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Modify estimate"
+#, kde-format
 msgid "Migrate estimate"
-msgstr ""
-"Изменение оценки\n"
-"изменение оценки"
+msgstr "Переносить оценку"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
-#, fuzzy, kde-format
-#| msgid "Modify resource allocations"
+#, kde-format
 msgid "Migrate resource allocations"
-msgstr "изменение распределения ресурса"
+msgstr "Переносить распределение ресурсов"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
-#, fuzzy, kde-format
-#| msgid "Task dependencies"
+#, kde-format
 msgid "Create dependencies"
-msgstr "Зависимости задачи"
+msgstr "Создавать зависимости"
 
 #: widgets/KoDialog.cpp:245
 #, kde-format
