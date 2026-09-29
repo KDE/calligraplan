@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>Описание</title>
+  <para
+>Редактор расписания служит для создания, редактирования, расчёта и удаления расписаний. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Редактор расписаний содержит три подпредставления, в которых показываются результаты планирования. </para>
+  <para
+>В подпредставлении «Результат» показываются значения, необходимые для анализа PERT: раннее начало и окончание, позднее начало и окончание, а также различные виды резервов времени. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Подпредставление «Критический путь» показывает задачи, входящие в критический путь. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Подпредставление «Журнал планирования» показывает список сообщений, созданных во время планирования. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет создавать, удалять и рассчитывать расписания: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Добавить расписание</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания группы ресурсов. Новая группа добавляется в конец списка групп.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Добавить подчинённое расписание</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания подчинённого расписания. Новое расписание добавляется как дочернее к текущему расписанию.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Удалить</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удалить выбранное расписание</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Вычислить</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Рассчитывает выбранное расписание.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Компоновка плана</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Создаёт базовый план для выбранного расписания. Запрещает пересчёт и удаление расписания.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> Открепить</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Сделать выбранное подчинённое расписание главным расписанием</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>Редактирование данных</title>
+  <para
+>Данные можно редактировать на месте, как описано <link linkend="using-the-views"
+>здесь</link
+>. </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название расписания.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Состояние</para>
+            </entry>
+            <entry>
+              <para
+>Состояние расписаний. Показывает индикатор выполнения во время планирования.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Направление</para>
+            </entry>
+            <entry>
+              <para
+>Направление планирования.</para
+><para
+>Если направление — прямое, проект планируется начиная с самого раннего времени начала проекта, указанного в главном диалоговом окне проекта. Если направление — обратное, проект планируется начиная с самого позднего времени окончания проекта, указанного в главном диалоговом окне проекта. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Избыточная загрузка</para>
+            </entry>
+            <entry>
+              <para
+>Управляет перегрузкой ресурсов при планировании.</para
+><para
+>Если разрешена перегрузка, ресурс можно назначить (в рабочие дни) на работу сверх доступного времени. Это происходит, если ресурс назначен на несколько задач или задействован в других проектах. </para>
+              <para
+>Чтобы избежать перегрузки, ресурсы не назначаются сверх доступного объёма. При конфликте ресурсов задачи откладываются до освобождения ресурса. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Распределение</para>
+            </entry>
+            <entry>
+              <para
+>Распределение, используемое при планировании.</para
+><para
+>Если распределение — «None», оценка задачи используется при планировании без изменений. </para>
+              <para
+>Если распределение — «PERT», используемая оценка (E) рассчитывается по введённым оптимистической (O), пессимистической (P) и наиболее вероятной (M) оценкам. Используемая формула: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланированное начало</para>
+            </entry>
+            <entry>
+              <para
+>Запланированное время начала.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланированное завершение</para>
+            </entry>
+            <entry>
+              <para
+>Запланированное время завершения.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Планировщик</para>
+            </entry>
+            <entry>
+              <para
+>Планировщик, используемый для расчёта расписания проекта.</para
+><para
+>По умолчанию используется встроенный сетевой планировщик. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>Настройка</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>С помощью контекстного меню можно разделить или объединить представление в виде дерева либо настроить его в диалоговом окне настройки.</para
+><para
+>Диалоговое окно настройки позволяет подстроить объём информации, показываемой в представлении, в соответствии с потребностями. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

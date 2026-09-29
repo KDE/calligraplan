@@ -1,0 +1,144 @@
+<chapter id="scheduling"
+><title
+>Планирование</title>
+<sect1 id="scheduling-description"
+><title
+>Описание</title
+>&WORK-IN-PROGRESS; <para
+>Представление планирования позволяет планировать проекты портфеля. Проекты планируются в соответствии с их приоритетом. </para
+><para
+>Для проекта или проектов, которые требуется запланировать, установите в столбце <emphasis
+>Управление</emphasis
+> значение <emphasis
+>Планировать</emphasis
+>. Чтобы назначения ресурсов были включены в выравнивание ресурсов, установите для <emphasis
+>Управления</emphasis
+> значение <emphasis
+>Включить</emphasis
+>. Если проект нужно исключить, установите для <emphasis
+>Управления</emphasis
+> значение <emphasis
+>Исключить</emphasis
+>. </para>
+  <tip
+><para
+>Если проекты совместно используют ресурсы с проектами, не входящими в портфель, эти проекты нужно включить, чтобы выравнивание ресурсов работало правильно. См. <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>Представление содержит три раздела: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>Таблица проектов</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>Имя</guilabel
+></entry>
+          <entry
+><guilabel
+>Описание</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>Название</entry
+><entry
+>Название проекта</entry
+></row>
+      <row
+><entry
+>Расписание</entry
+><entry
+>Название графика</entry
+></row>
+      <row
+><entry
+>Состояние</entry
+><entry
+>Состояние планирования</entry
+></row>
+      <row
+><entry
+>Управление</entry>
+        <entry
+>Элемент управления планированием может принимать следующие значения: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>Планирование:</emphasis
+> Проект будет запланирован.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Включить:</emphasis
+> Бронирования ресурсов будут включены в выравнивание ресурсов.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>Исключить:</emphasis
+> Проект не будет включён.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>Приоритет</entry
+><entry
+>Приоритет проекта. Чем больше число, тем выше приоритет.</entry
+></row>
+      <row
+><entry
+>Целевое начало</entry
+><entry
+>Самое раннее время начала проекта</entry
+></row>
+      <row
+><entry
+>Целевое окончание</entry
+><entry
+>Самое позднее время завершения проекта</entry
+></row>
+      <row
+><entry
+>Описание</entry
+><entry
+>Описание проекта</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>Управление планированием</title
+>&WORK-IN-PROGRESS; </sect1>
+<sect1 id="scheduling-log"
+><title
+>Журнал планирования</title
+>&WORK-IN-PROGRESS; </sect1>
+</chapter>

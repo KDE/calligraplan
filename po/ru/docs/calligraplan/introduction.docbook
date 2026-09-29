@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>Возможности: </para>
+<itemizedlist>
+  <listitem
+><para
+>Управление задачами с помощью <link linkend="task-editor"
+>редактора задач</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Структура декомпозиции работ с настраиваемыми кодами СДР</para
+></listitem>
+        <listitem
+><para
+>Задачи, суммарные задачи и этапы</para
+></listitem>
+        <listitem
+><para
+>Различные типы временных ограничений</para
+></listitem>
+        <listitem
+><para
+>Различные типы зависимостей.</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Управление ресурсами с помощью <link linkend="resource-editor"
+>редактора ресурсов</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Структура декомпозиции ресурсов</para
+></listitem>
+        <listitem
+><para
+>Типы рабочих и материальных ресурсов</para
+></listitem>
+        <listitem
+><para
+>Распределение ресурсов на уровне группы</para
+></listitem>
+        <listitem
+><para
+>Команды ресурсов</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Определение рабочего времени и отпусков с помощью <link linkend="work-and-vacation-editor"
+>редактора рабочего времени и отпусков</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Управление затратами с помощью <link linkend="cost-breakdown-structure-editor"
+>редактора структуры затрат</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Управление освоенным объёмом</para
+></listitem>
+  <listitem
+><para
+>Планирование проекта с помощью <link linkend="schedules-editor"
+>редактора расписаний</link
+>&nbsp;<itemizedlist>
+        <listitem
+><para
+>Планирование вперёд от времени начала или назад от времени окончания</para
+></listitem>
+        <listitem
+><para
+>Разрешение или предотвращение перегрузки ресурсов</para
+></listitem>
+        <listitem
+><para
+>Распределение PERT с оптимистической, пессимистической и наиболее вероятной оценками</para
+></listitem>
+        <listitem
+><para
+>Несколько графиков с возможностью планирования на основе сведений о текущем ходе работ</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>Отслеживание задач с помощью <link linkend="task-execution-view"
+>представления выполнения задач</link
+> или <link linkend="task-status-view"
+>представления состояния задач</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</sect2>

@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>Описание</title>
+  <para
+>Редактор рабочего времени и отпусков предназначен для создания, изменения и удаления календарей.</para
+><para
+>Календари определяют рабочее время ресурсов. Календари также применяются в задачах с типом оценки <emphasis
+>Длительность</emphasis
+>. </para>
+  <para
+>Календари содержат указание часового пояса, что позволяет задавать рабочее время по местному времени ресурса. </para>
+  <para
+>Календарь состоит из определений для дней недели и дат. Если дата имеет определение, используется это определение. Если состояние даты — <emphasis
+>Не определён</emphasis
+>, используется определение для дня недели. Если и оно <emphasis
+>Не определён</emphasis
+>, проверяется родительский календарь. </para>
+  <para
+>Календарь можно определить как <emphasis
+>календарь по умолчанию</emphasis
+>, и тогда он используется всеми рабочими ресурсами, не имеющими ссылки на календарь. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Панель инструментов позволяет создавать и удалять календари: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить календарь</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания календаря. Новый календарь добавляется на тот же уровень, что и выбранный.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить субкалендарь</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка создания дочернего календаря. Новый календарь добавляется как дочерний к текущему выбранному календарю.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удалить выбранный календарь</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Удалить</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удаляет выбранный календарь.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>Редактирование данных</title>
+  <para
+>Имя календаря и часовой пояс можно изменить непосредственно в строке, как описано <link linkend="using-the-views"
+>здесь</link
+>. </para>
+  <para
+>Чтобы изменить состояние дней и дней недели, выберите день или дни и откройте контекстное меню. </para>
+  <para
+>При выборе пункта <emphasis
+>Работа…</emphasis
+> открывается диалоговое окно изменения рабочих интервалов. </para>
+  
+</sect3>
+</sect2>

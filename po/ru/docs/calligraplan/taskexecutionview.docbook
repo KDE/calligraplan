@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>Описание</title>
+  <para
+>Представление выполнения задач используется для просмотра сведений о ходе выполнения задач. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>Данные</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Сведения о ходе выполнения можно изменить непосредственно в строке, как описано <link linkend="using-the-views"
+>здесь</link
+>, или с помощью диалогового окна хода выполнения задачи.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Состояние</para>
+            </entry>
+            <entry>
+              <para
+>Состояние задачи</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% завершено</para>
+            </entry>
+            <entry>
+              <para
+>Завершённость задачи</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ответственный</para>
+            </entry>
+            <entry>
+              <para
+>Ответственный за выполнение этой задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Назначение</para>
+            </entry>
+            <entry>
+              <para
+>Ресурсы, назначенные для этой задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Индекс выполнения расписания</para>
+            </entry>
+            <entry>
+              <para
+>Индекс выполнения календарного плана. (BCWP / BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ПСЗР</para>
+            </entry>
+            <entry>
+              <para
+>Плановая стоимость запланированных работ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ПСВР</para>
+            </entry>
+            <entry>
+              <para
+>Плановая стоимость выполненных работ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ФСВР</para>
+            </entry>
+            <entry>
+              <para
+>Фактическая стоимость выполненных работ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Описание</para>
+            </entry>
+            <entry>
+              <para
+>Описание задачи</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>Настройка</title>
+  <para
+>С помощью контекстного меню можно настроить показ или скрытие проекта, разделение или объединение представления в виде дерева либо воспользоваться диалоговым окном настройки. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Диалоговое окно настройки позволяет изменить объём информации, показываемой в представлении, в соответствии с потребностями.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

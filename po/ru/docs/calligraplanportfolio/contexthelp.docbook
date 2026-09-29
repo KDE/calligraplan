@@ -1,0 +1,22 @@
+<sect2
+><title/>&WORK-IN-PROGRESS; <para
+>Многие функции и представления имеют справку и подсказки, которые можно показать с помощью функции <emphasis
+>«Что это?»</emphasis
+>. </para>
+<para
+>Активировать можно с помощью пункта меню <menuchoice
+><guimenu
+>Справка</guimenu
+><guimenuitem
+>Что это?</guimenuitem
+></menuchoice
+> или комбинации клавиш <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>В диалоговых окнах он включается нажатием кнопки <varname
+>?</varname
+> в заголовке диалогового окна. </para>
+</sect2>

@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>Описание</title>
+  <para
+>В редакторе зависимостей задач создаются, изменяются и удаляются зависимости задач. Для удобства также можно вставлять, удалять и изменять задачи.</para
+><para
+>Задачи упорядочены в соответствии со структурой декомпозиции работ (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Ниже показаны обозначения суммарных задач, задач и вех: </para>
+  <para
+>Так как <emphasis
+>задача</emphasis
+> и <emphasis
+>веха</emphasis
+> — вложенные элементы <emphasis
+>суммарной задачи</emphasis
+>, они показываются с отступом. Кроме того, обратите внимание, что код WBS показывается вместе с названием. </para>
+  <para
+>На следующем рисунке добавлена зависимость <emphasis
+>Окончание-Начало</emphasis
+>, чтобы <emphasis
+>веха</emphasis
+> зависела от <emphasis
+>задачи</emphasis
+>. </para>
+  <para
+>Как показано ниже, элемент состоит из трёх различных областей выделения: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Область объектов</para>
+            </entry>
+            <entry>
+              <para
+>Выберите элемент для редактирования</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область начала</para>
+            </entry>
+            <entry>
+              <para
+>Используется для создания зависимостей <emphasis
+>Окончание — Начало</emphasis
+> и <emphasis
+>Начало — Начало</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область окончания</para>
+            </entry>
+            <entry>
+              <para
+>Используется для создания зависимостей <emphasis
+>окончание — начало</emphasis
+> и <emphasis
+>окончание — окончание</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>Редактирование зависимостей</title>
+  <para
+>Зависимости создаются так: сначала выбирается область начала или окончания предшествующей задачи, затем — область начала или окончания последующей задачи. </para>
+  <para
+>Это можно сделать с помощью мыши или клавиатуры. </para>
+  <para
+>Кроме того, можно перетащить область соединения предшественника на область соединения последователя. </para>
+  <para
+>Чтобы изменить или удалить существующую зависимость, откройте её, выбрав в списке, либо вызовите её контекстное меню. </para>
+  <para
+>Чтобы изменить все зависимости, связанные с областью соединения, можно также открыть на ней контекстное меню. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет создавать и удалять задачи: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить задачу</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Раскрывающийся список для создания задачи или вехи. Новый элемент размещается после выбранного элемента на том же уровне. Если ни один элемент не выбран, новый элемент добавляется на верхний уровень.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить подзадачу</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Раскрывающийся список для создания подзадачи или вехи. Новый элемент добавляется как дочерний к текущему выбранному элементу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удалить задачу</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удаляет выбранные задачи.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

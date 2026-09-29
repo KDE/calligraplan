@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>Описание</title>
+  <para
+>Представление назначения ресурсов показывает в таблице запланированные назначения ресурсов задачам. <note
+><para
+>Это представление может серьёзно снизить производительность в крупных проектах.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>Данные</title>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Имя</para>
+            </entry>
+            <entry>
+              <para
+>Имя объекта (группа ресурсов, ресурс, задача)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Итого</para>
+            </entry>
+            <entry>
+              <para
+>Суммарное назначение ресурса</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Даты</para>
+            </entry>
+            <entry>
+              <para
+>Суммарные назначения ресурса за день и назначения ресурса по задачам.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>Редактирование данных</title>
+  <para
+>Описание задачи и ход выполнения изменяются с помощью контекстного меню. </para>
+</sect3>
+</sect2>

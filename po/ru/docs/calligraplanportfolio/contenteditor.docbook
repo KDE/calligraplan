@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>Содержимое портфеля</title
+>&WORK-IN-PROGRESS; <para
+>Этот редактор позволяет настроить содержимое портфеля. </para
+><para
+>Чтобы добавить проекты в портфель, выберите <menuchoice
+> <shortcut
+><keycap
+>Insert</keycap
+></shortcut
+> <guimenu
+>Правка</guimenu
+><guimenuitem
+>Добавить</guimenuitem
+> </menuchoice
+> или нажмите кнопку <guibutton
+>Добавить</guibutton
+>. </para
+><para
+>Чтобы удалить выбранные проекты, выберите <menuchoice
+> <shortcut
+><keycap
+>Delete</keycap
+></shortcut
+> <guimenu
+>Правка</guimenu
+><guimenuitem
+>Удалить</guimenuitem
+> </menuchoice
+> или нажмите кнопку <guibutton
+>Удалить</guibutton
+>. </para
+><para
+>Добавьте проекты, которыми управляете, и установите для <guilabel
+>Портфель</guilabel
+> значение <emphasis
+>Да</emphasis
+>. </para
+><para
+>Если ресурсы используются проектами, не входящими в портфель, и требуется перепланировать или проверить использование ресурсов, добавьте все нужные проекты и установите для них <guilabel
+>Портфель</guilabel
+> = <emphasis
+>Нет</emphasis
+>. </para>
+<formalpara
+><title
+>Хранение</title>
+<para
+></para>
+</formalpara>
+<para
+>Изменения проекта можно сохранить в исходный файл проекта или встроить в файл портфеля. При управлении проектами их обычно следует сохранять в исходные файлы. В этом случае задайте для параметра <guilabel
+>Хранить</guilabel
+> значение <emphasis
+>Внешний</emphasis
+>. Однако если нужно лишь оценить последствия изменений, проекты можно хранить встроенными при работе с разными сценариями. В этом случае задайте для параметра <guilabel
+>Хранить</guilabel
+> значение <emphasis
+>Встроенный</emphasis
+>. Внешний URL проекта сохраняется, если позже потребуется записать изменения в исходный файл. </para>
+</chapter>

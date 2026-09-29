@@ -1,0 +1,14 @@
+<chapter id="ganttsummary"
+><title
+>Сводка диаграммы Ганта</title>
+<sect1 id="description"
+><title
+>Описание</title
+>&WORK-IN-PROGRESS; <para
+>Показывает диаграмму Ганта всех проектов портфеля. </para
+><para
+>Представление диаграммы Ганта для проекта показывается при выборе <userinput
+>Контекстное меню -> Открыть проект</userinput
+>. </para>
+</sect1>
+</chapter>

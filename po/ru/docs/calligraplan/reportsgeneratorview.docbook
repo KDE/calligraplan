@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>Описание</title>
+  <para
+>Представление генератора отчётов служит для добавления и создания отчётов в формате Open Document Text (odt).</para
+><para
+>Отчёты можно создавать на основе поставляемых шаблонов отчётов или <link linkend="creating-odt-report-templates"
+>создать собственные шаблоны</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название на ваш выбор</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Шаблон отчёта</para>
+            </entry>
+            <entry>
+              <para
+>Путь к файлу шаблона отчёта. Можно выбрать один из стандартных шаблонов, входящих в комплект поставки, или указать имя файла собственного шаблона.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Файл отчёта</para>
+            </entry>
+            <entry>
+              <para
+>Имя файла, который будет создан.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить</para>
+            </entry>
+            <entry>
+              <para
+>Сведения, которые можно добавить к имени файла отчёта, чтобы отличать его от ранее созданных версий. Это может быть:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>Ничего</emphasis
+>; использовать имя файла как есть</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Номер</emphasis
+>; добавить к имени файла порядковый номер</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>Дата</emphasis
+>; добавление текущей даты в имя файла</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет добавлять, удалять и создавать отчёты. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить отчёт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Добавить новый отчёт</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удалить отчёт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Удалить выбранный отчёт</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Сгенерировать отчёт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Сгенерировать выбранный отчёт</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

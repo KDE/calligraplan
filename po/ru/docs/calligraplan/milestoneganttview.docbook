@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>Описание</title>
+  <para
+>Представление «Диаграмма Ганта для этапов» служит для показа этапов на временной шкале. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Диаграмма Ганта</phrase>
+        </textobject>
+        <caption>
+          <para
+>Диаграмма Ганта</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>Редактирование данных</title>
+  <para
+>Описание вехи и ход выполнения изменяются с помощью контекстного меню. </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Код СДР</para>
+            </entry>
+            <entry>
+              <para
+>Код иерархической структуры работ</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название этапа.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Время начала</para>
+            </entry>
+            <entry>
+              <para
+>Запланированное время начала.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>Настройка</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>С помощью контекстного меню вид настраивается в диалоговом окне настройки.</para>
+              <para
+>Диалоговое окно настройки позволяет задать объём информации, показываемой в представлении, в соответствии с потребностями.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Диалоговое окно настройки</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Диалоговое окно настройки</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

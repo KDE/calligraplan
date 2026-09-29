@@ -1,0 +1,10 @@
+<chapter id="resourceusage"
+><title
+>Использование ресурсов</title>
+<sect1 id="resourceusage-description"
+><title
+>Описание</title
+>&WORK-IN-PROGRESS; <para
+>Показывает диаграмму запланированной нагрузки для выбранного ресурса с цветовой кодировкой по задачам. </para>
+</sect1>
+</chapter>

@@ -1,0 +1,516 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>Описание</title>
+  <para
+>Редактор задач предназначен для создания, изменения и удаления задач.</para
+><para
+>Задачи организуются в иерархическую древовидную структуру произвольной глубины. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет создавать, удалять и перемещать задачи и этапы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить задачу</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Раскрывающийся список для создания задачи или вехи. Новый элемент размещается после выбранного элемента на том же уровне, что и выбранный элемент. Если элемент не выбран, новый элемент добавляется на верхний уровень.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить подзадачу</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Раскрывающийся список для создания подзадачи или подэтапа. Новый элемент добавляется как дочерний к текущему выбранному элементу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удаление задачи</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удаляет выбранные задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Понизить уровень задачи</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Добавляет выбранную задачу в качестве подчинённой к задаче, расположенной выше.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Повысить уровень задачи</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Перемещает выбранную задачу на один уровень вверх, вставляя её после текущей родительской задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Выше</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Перемещает выбранную задачу на одну позицию вверх.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ниже</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>Перемещает выбранную задачу на одну позицию вниз.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Задачи также можно перемещать или копировать перетаскиванием либо копированием и вставкой. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>Редактирование данных</title>
+  <para
+>Данные можно изменять прямо в представлении, как описано <link linkend="using-the-views"
+>здесь</link
+>, или с помощью диалогового окна параметров задачи. </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Состояние</para>
+            </entry>
+            <entry>
+              <para
+>Состояние задачи</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ответственный</para>
+            </entry>
+            <entry>
+              <para
+>Ответственный за выполнение задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Распределение</para>
+            </entry>
+            <entry>
+              <para
+>Список назначений ресурсов.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип задачи или тип оценки задачи.</para
+><para
+>Тип можно задать как <emphasis
+>Этап</emphasis
+>, <emphasis
+>Объём работ</emphasis
+> или <emphasis
+>Длительность</emphasis
+>. </para>
+              <para
+><guilabel
+>Примечание:</guilabel
+> Если тип — <emphasis
+>Суммарная задача</emphasis
+> или <emphasis
+>Проект</emphasis
+>, изменить его нельзя. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Календарь</para>
+            </entry>
+            <entry>
+              <para
+>Календарь, используемый, когда тип оценки — <emphasis
+>Длительность</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Оценка</para>
+            </entry>
+            <entry>
+              <para
+>Наиболее вероятная оценка. Оценка — ожидаемый объём усилий или время, необходимое для выполнения задачи. Можно выразить в различных единицах: h (часы), d (дни), w (недели) и M (месяцы).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Оптимистичный коэффициент</para>
+            </entry>
+            <entry>
+              <para
+>Оптимистическая оценка, выраженная в виде отрицательного процента от наиболее вероятной оценки (например, -20 %).</para
+><para
+>Используется только при выборе PERT-распределения. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Пессимистический коэффициент</para>
+            </entry>
+            <entry>
+              <para
+>Пессимистическая оценка, выраженная как положительный процент от наиболее вероятной оценки (например, 50 %).</para
+><para
+>Используется только при выборе PERT-распределения. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Риск</para>
+            </entry>
+            <entry>
+              <para
+>Риск определяет PERT-распределение, используемое при вычислении фактической оценки для этой задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ограничение</para>
+            </entry>
+            <entry>
+              <para
+>Тип ограничения по срокам.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Начало ограничения</para>
+            </entry>
+            <entry>
+              <para
+>Ограничение времени начала.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Конец ограничения</para>
+            </entry>
+            <entry>
+              <para
+>Время окончания ограничения.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Текущий счёт</para>
+            </entry>
+            <entry>
+              <para
+>Учитывать текущие затраты.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Начальный счёт</para>
+            </entry>
+            <entry>
+              <para
+>Учитывать затраты, понесённые при запуске задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Начальная стоимость</para>
+            </entry>
+            <entry>
+              <para
+>Расходы, возникающие при запуске задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Остаточный счёт</para>
+            </entry>
+            <entry>
+              <para
+>Учитывать затраты, понесённые при завершении задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Остаточная стоимость</para>
+            </entry>
+            <entry>
+              <para
+>Затраты, понесённые при завершении задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Описание</para>
+            </entry>
+            <entry>
+              <para
+>Примечания к задаче.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>Панель модулей задач</title>
+  <para
+>Модули задач — это группы задач, которые можно повторно использовать в разных проектах. </para>
+  <para
+>Это позволяет опираться на прошлый опыт и стандартизировать однотипные операции. </para>
+  <para
+>Модуль задачи вставляется в проект перетаскиванием его из панели в проект. </para>
+  <para
+>Модуль задач — это обычный файл плана, создаваемый в &plan; так же, как и обычный проект. </para>
+  <para
+>Однако модуль задач обычно содержит только задачи, оценки и зависимости. </para>
+  <para
+>Название проекта показывается в панели, а описание используется как всплывающая подсказка. </para>
+  <para
+>Модуль открывается для просмотра или редактирования двойным щелчком по нему. </para>
+  <para
+>Модули можно сгруппировать, сохраняя их в разных папках. Папки для их поиска задаются в диалоговом окне параметров проекта. </para>
+  <para
+>Значения по умолчанию для новых проектов задаются в диалоговом окне настройки, см. <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>Панель ресурсов</title>
+  <para
+>Панель ресурсов позволяет просто назначать ресурсы задачам: достаточно выбрать нужные ресурсы и перетащить их в столбец <emphasis
+>Назначение</emphasis
+>. </para>
+  <para
+>Ресурс также можно перетащить в столбец <emphasis
+>Ответственный</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>Панель назначений</title>
+  <para
+>Панель «Назначения» показывает текущее назначение ресурсов для выбранной задачи. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>Настройка</title>
+  <para
+>С помощью контекстного меню можно настроить показ или скрытие проекта, разделение или объединение древовидного представления, а также выполнить настройку в диалоговом окне настройки. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Диалоговое окно настройки позволяет подстроить объём информации, показываемой в представлении, под свои потребности.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

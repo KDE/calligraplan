@@ -1,0 +1,362 @@
+<sect2
+><title/>
+<sect3 id="introduction0"
+><title
+>Введение</title>
+  <para
+>В управлении проектами термины могут употребляться по-разному в разных приложениях, компаниях или типах проектов. В более полных глоссариях по управлению проектами для большинства терминов можно найти альтернативные определения. </para>
+  <para
+>В этом списке определяется, как используются некоторые термины в <guilabel
+>Plan</guilabel
+>. </para>
+</sect3>
+<sect3 id="terms"
+><title
+>Термины</title>
+  <variablelist>
+  <varlistentry
+><term id="account"
+><emphasis role="bold"
+>Счёт</emphasis
+></term>
+      <listitem>
+      <para
+>Счёт используется в <emphasis
+>структуре декомпозиции расходов</emphasis
+> (<link linkend="cbs"
+>CBS</link
+>) для обозначения места, где можно суммировать затраты от <link linkend="task"
+>задач</link
+> или <link linkend="resource"
+>ресурсов</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="acwp"
+><emphasis role="bold"
+>ФСВР</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Actual-Cost-of-Work-Performed"
+>Фактическая стоимость выполненных работ</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Actual-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Фактическая стоимость выполненных работ</emphasis
+></term>
+      <listitem>
+      <para
+>Фактические затраты (или объём работ), которые уже выполнены.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="allocation"
+><emphasis role="bold"
+>Распределение</emphasis
+></term>
+      <listitem>
+      <para
+>На этапе планирования проекта задачи распределяются по <link linkend="resource"
+>ресурсам</link
+>. Фактическое назначение выполняется при составлении расписания. Следует учесть, что назначение не гарантируется, поскольку ресурс может быть недоступен.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="assignment"
+><emphasis role="bold"
+>Назначение</emphasis
+></term>
+      <listitem>
+      <para
+>При планировании задачи назначаются <link linkend="resource"
+>ресурсам</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcws"
+><emphasis role="bold"
+>ПСЗР</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Scheduled"
+>Плановая стоимость запланированных работ</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Scheduled"
+><emphasis role="bold"
+>Плановая стоимость запланированных работ</emphasis
+></term>
+      <listitem>
+      <para
+>Затраты (или трудозатраты), которые следовало использовать для достижения указанного прогресса.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="bcwp"
+><emphasis role="bold"
+>ПСВР</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Budgeted-Cost-of-Work-Performed"
+>Плановая стоимость выполненных работ</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Budgeted-Cost-of-Work-Performed"
+><emphasis role="bold"
+>Плановая стоимость выполненных работ</emphasis
+></term>
+      <listitem>
+      <para
+>Затраты (или объём работ), которые уже выполнены.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cbs"
+><emphasis role="bold"
+>СРЗ</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Cost-Breakdown-Structure"
+>Структура декомпозиции расходов</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="cpi"
+><emphasis role="bold"
+>CPI</emphasis
+></term>
+      <listitem>
+      <para
+>Представляет собой <emphasis
+>индекс выполнения стоимости</emphasis
+> и равен <link linkend="bcwp"
+>BCWP</link
+>/<link linkend="acwp"
+>ACWP</link
+>. Если этот индекс меньше 1, это означает перерасход бюджета. Если индекс больше 1, затраты ниже бюджета.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Cost-Breakdown-Structure"
+><emphasis role="bold"
+>Структура декомпозиции расходов</emphasis
+></term>
+      <listitem>
+      <para
+>CBS организует <link linkend="account"
+>счета</link
+> в структуру, что позволяет суммировать затраты независимо от <link linkend="wbs"
+>WBS</link
+> и <link linkend="rbs"
+>RBS</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="estimate"
+><emphasis role="bold"
+>Оценка</emphasis
+></term>
+      <listitem>
+      <para
+>Оценка — это ожидаемый объём трудозатрат или время, необходимое для выполнения <link linkend="task"
+>задачи</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="milestone"
+><emphasis role="bold"
+>Этап</emphasis
+></term>
+      <listitem>
+      <para
+>Этап — это <link linkend="task"
+>задача</link
+> с трудозатратами 0,00 ч. Обычно этапом обозначают важный результат, например завершение поставки после приёмки заказчиком.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="pert"
+><emphasis role="bold"
+>PERT</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Program-Evaluation-and-Review-Technique"
+>Метод оценки и пересмотра планов</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Program-Evaluation-and-Review-Technique"
+><emphasis role="bold"
+>Метод оценки и пересмотра планов</emphasis
+></term>
+      <listitem>
+      <para
+>Метод оценки и пересмотра планов (PERT) — усовершенствование метода критического пути. Оценки трудозатрат <link linkend="task"
+>задачи</link
+> в CPM являются точечными оценками, тогда как оценки трудозатрат <link linkend="task"
+>задачи</link
+> в PERT вычисляются взвешиванием оптимистической, наиболее вероятной и пессимистической оценок (O+(4*M)+P)/6.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="PERT-Distribution"
+><emphasis role="bold"
+>Распределение PERT</emphasis
+></term>
+      <listitem>
+      <para
+>Упрощённый способ вычисления ожидаемой оценки на основе оптимистической, наиболее вероятной и пессимистической оценок.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="rbs"
+><emphasis role="bold"
+>СРР</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Resource-Breakdown-Structure"
+>Структура декомпозиции ресурсов</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Breakdown-Structure"
+><emphasis role="bold"
+>Структура декомпозиции ресурсов</emphasis
+></term>
+      <listitem>
+      <para
+>RBS организует ресурсы в <link linkend="Resource-Group"
+>группы ресурсов</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="resource"
+><emphasis role="bold"
+>Ресурс</emphasis
+></term>
+      <listitem>
+      <para
+>Ресурс может быть типа <emphasis
+>Работа</emphasis
+>, <emphasis
+>Материал</emphasis
+> или <emphasis
+>Команда</emphasis
+>. Ресурс всегда должен принадлежать <link linkend="Resource-Group"
+>группе ресурсов</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Group"
+><emphasis role="bold"
+>Группа ресурсов</emphasis
+></term>
+      <listitem>
+      <para
+>Группа ресурсов используется для объединения однотипных <link linkend="resource"
+>ресурсов</link
+>.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Resource-Team"
+><emphasis role="bold"
+>Команда ресурсов</emphasis
+></term>
+      <listitem>
+      <para
+>Команда <link linkend="resource"
+>ресурсов</link
+> — это ресурс, состоящий из нескольких других ресурсов.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="spi"
+><emphasis role="bold"
+>SPI</emphasis
+></term>
+      <listitem>
+      <para
+>Представляет собой индекс выполнения расписания и равен BCWP/BCWS. Если этот индекс меньше 1, это означает отставание от расписания. Если индекс больше 1, это означает опережение расписания.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="summary-task"
+><emphasis role="bold"
+>Суммарная задача</emphasis
+></term>
+      <listitem>
+      <para
+>Суммарная задача содержит подчинённые подзадачи и обобщает информацию на их основе.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="task"
+><emphasis role="bold"
+>Задача</emphasis
+></term>
+      <listitem>
+      <para
+>Задача — это единица работы. <link linkend="resource"
+>Ресурсы</link
+> обычно распределяются на уровне задачи.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="vcard"
+><emphasis role="bold"
+>vCard</emphasis
+></term>
+      <listitem>
+      <para
+>vCard — это стандарт формата файлов для электронных визитных карточек.</para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="wbs"
+><emphasis role="bold"
+>СДР</emphasis
+></term>
+      <listitem>
+      <para
+><link linkend="Work-Breakdown-Structure"
+>Структура декомпозиции работ</link
+></para>
+      </listitem>
+  </varlistentry>
+  <varlistentry
+><term id="Work-Breakdown-Structure"
+><emphasis role="bold"
+>Структура декомпозиции работ</emphasis
+></term>
+      <listitem>
+      <para
+>WBS используется для декомпозиции крупных проектов на управляемые части, что упрощает планирование и управление.</para>
+      </listitem>
+  </varlistentry>
+  </variablelist>
+  
+</sect3>
+</sect2>

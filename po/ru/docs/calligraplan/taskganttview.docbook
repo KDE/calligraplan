@@ -1,0 +1,137 @@
+<sect2
+><title/>
+<sect3 id="description27"
+><title
+>Описание</title>
+  <para
+>Представление диаграммы Ганта показывает задачи на временной шкале. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_ganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Диаграмма Ганта</phrase>
+        </textobject>
+        <caption>
+          <para
+>Диаграмма Ганта</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data28"
+><title
+>Редактирование данных</title>
+  <para
+>Описание задачи и прогресс можно изменить с помощью контекстного меню. </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Время начала</para>
+            </entry>
+            <entry>
+              <para
+>Запланированное время начала.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Время завершения</para>
+            </entry>
+            <entry>
+              <para
+>Планируемое время окончания.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% завершено</para>
+            </entry>
+            <entry>
+              <para
+>Завершённость</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration29"
+><title
+>Настройка</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>С помощью контекстного меню представление настраивается в диалоговом окне настройки.</para>
+              <para
+>Диалоговое окно настройки позволяет подстроить объём информации, показываемой в представлении, под свои потребности.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_ganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Диалоговое окно настройки</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Диалоговое окно настройки</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

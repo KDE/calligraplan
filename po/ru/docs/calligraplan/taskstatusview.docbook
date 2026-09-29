@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>Описание</title>
+  <para
+>Представление состояния задачи служит для просмотра сведений о ходе выполнения задач за период, заданный в параметрах. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Задачи разделяются на группы в зависимости от состояния задачи: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Не начата</para>
+            </entry>
+            <entry>
+              <para
+>Задачи, которые должны были начаться к настоящему моменту.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Выполняется</para>
+            </entry>
+            <entry>
+              <para
+>Задачи, которые начаты, но ещё не завершены.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Завершена</para>
+            </entry>
+            <entry>
+              <para
+>Задачи, завершённые в этот период</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Следующий период</para>
+            </entry>
+            <entry>
+              <para
+>Задания, начало которых запланировано на следующий период.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>Редактирование данных</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Сведения о ходе выполнения можно изменить прямо в строке, как описано <link linkend="using-the-views"
+>здесь</link
+>, либо с помощью диалогового окна хода выполнения задачи.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Состояние</para>
+            </entry>
+            <entry>
+              <para
+>Состояние задачи</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% выполнения</para>
+            </entry>
+            <entry>
+              <para
+>Завершённость задачи</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланированный объём работ</para>
+            </entry>
+            <entry>
+              <para
+>Объём работы, запланированный к использованию в конце текущего периода.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Фактический объём работ</para>
+            </entry>
+            <entry>
+              <para
+>Объём затраченного труда.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Оставшийся объём работ</para>
+            </entry>
+            <entry>
+              <para
+>Оставшийся объём работ, необходимый для выполнения задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Запланированная стоимость</para>
+            </entry>
+            <entry>
+              <para
+>Плановые затраты на конец текущего периода.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Фактическая стоимость</para>
+            </entry>
+            <entry>
+              <para
+>Фактически понесённые затраты</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Фактическое начало</para>
+            </entry>
+            <entry>
+              <para
+>Фактическое время начала задачи.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Фактическое завершение</para>
+            </entry>
+            <entry>
+              <para
+>Фактическое время завершения задачи.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>Настройка</title>
+  <para
+>С помощью контекстного меню можно настроить разделение или объединение представления в виде дерева либо сделать это в диалоговом окне настройки. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Диалоговое окно настройки позволяет задать объём информации, показываемой в представлении, в соответствии с потребностями.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

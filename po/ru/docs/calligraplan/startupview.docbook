@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>Начальный вид показывается при запуске и при выборе <menuchoice
+><guimenu
+>Файл</guimenu
+><guimenuitem
+>Создать</guimenuitem
+></menuchoice
+>. </para>
+<para
+>Содержит 3 раздела для: </para>
+<itemizedlist>
+  <listitem
+><para
+>Создание новых проектов. См. также <link linkend="creating-a-project"
+>Создание проекта</link
+> и <link linkend="managing-resources"
+>Управление ресурсами</link
+>&nbsp;</para
+></listitem>
+  <listitem
+><para
+>Открытие существующих проектов. В этом разделе можно открыть файл существующего проекта или один из 10 последних открытых проектов.</para
+></listitem>
+  <listitem
+><para
+>Раздел «Справка» содержит ссылки на вводные страницы, документацию и форум сообщества.</para
+></listitem>
+</itemizedlist>
+</sect2>

@@ -1,0 +1,36 @@
+<chapter id="configure-plan-dialog"
+><title
+>Настройка плана</title>
+  <sect1 id="configure-project-defaults"
+><title
+>Параметры проекта по умолчанию</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-and-vacation"
+><title
+>Работа и отпуск</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-defaults"
+><title
+>Значения по умолчанию для задачи</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-colors"
+><title
+>Цвета задач</title
+>&WIP; </sect1>
+  <sect1 id="configure-task-modules"
+><title
+>Модули задач</title
+>&WIP; </sect1>
+  <sect1 id="configure-work-package"
+><title
+>Пакет работ</title
+>&WIP; </sect1>
+  <sect1 id="configure-project-templates"
+><title
+>Шаблоны проектов</title
+>&WIP; </sect1>
+  <sect1 id="configure-document"
+><title
+>Документ</title
+>&WIP; </sect1>
+</chapter>

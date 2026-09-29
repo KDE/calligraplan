@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>Описание</title>
+  <para
+>Диаграмма Ганта назначения ресурсов показывает запланированные назначения ресурсов задачам на диаграмме Ганта. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>Данные</title>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Имя</para>
+            </entry>
+            <entry>
+              <para
+>Имя объекта (группа ресурсов, ресурс, задача)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип объекта</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Время начала</para>
+            </entry>
+            <entry>
+              <para
+>Начало назначения</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Время завершения</para>
+            </entry>
+            <entry>
+              <para
+>Окончание назначения</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>Редактирование данных</title>
+  <para
+>Описание задачи и прогресс можно изменить с помощью контекстного меню. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>Настройка</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>С помощью контекстного меню вид настраивается через диалоговое окно настройки.</para
+><para
+>Диалоговое окно настройки позволяет выбрать, какие столбцы показывать. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>Диалоговое окно настройки</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>Диалоговое окно настройки</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

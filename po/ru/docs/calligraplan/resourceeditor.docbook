@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>Описание</title>
+  <para
+>Редактор ресурсов служит для создания, изменения и удаления ресурсов и групп ресурсов. Ресурсы должны принадлежать группе ресурсов. На данный момент вложенные группы не допускаются. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>Рабочие ресурсы должны ссылаться на <emphasis
+>календарь</emphasis
+>, задающий рабочее время ресурса. Календари создаются с помощью <link linkend="work-and-vacation-editor"
+>редактора рабочего времени и отпусков</link
+>. </para>
+  <para
+>Материальные ресурсы по умолчанию всегда доступны. Чтобы ограничить их доступность, можно использовать календарь. </para>
+  <para
+>Ресурсы могут быть <emphasis
+>общими</emphasis
+> или <emphasis
+>локальными</emphasis
+>. Локальный ресурс используется только в текущем проекте. Общий ресурс может использоваться несколькими проектами и хранится в отдельном файле, см. <link linkend="managing-resources"
+>Управление ресурсами</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет создавать и удалять ресурсы и группы ресурсов: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить группу ресурсов</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка создания группы ресурсов. Новая группа добавляется в конец списка групп.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить ресурс</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания ресурса. Новый ресурс добавляется как дочерний к выбранной в данный момент группе. Если выбран ресурс, новый ресурс добавляется к его родительской группе.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удалить</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удаляет выбранные ресурсы и (или) группы ресурсов.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>Ресурсы можно создать, перетащив данные из любого приложения, поддерживающего перетаскивание данных vCard, например <emphasis
+>KAddressBook</emphasis
+> или <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>Ресурсы можно копировать или перемещать в другую группу ресурсов с помощью перетаскивания мышью. </para>
+  <para
+><note
+><para
+>При перемещении ресурса все назначения будут потеряны.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>Редактирование данных</title>
+  <para
+>Данные можно редактировать непосредственно в таблице, как описано <link linkend="using-the-views"
+>здесь</link
+>. </para>
+  <para
+>Ресурсы также можно изменять с помощью диалогового окна «Параметры ресурсов». </para>
+  <para
+>По умолчанию показываются следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Имя</para>
+            </entry>
+            <entry>
+              <para
+>Имя ресурса или группы ресурсов.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Область</para>
+            </entry>
+            <entry>
+              <para
+>Ресурс может быть <emphasis
+>общим</emphasis
+> или <emphasis
+>локальным</emphasis
+>. Общий ресурс нельзя редактировать.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Тип</para>
+            </entry>
+            <entry>
+              <para
+>Тип ресурса или группы ресурсов.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Инициалы</para>
+            </entry>
+            <entry>
+              <para
+>Инициалы ресурса.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Электронная почта</para>
+            </entry>
+            <entry>
+              <para
+>Адрес электронной почты ресурса.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Календарь</para>
+            </entry>
+            <entry>
+              <para
+>Календарь определяет, когда ресурс работает.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Ограничение (%)</para>
+            </entry>
+            <entry>
+              <para
+>Максимальная загрузка, которую можно назначить.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Доступен с</para>
+            </entry>
+            <entry>
+              <para
+>Определяет, когда ресурс доступен для проекта.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Доступен до</para>
+            </entry>
+            <entry>
+              <para
+>Определяет, когда ресурс доступен для проекта.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Обычная ставка</para>
+            </entry>
+            <entry>
+              <para
+>Стоимость часа работы в обычные часы.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Счёт</para>
+            </entry>
+            <entry>
+              <para
+>Счёт, на котором накапливаются затраты ресурса.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>Настройка</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>С помощью контекстного меню представление можно настроить на разделение или объединение дерева, а также настроить его в диалоговом окне настройки.</para
+><para
+>Диалоговое окно настройки позволяет изменить объём информации, показываемой в представлении, в соответствии с потребностями. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

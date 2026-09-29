@@ -1,0 +1,1941 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>Описание</title>
+  <para
+>Шаблоны отчётов Open Document Text — это обычные файлы ODT, которые можно создавать в любом текстовом процессоре, поддерживающем ODT, например в <emphasis
+>Calligra Words</emphasis
+> или <emphasis
+>LibreOffice Writer</emphasis
+>. Используемый приём — применение переменных <emphasis
+>пользовательское поле</emphasis
+> для хранения ссылок на информацию, которая будет извлечена из проекта. В <emphasis
+>Writer</emphasis
+> эти переменные называются <emphasis
+>Пользовательские поля</emphasis
+> и находятся в меню <menuchoice
+><guimenu
+>Вставка</guimenu
+><guisubmenu
+>Поле</guisubmenu
+><guimenuitem
+>Другие поля</guimenuitem
+><guimenuitem
+>Переменные</guimenuitem
+><guimenuitem
+>Пользовательские поля</guimenuitem
+></menuchoice
+>. В <emphasis
+>Words</emphasis
+> они называются <emphasis
+>Настраиваемые переменные</emphasis
+> и находятся в меню <menuchoice
+><guimenu
+>Докер «Редактирование текста»</guimenu
+><guisubmenu
+>Переменная</guisubmenu
+><guimenuitem
+>Настраиваемая</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>Самый простой способ создать новый шаблон отчёта — изменить существующий, поскольку все поля пользователя уже определены. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>Переменные пользовательских полей</title>
+  <sect4 id="variables"
+><title
+>Переменные</title>
+    <para
+>Переменные позволяют генератору извлекать данные из проекта. </para>
+    <para
+>Переменная может ссылаться на отдельное поле данных, на данные таблицы или на данные диаграммы. </para
+><sect5
+><title
+>Отдельное поле данных</title
+> <para
+>Переменная отдельного поля данных имеет следующий формат: </para
+> <para
+><replaceable
+>имя группы данных</replaceable
+>.<replaceable
+>свойство</replaceable
+> = <replaceable
+>идентификатор свойства</replaceable
+> </para
+> <para
+>где: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>имя группы данных</replaceable
+> может быть tr, project или schedule (см. ниже).</para
+></listitem
+> <listitem
+><para
+><replaceable
+>свойство</replaceable
+> делает имя пользовательского поля уникальным.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>идентификатор свойства</replaceable
+> определяет свойство в группе данных.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Данные таблицы</title
+> <para
+>Таблица в шаблоне отчёта состоит из переменной, задающей используемую таблицу данных. </para
+> <para
+>Имя переменной должно начинаться с <replaceable
+>table</replaceable
+> (например, tableTasks), а значением переменной должно быть имя таблицы данных (например, tasks). </para
+> <para
+>Сразу после переменной должна быть вставлена таблица, а столбцы заполнены переменными пользовательских полей, указывающими, какие свойства следует извлечь из указанной выше таблицы. Имена этих переменных должны начинаться с имени табличной переменной, указанной выше. </para
+> <para
+>Эти переменные имеют следующий формат: </para
+> <para
+>tableTasks.<replaceable
+>свойство</replaceable
+> = <replaceable
+>идентификатор свойства</replaceable
+> </para
+> <para
+>где: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>свойство</guilabel
+> делает имя пользовательского поля уникальным.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>идентификатор свойства</guilabel
+> определяет свойство в группе данных.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>Данные диаграммы</title
+> <para
+>Диаграмма в шаблоне отчёта состоит из переменной, задающей данные для использования в диаграмме. </para
+> <para
+>Имя переменной должно начинаться с <replaceable
+>chart</replaceable
+> (например, chartBudgetCost), а значение переменной задаёт группу данных и значения для заполнения диаграммы. </para
+> <para
+>Переменная имеет следующий формат (обратите внимание на точки с запятой): </para
+> <para
+><replaceable
+>имя</replaceable
+> = <replaceable
+>группа данных</replaceable
+>; values=<replaceable
+>список свойств данных, разделённых запятыми</replaceable
+>; </para
+> <para
+>где: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>имя</replaceable
+> должно начинаться с <guilabel
+>chart</guilabel
+> (например, chartBudgetCost)</para
+></listitem
+> <listitem
+><para
+><replaceable
+>группа данных</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>список свойств данных, разделённых запятыми</guilabel
+> определяет свойства в группе данных.</para
+></listitem
+> </itemizedlist
+> <para
+>Например: </para
+> <para
+>chartBudget = project; values=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>Переведённые метки</title>
+    <para
+>Переведённые метки позволяют создавать общие шаблоны отчётов, которые можно использовать на разных языках. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Имя переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Значение переменной</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>Проект</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>Руководитель</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>Расписание</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>ПСЗР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>ПСВР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ФСВР</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>Значения проекта</title>
+    <para
+>Показывает значения из основного проекта. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Имя переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Значение переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Описание</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>Имя</para>
+              </entry>
+              <entry>
+                <para
+>Название проекта</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>Руководитель</para>
+              </entry>
+              <entry>
+                <para
+>Имя руководителя проекта</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>ПСЗР (Стоимость)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на затратах плановая стоимость запланированной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ПСВР (Стоимость)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на затратах плановая стоимость выполненной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ФСВР (Стоимость)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на затратах фактическая стоимость выполненной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>ИВСР (Стоимость)</para>
+              </entry>
+              <entry>
+                <para
+>Основанный на затратах индекс выполнения расписания</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>ИЗСР (Стоимость)</para>
+              </entry>
+              <entry>
+                <para
+>Основанный на затратах индекс выполнения стоимости</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>ПСЗР (Объём работ)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на объёме работ плановая стоимость запланированной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ПСВР (Объём работ)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на объёме работ плановая стоимость выполненной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ФСВР (Объём работ)</para>
+              </entry>
+              <entry>
+                <para
+>Основанная на объёме работ фактическая стоимость выполненной работы</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>ИВСР (Объём работ)</para>
+              </entry>
+              <entry>
+                <para
+>Основанный на объёме работ индекс выполнения расписания</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>ИЗСР (Объём работ)</para>
+              </entry>
+              <entry>
+                <para
+>Основанный на объёме работ индекс выполнения стоимости</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Значения расписания</title>
+    <para
+>Показывает значения из текущего расписания. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Имя переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Значение переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Описание</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>Имя</para>
+              </entry>
+              <entry>
+                <para
+>Название расписания</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>Состояние</para>
+              </entry>
+              <entry>
+                <para
+>Состояние планирования</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>Направление</para>
+              </entry>
+              <entry>
+                <para
+>Направление планирования</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>Избыточная загрузка</para>
+              </entry>
+              <entry>
+                <para
+>Избыточная загрузка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>Распределение</para>
+              </entry>
+              <entry>
+                <para
+>Распределение</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>Запланированное начало</para>
+              </entry>
+              <entry>
+                <para
+>Запланированное начало</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>Запланированное завершение</para>
+              </entry>
+              <entry>
+                <para
+>Запланированное завершение</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>Планировщик</para>
+              </entry>
+              <entry>
+                <para
+>Планировщик</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>Детализация</para>
+              </entry>
+              <entry>
+                <para
+>Детализация</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>Режим</para>
+              </entry>
+              <entry>
+                <para
+>Режим планирования (автоматический или ручной)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>Таблицы</title>
+    <para
+>Поддерживаемые типы таблиц: </para>
+    <itemizedlist>
+      <listitem
+><para
+>задачи</para
+></listitem>
+      <listitem
+><para
+>Состояние задачи</para
+></listitem>
+      <listitem
+><para
+>Графики</para
+></listitem>
+      <listitem
+><para
+>Проекты</para
+></listitem>
+    </itemizedlist>
+    <para
+>Чтобы создать таблицу, поместите переменную непосредственно перед таблицей в файле шаблона. Имя переменной определяет таблицу и должно начинаться с <guilabel
+>table</guilabel
+>, например, <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>Значение переменной указывает на извлекаемые данные и должно быть одной из поддерживаемых таблиц, перечисленных выше, например, <guilabel
+>taskstatus</guilabel
+>. </para>
+    <para
+>Затем в ячейки таблицы вставляются переменные, имя и значение которых берутся из таблицы ниже. </para>
+    <para
+>Обратите внимание, что таблица графиков поддерживает значения, описанные выше в разделе <link linkend="schedule-values"
+>Значения расписания</link
+>. </para>
+    <para
+>Таблицы projects, tasks и taskstatus поддерживают следующие значения: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>Имя переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Значение переменной</guilabel
+></entry>
+              <entry
+><guilabel
+>Описание</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>Имя</para>
+              </entry>
+              <entry>
+                <para
+>Название задачи или проекта</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>Код СДР</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>Тип</para>
+              </entry>
+              <entry>
+                <para
+>Тип задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>Ответственный</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>Распределение</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>Тип оценки</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>Календарь</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>Оценка</para>
+              </entry>
+              <entry>
+                <para
+>Наиболее вероятная оценка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Оптимистичное</para>
+              </entry>
+              <entry>
+                <para
+>Оптимистичный коэффициент</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Пессимистичное</para>
+              </entry>
+              <entry>
+                <para
+>Пессимистичный коэффициент</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>Риск</para>
+              </entry>
+              <entry>
+                <para
+>Неопределённость оценки</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>Ограничение</para>
+              </entry>
+              <entry>
+                <para
+>Тип временного ограничения</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>Начало ограничения</para>
+              </entry>
+              <entry>
+                <para
+>Время начала ограничения</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>Конец ограничения</para>
+              </entry>
+              <entry>
+                <para
+>Время завершения по ограничению</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>Текущий счёт</para>
+              </entry>
+              <entry>
+                <para
+>Учёт текущих расходов</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>Начальный счёт</para>
+              </entry>
+              <entry>
+                <para
+>Учёт затрат на запуск</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>Начальная стоимость</para>
+              </entry>
+              <entry>
+                <para
+>Расходы, понесённые при запуске задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>Остаточный счёт</para>
+              </entry>
+              <entry>
+                <para
+>Учёт затрат на остановку</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>Остаточная стоимость</para>
+              </entry>
+              <entry>
+                <para
+>Затраты, понесённые при завершении задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>Описание</para>
+              </entry>
+              <entry>
+                <para
+>Описание задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>Ожидаемое</para>
+              </entry>
+              <entry>
+                <para
+>Расчётная наиболее вероятная оценка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>Оптимистичное</para>
+              </entry>
+              <entry>
+                <para
+>Расчётная оптимистичная оценка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>Пессимистичное</para>
+              </entry>
+              <entry>
+                <para
+>Расчётная пессимистическая оценка</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>Время начала</para>
+              </entry>
+              <entry>
+                <para
+>Запланированное время начала</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>Время завершения</para>
+              </entry>
+              <entry>
+                <para
+>Время запланированного завершения</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>Длительность</para>
+              </entry>
+              <entry>
+                <para
+>Запланированная длительность</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>Раннее начало</para>
+              </entry>
+              <entry>
+                <para
+>Раннее возможное начало</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>Раннее завершение</para>
+              </entry>
+              <entry>
+                <para
+>Наиболее раннее возможное завершение</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>Позднее начало</para>
+              </entry>
+              <entry>
+                <para
+>Позднейшее возможное начало</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>Позднее завершение</para>
+              </entry>
+              <entry>
+                <para
+>Наиболее позднее возможное завершение</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>Положительный резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>Свободный резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>Отрицательный резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>Начальный резерв</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>Резерв времени завершения</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>Назначения</para>
+              </entry>
+              <entry>
+                <para
+>Назначения ресурсов</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>Отклонение (Оцен.)</para>
+              </entry>
+              <entry>
+                <para
+>Отклонение расчётной оценки</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>Отклонение (Длит.)</para>
+              </entry>
+              <entry>
+                <para
+>Вычисленное отклонение длительности</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Оптимистичное (Длит.)</para>
+              </entry>
+              <entry>
+                <para
+>Вычисленная оптимистичная длительность</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>Пессимистичное (Длит.)</para>
+              </entry>
+              <entry>
+                <para
+>Расчётная пессимистическая длительность</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Состояние</para>
+              </entry>
+              <entry>
+                <para
+>Состояние задачи, как показано в представлении состояния задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>% завершено</para>
+              </entry>
+              <entry>
+                <para
+>Завершённость задачи</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>Запланированный объём работ</para>
+              </entry>
+              <entry>
+                <para
+>Запланированный объём работ</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>Фактический объём работ</para>
+              </entry>
+              <entry>
+                <para
+>Фактический объём работ</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>Оставшийся объём работ</para>
+              </entry>
+              <entry>
+                <para
+>Оставшийся объём работ</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>Запланированная стоимость</para>
+              </entry>
+              <entry>
+                <para
+>Запланированная стоимость</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>Фактическая стоимость</para>
+              </entry>
+              <entry>
+                <para
+>Фактическая стоимость</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>Фактическое начало</para>
+              </entry>
+              <entry>
+                <para
+>Фактическое начало</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>Начато</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>Фактическое завершение</para>
+              </entry>
+              <entry>
+                <para
+>Фактическое завершение</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>Завершена</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>Состояние планирования</para>
+              </entry>
+              <entry>
+                <para
+>Состояние планирования</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>ПСЗР</para>
+              </entry>
+              <entry>
+                <para
+>Плановая стоимость запланированной работы (основанная на затратах)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>ПСВР</para>
+              </entry>
+              <entry>
+                <para
+>Плановая стоимость выполненной работы (основанная на затратах)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ФСВР</para>
+              </entry>
+              <entry>
+                <para
+>Фактическая стоимость выполненной работы (основанная на затратах)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>Индекс выполнения расписания</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>Критический</para>
+              </entry>
+              <entry>
+                <para
+>Задача является критической</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>Критический путь</para>
+              </entry>
+              <entry>
+                <para
+>Задача находится на критическом пути</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>Не запланировано</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>Не указано назначение</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>Ресурс перегружен</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>Ресурс недоступен</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>Ошибка ограничений</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>Объём работ не выполнен</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>Ошибка планирования</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>Уровень узла, уровень</para>
+              </entry>
+              <entry>
+                <para
+>Не представляет интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>Примечание о состоянии</para>
+              </entry>
+              <entry>
+                <para
+>Примечание: не реализовано</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>Владелец</para>
+              </entry>
+              <entry>
+                <para
+>Использовать их не следует, и они не представляют интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>Состояние</para>
+              </entry>
+              <entry>
+                <para
+>Использовать их не следует, и они не представляют интереса</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>имя таблицы</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>Время</para>
+              </entry>
+              <entry>
+                <para
+>Использовать их не следует, и они не представляют интереса</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>Диаграмма</title>
+  <para
+>Чтобы использовать, разместите переменную с именем chartX (X — произвольный текст, делающий имя переменной уникальным) со значением project перед диаграммой, которую следует использовать. </para>
+  <para
+>Обратите внимание, что диаграмма должна быть «привязана как символ», иначе генератор отчётов не сможет её найти. </para>
+  <para
+>Переменная имеет следующий формат: </para>
+  <para
+>Переменная: <varname
+>Имя: chartX (X=какой-то текст) Значение: project; values=<replaceable
+>данные</replaceable
+>;</varname
+> </para>
+  <para
+>где <replaceable
+>данные</replaceable
+> — разделённый запятыми список значений, включаемых в диаграмму. </para>
+  <para
+>Возможные значения <replaceable
+>данные</replaceable
+>: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>bcws effort</guilabel
+> Плановая стоимость запланированной работы, основанная на объёме работ.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp effort</guilabel
+> Плановая стоимость выполненной работы, основанная на объёме работ.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp effort</guilabel
+> Фактическая стоимость выполненной работы, основанная на объёме работ.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi effort</guilabel
+> — индекс выполнения расписания на основе объёма работ.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi effort</guilabel
+> — основанный на объёме работ индекс выполнения стоимости.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws cost</guilabel
+> Плановая стоимость запланированной работы, основанная на затратах.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp cost</guilabel
+> Плановая стоимость выполненной работы, основанная на затратах.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> Фактическая стоимость выполненной работы, основанная на затратах.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> Индекс выполнения расписания на основе затрат.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> — основанный на затратах индекс выполнения стоимости.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Число столбцов в диаграммах, создаваемых в шаблоне, должно быть не меньше числа значений, указанных в переменной. </para>
+  <para
+>Пример: </para>
+  <para
+>Имя переменной: <varname
+>chart1</varname
+> Значение: <varname
+>project; values=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>Обратите внимание, что нельзя смешивать значения, основанные на объёме работ, со значениями, основанными на затратах. Чтобы показать оба типа, создайте две диаграммы. </para>
+  <sect4 id="gantt"
+><title
+>Диаграмма Ганта</title>
+    <para
+>Не поддерживается. </para>
+  </sect4>
+</sect3>
+</sect2>

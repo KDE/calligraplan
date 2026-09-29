@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>Описание</title>
+  <para
+>Редактор структуры затрат предназначен для создания, изменения и удаления счетов. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>К счетам можно подключить задачи и ресурсы, чтобы накапливать затраты от этих задач и ресурсов. </para>
+  <para
+>Счёт по умолчанию накапливает затраты по задачам, не связанным ни с одним счётом. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>Панель инструментов</title>
+  <para
+>Панель инструментов позволяет создавать и удалять счета: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Кнопка</guilabel
+></entry>
+            <entry
+><guilabel
+>Комбинация клавиш</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Добавить счёт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания счёта. Новый счёт вставляется после выбранного счёта. Если счёт не выбран, новый счёт добавляется в конец списка верхнего уровня.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Добавить субсчёт</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Кнопка для создания субсчёта. Новый счёт добавляется к выбранному счёту как дочерний.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Удалить</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Удаляет выбранный счёт.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>Редактирование данных</title>
+  <para
+>Данные можно редактировать непосредственно, как описано <link linkend="using-the-views"
+>здесь</link
+>. </para>
+  <para
+>Доступны следующие столбцы: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>Столбец</guilabel
+></entry>
+            <entry
+><guilabel
+>Описание</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>Название</para>
+            </entry>
+            <entry>
+              <para
+>Название счёта.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>Описание</para>
+            </entry>
+            <entry>
+              <para
+>Описание счёта.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>Описание</title>
+  <para
+>Редактор задач — это представление, которое показывает данные задач в виде дерева. Большинство данных в редакторе задач можно изменять на месте. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>Навигация</title>
+  <para
+>Для навигации по древовидной структуре можно использовать клавиатуру: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Разворачивает разворачиваемую строку.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Сворачивает элемент, допускающий сворачивание.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Стрелка влево</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к предыдущему столбцу в той же строке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Стрелка вправо</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к следующему столбцу в той же строке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Стрелка вверх</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к предыдущей строке в том же столбце.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Стрелка вниз</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к следующей строке в том же столбце.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Home</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к первой строке, первому столбцу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>End</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к последней строке, последнему столбцу.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Страница вверх</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к первой видимой строке в том же столбце.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>Страница вниз</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к последней видимой строке в том же столбце.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>Редактирование данных</title>
+  <para
+>Редактируемые элементы открываются двойным щелчком по элементу, а при использовании клавиатуры текущий элемент открывается нажатием <keycap
+>F2</keycap
+>. </para>
+  <para
+>При редактировании элемента можно перейти к следующему редактируемому элементу следующим образом: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Стрелка влево</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к предыдущему редактируемому элементу в той же строке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Стрелка вправо</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к следующему редактируемому элементу в той же строке.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Стрелка вверх</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к следующему редактируемому элементу в предыдущих строках.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>Стрелка вниз</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>Переход к следующему редактируемому элементу в последующих строках.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>Перетаскивание и копирование со вставкой</title>
+  <para
+>Большинство представлений поддерживают перетаскивание и копирование/вставку. Диаграммы и диаграммы Ганта можно перетаскивать в приложения, поддерживающие изображения. Данные таблиц используют тип MIME html, поэтому их можно перетаскивать в любое приложение, которое его поддерживает. Если представление поддерживает перемещение или копирование элементов внутри себя, например, <link linkend="task-editor"
+>Редактор задач</link
+>, элементы также можно перемещать или копировать. </para>
+</sect3>
+</sect2>

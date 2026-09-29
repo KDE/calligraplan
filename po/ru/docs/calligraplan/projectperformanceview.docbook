@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>Описание</title>
+  <para
+>Представление эффективности проекта — это диаграмма управления проектами, позволяющая понять фактическое состояние проекта в соответствии с методом освоенного объёма. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>где: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS означает плановую стоимость запланированных работ,</para
+></listitem>
+    <listitem
+><para
+>BCWP означает плановую стоимость выполненных работ,</para
+></listitem>
+    <listitem
+><para
+>ACWP — фактическая стоимость выполненных работ.</para
+></listitem>
+  </itemizedlist>
+  <para
+>Всё это рассматривается как трудозатраты в часах и затраты. </para>
+  <para
+>PI — это индексы производительности, где: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI — это индекс выполнения стоимости,</para
+></listitem>
+    <listitem
+><para
+>SPI — это индекс выполнения расписания.</para
+></listitem>
+  </itemizedlist>
+</sect2>
