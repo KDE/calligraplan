@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-05-02 18:56+0300\n"
+"PO-Revision-Date: 2026-10-12 12:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -6289,7 +6289,7 @@ msgstr "Ad: %1<nl/>Planlanan: %2 - %3"
 #, kde-format
 msgctxt "@title:group"
 msgid "Headers"
-msgstr "Üstbilgi"
+msgstr "Üst Bilgi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_printRowLabels)
 #: ui/gantt/kptganttprintingoptions.ui:23
@@ -7507,7 +7507,7 @@ msgstr "Toplam Kayma:"
 #: ui/kptprintingheaderfooter.ui:16
 #, kde-format
 msgid "Header"
-msgstr "Üstbilgi"
+msgstr "Üst Bilgi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_headerProject)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_footerProject)
@@ -7534,7 +7534,7 @@ msgstr "Projenin yöneticisi"
 #: ui/kptprintingheaderfooter.ui:56
 #, kde-format
 msgid "Footer"
-msgstr "Altbilgi"
+msgstr "Alt Bilgi"
 
 #: ui/kptrecalculatedialog.cpp:35
 #, kde-format
@@ -8675,7 +8675,7 @@ msgstr "Tarihe kadar biriken planlanmış efor"
 #: ui/kptviewbase.cpp:199
 #, kde-format
 msgid "Header and Footer"
-msgstr "Üstbilgi ve Altbilgi"
+msgstr "Üst Bilgi ve Alt Bilgi"
 
 #: ui/kptviewbase.cpp:421
 #, kde-format
@@ -8718,7 +8718,7 @@ msgstr "Sayfa Yerleşimi"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Header and Footer"
-msgstr "Üstbilgi ve Altbilgi"
+msgstr "Üst Bilgi ve Alt Bilgi"
 
 #: ui/kptviewbase.cpp:725
 #, kde-format
@@ -9332,39 +9332,39 @@ msgstr "Son sayfaya git"
 #: ui/reports/reportsectionswidget.ui:28
 #, kde-format
 msgid "Enable report header"
-msgstr "Rapor üstbilgisini etkinleştir"
+msgstr "Rapor üst bilgisini etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportheader)
 #: ui/reports/reportsectionswidget.ui:31
 #, kde-format
 msgid "Report Header"
-msgstr "Rapor Üstbilgisi"
+msgstr "Rapor üst bilgisi"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:38
 #, kde-format
 msgid "Enable report footer"
-msgstr "Rapor altbilgisini etkinleştir"
+msgstr "Rapor alt bilgisini etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:41
 #, kde-format
 msgid "Report Footer"
-msgstr "Rapor Altbilgisi"
+msgstr "Rapor alt bilgisi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/reports/reportsectionswidget.ui:50
 #, kde-format
 msgid "Page Header"
-msgstr "Sayfa Üstbilgisi"
+msgstr "Sayfa Üst Bilgisi"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, headerFirstpage)
 #: ui/reports/reportsectionswidget.ui:62
 #, kde-format
 msgid "Enable header on first page"
-msgstr "İlk sayfada üstbilgiyi etkinleştir"
+msgstr "İlk sayfada üst bilgiyi etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerFirstpage)
 #. i18n: ectx: property (text), widget (QCheckBox, footerFirstpage)
@@ -9378,7 +9378,7 @@ msgstr "İlk sayfa"
 #: ui/reports/reportsectionswidget.ui:72
 #, kde-format
 msgid "Enable header on last page"
-msgstr "Son sayfada üstbilgiyi etkinleştir"
+msgstr "Son sayfada üst bilgiyi etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerLastpage)
 #. i18n: ectx: property (text), widget (QCheckBox, footerLastpage)
@@ -9392,7 +9392,7 @@ msgstr "Son sayfa"
 #: ui/reports/reportsectionswidget.ui:82
 #, kde-format
 msgid "Enable header on odd pages"
-msgstr "Tek sayfalarda üstbilgiyi etkinleştir"
+msgstr "Tek sayfalarda üst bilgiyi etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerOddpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerOddpages)
@@ -9406,7 +9406,7 @@ msgstr "Tek sayfalar"
 #: ui/reports/reportsectionswidget.ui:92
 #, kde-format
 msgid "Enable header on even pages"
-msgstr "Çift sayfalarda üstbilgiyi etkinleştir"
+msgstr "Çift sayfalarda üst bilgiyi etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerEvenpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerEvenpages)
@@ -9420,7 +9420,7 @@ msgstr "Çift sayfalar"
 #: ui/reports/reportsectionswidget.ui:102
 #, kde-format
 msgid "Enable header on all pages"
-msgstr "Tüm sayfalarda üstbilgiyi etkinleştir"
+msgstr "Tüm sayfalarda üst bilgiyi etkinleştir"
 
 #. i18n: ectx: property (text), widget (QCheckBox, headerAllpages)
 #. i18n: ectx: property (text), widget (QCheckBox, footerAllpages)
@@ -9434,42 +9434,42 @@ msgstr "Tüm sayfalar"
 #: ui/reports/reportsectionswidget.ui:115
 #, kde-format
 msgid "Page Footer"
-msgstr "Sayfa Altbilgisi"
+msgstr "Sayfa Alt Bilgisi"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerFirstpage)
 #: ui/reports/reportsectionswidget.ui:127
 #, kde-format
 msgid "Enable footer on first page"
-msgstr "İlk sayfada altbilgiyi etkinleştir"
+msgstr "İlk sayfada alt bilgiyi etkinleştir"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerOddpages)
 #: ui/reports/reportsectionswidget.ui:137
 #, kde-format
 msgid "Enable footer on odd pages"
-msgstr "Tek sayfalarda altbilgiyi etkinleştir"
+msgstr "Tek sayfalarda alt bilgiyi etkinleştir"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerEvenpages)
 #: ui/reports/reportsectionswidget.ui:147
 #, kde-format
 msgid "Enable footer on even pages"
-msgstr "Çift sayfalarda altbilgiyi etkinleştir"
+msgstr "Çift sayfalarda alt bilgiyi etkinleştir"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerLastpage)
 #: ui/reports/reportsectionswidget.ui:157
 #, kde-format
 msgid "Enable footer on last page"
-msgstr "Son sayfada altbilgiyi etkinleştir"
+msgstr "Son sayfada alt bilgiyi etkinleştir"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, footerAllpages)
 #: ui/reports/reportsectionswidget.ui:167
 #, kde-format
 msgid "Enable footer on all pages"
-msgstr "Tüm sayfalarda altbilgiyi etkinleştir"
+msgstr "Tüm sayfalarda alt bilgiyi etkinleştir"
 
 #: ui/reports/reportview.cpp:373
 #, kde-kuit-format
@@ -9562,7 +9562,7 @@ msgstr "Veri Ögeleri"
 #, kde-kuit-format
 msgctxt "@title:window report section docker"
 msgid "Headers && Footers"
-msgstr "Üstbilgi ve Altbilgi"
+msgstr "Üst Bilgi ve Alt Bilgi"
 
 #: ui/reports/reportview.cpp:907
 #, kde-kuit-format
@@ -9586,13 +9586,13 @@ msgstr "Sırala"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Header"
-msgstr "Üstbilgi"
+msgstr "Üst Bilgi"
 
 #: ui/reports/reportview.cpp:1076
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Footer"
-msgstr "Altbilgi"
+msgstr "Alt Bilgi"
 
 #: ui/reports/reportview.cpp:1077
 #, kde-kuit-format
@@ -9616,13 +9616,13 @@ msgstr "Veriyi sıralar"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show header section"
-msgstr "Üstbilgi bölümünü göster"
+msgstr "Üst bilgi bölümünü göster"
 
 #: ui/reports/reportview.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show footer section"
-msgstr "Altbilgi bölümünü göster"
+msgstr "Alt bilgi bölümünü göster"
 
 #: ui/reports/reportview.cpp:1084
 #, kde-kuit-format
@@ -9653,17 +9653,17 @@ msgstr "Evet"
 #: ui/reports/reportview.cpp:1347
 #, kde-format
 msgid "After footer"
-msgstr "Altbilgiden sonra"
+msgstr "Alt bilgiden sonra"
 
 #: ui/reports/reportview.cpp:1347
 #, kde-format
 msgid "Before header"
-msgstr "Üstbilgiden önce"
+msgstr "Üst bilgiden önce"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
 #, kde-format
 msgid "Nothing"
-msgstr "Hiçbir Şey"
+msgstr "Hiçbir şey"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:255
 #, kde-format
