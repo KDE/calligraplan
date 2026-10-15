@@ -3,21 +3,22 @@
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2023-03-04 23:32+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-10-14 23:51+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -101,13 +102,13 @@ msgstr "Hodin denně"
 #: calligraplansettings.kcfg:27
 #, kde-format
 msgid "Generate working week"
-msgstr ""
+msgstr "Generovat pracovní týden"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:31
 #, kde-format
 msgid "Generate working week options"
-msgstr ""
+msgstr "Generovat možnosti pracovního týdne"
 
 #. i18n: ectx: label, entry (GenerateWeekChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateWeekChoice)
@@ -127,19 +128,19 @@ msgstr "Vždy"
 #: calligraplansettings.kcfg:43
 #, kde-format
 msgid "Generate holidays"
-msgstr ""
+msgstr "Generovat svátky"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:47
 #, kde-format
 msgid "Generate holidays options"
-msgstr ""
+msgstr "Generovat možnosti svátků"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #: calligraplansettings.kcfg:50
 #, kde-format
 msgid "In base calendar"
-msgstr ""
+msgstr "V základním kalendáři"
 
 #. i18n: ectx: label, entry (GenerateHolidaysChoice), group (CalendarGeneration)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_GenerateHolidaysChoice)
@@ -181,7 +182,7 @@ msgstr "Pondělí:"
 #: calligraplansettings.kcfg:150
 #, kde-format
 msgid "Start of working day"
-msgstr ""
+msgstr "Začátek pracovního dne"
 
 #. i18n: ectx: label, entry (MondayEnd), group (WorkingWeek)
 #. i18n: ectx: label, entry (TuesdayEnd), group (WorkingWeek)
@@ -196,7 +197,7 @@ msgstr ""
 #: calligraplansettings.kcfg:154
 #, kde-format
 msgid "End of working day"
-msgstr ""
+msgstr "Konec pracovního dne"
 
 #. i18n: ectx: label, entry (Tuesday), group (WorkingWeek)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Tuesday)
@@ -244,7 +245,7 @@ msgstr "Neděle:"
 #: calligraplansettings.kcfg:161
 #, kde-format
 msgid "Name of project manager"
-msgstr ""
+msgstr "Jméno projektového manažera"
 
 #. i18n: ectx: label, entry (UseSharedResources), group (Project settings)
 #: calligraplansettings.kcfg:164
@@ -256,7 +257,7 @@ msgstr "Použít sdílené zdroje"
 #: calligraplansettings.kcfg:168
 #, kde-format
 msgid "File to contain shared resources"
-msgstr ""
+msgstr "Soubor obsahující sdílené zdroje"
 
 #. i18n: ectx: label, entry (ProjectDescription), group (Project settings)
 #: calligraplansettings.kcfg:171
@@ -268,7 +269,7 @@ msgstr "Popis projektu"
 #: calligraplansettings.kcfg:176
 #, kde-format
 msgid "Name of task responsible"
-msgstr ""
+msgstr "Jméno osoby odpovědné za úlohu"
 
 #. i18n: ectx: label, entry (ConstraintType), group (Task defaults)
 #: calligraplansettings.kcfg:179
@@ -328,13 +329,13 @@ msgstr "Risk"
 #: calligraplansettings.kcfg:252
 #, kde-format
 msgid "Optimistic estimate"
-msgstr "Optimistický odhad:"
+msgstr "Optimistický odhad"
 
 #. i18n: ectx: label, entry (PessimisticRatio), group (Task defaults)
 #: calligraplansettings.kcfg:256
 #, kde-format
 msgid "Pessimistic estimate"
-msgstr "Pesimistický odhad:"
+msgstr "Pesimistický odhad"
 
 #. i18n: ectx: label, entry (Description), group (Task defaults)
 #: calligraplansettings.kcfg:261
@@ -364,133 +365,135 @@ msgstr "Plochý"
 #: calligraplansettings.kcfg:275
 #, kde-format
 msgid "Enable summary task level colors"
-msgstr ""
+msgstr "Povolit barvy pro souhrn úlohy"
 
 #. i18n: ectx: label, entry (SummaryTaskDefaultColor), group (TaskColors)
 #: calligraplansettings.kcfg:279
 #, kde-format
 msgid "Summary task default color"
-msgstr ""
+msgstr "Výchozí barva souhrnu úlohy"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_1), group (TaskColors)
 #: calligraplansettings.kcfg:283
 #, kde-format
 msgid "Summary task color, level 1"
-msgstr ""
+msgstr "Barva souhrnu úlohy, úroveň 1"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_2), group (TaskColors)
 #: calligraplansettings.kcfg:287
 #, kde-format
 msgid "Summary task color, level 2"
-msgstr ""
+msgstr "Barva souhrnu úlohy, úroveň 2"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_3), group (TaskColors)
 #: calligraplansettings.kcfg:291
 #, kde-format
 msgid "Summary task color, level 3"
-msgstr ""
+msgstr "Barva souhrnu úlohy, úroveň 3"
 
 #. i18n: ectx: label, entry (SummaryTaskLevelColor_4), group (TaskColors)
 #: calligraplansettings.kcfg:295
 #, kde-format
 msgid "Summary task color, level 4"
-msgstr ""
+msgstr "Barva souhrnu úlohy, úroveň 4"
 
 #. i18n: ectx: label, entry (TaskNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:299
 #, kde-format
 msgid "Task color in normal state"
-msgstr ""
+msgstr "Barva úlohy v normálním stavu"
 
 #. i18n: ectx: label, entry (TaskCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:303
 #, kde-format
 msgid "Task color in critical state"
-msgstr ""
+msgstr "Barva úlohy v kritickém stavu"
 
 #. i18n: ectx: label, entry (TaskFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:307
 #, kde-format
 msgid "Task color in finished state"
-msgstr ""
+msgstr "Barva úlohy v dokončeném stavu"
 
 #. i18n: ectx: label, entry (TaskErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:311
 #, kde-format
 msgid "Task color in error state"
-msgstr ""
+msgstr "Barva úlohy v chybovém stavu"
 
 #. i18n: ectx: label, entry (MilestoneNormalColor), group (TaskColors)
 #: calligraplansettings.kcfg:315
 #, kde-format
 msgid "Milestone color in normal state"
-msgstr ""
+msgstr "Barva milníku v normálním stavu"
 
 #. i18n: ectx: label, entry (MilestoneCriticalColor), group (TaskColors)
 #: calligraplansettings.kcfg:319
 #, kde-format
 msgid "Milestone color in critical state"
-msgstr ""
+msgstr "Barva milníku v kritickém stavu"
 
 #. i18n: ectx: label, entry (MilestoneFinishedColor), group (TaskColors)
 #: calligraplansettings.kcfg:323
 #, kde-format
 msgid "Milestone color in finished state"
-msgstr ""
+msgstr "Barva milníku v dokončeném stavu"
 
 #. i18n: ectx: label, entry (MilestoneErrorColor), group (TaskColors)
 #: calligraplansettings.kcfg:327
 #, kde-format
 msgid "Milestone color in error state"
-msgstr ""
+msgstr "Barva milníku v chybovém stavu"
 
 #. i18n: ectx: label, entry (CheckForWorkPackages), group (Work Package)
 #: calligraplansettings.kcfg:334
 #, kde-format
 msgid "Automatically check for new work packages"
-msgstr ""
+msgstr "Automaticky kontrolovat, zda jsou k dispozici nové pracovní balíčky"
 
 #. i18n: ectx: label, entry (RetrieveUrl), group (Work Package)
 #: calligraplansettings.kcfg:337
 #, kde-format
 msgid "Directory where Plan retrieves work packages from project members"
 msgstr ""
+"Adresář, ze kterého aplikace Plan načítá pracovní balíčky od členů projektu"
 
 #. i18n: ectx: label, entry (DeleteFile), group (Work Package)
 #: calligraplansettings.kcfg:340
 #, kde-format
 msgid "If set, Plan will delete the file after it has been read"
-msgstr ""
+msgstr "Je-li nastaveno, aplikace Plan soubor po přečtení smaže"
 
 #. i18n: ectx: label, entry (SaveFile), group (Work Package)
 #: calligraplansettings.kcfg:343
 #, kde-format
 msgid "If set, Plan will save the file after it has been read"
-msgstr ""
+msgstr "Je-li nastaveno, aplikace Plan soubor po jeho načtení uloží"
 
 #. i18n: ectx: label, entry (SaveUrl), group (Work Package)
 #: calligraplansettings.kcfg:346
 #, kde-format
 msgid "Directory where Plan saves work packages when the package has been read"
 msgstr ""
+"Adresář, do kterého aplikace Plan ukládá pracovní balíčky po jejich načtení"
 
 #. i18n: ectx: label, entry (PublishUrl), group (Work Package)
 #: calligraplansettings.kcfg:349
 #, kde-format
 msgid "Directory where Plan publishes work packages"
-msgstr ""
+msgstr "Adresář, ve kterém aplikace Plan publikuje pracovní balíčky"
 
 #. i18n: ectx: label, entry (MinimumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:355
 #, kde-format
 msgid "The smallest duration unit allowed"
-msgstr ""
+msgstr "Nejmenší povolená jednotka trvání"
 
 #. i18n: ectx: label, entry (MaximumDurationUnit), group (Miscellaneous)
 #: calligraplansettings.kcfg:359
 #, kde-format
 msgid "The largest duration unit allowed"
-msgstr ""
+msgstr "Největší povolená jednotka trvání"
 
 #. i18n: ectx: label, entry (DocumentationPath), group (Documentation)
 #: calligraplansettings.kcfg:366
@@ -515,7 +518,7 @@ msgstr "Dokumentace kontextové nápovědy musí být přeložena"
 #: calligraplansettings.kcfg:380
 #, kde-format
 msgid "Use the task modules from your private store"
-msgstr ""
+msgstr "Použít moduly úloh ze svého soukromého úložiště"
 
 #. i18n: ectx: label, entry (TaskModulePaths), group (Task Modules)
 #: calligraplansettings.kcfg:384
@@ -527,13 +530,13 @@ msgstr "Seznam cest k modulům úloh"
 #: calligraplansettings.kcfg:390
 #, kde-format
 msgid "List of paths to report templates"
-msgstr ""
+msgstr "Seznam cest k šablonám přehledů"
 
 #. i18n: ectx: label, entry (ProjectTemplatePaths), group (Project Templates)
 #: calligraplansettings.kcfg:396
 #, kde-format
 msgid "List of paths to project templates"
-msgstr ""
+msgstr "Seznam cest k šablonám projektů"
 
 #. i18n: ectx: label, entry (AutoSave), group (Interface)
 #: calligraplansettings.kcfg:402
@@ -585,7 +588,7 @@ msgstr "Šablony projektu"
 #: config/ConfigDialog.cpp:54
 #, kde-format
 msgid "Report Templates"
-msgstr ""
+msgstr "Šablony zpráv"
 
 #: config/ConfigDialog.cpp:60
 #, kde-format
@@ -597,19 +600,19 @@ msgstr "Dokument"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The project manager of this project."
-msgstr ""
+msgstr "Projektový manažer tohoto projektu."
 
 #: config/ConfigProjectPanel.cpp:39
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Check to enable shared resources"
-msgstr ""
+msgstr "Zaškrtnout pro povolení sdílených zdrojů"
 
 #: config/ConfigProjectPanel.cpp:42
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The file where shared resources are defined"
-msgstr ""
+msgstr "Soubor, ve kterém jsou definovány sdílené zdroje"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: config/ConfigProjectPanel.ui:33 config/kptconfigtaskpanelbase.ui:34
@@ -651,7 +654,7 @@ msgstr "Popis"
 #: config/ConfigProjectTemplatesPanel.cpp:48
 #, kde-format
 msgid "Project Templates Path"
-msgstr ""
+msgstr "Cesta k šablonám projektů"
 
 #. i18n: ectx: property (text), widget (QToolButton, insertModule)
 #. i18n: ectx: property (text), widget (QToolButton, insertTemplatePath)
@@ -712,6 +715,19 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Hodnoty použité pro generování výchozích kalendářů pro "
+"pracovní týdny a svátky.</p><p>Kalendář <span style=\" font-style:italic;"
+"\">Týden</span> využívá hodnoty definované v <span style=\" font-style:"
+"italic;\">Pracovním týdnu</span>.</p><p>Kalendář <span style=\" font-style:"
+"italic;\">Týdenní</span> lze generovat <span style=\" font-style:italic;"
+"\">Vždy</span> nebo pouze <span style=\" font-style:italic;\">Pokud žádný "
+"neexistuje</span>. Druhá možnost je nejběžnější, protože kalendáře jsou "
+"často definovány jako součást šablon nebo sdílených zdrojů.</p><p><span "
+"style=\" font-style:italic;\">Svátky</span> lze generovat pro váš region "
+"(výchozí nastavení) nebo pro jakýkoli region, který si vyberete. Svátky lze "
+"přidat do týdenního kalendáře, jako podkalendář k týdennímu kalendáři nebo "
+"jako samostatný kalendář.</p><p>Pokud není generován týdenní kalendář, jsou "
+"svátky zařazeny do samostatného kalendáře.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: config/ConfigWorkVacationPanel.ui:31
@@ -785,6 +801,11 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"Tyto hodnoty se použijí, pokud váš odhad není vyjádřen v hodinách.\n"
+"Řekněme, že počet hodin za den je 8. Pokud odhadujete, že dokončení úlohy "
+"bude vyžadovat 3 dny práce, při plánování úlohy se tato hodnota převede na "
+"24 hodin. Skutečná doba potřebná k dokončení samozřejmě závisí na "
+"dostupnosti osoby (nebo osob), které jsou k úloze přiřazeny."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: config/ConfigWorkVacationPanel.ui:282
@@ -809,7 +830,7 @@ msgstr "Hodin &týdně:"
 #, kde-format
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
-msgstr ""
+msgstr "Tyto hodnoty se používají při odhadování náročnosti dokončení úlohy."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: config/ConfigWorkVacationPanel.ui:388
@@ -944,7 +965,7 @@ msgstr "Zodpovědný:"
 #: config/kptconfigtaskpanelbase.ui:78
 #, kde-format
 msgid "Effort"
-msgstr "Úsilí:"
+msgstr "Úsilí"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EstimateType)
 #: config/kptconfigtaskpanelbase.ui:83
@@ -976,14 +997,14 @@ msgstr "Aktuální datum a čas"
 #: config/kptconfigtaskpanelbase.ui:160 config/kptconfigtaskpanelbase.ui:336
 #, kde-format
 msgid "Current date, specified time"
-msgstr ""
+msgstr "Aktuální datum, zadaný čas"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_StartTimeUsage)
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_EndTimeUsage)
 #: config/kptconfigtaskpanelbase.ui:165 config/kptconfigtaskpanelbase.ui:341
 #, kde-format
 msgid "Specified date and time"
-msgstr ""
+msgstr "Zadaný datum a čas"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_7)
 #: config/kptconfigtaskpanelbase.ui:186
@@ -1183,7 +1204,7 @@ msgstr "Dialog"
 #: CreateReportTemplateDialog.ui:36
 #, kde-format
 msgid "Base template:"
-msgstr ""
+msgstr "Základní šablona:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: CreateReportTemplateDialog.ui:49
@@ -1195,7 +1216,7 @@ msgstr "Název souboru:"
 #: CreateReportTemplateDialog.ui:66
 #, kde-format
 msgid "Open assistant"
-msgstr ""
+msgstr "Otevřít asistenta"
 
 #: KPlatoXmlLoader.cpp:56
 #, kde-format
@@ -1203,6 +1224,8 @@ msgid ""
 "This document has no syntax version.\n"
 "Opening it in Plan may lose information."
 msgstr ""
+"Tento dokument nemá uvedenou verzi syntaxe.\n"
+"Při jeho otevření v aplikaci Plan může dojít ke ztrátě informací."
 
 #: KPlatoXmlLoader.cpp:58 KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112
 #: kptmaindocument.cpp:375 kptmaindocument.cpp:699
@@ -1223,6 +1246,11 @@ msgid ""
 "Syntax version: %1\n"
 "Opening it in this version of Plan may lose some information."
 msgstr ""
+"Tento dokument byl vytvořen v novější verzi programu KPlato, než jakou "
+"dokáže aplikace Plan načíst.\n"
+"Verze syntaxe: %1\n"
+"Při otevření v této verzi aplikace Plan může dojít ke ztrátě některých "
+"informací."
 
 #: KPlatoXmlLoader.cpp:70 KPlatoXmlLoader.cpp:112 kptmaindocument.cpp:375
 #: kptmaindocument.cpp:699
@@ -1237,6 +1265,10 @@ msgid ""
 "version: %1)\n"
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Tento dokument byl vytvořen v novější verzi aplikace KPlatoWork (verze "
+"syntaxe: %1)\n"
+"Při jeho otevření v této verzi aplikace PlanWork dojde ke ztrátě některých "
+"informací."
 
 #: kptaboutdata.h:24
 #, kde-format
@@ -1279,25 +1311,25 @@ msgstr "Raphael Langerhorst"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #: kptaboutdata.h:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #: kptbuiltinschedulerplugin.cpp:29
 #, kde-format
 msgctxt "Network = task dependency network"
 msgid "Network Scheduler"
-msgstr ""
+msgstr "Plánovač sítě"
 
 #: kptbuiltinschedulerplugin.cpp:30
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Built-in network (PERT) based scheduler"
-msgstr ""
+msgstr "Integrovaný síťový plánovač (PERT)"
 
 #: kptbuiltinschedulerplugin.cpp:46
 #, kde-kuit-format
@@ -1314,16 +1346,26 @@ msgid ""
 "resource allocations or add dummy dependencies to avoid the conflicts.</"
 "note></para>"
 msgstr ""
+"<title>Síťový (PERT) plánovač</title><para>Síťový plánovač obecně plánuje "
+"úlohy podle jejich závislostí. Při plánování je úloha naplánována v plném "
+"rozsahu, přičemž jsou rezervovány přidělené zdroje, jsou-li k dispozici. "
+"Pokud není povoleno nadměrné rezervování, budou následující úlohy, které "
+"vyžadují stejný zdroj, naplánovány na pozdější čas.</para><para>Úlohy s "
+"časovými omezeními budou naplánovány jako první, aby se minimalizoval "
+"problém s konflikty zdrojů</para><para><note>Tento plánovač nezvládá "
+"konflikty zdrojů příliš dobře.<nl/>Můžete vyzkoušet jiný plánovač, pokud je "
+"k dispozici. Můžete také změnit přidělení zdrojů nebo přidat fiktivní "
+"závislosti, abyste se konfliktům vyhnuli.</note></para>"
 
 #: kptbuiltinschedulerplugin.cpp:251
 #, kde-format
 msgid "Scheduling started: %1"
-msgstr ""
+msgstr "Zahájení plánování: %1"
 
 #: kptbuiltinschedulerplugin.cpp:253
 #, kde-format
 msgid "Recalculating from: %1"
-msgstr ""
+msgstr "Přepočítává se z: %1"
 
 #: kptbuiltinschedulerplugin.cpp:265
 #, kde-format
@@ -1333,12 +1375,12 @@ msgstr "Plánování bylo zrušeno"
 #: kptbuiltinschedulerplugin.cpp:271
 #, kde-format
 msgid "Scheduling finished at %1, elapsed time: %2 seconds"
-msgstr ""
+msgstr "Plánování dokončeno na %1, uplynulý čas: %2 sekund"
 
 #: kptbuiltinschedulerplugin.cpp:285
 #, kde-format
 msgid "Inserting resource bookings from project: %1"
-msgstr ""
+msgstr "Vkládání rezervací zdrojů z projektu: %1"
 
 #: kptinsertfiledlg.cpp:21
 #, kde-format
@@ -1349,25 +1391,25 @@ msgstr "Vložit soubor"
 #: kptinsertfilepanel.ui:40
 #, kde-format
 msgid "Current node:"
-msgstr ""
+msgstr "Aktuální uzel:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_useProject)
 #: kptinsertfilepanel.ui:68
 #, kde-format
 msgid "Insert on top level"
-msgstr ""
+msgstr "Vložit na nejvyšší úroveň"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isParent)
 #: kptinsertfilepanel.ui:75
 #, kde-format
 msgid "Insert as children to current node"
-msgstr ""
+msgstr "Vložit jako podřízený do aktuálního uzlu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_isAfter)
 #: kptinsertfilepanel.ui:82
 #, kde-format
 msgid "Insert after current node"
-msgstr ""
+msgstr "Vložit za aktuální uzel"
 
 #: kptmaindocument.cpp:322 kptmaindocument.cpp:669
 #, kde-format
@@ -1378,6 +1420,7 @@ msgstr "Neplatný dokument. Nebyl vybrán MIME typ."
 #, kde-format
 msgid "Invalid document. Expected mimetype application/x-vnd.kde.plan, got %1"
 msgstr ""
+"Neplatný dokument. Očekávaný MIME typ application/x-vnd.kde.plan, obdrženo %1"
 
 #: kptmaindocument.cpp:373
 #, kde-format
@@ -1385,11 +1428,15 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"Tento dokument byl vytvořen v novější verzi aplikace Plan (verze syntaxe: "
+"%1)\n"
+"Při jeho otevření v této verzi aplikace Plan dojde ke ztrátě některých "
+"informací."
 
 #: kptmaindocument.cpp:459
 #, kde-format
 msgid "Failed to save to temporary file. No resource has been specified"
-msgstr ""
+msgstr "Uložení do dočasného souboru se nezdařilo. Nebyl zadán žádný zdroj"
 
 #: kptmaindocument.cpp:474
 #, kde-format
@@ -1405,7 +1452,7 @@ msgstr "Nezdařilo se uložení do dočasného souboru:<br/><filename>%1</filena
 #: kptmaindocument.cpp:557
 #, kde-format
 msgid "Could not create the workpackage file for saving: %1"
-msgstr ""
+msgstr "Nelze vytvořit soubor pracovního balíčku pro uložení: %1"
 
 #: kptmaindocument.cpp:565
 #, kde-format
@@ -1420,7 +1467,7 @@ msgstr "Probíhá ukládání..."
 #: kptmaindocument.cpp:686
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
+msgstr "Neplatný dokument. Očekávaný MIME typ %2, obdržen %1"
 
 #: kptmaindocument.cpp:697
 #, kde-format
@@ -1429,11 +1476,15 @@ msgid ""
 "%1)\n"
 "Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Tento dokument byl vytvořen v novější verzi aplikace PlanWork (verze "
+"syntaxe: %1)\n"
+"Při jeho otevření v této verzi aplikace PlanWork dojde ke ztrátě některých "
+"informací."
 
 #: kptmaindocument.cpp:1113 kptmaindocument.cpp:1334
 #, kde-format
 msgid "Internal error, failed to insert file."
-msgstr ""
+msgstr "Došlo k interní chybě, vložení souboru se nezdařilo."
 
 #: kptmaindocument.cpp:1185
 #, kde-kuit-format
@@ -1442,12 +1493,14 @@ msgid ""
 "Failed to load shared resources into project %1:<nl/>Internal error, failed "
 "to insert file."
 msgstr ""
+"Nepodařilo se načíst sdílené zdroje do projektu %1:<nl/>Vnitřní chyba, "
+"vložení souboru se nezdařilo."
 
 #: kptmaindocument.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load shared resources into project %1:<nl/>%2"
-msgstr ""
+msgstr "Nepodařilo se načíst sdílené zdroje do projektu %1:<nl/>%2"
 
 #: kptmaindocument.cpp:1365
 msgctxt "(qtundo-format)"
@@ -1472,7 +1525,7 @@ msgstr "Kalendář: %1"
 #: kptmaindocument.cpp:1464
 msgctxt "(qtundo-format)"
 msgid "Update Shared Resources"
-msgstr ""
+msgstr "Aktualizovat sdílené zdroje"
 
 #: kptmaindocument.cpp:1481
 #, kde-format
@@ -1494,12 +1547,12 @@ msgstr "Nastavit Plan..."
 #: kptschedulesdocker.cpp:26
 #, kde-format
 msgid "Schedule Selector"
-msgstr ""
+msgstr "Výběr plánu"
 
 #: kptview.cpp:186
 #, kde-format
 msgid "Create Project Template..."
-msgstr "Vytvořit šablonu projektu"
+msgstr "Vytvořit šablonu projektu..."
 
 #: kptview.cpp:190
 #, kde-format
@@ -1544,17 +1597,17 @@ msgstr "Vložit soubor projektu..."
 #: kptview.cpp:234
 #, kde-format
 msgid "Update Shared Resources"
-msgstr ""
+msgstr "Aktualizovat sdílené zdroje"
 
 #: kptview.cpp:239
 #, kde-format
 msgid "Open Report Definition File..."
-msgstr ""
+msgstr "Otevřít soubor definice přehledu..."
 
 #: kptview.cpp:244
 #, kde-format
 msgid "Create Report Template..."
-msgstr ""
+msgstr "Vytvořit šablonu přehledu..."
 
 #: kptview.cpp:260
 #, kde-format
@@ -1604,40 +1657,40 @@ msgstr "Cena úlohy"
 #: kptview.cpp:551
 #, kde-format
 msgid "Generate reports"
-msgstr "Vytvořit hlášení"
+msgstr "Generovat přehledy"
 
 #: kptview.cpp:557 kptview.cpp:2461
 #, kde-format
 msgid "Task Status Report"
-msgstr ""
+msgstr "Zpráva o stavu úlohy"
 
 #: kptview.cpp:639
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit working- and vacation days for resources"
-msgstr ""
+msgstr "Upravit pracovní dny a dny dovolené u zdrojů"
 
 #: kptview.cpp:641
 #, kde-format
 msgid "Cost Breakdown Structure"
-msgstr ""
+msgstr "Struktura rozdělení nákladů"
 
 #: kptview.cpp:642
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit cost breakdown structure."
-msgstr ""
+msgstr "Upravit strukturu rozdělení nákladů."
 
 #: kptview.cpp:644
 #, kde-format
 msgid "Resource Breakdown Structure"
-msgstr ""
+msgstr "Struktura rozdělení zdrojů"
 
 #: kptview.cpp:645
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit resource breakdown structure"
-msgstr ""
+msgstr "Upravit strukturu rozdělení zdrojů"
 
 #: kptview.cpp:647 SharedResourcesDialog.cpp:58
 #, kde-format
@@ -1659,7 +1712,7 @@ msgstr "Úlohy"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit work breakdown structure"
-msgstr ""
+msgstr "Upravit strukturu rozdělení práce"
 
 #: kptview.cpp:653
 #, kde-format
@@ -1670,7 +1723,7 @@ msgstr "Závislosti (graficky)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit task dependencies"
-msgstr ""
+msgstr "Upravit závislosti úloh"
 
 #: kptview.cpp:656
 #, kde-format
@@ -1686,18 +1739,18 @@ msgstr "Plány"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Calculate and analyze project schedules"
-msgstr ""
+msgstr "Výpočet a analýza plánů projektů"
 
 #: kptview.cpp:665 kptviewlistdialog.cpp:110
 #, kde-format
 msgid "Project Performance Chart"
-msgstr ""
+msgstr "Graf výkonnosti projektu"
 
 #: kptview.cpp:666
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View project status information"
-msgstr ""
+msgstr "Zobrazit informace o stavu projektu"
 
 #: kptview.cpp:668 kptviewlistdialog.cpp:101
 #, kde-format
@@ -1708,7 +1761,7 @@ msgstr "Stav úlohy"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task progress information"
-msgstr ""
+msgstr "Zobrazit informace o průběhu úlohy"
 
 #: kptview.cpp:671
 #, kde-format
@@ -1719,18 +1772,18 @@ msgstr "Vykonávání úlohy"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task execution information"
-msgstr ""
+msgstr "Zobrazit informace o provedení úlohy"
 
 #: kptview.cpp:674 kptviewlistdialog.cpp:103
 #, kde-format
 msgid "Work Package View"
-msgstr ""
+msgstr "Zobrazení pracovního balíčku"
 
 #: kptview.cpp:675
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View task work package information"
-msgstr ""
+msgstr "Zobrazit informace o pracovním balíčku úlohy"
 
 #: kptview.cpp:677
 #, kde-format
@@ -1746,13 +1799,13 @@ msgstr "Zobrazit Gantův graf"
 #: kptview.cpp:680
 #, kde-format
 msgid "Milestone Gantt"
-msgstr ""
+msgstr "Ganttův graf milníků"
 
 #: kptview.cpp:681
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View milestone Gantt chart"
-msgstr ""
+msgstr "Zobrazit Ganttův graf milníků"
 
 #: kptview.cpp:683 kptviewlistdialog.cpp:106
 #, kde-format
@@ -1763,74 +1816,74 @@ msgstr "Přidělení zdrojů"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in a table"
-msgstr ""
+msgstr "Zobrazit přiřazení zdrojů v tabulce"
 
 #: kptview.cpp:686 kptviewlistdialog.cpp:107
 #, kde-format
 msgid "Resource Assignments (Gantt)"
-msgstr ""
+msgstr "Přiřazení zdrojů (Gantt)"
 
 #: kptview.cpp:687
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View resource assignments in Gantt chart"
-msgstr ""
+msgstr "Zobrazit přiřazení zdrojů v Ganttově grafu"
 
 #: kptview.cpp:689 kptviewlistdialog.cpp:108
 #, kde-format
 msgid "Resource Coverage"
-msgstr ""
+msgstr "Pokrytí zdrojů"
 
 #: kptview.cpp:690
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Inspect resource coverage"
-msgstr ""
+msgstr "Zkontrolovat pokrytí zdrojů"
 
 #: kptview.cpp:692 kptviewlistdialog.cpp:109
 #, kde-format
 msgid "Cost Breakdown"
-msgstr ""
+msgstr "Přehled nákladů"
 
 #: kptview.cpp:693
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View planned and actual cost"
-msgstr ""
+msgstr "Zobrazit plánované a skutečné náklady"
 
 #: kptview.cpp:695 kptviewlistdialog.cpp:111
 #, kde-format
 msgid "Tasks Performance Chart"
-msgstr ""
+msgstr "Graf výkonnosti úloh"
 
 #: kptview.cpp:696
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View tasks performance status information"
-msgstr ""
+msgstr "Zobrazit informace o stavu plnění úloh"
 
 #: kptview.cpp:698
 #, kde-format
 msgid "Reports Generator"
-msgstr "Generátor hlášení"
+msgstr "Generátor přehledů"
 
 #: kptview.cpp:699
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Generate reports"
-msgstr "Vytvořit hlášení"
+msgstr "Generovat přehledy"
 
 #: kptview.cpp:701 kptview.cpp:2458 kptviewlistdialog.cpp:114
 #: kptviewlistdialog.cpp:564
 #, kde-format, kde-kuit-format
 msgid "Report"
-msgstr "Hlášení"
+msgstr "Přehled"
 
 #: kptview.cpp:702
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "View report"
-msgstr "Zobrazit hlášení"
+msgstr "Zobrazit přehled"
 
 #: kptview.cpp:713
 #, kde-format
@@ -1851,7 +1904,7 @@ msgstr "Vykonávání"
 #: kptview.cpp:719
 #, kde-format
 msgid "Reports"
-msgstr "Hlášení"
+msgstr "Přehledy"
 
 #: kptview.cpp:1481
 #, kde-format
@@ -1876,6 +1929,8 @@ msgctxt "@info"
 msgid ""
 "Use shared resources has been activated.<nl/>Shall resources be updated?"
 msgstr ""
+"Bylo aktivováno používání sdílených zdrojů.<nl/>Mají být zdroje "
+"aktualizovány?"
 
 #: kptview.cpp:2037
 #, kde-kuit-format
@@ -1917,7 +1972,7 @@ msgstr "Nenaplánováno"
 #: kptview.cpp:2303
 #, kde-format
 msgid "Work Package for project: %1"
-msgstr ""
+msgstr "Pracovní balíček pro projekt: %1"
 
 #: kptview.cpp:2459
 #, kde-format
@@ -1963,6 +2018,12 @@ msgid ""
 "rename or edit tool tip for categories or views</item><item>Insert "
 "categories and views</item></list><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Výběr zobrazení</title><para>Toto je seznam zobrazení a editorů.</"
+"para><para>Seznam můžete nastavovat pomocí kontextové nabídky:"
+"<list><item>Přejmenovat kategorie nebo zobrazení</item><item>Nastavit. "
+"Přesunout, odstranit, přejmenovat nebo upravit popisek pro kategorie nebo "
+"zobrazení</item><item>Vložit kategorie a zobrazení</item></list><nl/><link "
+"url='%1'>Více...</link></para>"
 
 #: kptviewlist.cpp:357
 #, kde-kuit-format
@@ -1972,11 +2033,14 @@ msgid ""
 "displaying schedule dependent data.<nl/><note>Unscheduled tasks are only "
 "shown in editors.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Výběr plánu</title><para>Slouží k výběru plánu, který se má použít "
+"při zobrazování údajů závislých na plánu.<nl/><note>Úlohy bez plánu se "
+"zobrazují pouze v editorech.</note><nl/><link url='%1'>Více...</link></para>"
 
 #: kptviewlist.cpp:606
 #, kde-format
 msgid "Removing this category will also remove all its views."
-msgstr ""
+msgstr "Odstraněním této kategorie se odstraní také všechny její pohledy."
 
 #: kptviewlist.cpp:739
 #, kde-kuit-format
@@ -2036,7 +2100,7 @@ msgstr "Kategorie:"
 #: kptviewlistaddview.ui:49 kptviewlisteditview.ui:55
 #, kde-format
 msgid "The view is placed after this view"
-msgstr ""
+msgstr "Tento pohled je umístěn za tímto pohledem"
 
 #. i18n: ectx: property (text), widget (QLabel, afterLabel)
 #: kptviewlistaddview.ui:52 kptviewlisteditcategory.ui:23
@@ -2118,17 +2182,17 @@ msgstr "Editor účtů"
 #: kptviewlistdialog.cpp:98
 #, kde-format
 msgid "Dependency Editor (Graphic)"
-msgstr ""
+msgstr "Editor závislostí (grafický)"
 
 #: kptviewlistdialog.cpp:99
 #, kde-format
 msgid "Dependency Editor (List)"
-msgstr ""
+msgstr "Editor závislostí (seznam)"
 
 #: kptviewlistdialog.cpp:100
 #, kde-format
 msgid "Schedule Handler"
-msgstr ""
+msgstr "Obslužná rutina plánu"
 
 #: kptviewlistdialog.cpp:102
 #, kde-format
@@ -2143,12 +2207,12 @@ msgstr "Gantův pohled"
 #: kptviewlistdialog.cpp:105
 #, kde-format
 msgid "Milestone Gantt View"
-msgstr ""
+msgstr "Pohled Ganttova grafu milníků"
 
 #: kptviewlistdialog.cpp:112
 #, kde-format
 msgid "Reports generator"
-msgstr "Generátor hlášení"
+msgstr "Generátor přehledů"
 
 #: kptviewlistdialog.cpp:141
 #, kde-kuit-format
@@ -2158,6 +2222,9 @@ msgid ""
 "category in the view selector.<nl/>You can edit the category name to create "
 "a new category."
 msgstr ""
+"<title>Kategorie pohledu</title><nl/>Pohled je ve výběru pohledů zařazen do "
+"této kategorie.<nl/>Název kategorie můžete upravit a vytvořit tak novou "
+"kategorii."
 
 #: kptviewlistdialog.cpp:193 kptviewlistdialog.cpp:412
 #: kptviewlistdialog.cpp:503 kptviewlistdialog.cpp:632
@@ -2180,6 +2247,9 @@ msgid ""
 "the view to the new category.<nl/>You can edit the category name to create a "
 "new category."
 msgstr ""
+"<title>Kategorie pohledu</title><nl/>Pohled je ve výběru pohledů zařazen do "
+"této kategorie.<nl/>Výběrem jiné kategorie se pohled přesune do nové "
+"kategorie.<nl/>Název kategorie můžete upravit a vytvořit tak novou kategorii."
 
 #: kptviewlistdialog.cpp:431
 #, kde-kuit-format
@@ -2191,19 +2261,19 @@ msgstr "Nastavit kategorii"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add Report"
-msgstr "Přidat hlášení"
+msgstr "Přidat přehled"
 
 #: kptviewlistdocker.cpp:54 kptviewlistdocker.cpp:60
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector [modified]"
-msgstr ""
+msgstr "Výběr pohledu [upraveno]"
 
 #: kptviewlistdocker.cpp:62
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "View Selector"
-msgstr ""
+msgstr "Výběr pohledu"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, statistics)
 #: kptviewlistdocker.ui:22
@@ -2319,6 +2389,14 @@ msgid ""
 "Keeps the item as a shared item.</item></list><nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Dialogové okno sdílených zdrojů</title><para>Umožňuje vám určit, jak "
+"se má naložit se sdílenými zdroji, skupinami sdílených zdrojů a sdílenými "
+"kalendáři, pokud byly odstraněny ze souboru sdílených zdrojů.</"
+"para><para>Můžete vybrat, zda má být položka:<list><item><emphasis>Odstranit:"
+"</emphasis> Odstraní položku také z vašeho projektu.</"
+"item><item><emphasis>Převést:</emphasis> Převede položku na lokální položku."
+"</item><item><emphasis>Ponechat:</emphasis> Ponechá položku jako sdílenou "
+"položku.</item></list><nl/><link url='%1'>Více...</link></para>"
 
 #: SharedResourcesDialog.cpp:248
 #, kde-format
@@ -2335,39 +2413,39 @@ msgstr "Ponechat"
 #: SharedResourcesDialog.ui:40
 #, kde-format
 msgid "Mark all selected items to be removed from your project"
-msgstr ""
+msgstr "Označit všechny vybrané položky, které mají být z projektu odstraněny"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsRemove)
 #: SharedResourcesDialog.ui:43
 #, kde-format
 msgid "Mark as: Remove"
-msgstr ""
+msgstr "Označit jako: Odstranit"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:50
 #, kde-format
 msgid "Mark all selected items to be converted to local resources"
-msgstr ""
+msgstr "Označit všechny vybrané položky k převodu na místní zdroje"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsConvert)
 #: SharedResourcesDialog.ui:53
 #, kde-format
 msgid "Mark as: Convert"
-msgstr ""
+msgstr "Označit jako: Převést"
 
 #. i18n: info:tooltip
 #. i18n: ectx: property (toolTip), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:60
 #, kde-format
 msgid "Mark all selected items to be kept as shared resources"
-msgstr ""
+msgstr "Označit všechny vybrané položky, které mají zůstat jako sdílené zdroje"
 
 #. i18n: @action:button
 #. i18n: ectx: property (text), widget (QPushButton, markAsKeep)
 #: SharedResourcesDialog.ui:63
 #, kde-format
 msgid "Mark as: Keep"
-msgstr ""
+msgstr "Označit jako: Ponechat"

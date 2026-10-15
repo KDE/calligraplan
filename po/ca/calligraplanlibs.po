@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-09-06 18:43+0200\n"
+"PO-Revision-Date: 2026-10-14 15:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1654,7 +1654,7 @@ msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr ""
-"<qt>Desar com a %1 pot resultar en pèrdua de format.<p> Esteu segur de voler "
+"<qt>Desar com a %1 pot provocar una pèrdua de format.<p>Segur que voleu "
 "desar en aquest format?</qt>"
 
 #: main/KoMainWindow.cpp:897
@@ -1668,8 +1668,8 @@ msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr ""
-"<qt>Exportar com a %1 pot resultar en pèrdua de format.<p> Esteu segur de "
-"voler exportar a aquest format?</qt>"
+"<qt>Exportar com a %1 pot provocar una pèrdua de format.<p>Segur que voleu "
+"exportar a aquest format?</qt>"
 
 #: main/KoMainWindow.cpp:909
 #, kde-format
@@ -1895,7 +1895,7 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
-"<title>Plantilles de projecte</title><para>Seleccioneu una plantilla per a "
+"<title>Plantilles de projectes</title><para>Seleccioneu una plantilla per a "
 "crear un projecte nou basat en la plantilla seleccionada.</para><para>El "
 "Plan cercarà les plantilles als llocs que definiu al diàleg de configuració: "
 "<interface>Arranjament -> Configura el Plan</interface>.</para><para>Podeu "
@@ -1917,7 +1917,7 @@ msgid ""
 "style:italic;\">Project templates:</span></p></body></html>"
 msgstr ""
 "<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-"
-"style:italic;\">Plantilles de projecte:</span></p></body></html>"
+"style:italic;\">Plantilles de projectes:</span></p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:156
@@ -5435,7 +5435,7 @@ msgstr "Modifica des de quan està disponible el recurs"
 #: models/ResourceItemModel.cpp:534
 msgctxt "(qtundo-format)"
 msgid "Modify resource available until"
-msgstr "Modifica fins a quan està disponible el recurs"
+msgstr "Modifica fins quan està disponible el recurs"
 
 #: models/ResourceItemModel.cpp:547
 msgctxt "(qtundo-format)"

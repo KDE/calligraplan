@@ -2,32 +2,35 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2019.
 # Vit Pelcak <vit@pelcak.org>, 2021, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2023-02-24 11:07+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-10-14 23:41+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
 msgid "PlanWork - Work Package handler for the Plan Project Planning Tool"
 msgstr ""
+"PlanWork – obslužná rutina pracovních balíčků pro nástroj plánování projektů "
+"aplikace Plan"
 
 #: aboutdata.h:27
 #, kde-format
 msgctxt "application name"
 msgid "Plan WorkPackage Handler"
-msgstr ""
+msgstr "Obslužná rutina pracovních balíčků aplikace Plan"
 
 #: aboutdata.h:31
 #, kde-format
@@ -44,13 +47,13 @@ msgstr "Dag Andersen"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #: aboutdata.h:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #. i18n: ectx: Menu (edit)
 #: calligraplanwork.rc:4 calligraplanworkui.rc:4
@@ -122,12 +125,15 @@ msgid ""
 "%1<br>Task: %2</p><p>Do you want to update the existing package with data "
 "from the new?</p>"
 msgstr ""
+"<p>Tento pracovní balíček již v úložišti projektů existuje.</p><p>Projekt: "
+"%1<br>Úloha: %2</p><p>Chcete aktualizovat stávající balíček daty z nového?</"
+"p>"
 
 #: part.cpp:384
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Work Package"
-msgstr ""
+msgstr "Aktualizovat pracovní balíček"
 
 #: part.cpp:414
 #, kde-format
@@ -155,7 +161,7 @@ msgstr "Selhalo načtení souboru:<br>%1"
 #: part.cpp:492
 #, kde-format
 msgid "Not a valid work package file:<br>%1"
-msgstr ""
+msgstr "Neplatný soubor pracovního balíčku: <br>%1"
 
 #: part.cpp:522
 #, kde-format
@@ -171,6 +177,7 @@ msgstr "Nelze otevřít soubor: %1"
 #, kde-format
 msgid "Parsing error in file '%1' at line %2, column %3<br>Error message: %4"
 msgstr ""
+"Chyba zpracování v souboru '%1' na řádku %2, sloupci %3<br>Chybová zpráva: %4"
 
 #: part.cpp:583 part.cpp:634
 #, kde-format
@@ -182,6 +189,8 @@ msgstr "Neplatný dokument. Nebyl vybrán typ MIME."
 msgid ""
 "Invalid document. Expected mimetype application/x-vnd.kde.plan.work, got %1"
 msgstr ""
+"Neplatný dokument. Očekávaný MIME typ application/x-vnd.kde.plan.work, "
+"obdrženo %1"
 
 #: part.cpp:602 part.cpp:650
 #, kde-format
@@ -189,6 +198,9 @@ msgid ""
 "This document is a newer version than supported by PlanWork (syntax version: "
 "%1)<br>Opening it in this version of PlanWork will lose some information."
 msgstr ""
+"Tento dokument je novější verzí, než jakou podporuje aplikace PlanWork "
+"(verze syntaxe: %1)<br>Při jeho otevření v této verzi aplikace PlanWork "
+"dojde ke ztrátě některých informací."
 
 #: part.cpp:604 part.cpp:652
 #, kde-format
@@ -203,12 +215,12 @@ msgstr "Nesoulad ve formátu souboru"
 #: part.cpp:640
 #, kde-format
 msgid "Invalid document. Expected mimetype %2, got %1"
-msgstr ""
+msgstr "Neplatný dokument. Očekávaný MIME typ %2, obdržen %1"
 
 #: part.cpp:742
 #, kde-format
 msgid "Edit failed. Cannot find a work package."
-msgstr ""
+msgstr "Úprava se nezdařila. Nelze najít pracovní balíček."
 
 #: taskcompletiondialog.cpp:32
 #, kde-format
@@ -259,7 +271,7 @@ msgstr "Upravit dokončení"
 #: taskworkpackagemodel.cpp:468
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "Sada dokončena"
 
 #: taskworkpackagemodel.cpp:489
 msgctxt "(qtundo-format)"
@@ -269,7 +281,7 @@ msgstr "Upravit zbývající úsilí"
 #: taskworkpackagemodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "Upravit skutečné úsilí"
 
 #: taskworkpackagemodel.cpp:600
 #, kde-kuit-format
@@ -397,6 +409,8 @@ msgid ""
 "Task: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4<nl/"
 ">Project: %5"
 msgstr ""
+"Úloha: %1<nl/>Skutečné dokončení: %2<nl/>Plánované dokončení: %3<nl/>Stav: "
+"%4<nl/>Projekt: %5"
 
 #: taskworkpackageview.cpp:646
 #, kde-kuit-format
@@ -405,12 +419,14 @@ msgid ""
 "Task: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6<nl/>Project: %7"
 msgstr ""
+"Úloha: %1<nl/>Dokončení: %2 %<nl/>Skutečný začátek: %3<nl/>Plánováno: %4 – "
+"%5<nl/>Stav: %6<nl/>Projekt: %7"
 
 #: taskworkpackageview.cpp:667
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Project: %5"
-msgstr ""
+msgstr "Úloha: %1<nl/>Plánováno: %2 – %3<nl/>Stav: %4<nl/>Projekt: %5"
 
 #: view.cpp:85
 #, kde-format
@@ -431,7 +447,7 @@ msgstr "Seznam"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select task list"
-msgstr ""
+msgstr "Vybrat seznam úloh"
 
 #: view.cpp:98
 #, kde-format
@@ -442,7 +458,7 @@ msgstr "Gantt"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Select timeline"
-msgstr ""
+msgstr "Vybrat časovou osu"
 
 #: view.cpp:104
 #, kde-format
@@ -488,12 +504,12 @@ msgstr "Tento soubor nelze upravovat"
 #: view.cpp:336
 #, kde-format
 msgid "No work package is selected"
-msgstr ""
+msgstr "Není vybrán žádný pracovní balíček"
 
 #: view.cpp:342
 #, kde-format
 msgid "Cannot find work package"
-msgstr ""
+msgstr "Nelze najít pracovní balíček"
 
 #: view.cpp:359
 #, kde-format
@@ -503,7 +519,7 @@ msgstr "Soubor nelze najít. Odesílání je přerušeno."
 #: view.cpp:367
 #, kde-format
 msgid "Could not open temporary file. Sending is aborted."
-msgstr ""
+msgstr "Nelze otevřít dočasný soubor. Odesílání bylo přerušeno."
 
 #: view.cpp:376
 #, kde-format
@@ -523,7 +539,7 @@ msgstr "Nepovedlo se načíst projekt: %1"
 #: workpackage.cpp:286
 #, kde-format
 msgid "Cannot save to empty filename"
-msgstr ""
+msgstr "Nelze uložit do prázdného souboru"
 
 #: workpackage.cpp:294
 #, kde-format
@@ -541,6 +557,8 @@ msgid ""
 "Failed to open store:\n"
 " %1"
 msgstr ""
+"Nepodařilo se otevřít úložiště:\n"
+" %1"
 
 #: workpackage.cpp:412
 #, kde-format
@@ -548,6 +566,8 @@ msgid ""
 "Cannot save to projects store:\n"
 "%1"
 msgstr ""
+"Nelze uložit do úložiště projektů:\n"
+"%1"
 
 #: workpackage.cpp:455
 msgctxt "(qtundo-format)"
@@ -586,8 +606,14 @@ msgid_plural ""
 "<p>The work package <b>'%2'</b> has open documents.</p><p>Data may be lost "
 "if you continue.</p>"
 msgstr[0] ""
+"<p>Pracovní balíček <b>'%2'</b> obsahuje otevřený dokument.</p><p>Pokud "
+"budete pokračovat, může dojít ke ztrátě dat.</p>"
 msgstr[1] ""
+"<p>Pracovní balíček <b>'%2'</b> obsahuje otevřené dokumenty.</p><p>Pokud "
+"budete pokračovat, může dojít ke ztrátě dat.</p>"
 msgstr[2] ""
+"<p>Pracovní balíček <b>'%2'</b> obsahuje otevřené dokumenty.</p><p>Pokud "
+"budete pokračovat, může dojít ke ztrátě dat.</p>"
 
 #: workpackage.cpp:661
 #, kde-format
@@ -595,13 +621,17 @@ msgid ""
 "<p>The work package <b>'%1'</b> has been modified.</p><p>Do you want to save "
 "it?</p>"
 msgstr ""
+"<p>Pracovní balíček <b>'%1'</b> byl upraven.</p><p>Chcete jej uložit?</p>"
 
 #: workpackage.cpp:688
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not open store:</p><p>%2</p>"
 msgstr ""
+"<p>Pracovní balíček <b>'%1'</b></p><p>Nepodařilo se otevřít úložiště:</p><p>"
+"%2</p>"
 
 #: workpackage.cpp:706
 #, kde-format
 msgid "<p>Work package <b>'%1'</b></p><p>Could not extract file:</p><p>%2</p>"
 msgstr ""
+"<p>Pracovní balíček <b>'%1'</b></p><p>Nelze extrahovat soubor:</p><p>%2</p>"
