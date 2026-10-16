@@ -8,7 +8,7 @@
   <name xml:lang="ar">العمل للمُخطِط</name>
   <name xml:lang="ca">Plan Work</name>
   <name xml:lang="ca-valencia">Plan Work</name>
-  <name xml:lang="cs">Plánovat práci</name>
+  <name xml:lang="cs">Plan Work</name>
   <name xml:lang="en-GB">Plan Work</name>
   <name xml:lang="eo">Plan Work</name>
   <name xml:lang="es">Plan Work</name>
@@ -35,7 +35,7 @@
   <summary xml:lang="ar">معالج حزمة العمل</summary>
   <summary xml:lang="ca">Gestor de paquets de feina</summary>
   <summary xml:lang="ca-valencia">Gestor de paquets de faena</summary>
-  <summary xml:lang="cs">Správce pracovních balíčků</summary>
+  <summary xml:lang="cs">Obslužná rutina pracovních balíčků</summary>
   <summary xml:lang="en-GB">Work Package Handler</summary>
   <summary xml:lang="eo">Laborpakaĵa Pritraktilo</summary>
   <summary xml:lang="es">Gestor de paquetes de Work</summary>
