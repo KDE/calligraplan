@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2013, 2014, 2019.
 # Vit Pelcak <vit@pelcak.org>, 2021.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: krossmodulekplato\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2021-08-19 15:59+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-10-15 02:43+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: Project.cpp:362 Project.cpp:365 Project.cpp:377 Project.cpp:380
 msgctxt "(qtundo-format)"
@@ -51,7 +52,7 @@ msgstr "Vymazat všechny externí schůzky"
 #: Resource.cpp:91
 msgctxt "(qtundo-format)"
 msgid "Set resource team members"
-msgstr ""
+msgstr "Nastavit zdroj členů týmu"
 
 #. i18n: ectx: Menu (tools)
 #: scripting.rc:4
@@ -97,11 +98,11 @@ msgstr "Jméno plánu"
 #: scripts/busyinfoclear.py:10
 msgctxt "(qtundoformat)"
 msgid "Clear all external appointments"
-msgstr ""
+msgstr "Vymazat všechny externí schůzky"
 
 #: scripts/busyinfoexport.py:26
 msgid "Busy Information Export"
-msgstr ""
+msgstr "Export informací o zaneprázdněnosti"
 
 #: scripts/busyinfoexport.py:30
 msgid "Export Selected Schedule"
@@ -114,7 +115,7 @@ msgstr "Plány"
 
 #: scripts/busyinfoexport.py:33
 msgid "Export Busy Info File"
-msgstr ""
+msgstr "Exportovat soubor s informacemi o zaneprázdněnosti"
 
 #: scripts/busyinfoexport.py:33 scripts/plan2csvexport.py:100
 #: scripts/plan2odsexport.py:112
@@ -147,15 +148,15 @@ msgstr "Není vybrán žádný soubor"
 
 #: scripts/busyinfoexport.py:51
 msgid "No schedule selected"
-msgstr ""
+msgstr "Není vybrán žádný plán"
 
 #: scripts/busyinfoimport.py:18
 msgid "Busy Information Import"
-msgstr ""
+msgstr "Import informací o zaneprázdněnosti"
 
 #: scripts/busyinfoimport.py:22
 msgid "Import Busy Info File"
-msgstr ""
+msgstr "Importovat soubor s informacemi o zaneprázdněnosti"
 
 #: scripts/busyinfoimport.py:22 scripts/resourcesimport.py:23
 msgid "Open"
@@ -164,15 +165,16 @@ msgstr "Otevřít"
 #: scripts/busyinfoimport.py:29
 msgctxt "(qtundo_format)"
 msgid "Import resource busy information"
-msgstr ""
+msgstr "Importovat zdroj informací o zaneprázdněnosti"
 
 #: scripts/busyinfoimport.py:49
 msgid "Cannot load data from project with the same identity"
-msgstr ""
+msgstr "Nelze načíst data z projektu se stejnou identifikací"
 
 #: scripts/plan2csvexport.py:18 scripts/plan2odsexport.py:17
 msgid "Failed to start Sheets. Is Sheets installed?"
 msgstr ""
+"Spuštění aplikace Sheets se nezdařilo. Je aplikace Sheets nainstalována?"
 
 #: scripts/plan2csvexport.py:39 scripts/plan2odsexport.py:49
 msgid "No data to export"
@@ -180,13 +182,15 @@ msgstr "Žádná data k exportu"
 
 #: scripts/plan2csvexport.py:43 scripts/plan2odsexport.py:53
 msgid "You must select a file to write to"
-msgstr ""
+msgstr "Musíte vybrat soubor, do kterého se má zapisovat"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
 msgid ""
 "Data saved to file:\n"
 "%1"
 msgstr ""
+"Data uložena do souboru:\n"
+"%1"
 
 #: scripts/plan2csvexport.py:50 scripts/plan2odsexport.py:60
 msgid "Information"
@@ -194,7 +198,7 @@ msgstr "Informace"
 
 #: scripts/plan2csvexport.py:58 scripts/plan2odsexport.py:68
 msgid "No properties to export"
-msgstr ""
+msgstr "Nejsou žádné položky k exportu"
 
 #: scripts/plan2csvexport.py:94 scripts/plan2odsexport.py:106
 msgid "Select schedule"
@@ -218,11 +222,11 @@ msgstr "Sešit"
 
 #: scripts/plan2odsexport.py:37
 msgid "No current sheet."
-msgstr ""
+msgstr "Žádný aktuální list."
 
 #: scripts/plan2odsexport.py:39
 msgid "Invalid sheet '%1' defined."
-msgstr ""
+msgstr "Definován neplatný list '%1'."
 
 #: scripts/plan2odsexport.py:42
 msgid "Could not select cell 'A1'"
@@ -238,7 +242,7 @@ msgstr ""
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Failed to set all properties of '%1' to cell '%2'"
-msgstr ""
+msgstr "Nepodařilo se nastavit všechny vlastnosti položky '%1' v buňce '%2'"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Warning"
@@ -267,15 +271,15 @@ msgstr "Nelze otevřít dokument: %1"
 
 #: scripts/resourcesimport.py:48
 msgid "No project to import from"
-msgstr ""
+msgstr "Žádný projekt k importu z"
 
 #: scripts/resourcesimport.py:51
 msgid "Project identities are identical"
-msgstr ""
+msgstr "Identity projektů jsou totožné"
 
 #: scripts/resourcesimport.py:69
 msgid "Unable to create copy of resource group: %1"
-msgstr ""
+msgstr "Nelze vytvořit kopii skupiny zdrojů: %1"
 
 #: scripts/resourcesimport.py:74
 msgid "No resource to copy from"
@@ -297,49 +301,49 @@ msgstr "Nelze vytvořit kopii kalendáře: %1"
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Resource Busy Information"
-msgstr ""
+msgstr "Zdroj informací o zaneprázdněnosti"
 
 #. i18n: tag collection attribute comment
 #: scripts/scripts.rc:7
 #, kde-format
 msgid "Handle resource busy information"
-msgstr ""
+msgstr "Zpracování informací o zaneprázdněnosti zdroje"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Export Resource Busy Information"
-msgstr ""
+msgstr "Exportovat zdroj informací o zaneprázdněnosti"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:8
 #, kde-format
 msgid "Python script to export busy information to file"
-msgstr ""
+msgstr "Python skript pro export informací o zaneprázdněnosti do souboru"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Import Resource Busy Information"
-msgstr ""
+msgstr "Importovat zdroj informací o zaneprázdněnosti"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:12
 #, kde-format
 msgid "Python script to import busy information from file"
-msgstr ""
+msgstr "Python skript pro import informací o zaneprázdněnosti ze souboru"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Clear Resource Busy Information"
-msgstr ""
+msgstr "Vymazat zdroj informací o zaneprázdněnosti"
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:16
 #, kde-format
 msgid "Python script to clear the imported resource busy information"
-msgstr ""
+msgstr "Python skript pro vymazání zdroje informací o zaneprázdněnosti"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:21
@@ -387,7 +391,7 @@ msgstr "To csv"
 #: scripts/scripts.rc:32
 #, kde-format
 msgid "Export data as comma separated values"
-msgstr ""
+msgstr "Exportovat data jako hodnoty oddělené čárkami"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:36
@@ -399,7 +403,7 @@ msgstr "Do ods"
 #: scripts/scripts.rc:36
 #, kde-format
 msgid "Export data to Open Spreadsheet document"
-msgstr ""
+msgstr "Exportovat data do dokumentu Open Spreadsheet"
 
 #. i18n: tag collection attribute text
 #: scripts/scripts.rc:46
@@ -451,16 +455,17 @@ msgstr "Vytisknout informaci projektu..."
 #: scripts/scripts.rc:59
 #, kde-format
 msgid "Example python script that print project information"
-msgstr ""
+msgstr "Příklad Python skriptu, který vypíše informace o projektu"
 
 #. i18n: tag script attribute text
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Print Resource busy Information..."
-msgstr ""
+msgstr "Výpis zdroje informací o zaneprázdněnosti..."
 
 #. i18n: tag script attribute comment
 #: scripts/scripts.rc:63
 #, kde-format
 msgid "Example python script that print resource busy information"
 msgstr ""
+"Příklad Python skriptu, který vypisuje informace o zdroji zaneprázdněnosti"

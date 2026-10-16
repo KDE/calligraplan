@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-10-14 23:57+0200\n"
+"PO-Revision-Date: 2026-10-15 11:59+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #: AboutData.h:21
 #, kde-format
@@ -182,6 +182,10 @@ msgid ""
 "selecting <interface>Context Menu->Open Project</interface>.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Ganttův přehled</title><para>Zobrazuje Ganttův graf všech projektů ve "
+"vašem portfoliu.</para><para>Ganttovo zobrazení konkrétního projektu lze "
+"otevřít výběrem <interface>Kontextové menu->Otevřít projekt</interface>.<nl/"
+"><link url='%1'>Více...</link></para>"
 
 #: GanttView.cpp:100
 #, kde-format
@@ -196,7 +200,7 @@ msgstr "Neplatný dokument. Nebyl vybrán MIME typ."
 #: MainDocument.cpp:94
 #, kde-format
 msgid "Invalid document. Expected mimetype %1, got %2"
-msgstr ""
+msgstr "Neplatný dokument. Očekávaný MIME typ %1, obdržen %2"
 
 #: MainDocument.cpp:100
 #, kde-format
@@ -204,6 +208,10 @@ msgid ""
 "This document was created with a newer version of Plan (syntax version: %1)\n"
 "Opening it in this version of Plan will lose some information."
 msgstr ""
+"Tento dokument byl vytvořen v novější verzi aplikace Plan (verze syntaxe: "
+"%1)\n"
+"Při jeho otevření v této verzi aplikace Plan dojde ke ztrátě některých "
+"informací."
 
 #: MainDocument.cpp:102
 #, kde-format
@@ -235,6 +243,8 @@ msgid ""
 "<p>The external project file <filename>%1</filename> has been modified.</"
 "p><p>Do you want to save it?</p>"
 msgstr ""
+"<p>Externí soubor projektu <filename>%1</filename> byl změněn.</p><p>Chcete "
+"jej uložit?</p>"
 
 #: MainWindow.cpp:150
 #, kde-format
@@ -251,13 +261,13 @@ msgstr "Nastavit portfolio..."
 #, kde-kuit-format
 msgctxt "title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "Nastavení portfolia"
 
 #: Part.cpp:72
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Portfolio Settings"
-msgstr ""
+msgstr "Nastavení portfolia"
 
 #: PerformanceView.cpp:170
 #, kde-format
@@ -272,7 +282,7 @@ msgstr "Cena (%1)"
 #: PerformanceView.cpp:186
 #, kde-format
 msgid "Effort (Hour)"
-msgstr ""
+msgstr "Náročnost (hodina)"
 
 #: PerformanceView.cpp:190 PerformanceView.cpp:210
 #, kde-format
@@ -372,7 +382,7 @@ msgstr "Soubor"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Defines if the project is part of the portfolio"
-msgstr ""
+msgstr "Určuje, zda je projekt součástí portfolia"
 
 #: PortfolioModel.cpp:79
 #, kde-format
@@ -381,12 +391,14 @@ msgid ""
 "Defines if the project is stored embedded in the portfolio file or in the "
 "external file"
 msgstr ""
+"Určuje, zda je projekt uložen jako součást souboru portfolia, nebo v "
+"externím souboru"
 
 #: PortfolioModel.cpp:81
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The external url of the project file"
-msgstr ""
+msgstr "Externí URL adresa souboru projektu"
 
 #: PortfolioModel.cpp:101 SchedulingModel.cpp:182
 #, kde-format
@@ -413,7 +425,7 @@ msgstr "Vnější"
 #, kde-format
 msgctxt "@title:column"
 msgid "Recent Portfolios"
-msgstr ""
+msgstr "Nedávná portfolia"
 
 #: PortfolioView.cpp:133
 #, kde-kuit-format
@@ -431,6 +443,18 @@ msgid ""
 "<emphasis>Portfolio</emphasis> = <emphasis>No</emphasis> for these projects."
 "</note></para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor obsahu portfolia</title><para>Tento editor vám umožňuje "
+"nastavovat obsah vašeho portfolia.</para><para>Chcete-li do svého portfolia "
+"přidat projekty, vyberte <interface>Upravit|Přidat</interface> nebo "
+"stiskněte <interface>Přidat...</interface>.<nl/>Chcete-li odstranit vybrané "
+"projekty, vyberte <interface>Upravit|Odstranit</interface> nebo stiskněte "
+"<interface>Odstranit</interface>.</para><para>Přidejte projekty, které "
+"spravujete, a nastavte <emphasis>Portfolio</emphasis> = <emphasis>Ano</"
+"emphasis>.</para><para><note>Pokud máte zdroje sdílené mezi více projekty a "
+"chcete přeplánovat nebo zkontrolovat využití zdrojů, musíte přidat všechny "
+"příslušné projekty a poté pro tyto projekty nastavit <emphasis>Portfolio</"
+"emphasis> = <emphasis>Ne</emphasis>.</note></para><para><link "
+"url='%1'>Více...</link></para>"
 
 #: PortfolioView.cpp:152
 #, kde-kuit-format
@@ -442,6 +466,12 @@ msgid ""
 "this</interface> or by pressing <shortcut>Shift+F1</shortcut>.</"
 "para><para>Try it on this text!</para>"
 msgstr ""
+"<subtitle>Kontextová nápověda</subtitle><para>Mnoho funkcí obsahuje nápovědu "
+"a tipy, které lze zobrazit pomocí funkce <emphasis>Co je to?</emphasis>.</"
+"para><para>Tuto funkci aktivujete výběrem položky nabídky "
+"<interface>Nápověda|Co je to?</interface> nebo stisknutím klávesové zkratky "
+"<shortcut>Shift+F1</shortcut>.</para><para>Vyzkoušejte to na tomto textu!</"
+"para>"
 
 #: PortfolioView.cpp:161
 #, kde-kuit-format
@@ -461,6 +491,14 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>Kontextová nápověda</title><para>Nápověda je k dispozici na mnoha "
+"místech pomocí položky <emphasis>Co je to?</emphasis>.<nl/>Aktivuje se "
+"pomocí položky nabídky <interface>Nápověda->Co je to?</interface> nebo "
+"klávesové zkratky <shortcut>Shift+F1</shortcut>.</para><para>V dialogových "
+"oknech je k dispozici prostřednictvím ikony <interface>?</interface> v "
+"záhlaví dialogového okna.</para><para>Pokud v textu uvidíte <link "
+"url='%1'>Více...</link>, stisknutím tohoto odkazu se zobrazí další informace "
+"z dokumentace.</para>"
 
 #: PortfolioView.cpp:184
 #, kde-format
@@ -481,13 +519,14 @@ msgstr "Přidat projekt"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to load the project. Not a valid Plan file:<nl/>%1"
-msgstr ""
+msgstr "Načtení projektu se nezdařilo. Neplatný soubor aplikace Plan:<nl/>%1"
 
 #: PortfolioView.cpp:261
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open the project. This seems to be a portfolio file:<nl/>%1"
 msgstr ""
+"Nepodařilo se otevřít projekt. Zdá se, že se jedná o soubor portfolia:<nl/>%1"
 
 #: PortfolioView.cpp:324
 #, kde-kuit-format
@@ -495,7 +534,7 @@ msgctxt "@info"
 msgid ""
 "The project already exists, the project will not be added.<nl/>Project: "
 "%1<nl/> Document: %2"
-msgstr ""
+msgstr "Projekt již existuje, nebude přidán.<nl/>Projekt: %1<nl/>Dokument: %2"
 
 #. i18n: ectx: property (text), widget (QPushButton, introduction)
 #: PortfolioView.ui:136
@@ -537,6 +576,8 @@ msgid ""
 "<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
 "\">User documentation</a>"
 msgstr ""
+"<a href=\"https://docs.kde.org/index.php?application=calligraplanportfolio"
+"\">Uživatelská dokumentace</a>"
 
 #. i18n: ectx: property (statusTip), widget (QLabel, forumLabel)
 #: PortfolioView.ui:278
@@ -583,6 +624,16 @@ msgid ""
 "time period is configurable.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Průběh</title><para>Tento pohled slouží ke kontrole a úpravám "
+"informací o průběhu úloh pro vybraný projekt.<nl/>Úlohy jsou rozděleny do "
+"skupin podle jejich stavu:<list><item><emphasis>Nezahájené:</emphasis> "
+"Úlohy, které už měly být zahájeny.</item><item><emphasis>Probíhající:</"
+"emphasis> Úlohy, které byly zahájeny, ale ještě nejsou dokončeny.</"
+"item><item><emphasis>Dokončené:</emphasis> Úlohy, které byly v tomto období "
+"dokončeny.</item><item><emphasis>Příští období:</emphasis> Úlohy, jejichž "
+"zahájení je naplánováno na příští období.</item></list>Časové období je "
+"konfigurovatelné.</para><para>Toto zobrazení podporuje nastavení a tisk "
+"pomocí kontextové nabídky.<nl/><link url='%1'>Více...</link></para>"
 
 #: ProjectsDashboard.cpp:79
 #, kde-format
@@ -598,24 +649,24 @@ msgstr "Název projektu"
 #: ProjectsModel.cpp:151
 #, kde-format
 msgid "Target Start"
-msgstr ""
+msgstr "Cílový start"
 
 #: ProjectsModel.cpp:154
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Earliest start time"
-msgstr ""
+msgstr "Rozsah plánování: První čas zahájení"
 
 #: ProjectsModel.cpp:163
 #, kde-format
 msgid "Target End"
-msgstr ""
+msgstr "Cílový konec"
 
 #: ProjectsModel.cpp:166
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduling range: Latest end time"
-msgstr ""
+msgstr "Rozsah plánování: Poslední čas ukončení"
 
 #: ProjectsModel.cpp:175
 #, kde-format
@@ -643,6 +694,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Projekt: %1</title><para>Plán: Není naplánováno</"
+"para><para><list><item>Cílové zahájení:\t%2</item><item>Cílové dokončení:\t"
+"%3</item></list></para>"
 
 #: ProjectsModel.cpp:245
 #, kde-kuit-format
@@ -652,6 +706,9 @@ msgid ""
 "para><para><list><item>Target start:\t%2</item><item>Target finish:\t%3</"
 "item></list></para>"
 msgstr ""
+"<title>Projekt: %1</title><para>Plán: %4 nenaplánován</"
+"para><para><list><item>Cílové zahájení:\t%2</item><item>Cílové dokončení:\t"
+"%3</item></list></para>"
 
 #: ProjectsModel.cpp:259
 #, kde-kuit-format
@@ -661,6 +718,9 @@ msgid ""
 "start:\t%2</item><item>Planned finish:\t%3</item><item>Target start:\t%4</"
 "item><item>Target finish:\t%5</item></list></para>"
 msgstr ""
+"<title>Projekt: %1</title><para>Plán: %6</para><para><list><item>Plánované "
+"zahájení:\t%2</item><item>Plánované dokončení:\t%3</item><item>Cílové "
+"zahájení:\t%4</item><item>Cílové dokončení:\t%5</item></list></para>"
 
 #: ProjectsModel.cpp:292 ProjectsModel.cpp:313 ProjectsModel.cpp:346
 #, kde-format
@@ -672,37 +732,37 @@ msgstr "Nenaplánováno"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule: %1 is not scheduled"
-msgstr ""
+msgstr "Plán: %1 není naplánován"
 
 #: ProjectsModel.cpp:297
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to start: %1"
-msgstr ""
+msgstr "Plán %1: Plánovaný začátek: %1"
 
 #: ProjectsModel.cpp:318
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule %1: Scheduled to finish: %1"
-msgstr ""
+msgstr "Plán %1: Plánovaný konec: %1"
 
 #: ProjectsModel.cpp:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is owned by Portfolio"
-msgstr ""
+msgstr "Plán je vlastněn Portfoliem"
 
 #: ProjectsModel.cpp:340
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Schedule is baselined"
-msgstr ""
+msgstr "Plán je schválen jako základní verze"
 
 #: ProjectsModel.cpp:343
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scheduled but not baselined"
-msgstr ""
+msgstr "Plán není schválen jako základní verze"
 
 #: ResourceUsageModel.cpp:136
 #, kde-format
@@ -713,12 +773,12 @@ msgstr "Žádná úloha"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "WBS: %1<nl/>Task: %2<nl/>Project: %3"
-msgstr ""
+msgstr "WBS: %1<nl/>Úloha: %2<nl/>Projekt: %3"
 
 #: ResourceUsageView.cpp:51
 #, kde-format
 msgid "Tasks"
-msgstr "Úkoly"
+msgstr "Úlohy"
 
 #: ResourceUsageView.cpp:89
 #, kde-kuit-format
@@ -728,11 +788,13 @@ msgid ""
 "assignments for each day.</para><para><nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>Využití zdrojů</title><para>Tento přehled zobrazuje přiřazení zdrojů "
+"k úlohám pro každý den.</para><para><nl/><link url='%1'>Více...</link></para>"
 
 #: ResourceUsageView.cpp:106
 #, kde-format
 msgid "Diagram Types"
-msgstr ""
+msgstr "Typy diagramů"
 
 #: ResourceUsageView.cpp:110
 #, kde-format
@@ -776,17 +838,17 @@ msgstr "Stav"
 #: ScheduleManagerInfoDialog.cpp:32 ScheduleManagerInfoDialog.cpp:38
 #, kde-format
 msgid "New schedule"
-msgstr ""
+msgstr "Nový plán"
 
 #: ScheduleManagerInfoDialog.cpp:34
 #, kde-format
 msgid "New sub-schedule"
-msgstr ""
+msgstr "Nový dílčí plán"
 
 #: ScheduleManagerInfoDialog.cpp:76
 #, kde-format
 msgid "New schedule '%1' will be created."
-msgstr ""
+msgstr "Bude vytvořen nový plán '%1'."
 
 #: ScheduleManagerInfoDialog.cpp:84
 #, kde-format
@@ -794,6 +856,8 @@ msgid ""
 "Existing schedule '%1' is owned by Portfolio.\n"
 "'%1' will be scheduled."
 msgstr ""
+"Stávající plán '%1' je vlastněn Portfoliem.\n"
+"'%1' bude zařazen do plánu."
 
 #: ScheduleManagerInfoDialog.cpp:93
 #, kde-format
@@ -801,6 +865,8 @@ msgid ""
 "Existing schedule '%1' is owned by Plan.\n"
 "New schedule '%2' will be created."
 msgstr ""
+"Stávající plán '%1' je vlastněn Planem.\n"
+"Bude vytvořen nový plán '%2'."
 
 #: ScheduleManagerInfoDialog.cpp:101 ScheduleManagerInfoDialog.cpp:110
 #, kde-format
@@ -808,6 +874,8 @@ msgid ""
 "Project is started.\n"
 "'%1' will be created as sub-schedule to '%2'."
 msgstr ""
+"Projekt byl spuštěn.\n"
+"'%1' bude vytvořen jako dílčí plán k '%2'."
 
 # Tohle vypadá na název vlastnosti. Jméno bycvh nechal pro lidi a zvířata.
 #: SchedulingLogModel.cpp:53
@@ -869,6 +937,8 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Plánování není možné. Cílový čas ukončení projektu musí být pozdější než "
+"doba výpočtu"
 
 #: SchedulingModel.cpp:190
 #, kde-format
@@ -893,7 +963,7 @@ msgstr "Započato"
 #: SchedulingModel.cpp:198
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "V základní verzi"
 
 #: SchedulingModel.cpp:200
 #, kde-format
@@ -907,30 +977,32 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time"
 msgstr ""
+"Plánování není možné. Cílový čas ukončení projektu musí být pozdější než "
+"doba výpočtu"
 
 #: SchedulingModel.cpp:237
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule this project"
-msgstr ""
+msgstr "Naplánovat tento projekt"
 
 #: SchedulingModel.cpp:240
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Include resource bookings from this project"
-msgstr ""
+msgstr "Zahrnout rezervace zdrojů z tohoto projektu"
 
 #: SchedulingModel.cpp:243 SchedulingModel.cpp:246
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Exclude this project"
-msgstr ""
+msgstr "Vyloučit tento projekt"
 
 #: SchedulingModel.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Highest priority is scheduled first"
-msgstr ""
+msgstr "Nejvyšší priorita je naplánována jako první"
 
 #: SchedulingView.cpp:117
 #, kde-kuit-format
@@ -948,6 +1020,17 @@ msgid ""
 "needs to be included for resource leveling to work properly.</note></"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Plánování</title><para>V pohledu Plánování můžete naplánovat projekty "
+"ve svém portfoliu. Projekty se plánují podle jejich priority.</para><para>U "
+"projektu nebo projektů, které chcete naplánovat, nastavte "
+"<emphasis>Ovládání</emphasis> na <emphasis>Plánování</emphasis>.<nl/"
+">Nastavte <emphasis>Ovládání</emphasis> na <emphasis>Zahrnout</emphasis>, "
+"chcete-li, aby byla přiřazení zdrojů zahrnuta do vyrovnávání zdrojů.<nl/"
+">Nastavte <emphasis>Ovládání</emphasis> na <emphasis>Vyloučit</emphasis>, "
+"pokud chcete projekt vyloučit.</para><para><note>Pokud vaše projekty sdílejí "
+"zdroje s projekty, které nejsou součástí vašeho portfolia, je nutné tyto "
+"projekty zahrnout, aby vyrovnávání zdrojů fungovalo správně.</note></"
+"para><para><link url='%1'>Více...</link></para>"
 
 #: SchedulingView.cpp:180
 #, kde-format
@@ -966,12 +1049,12 @@ msgstr "Popis..."
 #: SchedulingView.cpp:397
 #, kde-format
 msgid "Internal error. No scheduler plugin found."
-msgstr ""
+msgstr "Vnitřní chyba. Nebyl nalezen žádný modul plánovače."
 
 #: SchedulingView.cpp:404 SchedulingView.cpp:419
 #, kde-format
 msgid "Nothing to schedule"
-msgstr ""
+msgstr "Není co naplánovat"
 
 #: SchedulingView.cpp:446
 #, kde-format
@@ -979,11 +1062,13 @@ msgid ""
 "Scheduling not possible. Project target end time must be later than "
 "calculation time."
 msgstr ""
+"Plánování není možné. Cílový čas ukončení projektu musí být pozdější než "
+"doba výpočtu."
 
 #: SchedulingView.cpp:458
 #, kde-format
 msgid "Scheduling projects"
-msgstr ""
+msgstr "Plánování projektů"
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingProperties)
 #: SchedulingView.ui:54
@@ -1063,7 +1148,7 @@ msgctxt ""
 "@info:tooltip (Budgeted Cost of Work Scheduled/Budgeted Cost of Work "
 "Performed"
 msgid "Schedule Performance Index (BCWS/BCWP)"
-msgstr ""
+msgstr "Index výkonnosti plánu (BCWS/BCWP)"
 
 #: SummaryView.cpp:82
 #, kde-kuit-format
@@ -1074,6 +1159,11 @@ msgid ""
 "shown for both cost based and effort based calculations.</para><para><nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Souhrnný přehled projektů</title><para>Tento přehled shrnuje údaje o "
+"výkonnosti projektů ve vašem portfoliu.</para><para>Ukazatele výkonnosti "
+"jsou zobrazeny jak pro výpočty založené na nákladech, tak pro výpočty "
+"založené na vynaloženém úsilí.</para><para><nl/><link url='%1'>Více...</"
+"link></para>"
 
 #: View.cpp:58
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-10-14 23:55+0200\n"
+"PO-Revision-Date: 2026-10-16 01:11+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -210,7 +210,7 @@ msgstr "Naplánováno"
 #: kernel/kptglobal.cpp:24
 #, kde-format
 msgid "Resource overbooked"
-msgstr ""
+msgstr "Překročená kapacita zdroje"
 
 #: kernel/kptglobal.cpp:26
 #, kde-format
@@ -220,7 +220,7 @@ msgstr "Zdroj nedostupný"
 #: kernel/kptglobal.cpp:28
 #, kde-format
 msgid "No resource allocated"
-msgstr ""
+msgstr "Není přidělen žádný zdroj"
 
 #: kernel/kptglobal.cpp:30
 #, kde-format
@@ -345,7 +345,7 @@ msgstr "Pevný interval"
 #: kernel/kptnode.cpp:848
 #, kde-format
 msgid "Task constraint outside project constraint"
-msgstr ""
+msgstr "Omezení úlohy mimo omezení projektu"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, estimateType)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_effort)
@@ -410,7 +410,7 @@ msgstr "Zpět"
 #: kernel/kptproject.cpp:290
 #, kde-format
 msgid "Calculate start"
-msgstr "Spočítat start"
+msgstr "Spočítat spuštění"
 
 #: kernel/kptproject.cpp:293 kernel/kptproject.cpp:405
 #: kernel/kptproject.cpp:435 models/reportgenerator/ReportGenerator.cpp:32
@@ -421,7 +421,7 @@ msgstr "Rozvrh"
 #: kernel/kptproject.cpp:294 kernel/kptproject.cpp:406
 #, kde-format
 msgid "Schedule tasks forward"
-msgstr ""
+msgstr "Naplánovat úlohy dopředu"
 
 #: kernel/kptproject.cpp:297 kernel/kptproject.cpp:467
 #, kde-format
@@ -431,127 +431,127 @@ msgstr "Plánování bylo zrušeno"
 #: kernel/kptproject.cpp:299 kernel/kptproject.cpp:409
 #, kde-format
 msgid "Scheduled finish: %1"
-msgstr ""
+msgstr "Plánovaný konec: %1"
 
 #: kernel/kptproject.cpp:301 kernel/kptproject.cpp:412
 #, kde-format
 msgid "Could not finish project in time: %1"
-msgstr ""
+msgstr "Projekt se nepodařilo dokončit včas: %1"
 
 #: kernel/kptproject.cpp:303 kernel/kptproject.cpp:414
 #, kde-format
 msgid "Finished project exactly on time: %1"
-msgstr ""
+msgstr "Projekt dokončen přesně v termínu: %1"
 
 #: kernel/kptproject.cpp:305 kernel/kptproject.cpp:416
 #, kde-format
 msgid "Finished project before time: %1"
-msgstr ""
+msgstr "Projekt dokončen před termínem: %1"
 
 #: kernel/kptproject.cpp:390
 #, kde-format
 msgid "Schedule project forward from: %1"
-msgstr ""
+msgstr "Naplánovat pokračování projektu od: %1"
 
 #: kernel/kptproject.cpp:396 kernel/kptproject.cpp:432
 #, kde-format
 msgid "Calculate late finish"
-msgstr ""
+msgstr "Vypočítat pozdní dokončení"
 
 #: kernel/kptproject.cpp:399 kernel/kptproject.cpp:434
 #, kde-format
 msgid "Late finish calculated: %1"
-msgstr ""
+msgstr "Pozdní dokončení vypočítáno: %1"
 
 #: kernel/kptproject.cpp:402 kernel/kptproject.cpp:426
 #, kde-format
 msgid "Calculate early start"
-msgstr ""
+msgstr "Vypočítat předčasné spuštění"
 
 #: kernel/kptproject.cpp:422
 #, kde-format
 msgid "Schedule project backward from: %1"
-msgstr ""
+msgstr "Naplánovat projekt zpětně od: %1"
 
 #: kernel/kptproject.cpp:429
 #, kde-format
 msgid "Early start calculated: %1"
-msgstr ""
+msgstr "Předčasné spuštění vypočítáno: %1"
 
 #: kernel/kptproject.cpp:436
 #, kde-format
 msgid "Schedule tasks backward"
-msgstr ""
+msgstr "Naplánovat úlohy zpětně"
 
 #: kernel/kptproject.cpp:451
 #, kde-format
 msgid "Failed to finish project within target time"
-msgstr ""
+msgstr "Projekt se nepodařilo dokončit v plánovaném termínu"
 
 #: kernel/kptproject.cpp:454
 #, kde-format
 msgid "Scheduled start: %1, target time: %2"
-msgstr ""
+msgstr "Plánovaný start: %1, cílový čas: %2"
 
 #: kernel/kptproject.cpp:457
 #, kde-format
 msgid "Must start project early in order to finish in time: %1"
-msgstr "Musí zahájit projekt brzy, aby byl dokončen včas: %1"
+msgstr "Projekt je třeba zahájit včas, aby byl dokončen v termínu: %1"
 
 #: kernel/kptproject.cpp:459
 #, kde-format
 msgid "Start project exactly on time: %1"
-msgstr ""
+msgstr "Zahájit projekt přesně včas: %1"
 
 #: kernel/kptproject.cpp:461
 #, kde-format
 msgid "Can start project later than time: %1"
-msgstr ""
+msgstr "Projekt lze zahájit později než v čase: %1"
 
 #: kernel/kptproject.cpp:469
 #, kde-format
 msgid "Calculation took: %1"
-msgstr ""
+msgstr "Výpočet trval: %1"
 
 #: kernel/kptproject.cpp:855
 #, kde-format
 msgid "Start calculating forward"
-msgstr ""
+msgstr "Spustit výpočet dopředu"
 
 #: kernel/kptproject.cpp:902
 #, kde-format
 msgid "Finished calculating forward: %1 ms"
-msgstr ""
+msgstr "Výpočet dopředu dokončen: %1 ms"
 
 #: kernel/kptproject.cpp:920
 #, kde-format
 msgid "Start calculating backward"
-msgstr ""
+msgstr "Spustit výpočet zpětně"
 
 #: kernel/kptproject.cpp:967
 #, kde-format
 msgid "Finished calculating backward: %1 ms"
-msgstr ""
+msgstr "Výpočet zpětně dokončen: %1 ms"
 
 #: kernel/kptproject.cpp:983
 #, kde-format
 msgid "Start scheduling forward"
-msgstr ""
+msgstr "Spustit plánování dopředu"
 
 #: kernel/kptproject.cpp:1005
 #, kde-format
 msgid "Finished scheduling forward: %1 ms"
-msgstr ""
+msgstr "Plánování dopředu dokončeno: %1 ms"
 
 #: kernel/kptproject.cpp:1025
 #, kde-format
 msgid "Start scheduling backward"
-msgstr ""
+msgstr "Spustit plánování zpětně"
 
 #: kernel/kptproject.cpp:1046
 #, kde-format
 msgid "Finished scheduling backward: %1 ms"
-msgstr ""
+msgstr "Plánování zpětně dokončeno: %1 ms"
 
 #: kernel/kptproject.cpp:2733
 #, kde-format
@@ -562,39 +562,40 @@ msgstr "Plan"
 #: kernel/kptrelation.cpp:80 ui/relationpanel.ui:93
 #, kde-format
 msgid "Finish-Start"
-msgstr ""
+msgstr "Cíl-Start"
 
 #. i18n: ectx: property (text), widget (QRadioButton, bFinishFinish)
 #: kernel/kptrelation.cpp:81 ui/relationpanel.ui:100
 #, kde-format
 msgid "Finish-Finish"
-msgstr ""
+msgstr "Cíl-Konec"
 
 #. i18n: ectx: property (text), widget (QRadioButton, bStartStart)
 #: kernel/kptrelation.cpp:82 ui/relationpanel.ui:107
 #, kde-format
 msgid "Start-Start"
-msgstr ""
+msgstr "Start-Start"
 
 #: kernel/kptresourcerequest.cpp:724
 #, kde-format
 msgid "Re-scheduling but no used resources was found"
-msgstr ""
+msgstr "Došlo ke změně plánu, ale nebyly nalezeny žádné používané zdroje"
 
 #: kernel/kptresourcerequest.cpp:821
 #, kde-format
 msgid "Deviation match: granularity: %1, deviation: %2"
-msgstr ""
+msgstr "Shoda odchylek: granularita: %1, odchylka: %2"
 
 #: kernel/kptresourcerequest.cpp:975
 #, kde-format
 msgid "Could not match effort. Want: %1 got: %2 (%3)"
 msgstr ""
+"Nedařilo se dosáhnout požadovaného výsledku. Cíl: %1, výsledek: %2 (%3)"
 
 #: kernel/kptresourcerequest.cpp:978
 #, kde-format
 msgid "Resource %1 available from %2 to %3"
-msgstr ""
+msgstr "Zdroj %1 je k dispozici od %2 do %3"
 
 #: kernel/kptschedule.cpp:165
 #, kde-format
@@ -638,12 +639,12 @@ msgstr "Portfolio"
 #: kernel/kptschedule.cpp:1798
 #, kde-format
 msgid "Baselined"
-msgstr ""
+msgstr "V základní verzi"
 
 #: kernel/kpttask.cpp:1106
 #, kde-format
 msgid "Calculate early finish "
-msgstr ""
+msgstr "Vypočítat předčasné dokončení "
 
 #: kernel/kpttask.cpp:1144 kernel/kpttask.cpp:1162 kernel/kpttask.cpp:1179
 #: kernel/kpttask.cpp:1202 kernel/kpttask.cpp:1228 kernel/kpttask.cpp:1235
@@ -653,43 +654,45 @@ msgstr ""
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint"
-msgstr ""
+msgstr "%1: Nepodařilo se splnit podmínku"
 
 #: kernel/kpttask.cpp:1274 kernel/kpttask.cpp:1527 kernel/kpttask.cpp:1927
 #: kernel/kpttask.cpp:2306
 #, kde-format
 msgid "Resource %1 booked from %2 to %3"
-msgstr ""
+msgstr "Zdroj %1 je rezervován od %2 do %3"
 
 #: kernel/kpttask.cpp:1280
 #, kde-format
 msgid "Early finish calculated: %1"
-msgstr ""
+msgstr "Předčasné dokončení vypočítáno: %1"
 
 #: kernel/kpttask.cpp:1380
 #, kde-format
 msgid "Calculate late start"
-msgstr ""
+msgstr "Spočítat pozdní spuštění"
 
 #: kernel/kpttask.cpp:1533
 #, kde-format
 msgid "Late start calculated: %1"
-msgstr ""
+msgstr "Pozdní spuštění spočítáno: %1"
 
 #: kernel/kpttask.cpp:1627
 #, kde-format
 msgid "Start schedule forward: %1 "
-msgstr ""
+msgstr "Spustit plán dopředu: %1 "
 
 #: kernel/kpttask.cpp:1629
 #, kde-format
 msgid "Schedule from start %1"
-msgstr ""
+msgstr "Naplánovat od začátku %1"
 
 #: kernel/kpttask.cpp:1676
 #, kde-format
 msgid "%1: Scheduling failed using late finish, trying early finish instead."
 msgstr ""
+"%1: Plánování s použitím pozdního ukončení se nezdařilo, pokus o plánování s "
+"použitím předčasného ukončení."
 
 #: kernel/kpttask.cpp:1711 kernel/kpttask.cpp:1735 kernel/kpttask.cpp:1761
 #: kernel/kpttask.cpp:1785 kernel/kpttask.cpp:1803 kernel/kpttask.cpp:1874
@@ -700,32 +703,32 @@ msgstr ""
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to meet constraint. Negative float=%2"
-msgstr "%1: Nesplnil omezení. Záporný posun=%2"
+msgstr "%1: Nepodařilo se splnit omezení. Záporný posun = %2"
 
 #: kernel/kpttask.cpp:1827 kernel/kpttask.cpp:2212
 #, kde-format
 msgid "Effort deviation. Estimate: %1, scheduled: %2, granularity: %3"
-msgstr ""
+msgstr "Odchylka od plánu. Odhad: %1, plán: %2, granularita: %3"
 
 #: kernel/kpttask.cpp:1835 kernel/kpttask.cpp:2220
 #, kde-format
 msgid "Effort not met. Estimate: %1, scheduled: %2"
-msgstr ""
+msgstr "Cíl nebyl splněn. Odhad: %1, plánováno: %2"
 
 #: kernel/kpttask.cpp:1923 kernel/kpttask.cpp:2302
 #, kde-format
 msgid "Failed to schedule within project target time"
-msgstr ""
+msgstr "Nepodařilo se naplánovat v rámci cílového času projektu"
 
 #: kernel/kpttask.cpp:1930 kernel/kpttask.cpp:2309
 #, kde-format
 msgid "Starting earlier than early start"
-msgstr ""
+msgstr "Začátek ještě dříve než u předčasného spuštění"
 
 #: kernel/kpttask.cpp:1933 kernel/kpttask.cpp:2312
 #, kde-format
 msgid "Finishing later than late finish"
-msgstr ""
+msgstr "Dokončení později než pozdní dokončení"
 
 #: kernel/kpttask.cpp:1935 kernel/kpttask.cpp:2314
 #, kde-format
@@ -735,40 +738,41 @@ msgstr "Naplánováno: %1 na %2"
 #: kernel/kpttask.cpp:1938
 #, kde-format
 msgid "Finished schedule forward: %1 ms"
-msgstr ""
+msgstr "Plánování dopředu dokončeno: %1 ms"
 
 #: kernel/kpttask.cpp:2033
 #, kde-format
 msgid "Schedule from end time: %1"
-msgstr ""
+msgstr "Naplánovat od doby dokončení: %1"
 
 #: kernel/kpttask.cpp:2057
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within late finish."
-msgstr ""
+msgstr "%1: Nepodařilo se naplánovat v rámci limitu pro pozdní dokončení."
 
 #: kernel/kpttask.cpp:2063
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule within successors start time"
-msgstr ""
+msgstr "%1: Nepodařilo se naplánovat v rámci času spuštění následujících úloh"
 
 #: kernel/kpttask.cpp:2090 kernel/kpttask.cpp:2228
 #, kde-format
 msgctxt "1=type of constraint"
 msgid "%1: Failed to schedule after early start."
-msgstr ""
+msgstr "%1: Po předčasném spuštění se nepodařilo naplánovat."
 
 #: kernel/kpttask.cpp:2385
 #, kde-format
 msgid "No resource has been allocated"
-msgstr "Nealokován žádný zdroj"
+msgstr "Nebyl přidělen žádný zdroj"
 
 #: kernel/kpttask.cpp:2550
 #, kde-format
 msgid "Could not match work duration. Want: %1 got: %2"
 msgstr ""
+"Nepodařilo se najít shodu v délce trvání práce. Požadováno: %1, obdrženo: %2"
 
 #: kernel/kptwbsdefinition.cpp:28
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:229
@@ -779,22 +783,22 @@ msgstr "Číslo"
 #: kernel/kptwbsdefinition.cpp:29
 #, kde-format
 msgid "Roman, upper case"
-msgstr ""
+msgstr "Římské, velká písmena"
 
 #: kernel/kptwbsdefinition.cpp:30
 #, kde-format
 msgid "Roman, lower case"
-msgstr ""
+msgstr "Římské, malá písmena"
 
 #: kernel/kptwbsdefinition.cpp:31
 #, kde-format
 msgid "Letter, upper case"
-msgstr ""
+msgstr "Písmeno, velké"
 
 #: kernel/kptwbsdefinition.cpp:32
 #, kde-format
 msgid "Letter, lower case"
-msgstr ""
+msgstr "Písmeno, malé"
 
 #: kernel/Resource.cpp:200
 #, kde-kuit-format
@@ -817,28 +821,28 @@ msgstr "Tým"
 #: kernel/Resource.cpp:583
 #, kde-format
 msgid "Make appointments: Invalid time"
-msgstr ""
+msgstr "Plánování schůzek: Neplatný čas"
 
 #: kernel/Resource.cpp:588 kernel/Resource.cpp:649 kernel/Resource.cpp:899
 #: kernel/Resource.cpp:974
 #, kde-format
 msgid "Resource %1 has no calendar defined"
-msgstr ""
+msgstr "Pro zdroj %1 není definován žádný kalendář"
 
 #: kernel/Resource.cpp:612
 #, kde-format
 msgid "Make appointments: Node start time is not valid"
-msgstr ""
+msgstr "Plánování schůzek: Čas zahájení uzlu není platný"
 
 #: kernel/Resource.cpp:616
 #, kde-format
 msgid "Make appointments: Node end time is not valid"
-msgstr ""
+msgstr "Plánování schůzek: Čas ukončení uzlu není platný"
 
 #: kernel/Resource.cpp:663 kernel/Resource.cpp:680
 #, kde-format
 msgid "Resource %1 not available in interval: %2 to %3"
-msgstr ""
+msgstr "Zdroj %1 není k dispozici v intervalu: %2 až %3"
 
 #: kernel/WorkPackage.cpp:135
 #, kde-format
@@ -931,7 +935,7 @@ msgstr "Kontextová nápověda:"
 #: main/config/ConfigDocumentationPanel.ui:95
 #, kde-format
 msgid "Context language"
-msgstr ""
+msgstr "Jazyk kontextu"
 
 #: main/config/KoConfigDocumentPage.cpp:60
 #, kde-format
@@ -1098,17 +1102,17 @@ msgstr "Změnit ikonu"
 #: main/KoApplication.cpp:191
 #, kde-format
 msgid "just load the file and then exit"
-msgstr ""
+msgstr "stačí soubor načíst a poté program ukončit"
 
 #: main/KoApplication.cpp:192
 #, kde-format
 msgid "load the file, show the window and progressbar and then exit"
-msgstr ""
+msgstr "načíst soubor, zobrazit okno a ukazatel průběhu a poté ukončit"
 
 #: main/KoApplication.cpp:193
 #, kde-format
 msgid "Filename to write profiling information into."
-msgstr ""
+msgstr "Název souboru, do kterého se mají zapsat informace o profilování."
 
 #: main/KoApplication.cpp:194
 #, kde-format
@@ -1127,6 +1131,9 @@ msgid ""
 "This might be an installation issue.\n"
 "Try restarting or reinstalling."
 msgstr ""
+"Nebyly nalezeny základní součásti aplikace.\n"
+"Může se jednat o problém s instalací.\n"
+"Zkuste aplikaci restartovat nebo přeinstalovat."
 
 #: main/KoAutoSaveRecoveryDialog.cpp:167
 #, kde-format
@@ -1134,15 +1141,17 @@ msgctxt "@title:window"
 msgid "Recover Files"
 msgstr "Obnovit soubory"
 
+# 50168 AttribValues/delnotify
 #: main/KoAutoSaveRecoveryDialog.cpp:172
 #, kde-format
 msgid "The following autosave file can be recovered:"
-msgstr ""
+msgstr "Následující soubor automatického ukládání může být obnoven:"
 
+# 50168 AttribValues/delnotify
 #: main/KoAutoSaveRecoveryDialog.cpp:175
 #, kde-format
 msgid "The following autosave files can be recovered:"
-msgstr ""
+msgstr "Následující soubory automatického ukládání mohou být obnoveny:"
 
 #: main/KoDocument.cpp:568
 #, kde-format
@@ -1183,6 +1192,8 @@ msgid ""
 "The password of this encrypted document is not known. Autosave aborted! "
 "Please save your work manually."
 msgstr ""
+"Heslo k tomuto zašifrovanému dokumentu není známo. Automatické ukládání bylo "
+"přerušeno! Uložte prosím svou práci ručně."
 
 #: main/KoDocument.cpp:732
 #, kde-format
@@ -1311,22 +1322,22 @@ msgstr "Nedostatek paměti"
 #: main/KoDocument.cpp:1456
 #, kde-format
 msgid "Empty Filter Plugin"
-msgstr ""
+msgstr "Vyprázdnit modul filtru"
 
 #: main/KoDocument.cpp:1459
 #, kde-format
 msgid "Trying to load into the wrong kind of document"
-msgstr ""
+msgstr "Pokus o načtení do nesprávného typu dokumentu"
 
 #: main/KoDocument.cpp:1462
 #, kde-format
 msgid "Failed to download remote file"
-msgstr ""
+msgstr "Stahování vzdáleného souboru se nezdařilo"
 
 #: main/KoDocument.cpp:1470
 #, kde-format
 msgid "Reading file timed out"
-msgstr ""
+msgstr "Vypršel časový limit pro čtení souboru"
 
 #: main/KoDocument.cpp:1473 main/KoDocument.cpp:1484
 #, kde-format
@@ -1336,17 +1347,17 @@ msgstr "Neznámá chyba"
 #: main/KoDocument.cpp:1476
 #, kde-format
 msgid "Filter planconvert.jar not found, check your installation"
-msgstr ""
+msgstr "Filtr planconvert.jar nebyl nalezen, zkontrolujte instalaci"
 
 #: main/KoDocument.cpp:1479
 #, kde-format
 msgid "Execution failed. Check your installation"
-msgstr ""
+msgstr "Provedení se nezdařilo. Zkontrolujte instalaci"
 
 #: main/KoDocument.cpp:1482
 #, kde-format
 msgid "Execution failed. ODBC Driver not found"
-msgstr ""
+msgstr "Provedení se nezdařilo. Nebyl nalezen ovladač ODBC."
 
 #: main/KoDocument.cpp:1488
 #, kde-format
@@ -1405,7 +1416,7 @@ msgstr ""
 #: main/KoDocument.cpp:1723
 #, kde-format
 msgid "Not a valid Calligra Plan file: %1"
-msgstr ""
+msgstr "Neplatný soubor Calligra Plan: %1"
 
 #: main/KoDocument.cpp:1740 main/KoDocument.cpp:1771
 #, kde-format
@@ -1423,6 +1434,8 @@ msgid ""
 "Document <i>%1</i> contains several versions. Go to File->Versions to open "
 "an old version."
 msgstr ""
+"Dokument <i>%1</i> obsahuje několik verzí. Chcete-li otevřít starší verzi, "
+"přejděte do nabídky Soubor->Verze."
 
 #: main/KoDocument.cpp:2045 main/KoDocument.cpp:2541 main/KoMainWindow.cpp:1252
 #, kde-format
@@ -1563,7 +1576,7 @@ msgstr "Zaši&frovat dokument"
 #: main/KoMainWindow.cpp:296
 #, kde-format
 msgid "&Uncompress to Directory"
-msgstr ""
+msgstr "&Rozbalit do adresáře"
 
 #: main/KoMainWindow.cpp:301
 #, kde-format
@@ -1589,7 +1602,7 @@ msgstr "Zobrazit doky"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Docker Titlebars"
-msgstr ""
+msgstr "Zobrazit záhlaví doků"
 
 #: main/KoMainWindow.cpp:351
 #, kde-format
@@ -1619,6 +1632,9 @@ msgid ""
 "a new project using this template and save it using <interface>File->Create "
 "Project Template...</interface>."
 msgstr ""
+"Nelze otevřít soubor šablony.<nl/>Chcete-li šablonu upravit, vytvořte nový "
+"projekt pomocí této šablony a uložte jej pomocí <interface>Soubor->Vytvořit "
+"šablonu projektu...</interface>."
 
 #: main/KoMainWindow.cpp:886 widgets/KoDocumentInfoDlg.cpp:395
 #: widgets/KoDocumentInfoDlg.cpp:439
@@ -1679,12 +1695,12 @@ msgstr "Importovat dokument"
 #: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
-msgstr ""
+msgstr "Nelze zobrazit náhled dokumentu"
 
 #: main/KoMainWindow.cpp:1550
 #, kde-format
 msgid "Cannot open pdf viewer"
-msgstr ""
+msgstr "Nelze spustit prohlížeč PDF"
 
 #: main/KoMainWindow.cpp:1598
 #, kde-format
@@ -1694,7 +1710,7 @@ msgstr "Exportovat jako PDF"
 #: main/KoMainWindow.cpp:1635
 #, kde-format
 msgid "Cannot export to the specified file"
-msgstr ""
+msgstr "Nelze exportovat do zadaného souboru"
 
 #: main/KoMainWindow.cpp:1811
 #, kde-format
@@ -1712,6 +1728,8 @@ msgid ""
 "You will lose all changes made since your last save\n"
 "Do you want to continue?"
 msgstr ""
+"Ztratíte všechny změny provedené od posledního uložení\n"
+"Chcete pokračovat?"
 
 #: main/KoMainWindow.cpp:2203
 #, kde-format
@@ -1803,6 +1821,12 @@ msgid ""
 "resource> and <resource>- End</resource> times.<nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Vytvořit nový projekt</title><para>Vytvoří nový projekt s výchozími "
+"hodnotami definovanými v <emphasis>Nastavení</emphasis>.<nl/>Otevře "
+"<emphasis>dialogové okno projektu</emphasis>, ve kterém můžete definovat "
+"vlastnosti specifické pro daný projekt, jako jsou <resource>Název projektu</"
+"resource>, <resource>Cílové spuštění</resource> a <resource>- Konec</"
+"resource>.<nl/><link url='%1'>Více...</link></para>"
 
 #: main/WelcomeView.cpp:147
 #, kde-kuit-format
@@ -1815,6 +1839,12 @@ msgid ""
 "<nl/>Shared resources must be defined in a separate file.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Sdílené zdroje</title><para>Vytvořte soubor se sdílenými zdroji.<nl/"
+">Díky tomu stačí zdroje vytvořit pouze jednou; při vytváření nového projektu "
+"pak stačí odkazovat na tento soubor se zdroji.<nl/>Tyto zdroje lze následně "
+"sdílet mezi projekty, čímž se zabrání jejich nadměrnému obsazení v rámci "
+"různých projektů.<nl/>Sdílené zdroje musí být definovány v samostatném "
+"souboru.<nl/><link url='%1'>Více...</link></para>"
 
 #: main/WelcomeView.cpp:160
 #, kde-kuit-format
@@ -1824,6 +1854,9 @@ msgid ""
 "files opened.</para><para><nl/>This enables you to quickly open projects you "
 "have worked on recently.</para>"
 msgstr ""
+"<title>Nedávné projekty</title><para>Seznam 10 naposledy otevřených "
+"projektových souborů.</para><para><nl/>Díky tomu můžete rychle otevřít "
+"projekty, na kterých jste nedávno pracovali.</para>"
 
 #: main/WelcomeView.cpp:169
 #, kde-kuit-format
@@ -1837,6 +1870,14 @@ msgid ""
 "<link url='%1'>More...</link> in the text, pressing it will display more "
 "information from the documentation.</para>"
 msgstr ""
+"<title>Kontextová nápověda</title><para>Nápověda je k dispozici na mnoha "
+"místech pomocí položky <emphasis>Co je to?</emphasis>.<nl/>Aktivuje se "
+"pomocí položky nabídky <interface>Nápověda->Co je to?</interface> nebo "
+"klávesové zkratky <shortcut>Shift+F1</shortcut>.</para><para>V dialogových "
+"oknech je k dispozici prostřednictvím ikony <interface>?</interface> v "
+"záhlaví dialogového okna.</para><para>Pokud v textu uvidíte <link "
+"url='%1'>Více...</link>, stisknutím tohoto odkazu se zobrazí další informace "
+"z dokumentace.</para>"
 
 #: main/WelcomeView.cpp:187
 #, kde-kuit-format
@@ -1849,6 +1890,12 @@ msgid ""
 "new templates from a project using the <interface>File->Create Project "
 "Template</interface> menu entry.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Šablony projektu</title><para>Vyberte šablonu a vytvořte nový projekt "
+"na jejím základě.</para><para>Plan vyhledává šablony v umístěních, která "
+"můžete definovat v dialogovém okně nastavení: <interface>Nastavení->Nastavit "
+"Plan</interface>.</para><para>Nové šablony můžete vytvořit z projektu pomocí "
+"položky nabídky <interface>Soubor->Vytvořit šablonu projektu</interface>.<nl/"
+"><link url='%1'>Více...</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, newProjectBtn)
 #: main/WelcomeView.ui:56
@@ -1875,6 +1922,9 @@ msgid ""
 "p><p>Displays a file dialog enabling you to open an existing project.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-weight:600;\">Otevřít projekt</"
+"span></p><p>Zobrazí dialogové okno pro výběr souboru, ve kterém můžete "
+"otevřít existující projekt.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QPushButton, openProjectBtn)
 #: main/WelcomeView.ui:159
@@ -1995,7 +2045,7 @@ msgstr "%1%"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not allocated"
-msgstr ""
+msgstr "Není přiděleno"
 
 #: models/GroupAllocationItemModel.cpp:131
 #, kde-format
@@ -2031,7 +2081,7 @@ msgstr "Typ"
 #: models/kptresourceallocationmodel.cpp:528
 #, kde-format
 msgid "Allocation"
-msgstr "Alokace"
+msgstr "Přidělení"
 
 #: models/GroupAllocationItemModel.cpp:174
 #: models/kptresourceallocationmodel.cpp:529
@@ -2044,31 +2094,31 @@ msgstr "Dostupné"
 #: models/kptresourceallocationmodel.cpp:543
 #, kde-format
 msgid "Resource allocation"
-msgstr ""
+msgstr "Přidělení zdroje"
 
 #: models/GroupAllocationItemModel.cpp:187
 #, kde-kuit-format
 msgctxt "@info:tootip"
 msgid "Available resources or resource units"
-msgstr ""
+msgstr "Dostupné zdroje nebo jednotky zdrojů"
 
 #: models/GroupAllocationItemModel.cpp:463
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 resource requested for dynamic allocation"
 msgid_plural "%1 resources requested for dynamic allocation"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Požadován %1 zdroj pro dynamické přidělení"
+msgstr[1] "Požadovány %1 zdroje pro dynamické přidělení"
+msgstr[2] "Požadováno %1 zdrojů pro dynamické přidělení"
 
 #: models/GroupAllocationItemModel.cpp:467
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 resource allocated"
 msgid_plural "%1 resources allocated"
-msgstr[0] "Alokován %1 zdroj"
-msgstr[1] "Alokovány %1 zdroje"
-msgstr[2] "Alokováno %1 zdrojů"
+msgstr[0] "Přidělen %1 zdroj"
+msgstr[1] "Přiděleny %1 zdroje"
+msgstr[2] "Přiděleno %1 zdrojů"
 
 #: models/GroupAllocationItemModel.cpp:471
 #, kde-kuit-format
@@ -3390,7 +3440,7 @@ msgstr "<p><strong>%1: %2</strong></p><p>%3</p>"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resources has been allocated"
-msgstr "Nebyly alokovány zdroje"
+msgstr "Nebyly přiděleny zdroje"
 
 #: models/kptnodeitemmodel.cpp:181
 #, kde-format
@@ -3414,13 +3464,13 @@ msgstr "%1%2%3"
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=resource name"
 msgid "Allocated resource:<nl/>%1"
-msgstr "Alokovaný zdroj:<nl/>%1"
+msgstr "Přidělený zdroj:<nl/>%1"
 
 #: models/kptnodeitemmodel.cpp:191
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=list of resources"
 msgid "Allocated resources:<nl/>%1"
-msgstr "Alokované zdroje:<nl/>%1"
+msgstr "Přidělené zdroje:<nl/>%1"
 
 #: models/kptnodeitemmodel.cpp:254
 #, kde-format
@@ -3540,7 +3590,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduled finish: %1"
-msgstr ""
+msgstr "Plánovaný konec: %1"
 
 #: models/kptnodeitemmodel.cpp:864 models/kptnodeitemmodel.cpp:868
 #, kde-kuit-format
@@ -3647,28 +3697,28 @@ msgstr "Běžící"
 #: models/kptnodeitemmodel.cpp:1387
 #, kde-format
 msgid "Started late"
-msgstr "Započato pozdě"
+msgstr "Spuštěno pozdě"
 
 #: models/kptnodeitemmodel.cpp:1390
 #, kde-format
 msgid "Started early"
-msgstr "Započato brzo"
+msgstr "Spuštěno brzo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: models/kptnodeitemmodel.cpp:1395 ui/kptworkpackagemergepanel.ui:133
 #, kde-format
 msgid "Started"
-msgstr "Spuštěn"
+msgstr "Spuštěno"
 
 #: models/kptnodeitemmodel.cpp:1399 models/kptnodeitemmodel.cpp:1409
 #, kde-format
 msgid "Not started"
-msgstr "Nezapočato"
+msgstr "Nespuštěno"
 
 #: models/kptnodeitemmodel.cpp:1401
 #, kde-format
 msgid "Can start"
-msgstr "Lze začít"
+msgstr "Lze spustit"
 
 #: models/kptnodeitemmodel.cpp:1405
 #, kde-format
@@ -3678,7 +3728,7 @@ msgstr "Pozdrženo"
 #: models/kptnodeitemmodel.cpp:1407
 #, kde-format
 msgid "Cannot start"
-msgstr "Nelze začít"
+msgstr "Nelze spustit"
 
 #: models/kptnodeitemmodel.cpp:1420
 #, kde-kuit-format
@@ -3702,19 +3752,19 @@ msgstr "Dokončeno"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 late"
-msgstr "%1 bylo započato pozdě"
+msgstr "%1 bylo spuštěno pozdě"
 
 #: models/kptnodeitemmodel.cpp:1435
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started %1 early"
-msgstr "%1 bylo započato brzo"
+msgstr "%1 bylo spuštěno brzo"
 
 #: models/kptnodeitemmodel.cpp:1437
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Started"
-msgstr "Započato"
+msgstr "Spuštěno"
 
 #: models/kptnodeitemmodel.cpp:1440
 #, kde-kuit-format
@@ -3726,25 +3776,25 @@ msgstr "Běží"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Can start"
-msgstr "Lze začít"
+msgstr "Lze spustit"
 
 #: models/kptnodeitemmodel.cpp:1446
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Cannot start"
-msgstr "Nelze začít"
+msgstr "Nelze spustit"
 
 #: models/kptnodeitemmodel.cpp:1448
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Not started"
-msgstr "Nezapočato"
+msgstr "Nespuštěno"
 
 #: models/kptnodeitemmodel.cpp:1474
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual start: %1"
-msgstr "Skutečné započetí: %1"
+msgstr "Skutečné spuštění: %1"
 
 #: models/kptnodeitemmodel.cpp:1501
 #, kde-kuit-format
@@ -4059,7 +4109,7 @@ msgstr "Pesimistický"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Time"
-msgstr "Čas zahájení"
+msgstr "Čas spuštění"
 
 #: models/kptnodeitemmodel.cpp:2350
 #, kde-kuit-format
@@ -4071,7 +4121,7 @@ msgstr "Čas ukončení"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Early Start"
-msgstr "Brzké započetí"
+msgstr "Brzké spuštění"
 
 #: models/kptnodeitemmodel.cpp:2352
 #, kde-kuit-format
@@ -4083,7 +4133,7 @@ msgstr "Brzké dokončení"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Late Start"
-msgstr "Pozdní započetí"
+msgstr "Pozdní spuštění"
 
 #: models/kptnodeitemmodel.cpp:2354
 #, kde-kuit-format
@@ -4197,7 +4247,7 @@ msgstr "Aktuální cena"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Actual Start"
-msgstr "Skutečné započetí"
+msgstr "Aktuální spuštění"
 
 #: models/kptnodeitemmodel.cpp:2378
 #, kde-kuit-format
@@ -4245,7 +4295,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Overbooked"
-msgstr ""
+msgstr "Překročená kapacita zdroje"
 
 #: models/kptnodeitemmodel.cpp:2388
 #, kde-kuit-format
@@ -4443,7 +4493,7 @@ msgstr "Upravit zbývající úsilí"
 #: models/kptnodeitemmodel.cpp:3125 models/kpttaskstatusmodel.cpp:460
 msgctxt "(qtundo-format)"
 msgid "Modify actual effort"
-msgstr ""
+msgstr "Upravit skutečné úsilí"
 
 #: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
@@ -4458,12 +4508,12 @@ msgstr ""
 #: models/kptnodeitemmodel.cpp:3638
 msgctxt "(qtundo-format)"
 msgid "Add resource allocation"
-msgstr "Přidat přiřazení zdroje"
+msgstr "Přidat přidělení zdroje"
 
 #: models/kptnodeitemmodel.cpp:3640
 msgctxt "(qtundo-format)"
 msgid "Removed resource allocation"
-msgstr "Odstraněno přiřazení zdroje"
+msgstr "Odstraněno přidělení zdroje"
 
 #: models/kptnodeitemmodel.cpp:3663 models/kpttaskstatusmodel.cpp:391
 #, no-c-format
@@ -4475,7 +4525,7 @@ msgstr "Upravit dokončení"
 #: models/kpttaskstatusmodel.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Set finished"
-msgstr ""
+msgstr "Sada dokončena"
 
 #: models/kptnodeitemmodel.cpp:4066
 msgctxt "(qtundo-format)"
@@ -4699,7 +4749,7 @@ msgstr ""
 #: models/kptresourceappointmentsmodel.cpp:1168
 #, kde-format
 msgid "Start Time"
-msgstr "Čas zahájení"
+msgstr "Čas spuštění"
 
 #: models/kptresourceappointmentsmodel.cpp:1169
 #, kde-format
@@ -4863,7 +4913,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
-msgstr ""
+msgstr "Cílové spuštění: %1"
 
 #: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
@@ -5000,7 +5050,7 @@ msgstr "Distribuce"
 #: models/kptschedulemodel.cpp:993
 #, kde-format
 msgid "Planned Start"
-msgstr "Plánované započetí"
+msgstr "Plánované spuštění"
 
 #: models/kptschedulemodel.cpp:994
 #, kde-format
@@ -5036,7 +5086,7 @@ msgstr "Závažnost"
 #: models/kpttaskstatusmodel.cpp:40
 #, kde-format
 msgid "Not Started"
-msgstr "Nespuštěn"
+msgstr "Nespuštěno"
 
 #: models/kpttaskstatusmodel.cpp:41
 #, kde-format
@@ -5171,7 +5221,7 @@ msgstr ""
 #: models/reportgenerator/ReportGeneratorOdt.cpp:685 odf/KoOdfReadStore.cpp:97
 #, kde-format
 msgid "No store backend"
-msgstr ""
+msgstr "Žádná podpůrná vrstva pro uložení"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:695
 #, kde-kuit-format
@@ -5696,6 +5746,8 @@ msgid ""
 "This document contains an unknown checksum. When you give a password it "
 "might not be verified."
 msgstr ""
+"Tento dokument obsahuje neznámý kontrolní součet. Po zadání hesla nemusí být "
+"ověřeno."
 
 #: store/KoEncryptedStore.cpp:256 store/KoEncryptedStore.cpp:273
 #, kde-format
@@ -5703,6 +5755,8 @@ msgid ""
 "This document contains an unknown encryption method. Some parts may be "
 "unreadable."
 msgstr ""
+"Tento dokument obsahuje neznámý způsob šifrování. Některé části mohou být "
+"nečitelné."
 
 #: store/KoEncryptedStore.cpp:288
 #, kde-format
@@ -5710,6 +5764,8 @@ msgid ""
 "This document contains incomplete encryption data. Some parts may be "
 "unreadable."
 msgstr ""
+"Tento dokument obsahuje neúplné šifrovací údaje. Některé části mohou být "
+"nečitelné."
 
 #: store/KoEncryptedStore.cpp:302
 #, kde-format
@@ -5725,6 +5781,9 @@ msgid ""
 "document will remain unreadable. Please try and save the document again to "
 "prevent losing your work."
 msgstr ""
+"Zdá se, že soubor manifestu je poškozený. Nelze jej upravit a dokument "
+"zůstane nečitelný. Zkuste dokument uložit znovu, abyste nepřišli o svou "
+"práci."
 
 #: store/KoEncryptedStore.cpp:430
 #, kde-format
@@ -5732,6 +5791,8 @@ msgid ""
 "The manifest file cannot be written. The document will remain unreadable. "
 "Please try and save the document again to prevent losing your work."
 msgstr ""
+"Soubor manifestu nelze uložit. Dokument zůstane nečitelný. Zkuste dokument "
+"uložit znovu, abyste nepřišli o svou práci."
 
 #: store/KoEncryptedStore.cpp:529
 #, kde-format
@@ -6232,7 +6293,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:radio"
 msgid "Start:"
-msgstr "Zahájení:"
+msgstr "Start:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_projectEndBtn)
 #: ui/gantt/kptganttprintingoptions.ui:137
@@ -7645,7 +7706,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action"
 msgid "Show Debug Information"
-msgstr ""
+msgstr "Zobrazit ladicí informace"
 
 #: ui/kptscheduleeditor.cpp:788
 #, kde-format
@@ -7894,7 +7955,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title resource allocations"
 msgid "Allocations"
-msgstr "Alokace"
+msgstr "Přidělení"
 
 #: ui/kpttaskeditor.cpp:470 ui/ResourceGroupEditor.cpp:407
 #, kde-kuit-format
@@ -8247,7 +8308,7 @@ msgstr "Úloha:"
 #: ui/kpttaskprogresspanelbase.ui:45
 #, kde-format
 msgid "Started:"
-msgstr "Započato:"
+msgstr "Spuštěno:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/kpttaskprogresspanelbase.ui:62
@@ -9005,7 +9066,7 @@ msgstr ""
 #: ui/reports/reportdata.cpp:894
 #, kde-format
 msgid "Cost Breakdown"
-msgstr ""
+msgstr "Přehled nákladů"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/reports/reportnavigator.ui:20 widgets/KoPageLayoutDialog.cpp:38
@@ -9525,7 +9586,7 @@ msgstr "Alternativy"
 #: ui/ResourceAllocationPanel.ui:78
 #, kde-format
 msgid "Required"
-msgstr "Požadováno"
+msgstr "Vyžadováno"
 
 #: ui/ResourceAllocationView.cpp:34
 #, kde-format
@@ -9705,6 +9766,11 @@ msgid ""
 "scheduled. The actual time it will take to complete is of course dependent "
 "on the availability of the person (or persons) that is assigned to the task."
 msgstr ""
+"Tyto hodnoty se použijí, pokud váš odhad není vyjádřen v hodinách.\n"
+"Řekněme, že počet hodin za den je 8. Pokud odhadujete, že dokončení úlohy "
+"bude vyžadovat 3 dny práce, při plánování úlohy se tato hodnota převede na "
+"24 hodin. Skutečná doba potřebná k dokončení samozřejmě závisí na "
+"dostupnosti osoby (nebo osob), které jsou k úloze přiřazeny."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: ui/standardworktimedialogbase.ui:25
@@ -9729,7 +9795,7 @@ msgstr "Hodin týdně:"
 #, kde-format
 msgid ""
 "These values are used when you estimate the effort needed to complete a task."
-msgstr ""
+msgstr "Tyto hodnoty se používají při odhadování náročnosti dokončení úlohy."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
 #: ui/standardworktimedialogbase.ui:118
@@ -10080,6 +10146,8 @@ msgid ""
 "<qt>Decrypting the document will remove the password protection from it."
 "<p>Do you still want to decrypt the file?</qt>"
 msgstr ""
+"<qt>Dešifrováním dokumentu dojde k odstranění jeho heslové ochrany."
+"<p>Opravdu chcete soubor dešifrovat?</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:360
 #, kde-format
@@ -10117,6 +10185,9 @@ msgid ""
 "to <b>OASIS OpenDocument</b> to be encrypted.<p>Do you want to change the "
 "file to OASIS OpenDocument?</qt>"
 msgstr ""
+"<qt>Dokument je momentálně uložen jako %1. Aby bylo možné dokument "
+"zašifrovat, je třeba jej převést do formátu <b>OASIS OpenDocument</b>."
+"<p>Chcete soubor převést do formátu OASIS OpenDocument?</qt>"
 
 #: widgets/KoDocumentInfoDlg.cpp:400 widgets/KoDocumentInfoDlg.cpp:445
 #, kde-format
@@ -10162,7 +10233,7 @@ msgstr "Rozvržení stránky"
 #: widgets/KoPageLayoutDialog.cpp:96
 #, kde-format
 msgid "Apply to document"
-msgstr ""
+msgstr "Použít na dokument"
 
 #: widgets/KoPageLayoutWidget.cpp:176
 #, kde-format
@@ -10203,7 +10274,7 @@ msgstr "Rozvržení stránky:"
 #: widgets/KoPageLayoutWidget.cpp:282
 #, kde-format
 msgid "Page spread"
-msgstr ""
+msgstr "Dvojstrana"
 
 #. i18n: ectx: property (text), widget (QLabel, unitsLabel)
 #: widgets/KoPageLayoutWidget.ui:25

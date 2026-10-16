@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-09-06 18:43+0200\n"
+"PO-Revision-Date: 2026-10-14 15:14+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1656,7 +1656,7 @@ msgid ""
 "<qt>Saving as a %1 may result in some loss of formatting.<p>Do you still "
 "want to save in this format?</qt>"
 msgstr ""
-"<qt>Guardar com a %1 pot resultar en pèrdua de format.<p> Segur que voleu "
+"<qt>Guardar com a %1 pot provocar una pèrdua de format.<p>Segur que voleu "
 "guardar en este format?</qt>"
 
 #: main/KoMainWindow.cpp:897
@@ -1670,7 +1670,7 @@ msgid ""
 "<qt>Exporting as a %1 may result in some loss of formatting.<p>Do you still "
 "want to export to this format?</qt>"
 msgstr ""
-"<qt>Exportar com a %1 pot resultar en pèrdua de format.<p> Segur que voleu "
+"<qt>Exportar com a %1 pot provocar una pèrdua de format.<p>Segur que voleu "
 "exportar cap a este format?</qt>"
 
 #: main/KoMainWindow.cpp:909
@@ -2045,7 +2045,7 @@ msgstr "Assignació"
 #, no-c-format, kde-format
 msgctxt "<value>%"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: models/AllocatedResourceItemModel.cpp:156
 #: models/kptresourceallocationmodel.cpp:142
@@ -3273,7 +3273,7 @@ msgstr "Pare"
 #, kde-format
 msgctxt "task progress"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: models/kptnodechartmodel.cpp:232
 #: models/reportgenerator/ReportGenerator.cpp:52
@@ -5439,7 +5439,7 @@ msgstr "Modifica des de quan està disponible el recurs"
 #: models/ResourceItemModel.cpp:534
 msgctxt "(qtundo-format)"
 msgid "Modify resource available until"
-msgstr "Modifica fins a quan està disponible el recurs"
+msgstr "Modifica fins quan està disponible el recurs"
 
 #: models/ResourceItemModel.cpp:547
 msgctxt "(qtundo-format)"
