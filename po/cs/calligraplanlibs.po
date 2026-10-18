@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-10-17 00:45+0200\n"
+"PO-Revision-Date: 2026-10-17 23:15+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2216,7 +2216,7 @@ msgstr "Popis"
 #: models/kptaccountsmodel.cpp:317
 msgctxt "(qtundo-format)"
 msgid "Modify account name"
-msgstr "Změnit název účtu"
+msgstr "Upravit název účtu"
 
 #: models/kptaccountsmodel.cpp:324
 msgctxt "(qtundo-format)"
@@ -2338,7 +2338,7 @@ msgstr "Nastavit jako výchozí kalendář"
 #: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
 msgid "Modify calendar timezone"
-msgstr "Změnit časové pásmo kalendáře"
+msgstr "Upravit časové pásmo kalendáře"
 
 #: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, kde-format
@@ -2436,7 +2436,7 @@ msgstr "V"
 #: models/kptcalendarmodel.cpp:913
 msgctxt "(qtundo-format)"
 msgid "Modify calendar state"
-msgstr "Změnit stav kalendáře"
+msgstr "Upravit stav kalendáře"
 
 #: models/kptcalendarmodel.cpp:935
 #, kde-format
@@ -3852,7 +3852,7 @@ msgstr "Úloha spuštěna v: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not started"
-msgstr ""
+msgstr "Úloha není spuštěna"
 
 #: models/kptnodeitemmodel.cpp:1525
 #, kde-kuit-format
@@ -3864,25 +3864,25 @@ msgstr "Skutečné dokončení: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task finished at: %1"
-msgstr ""
+msgstr "Úloha byla dokončena v: %1"
 
 #: models/kptnodeitemmodel.cpp:1554
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The task is not finished"
-msgstr ""
+msgstr "Úloha není dokončena"
 
 #: models/kptnodeitemmodel.cpp:1568
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort until %1: %2"
-msgstr ""
+msgstr "Plánované úsilí do %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1587
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual effort used up to %1: %2"
-msgstr ""
+msgstr "Skutečné vynaložené úsilí do %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1612
 #, kde-kuit-format
@@ -3894,13 +3894,13 @@ msgstr "Zbývající úsilí: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned cost until %1: %2"
-msgstr ""
+msgstr "Plánované náklady do %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1656
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual cost until %1: %2"
-msgstr ""
+msgstr "Skutečné náklady do %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1712
 #, kde-kuit-format
@@ -3909,6 +3909,8 @@ msgid ""
 "Resource allocation is expected when the task estimate type is  "
 "<emphasis>Effort</emphasis>"
 msgstr ""
+"Přiřazení zdrojů se očekává, pokud je typ odhadu úkolu  <emphasis>Úsilí</"
+"emphasis>"
 
 #: models/kptnodeitemmodel.cpp:1745
 #, kde-kuit-format
@@ -3920,25 +3922,25 @@ msgstr "Došlo k překročení kapacity zdroje"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No resource is available for this task"
-msgstr ""
+msgstr "Pro tuto úlohu nejsou k dispozici žádné zdroje"
 
 #: models/kptnodeitemmodel.cpp:1811
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Failed to comply with a timing constraint"
-msgstr ""
+msgstr "Nebylo dodrženo časové omezení"
 
 #: models/kptnodeitemmodel.cpp:1844
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "This task has not been scheduled"
-msgstr ""
+msgstr "Tato úloha nebyla naplánována"
 
 #: models/kptnodeitemmodel.cpp:1877
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The assigned resources cannot deliver the required estimated effort"
-msgstr ""
+msgstr "Přiřazené zdroje nejsou schopny pokrýt odhadované nároky na práci"
 
 #: models/kptnodeitemmodel.cpp:1910
 #, kde-kuit-format
@@ -3950,37 +3952,37 @@ msgstr "Chyba plánování"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work breakdown structure code: %1"
-msgstr ""
+msgstr "Kód struktury rozdělení práce: %1"
 
 #: models/kptnodeitemmodel.cpp:1955
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task level: %1"
-msgstr ""
+msgstr "Úroveň úlohy: %1"
 
 #: models/kptnodeitemmodel.cpp:1971
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Scheduled at %1: %2"
-msgstr ""
+msgstr "Předpokládané náklady na plánované práce v %1: %2"
 
 #: models/kptnodeitemmodel.cpp:1987
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Budgeted Cost of Work Performed at %1: %2"
-msgstr ""
+msgstr "Předpokládané náklady na provedené práce v %1: %2"
 
 #: models/kptnodeitemmodel.cpp:2003
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Actual Cost of Work Performed at %1: %2"
-msgstr ""
+msgstr "Skutečné náklady na provedené práce v %1: %2"
 
 #: models/kptnodeitemmodel.cpp:2019
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule Performance Index at %1: %2"
-msgstr ""
+msgstr "Index výkonnosti plánu v %1: %2"
 
 #: models/kptnodeitemmodel.cpp:2089 models/kptnodeitemmodel.cpp:2124
 #: models/kptnodeitemmodel.cpp:2153
@@ -3993,13 +3995,13 @@ msgstr "nedostupné"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent to %1 at %2"
-msgstr ""
+msgstr "Poslední pracovní balíček odeslán %1 v %2"
 
 #: models/kptnodeitemmodel.cpp:2104
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received from %1 at %2"
-msgstr ""
+msgstr "Poslední pracovní balíček přijat %1 v %2"
 
 #: models/kptnodeitemmodel.cpp:2106 models/kptnodeitemmodel.cpp:2170
 #, kde-kuit-format
@@ -4011,13 +4013,13 @@ msgstr "Není k dispozici"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package sent: %1"
-msgstr ""
+msgstr "Poslední pracovní balíček odeslán: %1"
 
 #: models/kptnodeitemmodel.cpp:2168
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Latest work package received: %1"
-msgstr ""
+msgstr "Poslední pracovní balíček přijat: %1"
 
 #: models/kptnodeitemmodel.cpp:2322 ui/RelationEditorDialog.cpp:243
 #, kde-kuit-format
@@ -4083,43 +4085,43 @@ msgstr "Omezení"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint Start"
-msgstr ""
+msgstr "Začátek omezení"
 
 #: models/kptnodeitemmodel.cpp:2334
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraint End"
-msgstr ""
+msgstr "Konec omezení"
 
 #: models/kptnodeitemmodel.cpp:2335
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Running Account"
-msgstr ""
+msgstr "Provozní účet"
 
 #: models/kptnodeitemmodel.cpp:2336
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Account"
-msgstr ""
+msgstr "Počáteční účet"
 
 #: models/kptnodeitemmodel.cpp:2337
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Startup Cost"
-msgstr ""
+msgstr "Počáteční náklady"
 
 #: models/kptnodeitemmodel.cpp:2338
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Account"
-msgstr ""
+msgstr "Konečný účet"
 
 #: models/kptnodeitemmodel.cpp:2339
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Shutdown Cost"
-msgstr ""
+msgstr "Konečné náklady"
 
 #: models/kptnodeitemmodel.cpp:2340
 #, kde-kuit-format
@@ -4191,31 +4193,31 @@ msgstr "Pozdní dokončení"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Positive Float"
-msgstr ""
+msgstr "Pozitivní rezerva"
 
 #: models/kptnodeitemmodel.cpp:2356
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Free Float"
-msgstr ""
+msgstr "Volná rezerva"
 
 #: models/kptnodeitemmodel.cpp:2357
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Negative Float"
-msgstr ""
+msgstr "Negativní rezerva"
 
 #: models/kptnodeitemmodel.cpp:2358
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Start Float"
-msgstr ""
+msgstr "Počáteční rezerva"
 
 #: models/kptnodeitemmodel.cpp:2359
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Finish Float"
-msgstr ""
+msgstr "Konečná rezerva"
 
 #: models/kptnodeitemmodel.cpp:2360
 #, kde-kuit-format
@@ -4233,19 +4235,19 @@ msgstr "Trvání"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Variance (Dur)"
-msgstr ""
+msgstr "Rozptyl (trvání)"
 
 #: models/kptnodeitemmodel.cpp:2365
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Optimistic (Dur)"
-msgstr ""
+msgstr "Optimistický (trvání)"
 
 #: models/kptnodeitemmodel.cpp:2366
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Pessimistic (Dur)"
-msgstr ""
+msgstr "Pesimistický (trvání)"
 
 #: models/kptnodeitemmodel.cpp:2369 models/kptnodeitemmodel.cpp:2406
 #, kde-kuit-format
@@ -4323,7 +4325,7 @@ msgstr "Poznámka o stavu"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Scheduling Status"
-msgstr ""
+msgstr "Plánovaný stav"
 
 #: models/kptnodeitemmodel.cpp:2385
 #, kde-kuit-format
@@ -4335,7 +4337,7 @@ msgstr "Nenaplánováno"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Assignment Missing"
-msgstr ""
+msgstr "Chybí přiřazení"
 
 #: models/kptnodeitemmodel.cpp:2387
 #, kde-kuit-format
@@ -4347,13 +4349,13 @@ msgstr "Překročená kapacita zdroje"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Resource Unavailable"
-msgstr ""
+msgstr "Zdroj není k dispozici"
 
 #: models/kptnodeitemmodel.cpp:2389
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Constraints Error"
-msgstr ""
+msgstr "Chyba omezení"
 
 #: models/kptnodeitemmodel.cpp:2390
 #, kde-kuit-format
@@ -4371,7 +4373,7 @@ msgstr "Chyba plánování"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "WBS Code"
-msgstr ""
+msgstr "Kód WBS"
 
 #: models/kptnodeitemmodel.cpp:2394
 #, kde-kuit-format
@@ -4383,13 +4385,13 @@ msgstr "Úroveň"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical"
-msgstr "Kritický"
+msgstr "Kritická"
 
 #: models/kptnodeitemmodel.cpp:2402
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Critical Path"
-msgstr ""
+msgstr "Kritická cesta"
 
 #: models/kptnodeitemmodel.cpp:2405
 #, kde-kuit-format
@@ -4407,69 +4409,69 @@ msgstr "Čas"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package owner"
-msgstr ""
+msgstr "Vlastník pracovního balíčku"
 
 #: models/kptnodeitemmodel.cpp:2589
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package status"
-msgstr ""
+msgstr "Stav pracovního balíčku"
 
 #: models/kptnodeitemmodel.cpp:2590
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Work package send/receive time"
-msgstr ""
+msgstr "Doba odeslání/příjmu pracovního balíčku"
 
 #: models/kptnodeitemmodel.cpp:2726
 msgctxt "(qtundo-format)"
 msgid "Modify name"
-msgstr "Změnit název"
+msgstr "Upravit název"
 
 #: models/kptnodeitemmodel.cpp:2728
 msgctxt "(qtundo-format)"
 msgid "Modify task name"
-msgstr "Změnit název úlohy"
+msgstr "Upravit název úlohy"
 
 #: models/kptnodeitemmodel.cpp:2729
 msgctxt "(qtundo-format)"
 msgid "Modify milestone name"
-msgstr "Změnit název milníku"
+msgstr "Upravit název milníku"
 
 #: models/kptnodeitemmodel.cpp:2730
 msgctxt "(qtundo-format)"
 msgid "Modify summarytask name"
-msgstr "Změnit název shrnutí úlohy"
+msgstr "Upravit název shrnutí úlohy"
 
 #: models/kptnodeitemmodel.cpp:2731
 msgctxt "(qtundo-format)"
 msgid "Modify project name"
-msgstr "Změnit název projektu"
+msgstr "Upravit název projektu"
 
 #: models/kptnodeitemmodel.cpp:2744
 msgctxt "(qtundo-format)"
 msgid "Modify responsible"
-msgstr ""
+msgstr "Upravit odpovědnost"
 
 #: models/kptnodeitemmodel.cpp:2769 ui/kpttaskdescriptiondialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify task description"
-msgstr ""
+msgstr "Upravit popis úlohy"
 
 #: models/kptnodeitemmodel.cpp:2792
 msgctxt "(qtundo-format)"
 msgid "Modify constraint type"
-msgstr ""
+msgstr "Upravit typ omezení"
 
 #: models/kptnodeitemmodel.cpp:2809
 msgctxt "(qtundo-format)"
 msgid "Modify constraint start time"
-msgstr ""
+msgstr "Upravit čas zahájení omezení"
 
 #: models/kptnodeitemmodel.cpp:2826
 msgctxt "(qtundo-format)"
 msgid "Modify constraint end time"
-msgstr ""
+msgstr "Upravit čas ukončení omezení"
 
 #: models/kptnodeitemmodel.cpp:2851
 msgctxt "(qtundo-format)"
@@ -4489,47 +4491,47 @@ msgstr "Upravit odhad"
 #: models/kptnodeitemmodel.cpp:2936
 msgctxt "(qtundo-format)"
 msgid "Modify optimistic estimate"
-msgstr "Změnit optimistický odhad"
+msgstr "Upravit optimistický odhad"
 
 #: models/kptnodeitemmodel.cpp:2953
 msgctxt "(qtundo-format)"
 msgid "Modify pessimistic estimate"
-msgstr "Změnit pesimistický odhad"
+msgstr "Upravit pesimistický odhad"
 
 #: models/kptnodeitemmodel.cpp:2977
 msgctxt "(qtundo-format)"
 msgid "Modify risk type"
-msgstr ""
+msgstr "Upravit typ rizika"
 
 #: models/kptnodeitemmodel.cpp:2992
 msgctxt "(qtundo-format)"
 msgid "Modify priority"
-msgstr ""
+msgstr "Upravit prioritu"
 
 #: models/kptnodeitemmodel.cpp:3012
 msgctxt "(qtundo-format)"
 msgid "Modify running account"
-msgstr ""
+msgstr "Upravit provozní účet"
 
 #: models/kptnodeitemmodel.cpp:3034
 msgctxt "(qtundo-format)"
 msgid "Modify startup account"
-msgstr ""
+msgstr "Upravit počáteční účet"
 
 #: models/kptnodeitemmodel.cpp:3051
 msgctxt "(qtundo-format)"
 msgid "Modify startup cost"
-msgstr ""
+msgstr "Upravit počáteční náklady"
 
 #: models/kptnodeitemmodel.cpp:3071
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown account"
-msgstr ""
+msgstr "Upravit konečný účet"
 
 #: models/kptnodeitemmodel.cpp:3088
 msgctxt "(qtundo-format)"
 msgid "Modify shutdown cost"
-msgstr ""
+msgstr "Upravit konečné náklady"
 
 #: models/kptnodeitemmodel.cpp:3113 models/kpttaskstatusmodel.cpp:447
 msgctxt "(qtundo-format)"
@@ -4544,12 +4546,12 @@ msgstr "Upravit skutečné úsilí"
 #: models/kptnodeitemmodel.cpp:3138 models/kpttaskstatusmodel.cpp:474
 msgctxt "(qtundo-format)"
 msgid "Modify actual start time"
-msgstr ""
+msgstr "Upravit skutečný čas začátku"
 
 #: models/kptnodeitemmodel.cpp:3167 models/kpttaskstatusmodel.cpp:502
 msgctxt "(qtundo-format)"
 msgid "Modify actual finish time"
-msgstr ""
+msgstr "Upravit skutečný čas konce"
 
 #: models/kptnodeitemmodel.cpp:3638
 msgctxt "(qtundo-format)"
@@ -4582,12 +4584,12 @@ msgstr "Vložit úlohy"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Task Module Parameters"
-msgstr ""
+msgstr "Parametry modulu úloh"
 
 #: models/kptnodeitemmodel.cpp:4142
 msgctxt "(qtundo-format)"
 msgid "Insert task module"
-msgstr ""
+msgstr "Vložit modul úlohy"
 
 #: models/kptnodeitemmodel.cpp:4202
 #, kde-format
@@ -4599,7 +4601,7 @@ msgstr "Vložit %1"
 #: ui/ResourceAllocationView.cpp:141
 msgctxt "(qtundo-format)"
 msgid "Modify resource allocations"
-msgstr ""
+msgstr "Upravit přiřazení zdrojů"
 
 #: models/kptnodeitemmodel.cpp:4265 models/kptnodeitemmodel.cpp:5071
 msgctxt "(qtundo-format)"
@@ -4625,7 +4627,7 @@ msgstr "Cesta"
 #: models/kptpertcpmmodel.cpp:426 ui/kptscheduleeditor.cpp:794
 #, kde-format
 msgid "Critical Path"
-msgstr ""
+msgstr "Kritická cesta"
 
 #: models/kptpertcpmmodel.cpp:447
 #, kde-format
@@ -4635,12 +4637,12 @@ msgstr "Kritická"
 #: models/kptpertcpmmodel.cpp:451
 #, kde-format
 msgid "Non-critical"
-msgstr ""
+msgstr "Nekritická"
 
 #: models/kptrelationmodel.cpp:124
 #, kde-format
 msgid "Child"
-msgstr "Potomek"
+msgstr "Podřízený"
 
 #: models/kptrelationmodel.cpp:126
 #, kde-format
@@ -4655,25 +4657,25 @@ msgstr "Upravit typ vztahu"
 #: models/kptrelationmodel.cpp:333
 msgctxt "(qtundo-format)"
 msgid "Modify relation time lag"
-msgstr ""
+msgstr "Upravit časový posun vztahu"
 
 #: models/kptresourceallocationmodel.cpp:146
 #: models/kptresourceallocationmodel.cpp:798
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1 allocated out of %2 available"
-msgstr ""
+msgstr "Přiděleno %1 z dostupných %2"
 
 #: models/kptresourceallocationmodel.cpp:411
 #, no-c-format, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allocated units: %1%"
-msgstr ""
+msgstr "Přidělené jednotky: %1%"
 
 #: models/kptresourceallocationmodel.cpp:437
 #, no-c-format, kde-format
 msgid "Maximum units available: %1%"
-msgstr ""
+msgstr "Maximální počet dostupných jednotek: %1%"
 
 #: models/kptresourceallocationmodel.cpp:460
 #: models/kptresourceallocationmodel.cpp:556
@@ -4684,6 +4686,9 @@ msgid ""
 "one or more required resources. A required resource is a material resource "
 "that the working resource depends on in order to do the work.</para>"
 msgstr ""
+"<title>Požadované zdroje</title><para>Pracovní zdroj lze přiřadit k jednomu "
+"nebo více požadovaným zdrojům. Požadovaný zdroj je materiální zdroj, na "
+"kterém je pracovní zdroj závislý, aby mohl vykonat danou práci.</para>"
 
 #: models/kptresourceallocationmodel.cpp:495
 #: models/kptresourceallocationmodel.cpp:552
@@ -4694,12 +4699,15 @@ msgid ""
 "or more alternative resource assigned to it. The scheduling software will "
 "then select the most appropriate resource to use.</para>"
 msgstr ""
+"<title>Alternativní přiřazení zdrojů</title><para>Ke zdroji může být "
+"přiřazen jeden nebo více alternativních zdrojů. Plánovací software poté "
+"vybere nejvhodnější zdroj k použití.</para>"
 
 #: models/kptresourceallocationmodel.cpp:530
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Alternative Resources"
-msgstr ""
+msgstr "Alternativní zdroje"
 
 #: models/kptresourceallocationmodel.cpp:531
 #, kde-kuit-format
@@ -4711,69 +4719,69 @@ msgstr "Potřebné zdroje"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Available resources or resource units"
-msgstr ""
+msgstr "Dostupné zdroje nebo jednotky zdrojů"
 
 #: models/kptresourceallocationmodel.cpp:545
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "List of resources that can be used as an alternative"
-msgstr ""
+msgstr "Seznam zdrojů, které lze použít jako alternativu"
 
 #: models/kptresourceallocationmodel.cpp:546
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Required material resources"
-msgstr ""
+msgstr "Potřebné materiální zdroje"
 
 #: models/kptresourceallocationmodel.cpp:887
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No material resources available"
-msgstr ""
+msgstr "Nejsou k dispozici žádné materiální zdroje"
 
 #: models/kptresourceallocationmodel.cpp:896
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No required resources"
-msgstr ""
+msgstr "Nejsou požadovány žádné zdroje"
 
 #: models/kptresourceallocationmodel.cpp:899
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Material resources cannot have required resources"
-msgstr ""
+msgstr "Materiální zdroje nemohou mít požadované zdroje"
 
 #: models/kptresourceallocationmodel.cpp:901
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Team resources cannot have required resources"
-msgstr ""
+msgstr "Zdroje týmu nemohou mít požadované zdroje"
 
 #: models/kptresourceappointmentsmodel.cpp:588
 #, kde-format
 msgid "The total booking on %1, along with the maximum hours for the resource"
-msgstr ""
+msgstr "Celková rezervace v %1 spolu s maximálním počtem hodin pro daný zdroj"
 
 #: models/kptresourceappointmentsmodel.cpp:622
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Available: %6"
-msgstr ""
+msgstr "%1: %2<nl/>%3: %4<nl/>Časové pásmo: %5<nl/>Dostupné: %6"
 
 #: models/kptresourceappointmentsmodel.cpp:673
 #, kde-format
 msgid "Booking by this task on %1"
-msgstr ""
+msgstr "Rezervace v rámci tohoto úkolu na %1"
 
 #: models/kptresourceappointmentsmodel.cpp:768
 #, kde-format
 msgid "The total hours booked"
-msgstr ""
+msgstr "Celkový počet rezervovaných hodin"
 
 #: models/kptresourceappointmentsmodel.cpp:772
 #, kde-format
 msgid "Bookings on %1"
-msgstr ""
+msgstr "Rezervace v %1"
 
 #: models/kptresourceappointmentsmodel.cpp:919
 #, kde-kuit-format
@@ -4791,6 +4799,7 @@ msgstr "Interval"
 msgctxt "@info:tooltip"
 msgid "%1: %2<nl/>%3: %4<nl/>Timezone: %5<nl/>Assigned: %6<nl/>Available: %7"
 msgstr ""
+"%1: %2<nl/>%3: %4<nl/>Časové pásmo: %5<nl/>Přiřazeno: %6<nl/>K dispozici: %7"
 
 #: models/kptresourceappointmentsmodel.cpp:1168
 #, kde-format
@@ -4811,19 +4820,19 @@ msgstr "Načíst"
 #: models/kptschedulemodel.cpp:407
 msgctxt "(qtundo-format)"
 msgid "Modify schedule name"
-msgstr ""
+msgstr "Upravit název plánu"
 
 #: models/kptschedulemodel.cpp:430
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Manual Mode, calculation must be initiated manually"
-msgstr ""
+msgstr "Plán je v ručním režimu, výpočet je nutné spustit ručně"
 
 #: models/kptschedulemodel.cpp:432
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The schedule is in Auto Mode, it will be calculated automatically"
-msgstr ""
+msgstr "Plán je v automatickém režimu, vypočítá se automaticky"
 
 #: models/kptschedulemodel.cpp:436
 #, kde-kuit-format
@@ -4840,13 +4849,13 @@ msgstr "Ručně"
 #: models/kptschedulemodel.cpp:453
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling mode"
-msgstr ""
+msgstr "Upravit režim plánování"
 
 #: models/kptschedulemodel.cpp:489
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "This schedule is created by the Portfolio Manager"
-msgstr ""
+msgstr "Tento plán vytvořil správce projektu"
 
 #: models/kptschedulemodel.cpp:547 models/kptschedulemodel.cpp:550
 #, kde-format
@@ -4872,31 +4881,31 @@ msgstr "(Povolit)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking resources"
-msgstr ""
+msgstr "Povolit nadměrné rezervace zdrojů"
 
 #: models/kptschedulemodel.cpp:562 models/kptschedulemodel.cpp:572
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Avoid overbooking resources"
-msgstr ""
+msgstr "Vyhnout se nadměrným rezervacím zdrojů"
 
 #: models/kptschedulemodel.cpp:566
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allow overbooking of resources"
-msgstr "Povolit obsazování zdrojů nad limit"
+msgstr "Povolit nadměrné rezervování zdrojů"
 
 #: models/kptschedulemodel.cpp:567
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always allows overbooking of resources"
-msgstr ""
+msgstr "%1 vždy povolí nadměrné rezervování zdrojů"
 
 #: models/kptschedulemodel.cpp:571
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always avoids overbooking of resources"
-msgstr ""
+msgstr "%1 vždy se vyhne nadměrnému rezervování zdrojů"
 
 #: models/kptschedulemodel.cpp:576
 #, kde-kuit-format
@@ -4913,7 +4922,7 @@ msgstr "Vyhnout se"
 #: models/kptschedulemodel.cpp:596
 msgctxt "(qtundo-format)"
 msgid "Modify allow overbooking"
-msgstr ""
+msgstr "Upravit povolení nadměrného rezervování"
 
 #: models/kptschedulemodel.cpp:613
 #, kde-format
@@ -4924,13 +4933,13 @@ msgstr "PERT"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use PERT distribution to calculate expected estimate for the tasks"
-msgstr ""
+msgstr "Použít distribuci PERT k výpočtu očekávané odhadu úloh"
 
 #: models/kptschedulemodel.cpp:617
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Use the tasks expected estimate directly"
-msgstr ""
+msgstr "Použít přímo očekávaný odhad úlohy"
 
 #: models/kptschedulemodel.cpp:619
 #, kde-kuit-format
@@ -4947,31 +4956,31 @@ msgstr "PERT"
 #: models/kptschedulemodel.cpp:639
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling distribution"
-msgstr ""
+msgstr "Upravit rozvržení distribuce"
 
 #: models/kptschedulemodel.cpp:668
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned start: %1<nl/>Target start: %2"
-msgstr ""
+msgstr "Plánovaný začátek: %1<nl/>Cílový začátek: %2"
 
 #: models/kptschedulemodel.cpp:670
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target start: %1"
-msgstr "Cílové spuštění: %1"
+msgstr "Cílový začátek: %1"
 
 #: models/kptschedulemodel.cpp:704
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned finish: %1<nl/>Target finish: %2"
-msgstr ""
+msgstr "Plánovaný konec: %1<nl/>Cílový konec: %2"
 
 #: models/kptschedulemodel.cpp:706
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Target finish: %1"
-msgstr ""
+msgstr "Cílový konec: %1"
 
 #: models/kptschedulemodel.cpp:736 models/kptschedulemodel.cpp:742
 #, kde-format
@@ -4997,25 +5006,25 @@ msgstr "(Vpřed)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target end time"
-msgstr ""
+msgstr "Naplánovat projekt podle cílového času ukončení"
 
 #: models/kptschedulemodel.cpp:751 models/kptschedulemodel.cpp:756
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Schedule project from target start time"
-msgstr ""
+msgstr "Naplánovat projekt podle cílového času spuštění"
 
 #: models/kptschedulemodel.cpp:755
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target start time"
-msgstr ""
+msgstr "%1 vždy plánovat od cílového času spuštění"
 
 #: models/kptschedulemodel.cpp:761
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=scheduler name"
 msgid "%1 always schedules from target end time"
-msgstr ""
+msgstr "%1 vždy plánovat od cílového času ukončení"
 
 #: models/kptschedulemodel.cpp:765
 #, kde-kuit-format
@@ -5032,7 +5041,7 @@ msgstr "Vpřed"
 #: models/kptschedulemodel.cpp:785
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling direction"
-msgstr ""
+msgstr "Upravit směr plánování"
 
 #: models/kptschedulemodel.cpp:804 odf/KoDocumentInfo.cpp:40
 #, kde-format
@@ -5042,30 +5051,30 @@ msgstr "Neznámý"
 #: models/kptschedulemodel.cpp:830
 msgctxt "(qtundo-format)"
 msgid "Modify scheduler"
-msgstr ""
+msgstr "Upravit plánovač"
 
 #: models/kptschedulemodel.cpp:873
 #, kde-format
 msgctxt "Scheduling granularity not supported"
 msgid "None"
-msgstr "Žádné"
+msgstr "Žádný"
 
 #: models/kptschedulemodel.cpp:882
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Scheduling granularityIndex not supported"
-msgstr ""
+msgstr "Index granularity plánování není podporován"
 
 #: models/kptschedulemodel.cpp:886
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Selected scheduling granularity: %1"
-msgstr ""
+msgstr "Zvolená úroveň granularity plánování: %1"
 
 #: models/kptschedulemodel.cpp:912
 msgctxt "(qtundo-format)"
 msgid "Modify scheduling granularity"
-msgstr ""
+msgstr "Upravit granularitu plánování"
 
 #: models/kptschedulemodel.cpp:987
 #, kde-format
@@ -5085,7 +5094,7 @@ msgstr "Směr"
 #: models/kptschedulemodel.cpp:990
 #, kde-format
 msgid "Overbooking"
-msgstr ""
+msgstr "Překročení kapacity"
 
 #: models/kptschedulemodel.cpp:991
 #, kde-format
@@ -5137,17 +5146,17 @@ msgstr "Nespuštěno"
 #: models/kpttaskstatusmodel.cpp:41
 #, kde-format
 msgid "Tasks that should have been started"
-msgstr ""
+msgstr "Úlohy, které měly být spuštěny"
 
 #: models/kpttaskstatusmodel.cpp:45
 #, kde-format
 msgid "Tasks that are running"
-msgstr ""
+msgstr "Spuštěné úlohy"
 
 #: models/kpttaskstatusmodel.cpp:49
 #, kde-format
 msgid "Tasks that have finished during this period"
-msgstr ""
+msgstr "Úlohy, které byly v tomto období dokončeny"
 
 #: models/kpttaskstatusmodel.cpp:52
 #, kde-format
@@ -5157,37 +5166,37 @@ msgstr "Následující období"
 #: models/kpttaskstatusmodel.cpp:53
 #, kde-format
 msgid "Tasks that are scheduled to start next period"
-msgstr ""
+msgstr "Úlohy, jejichž spuštění je naplánováno na příští období"
 
 #: models/kptworkpackagemodel.cpp:70
 #, kde-format
 msgid "Sent to %1 at %2"
-msgstr ""
+msgstr "Odesláno %1 v %2"
 
 #: models/kptworkpackagemodel.cpp:73
 #, kde-format
 msgid "Received from %1 at %2"
-msgstr ""
+msgstr "Přijato od %1 v %2"
 
 #: models/kptworkpackagemodel.cpp:75 models/kptworkpackagemodel.cpp:103
 #, kde-format
 msgid "Not available"
-msgstr "Nedostupný"
+msgstr "Nedostupné"
 
 #: models/kptworkpackagemodel.cpp:98
 #, kde-format
 msgid "Work package sent at: %1"
-msgstr ""
+msgstr "Pracovní balíček odeslán: %1"
 
 #: models/kptworkpackagemodel.cpp:101
 #, kde-format
 msgid "Work package transmission received at: %1"
-msgstr ""
+msgstr "Přenos pracovního balíčku přijat: %1"
 
 #: models/kptworkpackagemodel.cpp:128
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr ""
+msgstr "Úkol nahlášen jako dokončený z %1%"
 
 #: models/reportgenerator/ReportGenerator.cpp:31
 #: models/reportgenerator/ReportGenerator.cpp:51
@@ -5199,70 +5208,70 @@ msgstr "Správce"
 #: models/reportgenerator/ReportGenerator.cpp:247
 #, kde-format
 msgid "Missing report template file"
-msgstr ""
+msgstr "Chybí soubor šablony přehledů"
 
 #: models/reportgenerator/ReportGenerator.cpp:251
 #, kde-format
 msgid "Missing report result file"
-msgstr ""
+msgstr "Chybí soubor s výsledky přehledů"
 
 #: models/reportgenerator/ReportGenerator.cpp:255
 #, kde-format
 msgid "Report template file does not exist"
-msgstr ""
+msgstr "Soubor šablony přehledů neexistuje"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:106
 #, kde-format
 msgid "Failed to open template file: %1"
-msgstr ""
+msgstr "Nepodařilo se otevřít soubor šablony: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:115
 #, kde-format
 msgid "Report generator has not been correctly opened"
-msgstr ""
+msgstr "Generátor přehledů nebyl správně otevřen"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:136
 #, kde-format
 msgid "Report generator can only generate local files"
-msgstr ""
+msgstr "Generátor přehledů může vytvářet pouze lokální soubory"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:142
 #: models/reportgenerator/ReportGeneratorOdt.cpp:641
 #, kde-format
 msgid "Failed to open report file: %1"
-msgstr ""
+msgstr "Nepodařilo se otevřít soubor přehledu: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:171
 #: models/reportgenerator/ReportGeneratorOdt.cpp:200
 #: models/reportgenerator/ReportGeneratorOdt.cpp:803
 #, kde-format
 msgid "Failed to write to store: %1"
-msgstr ""
+msgstr "Zápis do úložiště se nezdařil: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:217
 #, kde-format
 msgid "Failed to write report file: %1"
-msgstr ""
+msgstr "Zápis souboru přehledu se nezdařil: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:612
 #, kde-format
 msgid "Failed to extract file: %1"
-msgstr ""
+msgstr "Rozbalení souboru se nezdařilo: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:618
 #, kde-format
 msgid "Failed to add file to store: %1"
-msgstr ""
+msgstr "Přidání souboru do úložiště se nezdařilo: %1"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:650
 #, kde-format
 msgid "Failed to load mimetype file"
-msgstr ""
+msgstr "Načítání souboru s MIME typy selhalo"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:659
 #, kde-format
 msgid "Failed to write manifest file"
-msgstr ""
+msgstr "Zápis souboru manifestu se nezdařil"
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:685 odf/KoOdfReadStore.cpp:97
 #, kde-format
@@ -5273,13 +5282,13 @@ msgstr "Žádná podpůrná vrstva pro uložení"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to open file <filename>%1</filename> from store."
-msgstr ""
+msgstr "Nepodařilo se otevřít soubor <filename>%1</filename> z úložiště."
 
 #: models/reportgenerator/ReportGeneratorOdt.cpp:728
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Missing namespace declarations:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "Chybějící deklarace jmenných prostorů:<nl/><filename>%1</filename>"
 
 #: models/ResourceGroupItemModel.cpp:356
 msgctxt "(qtundo-format)"
@@ -5294,16 +5303,16 @@ msgstr "Upravit typ skupiny zdrojů"
 #: models/ResourceGroupItemModel.cpp:401
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup coordinator"
-msgstr ""
+msgstr "Upravit koordinátora skupiny zdrojů"
 
 #: models/ResourceGroupItemModel.cpp:606 models/ResourceItemModel.cpp:888
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Add resource from address book"
 msgid_plural "Add %1 resources from address book"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Přidat zdroj z knihy adres"
+msgstr[1] "Přidat %1 zdroje z knihy adres"
+msgstr[2] "Přidat %1 zdrojů z knihy adres"
 
 #: models/ResourceGroupItemModel.cpp:668 models/ResourceItemModel.cpp:956
 #, kde-format
@@ -5350,6 +5359,8 @@ msgid ""
 "%1 is a <emphasis>Shared</emphasis> resource group and can thus be shared "
 "with other projects"
 msgstr ""
+"%1 je <emphasis>sdílená</emphasis> skupina zdrojů, a lze ji tedy sdílet s "
+"jinými projekty"
 
 #: models/ResourceGroupModel.cpp:95
 #, kde-kuit-format
@@ -5358,6 +5369,8 @@ msgid ""
 "%1 is a <emphasis>Local</emphasis> resource group and can only be used in "
 "this project"
 msgstr ""
+"%1 je <emphasis>místní</emphasis> skupina zdrojů a lze ji použít pouze v "
+"tomto projektu"
 
 #: models/ResourceGroupModel.cpp:191 models/ResourceModel.cpp:419
 #, kde-format
@@ -5377,12 +5390,12 @@ msgstr "Koordinátor"
 #: models/ResourceItemModel.cpp:422
 msgctxt "(qtundo-format)"
 msgid "Modify resource name"
-msgstr "Změnit název zdroje"
+msgstr "Upravit název zdroje"
 
 #: models/ResourceItemModel.cpp:425
 msgctxt "(qtundo-format)"
 msgid "Modify resource auto allocate"
-msgstr ""
+msgstr "Upravit automatické přiřazení zdrojů"
 
 #: models/ResourceItemModel.cpp:445
 msgctxt "(qtundo-format)"
@@ -5392,12 +5405,12 @@ msgstr "Upravit typ zdroje"
 #: models/ResourceItemModel.cpp:459
 msgctxt "(qtundo-format)"
 msgid "Modify resource initials"
-msgstr ""
+msgstr "Upravit iniciály zdroje"
 
 #: models/ResourceItemModel.cpp:472
 msgctxt "(qtundo-format)"
 msgid "Modify resource email"
-msgstr "Změnit e-mail zdroje"
+msgstr "Upravit e-mail zdroje"
 
 #: models/ResourceItemModel.cpp:493
 msgctxt "(qtundo-format)"
@@ -5422,23 +5435,23 @@ msgstr "Upravit konec dostupnosti zdroje"
 #: models/ResourceItemModel.cpp:547
 msgctxt "(qtundo-format)"
 msgid "Modify resource normal rate"
-msgstr ""
+msgstr "Upravit normální sazbu zdroje"
 
 #: models/ResourceItemModel.cpp:560
 msgctxt "(qtundo-format)"
 msgid "Modify resource overtime rate"
-msgstr ""
+msgstr "Upravit sazbu překročení zdrojů"
 
 #: models/ResourceItemModel.cpp:582
 msgctxt "(qtundo-format)"
 msgid "Modify resource account"
-msgstr ""
+msgstr "Upravit účet zdroje"
 
 #: models/ResourceModel.cpp:79
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "%1:<nl/>Type: %2<nl/>Allocation: %3<nl/>Origin: %4"
-msgstr ""
+msgstr "%1:<nl/>Typ: %2<nl/>Přiřazení: %3<nl/>Původ: %4"
 
 #: models/ResourceModel.cpp:82
 #, kde-format
@@ -5448,7 +5461,7 @@ msgstr "Ručně"
 #: models/ResourceModel.cpp:82
 #, kde-format
 msgid "On task creation"
-msgstr ""
+msgstr "Při vytváření úkolu"
 
 #: models/ResourceModel.cpp:109
 #, kde-kuit-format
@@ -5457,6 +5470,8 @@ msgid ""
 "%1 is a <emphasis>Local</emphasis> resource and can only be used in this "
 "project"
 msgstr ""
+"%1 je <emphasis>lokální</emphasis> zdroj a lze jej použít pouze v tomto "
+"projektu"
 
 #: models/ResourceModel.cpp:111
 #, kde-kuit-format
@@ -5465,12 +5480,14 @@ msgid ""
 "%1 is a <emphasis>Shared</emphasis> resource and can thus be shared with "
 "other projects"
 msgstr ""
+"%1 je <emphasis>sdílený</emphasis> zdroj, a lze jej tedy sdílet s jinými "
+"projekty"
 
 #: models/ResourceModel.cpp:140
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Team: No team members"
-msgstr ""
+msgstr "Tým: žádní členové týmu"
 
 #: models/ResourceModel.cpp:142
 #, kde-format
@@ -5494,7 +5511,7 @@ msgstr "Výchozí (%1)"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "A team resource does not have a calendar"
-msgstr ""
+msgstr "Týmový zdroj nemá kalendář"
 
 #: models/ResourceModel.cpp:225
 #, kde-kuit-format
@@ -7410,7 +7427,7 @@ msgstr ""
 #: ui/kptmilestoneprogresspanel.cpp:39
 msgctxt "(qtundo-format)"
 msgid "Modify milestone completion"
-msgstr "Změnit dokončení milníku"
+msgstr "Upravit dokončení milníku"
 
 #: ui/kptperteditor.cpp:152
 msgctxt "(qtundo-format)"
