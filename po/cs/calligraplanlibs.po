@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kplatoui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-10-17 23:15+0200\n"
+"PO-Revision-Date: 2026-10-19 02:38+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -398,7 +398,7 @@ msgstr "Vpřed"
 #: kernel/kptproject.cpp:284
 #, kde-format
 msgid "Calculate finish"
-msgstr "Spočítat cíl"
+msgstr "Vypočítat cíl"
 
 #: kernel/kptproject.cpp:289 kernel/kptproject.cpp:401
 #: kernel/kptproject.cpp:425
@@ -410,7 +410,7 @@ msgstr "Zpět"
 #: kernel/kptproject.cpp:290
 #, kde-format
 msgid "Calculate start"
-msgstr "Spočítat spuštění"
+msgstr "Vypočítat spuštění"
 
 #: kernel/kptproject.cpp:293 kernel/kptproject.cpp:405
 #: kernel/kptproject.cpp:435 models/reportgenerator/ReportGenerator.cpp:32
@@ -639,7 +639,7 @@ msgstr "Portfolio"
 #: kernel/kptschedule.cpp:1798
 #, kde-format
 msgid "Baselined"
-msgstr "V základní verzi"
+msgstr "V základní linii"
 
 #: kernel/kpttask.cpp:1106
 #, kde-format
@@ -670,12 +670,12 @@ msgstr "Předčasné dokončení vypočítáno: %1"
 #: kernel/kpttask.cpp:1380
 #, kde-format
 msgid "Calculate late start"
-msgstr "Spočítat pozdní spuštění"
+msgstr "Vypočítat pozdní spuštění"
 
 #: kernel/kpttask.cpp:1533
 #, kde-format
 msgid "Late start calculated: %1"
-msgstr "Pozdní spuštění spočítáno: %1"
+msgstr "Pozdní spuštění vypočítáno: %1"
 
 #: kernel/kpttask.cpp:1627
 #, kde-format
@@ -1581,7 +1581,7 @@ msgstr "&Rozbalit do adresáře"
 #: main/KoMainWindow.cpp:301
 #, kde-format
 msgid "&New View"
-msgstr "&Nový pohled"
+msgstr "&Nové zobrazení"
 
 #: main/KoMainWindow.cpp:308 widgets/KoDocumentInfoDlg.cpp:89
 #, kde-format
@@ -2557,8 +2557,8 @@ msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task"
 msgstr ""
-"Risk řídí rozdělení PERT, které se používá při výpočtu skutečného odhadu pro "
-"tuto úlohu"
+"Riziko řídí rozdělení PERT, které se používá při výpočtu skutečného odhadu "
+"pro tuto úlohu"
 
 #: models/kptcommonstrings.cpp:26
 #, kde-kuit-format
@@ -3909,7 +3909,7 @@ msgid ""
 "Resource allocation is expected when the task estimate type is  "
 "<emphasis>Effort</emphasis>"
 msgstr ""
-"Přiřazení zdrojů se očekává, pokud je typ odhadu úkolu  <emphasis>Úsilí</"
+"Přiřazení zdrojů se očekává, pokud je typ odhadu úlohy <emphasis>Úsilí</"
 "emphasis>"
 
 #: models/kptnodeitemmodel.cpp:1745
@@ -4067,7 +4067,7 @@ msgstr "Pesimistický (%)"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Risk"
-msgstr "Risk"
+msgstr "Riziko"
 
 #: models/kptnodeitemmodel.cpp:2331
 #, kde-kuit-format
@@ -4771,7 +4771,7 @@ msgstr "%1: %2<nl/>%3: %4<nl/>Časové pásmo: %5<nl/>Dostupné: %6"
 #: models/kptresourceappointmentsmodel.cpp:673
 #, kde-format
 msgid "Booking by this task on %1"
-msgstr "Rezervace v rámci tohoto úkolu na %1"
+msgstr "Rezervace v rámci této úlohy na %1"
 
 #: models/kptresourceappointmentsmodel.cpp:768
 #, kde-format
@@ -5196,7 +5196,7 @@ msgstr "Přenos pracovního balíčku přijat: %1"
 #: models/kptworkpackagemodel.cpp:128
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr "Úkol nahlášen jako dokončený z %1%"
+msgstr "Úloha nahlášena jako dokončená z %1%"
 
 #: models/reportgenerator/ReportGenerator.cpp:31
 #: models/reportgenerator/ReportGenerator.cpp:51
@@ -5461,7 +5461,7 @@ msgstr "Ručně"
 #: models/ResourceModel.cpp:82
 #, kde-format
 msgid "On task creation"
-msgstr "Při vytváření úkolu"
+msgstr "Při vytváření úlohy"
 
 #: models/ResourceModel.cpp:109
 #, kde-kuit-format
@@ -5517,47 +5517,47 @@ msgstr "Týmový zdroj nemá kalendář"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "No calendar"
-msgstr ""
+msgstr "Žádný kalendář"
 
 #: models/ResourceModel.cpp:233
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "Using default calendar: %1"
-msgstr ""
+msgstr "Použití výchozího kalendáře: %1"
 
 #: models/ResourceModel.cpp:287
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available from: %1"
-msgstr ""
+msgstr "Dostupné od: %1"
 
 #: models/ResourceModel.cpp:289
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available from project target start time: %1"
-msgstr ""
+msgstr "Dostupné od plánovaného spuštění projektu: %1"
 
 #: models/ResourceModel.cpp:309
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available until: %1"
-msgstr ""
+msgstr "Dostupné do: %1"
 
 #: models/ResourceModel.cpp:311
 #, kde-kuit-format
 msgctxt "infor:tooltip"
 msgid "Available until project target finish time: %1"
-msgstr ""
+msgstr "Dostupné do plánovaného dokončení projektu: %1"
 
 #: models/ResourceModel.cpp:330
 #, kde-format
 msgid "Cost per hour, normal time: %1"
-msgstr ""
+msgstr "Náklady za hodinu, běžná doba: %1"
 
 #: models/ResourceModel.cpp:348
 #, kde-format
 msgid "Cost per hour, overtime: %1"
-msgstr ""
+msgstr "Náklady za hodinu, přesčas: %1"
 
 #: models/ResourceModel.cpp:365
 #, kde-format
@@ -5587,22 +5587,22 @@ msgstr "Limit (%)"
 #: models/ResourceModel.cpp:425
 #, kde-format
 msgid "Available From"
-msgstr ""
+msgstr "Dostupné od"
 
 #: models/ResourceModel.cpp:426
 #, kde-format
 msgid "Available Until"
-msgstr ""
+msgstr "Dostupné do"
 
 #: models/ResourceModel.cpp:427
 #, kde-format
 msgid "Normal Rate"
-msgstr ""
+msgstr "Běžná sazba"
 
 #: models/ResourceModel.cpp:428
 #, kde-format
 msgid "Overtime Rate"
-msgstr ""
+msgstr "Sazba za přesčasy"
 
 #: odf/KoOdfReadStore.cpp:136
 #, kde-format
@@ -5836,6 +5836,8 @@ msgid ""
 "QCA has currently no support for SHA1 or PBKDF2 using SHA1. The document can "
 "not be opened."
 msgstr ""
+"QCA v současné době nepodporuje algoritmus SHA1 ani PBKDF2 využívající SHA1. "
+"Dokument nelze otevřít."
 
 #: store/KoEncryptedStore.cpp:332
 #, kde-format
@@ -5866,12 +5868,12 @@ msgstr "Chyba při čtení"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Please enter the password to open this file:<nl/>%1"
-msgstr ""
+msgstr "Zadejte prosím heslo pro otevření tohoto souboru:<nl/>%1"
 
 #: store/KoEncryptedStore.cpp:574
 #, kde-format
 msgid "Empty decrypted file"
-msgstr ""
+msgstr "Prázdný dešifrovaný soubor"
 
 #: store/KoEncryptedStore.cpp:736
 #, kde-format
@@ -5913,13 +5915,13 @@ msgstr "Úložiště Calligra"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Toggle extended filter options"
-msgstr ""
+msgstr "Zobrazit/skrýt rozšířené možnosti filtrování"
 
 #: ui/FilterWidget.cpp:47
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Filter names"
-msgstr ""
+msgstr "Názvy filtrů"
 
 #: ui/gantt/BasicGanttViewSettingsDialog.cpp:32 ui/kptaccountseditor.cpp:54
 #: ui/kptaccountsviewconfigdialog.cpp:77 ui/kptdependencyeditor.cpp:2189
@@ -5947,7 +5949,7 @@ msgstr "Zobrazit projekt"
 #: ui/gantt/GanttFilterOptionsWidget.ui:130 ui/kptganttview.cpp:354
 #, kde-format
 msgid "Tasks and Milestones"
-msgstr ""
+msgstr "Úlohy a milníky"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, taskList)
 #. i18n: ectx: property (text), widget (QCheckBox, show_tasks)
@@ -5961,13 +5963,13 @@ msgstr "Úlohy"
 #: ui/gantt/GanttFilterOptionsWidget.ui:146
 #, kde-format
 msgid "Milestones"
-msgstr ""
+msgstr "Milníky"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_unscheduled_tasks)
 #: ui/gantt/GanttFilterOptionsWidget.ui:153
 #, kde-format
 msgid "Unscheduled tasks"
-msgstr ""
+msgstr "Neplánované úlohy"
 
 #. i18n: ectx: property (title), widget (QGroupBox, period_group)
 #: ui/gantt/GanttFilterOptionsWidget.ui:163 ui/kptganttview.cpp:363
@@ -5979,19 +5981,19 @@ msgstr "Období"
 #: ui/gantt/GanttFilterOptionsWidget.ui:172
 #, kde-format
 msgid "Running tasks"
-msgstr ""
+msgstr "Spuštěné úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_finished)
 #: ui/gantt/GanttFilterOptionsWidget.ui:179
 #, kde-format
 msgid "Finished tasks"
-msgstr ""
+msgstr "Dokončené úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, show_not_started)
 #: ui/gantt/GanttFilterOptionsWidget.ui:186
 #, kde-format
 msgid "Not started tasks"
-msgstr ""
+msgstr "Nezapočaté úlohy"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, enable_period)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, period)
@@ -5999,7 +6001,7 @@ msgstr ""
 #: ui/gantt/GanttFilterOptionsWidget.ui:205
 #, kde-format
 msgid "Number of days around current datetime"
-msgstr ""
+msgstr "Počet dnů kolem aktuálního data a času"
 
 #. i18n: ectx: property (text), widget (QRadioButton, enable_period)
 #: ui/gantt/GanttFilterOptionsWidget.ui:198 ui/kptganttview.cpp:395
@@ -6011,7 +6013,7 @@ msgstr "Období:"
 #: ui/gantt/GanttFilterOptionsWidget.ui:236
 #, kde-format
 msgid "Specific period:"
-msgstr ""
+msgstr "Konkrétní období:"
 
 #: ui/gantt/GanttViewBase.cpp:157
 #, kde-kuit-format
@@ -6034,7 +6036,7 @@ msgstr "Časová osa"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:28
 #, kde-format
 msgid "Do not show the timeline"
-msgstr ""
+msgstr "Nezobrazovat časovou osu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineHide)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineHide)
@@ -6052,7 +6054,7 @@ msgstr "Skrýt"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:38
 #, kde-format
 msgid "Show timeline in the foreground"
-msgstr ""
+msgstr "Zobrazit časovou osu v popředí"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineForeground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineForeground)
@@ -6070,7 +6072,7 @@ msgstr "Popředí"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:48
 #, kde-format
 msgid "Show timeline in the background"
-msgstr ""
+msgstr "Zobrazit časovou osu na pozadí"
 
 #. i18n: ectx: property (text), widget (QRadioButton, timeLineBackground)
 #. i18n: ectx: property (text), widget (QRadioButton, ui_timeLineBackground)
@@ -6087,7 +6089,7 @@ msgstr "Pozadí"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:60
 #, kde-format
 msgid "Update interval in minutes, 0 disables update"
-msgstr ""
+msgstr "Interval aktualizace v minutách; hodnota 0 aktualizaci deaktivuje"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/gantt/kptganttchartdisplayoptions.ui:63
@@ -6104,7 +6106,7 @@ msgstr "Interval:"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:93
 #, kde-format
 msgid "Use custom line"
-msgstr ""
+msgstr "Použít vlastní čáru"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:102
@@ -6153,7 +6155,7 @@ msgstr "Dekorace"
 #: ui/gantt/ResourceAppointmentsGanttChartOptionsPanel.ui:159
 #, kde-format
 msgid "Show Row Separators"
-msgstr ""
+msgstr "Zobrazit oddělovač řádků"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
@@ -6163,14 +6165,14 @@ msgstr ""
 #: ui/kptmainprojectpanelbase.ui:261
 #, kde-format
 msgid "Freedays:"
-msgstr ""
+msgstr "Volné dny:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/gantt/kptganttchartdisplayoptions.ui:203
 #: ui/gantt/MilestoneGanttChartOptionsPanel.ui:203
 #, kde-format
 msgid "Additional text information"
-msgstr ""
+msgstr "Další textové informace"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTaskName)
 #. i18n: ectx: property (text), widget (QCheckBox, showTaskName)
@@ -6184,19 +6186,19 @@ msgstr "Název úlohy"
 #: ui/gantt/kptganttchartdisplayoptions.ui:216
 #, kde-format
 msgid "Resource names"
-msgstr ""
+msgstr "Názvy zdrojů"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/gantt/kptganttchartdisplayoptions.ui:226
 #, kde-format
 msgid "Additional graphics information"
-msgstr ""
+msgstr "Další grafické informace"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalPath)
 #: ui/gantt/kptganttchartdisplayoptions.ui:235
 #, kde-format
 msgid "Critical path"
-msgstr ""
+msgstr "Kritická cesta"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showDependencies)
 #: ui/gantt/kptganttchartdisplayoptions.ui:242
@@ -6208,13 +6210,13 @@ msgstr "Závislosti úlohy"
 #: ui/gantt/kptganttchartdisplayoptions.ui:249
 #, kde-format
 msgid "Negative float"
-msgstr ""
+msgstr "Negativní posun"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCriticalTasks)
 #: ui/gantt/kptganttchartdisplayoptions.ui:256
 #, kde-format
 msgid "Critical tasks"
-msgstr ""
+msgstr "Kritické úlohy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showCompletion)
 #: ui/gantt/kptganttchartdisplayoptions.ui:263
@@ -6226,25 +6228,26 @@ msgstr "Dokončení úlohy"
 #: ui/gantt/kptganttchartdisplayoptions.ui:270
 #, kde-format
 msgid "Positive float"
-msgstr ""
+msgstr "Pozitivní posun"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showSchedulingError)
 #: ui/gantt/kptganttchartdisplayoptions.ui:277
 #, kde-format
 msgid "Scheduling errors"
-msgstr ""
+msgstr "Chyby v plánování"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_showTimeConstraint)
 #: ui/gantt/kptganttchartdisplayoptions.ui:284
 #, kde-format
 msgid "Time constraints"
-msgstr ""
+msgstr "Časové omezení"
 
 #: ui/gantt/kptganttitemdelegate.cpp:79
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Actual finish: %2<nl/>Planned finish: %3<nl/>Status: %4"
 msgstr ""
+"Název: %1<nl/>Skutečné dokončení: %2<nl/>Plánované dokončení: %3<nl/>Stav: %4"
 
 #: ui/gantt/kptganttitemdelegate.cpp:91
 #, kde-kuit-format
@@ -6253,6 +6256,8 @@ msgid ""
 "Name: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6"
 msgstr ""
+"Název: %1<nl/>Dokončení: %2 %<nl/>Skutečný začátek: %3<nl/>Plánováno: %4 – "
+"%5<nl/>Stav: %6"
 
 #: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
 #, kde-kuit-format
@@ -6261,12 +6266,14 @@ msgid ""
 "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Constraint type: %5<nl/"
 ">Constraint time: %6<nl/>Negative float: %7 h"
 msgstr ""
+"Název: %1<nl/>Plánováno: %2 – %3<nl/>Stav: %4<nl/>Typ omezení: %5<nl/>Doba "
+"trvání omezení: %6<nl/>Negativní posun: %7 h"
 
 #: ui/gantt/kptganttitemdelegate.cpp:149
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3<nl/>Status: %4<nl/>Scheduling: %5"
-msgstr ""
+msgstr "Název: %1<nl/>Plánováno: %2 – %3<nl/>Stav: %4<nl/>Plánování: %5"
 
 #: ui/gantt/kptganttitemdelegate.cpp:168 ui/gantt/kptganttitemdelegate.cpp:185
 #, kde-kuit-format
@@ -6275,18 +6282,20 @@ msgid ""
 "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Constraint type: %4<nl/"
 ">Constraint time: %5<nl/>Negative float: %6 h"
 msgstr ""
+"Název: %1<nl/>Plánováno: %2<nl/>Stav: %3<nl/>Typ omezení: %4<nl/>Čas "
+"omezení: %5<nl/>Negativní posun: %6 h"
 
 #: ui/gantt/kptganttitemdelegate.cpp:201
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2<nl/>Status: %3<nl/>Scheduling: %4"
-msgstr ""
+msgstr "Název: %1<nl/>Plánováno: %2<nl/>Stav: %3<nl/>Plánování: %4"
 
 #: ui/gantt/kptganttitemdelegate.cpp:214
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name: %1<nl/>Planned: %2 - %3"
-msgstr ""
+msgstr "Jméno: %1<nl/>Plánováno: %2 – %3"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/gantt/kptganttprintingoptions.ui:17
@@ -6307,7 +6316,7 @@ msgstr "Vypsat názvy úloh"
 #, kde-format
 msgctxt "@option:check"
 msgid "Print time scale"
-msgstr ""
+msgstr "Vypsat časovou osu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/gantt/kptganttprintingoptions.ui:40
@@ -6321,21 +6330,21 @@ msgstr "Škálování"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Divide chart on multiple pages"
-msgstr ""
+msgstr "Rozdělit graf na více stránek"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitVertical)
 #: ui/gantt/kptganttprintingoptions.ui:53
 #, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to page height"
-msgstr ""
+msgstr "Přizpůsobit graf výšce stránky"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_fitSingle)
 #: ui/gantt/kptganttprintingoptions.ui:60
 #, kde-format
 msgctxt "@option:radio"
 msgid "Fit chart to a single page"
-msgstr ""
+msgstr "Přizpůsobit graf na jednu stránku"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_5)
 #: ui/gantt/kptganttprintingoptions.ui:73
@@ -6349,7 +6358,7 @@ msgstr "Rozsah"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Chart start:"
-msgstr ""
+msgstr "Začátek grafu:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_startTimeBtn)
 #: ui/gantt/kptganttprintingoptions.ui:105
@@ -6363,7 +6372,7 @@ msgstr "Start:"
 #, kde-format
 msgctxt "@option:radio"
 msgid "Chart end:"
-msgstr ""
+msgstr "Konec grafu:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_endTimeBtn)
 #: ui/gantt/kptganttprintingoptions.ui:154
@@ -6375,7 +6384,7 @@ msgstr "Konec:"
 #: ui/GroupAllocationPanel.cpp:53 ui/GroupAllocationPanel.cpp:82
 msgctxt "(qtundo-format)"
 msgid "Modify resourcegroup allocation"
-msgstr ""
+msgstr "Upravit přidělení skupiny zdrojů"
 
 #: ui/kptaccountseditor.cpp:39 ui/kptaccountsviewconfigdialog.cpp:32
 #: ui/kptdependencyeditor.cpp:2174 ui/kptresourceappointmentsview.cpp:52
@@ -6394,6 +6403,12 @@ msgid ""
 "from resources.</para><para>This view supports printing using the context "
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor struktury rozdělení nákladů</title><para>Struktura rozdělení "
+"nákladů (CBS) se skládá z účtů uspořádaných do stromové struktury. Účty lze "
+"přiřadit k úlohám nebo zdrojům. Obvykle se zde vyskytují dva nejvyšší účty – "
+"jeden pro agregaci nákladů z úloh a druhý pro agregaci nákladů ze zdrojů.</"
+"para><para>Toto zobrazení podporuje tisk pomocí kontextové nabídky.<nl/"
+"><link url='%1'>Více...</link></para>"
 
 #: ui/kptaccountseditor.cpp:270
 #, kde-kuit-format
@@ -6422,6 +6437,10 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>Zobrazení rozdělení nákladů</title><para>Zobrazuje souhrnné celkové "
+"náklady i jejich rozložení v čase.</para><para>Toto zobrazení podporuje "
+"konfiguraci a tisk pomocí kontextové nabídky.<nl/><link url='%1'>Více...</"
+"link></para>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_general)
 #: ui/kptaccountsviewconfigdialog.cpp:62 ui/kptmainprojectpanelbase.ui:25
@@ -6435,7 +6454,7 @@ msgstr "Obecné"
 #: ui/kptitemviewsettup.cpp:204
 #, kde-format
 msgid "View Settings"
-msgstr "Nastavení pohledu"
+msgstr "Nastavení zobrazení"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptaccountsviewconfigurepanelbase.ui:26
@@ -6507,7 +6526,7 @@ msgstr "Počáteční datum"
 #: ui/kptaccountsviewconfigurepanelbase.ui:107
 #, kde-format
 msgid "Project start"
-msgstr ""
+msgstr "Začátek projektu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_headerDate)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_footerDate)
@@ -6547,7 +6566,7 @@ msgstr "Práce..."
 #: ui/kptcalendareditor.cpp:263 ui/kptcalendareditor.cpp:293
 msgctxt "(qtundo-format)"
 msgid "Modify Weekday State"
-msgstr ""
+msgstr "Upravit stav pracovního dne"
 
 #: ui/kptcalendareditor.cpp:377
 #, kde-kuit-format
@@ -6567,6 +6586,20 @@ msgid ""
 "working resource, when the resources calendar is not explicitly set.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor práce a dovolené</title><para>Kalendář určuje dostupnost "
+"zdrojů nebo úloh typu <emphasis>Trvání</emphasis>. Kalendář může být "
+"specifický pro jeden zdroj nebo úlohu, nebo jej může sdílet více zdrojů či "
+"úloh. Den může být typu <emphasis>Nedefinovaný</emphasis>, "
+"<emphasis>Nepracovní den</emphasis> nebo <emphasis>Pracovní den</emphasis>. "
+"Pracovní den má definován jeden nebo více pracovních intervalů. </"
+"para><para>Kalendář může obsahovat podkalendáře. Pokud není den v kalendáři "
+"definován, zkontroluje se nadřazený kalendář. Den typu "
+"<emphasis>Nedefinovaný</emphasis> se při použití zdrojem automaticky nastaví "
+"na <emphasis>Nepracovní</emphasis>, při použití úlohou na <emphasis>Dostupný "
+"celý den</emphasis>.</para><para>Kalendář lze definovat jako "
+"<emphasis>Výchozí kalendář</emphasis>. Výchozí kalendář používá pracovní "
+"zdroj, pokud není výslovně nastaven kalendář zdroje.<nl/><link "
+"url='%1'>Více...</link></para>"
 
 #: ui/kptcalendareditor.cpp:585
 #, kde-format
@@ -6607,7 +6640,7 @@ msgstr "Nastavit %1 na Nedefinovaný"
 #: ui/kptcpmwidget.ui:24 ui/kptpertresult.ui:33
 #, kde-format
 msgid "Project Schedule:"
-msgstr ""
+msgstr "Plán projektu:"
 
 #. i18n: ectx: property (text), widget (QLabel, scheduleName)
 #. i18n: ectx: property (text), widget (QToolButton, btnAdd)
@@ -6628,7 +6661,7 @@ msgstr "..."
 #: ui/kptcpmwidget.ui:71
 #, kde-format
 msgid "Probability of finishing before"
-msgstr ""
+msgstr "Pravděpodobnost, že skončí před"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptcpmwidget.ui:91
@@ -6657,6 +6690,12 @@ msgid ""
 "delete a dependency using the context menu.</para><para>This view supports "
 "printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor závislostí úloh</title><para>Upravujte závislosti mezi "
+"úlohami. Závislosti lze přidat přetažením spojovací oblasti (počátku nebo "
+"konce) z jedné úlohy do spojovací oblasti jiné úlohy. Závislost můžete "
+"upravit nebo odstranit pomocí kontextové nabídky.</para><para>Toto zobrazení "
+"podporuje tisk pomocí kontextové nabídky.<nl/><link url='%1'>Více...</link></"
+"para>"
 
 #: ui/kptdependencyeditor.cpp:2545
 #, kde-format
@@ -6780,7 +6819,7 @@ msgstr "Dokumenty úlohy"
 #, kde-kuit-format
 msgctxt "@action View a document"
 msgid "View..."
-msgstr "Pohled..."
+msgstr "Zobrazení..."
 
 #: ui/kptdocumentspanel.cpp:114
 #, kde-kuit-format
@@ -6798,7 +6837,7 @@ msgstr "Dokument nelze připojit"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Document is already attached:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "Dokument je již přiložen:<nl/><filename>%1</filename>"
 
 #: ui/kptdocumentspanel.cpp:139
 #, kde-kuit-format
@@ -6814,7 +6853,7 @@ msgstr "Nelze upravit URL"
 #: ui/kptdocumentspanel.cpp:144
 #, kde-format
 msgid "Document url already exists: %1"
-msgstr ""
+msgstr "URL dokumentu již existuje: %1"
 
 #: ui/kptdocumentspanel.cpp:204
 msgctxt "(qtundo-format)"
@@ -6829,7 +6868,7 @@ msgstr "Odstranit dokument"
 #: ui/kptdocumentspanel.cpp:222
 msgctxt "(qtundo-format)"
 msgid "Modify document url"
-msgstr ""
+msgstr "Upravit URL dokumentu"
 
 #: ui/kptdocumentspanel.cpp:226
 msgctxt "(qtundo-format)"
@@ -6844,7 +6883,7 @@ msgstr "Upravit stav dokumentu"
 #: ui/kptdocumentspanel.cpp:234
 msgctxt "(qtundo-format)"
 msgid "Modify document send control"
-msgstr ""
+msgstr "Upravit nastavení odesílání dokumentů"
 
 #: ui/kptdocumentspanel.cpp:245
 msgctxt "(qtundo-format)"
@@ -6919,14 +6958,14 @@ msgstr "Ctrl+O"
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "No freedays"
-msgstr ""
+msgstr "Žádné volné dny"
 
 #: ui/kptganttview.cpp:142 ui/MilestoneGanttView.cpp:98
 #: ui/ResourceAppointmentsGanttView.cpp:114
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Project freedays"
-msgstr ""
+msgstr "Projekt volných dnů"
 
 #: ui/kptganttview.cpp:174 ui/kptganttview.cpp:193
 #: ui/MilestoneGanttView.cpp:131 ui/MilestoneGanttView.cpp:148
@@ -6942,7 +6981,7 @@ msgstr "Graf"
 #: ui/ResourceAppointmentsGanttView.cpp:145
 #, kde-format
 msgid "Gantt Chart Settings"
-msgstr ""
+msgstr "Nastavení Ganttova grafu"
 
 #: ui/kptganttview.cpp:256
 #, kde-kuit-format
@@ -6955,6 +6994,12 @@ msgid ""
 "configuration and printing using the context menu of the tree view.<nl/"
 "><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Ganttovo zobrazení</title><para>Zobrazuje naplánované úlohy v "
+"Ganttově diagramu. Oblast grafu lze přibližovat a oddalovat pomocí posuvníku "
+"umístěného v levém horním rohu časové osy. <note>Aby se posuvník zobrazil, "
+"je třeba na něj najet myší.</note></para><para>Toto zobrazení podporuje "
+"konfiguraci a tisk pomocí kontextové nabídky stromového zobrazení.<nl/><link "
+"url='%1'>Více...</link></para>"
 
 #: ui/kptganttview.cpp:309 ui/kpttaskeditor.cpp:976 ui/kpttaskeditor.cpp:1852
 #, kde-format
@@ -6974,12 +7019,12 @@ msgstr "Zobrazit nenaplánované úlohy"
 #: ui/kptganttview.cpp:338
 #, kde-format
 msgid "Show Tasks"
-msgstr ""
+msgstr "Zobrazit úlohy"
 
 #: ui/kptganttview.cpp:346
 #, kde-format
 msgid "Show Milestones"
-msgstr ""
+msgstr "Zobrazit milníky"
 
 #: ui/kptganttview.cpp:355
 #, kde-kuit-format
@@ -6988,50 +7033,53 @@ msgid ""
 "Activates the Task and Milestones filter options.<nl/>Deactivating this will "
 "show all scheduled tasks and milestones."
 msgstr ""
+"Aktivuje možnosti filtrování úloh a milníků.<nl/>Deaktivací této možnosti se "
+"zobrazí všechny naplánované úlohy a milníky."
 
 #: ui/kptganttview.cpp:364
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Activates the Period filter options."
-msgstr ""
+msgstr "Aktivuje možnosti filtru období."
 
 #: ui/kptganttview.cpp:371
 #, kde-format
 msgid "Show Running Tasks"
-msgstr ""
+msgstr "Zobrazit probíhající úlohy"
 
 #: ui/kptganttview.cpp:372
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks that has been started before or during this period."
 msgstr ""
+"Zobrazuje úlohy, které byly spuštěny před tímto obdobím nebo v jeho průběhu."
 
 #: ui/kptganttview.cpp:379
 #, kde-format
 msgid "Show Finished Tasks"
-msgstr ""
+msgstr "Zobrazit dokončené úlohy"
 
 #: ui/kptganttview.cpp:380
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that has been finished during this period."
-msgstr ""
+msgstr "Zobrazuje úlohy a milníky, které byly v tomto období dokončeny."
 
 #: ui/kptganttview.cpp:387
 #, kde-format
 msgid "Show Not Started Tasks"
-msgstr ""
+msgstr "Zobrazit nezapočaté úlohy"
 
 #: ui/kptganttview.cpp:388
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Shows tasks and milestones that should have been started by now."
-msgstr ""
+msgstr "Zobrazuje úlohy a milníky, které už měly být započaty."
 
 #: ui/kptganttview.cpp:400
 #, kde-format
 msgid "specific period:"
-msgstr ""
+msgstr "konkrétní období:"
 
 #: ui/kptganttview.cpp:406 ui/MilestoneGanttView.cpp:417
 #: ui/ResourceAppointmentsGanttView.cpp:323
@@ -7097,12 +7145,12 @@ msgstr "Délka"
 #: ui/kptintervaledit.cpp:157 ui/kptintervaledit.cpp:176
 #, kde-format
 msgid "Edit Work Intervals"
-msgstr ""
+msgstr "Upravit pracovní intervaly"
 
 #: ui/kptintervaledit.cpp:209 ui/kptintervaledit.cpp:264
 msgctxt "(qtundo-format)"
 msgid "Modify Work Interval"
-msgstr ""
+msgstr "Upravit pracovní interval"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, intervalList)
 #: ui/kptintervaleditbase.ui:21
@@ -7133,13 +7181,13 @@ msgstr "Přidat"
 #: ui/kptintervaleditbase.ui:97
 #, kde-format
 msgid "Clear"
-msgstr "Vyprázdnit"
+msgstr "Vymazat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, stretchLastSection)
 #: ui/kptitemviewsettings.ui:28
 #, kde-format
 msgid "Stretch last section"
-msgstr ""
+msgstr "Prodloužení poslední části"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/kptitemviewsettings.ui:35
@@ -7167,27 +7215,27 @@ msgstr "Stromové zobrazení"
 #: ui/kptitemviewsettup.cpp:138
 #, kde-format
 msgid "Tree View Column Configuration"
-msgstr ""
+msgstr "Nastavení sloupců v zobrazení stromu"
 
 #: ui/kptitemviewsettup.cpp:212
 #, kde-format
 msgid "Main View"
-msgstr "Hlavní pohled"
+msgstr "Hlavní zobrazení"
 
 #: ui/kptitemviewsettup.cpp:213
 #, kde-format
 msgid "Main View Column Configuration"
-msgstr ""
+msgstr "Nastavení sloupců v hlavním zobrazení"
 
 #: ui/kptitemviewsettup.cpp:218
 #, kde-format
 msgid "Auxiliary View"
-msgstr "Pomocný pohled"
+msgstr "Pomocné zobrazení"
 
 #: ui/kptitemviewsettup.cpp:219
 #, kde-format
 msgid "Auxiliary View Column Configuration"
-msgstr ""
+msgstr "Nastavení sloupce v pomocném zobrazení"
 
 #: ui/kptlocaleconfigmoneydialog.cpp:21
 #, kde-format
@@ -7197,7 +7245,7 @@ msgstr "Nastavení měny"
 #: ui/kptlocaleconfigmoneydialog.cpp:38
 msgctxt "(qtundo-format)"
 msgid "Modify currency settings"
-msgstr ""
+msgstr "Upravit nastavení měny"
 
 #: ui/kptmainprojectdialog.cpp:26
 #, kde-format
@@ -7218,12 +7266,16 @@ msgid ""
 "<nl/>You can define the WBS code pattern using the <interface>Project-"
 ">Define WBS Pattern</interface> menu entry."
 msgstr ""
+"Struktura rozdělení práce (WBS) zavádí číslování všech úloh v projektu podle "
+"struktury úloh.<nl/>Kód WBS se generuje automaticky.<nl/>Vzor kódu WBS "
+"můžete definovat pomocí položky nabídky <interface>Projekt->Definovat vzor "
+"WBS</interface>."
 
 #: ui/kptmainprojectpanel.cpp:109
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Enables sharing resources with other projects"
-msgstr ""
+msgstr "Umožňuje sdílení zdrojů s jinými projekty"
 
 #: ui/kptmainprojectpanel.cpp:111
 #, kde-kuit-format
@@ -7234,12 +7286,17 @@ msgid ""
 "defined in a separate file, and you must have at least read access to it. "
 "The projects that share the resources must also be accessible by you."
 msgstr ""
+"<title>Sdílené zdroje</title>Zdroje lze sdílet mezi projekty, aby se "
+"zabránilo jejich nadměrnému využití napříč projekty. Sdílené zdroje musí být "
+"definovány v samostatném souboru a k tomuto souboru musíte mít alespoň "
+"přístup pro čtení. Projekty, které tyto zdroje sdílejí, musí být pro vás "
+"rovněž přístupné."
 
 #: ui/kptmainprojectpanel.cpp:119
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "File where shared resources are defined"
-msgstr ""
+msgstr "Soubor, ve kterém jsou definovány sdílené zdroje"
 
 #: ui/kptmainprojectpanel.cpp:370
 #, kde-format
@@ -7251,7 +7308,7 @@ msgstr "Cesta k modulům úlohy"
 #: ui/kpttaskgeneralpanelbase.ui:23
 #, kde-format
 msgid "WBS:"
-msgstr ""
+msgstr "WBS:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel1)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
@@ -7283,7 +7340,7 @@ msgstr "&Správce:"
 #: ui/kptmainprojectpanelbase.ui:132
 #, kde-format
 msgid "Choose a project leader from your address book."
-msgstr ""
+msgstr "Vyberte si vedoucího projektu ze své knihy adres."
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseLeader)
 #: ui/kptmainprojectpanelbase.ui:135
@@ -7331,7 +7388,7 @@ msgstr "Procházet..."
 #: ui/kptmainprojectpanelbase.ui:255
 #, kde-format
 msgid "Freedays"
-msgstr ""
+msgstr "Volné dny"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_documents)
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
@@ -7422,7 +7479,7 @@ msgstr "Použít místní moduly úloh"
 #: ui/kptmilestoneprogressdialog.cpp:26
 #, kde-format
 msgid "Milestone Progress"
-msgstr ""
+msgstr "Pokrok v dosažení milníků"
 
 #: ui/kptmilestoneprogresspanel.cpp:39
 msgctxt "(qtundo-format)"
@@ -7456,7 +7513,7 @@ msgstr "Odstranit vyžadovanou úlohu"
 #: ui/kptpertresult.ui:90
 #, kde-format
 msgid "Total Float:"
-msgstr ""
+msgstr "Celkový posun:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_header)
 #: ui/kptprintingheaderfooter.ui:16
@@ -7494,19 +7551,19 @@ msgstr "Zápatí"
 #: ui/kptrecalculatedialog.cpp:35
 #, kde-format
 msgid "Re-calculate Schedule"
-msgstr ""
+msgstr "Přepočítat plán"
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnCurrent)
 #: ui/kptrecalculatedialog.ui:26
 #, kde-format
 msgid "Re-calculate from current date/time"
-msgstr ""
+msgstr "Přepočítat od aktuálního data a času"
 
 #. i18n: ectx: property (text), widget (QRadioButton, btnFrom)
 #: ui/kptrecalculatedialog.ui:33
 #, kde-format
 msgid "Re-calculate from:"
-msgstr ""
+msgstr "Přepočítat od:"
 
 #: ui/kptrelationdialog.cpp:24
 #, kde-kuit-format
@@ -7519,6 +7576,7 @@ msgstr "Zpoždění:"
 msgctxt "@info:tooltip"
 msgid "<emphasis>Lag</emphasis> is the time the dependent task is delayed"
 msgstr ""
+"<emphasis>Zpoždění</emphasis> je doba, o kterou se závislá úloha zpozdí"
 
 #: ui/kptrelationdialog.cpp:41
 #, kde-kuit-format
@@ -7551,6 +7609,9 @@ msgid ""
 "resource - task assignments.</para><para>This view supports configuration "
 "and printing using the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Zobrazení přiřazení zdrojů</title><para>Zobrazuje naplánovaná "
+"přiřazení zdrojů k úlohám.</para><para>Toto zobrazení podporuje nastavení a "
+"tisk pomocí kontextové nabídky.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kptresourcedialog.cpp:53
 #, kde-kuit-format
@@ -7562,7 +7623,7 @@ msgstr "Skupiny"
 #, kde-kuit-format
 msgctxt "title:column"
 msgid "Select team members"
-msgstr ""
+msgstr "Vybrat členy týmu"
 
 #: ui/kptresourcedialog.cpp:238
 #, kde-format
@@ -7586,6 +7647,13 @@ msgid ""
 "refer to a <emphasis>Calendar</emphasis> defined in the <emphasis>Work and "
 "Vacation Editor</emphasis>.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor zdrojů</title><para>Zdroje jsou uspořádány do struktury "
+"rozčlenění zdrojů. Zdroje mohou být typu <emphasis>Práce</emphasis> nebo "
+"<emphasis>Materiál</emphasis>. Je-li zdroj typu <emphasis>Práce</emphasis> "
+"přiřazen k úloze, může ovlivnit její trvání, zatímco zdroj typu "
+"<emphasis>Materiál</emphasis> nikoli. Zdroj musí odkazovat na "
+"<emphasis>kalendář</emphasis> definovaný v <emphasis>editoru práce a "
+"dovolené</emphasis>.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kptresourceeditor.cpp:297
 #, kde-format
@@ -7601,19 +7669,19 @@ msgstr "Upravit zdroj..."
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Resource Groups"
-msgstr ""
+msgstr "Zobrazit skupiny zdrojů"
 
 #: ui/kptresourceeditor.cpp:317
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Team Members"
-msgstr ""
+msgstr "Zobrazit členy týmu"
 
 #: ui/kptresourceeditor.cpp:325
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Show Required Resources"
-msgstr ""
+msgstr "Zobrazit požadované zdroje"
 
 #: ui/kptresourceeditor.cpp:396
 #, kde-format
@@ -7621,6 +7689,7 @@ msgid ""
 "A resource that has been scheduled will be deleted. This will invalidate the "
 "schedule."
 msgstr ""
+"Naplánovaný zdroj bude odstraněn. Tím dojde ke zrušení platnosti plánu."
 
 #: ui/kptresourceeditor.cpp:416
 msgctxt "(qtundo-format)"
@@ -7639,7 +7708,7 @@ msgstr "Smazat zdroj"
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Resource Groups"
-msgstr ""
+msgstr "Skupiny zdrojů"
 
 #: ui/kptscheduleeditor.cpp:170
 #, kde-kuit-format
@@ -7656,6 +7725,15 @@ msgid ""
 "start and remaining effort for the tasks.<nl/><link url='%1'>More...</link></"
 "para>"
 msgstr ""
+"<title>Editor plánů</title><para>Editor plánů slouží k vytváření, úpravám, "
+"výpočtům a mazání plánů.</para><para>Je-li <emphasis>Režim</emphasis> "
+"nastaven na <emphasis>Automaticky</emphasis>, plán se vypočítá automaticky. "
+"<note>V režimu <emphasis>Automaticky</emphasis> může být současně pouze "
+"jeden plán a musí se jednat o plán nejvyšší úrovně bez podplánů.</note></"
+"para><para>Plán může obsahovat podplány. Podplán může využívat údaje o "
+"postupu projektu k přeplánování pouze těch úloh, které ještě nejsou "
+"dokončeny. Při přeplánování se pak použijí např. skutečný čas zahájení a "
+"zbývající úsilí pro dané úlohy.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kptscheduleeditor.cpp:301
 #, kde-format
@@ -7665,17 +7743,17 @@ msgstr "Přidat plán"
 #: ui/kptscheduleeditor.cpp:306
 #, kde-format
 msgid "Add Sub-schedule"
-msgstr ""
+msgstr "Přidat podplán"
 
 #: ui/kptscheduleeditor.cpp:316
 #, kde-format
 msgid "Calculate"
-msgstr "Spočítat"
+msgstr "Vypočítat"
 
 #: ui/kptscheduleeditor.cpp:321
 #, kde-format
 msgid "Baseline"
-msgstr "Základní řada"
+msgstr "Základní linie"
 
 #: ui/kptscheduleeditor.cpp:326
 #, kde-kuit-format
@@ -7687,7 +7765,7 @@ msgstr "Odpojit"
 #, kde-format
 msgctxt "@action"
 msgid "Claim Schedule"
-msgstr ""
+msgstr "Plán požadavků"
 
 #: ui/kptscheduleeditor.cpp:365
 #, kde-format
@@ -7695,11 +7773,13 @@ msgid ""
 "This schedule cannot be calculated.\n"
 "The parent schedule must be calculated first"
 msgstr ""
+"Tento plán nelze vypočítat.\n"
+"Nejprve je třeba vypočítat nadřazený plán"
 
 #: ui/kptscheduleeditor.cpp:366 ui/kptscheduleeditor.cpp:372
 #, kde-format
 msgid "Project Scheduling"
-msgstr ""
+msgstr "Plánování projektu"
 
 #: ui/kptscheduleeditor.cpp:371
 #, kde-format
@@ -7707,17 +7787,19 @@ msgid ""
 "The project has been started.\n"
 "Do you really want to calculate this schedule?"
 msgstr ""
+"Projekt byl spuštěn.\n"
+"Opravdu chcete tento plán vypočítat?"
 
 #: ui/kptscheduleeditor.cpp:388
 #, kde-format
 msgctxt "(qtundo-format) @info:status 1=schedule name"
 msgid "Calculate %1"
-msgstr "Spočítat %1"
+msgstr "Vypočítat %1"
 
 #: ui/kptscheduleeditor.cpp:406 ui/kptscheduleeditor.cpp:439
 msgctxt "(qtundo-format)"
 msgid "Create sub-schedule"
-msgstr ""
+msgstr "Vytvořit podplán"
 
 #: ui/kptscheduleeditor.cpp:417
 #, kde-format
@@ -7728,24 +7810,24 @@ msgstr "Přidat plán %1"
 #: ui/kptscheduleeditor.cpp:459
 #, kde-format
 msgid "Cannot baseline. The project is already baselined."
-msgstr ""
+msgstr "Nelze nastavit základní linii. Projekt ji má již nastavenou."
 
 #: ui/kptscheduleeditor.cpp:464
 #, kde-format
 msgid "This schedule is baselined. Do you want to remove the baseline?"
-msgstr ""
+msgstr "Tento plán má stanovenou základní linii. Chcete ji odstranit?"
 
 #: ui/kptscheduleeditor.cpp:468
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Reset baseline %1"
-msgstr "Resetovat základní řadu %1"
+msgstr "Resetovat základní linii %1"
 
 #: ui/kptscheduleeditor.cpp:471 ui/kptscheduleeditor.cpp:475
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Baseline %1"
-msgstr "Základní řada %1"
+msgstr "Základní linie %1"
 
 #: ui/kptscheduleeditor.cpp:485
 #, kde-format
@@ -7763,7 +7845,7 @@ msgstr "Posunout plán %1"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Claim schedule %1"
-msgstr ""
+msgstr "Plán požadavků %1"
 
 #: ui/kptscheduleeditor.cpp:553
 #, kde-kuit-format
@@ -7779,17 +7861,17 @@ msgstr "Výsledek"
 #: ui/kptscheduleeditor.cpp:799
 #, kde-format
 msgid "Scheduling Log"
-msgstr ""
+msgstr "Záznam plánování"
 
 #: ui/kptscheduleeditor.cpp:983
 msgctxt "(qtundo-format)"
 msgid "Modify project target start time"
-msgstr ""
+msgstr "Upravit čas spuštění cíle projektu"
 
 #: ui/kptscheduleeditor.cpp:995
 msgctxt "(qtundo-format)"
 msgid "Modify project target end time"
-msgstr ""
+msgstr "Upravit čas ukončení cíle projektu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptscheduleeditor.ui:35
@@ -7800,22 +7882,22 @@ msgstr "Rozsah plánování:"
 #: ui/kptstandardworktimedialog.cpp:73
 #, kde-format
 msgid "Estimate Conversions"
-msgstr "Převody odhadu"
+msgstr "Odhadované převody"
 
 #: ui/kptstandardworktimedialog.cpp:91
 msgctxt "(qtundo-format)"
 msgid "Modify Estimate Conversions"
-msgstr ""
+msgstr "Upravit odhadované převody"
 
 #: ui/kptsummarytaskdialog.cpp:26
 #, kde-format
 msgid "Summary Task Settings"
-msgstr ""
+msgstr "Souhrn nastavení úlohy"
 
 #: ui/kptsummarytaskdialog.cpp:51
 msgctxt "(qtundo-format)"
 msgid "Modify Summary Task"
-msgstr ""
+msgstr "Upravit souhrn úlohy"
 
 #: ui/kptsummarytaskgeneralpanel.cpp:44 ui/kpttaskgeneralpanel.cpp:40
 #, kde-format
@@ -7826,6 +7908,11 @@ msgid ""
 "You can define the WBS code pattern using the Define WBS Pattern command in "
 "the Tools menu."
 msgstr ""
+"Struktura rozdělení práce (WBS) zavádí číslování všech úloh v projektu podle "
+"struktury úloh.\n"
+"Kód WBS se generuje automaticky.\n"
+"Vzor kódu WBS můžete definovat pomocí příkazu Definovat vzor WBS v nabídce "
+"Nástroje."
 
 #: ui/kptsummarytaskgeneralpanel.cpp:76 ui/kpttaskdialog.cpp:97
 msgctxt "(qtundo-format)"
@@ -7836,7 +7923,7 @@ msgstr "Upravit úlohu"
 #: ui/kptsummarytaskgeneralpanelbase.ui:26 ui/kpttaskgeneralpanelbase.ui:20
 #, kde-format
 msgid "Work Breakdown Structure"
-msgstr ""
+msgstr "Struktura rozdělení práce"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, namelabel)
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, namefield)
@@ -7879,7 +7966,7 @@ msgstr "Priorita:"
 #: ui/kpttaskcostpanel.cpp:88
 msgctxt "(qtundo-format)"
 msgid "Modify Task Cost"
-msgstr ""
+msgstr "Upravit náklady na úlohu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_2)
@@ -7969,7 +8056,7 @@ msgstr "P&opis"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "The type of task or the estimate type of the task"
-msgstr ""
+msgstr "Typ úlohy nebo odhadovaný typ úlohy"
 
 #: ui/kpttaskeditor.cpp:99
 #, kde-kuit-format
@@ -7980,12 +8067,16 @@ msgid ""
 "<emphasis>Duration</emphasis>.<nl/><note>If the type is <emphasis>Summary</"
 "emphasis> or <emphasis>Project</emphasis> the type is not editable.</note>"
 msgstr ""
+"<p>Indikuje typ úlohy nebo odhadovaný typ úlohy.</p>Typ lze nastavit na "
+"<emphasis>Milník</emphasis>, <emphasis>Úsilí</emphasis> nebo "
+"<emphasis>Trvání</emphasis>.<nl/><note>Pokud je typ <emphasis>Souhrn</"
+"emphasis> nebo <emphasis>Projekt</emphasis>, nelze jej upravovat.</note>"
 
 #: ui/kpttaskeditor.cpp:143
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task with estimate type: %1"
-msgstr ""
+msgstr "Úloha s odhadovaným typem: %1"
 
 #: ui/kpttaskeditor.cpp:145
 #, kde-kuit-format
@@ -7996,13 +8087,13 @@ msgstr "Typ úlohy: %1"
 #: ui/kpttaskeditor.cpp:181 ui/kpttaskeditor.cpp:183
 msgctxt "(qtundo-format)"
 msgid "Set type to Milestone"
-msgstr ""
+msgstr "Nastavit typ na Milník"
 
 #: ui/kpttaskeditor.cpp:190
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set type to %1"
-msgstr ""
+msgstr "Nastavit typ na %1"
 
 #: ui/kpttaskeditor.cpp:378
 #, kde-kuit-format
@@ -8013,6 +8104,10 @@ msgid ""
 "any depth.</para><para>This view supports configuration and printing using "
 "the context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Editor úloh</title><para>Editor úloh slouží k vytváření, úpravám a "
+"mazání úloh. Úlohy jsou uspořádány do struktury rozdělení práce (WBS) v "
+"libovolné hloubce.</para><para>Toto zobrazení podporuje nastavení a tisk "
+"pomocí kontextové nabídky.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kpttaskeditor.cpp:449
 #, kde-kuit-format
@@ -8033,6 +8128,8 @@ msgid ""
 "Drag resources into the Task Editor and drop into the allocations- or "
 "responsible column"
 msgstr ""
+"Přetáhněte zdroje do editoru úloh a umístěte je do sloupce pro přidělení "
+"nebo do sloupce pro odpovědné osoby"
 
 #: ui/kpttaskeditor.cpp:500
 #, kde-kuit-format
@@ -8047,6 +8144,8 @@ msgid ""
 "Drag a task module into the <emphasis>Task Editor</emphasis> to add it to "
 "the project"
 msgstr ""
+"Chcete-li úlohu přidat do projektu, přetáhněte modul úlohy do "
+"<emphasis>Editoru úloh</emphasis>"
 
 #: ui/kpttaskeditor.cpp:526
 #, kde-kuit-format
@@ -8058,6 +8157,11 @@ msgid ""
 "regular plan file and typically includes tasks, estimates and dependencies.</"
 "para><para><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Moduly úloh</title><para>Moduly úloh představují skupinu úloh, které "
+"lze opakovaně využívat v různých projektech. To umožňuje čerpat z "
+"dosavadních zkušeností a standardizovat podobné operace.</para><para>Modul "
+"úloh je běžný plánovací soubor a obvykle obsahuje úlohy, odhady a závislosti."
+"</para><para><link url='%1'>Více...</link></para>"
 
 #: ui/kpttaskeditor.cpp:909
 #, kde-format
@@ -8099,7 +8203,7 @@ msgstr "Rozdělit"
 msgid ""
 "A task that has been scheduled will be deleted. This will invalidate the "
 "schedule."
-msgstr ""
+msgstr "Naplánovaná úloha bude smazána. Tím dojde ke zrušení platnosti plánu."
 
 #: ui/kpttaskeditor.cpp:1148
 msgctxt "(qtundo-format)"
@@ -8156,6 +8260,10 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>Zobrazení provádění úloh</title><para>Toto zobrazení slouží k úpravám "
+"a kontrole průběhu úloh během provádění projektu.</para><para>Toto zobrazení "
+"podporuje nastavení a tisk pomocí kontextové nabídky.<nl/><link "
+"url='%1'>Více...</link></para>"
 
 #. i18n: ectx: property (text), widget (QPushButton, ui_publish)
 #: ui/kpttaskeditor.cpp:2446 ui/kptworkpackagesendpanel.ui:45
@@ -8171,7 +8279,7 @@ msgstr "Pracovní balíčky..."
 #: ui/kpttaskeditor.cpp:2468
 msgctxt "(qtundo-format)"
 msgid "Log Send Workpackage"
-msgstr ""
+msgstr "Zaznamenat odeslání pracovního balíčku"
 
 #: ui/kpttaskgeneralpanel.cpp:102
 msgctxt "(qtundo-format)"
@@ -8191,6 +8299,8 @@ msgid ""
 "The person responsible for this task.\n"
 "        "
 msgstr ""
+"Osoba odpovědná za tuto úlohu.\n"
+"        "
 
 #. i18n: ectx: property (text), widget (QLabel, leaderlabel)
 #: ui/kpttaskgeneralpanelbase.ui:82
@@ -8216,6 +8326,11 @@ msgid ""
 "For duration based estimation, the assigned resources do not affect the "
 "fixed duration of the task, but only the costs."
 msgstr ""
+"Nastavení plánování. Tato nastavení ovlivňují samotné plánování úlohy.\n"
+"Odhad může být založen buď na úsilí, nebo na době trvání. Je-li odhad "
+"založen na úsilí, bude konečná doba trvání záviset na zdrojích přiřazených k "
+"úloze. V případě odhadu založeného na době trvání nemají přiřazené zdroje "
+"vliv na pevně stanovenou dobu trvání úlohy, ale pouze na náklady."
 
 #. i18n: ectx: property (title), widget (QGroupBox, schedulingGroup)
 #: ui/kpttaskgeneralpanelbase.ui:167 ui/TasksGeneralPanel.ui:119
@@ -8268,6 +8383,8 @@ msgid ""
 "Risk controls the PERT distribution used when calculating the actual "
 "estimate for this task."
 msgstr ""
+"Riziko řídí rozdělení PERT, které se používá při výpočtu skutečného odhadu "
+"pro tuto úlohu."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3_2_3)
 #. i18n: ectx: property (whatsThis), widget (KComboBox, risk)
@@ -8282,12 +8399,18 @@ msgid ""
 "<b>High risk</b> means that the estimate will be slightly pessimistic "
 "compared to Low risk.</p>"
 msgstr ""
+"<p>Riziko řídí rozdělení PERT, které se používá při výpočtu skutečného "
+"odhadu pro úlohu..\n"
+"<b>Žádné</b> znamená, že se použije očekávaný odhad beze změny.\n"
+"<b>Nízké riziko</b> znamená, že se použije normální rozdělení.\n"
+"<b>Vysoké riziko</b> znamená, že odhad bude ve srovnání s nízkým rizikem "
+"mírně pesimističtější.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3_2_3)
 #: ui/kpttaskgeneralpanelbase.ui:348
 #, kde-format
 msgid "Risk:"
-msgstr "Risk:"
+msgstr "Riziko:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/kpttaskgeneralpanelbase.ui:404
@@ -8324,11 +8447,24 @@ msgid ""
 "item></list><note>You should select the desired edit mode when starting the "
 "task.</note><nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Úprava průběhu úlohy</title><para>Toto dialogové okno se skládá z "
+"následujících částí:<list><item>Ovládací prvek režimu úprav, který určuje "
+"chování dialogového okna.</item><item>Ovládací prvky pro označení úlohy jako "
+"zahájené a dokončené.</item><item>Tabulka pro zadání vynaloženého úsilí pro "
+"každý zdroj.</item><item>Tabulka pro zadání dokončení úlohy a zbývajícího "
+"úsilí.</item></list></para><para>Režimy úprav:<list><item><emphasis>Podle "
+"zdroje</emphasis> vyžaduje zadání vynaloženého úsilí pro každý zdroj "
+"přiřazený k této úloze. To umožňuje nejpodrobnější sledování využití úsilí a "
+"nákladů.</item><item><emphasis>Podle úlohy</emphasis> umožňuje zadat minimum "
+"informací. Při změně stavu dokončení se vynaložené úsilí a zbývající úsilí "
+"vypočítají automaticky, ale v případě potřeby je lze samozřejmě ručně "
+"upravit.</item></list><note>Požadovaný režim úprav byste měli vybrat při "
+"zahájení úlohy.</note><nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kpttaskprogressdialog.cpp:75
 msgctxt "(qtundo-format)"
 msgid "Modify Task Progress"
-msgstr ""
+msgstr "Upravit průběh úlohy"
 
 #: ui/kpttaskprogresspanel.cpp:96
 #, kde-kuit-format
@@ -8389,13 +8525,13 @@ msgstr "Režim úprav:"
 #: ui/kpttaskprogresspanelbase.ui:125
 #, kde-format
 msgid "Per resource"
-msgstr ""
+msgstr "Podle zdroje"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, editmode)
 #: ui/kpttaskprogresspanelbase.ui:130
 #, kde-format
 msgid "Per task"
-msgstr ""
+msgstr "Podle úlohy"
 
 #. i18n: ectx: property (text), widget (QPushButton, prevWeekBtn)
 #: ui/kpttaskprogresspanelbase.ui:177
@@ -8441,6 +8577,15 @@ msgid ""
 "para><para>This view supports configuration and printing using the context "
 "menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Zobrazení stavu úlohy</title><para>Zobrazení stavu úlohy slouží ke "
+"kontrole informací o průběhu úloh. Úlohy jsou rozděleny do skupin podle "
+"jejich stavu:<list><item>Nezahájené \tÚlohy, které již měly být zahájeny.</"
+"item><item>Probíhající \tÚlohy, které byly zahájeny, ale ještě nejsou "
+"dokončeny.</item><item>Dokončené \tÚlohy, které byly v tomto období "
+"dokončeny.</item><item>Příští období \tÚlohy, jejichž zahájení je "
+"naplánováno na příští období.</item></list>Časové období lze nastavit.</"
+"para><para>Toto zobrazení podporuje nastavení a tisk pomocí kontextové "
+"nabídky.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/kpttaskstatusview.cpp:668
 #, kde-format
@@ -8451,25 +8596,25 @@ msgstr "Obecné nastavení"
 #: ui/kpttaskstatusviewsettingspanel.ui:16
 #, kde-format
 msgid "Period Definition"
-msgstr ""
+msgstr "Definice období"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kpttaskstatusviewsettingspanel.ui:25
 #, kde-format
 msgid "Period length (days):"
-msgstr ""
+msgstr "Délka období (dny):"
 
 #. i18n: ectx: property (text), widget (QRadioButton, useCurrentDate)
 #: ui/kpttaskstatusviewsettingspanel.ui:48
 #, kde-format
 msgid "Use current date"
-msgstr ""
+msgstr "Použít aktuální datum"
 
 #. i18n: ectx: property (text), widget (QRadioButton, useWeekday)
 #: ui/kpttaskstatusviewsettingspanel.ui:68
 #, kde-format
 msgid "Use weekday:"
-msgstr ""
+msgstr "Použít pracovní den:"
 
 #: ui/kptusedefforteditor.cpp:32
 #, kde-format
@@ -8484,7 +8629,7 @@ msgstr "Tento týden"
 #: ui/kptusedefforteditor.cpp:210
 #, kde-format
 msgid "Total effort this week"
-msgstr ""
+msgstr "Celkové úsilí za tento týden"
 
 #: ui/kptusedefforteditor.cpp:397
 #, no-c-format, kde-format
@@ -8510,7 +8655,7 @@ msgstr "Plánované úsilí"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Accumulated effort %1"
-msgstr ""
+msgstr "Celkové úsilí %1"
 
 #: ui/kptusedefforteditor.cpp:725
 #, kde-kuit-format
@@ -8519,12 +8664,14 @@ msgid ""
 "Accumulated used effort.<nl/><note>Used effort must be entered per resource</"
 "note>"
 msgstr ""
+"Celkové vynaložené úsilí.<nl/><note>Vynaložené úsilí je třeba zadat pro "
+"každý zdroj zvlášť</note>"
 
 #: ui/kptusedefforteditor.cpp:727
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Accumulated used effort"
-msgstr ""
+msgstr "Celkové vynaložené úsilí"
 
 #: ui/kptusedefforteditor.cpp:729
 #, kde-kuit-format
@@ -8536,7 +8683,7 @@ msgstr "Zbývající úsilí pro dokončení úlohy"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Planned effort accumulated until date"
-msgstr ""
+msgstr "Celkové plánované úsilí do dne"
 
 #: ui/kptviewbase.cpp:199
 #, kde-format
@@ -8572,7 +8719,7 @@ msgstr "Projekt:"
 #: ui/kptviewbase.cpp:669
 #, kde-format
 msgid "This view does not support printing."
-msgstr ""
+msgstr "Toto zobrazení nepodporuje tisk."
 
 #: ui/kptviewbase.cpp:678
 #, kde-kuit-format
@@ -8604,40 +8751,40 @@ msgstr "Možnosti tisku..."
 #: ui/kptviewbase.cpp:773
 #, kde-format
 msgid "Configure View..."
-msgstr "Nastavit pohled..."
+msgstr "Nastavit zobrazení..."
 
 #: ui/kptviewbase.cpp:2704
 #, kde-format
 msgid "Unsplit View"
-msgstr ""
+msgstr "Nerozdělené zobrazení"
 
 #: ui/kptviewbase.cpp:2707
 #, kde-format
 msgid "Split View"
-msgstr "Rozdělit pohled"
+msgstr "Rozdělit zobrazení"
 
 #: ui/kptwbsdefinitiondialog.cpp:22
 #, kde-format
 msgid "WBS Definition"
-msgstr ""
+msgstr "Definice WBS"
 
 #: ui/kptwbsdefinitionpanel.cpp:134
 msgctxt "(qtundo-format)"
 msgid "Modify WBS Code Definition"
-msgstr ""
+msgstr "Upravit definici kódu WBS"
 
 #. i18n: ectx: property (toolTip), widget (QFrame, frame_2)
 #: ui/kptwbsdefinitionpanelbase.ui:21
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define WBS code for the project"
-msgstr ""
+msgstr "Definovat kód WBS pro projekt"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptwbsdefinitionpanelbase.ui:33
 #, kde-format
 msgid "Project Code Definition"
-msgstr ""
+msgstr "Definice kódu projektu"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
@@ -8658,26 +8805,26 @@ msgstr "Oddělovač:"
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define default WBS code"
-msgstr ""
+msgstr "Definovat výchozí kód WBS"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptwbsdefinitionpanelbase.ui:98
 #, kde-format
 msgid "Default Definition"
-msgstr ""
+msgstr "Výchozí definice"
 
 #. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
 #: ui/kptwbsdefinitionpanelbase.ui:148
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define separate WBS codes for individual levels"
-msgstr ""
+msgstr "Definovat samostatné kódy WBS pro jednotlivé úrovně"
 
 #. i18n: ectx: property (title), widget (QGroupBox, levelsGroup)
 #: ui/kptwbsdefinitionpanelbase.ui:151
 #, kde-format
 msgid "Use Levels Definition"
-msgstr ""
+msgstr "Použít definice úrovní"
 
 #. i18n: ectx: property (text), widget (QTableWidget, levelsTable)
 #: ui/kptwbsdefinitionpanelbase.ui:167
@@ -8725,13 +8872,13 @@ msgstr "Zbývající úsilí"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Update started"
-msgstr ""
+msgstr "Aktualizace spuštěna"
 
 #: ui/kptworkpackagemergedialog.cpp:60
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Update finished"
-msgstr ""
+msgstr "Aktualizace dokončena"
 
 #: ui/kptworkpackagemergedialog.cpp:81
 #, kde-format
@@ -8742,7 +8889,7 @@ msgstr "Sloučit"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Merge the changes and display the resulting progress information"
-msgstr ""
+msgstr "Sloučit změny a zobrazit výsledné informace o průběhu"
 
 #: ui/kptworkpackagemergedialog.cpp:84
 #, kde-format
@@ -8753,13 +8900,13 @@ msgstr "Odmítnout"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Reject this package and goto next package"
-msgstr ""
+msgstr "Odmítnout tento balíček a přejít k dalšímu balíčku"
 
 #: ui/kptworkpackagemergedialog.cpp:92
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Commit the changes and go to next package"
-msgstr ""
+msgstr "Odeslat změny a přejít k dalšímu balíčku"
 
 #: ui/kptworkpackagemergedialog.cpp:93
 #, kde-format
@@ -8770,25 +8917,25 @@ msgstr "Zpět"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Revert the changes and go back to the current package"
-msgstr ""
+msgstr "Zrušit změny a vrátit se k aktuálnímu balíčku"
 
 #: ui/kptworkpackagemergedialog.cpp:165
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not started"
-msgstr ""
+msgstr "Úloha nebyla spuštěna"
 
 #: ui/kptworkpackagemergedialog.cpp:173
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Task is not finished"
-msgstr ""
+msgstr "Úloha nebyla dokončena"
 
 #: ui/kptworkpackagemergedialog.cpp:185
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Existing entry"
-msgstr ""
+msgstr "Existující záznam"
 
 #: ui/kptworkpackagemergedialog.cpp:187
 #, kde-kuit-format
@@ -8800,13 +8947,13 @@ msgstr "Nový záznam"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1%<nl/>Current value: %2%"
-msgstr ""
+msgstr "Nová hodnota: %1%<nl/>Aktuální hodnota: %2%"
 
 #: ui/kptworkpackagemergedialog.cpp:205 ui/kptworkpackagemergedialog.cpp:216
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1<nl/>Current value: %2"
-msgstr ""
+msgstr "Nová hodnota: %1<nl/>Aktuální hodnota: %2"
 
 #: ui/kptworkpackagemergedialog.cpp:226
 #, kde-format
@@ -8819,6 +8966,7 @@ msgid ""
 "The package owner '%1' is not a resource in this project. You must handle "
 "this manually."
 msgstr ""
+"Vlastník balíčku '%1' není v tomto projektu zdrojem. Musíte to vyřešit ručně."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/kptworkpackagemergepanel.ui:70
@@ -8836,7 +8984,7 @@ msgstr "Od:"
 #: ui/kptworkpackagemergepanel.ui:96
 #, kde-format
 msgid "<package time>"
-msgstr ""
+msgstr "<package time>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_updateStarted)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_updateFinished)
@@ -8851,13 +8999,13 @@ msgstr "Aktualizovat"
 #: ui/kptworkpackagemergepanel.ui:245
 #, kde-format
 msgid "No more data. Press Close to finish."
-msgstr ""
+msgstr "Žádná další data. Stiskněte tlačítko Zavřít pro dokončení."
 
 #: ui/kptworkpackagesenddialog.cpp:21
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Send Work Packages"
-msgstr ""
+msgstr "Odeslat pracovní balíčky"
 
 #: ui/kptworkpackagesendpanel.cpp:36
 #, kde-kuit-format
@@ -8869,6 +9017,7 @@ msgstr "Zdroj"
 #, kde-format
 msgid "Here you can enter your usual currency symbol, e.g. $ or €."
 msgstr ""
+"Zde můžete zadat symbol měny, kterou obvykle používáte, např. $ nebo €."
 
 #. i18n: ectx: property (text), widget (QLabel, m_labMonCurSym)
 #: ui/locale/localemon.ui:19
@@ -8880,7 +9029,7 @@ msgstr "Symbol měny:"
 #: ui/locale/localemon.ui:32
 #, kde-format
 msgid "Fractional digits:"
-msgstr ""
+msgstr "Desetinná čísla:"
 
 #: ui/MilestoneGanttView.cpp:224
 #, kde-kuit-format
@@ -8893,6 +9042,12 @@ msgid ""
 "supports configuration and printing using the context menu.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Ganttovo zobrazení milníků</title><para>Zobrazuje naplánované milníky "
+"v Ganttově diagramu. Oblast grafu lze přibližovat a oddalovat pomocí "
+"posuvníku umístěného v levém horním rohu časové osy. <note>Aby se posuvník "
+"zobrazil, je třeba na něj najet myší.</note></para><para>Toto zobrazení "
+"podporuje nastavení a tisk pomocí kontextové nabídky.<nl/><link "
+"url='%1'>Více...</link></para>"
 
 #: ui/performance/PerformanceStatusBase.cpp:525
 #: ui/performance/PerformanceStatusBase.cpp:528
@@ -8906,7 +9061,7 @@ msgstr "Náklady (%1)"
 #, kde-format
 msgctxt "Chart axis title"
 msgid "Effort (hours)"
-msgstr ""
+msgstr "Úsilí (hodiny)"
 
 #: ui/performance/PerformanceStatusView.cpp:221
 #, kde-kuit-format
@@ -8917,12 +9072,16 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>Zobrazení výkonu úlohy</title><para>Zobrazuje údaje o výkonu "
+"agregované pro vybranou úlohu.</para><para>Toto zobrazení podporuje "
+"nastavení a tisk pomocí kontextové nabídky.<nl/><link url='%1'>Více...</"
+"link></para>"
 
 #: ui/performance/PerformanceStatusView.cpp:635
 #: ui/performance/ProjectStatusView.cpp:156
 #, kde-format
 msgid "Chart Settings"
-msgstr ""
+msgstr "Nastavení grafu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:17
@@ -8952,13 +9111,13 @@ msgstr "Tabulka"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:59
 #, kde-format
 msgid "Base values"
-msgstr ""
+msgstr "Základní hodnoty"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ui_showindices)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:69
 #, kde-format
 msgid "Indices"
-msgstr ""
+msgstr "Indexy"
 
 #. i18n: ectx: property (title), widget (QGroupBox, ui_cost)
 #. i18n: ectx: property (title), widget (QGroupBox, ui_costgroup)
@@ -8974,7 +9133,7 @@ msgstr "Náklady"
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:154
 #, kde-format
 msgid "Show BCWS plot"
-msgstr ""
+msgstr "Zobrazit graf BCWS"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_bcwpEffort)
@@ -8982,7 +9141,7 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:164
 #, kde-format
 msgid "Show BCWP plot"
-msgstr ""
+msgstr "Zobrazit graf BCWP"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpCost)
 #. i18n: ectx: property (text), widget (QCheckBox, ui_acwpEffort)
@@ -8990,31 +9149,31 @@ msgstr ""
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:174
 #, kde-format
 msgid "Show ACWP plot"
-msgstr ""
+msgstr "Zobrazit graf ACWP"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:194
 #, kde-format
 msgid "SPI Cost"
-msgstr ""
+msgstr "Náklady SPI"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_spieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:204
 #, kde-format
 msgid "SPI Effort"
-msgstr ""
+msgstr "Úsilí SPI"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpieffort)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:211
 #, kde-format
 msgid "CPI Effort"
-msgstr ""
+msgstr "Úsilí CPI"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ui_cpicost)
 #: ui/performance/PerformanceStatusViewSettingsPanel.ui:218
 #, kde-format
 msgid "CPI Cost"
-msgstr ""
+msgstr "Náklady CPI"
 
 #: ui/performance/ProjectStatusView.cpp:53
 #, kde-kuit-format
@@ -9025,6 +9184,10 @@ msgid ""
 "configuration and printing using the context menu.<nl/><link url='%1'>More..."
 "</link></para>"
 msgstr ""
+"<title>Zobrazení výkonu projektu</title><para>Zobrazuje údaje o výkonu "
+"agregované na úrovni projektu.</para><para>Toto zobrazení podporuje "
+"nastavení a tisk pomocí kontextové nabídky.<nl/><link url='%1'>Více...</"
+"link></para>"
 
 #: ui/projectview/ProjectView.cpp:39
 #, kde-format
@@ -9045,7 +9208,7 @@ msgstr "Smazat"
 #, kde-kuit-format
 msgctxt "@title:column"
 msgid "Predecessor"
-msgstr ""
+msgstr "Předchůdce"
 
 #: ui/RelationEditorDialog.cpp:244
 #, kde-kuit-format
@@ -9064,16 +9227,22 @@ msgid ""
 "<interface>OK</interface>.<nl/>The dropdown list of possible predecessors is "
 "sorted with the most likely tasks first.</para>"
 msgstr ""
+"<title>Dialogové okno závislostí úloh</title><para>Dialogové okno závislostí "
+"úloh vám umožňuje snadno přidat předchůdce k vybrané úloze.<nl/>Po otevření "
+"se jako výchozí předchůdce zobrazí předchozí úloha. Ta je často právě tím "
+"požadovaným předchůdcem a lze ji přidat pouhým stisknutím tlačítka "
+"<interface>OK</interface>.<nl/>Rozbalovací seznam možných předchůdců je "
+"seřazen tak, že nejprve se zobrazují nejpravděpodobnější úlohy.</para>"
 
 #: ui/RelationEditorDialog.cpp:314
 #, kde-format
 msgid "Un-Delete"
-msgstr ""
+msgstr "Zrušit smazání"
 
 #: ui/RelationEditorDialog.cpp:399
 msgctxt "(qtundo-format)"
 msgid "Modify dependency"
-msgstr ""
+msgstr "Upravit závislost"
 
 #. i18n: ectx: property (text), widget (QToolButton, addBtn)
 #: ui/RelationEditorDialog.ui:131
@@ -9099,7 +9268,7 @@ msgstr "Do"
 #: ui/relationpanel.ui:87
 #, kde-format
 msgid "Dependency Type"
-msgstr ""
+msgstr "Typ závislosti"
 
 #: ui/reports/reportdata.cpp:432
 #, kde-format
@@ -9119,12 +9288,12 @@ msgstr "Přidělení zdrojů"
 #: ui/reports/reportdata.cpp:787
 #, kde-format
 msgid "Cost Performance"
-msgstr ""
+msgstr "Výkonnost nákladů"
 
 #: ui/reports/reportdata.cpp:841
 #, kde-format
 msgid "Effort Performance"
-msgstr ""
+msgstr "Výkonnost úsilí"
 
 #: ui/reports/reportdata.cpp:894
 #, kde-format
@@ -9177,26 +9346,26 @@ msgstr "Přejít na poslední stranu"
 #: ui/reports/reportsectionswidget.ui:28
 #, kde-format
 msgid "Enable report header"
-msgstr "Záhlaví záhlaví hlášení"
+msgstr "Povolit záhlaví přehledu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportheader)
 #: ui/reports/reportsectionswidget.ui:31
 #, kde-format
 msgid "Report Header"
-msgstr "Záhlaví hlášení"
+msgstr "Záhlaví přehledu"
 
 #. i18n: @info:tooltip
 #. i18n: ectx: property (toolTip), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:38
 #, kde-format
 msgid "Enable report footer"
-msgstr "Zápatí zápatí hlášení"
+msgstr "Povolit zápatí přehledu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, reportfooter)
 #: ui/reports/reportsectionswidget.ui:41
 #, kde-format
 msgid "Report Footer"
-msgstr "Zápatí hlášení"
+msgstr "Zápatí přehledu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/reports/reportsectionswidget.ui:50
@@ -9320,76 +9489,76 @@ msgstr "Povolit zápatí na všech stranách"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Report"
-msgstr "Exportovat hlášení"
+msgstr "Exportovat přehled"
 
 #: ui/reports/reportview.cpp:381
 #, kde-format
 msgid "Export to text document is not supported"
-msgstr ""
+msgstr "Export do textového dokumentu není podporován"
 
 #: ui/reports/reportview.cpp:392
 #, kde-format
 msgid "Export to text document failed"
-msgstr ""
+msgstr "Export do textového dokumentu se nezdařil"
 
 #: ui/reports/reportview.cpp:392 ui/reports/reportview.cpp:412
 #: ui/reports/reportview.cpp:433
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Failed to export to <filename>%1</filename>"
-msgstr ""
+msgstr "Export do souboru <filename>%1</filename> se nezdařil"
 
 #: ui/reports/reportview.cpp:401
 #, kde-format
 msgid "Export to spreadsheet document is not supported"
-msgstr ""
+msgstr "Export do tabulkového dokumentu není podporován"
 
 #: ui/reports/reportview.cpp:412
 #, kde-format
 msgid "Export to spreadsheet failed"
-msgstr ""
+msgstr "Export do tabulkového dokumentu se nezdařil"
 
 #: ui/reports/reportview.cpp:423
 #, kde-format
 msgid "Export to HTML document is not supported"
-msgstr ""
+msgstr "Export do dokumentu HTML není podporován"
 
 #: ui/reports/reportview.cpp:433
 #, kde-format
 msgid "Export to HTML failed"
-msgstr ""
+msgstr "Export do HTML se nezdařil"
 
 #: ui/reports/reportview.cpp:443
 #, kde-format
 msgid "Edit Report"
-msgstr ""
+msgstr "Upravit přehled"
 
 #: ui/reports/reportview.cpp:444
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Edit the report definition"
-msgstr ""
+msgstr "Upravit definici přehledu"
 
 #: ui/reports/reportview.cpp:445
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Opens the report design in the report design dialog."
-msgstr ""
+msgstr "Otevře návrh přehledu v dialogovém okně pro návrh přehledu."
 
 #: ui/reports/reportview.cpp:681
 #, kde-format
 msgid "View report"
-msgstr "Zobrazit hlášení"
+msgstr "Zobrazit přehled"
 
 #: ui/reports/reportview.cpp:686
 #, kde-format
 msgid "Undo all changes"
-msgstr ""
+msgstr "Vrátit všechny změny"
 
 #: ui/reports/reportview.cpp:692
 #, kde-format
 msgid "Export report definition"
-msgstr ""
+msgstr "Exportovat definici přehledu"
 
 #: ui/reports/reportview.cpp:709
 #, kde-kuit-format
@@ -9401,7 +9570,7 @@ msgstr "Nelze otevřít soubor:<nl/><filename>%1</filename>"
 #, kde-kuit-format
 msgctxt "@title:window report data elements"
 msgid "Data Elements"
-msgstr ""
+msgstr "Datové prvky"
 
 #: ui/reports/reportview.cpp:873
 #, kde-kuit-format
@@ -9449,7 +9618,7 @@ msgstr "Zalomení stránky"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Groups data by the selected column"
-msgstr ""
+msgstr "Seskupí data podle vybraného sloupce"
 
 #: ui/reports/reportview.cpp:1081
 #, kde-kuit-format
@@ -9461,13 +9630,13 @@ msgstr "Seřadit data"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show header section"
-msgstr ""
+msgstr "Zobrazit záhlaví"
 
 #: ui/reports/reportview.cpp:1083
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Show footer section"
-msgstr ""
+msgstr "Zobrazit zápatí"
 
 #: ui/reports/reportview.cpp:1084
 #, kde-kuit-format
@@ -9514,7 +9683,7 @@ msgstr "Nic"
 #, kde-format
 msgctxt "@title:column"
 msgid "Report Template"
-msgstr "Šablona zprávy"
+msgstr "Šablona přehledu"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:256
 #, kde-format
@@ -9526,31 +9695,31 @@ msgstr "Přidat"
 #, kde-format
 msgctxt "@title:column"
 msgid "Report File"
-msgstr ""
+msgstr "Soubor přehledu"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:260
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report name"
-msgstr "Název výkazu"
+msgstr "Název přehledu"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:261
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Report template file name"
-msgstr ""
+msgstr "Název souboru šablony přehledu"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:262
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Information added to filename"
-msgstr ""
+msgstr "Informace přidané k názvu souboru"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:263
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Name of the generated report file"
-msgstr ""
+msgstr "Název vygenerovaného souboru s přehledem"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:289
 #, kde-kuit-format
@@ -9561,21 +9730,26 @@ msgid ""
 "report template using any Open Document text editor.<nl/><link "
 "url='%1'>More...</link></para>"
 msgstr ""
+"<title>Přidávání a generování přehledů</title><para>Umožňuje přidávat a "
+"generovat přehledy na základě souborů ve formátu Open Document (.odf).</"
+"para><para>Šablonu přehledu můžete vytvořit pomocí libovolného textového "
+"editoru podporujícího formát Open Document.<nl/><link url='%1'>Více...</"
+"link></para>"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:380
 #, kde-format
 msgid "Add Report"
-msgstr "Přidat hlášení"
+msgstr "Přidat přehled"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:385
 #, kde-format
 msgid "Remove Report"
-msgstr "Odstranit hlášení"
+msgstr "Odstranit přehled"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:390
 #, kde-format
 msgid "Generate Report"
-msgstr "Vytvořit hlášení"
+msgstr "Vytvořit přehled"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:395
 #, kde-format
@@ -9585,7 +9759,7 @@ msgstr "Otevřít..."
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:431
 #, kde-format
 msgid "New report"
-msgstr "Nové hlášení"
+msgstr "Nový přehled"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:472
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:478
@@ -9593,22 +9767,22 @@ msgstr "Nové hlášení"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Generate Report"
-msgstr "Vytvořit hlášení"
+msgstr "Vytvořit přehled"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:473
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file name is empty."
-msgstr ""
+msgstr "Nepodařilo se vygenerovat %1.<nl/>Název šablony je prázdný."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:479
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Template file does not exist:<nl/>%2"
-msgstr ""
+msgstr "Nepodařilo se vygenerovat %1.<nl/>Šablona neexistuje:<nl/>%2"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:486
 #, kde-kuit-format
 msgid "Failed to generate %1.<nl/>Report file name is empty."
-msgstr ""
+msgstr "Nepodařilo se vygenerovat %1.<nl/>Název souboru zprávy je prázdný."
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:509
 #, kde-kuit-format
@@ -9621,23 +9795,23 @@ msgstr "Soubor existuje:<nl/>%1"
 #, kde-format, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report Generation"
-msgstr "Generování hlášení"
+msgstr "Generování přehledu"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:528
 #, kde-format
 msgid "Failed to open report generator"
-msgstr ""
+msgstr "Nepodařilo se otevřít generátor přehledů"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:532
 #, kde-format
 msgid "Failed to create report"
-msgstr ""
+msgstr "Vytvoření přehledu se nezdařilo"
 
 #: ui/reportsgenerator/ReportsGeneratorView.cpp:535
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report file generated:<nl/><filename>%1</filename>"
-msgstr ""
+msgstr "Vytvořený soubor přehledu:<nl/><filename>%1</filename>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: ui/ResourceAllocationPanel.ui:52
@@ -9654,7 +9828,7 @@ msgstr "Vyžadováno"
 #: ui/ResourceAllocationView.cpp:34
 #, kde-format
 msgid "Allocate"
-msgstr ""
+msgstr "Přidělit"
 
 #: ui/ResourceAppointmentsGanttView.cpp:235
 #, kde-kuit-format
@@ -9667,12 +9841,18 @@ msgid ""
 "note></para><para>This view supports configuration and printing using the "
 "context menu.<nl/><link url='%1'>More...</link></para>"
 msgstr ""
+"<title>Přiřazení zdrojů (Gantt)</title><para>Zobrazuje naplánovaná přiřazení "
+"zdrojů k úlohám v Ganttově diagramu. Oblast grafu lze přibližovat a "
+"oddalovat pomocí posuvníku umístěného v levém horním rohu časové osy. "
+"<note>Aby se posuvník zobrazil, je třeba na něj najet myší.</note></"
+"para><para>Toto zobrazení podporuje nastavení a tisk pomocí kontextové "
+"nabídky.<nl/><link url='%1'>Více...</link></para>"
 
 #: ui/ResourceCoverageView.cpp:134 ui/ResourceCoverageView.cpp:249
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "<title>%1</title><para>Available: %2<nl/>Booked: %3</para>"
-msgstr ""
+msgstr "<title>%1</title><para>K dispozici: %2<nl/>Rezervováno: %3</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, lblEmailDesc)
 #. i18n: ectx: property (text), widget (QLabel, ui_emaillabel)
@@ -9692,7 +9872,7 @@ msgstr "Iniciály:"
 #: ui/resourcedialogbase.ui:143
 #, kde-format
 msgid "Choose resource from address book"
-msgstr ""
+msgstr "Vyberte zdroj z knihy adres"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: ui/resourcedialogbase.ui:172
@@ -9753,13 +9933,13 @@ msgstr "Potřebné zdroje:"
 #: ui/resourcedialogbase.ui:440
 #, kde-format
 msgid "Hourly rate:"
-msgstr ""
+msgstr "Hodinová sazba:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
 #: ui/resourcedialogbase.ui:463
 #, kde-format
 msgid "Overtime rate:"
-msgstr ""
+msgstr "Sazba za přesčasy:"
 
 #: ui/ResourceGroupEditor.cpp:142
 #, kde-kuit-format
@@ -9770,6 +9950,10 @@ msgid ""
 "and has no impact on resource allocations.<nl/><link url='%1'>More...</"
 "link></para>"
 msgstr ""
+"<title>Struktura rozdělení zdrojů</title><para>Zdroje lze uspořádat do "
+"struktury rozdělení zdrojů. Tato struktura má čistě organizační charakter a "
+"nemá žádný vliv na přidělování zdrojů.<nl/><link url='%1'>Více...</link></"
+"para>"
 
 #: ui/ResourceGroupEditor.cpp:281
 #, kde-format
@@ -9779,7 +9963,7 @@ msgstr "Přidat skupinu zdrojů"
 #: ui/ResourceGroupEditor.cpp:286
 #, kde-format
 msgid "Add Child Resource Group"
-msgstr ""
+msgstr "Přidat podřízenou skupinu zdrojů"
 
 #: ui/ResourceGroupEditor.cpp:352
 msgctxt "(qtundo-format) @action"
@@ -9811,13 +9995,13 @@ msgstr "Dialog"
 #: ui/SplitTaskDialog.ui:20 ui/TaskSplitDialog.ui:54
 #, kde-format
 msgid "Keep task as summary task"
-msgstr ""
+msgstr "Zachovat úlohu jako souhrnnou"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/SplitTaskDialog.ui:29
 #, kde-format
 msgid "Split into parts:"
-msgstr ""
+msgstr "Rozdělení na části:"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, KPlato::StandardWorktimeDialogBase)
 #: ui/standardworktimedialogbase.ui:16
@@ -9903,7 +10087,7 @@ msgstr "Od&had:"
 #: ui/TasksGeneralPanel.ui:300
 #, kde-format
 msgid "Ris&k:"
-msgstr "Risk:"
+msgstr "Rizi&ko:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/TasksGeneralPanel.ui:356
@@ -9920,31 +10104,31 @@ msgstr "Pesimistický:"
 #: ui/TaskSplitDialog.cpp:22
 msgctxt "(qtundo-format)"
 msgid "Split task"
-msgstr ""
+msgstr "Rozdělit úlohu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/TaskSplitDialog.ui:22
 #, kde-format
 msgid "Number of tasks:"
-msgstr ""
+msgstr "Počet úloh:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateEstimate)
 #: ui/TaskSplitDialog.ui:64
 #, kde-format
 msgid "Migrate estimate"
-msgstr ""
+msgstr "Přenést odhad"
 
 #. i18n: ectx: property (text), widget (QCheckBox, migrateAllocations)
 #: ui/TaskSplitDialog.ui:74
 #, kde-format
 msgid "Migrate resource allocations"
-msgstr ""
+msgstr "Přenést přidělení zdrojů"
 
 #. i18n: ectx: property (text), widget (QCheckBox, createDependencies)
 #: ui/TaskSplitDialog.ui:84
 #, kde-format
 msgid "Create dependencies"
-msgstr ""
+msgstr "Vytvořit závislosti"
 
 #: widgets/KoDialog.cpp:245
 #, kde-format
@@ -10287,6 +10471,9 @@ msgid ""
 "<qt>The document is currently saved as %1. The document needs to be changed "
 "to <b>%2</b> to be encrypted.<p>Do you want to change the file to %2?</qt>"
 msgstr ""
+"<qt>Dokument je aktuálně uložen jako %1. Aby bylo možné dokument zašifrovat, "
+"je třeba změnit jeho název na <b>%2</b>.<p>Chcete změnit název souboru na %2?"
+"</qt>"
 
 #: widgets/KoPageLayoutDialog.cpp:34
 #, kde-format

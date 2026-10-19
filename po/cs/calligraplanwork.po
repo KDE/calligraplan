@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kplatowork\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-10-14 23:41+0200\n"
+"PO-Revision-Date: 2026-10-18 12:36+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Poedit 3.10\n"
 
 #: aboutdata.h:20 aboutdata.h:29
 #, kde-format
@@ -65,13 +65,13 @@ msgstr "&Upravit"
 #: calligraplanwork.rc:8
 #, kde-format
 msgid "View"
-msgstr "Pohled"
+msgstr "Zobrazení"
 
 #. i18n: ectx: Menu (view)
 #: calligraplanwork_readonly.rc:4
 #, kde-format
 msgid "&View"
-msgstr "&Pohled"
+msgstr "&Zobrazení"
 
 #: commandlineparser.cpp:33
 #, kde-format
@@ -400,7 +400,7 @@ msgstr "Správce projektu"
 #: taskworkpackageview.cpp:404 taskworkpackageview.cpp:935
 #, kde-format
 msgid "Configure View..."
-msgstr "Nastavit pohled..."
+msgstr "Nastavit zobrazení..."
 
 #: taskworkpackageview.cpp:631
 #, kde-kuit-format
@@ -474,7 +474,7 @@ msgstr "Upravit..."
 #, kde-format
 msgctxt "@verb"
 msgid "View..."
-msgstr "Pohled..."
+msgstr "Zobrazení..."
 
 #: view.cpp:117
 #, kde-format
