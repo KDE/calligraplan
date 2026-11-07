@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligraplan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-10-14 15:11+0200\n"
+"PO-Revision-Date: 2026-11-06 13:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2256,7 +2256,7 @@ msgstr "Gestor de planificacions"
 #: kptviewlistdialog.cpp:102
 #, kde-format
 msgid "Task View"
-msgstr "Vista de tasca"
+msgstr "Vista de tasques"
 
 #: kptviewlistdialog.cpp:104
 #, kde-format
