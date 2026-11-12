@@ -6,7 +6,7 @@
   <para
 >A visualização do gerador de relatórios é usada para adicionar e gerar relatórios no formato Open Document Text (odt).</para
 ><para
->Os relatórios podem ser baseados nos modelos de relatório fornecidos ou você pode <link linkedin="creating-odt-report-templates"
+>Os relatórios podem ser baseados nos modelos de relatório fornecidos ou você pode <link linkend="creating-odt-report-templates"
 >escrever seus próprios modelos</link
 >. </para>
   <para>

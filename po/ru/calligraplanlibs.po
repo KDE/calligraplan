@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-09-24 20:41+0200\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2026-11-11 22:59+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -2043,7 +2043,7 @@ msgstr "Распределение"
 #, no-c-format, kde-format
 msgctxt "<value>%"
 msgid "%1%"
-msgstr "%1%"
+msgstr "%1 %"
 
 #: models/AllocatedResourceItemModel.cpp:156
 #: models/kptresourceallocationmodel.cpp:142
@@ -3313,7 +3313,7 @@ msgstr "Родитель"
 #, kde-format
 msgctxt "task progress"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: models/kptnodechartmodel.cpp:232
 #: models/reportgenerator/ReportGenerator.cpp:52
@@ -3748,7 +3748,7 @@ msgstr "Задача завершена: %1"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Task is %1% completed"
-msgstr "Задача завершена на %1%"
+msgstr "Задача завершена на %1 %"
 
 #: models/kptnodeitemmodel.cpp:1348
 #, kde-kuit-format
@@ -4795,12 +4795,12 @@ msgstr "%1 определено из %2 доступных"
 #, no-c-format, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Allocated units: %1%"
-msgstr "Выделенные единицы: %1%"
+msgstr "Выделенные единицы: %1 %"
 
 #: models/kptresourceallocationmodel.cpp:437
 #, no-c-format, kde-format
 msgid "Maximum units available: %1%"
-msgstr "Максимальное количество доступных единиц: %1%"
+msgstr "Максимальное количество доступных единиц: %1 %"
 
 #: models/kptresourceallocationmodel.cpp:460
 #: models/kptresourceallocationmodel.cpp:556
@@ -5335,7 +5335,7 @@ msgstr "Передача рабочего пакета получена в: %1"
 #: models/kptworkpackagemodel.cpp:128
 #, kde-format
 msgid "Task reported %1% completed"
-msgstr "Отчёт о выполнении задания выполнен на %1%"
+msgstr "Отчёт о выполнении задания выполнен на %1 %"
 
 #: models/reportgenerator/ReportGenerator.cpp:31
 #: models/reportgenerator/ReportGenerator.cpp:51
@@ -6445,7 +6445,7 @@ msgid ""
 "Name: %1<nl/>Completion: %2 %<nl/>Actual start: %3<nl/>Planned: %4 - %5<nl/"
 ">Status: %6"
 msgstr ""
-"Название: %1<nl/>Завершение: %2 %<nl/>Фактическое начало: %3<nl/"
+"Название: %1<nl/>Завершение: %2 %<nl/>Фактическое начало: %3<nl/"
 ">Запланировано: %4 — %5<nl/>Статус: %6"
 
 #: ui/gantt/kptganttitemdelegate.cpp:114 ui/gantt/kptganttitemdelegate.cpp:132
@@ -9289,7 +9289,7 @@ msgstr "Новая запись"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "New value: %1%<nl/>Current value: %2%"
-msgstr "Новое значение: %1%<nl/>Текущее значение: %2%"
+msgstr "Новое значение: %1 %<nl/>Текущее значение: %2 %"
 
 #: ui/kptworkpackagemergedialog.cpp:205 ui/kptworkpackagemergedialog.cpp:216
 #, kde-kuit-format
