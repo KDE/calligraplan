@@ -1,0 +1,103 @@
+<sect2
+><title/>
+<para
+>تتضمن الميزات: </para>
+<itemizedlist>
+  <listitem
+><para
+>إدارة المهام باستخدام <link linkend="task-editor"
+>محرر المهام</link
+><itemizedlist>
+        <listitem
+><para
+>هيكل تفصيل العمل مع رموز WBS قابلة للضبط</para
+></listitem>
+        <listitem
+><para
+>المهام، المهام الموجزة، والمعالم</para
+></listitem>
+        <listitem
+><para
+>أنواع مختلفة من القيود الزمنية</para
+></listitem>
+        <listitem
+><para
+>أنواع مختلفة من التبعيات</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>إدارة الموارد باستخدام <link linkend="resource-editor"
+>محرر الموارد</link
+><itemizedlist>
+        <listitem
+><para
+>هيكل تقسيم الموارد</para
+></listitem>
+        <listitem
+><para
+>أنواع الموارد العاملة والمادية</para
+></listitem>
+        <listitem
+><para
+>تخصيص الموارد على مستوى المجموعة</para
+></listitem>
+        <listitem
+><para
+>فرق الموارد</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>تعريف وقت العمل والإجازات باستخدام <link linkend="work-and-vacation-editor"
+>محرر العمل والإجازات</link
+></para
+></listitem>
+  <listitem
+><para
+>إدارة التكاليف باستخدام <link linkend="cost-breakdown-structure-editor"
+>محرر هيكل تفصيل التكاليف</link
+></para
+></listitem>
+  <listitem
+><para
+>إدارة القيمة المكتسبة</para
+></listitem>
+  <listitem
+><para
+>جدولة المشروع باستخدام <link linkend="schedules-editor"
+>محرر الجداول</link
+><itemizedlist>
+        <listitem
+><para
+>الجدولة للأمام من وقت البدء أو للخلف من وقت الانتهاء</para
+></listitem>
+        <listitem
+><para
+>السماح بالحجز الزائد للموارد أو تجنبه</para
+></listitem>
+        <listitem
+><para
+>توزيع PERT مع تقديرات متفائلة ومتشائمة وأكثرها احتمالًا</para
+></listitem>
+        <listitem
+><para
+>جداول متعددة مع إمكانية الجدولة من معلومات التقدم الحالية</para
+></listitem>
+      </itemizedlist>
+      </para
+></listitem>
+  <listitem
+><para
+>تتبع المهام باستخدام <link linkend="task-execution-view"
+>عرض تنفيذ المهام</link
+> أو <link linkend="task-status-view"
+>عرض حالة المهام</link
+></para
+></listitem>
+</itemizedlist>
+</sect2>

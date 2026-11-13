@@ -1,0 +1,62 @@
+<chapter id="content-editor"
+><title
+>محتوى المحفظة</title
+>&WORK-IN-PROGRESS; <para
+>يتيح لك هذا المحرر ضبط محتوى محفظتك. </para
+><para
+>اختر <menuchoice
+> <shortcut
+><keycap
+>إدراج</keycap
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>إضافة</guimenuitem
+> </menuchoice
+> أو اضغط <guibutton
+>إضافة</guibutton
+> لإضافة مشاريع إلى محفظتك. </para
+><para
+>اختر <menuchoice
+> <shortcut
+><keycap
+>حذف</keycap
+></shortcut
+> <guimenu
+>تحرير</guimenu
+><guimenuitem
+>إزالة</guimenuitem
+> </menuchoice
+> أو اضغط <guibutton
+>إزالة</guibutton
+> لإزالة المشاريع المحددة. </para
+><para
+>أضف المشاريع التي تديرها واضبط <guilabel
+>محفظة</guilabel
+> = <emphasis
+>نعم</emphasis
+>. </para
+><para
+>إذا كان لديك موارد تُستخدم بواسطة مشاريع ليست جزءًا من محفظتك وتريد إعادة جدولة أو فحص استخدام الموارد، فستحتاج إلى إضافة جميع المشاريع ذات الصلة وضبط <guilabel
+>محفظة</guilabel
+> = <emphasis
+>لا</emphasis
+> لهذه المشاريع. </para>
+<formalpara
+><title
+>التخزين</title>
+<para
+></para>
+</formalpara>
+<para
+>يمكن حفظ تغييرات المشروع إلى ملف المشروع الأصلي أو تضمينها في ملف المحفظة. إذا كنت تدير مشاريع، فيجب حفظها عادةً إلى ملفاتها الأصلية. اضبط <guilabel
+>تخزين</guilabel
+> = <emphasis
+>خارجي</emphasis
+> في هذه الحالة. ومع ذلك، إذا كنت تريد فقط رؤية تأثير التغييرات المحتملة، فقد ترغب في تخزين المشاريع مضمنة أثناء العمل على سيناريوهات مختلفة. اضبط <guilabel
+>تخزين</guilabel
+> = <emphasis
+>مضمن</emphasis
+> في هذه الحالة. يُحفظ رابط المشروع الخارجي إذا أردت لاحقًا حفظ التغييرات إلى الملف الأصلي. </para>
+</chapter>

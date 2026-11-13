@@ -1,0 +1,72 @@
+<chapter id="startup-view"
+><title
+>العروض والمحررات</title>
+  <sect1 id="startup-view-section"
+><title
+>عرض البدء</title
+>&startup-view-section; </sect1>
+  <sect1 id="task-editor"
+><title
+>محرر المهام</title
+>&task-editor-section; </sect1>
+  <sect1 id="resource-editor"
+><title
+>محرر الموارد</title
+>&resource-editor-section; </sect1>
+  <sect1 id="work-and-vacation-editor"
+><title
+>محرر العمل والعطلات</title
+>&work-and-vacation-editor-section; </sect1>
+  <sect1 id="cost-breakdown-structure-editor"
+><title
+>محرر هيكل تفصيل التكاليف</title
+>&cost-breakdown-structure-editor-section; </sect1>
+  <sect1 id="task-dependency-editor-graphical"
+><title
+>محرر تبعيات المهام (رسومي)</title
+>&task-dependency-editor-graphical-section; </sect1>
+  <sect1 id="task-dependency-editor-list"
+><title
+>محرر تبعيات المهام (قائمة)</title
+>&task-dependency-editor-list-section; </sect1>
+  <sect1 id="schedules-editor"
+><title
+>محرر الجداول الزمنية</title
+>&schedules-editor-section; </sect1>
+  <sect1 id="project-performance-view"
+><title
+>عرض أداء المشروع</title
+>&project-performance-view-section; </sect1>
+  <sect1 id="task-performance-view"
+><title
+>عرض أداء المهمة</title
+>&task-performance-view-section; </sect1>
+  <sect1 id="task-status-view"
+><title
+>عرض حالة المهمة</title
+>&task-status-view-section; </sect1>
+  <sect1 id="task-execution-view"
+><title
+>عرض تنفيذ المهمة</title
+>&task-execution-view-section; </sect1>
+  <sect1 id="task-gantt-view"
+><title
+>عرض غانت للمهام</title
+>&task-gantt-view-section; </sect1>
+  <sect1 id="milestone-gantt-view"
+><title
+>عرض مخطط جانت المعلمي</title
+>&milestone-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-gantt-view"
+><title
+>عرض غانت لتعيين الموارد</title
+>&resource-assignment-gantt-view-section; </sect1>
+  <sect1 id="resource-assignment-view"
+><title
+>عرض تعيين الموارد</title
+>&resource-assignment-view-section; </sect1>
+  <sect1 id="cost-breakdown-view"
+><title
+>عرض تفصيل التكاليف</title
+>&cost-breakdown-view-section; </sect1>
+</chapter>

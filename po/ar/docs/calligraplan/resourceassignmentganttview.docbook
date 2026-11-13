@@ -1,0 +1,144 @@
+<sect2
+><title/>
+<sect3 id="description37"
+><title
+>الوصف</title>
+  <para
+>يعرض عرض جانت لتخصيص الموارد تخصيصات الموارد للمهام المجدولة في مخطط غانت. </para>
+  <!--
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Gantt View</phrase>
+        </textobject>
+        <caption>
+          <para
+>Gantt View</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+  -->
+</sect3>
+<sect3 id="data38"
+><title
+>البيانات</title>
+  <para
+>تُعرض الأعمدة التالية كمبدئي: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم الكائن (مجموعة موارد، مورد، مهمة)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>النوع</para>
+            </entry>
+            <entry>
+              <para
+>نوع الكائن</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>وقت البدأ</para>
+            </entry>
+            <entry>
+              <para
+>بداية الإسناد</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>وقت النهاية</para>
+            </entry>
+            <entry>
+              <para
+>نهاية الإسناد</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data39"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير وصف المهمة وتقدمها باستخدام قائمة السياق. </para>
+</sect3>
+<sect3 id="configuration40"
+><title
+>الضّبط</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>باستخدام قائمة السياق، يمكن ضبط العرض باستخدام حوار الضبط.</para
+><para
+>يتيح لك مربع حوار الضبط تحديد الأعمدة التي تريد عرضها. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceassignmentganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>حواري الضبط</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>حواري الضبط</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

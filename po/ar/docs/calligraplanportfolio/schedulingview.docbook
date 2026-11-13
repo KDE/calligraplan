@@ -1,0 +1,144 @@
+<chapter id="scheduling"
+><title
+>الجدولة</title>
+<sect1 id="scheduling-description"
+><title
+>الوصف</title
+>&WORK-IN-PROGRESS; <para
+>يتيح لك عرض الجدولة جدولة المشاريع في محفظتك. تُجدول المشاريع وفقًا لأولويتها. </para
+><para
+>اضبط <emphasis
+>التحكم</emphasis
+> على <emphasis
+>جدولة</emphasis
+> للمشروع أو المشاريع التي تريد جدولتها. اضبط <emphasis
+>التحكم</emphasis
+> على <emphasis
+>تضمين</emphasis
+> لتضمين تعيينات الموارد في تسوية الموارد. اضبط <emphasis
+>التحكم</emphasis
+> على <emphasis
+>استبعاد</emphasis
+> إذا أردت استبعاد المشروع. </para>
+  <tip
+><para
+>إذا كانت مشاريعك تشارك الموارد مع مشاريع ليست جزءًا من محفظتك، فيجب تضمين هذه المشاريع لكي تعمل تسوية الموارد بشكل صحيح. انظر <xref linkend="content-editor"/>. </para
+></tip>
+   <para
+>يحتوي العرض على ثلاثة أقسام: <itemizedlist>
+    <listitem
+><para
+><xref linkend="scheduling-projecttable" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-control" xrefstyle="select:title"/>.</para
+></listitem>
+    <listitem
+><para
+><xref linkend="scheduling-log" xrefstyle="select:title"/>.</para
+></listitem>
+  </itemizedlist>
+  </para>
+</sect1>
+<sect1 id="scheduling-projecttable"
+><title
+>جدول المشاريع</title>
+  <para>
+  <informaltable>
+    <tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>الاسم</guilabel
+></entry>
+          <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>الاسم</entry
+><entry
+>اسم المشروع</entry
+></row>
+      <row
+><entry
+>الجدولة</entry
+><entry
+>اسم الجَدولة</entry
+></row>
+      <row
+><entry
+>الحالة</entry
+><entry
+>حالة الجدولة</entry
+></row>
+      <row
+><entry
+>التحكم</entry>
+        <entry
+>يمكن أن يأخذ التحكم في الجدولة القيم التالية: <itemizedlist>
+            <listitem
+><para
+><emphasis
+>جدولة:</emphasis
+> سيُجدول المشروع.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>تضمين:</emphasis
+> ستُضمّن حجوزات الموارد في تسوية الموارد.</para
+></listitem>
+            <listitem
+><para
+><emphasis
+>استبعاد:</emphasis
+> لن يُضمّن المشروع.</para
+></listitem>
+          </itemizedlist>
+        </entry>
+      </row>
+      <row
+><entry
+>الأولويّة</entry
+><entry
+>أولوية المشروع. الرقم الأعلى يعني أولوية أعلى.</entry
+></row>
+      <row
+><entry
+>تاريخ البدء المُستهدَف</entry
+><entry
+>أقرب وقت بدء للمشروع</entry
+></row>
+      <row
+><entry
+>تاريخ الانتهاء المُستهدَف</entry
+><entry
+>آخر وقت انتهاء للمشروع</entry
+></row>
+      <row
+><entry
+>الوصف</entry
+><entry
+>وصف المشروع</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para>
+</sect1>
+<sect1 id="scheduling-control"
+><title
+>التحكم في الجدولة</title
+>&WORK-IN-PROGRESS; </sect1>
+<sect1 id="scheduling-log"
+><title
+>سجل الجدولة</title
+>&WORK-IN-PROGRESS; </sect1>
+</chapter>

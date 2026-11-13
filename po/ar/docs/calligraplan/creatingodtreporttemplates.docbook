@@ -1,0 +1,1941 @@
+<sect2
+><title/>
+<sect3 id="description1"
+><title
+>الوصف</title>
+  <para
+>قوالب تقارير النص لمستند مفتوح هي ملفات ODT عادية يمكن تصميمها باستخدام أي معالج نصوص ODT مثل <emphasis
+>Calligra Words</emphasis
+> أو <emphasis
+>LibreOffice Writer</emphasis
+>. التقنية المستخدمة هي استخدام متغيرات <emphasis
+>حقل مستخدم</emphasis
+> لحمل مراجع للمعلومات التي سيتم جلبها من المشروع. تُسمى المتغيرات <emphasis
+>حقول مستخدم</emphasis
+> في <emphasis
+>Writer</emphasis
+> ويمكن العثور عليها ضمن <menuchoice
+><guimenu
+>إدراج</guimenu
+><guisubmenu
+>حقل</guisubmenu
+><guimenuitem
+>المزيد من الحقول</guimenuitem
+><guimenuitem
+>متغيرات</guimenuitem
+><guimenuitem
+>حقول مستخدم</guimenuitem
+></menuchoice
+>. في <emphasis
+>Words</emphasis
+> تُسمى <emphasis
+>متغيرات مخصصة</emphasis
+> ويمكن العثور عليها ضمن <menuchoice
+><guimenu
+>حاوية تحرير النص</guimenu
+><guisubmenu
+>متغير</guisubmenu
+><guimenuitem
+>مخصص</guimenuitem
+></menuchoice
+>. </para>
+  <para
+>أسهل طريقة لإنشاء قالب تقرير جديد هي تعديل قالب موجود حيث أن جميع حقول المستخدم معرفة. </para>
+</sect3>
+<sect3 id="user-field-variables"
+><title
+>متغيرات حقل المستخدم</title>
+  <sect4 id="variables"
+><title
+>المتغيّرات</title>
+    <para
+>تُستخدم المتغيرات لتمكين المولد من استخراج البيانات من المشروع. </para>
+    <para
+>يمكن أن يكون المتغير مرجعًا لحقل بيانات واحد، أو مرجعًا لبيانات جدول، أو مرجعًا لبيانات مخطط. </para
+><sect5
+><title
+>حقل بيانات واحد</title
+> <para
+>متغير حقل بيانات واحد له التنسيق التالي: </para
+> <para
+><replaceable
+>اسم مجموعة البيانات</replaceable
+>.<replaceable
+>خاصية</replaceable
+> = <replaceable
+>معرف الخاصية</replaceable
+> </para
+> <para
+>حيث: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>اسم مجموعة البيانات</replaceable
+> يمكن أن يكون tr أو project أو schedule (انظر أدناه).</para
+></listitem
+> <listitem
+><para
+><replaceable
+>خاصية</replaceable
+> تجعل اسم حقل المستخدم فريدًا.</para
+></listitem
+> <listitem
+><para
+><replaceable
+>معرف الخاصية</replaceable
+> يحدد الخاصية في مجموعة البيانات.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>بيانات جدول</title
+> <para
+>يتكون الجدول في قالب التقرير من متغير لتحديد جدول البيانات المراد استخدامه. </para
+> <para
+>يجب أن يبدأ اسم المتغير بـ <replaceable
+>table</replaceable
+> (مثل tableTasks) ويجب أن تكون قيمة المتغير اسم جدول البيانات (مثل tasks). </para
+> <para
+>مباشرة بعد المتغير، يجب إدراج جدول وتعبئة الأعمدة بمتغيرات حقل مستخدم تحدد الخصائص المراد جلبها من الجدول المحدد أعلاه. يجب أن تبدأ أسماء هذه المتغيرات باسم متغير الجدول أعلاه. </para
+> <para
+>هذه المتغيرات لها التنسيق التالي: </para
+> <para
+>tableTasks.<replaceable
+>خاصية</replaceable
+> = <replaceable
+>معرف الخاصية</replaceable
+> </para
+> <para
+>حيث: </para
+> <itemizedlist
+> <listitem
+><para
+><guilabel
+>خاصية</guilabel
+> تجعل اسم حقل المستخدم فريدًا.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>معرف الخاصية</guilabel
+> يحدد الخاصية في مجموعة البيانات.</para
+></listitem
+> </itemizedlist
+> </sect5
+> <sect5
+><title
+>بيانات مخطط</title
+> <para
+>يتكون المخطط في قالب التقرير من متغير لتحديد البيانات المراد استخدامها في المخطط. </para
+> <para
+>يجب أن يبدأ اسم المتغير بـ <replaceable
+>chart</replaceable
+> (مثل chartBudgetCost) وتحدد قيمة المتغير مجموعة البيانات والقيم لملء المخطط. </para
+> <para
+>المتغير له التنسيق التالي (لاحظ الفواصل المنقوطة): </para
+> <para
+><replaceable
+>اسم</replaceable
+> = <replaceable
+>مجموعة بيانات</replaceable
+>; values=<replaceable
+>قائمة مفصولة بفواصل لخصائص البيانات</replaceable
+>; </para
+> <para
+>حيث: </para
+> <itemizedlist
+> <listitem
+><para
+><replaceable
+>اسم</replaceable
+> يجب أن يبدأ بـ <guilabel
+>chart</guilabel
+> (مثل chartBudgetCost)</para
+></listitem
+> <listitem
+><para
+><replaceable
+>مجموعة بيانات</replaceable
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>قائمة مفصولة بفواصل لخصائص البيانات</guilabel
+> تحدد الخصائص في مجموعة البيانات.</para
+></listitem
+> </itemizedlist
+> <para
+>مثال: </para
+> <para
+>chartBudget = project; values=bcws cost, bcwp cost, acwp cost; </para
+> </sect5
+> </sect4>
+  <sect4 id="translated-labels"
+><title
+>لصائق مترجمة</title>
+    <para
+>تتيح لنا اللصائق المترجمة إنتاج قوالب تقارير عامة يمكن استخدامها بلغات مختلفة. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>اسم المتغير</guilabel
+></entry>
+              <entry
+><guilabel
+>قيمة المتغيّر</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>tr.project</para>
+              </entry>
+              <entry>
+                <para
+>المشروع</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.manager</para>
+              </entry>
+              <entry>
+                <para
+>المدير</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.schedule</para>
+              </entry>
+              <entry>
+                <para
+>الجدولة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>tr.cpi</para>
+              </entry>
+              <entry>
+                <para
+>CPI</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="project-values"
+><title
+>قيم المشروع</title>
+    <para
+>يعرض قيمًا من المشروع الرئيس. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>اسم المتغير</guilabel
+></entry>
+              <entry
+><guilabel
+>قيمة المتغيّر</guilabel
+></entry>
+              <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>project.name</para>
+              </entry>
+              <entry>
+                <para
+>الاسم</para>
+              </entry>
+              <entry>
+                <para
+>اسم المشروع</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.manager</para>
+              </entry>
+              <entry>
+                <para
+>المدير</para>
+              </entry>
+              <entry>
+                <para
+>اسم مدير المشروع</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwscost</para>
+              </entry>
+              <entry>
+                <para
+>BCWS التكلفة</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المرصودة للعمل المجدول بناءً على التكلفة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpcost</para>
+              </entry>
+              <entry>
+                <para
+>BCWP التكلفة</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المرصودة للعمل المنفّذ بناءً على التكلفة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpcost</para>
+              </entry>
+              <entry>
+                <para
+>ACWP التكلفة</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة الفعلية للعمل المنفّذ بناءً على التكلفة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spicost</para>
+              </entry>
+              <entry>
+                <para
+>SPI التكلفة</para>
+              </entry>
+              <entry>
+                <para
+>مؤشر أداء الجدول الزمني القائم على التكلفة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpicost</para>
+              </entry>
+              <entry>
+                <para
+>CPI التكلفة</para>
+              </entry>
+              <entry>
+                <para
+>مؤشر أداء التكلفة القائم على التكلفة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwseffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWS الجهد</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المرصودة للعمل المجدول بناءً على الجهد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.bcwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>BCWP الجهد</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المرصودة للعمل المنفّذ بناءً على الجهد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.acwpeffort</para>
+              </entry>
+              <entry>
+                <para
+>ACWP الجهد</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة الفعلية للعمل المنفّذ بناءً على الجهد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.spieffort</para>
+              </entry>
+              <entry>
+                <para
+>SPI الجهد</para>
+              </entry>
+              <entry>
+                <para
+>مؤشر أداء الجدول الزمني القائم على الجهد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>project.cpieffort</para>
+              </entry>
+              <entry>
+                <para
+>CPI الجهد</para>
+              </entry>
+              <entry>
+                <para
+>مؤشر أداء التكلفة القائم على الجهد</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="schedule-values"
+><title
+>Schedule Values</title>
+    <para
+>يعرض قيمًا من الجدول الزمني الحالي. </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>اسم المتغير</guilabel
+></entry>
+              <entry
+><guilabel
+>قيمة المتغيّر</guilabel
+></entry>
+              <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+>schedule.name</para>
+              </entry>
+              <entry>
+                <para
+>الاسم</para>
+              </entry>
+              <entry>
+                <para
+>اسم الجدول الزمني</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.state</para>
+              </entry>
+              <entry>
+                <para
+>الحالة</para>
+              </entry>
+              <entry>
+                <para
+>Scheduling state</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.direction</para>
+              </entry>
+              <entry>
+                <para
+>الاتجاه</para>
+              </entry>
+              <entry>
+                <para
+>Scheduling direction</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.overbooking</para>
+              </entry>
+              <entry>
+                <para
+>الحجز الزائد</para>
+              </entry>
+              <entry>
+                <para
+>الحجز الزائد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.distribution</para>
+              </entry>
+              <entry>
+                <para
+>التوزيع</para>
+              </entry>
+              <entry>
+                <para
+>التوزيع</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedstart</para>
+              </entry>
+              <entry>
+                <para
+>تاريخ البدء المخطَّط</para>
+              </entry>
+              <entry>
+                <para
+>تاريخ البدء المخطَّط</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.plannedfinish</para>
+              </entry>
+              <entry>
+                <para
+>تاريخ الانتهاء المخطَّط</para>
+              </entry>
+              <entry>
+                <para
+>تاريخ الانتهاء المخطَّط</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.scheduler</para>
+              </entry>
+              <entry>
+                <para
+>المجدول</para>
+              </entry>
+              <entry>
+                <para
+>المجدول</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.granularity</para>
+              </entry>
+              <entry>
+                <para
+>تفاصيل</para>
+              </entry>
+              <entry>
+                <para
+>تفاصيل</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+>schedule.mode</para>
+              </entry>
+              <entry>
+                <para
+>الوضع</para>
+              </entry>
+              <entry>
+                <para
+>وضع الجدولة (آلي أو يدوي)</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+  <sect4 id="tables"
+><title
+>الجداول</title>
+    <para
+>أنواع الجداول المدعومة: </para>
+    <itemizedlist>
+      <listitem
+><para
+>المهام</para
+></listitem>
+      <listitem
+><para
+>taskstatus</para
+></listitem>
+      <listitem
+><para
+>الجداول</para
+></listitem>
+      <listitem
+><para
+>المشاريع</para
+></listitem>
+    </itemizedlist>
+    <para
+>لإنشاء جدول، ضع متغيرًا قبل جدول مباشرة في ملف القالب الخاص بك. يحدد اسم المتغير الجدول ويجب أن يبدأ بـ <guilabel
+>table</guilabel
+>، مثل <guilabel
+>tableTaskStatus</guilabel
+>. </para>
+    <para
+>تُستخدم قيمة المتغير للإشارة إلى البيانات المراد جلبها ويجب أن تكون أحد الجداول المدعومة المذكورة أعلاه، مثل <guilabel
+>حالة</guilabel
+>. </para>
+    <para
+>ثم تضع متغيرات داخل خلايا الجدول بالاسم والقيمة من الجدول أدناه. </para>
+    <para
+>لاحظ أن جدول الجداول الزمنية يدعم القيم الموصوفة في <link linkend="schedule-values"
+>قيم الجدول الزمني</link
+> أعلاه. </para>
+    <para
+>جداول المشاريع والمهام وحالة المهام تدعم القيم التالية: </para>
+    <para>
+      <informaltable>
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry
+><guilabel
+>اسم المتغير</guilabel
+></entry>
+              <entry
+><guilabel
+>قيمة المتغيّر</guilabel
+></entry>
+              <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.name</para>
+              </entry>
+              <entry>
+                <para
+>الاسم</para>
+              </entry>
+              <entry>
+                <para
+>اسم المهمة أو المشروع</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.wbscode</para>
+              </entry>
+              <entry>
+                <para
+>رمز WBS</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.type</para>
+              </entry>
+              <entry>
+                <para
+>النوع</para>
+              </entry>
+              <entry>
+                <para
+>نوع المهمة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.responsible</para>
+              </entry>
+              <entry>
+                <para
+>المسؤول</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.allocation</para>
+              </entry>
+              <entry>
+                <para
+>التخصيص</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.estimatetype</para>
+              </entry>
+              <entry>
+                <para
+>نوع التقدير</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.calendar</para>
+              </entry>
+              <entry>
+                <para
+>التقويم</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.estimate</para>
+              </entry>
+              <entry>
+                <para
+>تقدير</para>
+              </entry>
+              <entry>
+                <para
+>التقدير الأكثر احتمالًا</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>متفائل</para>
+              </entry>
+              <entry>
+                <para
+>النسبة المتفائلة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>متشائم</para>
+              </entry>
+              <entry>
+                <para
+>النسبة المتشائمة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.risk</para>
+              </entry>
+              <entry>
+                <para
+>مخاطرة</para>
+              </entry>
+              <entry>
+                <para
+>عدم يقين التقدير</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.constraint</para>
+              </entry>
+              <entry>
+                <para
+>القيد</para>
+              </entry>
+              <entry>
+                <para
+>نوع قيد الوقت</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.constraintstart</para>
+              </entry>
+              <entry>
+                <para
+>قيد البدء</para>
+              </entry>
+              <entry>
+                <para
+>وقت بدء القيد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.constraintend</para>
+              </entry>
+              <entry>
+                <para
+>قيد الانتهاء</para>
+              </entry>
+              <entry>
+                <para
+>وقت انتهاء القيد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.runingaccount</para>
+              </entry>
+              <entry>
+                <para
+>الحساب الجاري</para>
+              </entry>
+              <entry>
+                <para
+>حساب التكاليف الجارية</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.startupaccount</para>
+              </entry>
+              <entry>
+                <para
+>حساب البدء</para>
+              </entry>
+              <entry>
+                <para
+>حساب تكلفة البدء</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.startupcost</para>
+              </entry>
+              <entry>
+                <para
+>تكلفة البدء</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المُتكَبَّدة عند بدء المُهمّة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.shutdownaccount</para>
+              </entry>
+              <entry>
+                <para
+>حساب الإغلاق</para>
+              </entry>
+              <entry>
+                <para
+>حساب تكلفة الإغلاق</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.shutdowncost</para>
+              </entry>
+              <entry>
+                <para
+>تكلفة الإغلاق</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المُتكَبَّدة عند إنهاء المُهمّة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.description</para>
+              </entry>
+              <entry>
+                <para
+>الوصف</para>
+              </entry>
+              <entry>
+                <para
+>وصف المهمة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.expected</para>
+              </entry>
+              <entry>
+                <para
+>متوقع</para>
+              </entry>
+              <entry>
+                <para
+>أكثر تقدير محسوب احتمالًا</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.optimistic</para>
+              </entry>
+              <entry>
+                <para
+>متفائل</para>
+              </entry>
+              <entry>
+                <para
+>تقدير متفائل محسوب</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.pessimistic</para>
+              </entry>
+              <entry>
+                <para
+>متشائم</para>
+              </entry>
+              <entry>
+                <para
+>تقدير متشائم محسوب</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.starttime</para>
+              </entry>
+              <entry>
+                <para
+>وقت البدأ</para>
+              </entry>
+              <entry>
+                <para
+>وقت البدء المجدول</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.endtime</para>
+              </entry>
+              <entry>
+                <para
+>وقت النهاية</para>
+              </entry>
+              <entry>
+                <para
+>وقت الانتهاء المجدول</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.duration</para>
+              </entry>
+              <entry>
+                <para
+>المدّة</para>
+              </entry>
+              <entry>
+                <para
+>المدة المجدولة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.earlystart</para>
+              </entry>
+              <entry>
+                <para
+>بدء مبكر</para>
+              </entry>
+              <entry>
+                <para
+>أقرب بداية ممكنة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.earlyfinish</para>
+              </entry>
+              <entry>
+                <para
+>انتهاء مبكر</para>
+              </entry>
+              <entry>
+                <para
+>أقرب نهاية ممكنة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.latestart</para>
+              </entry>
+              <entry>
+                <para
+>بدء متأخر</para>
+              </entry>
+              <entry>
+                <para
+>آخر بداية ممكنة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.latefinish</para>
+              </entry>
+              <entry>
+                <para
+>انتهاء متأخر</para>
+              </entry>
+              <entry>
+                <para
+>آخر نهاية ممكنة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.positivefloat</para>
+              </entry>
+              <entry>
+                <para
+>وقت احتياطي إيجابي</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.freefloat</para>
+              </entry>
+              <entry>
+                <para
+>وقت احتياطي حر</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.negativefloat</para>
+              </entry>
+              <entry>
+                <para
+>وقت احتياطي سلبي</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.startfloat</para>
+              </entry>
+              <entry>
+                <para
+>وقت احتياطي البدء</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.finishfloat</para>
+              </entry>
+              <entry>
+                <para
+>وقت احتياطي الانتهاء</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.assignaments</para>
+              </entry>
+              <entry>
+                <para
+>الإسنادات</para>
+              </entry>
+              <entry>
+                <para
+>تعيينات الموارد</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.varianceest</para>
+              </entry>
+              <entry>
+                <para
+>تباين (تقدير)</para>
+              </entry>
+              <entry>
+                <para
+>تباين التقدير المحسوب</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.variancedur</para>
+              </entry>
+              <entry>
+                <para
+>تباين (مدة)</para>
+              </entry>
+              <entry>
+                <para
+>تباين المدة المحسوب</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.optimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>متفائل (مدة)</para>
+              </entry>
+              <entry>
+                <para
+>المدة المتفائلة المحسوبة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.pessimisticdur</para>
+              </entry>
+              <entry>
+                <para
+>متشائم (مدة)</para>
+              </entry>
+              <entry>
+                <para
+>المدة المتشائمة المحسوبة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>الحالة</para>
+              </entry>
+              <entry>
+                <para
+>حالة المهمة كما تظهر في عرض حالة المهمة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.completion</para>
+              </entry>
+              <entry>
+                <para
+>٪ اكتمل</para>
+              </entry>
+              <entry>
+                <para
+>إكمال المُهمّة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.plannedeffort</para>
+              </entry>
+              <entry>
+                <para
+>الجهد المخطَّط</para>
+              </entry>
+              <entry>
+                <para
+>الجهد المُخطَّط</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.actualeffort</para>
+              </entry>
+              <entry>
+                <para
+>الجهد الفعلي</para>
+              </entry>
+              <entry>
+                <para
+>الجهد الفعلي</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.remaningeffort</para>
+              </entry>
+              <entry>
+                <para
+>الجهد المتبقي</para>
+              </entry>
+              <entry>
+                <para
+>الجهد المُتَبَقّي</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.plannedcost</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المخططة</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المُخطَّطة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.actualcost</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة الفعلية</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة الفعلية</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.actualstart</para>
+              </entry>
+              <entry>
+                <para
+>البدء الفعلي</para>
+              </entry>
+              <entry>
+                <para
+>البدء الفعلي</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.started</para>
+              </entry>
+              <entry>
+                <para
+>بدأت</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.actualfinish</para>
+              </entry>
+              <entry>
+                <para
+>الانتهاء الفعلي</para>
+              </entry>
+              <entry>
+                <para
+>الانتهاء الفعلي</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.finished</para>
+              </entry>
+              <entry>
+                <para
+>انتهى</para>
+              </entry>
+              <entry>
+                <para
+></para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.schedulingstatus</para>
+              </entry>
+              <entry>
+                <para
+>حالة الجدولة</para>
+              </entry>
+              <entry>
+                <para
+>حالة الجدولة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.bcws</para>
+              </entry>
+              <entry>
+                <para
+>BCWS</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المدرجة في الميزانية للعمل المجدول (على أساس التكلفة)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.bcwp</para>
+              </entry>
+              <entry>
+                <para
+>BCWP</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة المدرجة في الميزانية للعمل المنفذ (على أساس التكلفة)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.acwp</para>
+              </entry>
+              <entry>
+                <para
+>ACWP</para>
+              </entry>
+              <entry>
+                <para
+>التكلفة الفعلية للعمل المنفذ (على أساس التكلفة)</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.spi</para>
+              </entry>
+              <entry>
+                <para
+>SPI</para>
+              </entry>
+              <entry>
+                <para
+>مؤشر أداء الجدولة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.critical</para>
+              </entry>
+              <entry>
+                <para
+>حرج</para>
+              </entry>
+              <entry>
+                <para
+>المهمة حرجة</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.criticalpath</para>
+              </entry>
+              <entry>
+                <para
+>المسار الحرج</para>
+              </entry>
+              <entry>
+                <para
+>المهمة في المسار الحرج</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.notscheduled</para>
+              </entry>
+              <entry>
+                <para
+>لم يجدول</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.assignmentmissing</para>
+              </entry>
+              <entry>
+                <para
+>تعيين مفقود</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.resourceoverbooked</para>
+              </entry>
+              <entry>
+                <para
+>مورد محجوز حجوزات زائدة</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.resourceunavailable</para>
+              </entry>
+              <entry>
+                <para
+>مورد غير متاح</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.constrainterror</para>
+              </entry>
+              <entry>
+                <para
+>خطأ القيود</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.effortnotmet</para>
+              </entry>
+              <entry>
+                <para
+>لم يلب الجهد</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.schedulingerror</para>
+              </entry>
+              <entry>
+                <para
+>خطأ الجدولة</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.level</para>
+              </entry>
+              <entry>
+                <para
+>مستوى العقدة، المستوى</para>
+              </entry>
+              <entry>
+                <para
+>غير مهم</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.statusnote</para>
+              </entry>
+              <entry>
+                <para
+>ملاحظة الحالة</para>
+              </entry>
+              <entry>
+                <para
+>ملاحظة: غير مطبق</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.owner</para>
+              </entry>
+              <entry>
+                <para
+>المالك</para>
+              </entry>
+              <entry>
+                <para
+>يجب ألا يُستخدم، وليست مثيرة للاهتمام كثيرًا</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.status</para>
+              </entry>
+              <entry>
+                <para
+>الحالة</para>
+              </entry>
+              <entry>
+                <para
+>يجب ألا يُستخدم، وليست مثيرة للاهتمام كثيرًا</para>
+              </entry>
+            </row>
+            <row>
+              <entry>
+                <para
+><replaceable
+>اسم الجدول</replaceable
+>.time</para>
+              </entry>
+              <entry>
+                <para
+>الوقت</para>
+              </entry>
+              <entry>
+                <para
+>يجب ألا يُستخدم، وليست مثيرة للاهتمام كثيرًا</para
+></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+    </para>
+  </sect4>
+</sect3>
+<sect3 id="chart"
+><title
+>المخطط البياني</title>
+  <para
+>يُستخدم بوضع متغير باسم chartX (X=نص ما لجعل اسم المتغير فريدًا) بقيمة project قبل الرسم البياني الذي سيُستخدم. </para>
+  <para
+>لاحظ أن الرسم البياني يجب أن يكون «مرسوًا كحرف» وإلا فلن يتمكن مولد التقرير من العثور عليه. </para>
+  <para
+>المتغير لهذه الصيغة: </para>
+  <para
+>المتغير: <varname
+>الاسم: chartX (X=نص ما) القيمة: project; القيم=<replaceable
+>البيانات</replaceable
+>;</varname
+> </para>
+  <para
+>حيث <replaceable
+>البيانات</replaceable
+> هي قائمة مفصولة بفواصل من القيم التي ستُضمّن في الرسم البياني. </para>
+  <para
+>قيم <replaceable
+>البيانات</replaceable
+> الممكنة هي: </para>
+  <itemizedlist>
+    <listitem
+><para
+><guilabel
+>bcws effort</guilabel
+> التكلفة المدرجة في الميزانية للعمل المجدول، أساس الجهد.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp effort</guilabel
+> التكلفة المدرجة في الميزانية للعمل المنفذ، أساس الجهد.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp effort</guilabel
+> التكلفة الفعلية للعمل المنفذ، أساس الجهد.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi effort</guilabel
+> مؤشر أداء الجدول الزمني، أساس الجهد.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi effort</guilabel
+> مؤشر أداء التكلفة، أساس الجهد.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcws cost</guilabel
+> التكلفة المدرجة في الميزانية للعمل المجدول، أساس التكلفة.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>bcwp cost</guilabel
+> التكلفة المدرجة في الميزانية للعمل المنفذ، أساس التكلفة.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>acwp cost</guilabel
+> التكلفة الفعلية للعمل المنفذ، أساس التكلفة.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>spi cost</guilabel
+> مؤشر أداء الجدول الزمني، أساس التكلفة.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>cpi cost</guilabel
+> مؤشر أداء التكلفة، أساس التكلفة.</para
+></listitem>
+  </itemizedlist>
+  <para
+>يجب أن تحتوي الرسوم البيانية التي تنشئها في قالبك على نفس عدد الأعمدة (أو أكثر) من عدد القيم التي تحددها في متغيرك. </para>
+  <para
+>مثال: </para>
+  <para
+>اسم المتغير: <varname
+>chart1</varname
+> القيمة: <varname
+>project; القيم=bcws cost,bcwp cost, acwp cost;</varname
+> </para>
+  <para
+>لاحظ أنه لا يمكنك خلط القيم القائمة على الجهد والقائمة على التكلفة. إذا أردت عرض كليهما، أنشئ رسمين بيانيين. </para>
+  <sect4 id="gantt"
+><title
+>مخطَّط جانت</title>
+    <para
+>غير مدعوم. </para>
+  </sect4>
+</sect3>
+</sect2>

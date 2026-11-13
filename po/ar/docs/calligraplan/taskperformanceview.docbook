@@ -1,0 +1,54 @@
+<sect2
+><title/>
+<para
+>في مخطط أداء المهام، يمكننا تحليل كل مهمة فرعية أو مهمة بشكل معمق باستخدام نفس المؤشرات المستخدمة في عرض أداء المشروع. </para>
+<para
+>هذا مفيد حقًا في مشروع طويل ومعقد. </para>
+<para
+>في النافذة اليسرى، يمكنك اختيار كل مهمة فرعية فردية بالإضافة إلى مهمة كاملة، ثم في النافذة اليمنى سيظهر المخطط المقابل. </para>
+<para>
+  <screenshot>
+    <screeninfo
+></screeninfo>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="plan_tasks_perf_chart.png" format="PNG"/>
+      </imageobject>
+      <textobject>
+        <phrase
+></phrase>
+      </textobject>
+    </mediaobject>
+  </screenshot>
+</para>
+<para
+>حيث: </para>
+<itemizedlist>
+  <listitem
+><para
+>BCWS تعني التكلفة المدرجة في الميزانية للعمل المجدول،</para
+></listitem>
+  <listitem
+><para
+>BCWP تعني التكلفة المدرجة في الميزانية للعمل المُنجز،</para
+></listitem>
+  <listitem
+><para
+>ACWP تعني التكلفة الفعلية للعمل المُنجز.</para
+></listitem>
+</itemizedlist>
+<para
+>كل هذه تُعتبر جهدًا بالساعات والتكاليف. </para>
+<para
+>PI هي مؤشرات الأداء، حيث: </para>
+<itemizedlist>
+  <listitem
+><para
+>CPI هو مؤشر أداء التكلفة،</para
+></listitem>
+  <listitem
+><para
+>SPI هو مؤشر أداء الجدول الزمني.</para
+></listitem>
+</itemizedlist>
+</sect2>

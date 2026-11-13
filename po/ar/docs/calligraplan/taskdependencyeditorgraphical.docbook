@@ -1,0 +1,208 @@
+<sect2
+><title/>
+<sect3 id="description15"
+><title
+>الوصف</title>
+  <para
+>يُستعمل محرر تبعيات المهام لإنشاء تبعيات المهام وتحريرها وحذفها. وللتسهيل، يمكن أيضًا إدراج المهام أو حذفها أو تحريرها.</para
+><para
+>تُرتّب المهام وفقًا لهيكل تفصيل العمل (WBS). </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_dependencyeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>رموز المهام الموجزة والمهام والمعالم موضحة أدناه: </para>
+  <para
+>بما أن <emphasis
+>المهمة</emphasis
+> و<emphasis
+>المعلم</emphasis
+> هما عنصران فرعيان لـ<emphasis
+>المهمة الموجزة</emphasis
+>، فهما مُسَنَّدان. لاحظ أيضًا أن رمز WBS يُعرض مع الاسم. </para>
+  <para
+>في الشكل التالي، أُدرج تبعية <emphasis
+>إنهاء-بدء</emphasis
+> لجعل <emphasis
+>المعلم</emphasis
+> يعتمد على <emphasis
+>المهمة</emphasis
+>. </para>
+  <para
+>كما هو موضح أدناه، يتكون العنصر من ثلاث مناطق اختيار مختلفة: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>منطقة العنصر</para>
+            </entry>
+            <entry>
+              <para
+>اختر العنصر للتحرير</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>منطقة البداية</para>
+            </entry>
+            <entry>
+              <para
+>تُستعمل لإنشاء تبعيات <emphasis
+>إنهاء-بدء</emphasis
+> و<emphasis
+>بدء-بدء</emphasis
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>منطقة النهاية</para>
+            </entry>
+            <entry>
+              <para
+>تُستعمل لإنشاء تبعيات <emphasis
+>إنهاء-بدء</emphasis
+> و<emphasis
+>إنهاء-إنهاء</emphasis
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-dependencies"
+><title
+>تحرير التبعيات</title>
+  <para
+>تُنشأ التبعيات باختيار منطقة بداية أو نهاية المهمة السابقة أولًا، ثم اختيار منطقة بداية أو نهاية المهمة اللاحقة. </para>
+  <para
+>يمكن فعل ذلك باستخدام الفأرة أو لوحة المفاتيح. </para>
+  <para
+>بدلًا من ذلك، يمكنك إسقاط منطقة اتصال المهمة السابقة على منطقة اتصال المهمة اللاحقة. </para>
+  <para
+>لتحرير أو حذف تبعية قائمة، يمكنك فتح تبعية بتحديدها، أو فتح قائمتها السياقية. </para>
+  <para
+>يمكنك أيضًا فتح القائمة السياقية على منطقة اتصال مما سيمكنك من تحرير جميع التبعيات المتصلة بتلك المنطقة. </para>
+</sect3>
+<sect3 id="toolbar16"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء المهام وحذفها: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضف مهمة</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>مربع منسدل لإنشاء مهمة أو معلم. يُوضع العنصر الجديد بعد العنصر المحدد حاليًا على نفس مستواه. إذا لم يُحدد أي عنصر، يُلحق العنصر الجديد بالمستوى الأعلى.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضف مهمة فرعية</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>مربع منسدل لإنشاء مهمة فرعية أو معلم فرعي. يُلحق العنصر الجديد كعنصر تابع للعنصر المحدد حاليًا.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>احذف المهمة</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>احذف</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف المهام المحددة.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

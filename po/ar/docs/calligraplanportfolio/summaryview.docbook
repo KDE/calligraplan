@@ -1,0 +1,64 @@
+<chapter id="summary"
+><title
+>الملخّص</title
+>&WORK-IN-PROGRESS; <para
+>يلخص هذا المنظر بيانات الأداء للمشاريع في محفظتك. </para
+><para>
+  <informaltable
+><tgroup cols="2">
+      <thead
+><row>
+          <entry
+><guilabel
+>الاسم</guilabel
+></entry>
+          <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+        </row
+></thead>
+      <tbody>
+      <row
+><entry
+>الاسم</entry
+><entry
+>اسم المشروع</entry
+></row>
+      <row
+><entry
+>الجدولة</entry
+><entry
+>اسم الجدول الزمني</entry
+></row>
+      <row
+><entry
+>مؤشر أداء الجدول الزمني (تكلفة)</entry
+><entry
+>مؤشر أداء الجدول الزمني (قائم على التكلفة)</entry
+></row>
+      <row
+><entry
+>مؤشر أداء التكلفة (تكلفة)</entry
+><entry
+>مؤشر أداء الجدول الزمني (قائم على التكلفة)</entry
+></row>
+      <row
+><entry
+>مؤشر أداء الجدول الزمني (جهد)</entry
+><entry
+>مؤشر أداء الجدول الزمني (قائم على الجهد)</entry
+></row>
+      <row
+><entry
+>مؤشر أداء التكلفة (جهد)</entry
+><entry
+>مؤشر أداء الجدول الزمني (قائم على الجهد)</entry
+></row>
+      </tbody>
+    </tgroup>
+  </informaltable>
+  </para
+><para
+>يشير مؤشر SPI إلى ما إذا كان التقدم وفق الجدول الزمني (1)، أو متأخرًا عنه (أقل من 1)، أو متقدمًا عليه (أكبر من 1). يشير مؤشر CPI إلى التكلفة التي بُذلت لتحقيق التقدم الفعلي. القيمة 1 تعني كما هو مخطط، وأقل من 1 تعني أن التكلفة تجاوزت المخطط، وقيمة أكبر من 1 تعني أن التقدم تحقق باستخدام موارد أقل من المخطط. </para>
+</chapter>

@@ -1,0 +1,220 @@
+<sect2
+><title/>
+<sect3 id="description25"
+><title
+>الوصف</title>
+  <para
+>تُستخدم نافذة تنفيذ المهام لفحص معلومات أداء المهام. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskexecutionview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="data"
+><title
+>البيانات</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>يمكن تحرير معلومات التقدم مباشرة كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+> أو باستخدام حوار تقدم المهمة.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>تُعرض الأعمدة التالية بشكل مبدئي: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>عمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم المهمة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحالة</para>
+            </entry>
+            <entry>
+              <para
+>حالة المهمة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>٪ اكتمل</para>
+            </entry>
+            <entry>
+              <para
+>إكمال المُهمّة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>المسؤول</para>
+            </entry>
+            <entry>
+              <para
+>الشخص المسؤول عن هذه المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الإسناد</para>
+            </entry>
+            <entry>
+              <para
+>الموارد المُسنَدة إلى هذه المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>SPI</para>
+            </entry>
+            <entry>
+              <para
+>مؤشر أداء الجدولة. (BCWP/BCWS)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWS</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة المرصودة للعمل المجدول</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>BCWP</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة المرصودة للعمل المنفّذ</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ACWP</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة الفعلية للعمل المنفّذ</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الوصف</para>
+            </entry>
+            <entry>
+              <para
+>وصف المهمة</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration26"
+><title
+>الضّبط</title>
+  <para
+>باستخدام قائمة السياق، يمكن ضبط النافذة لإظهار/إخفاء المشروع، أو تقسيم/دمج نافذة الشجرة، أو يمكن ضبطها باستخدام حوار الضبط. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>يتيح لك حوار الضبط تخصيص كمية المعلومات التي تعرضها النافذة لتناسب احتياجاتك.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskexecutionview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

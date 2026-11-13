@@ -1,0 +1,516 @@
+<sect2
+><title/>
+<sect3 id="description4"
+><title
+>الوصف</title>
+  <para
+>يُستخدم محرر المهام لإنشاء المهام وتحريرها وحذفها.</para
+><para
+>يمكن تنظيم المهام في هيكل شجري هرمي إلى أي عمق. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء المهام والمعالم وحذفها ونقلها: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضف مهمة</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>مربع منسدل لإنشاء مهمة أو معلم. يُوضع العنصر الجديد بعد العنصر المحدد حاليًا على نفس مستواه. إذا لم يُحدد أي عنصر، يُلحق العنصر الجديد في المستوى الأعلى.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضف مهمة فرعية</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>مربع منسدل لإنشاء مهمة فرعية أو معلم فرعي. يُلحق العنصر الجديد كطفل للعنصر المحدد حاليًا.</para>
+            </entry>
+          </row>
+          <row>
+            <entry
+><para
+>&nbsp;</para
+></entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;&Alt;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>احذف المهمة</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>احذف</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف المهام المحددة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أزِح المهمة للداخل</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>يلحق المهمة المحددة كطفل للمهمة التي فوقها.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أزِل إزاحة المهمة</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>ينقل المهمة المحددة مستوى واحدًا لأعلى، مُدرجًا إياها بعد مهمتها الأم الحالية.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>انقل لأعلى</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>ينقل المهمة المحددة موضعًا واحدًا لأعلى.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>انقل لأسفل</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>ينقل المهمة المحددة موضعًا واحدًا لأسفل.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>لاحظ أنه يمكنك أيضًا نقل المهام أو نسخها باستخدام السحب والإفلات أو النسخ واللصق. </para>
+</sect3>
+<sect3 id="editing-data5"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير البيانات مباشرة كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+> أو باستخدام حوار إعدادات المهمة. </para>
+  <para
+>تُعرض الأعمدة التالية كمبدئي: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>عمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم المهمة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحالة</para>
+            </entry>
+            <entry>
+              <para
+>حالة المهمة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>المسؤول</para>
+            </entry>
+            <entry>
+              <para
+>الشخص المسؤول عن هذه المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التخصيص</para>
+            </entry>
+            <entry>
+              <para
+>قائمة تخصيصات الموارد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>النوع</para>
+            </entry>
+            <entry>
+              <para
+>نوع المهمة أو نوع تقدير المهمة.</para
+><para
+>يمكن ضبط النوع على <emphasis
+>معلم</emphasis
+> أو <emphasis
+>جهد</emphasis
+> أو <emphasis
+>مدة</emphasis
+>. </para>
+              <para
+><guilabel
+>ملاحظة:</guilabel
+> إذا كان النوع <emphasis
+>ملخصًا</emphasis
+> أو <emphasis
+>مشروعًا</emphasis
+>، فالنوع غير قابل للتحرير. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التقويم</para>
+            </entry>
+            <entry>
+              <para
+>التقويم المستخدَم عندما يكون نوع التقدير هو <emphasis
+>المدة</emphasis
+>.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>تقدير</para>
+            </entry>
+            <entry>
+              <para
+>التقدير الأكثر احتمالًا. التقدير هو مقدار الجهد أو الوقت المتوقع اللازم لإكمال مهمة. يمكن التعبير عنه بوحدات مختلفة: س (ساعات)، ي (أيام)، أ (أسابيع)، ش (أشهر).</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>نسبة التفاؤل</para>
+            </entry>
+            <entry>
+              <para
+>تقدير متفائل يُعبر عنه بنسبة مئوية سالبة من التقدير الأكثر احتمالًا. (مثل -20%).</para
+><para
+>يُستخدم هذا فقط إذا استُخدم توزيع PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>نسبة التشاؤم</para>
+            </entry>
+            <entry>
+              <para
+>تقدير متشائم يُعبر عنه بنسبة مئوية موجبة من التقدير الأكثر احتمالًا. (مثل 50%).</para
+><para
+>يُستخدم هذا فقط إذا استُخدم توزيع PERT. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>مخاطرة</para>
+            </entry>
+            <entry>
+              <para
+>تتحكّم المخاطرة في توزيع بيرت المستخدم عند حساب التقدير الفعلي لهذه المهمة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>القيد</para>
+            </entry>
+            <entry>
+              <para
+>نوع قيد التوقيت.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>قيد البدء</para>
+            </entry>
+            <entry>
+              <para
+>نوع قيد التوقيت.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>قيد الانتهاء</para>
+            </entry>
+            <entry>
+              <para
+>وقت انتهاء القيد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحساب الجاري</para>
+            </entry>
+            <entry>
+              <para
+>حساب التكاليف الجارية.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>حساب البدء</para>
+            </entry>
+            <entry>
+              <para
+>حساب التكلفة المُتكَبَّدة عند بدء المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>تكلفة البدء</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة المُتكَبَّدة عند بدء المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>حساب الإغلاق</para>
+            </entry>
+            <entry>
+              <para
+>حساب التكلفة المُتكَبَّدة عند إنهاء المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>تكلفة الإغلاق</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة المُتكَبَّدة عند إنهاء المُهمّة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الوصف</para>
+            </entry>
+            <entry>
+              <para
+>ملاحظات المُهمّة.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="task-modules-docker"
+><title
+>حاوية وحدات المهام</title>
+  <para
+>وحدات المهام هي مجموعات من المهام يمكن إعادة استخدامها عبر المشاريع. </para>
+  <para
+>يجعل هذا من الممكن الاستفادة من الخبرات السابقة وتوحيد العمليات المتشابهة. </para>
+  <para
+>تُدرج وحدة مهمة في مشروعك بسحبها من الحاوية وإفلاتها في مشروعك. </para>
+  <para
+>وحدة المهام هي ملف خطة عادي، وتُصمم باستخدام &plan; بنفس طريقة تصميم مشروع عادي. </para>
+  <para
+>ومع ذلك، تتضمن وحدة المهام عادةً المهام والتقديرات والتبعيات فقط. </para>
+  <para
+>يُعرض اسم المشروع في الحاوية، ويُستخدم الوصف كتلميح الأداة. </para>
+  <para
+>يمكن فتح وحدة للفحص أو التحرير بالنقر المزدوج على الوحدة. </para>
+  <para
+>يمكن تجميع الوحدات بتخزينها في أدلة مختلفة. يُضبط مكان البحث عنها باستخدام حوار إعدادات المشروع. </para>
+  <para
+>يمكن تعريف القيم المبدئية للمشاريع الجديدة باستخدام حوار الضبط، انظر <xref linkend="configure-plan-dialog" xrefstyle="select:title"/>. </para>
+</sect3>
+<sect3 id="resources-docker"
+><title
+>حاوية الموارد</title>
+  <para
+>تقدم حاوية الموارد طريقة بسيطة لتخصيص الموارد للمهام باختيار الموارد التي تحتاجها وسحبها إلى عمود <emphasis
+>التخصيص</emphasis
+>. </para>
+  <para
+>يمكن أيضًا إفلات مورد على عمود <emphasis
+>المسؤول</emphasis
+>. </para>
+</sect3>
+<sect3 id="allocations-docker"
+><title
+>حاوية التخصيصات</title>
+  <para
+>تعرض حاوية التخصيصات تخصيص الموارد الحالي للمهمة المحددة. </para>
+</sect3>
+<sect3 id="configuration"
+><title
+>الضّبط</title>
+  <para
+>باستخدام قائمة السياق، يمكن ضبط العرض لإظهار/إخفاء المشروع، أو تقسيم/إلغاء تقسيم عرض الشجرة، أو يمكن ضبطه باستخدام حوار الضبط. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>يمكنك حوار الضبط من تخصيص كمية المعلومات التي يعرضها العرض لتناسب احتياجاتك.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

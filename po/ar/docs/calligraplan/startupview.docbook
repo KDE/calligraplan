@@ -1,0 +1,31 @@
+<sect2
+><title/>
+<para
+>يُعرض شاشة بدء التشغيل عند بدء التشغيل وعند تحديد <menuchoice
+><guimenu
+>ملف</guimenu
+><guimenuitem
+>جديد</guimenuitem
+></menuchoice
+>. </para>
+<para
+>يحتوي على 3 أقسام لـ: </para>
+<itemizedlist>
+  <listitem
+><para
+>إنشاء مشاريع جديدة. انظر أيضًا <link linkend="creating-a-project"
+>إنشاء مشروع</link
+> و <link linkend="managing-resources"
+>إدارة الموارد</link
+></para
+></listitem>
+  <listitem
+><para
+>فتح المشاريع الموجودة. يتيح لك هذا القسم إمكانية فتح ملف مشروع موجود أو أحد آخر 10 مشاريع قمت بفتحها.</para
+></listitem>
+  <listitem
+><para
+>يوفر لك قسم المساعدة روابط إلى الصفحات التمهيدية والوثائق ومنتدى المجتمع.</para
+></listitem>
+</itemizedlist>
+</sect2>

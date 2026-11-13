@@ -1,0 +1,240 @@
+<sect2
+><title/>
+<sect3 id="description3"
+><title
+>الوصف</title>
+  <para
+>محرر المهام هو عرض يعرض بيانات المهام في هيكل شجري. يمكن تعديل معظم البيانات في محرر المهام في موضعها. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="navigation"
+><title
+>التّنقّل</title>
+  <para
+>يمكنك التنقل في الهيكل الشجري باستخدام لوحة المفاتيح: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycap
+>+</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>وسّع صفًا قابلًا للتوسيع.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>-</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>اطوِ عنصرًا قابلًا للطي.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>السهم لليسار</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العمود السابق في نفس الصف.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>السهم لليمين</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العمود التالي في نفس الصف.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>السهم للأعلى</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى الصف السابق في نفس العمود.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>السهم للأسفل</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى الصف التالي في نفس العمود.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>الصفحة الرئيسية</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى أول صف، أول عمود.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>النهاية</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى آخر صف، آخر عمود.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>الصفحة لأعلى</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى أول صف مرئي في نفس العمود.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycap
+>الصفحة لأسفل</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى آخر صف مرئي في نفس العمود.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data"
+><title
+>تحرير البيانات</title>
+  <para
+>تُفتح العناصر القابلة للتحرير للتحرير بالنقر المزدوج على العنصر أو، إذا كنت تستخدم لوحة المفاتيح، بالضغط على <keycap
+>F2</keycap
+> لفتح العنصر الحالي. </para>
+  <para
+>عند تحرير عنصر، يمكنك الانتقال إلى العنصر القابل للتحرير التالي كما يلي: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>السهم لليسار</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العنصر القابل للتحرير السابق في نفس الصف.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>السهم لليمين</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العنصر القابل للتحرير التالي في نفس الصف.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>السهم للأعلى</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العنصر القابل للتحرير التالي في الصفوف السابقة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Alt;<keycap
+>السهم للأسفل</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>انتقل إلى العنصر القابل للتحرير التالي في الصفوف التالية.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="using-the-views-drag-drop"
+><title
+>السحب والإفلات والنسخ واللصق</title>
+  <para
+>تدعم معظم العروض السحب والإفلات والنسخ واللصق. يمكن سحب المخططات البيانية ومخططات غانت إلى التطبيقات التي تدعم الصور. تستخدم بيانات الجدول نوع mime الخاص بـ html، لذا يمكن إفلاتها في أي تطبيق يدعم ذلك. إذا كان العرض يدعم نقل أو نسخ العناصر داخليًا، مثل <link linkend="task-editor"
+>محرر المهام</link
+>، فيمكن أيضًا نقل العناصر أو نسخها. </para>
+</sect3>
+</sect2>

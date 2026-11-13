@@ -1,0 +1,22 @@
+<sect2
+><title/>&WORK-IN-PROGRESS; <para
+>تحتوي العديد من الوظائف والعروض على مساعدة وتلميحات يمكن عرضها باستخدام وظيفة <emphasis
+>ما هذا</emphasis
+>. </para>
+<para
+>يمكنك تفعيله من خلال إدخال القائمة <menuchoice
+><guimenu
+>مساعدة</guimenu
+><guimenuitem
+>ما هذا</guimenuitem
+></menuchoice
+> أو اختصار لوحة المفاتيح <keycombo
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+>. </para>
+<para
+>في مربعات الحوار، تُفعّل بالضغط على <varname
+>?</varname
+> في شريط عنوان مربع الحوار. </para>
+</sect2>

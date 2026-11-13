@@ -1,0 +1,270 @@
+<sect2
+><title/>
+<sect3 id="description22"
+><title
+>الوصف</title>
+  <para
+>تُستخدم نافذة حالة المهمة لفحص معلومات تقدم المهمة في فترة زمنية، مُحددة في الإعدادات. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_taskstatusview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>تُقسم المهام إلى مجموعات اعتمادًا على حالة المهمة: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>لم يبدأ</para>
+            </entry>
+            <entry>
+              <para
+>المهام التي كان ينبغي أن تكون قد بدأت الآن.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>يعمل</para>
+            </entry>
+            <entry>
+              <para
+>المهام التي بدأت، ولكن لم تُنهَ بعد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>انتهى</para>
+            </entry>
+            <entry>
+              <para
+>المهام التي أُنهيت في هذه الفترة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الفترة التالية</para>
+            </entry>
+            <entry>
+              <para
+>المهام المُجدولة للبدء في الفترة التالية.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data23"
+><title
+>تحرير البيانات</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>يمكن تحرير معلومات التقدم في السطر كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+> أو باستخدام حوار تقدم المهمة.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskprogressdialog.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>تُعرض الأعمدة التالية مبدئيًا: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>عمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم المهمة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحالة</para>
+            </entry>
+            <entry>
+              <para
+>حالة المهمة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>% الإكمال</para>
+            </entry>
+            <entry>
+              <para
+>إكمال المُهمّة</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الجهد المخطَّط</para>
+            </entry>
+            <entry>
+              <para
+>مقدار العمل المُخطط لاستخدامه في نهاية الفترة الحالية.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الجهد الفعلي</para>
+            </entry>
+            <entry>
+              <para
+>مقدار العمل المُنفق.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الجهد المتبقي</para>
+            </entry>
+            <entry>
+              <para
+>الجهد المتبقي اللازم لإكمال المهمة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التكلفة المخططة</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة المُخططة في نهاية الفترة الحالية.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التكلفة الفعلية</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة الفعلية المُتحملة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>البدء الفعلي</para>
+            </entry>
+            <entry>
+              <para
+>وقت بدء المهمة الفعلي.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الانتهاء الفعلي</para>
+            </entry>
+            <entry>
+              <para
+>وقت إنهاء المهمة الفعلي.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration24"
+><title
+>الضّبط</title>
+  <para
+>باستخدام قائمة السياق، يمكن ضبط النافذة لتقسيم/إلغاء تقسيم عرض الشجرة أو يمكن ضبطها باستخدام حوار الضبط. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>يتيح لك حوار الضبط تخصيص كمية المعلومات التي تعرضها النافذة لتناسب احتياجاتك.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_taskstatusview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

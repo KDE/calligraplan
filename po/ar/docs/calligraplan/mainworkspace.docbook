@@ -1,0 +1,84 @@
+<sect2
+><title/>
+<sect3 id="description2"
+><title
+>الوصف</title>
+  <para
+>يُرتّب مساحة العمل الرئيسة عادةً بمُحدد العرض إلى اليسار وعرض البيانات إلى اليمين.</para
+><para
+>وكالمعتاد، ستجد أيضًا شريط القوائم وشريط الأدوات في الأعلى، وشريط الحالة في الأسفل. </para>
+  <para
+>بما أن كلًا من مُحدد العرض وحاوية السكربتات هما حاويتان، يمكن نقلهما إلى حدود مختلفة أو تعويمهما أو إخفاؤهما. لإظهار حاوية مخفية، استخدم مدخل القائمة <menuchoice
+><guimenu
+>الإعدادات</guimenu
+><guimenuitem
+>الحاويات</guimenuitem
+></menuchoice
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_work_space.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot
+></para>
+</sect3>
+<sect3 id="the-view-selector"
+><title
+>محدد العرض</title>
+  <para
+>يُمكّنك <link linkend="the-view-selector"
+>مُحدد العرض</link
+> من اختيار عرض البيانات الذي تريد إظهاره من العروض المدرجة حاليًا. </para>
+  <para
+>تُجمّع العروض في فئات لاسترجاع أسهل: المحررات، العروض، التنفيذ، والتقارير مبدئيًا: </para>
+  <itemizedlist>
+    <listitem
+><para
+>تحتوي المحررات على المحررات التي تحتاجها لتعريف مشروعك وجدولته.</para
+></listitem>
+    <listitem
+><para
+>تحتوي العروض على العروض المستخدمة لتفقّد مشروعك.</para
+></listitem>
+    <listitem
+><para
+>تحتوي التنفيذ على عروض مفيدة بشكل خاص أثناء تنفيذ مشروعك.</para
+></listitem>
+    <listitem
+><para
+>تحتوي التقارير على عروض لتوليد التقارير.</para
+></listitem>
+  </itemizedlist>
+  <para
+>يمكن أيضًا نقل العروض داخل الفئات أو عبرها، أو إضافتها إلى <link linkend="the-view-selector"
+>مُحدد العرض</link
+> أو إزالتها منه. </para>
+</sect3>
+<sect3 id="schedule-selector"
+><title
+>مُحدِّد الجدولة</title>
+  <para
+>يُمكّنك مُحدد الجدول من اختيار الجدول الذي ستعرض جميع العروض (مثل <link linkend="task-gantt-view"
+>عرض غانت</link
+>) القيم منه. المهام التي لم تُجدول في الجدول المحدد لا تُظهر عادةً في أي من العروض. (تُظهر في المحررات، بالطبع.) </para>
+</sect3>
+<sect3 id="status-bar"
+><title
+>شريط الحالة</title>
+  <para
+>يُظهر شريط الحالة الرسائل ومعلومات التقدم. الأبرز هو الجدول المحدد حاليًا المُظهر في يمين شريط الحالة. لاحظ أن معظم العروض في فئة <emphasis
+>العروض</emphasis
+> تعرض معلومات اعتمادًا على الجدول المحدد، لذا إذا لم يُجدول المشروع (<emphasis
+>غير مجدول</emphasis
+>)، ستكون معظم العروض فارغة. </para>
+</sect3>
+</sect2>

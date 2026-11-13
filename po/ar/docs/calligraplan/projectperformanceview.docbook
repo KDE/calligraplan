@@ -1,0 +1,51 @@
+<sect2 id="description21"
+><title
+>الوصف</title>
+  <para
+>منظر أداء المشروع هو مخطط إدارة مشاريع يمكن من خلاله فهم الوضع الفعلي للمشروع وفقًا لطريقة القيمة المكتسبة. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_project_perf_chart.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>أين: </para>
+  <itemizedlist>
+    <listitem
+><para
+>BCWS تعني التكلفة المدرجة في الميزانية للعمل المجدول،</para
+></listitem>
+    <listitem
+><para
+>BCWP تعني التكلفة المدرجة في الميزانية للعمل المنفذ،</para
+></listitem>
+    <listitem
+><para
+>ACWP تعني التكلفة الفعلية للعمل المنفذ.</para
+></listitem>
+  </itemizedlist>
+  <para
+>تُعتبر كل هذه كجهد بالساعات والتكاليف. </para>
+  <para
+>PI هي مؤشرات الأداء، حيث: </para>
+  <itemizedlist>
+    <listitem
+><para
+>CPI هو مؤشر أداء التكلفة،</para
+></listitem>
+    <listitem
+><para
+>SPI هو مؤشر أداء الجدول الزمني.</para
+></listitem>
+  </itemizedlist>
+</sect2>

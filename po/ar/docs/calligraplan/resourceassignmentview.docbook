@@ -1,0 +1,96 @@
+<sect2
+><title/>
+<sect3 id="description33"
+><title
+>الوصف</title>
+  <para
+>تعرض نافذة تعيين الموارد التعيينات المجدولة للمهام-الموارد في جدول. <note
+><para
+>يمكن أن يكون لهذا العرض تأثير كبير على الأداء في المشاريع الكبيرة.</para
+></note>
+  </para>
+  <para>
+    <!--
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceassignmentview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Resource assignment table</phrase>
+        </textobject>
+        <caption>
+          <para
+>Resource Assignment Table</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+    -->
+  </para>
+</sect3>
+<sect3 id="data34"
+><title
+>البيانات</title>
+  <para
+>تُعرض الأعمدة التالية كمبدئي: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم الكائن (مجموعة موارد، مورد، مهمة)</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>المجموع</para>
+            </entry>
+            <entry>
+              <para
+>إجمالي التعيين لمورد</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التواريخ</para>
+            </entry>
+            <entry>
+              <para
+>إجمالي تعيينات مورد في اليوم وتعيينات المورد لكل مهمة.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data35"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير وصف المهمة وتقدمها باستخدام قائمة السياق. </para>
+</sect3>
+</sect2>

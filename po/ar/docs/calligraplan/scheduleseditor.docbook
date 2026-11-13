@@ -1,0 +1,390 @@
+<sect2
+><title/>
+<sect3 id="description17"
+><title
+>الوصف</title>
+  <para
+>يُستخدم محرر الجداول لإنشاء الجداول وتحريرها وحسابها وحذفها. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_scheduleeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>يحتوي محرر الجداول على ثلاث نُظَر فرعية تُظهر نتائج الجدولة. </para>
+  <para
+>تُظهر النظرة الفرعية للنتائج القيم اللازمة لتحليل PERT بما في ذلك البداية المبكرة والنهاية المبكرة، والبداية المتأخرة والنهاية المتأخرة إلى جانب أنواع مختلفة من الطفو. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_pertresult.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>تُظهر النظرة الفرعية للمسار الحرج المهام التي تنتمي إلى المسار الحرج. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_criticalpath.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>تُظهر النظرة الفرعية لسجل الجدولة قائمة بالرسائل المُنتجة أثناء الجدولة. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_schedulinglog.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="toolbar18"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء الجداول وحذفها وحسابها: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> أضِف جدولًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء مجموعة موارد. تُلحق المجموعة الجديدة في نهاية المجموعات.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-child-insert.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> أضف جدولًا فرعيًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء جدول فرعي. يُلحق الجدول الجديد كطفل للجدول المُحدد حاليًا.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-delete.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> احذف</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف الجدول المُحدد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-calculus.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> احسب</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>يحسب الجدول المُحدد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-view-time-schedule-baselined-add.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> خط القاعدة</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>يُثبّت الجدول المُحدد كخط أساس. يمنع إعادة حساب الجدول أو حذفه.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-first.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> افصل</para>
+            </entry>
+            <entry>
+              <para
+></para>
+            </entry>
+            <entry>
+              <para
+>اجعل الجدول الفرعي المُحدد جدولًا علويًا</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data19"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير البيانات سطريًا كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+>. </para>
+  <para
+>تُعرض الأعمدة التالية مبدئيًا: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم الجدول.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحالة</para>
+            </entry>
+            <entry>
+              <para
+>حالة الجدول. يُظهر شريط تقدم أثناء الجدولة.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الاتجاه</para>
+            </entry>
+            <entry>
+              <para
+>اتجاه الجدولة.</para
+><para
+>إذا كان الاتجاه أماميًا، يُجدول المشروع بدءًا من وقت البداية الأبكر للمشروع المُحدد في حوار المشروع الرئيس. إذا كان الاتجاه خلفيًا، يُجدول المشروع بدءًا من وقت النهاية الأحدث للمشروع المُحدد في حوار المشروع الرئيس. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحجز الزائد</para>
+            </entry>
+            <entry>
+              <para
+>يتحكم في الحجز الزائد للموارد عند الجدولة.</para
+><para
+>إذا سُمح بالحجز الزائد، فقد يُحجز مورد (في أيام العمل) للعمل أكثر من توفره. قد يحدث هذا إذا خُصص المورد لمهام متعددة أو حُجز في مشاريع أخرى. </para>
+              <para
+>إذا كان الحجز الزائد سيُتجنب، فلن تُحجز الموارد أكثر من توفرها. عند تعارض الموارد، ستُؤخر المهام حتى يتوفر المورد. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التوزيع</para>
+            </entry>
+            <entry>
+              <para
+>التوزيع المستخدَم أثناء الجدولة.</para
+><para
+>إذا كان التوزيع 'بلا'، يُستخدم تقدير المtask كما هو أثناء الجدولة. </para>
+              <para
+>إذا كان التوزيع 'PERT'، يُحسب التقدير (E) المُستخدم بناءً على التقدير المتفائل (O) والمتشائم (P) والأكثر احتمالًا (M) المُدخلة. الصيغة المُستخدمة لهذا هي: </para>
+              <para
+>E = (O + 4 * M + P) / 6. </para>
+              
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>تاريخ البدء المخطَّط</para>
+            </entry>
+            <entry>
+              <para
+>وقت البدء المجدول.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>تاريخ الانتهاء المخطَّط</para>
+            </entry>
+            <entry>
+              <para
+>وقت الانتهاء المجدول.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>المجدول</para>
+            </entry>
+            <entry>
+              <para
+>الجدول المستخدَم لحساب جدول المشروع.</para
+><para
+>المجدول المدمج المبدئي هو مجدول الشبكة. </para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration20"
+><title
+>الضّبط</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>باستخدام قائمة السياق، يمكن ضبط النظرة لتقسيم/إلغاء تقسيم نظرة الشجرة أو يمكن ضبطها باستخدام حوار الضبط.</para
+><para
+>يمكّنك حوار الضبط من تخصيص كمية المعلومات التي تعرضها النظرة لتناسب احتياجاتك. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_scheduleeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

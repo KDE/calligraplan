@@ -1,0 +1,133 @@
+<sect2
+><title/>
+  <sect3 id="description10"
+><title
+>الوصف</title>
+  <para
+>يُستخدم محرر العمل والإجازات لإنشاء التقاويم وتحريرها وحذفها.</para
+><para
+>تُحدد التقاويم ساعات العمل للموارد. يمكن أيضًا استخدام التقاويم للمهام ذات نوع التقدير <emphasis
+>المدة</emphasis
+>. </para>
+  <para
+>تحتوي التقاويم على تحديد المنطقة الزمنية بحيث يمكنك تحديد ساعات العمل بالتوقيت المحلي للموارد. </para>
+  <para
+>يتكون التقويم من تعريفات لأيام الأسبوع والتواريخ. إذا كان للتاريخ تعريف، يُستخدم هذا التعريف. إذا كانت حالة التاريخ <emphasis
+>غير محددة</emphasis
+>، يُستخدم تعريف يوم الأسبوع. إذا كان هذا أيضًا <emphasis
+>غير محدد</emphasis
+>، يُفحص التقويم الأصلي. </para>
+  <para
+>يمكن تعريف التقويم كـ <emphasis
+>مبدئي</emphasis
+> ويُستخدم بعد ذلك لجميع الموارد العاملة دون مرجع تقويم. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_workandvacation.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء التقاويم وحذفها: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضف تقويمًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء تقويم. يُلحق التقويم الجديد في نفس مستوى التقويم المحدد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضف تقويمًا فرعيًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء تقويم فرعي. يُلحق التقويم الجديد كفرع للتقويم المحدد حاليًا.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>احذف التقويم المحدد</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>احذف</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف التقويم المحدد.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data11"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير اسم التقويم والمنطقة الزمنية مباشرة كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+>. </para>
+  <para
+>تُحرر حالة الأيام وأيام الأسبوع بتحديد اليوم أو الأيام التي تريد تحريرها وفتح قائمة السياق. </para>
+  <para
+>يؤدي تحديد <emphasis
+>عمل...</emphasis
+> إلى فتح حوار تحرير فترات العمل. </para>
+  
+</sect3>
+</sect2>

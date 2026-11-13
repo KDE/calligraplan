@@ -1,0 +1,127 @@
+<sect2
+><title/>
+<sect3 id="description30"
+><title
+>الوصف</title>
+  <para
+>يُستخدم عرض غانت للمعالم لعرض المعالم في خط زمني. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_milestoneganttview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>عرض غانت</phrase>
+        </textobject>
+        <caption>
+          <para
+>عرض غانت</para>
+        </caption>
+      </mediaobject>
+    </screenshot>
+  </para>
+</sect3>
+<sect3 id="editing-data31"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير وصف المعلم وتقدمه باستخدام قائمة السياق. </para>
+  <para
+>تُعرض الأعمدة التالية مبدئيًا: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>عمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>رمز WBS</para>
+            </entry>
+            <entry>
+              <para
+>رمز هيكل تجزئة العمل</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم المعلم.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>وقت البدأ</para>
+            </entry>
+            <entry>
+              <para
+>وقت البدء المجدول.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration32"
+><title
+>الضّبط</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>باستخدام قائمة السياق، يمكن ضبط العرض باستخدام حوار الضبط.</para>
+              <para
+>يتيح لك حوار الضبط تخصيص كمية المعلومات التي يعرضها العرض لتناسب احتياجاتك.</para>
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_milestoneganttview_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+>حوار الضبط</phrase>
+                    </textobject>
+                    <caption>
+                      <para
+>حواري الضبط</para>
+                    </caption>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

@@ -1,0 +1,320 @@
+<sect2
+><title/>
+<sect3 id="description6"
+><title
+>الوصف</title>
+  <para
+>يُستخدم محرر الموارد لإنشاء الموارد ومجموعات الموارد وتحريرها وحذفها. يجب أن تنتمي الموارد إلى مجموعة موارد. في الوقت الحالي، لا يُسمح بالمجموعات الفرعية. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_resourceeditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>يجب أن تشير موارد العمل إلى <emphasis
+>تقويم</emphasis
+> يحدد ساعات العمل للمورد. تُنشأ التقاويم باستخدام <link linkend="work-and-vacation-editor"
+>محرر العمل والعطلات</link
+>. </para>
+  <para
+>الموارد المادية متوفرة دائمًا افتراضيًا. يمكنك استخدام تقويم لتحديد توفرها. </para>
+  <para
+>يمكن أن تكون الموارد <emphasis
+>مشتركة</emphasis
+> أو <emphasis
+>محلية</emphasis
+>. المورد المحلي يُستخدم فقط في المشروع الحالي. المورد المشترك يمكن مشاركته بين مشاريع متعددة ويُخزن في ملف منفصل، انظر <link linkend="managing-resources"
+>إدارة الموارد</link
+>. </para>
+</sect3>
+<sect3 id="toolbar7"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء وحذف الموارد ومجموعات الموارد: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضِف مجموعة موارد</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء مجموعة موارد. تُلحق المجموعة الجديدة في نهاية المجموعات.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضِف موردًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء مورد. يُلحق المورد الجديد كطفل للمجموعة المحددة حاليًا. إذا تم تحديد مورد، يُلحق المورد الجديد بمجموعته الأم.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>احذف</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>Delete</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف الموارد و/أو مجموعات الموارد المحددة.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+  <para
+>يمكن إنشاء الموارد بإفلات بيانات من أي تطبيق يدعم سحب معلومات vCard، مثل <emphasis
+>KAddressBook</emphasis
+> أو <emphasis
+>Evolution</emphasis
+>. </para>
+  <para
+>يمكن نسخ الموارد أو نقلها إلى مجموعة موارد مختلفة باستخدام السحب والإفلات. </para>
+  <para
+><note
+><para
+>عند نقل مورد، سيفقد المورد أي تخصيصات.</para
+></note>
+  </para>
+</sect3>
+<sect3 id="editing-data8"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير البيانات مباشرة كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+>. </para>
+  <para
+>يمكن أيضًا تحرير الموارد باستخدام حوار إعدادات الموارد. </para>
+  <para
+>تُعرض الأعمدة التالية افتراضيًا: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم المورد أو مجموعة الموارد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>النطاق</para>
+            </entry>
+            <entry>
+              <para
+>يمكن أن يكون المورد <emphasis
+>مشتركًا</emphasis
+> أو <emphasis
+>محليًا</emphasis
+>. لا يمكن تحرير المورد المشترك.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>النوع</para>
+            </entry>
+            <entry>
+              <para
+>نوع المورد أو مجموعة الموارد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحروف البادئة</para>
+            </entry>
+            <entry>
+              <para
+>الأحرف الأولى للمورد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>البريد الإلكترونيّ</para>
+            </entry>
+            <entry>
+              <para
+>عنوان البريد الإلكتروني للمورد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>التقويم</para>
+            </entry>
+            <entry>
+              <para
+>التقويم يعرّف متى يعمل المورد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحد (٪)</para>
+            </entry>
+            <entry>
+              <para
+>أقصى حمولة يمكن تعيينها.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>متاح من</para>
+            </entry>
+            <entry>
+              <para
+>يعرّف متى يكون المورد متاحًا للمشروع.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>متاح حتى</para>
+            </entry>
+            <entry>
+              <para
+>يعرّف متى يكون المورد متاحًا للمشروع.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>السعر العادي</para>
+            </entry>
+            <entry>
+              <para
+>التكلفة لكل ساعة، الساعات العادية.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الحساب</para>
+            </entry>
+            <entry>
+              <para
+>الحساب الذي تتراكم فيه تكلفة المورد.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="configuration9"
+><title
+>الضّبط</title>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <tbody>
+          <row>
+            <entry>
+              <para
+>باستخدام قائمة السياق، يمكن ضبط العرض لتقسيم/إلغاء تقسيم عرض الشجرة أو يمكن ضبطه باستخدام حوار الضبط.</para
+><para
+>يتيح لك حوار الضبط تخصيص كمية المعلومات التي يعرضها العرض لتناسب احتياجاتك. </para>
+              
+            </entry>
+            <entry>
+              <para>
+                <screenshot>
+                  <screeninfo
+></screeninfo>
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata fileref="plan_resourceeditor_config.png" format="PNG"/>
+                    </imageobject>
+                    <textobject>
+                      <phrase
+></phrase>
+                    </textobject>
+                  </mediaobject>
+                  </screenshot
+></para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

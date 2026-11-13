@@ -1,0 +1,160 @@
+<sect2
+><title/>
+<sect3 id="description12"
+><title
+>الوصف</title>
+  <para
+>يُستخدم محرر هيكل تفصيل التكاليف لإنشاء الحسابات وتحريرها وحذفها. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_accounteditor.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+    </screenshot>
+  </para>
+  <para
+>يمكن للمهام والموارد الاتصال بالحسابات لتجميع التكاليف من تلك المهام والموارد. </para>
+  <para
+>يجمع الحساب المبدئي التكاليف الناتجة عن المهام غير المتصلة بأي حساب. </para>
+</sect3>
+<sect3 id="toolbar13"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إنشاء الحسابات وحذفها: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضف حسابًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء حساب. يُدرج الحساب الجديد بعد الحساب المحدد. إذا لم يُحدد أي حساب، يُلحق الحساب الجديد في المستوى الأعلى.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضف حسابًا فرعيًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;&Shift;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>زر لإنشاء حساب فرعي. يُلحق الحساب الجديد كطفل للحساب المحدد.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>احذف</para>
+            </entry>
+            <entry>
+              <para
+><keycap
+>احذف</keycap
+></para>
+            </entry>
+            <entry>
+              <para
+>يحذف الحساب المحدد.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="editing-data14"
+><title
+>تحرير البيانات</title>
+  <para
+>يمكن تحرير البيانات مباشرة كما هو موصوف <link linkend="using-the-views"
+>هنا</link
+>. </para>
+  <para
+>الأعمدة التالية متاحة: </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم الحساب.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>الوصف</para>
+            </entry>
+            <entry>
+              <para
+>وصف الحساب.</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>

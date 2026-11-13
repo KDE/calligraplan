@@ -1,0 +1,192 @@
+<sect2
+><title/>
+<sect3 id="description41"
+><title
+>الوصف</title>
+  <para
+>تُستخدم نافذة عرض مولد التقارير لإضافة وإنشاء تقارير بصيغة Open Document Text (odt).</para
+><para
+>يمكن أن تستند التقارير إلى قوالب التقارير المقدمة، أو يمكنك <link linkend="creating-odt-report-templates"
+>كتابة قوالبك الخاصة</link
+>. </para>
+  <para>
+    <screenshot>
+      <screeninfo
+></screeninfo>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="plan_reportsgeneratorview.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+></phrase>
+        </textobject>
+      </mediaobject>
+      </screenshot>
+  </para>
+  <para>
+    <informaltable>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>العمود</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>الاسم</para>
+            </entry>
+            <entry>
+              <para
+>اسم من اختيارك</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>قالب التقرير</para>
+            </entry>
+            <entry>
+              <para
+>المسار إلى ملف قالب التقرير. يمكنك اختيار أحد القوالب القياسية المقدمة أو إدخال اسم ملف قالب تقدمه أنت بنفسك.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ملف التقرير</para>
+            </entry>
+            <entry>
+              <para
+>اسم الملف الذي سيُنشأ.</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أضف</para>
+            </entry>
+            <entry>
+              <para
+>معلومات يمكن إضافتها إلى اسم ملف التقرير لتمييزه عن الإصدارات المُنشأة سابقًا. يمكن أن تكون:</para>
+              <itemizedlist>
+                <listitem
+><para
+><emphasis
+>لا شيء</emphasis
+>؛ استخدم اسم الملف كما هو</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>رقم</emphasis
+>؛ أضف رقم تسلسل إلى اسم الملف</para
+></listitem>
+                <listitem
+><para
+><emphasis
+>تاريخ</emphasis
+>؛ أضف التاريخ الحالي إلى اسم الملف</para
+></listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+<sect3 id="toolbar42"
+><title
+>شريط الأدوات</title>
+  <para
+>يوفر شريط الأدوات وسائل إضافة التقارير وإزالتها وإنشائها. </para>
+  <para>
+    <informaltable>
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry
+><guilabel
+>الزر</guilabel
+></entry>
+            <entry
+><guilabel
+>الاختصار</guilabel
+></entry>
+            <entry
+><guilabel
+>الوصف</guilabel
+></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>
+              <para
+>أضِف تقريرًا</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>أضف تقريرًا جديدًا</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>أزِل التقرير</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>أزل التقرير المحدد</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para
+>ولّد التقرير</para>
+            </entry>
+            <entry>
+              <para
+><keycombo
+>&Ctrl;<keycap
+>G</keycap
+></keycombo
+></para>
+            </entry>
+            <entry>
+              <para
+>أنشئ التقرير المحدد</para
+></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para>
+</sect3>
+</sect2>
