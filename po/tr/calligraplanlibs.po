@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-11-10 21:35+0300\n"
+"PO-Revision-Date: 2026-11-16 18:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1691,7 +1691,7 @@ msgstr "Belge İçe Aktar"
 #: main/KoMainWindow.cpp:1542
 #, kde-format
 msgid "Cannot preview the document"
-msgstr "Belge önizlenemiyor"
+msgstr "Belge ön izlenemiyor"
 
 #: main/KoMainWindow.cpp:1550
 #, kde-format
