@@ -246,7 +246,7 @@ msgstr ""
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Failed to set all properties of '%1' to cell '%2'"
-msgstr "No s'ha pogut assignar totes les propietats de «%1» a la cel·la «%2»"
+msgstr "No s'han pogut assignar totes les propietats de «%1» a la cel·la «%2»"
 
 #: scripts/plan2odsexport.py:76 scripts/plan2odsexport.py:95
 msgid "Warning"
