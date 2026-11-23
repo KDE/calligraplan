@@ -943,7 +943,7 @@ msgstr ""
 #: main/config/KoConfigDocumentPage.ui:45
 #, kde-format
 msgid "Autosave interval:"
-msgstr ""
+msgstr "自动保存间隔："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: main/config/KoConfigDocumentPage.ui:52
