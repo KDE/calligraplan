@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:52+0000\n"
-"PO-Revision-Date: 2026-10-12 11:33+0300\n"
+"PO-Revision-Date: 2026-11-23 18:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: Menu (file)
 #: calligraplan.rc:4 calligraplan_shell.rc:4
@@ -551,7 +551,7 @@ msgstr "Bir yedek dosyası oluştur"
 #: config/ConfigDialog.cpp:36
 #, kde-format
 msgid "Project Defaults"
-msgstr "Proje Öntanımlıları"
+msgstr "Proje Varsayılanları"
 
 #: config/ConfigDialog.cpp:37 kptview.cpp:638
 #, kde-format
@@ -561,7 +561,7 @@ msgstr "İş ve Tatil"
 #: config/ConfigDialog.cpp:38
 #, kde-format
 msgid "Task Defaults"
-msgstr "Görev Öntanımlıları"
+msgstr "Görev Varsayılanları"
 
 #: config/ConfigDialog.cpp:39
 #, kde-format
@@ -686,7 +686,7 @@ msgstr "Yerel görev modüllerini kullan"
 #: config/ConfigWorkVacationPanel.cpp:38
 #, kde-format
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: config/ConfigWorkVacationPanel.ui:22
@@ -713,16 +713,16 @@ msgid ""
 "calendar.</p><p>If a week calendar is not generated, the holidays are put "
 "into a separate calendar.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Çalışma haftaları ve tatiller için öntanımlı takvimler "
-"üretilirken kullanılan değerler.</p><p><span style=\" font-style:italic;"
-"\">Hafta</span> takvimi, <span style=\" font-style:italic;\">Çalışma "
+"<html><head/><body><p>Çalışma haftaları ve tatiller için varsayılan "
+"takvimler üretilirken kullanılan değerler.</p><p><span style=\" font-style:"
+"italic;\">Hafta</span> takvimi, <span style=\" font-style:italic;\">Çalışma "
 "haftası</span>'nda tanımlı değerleri kullanır.</p><p><span style=\" font-"
 "style:italic;\">Hafta</span> takvumu, <span style=\" font-style:italic;"
 "\">Her zaman</span> veya <span style=\" font-style:italic;\">Hiç yoksa</"
 "span> oluşturulabilir. İkinci seçim daha yaygındır; çünkü genelde "
 "takvimleriniz şablonların veya paylaşılan özkaynakların bir parçası olarak "
 "tanımlıdırlar.</p><p><span style=\" font-style:italic;\">Takvimler</span>, "
-"bölgeniz için (öntanımlı) veya herhangi bir bölge için oluşturulabilir. "
+"bölgeniz için (varsayılan) veya herhangi bir bölge için oluşturulabilir. "
 "Takvimler, hafta takvimine alt takvimler veya ayrı bir takvim olarak "
 "eklenebilirler.</p><p>Bir hafta takvimi oluşturulmamışsa tatiller ayrı bir "
 "takvime konulurlar.</p></body></html>"
@@ -856,7 +856,7 @@ msgstr "Özet görev"
 #, kde-format
 msgctxt "@label:chooser"
 msgid "Default:"
-msgstr "Öntanımlı:"
+msgstr "Varsayılan:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, kcfg_SummaryTaskLevelColorsEnabled)
 #: config/kptcolorsconfigpanel.ui:92

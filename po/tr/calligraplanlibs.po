@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:45+0000\n"
-"PO-Revision-Date: 2026-11-16 18:33+0300\n"
+"PO-Revision-Date: 2026-11-23 18:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -997,7 +997,7 @@ msgid ""
 "Do you really want to reset all toolbars of this application to their "
 "default? The changes will be applied immediately."
 msgstr ""
-"Bu uygulamanın tüm araç çubuklarını öntanımlılarına sıfırlamak "
+"Bu uygulamanın tüm araç çubuklarını varsayılanlarına sıfırlamak "
 "istediğinizden emin misiniz? Değişiklikler hemen uygulanacaktır."
 
 #: main/kedittoolbar.cpp:662
@@ -1782,7 +1782,7 @@ msgstr "Anonim"
 #: main/KoView.cpp:463
 #, kde-format
 msgid "Default Author Profile"
-msgstr "Öntanımlı Yazar Profili"
+msgstr "Varsayılan Yazar Profili"
 
 #: main/WelcomeView.cpp:120
 #, kde-kuit-format
@@ -1818,7 +1818,7 @@ msgid ""
 "link></para>"
 msgstr ""
 "<title>Yeni bir proje oluştur</title><para><emphasis>Ayarlar</emphasis>'da "
-"belirtilen öntanımlı değerlerle yeni bir proje oluşturur.<nl/"
+"belirtilen varsayılan değerlerle yeni bir proje oluşturur.<nl/"
 "><emphasis>Proje penceresi</emphasis>'ni açar, böylece <resource>Proje Adı</"
 "resource>, <resource>Hedef Başlangıcı</resource> ve <resource>- Bitiş</"
 "resource>'i gibi projeye özel değerleri tanımlayabilirsiniz.<nl/><link "
@@ -2196,7 +2196,7 @@ msgstr "Güncel tarihi seç"
 #, kde-kuit-format
 msgctxt "1=account name"
 msgid "%1 (Default account)"
-msgstr "%1 (Öntanımlı Hesap)"
+msgstr "%1 (Varsayılan Hesap)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, ui_description)
 #: models/kptaccountsmodel.cpp:113 models/kptaccountsmodel.cpp:1055
@@ -2213,12 +2213,12 @@ msgstr "Hesap adını değiştir"
 #: models/kptaccountsmodel.cpp:324
 msgctxt "(qtundo-format)"
 msgid "De-select as default account"
-msgstr "Öntanımlı hesap yapma"
+msgstr "Varsayılan hesap yapma"
 
 #: models/kptaccountsmodel.cpp:330
 msgctxt "(qtundo-format)"
 msgid "Select as default account"
-msgstr "Öntanımlı hesap yap"
+msgstr "Varsayılan hesap yap"
 
 #: models/kptaccountsmodel.cpp:347
 msgctxt "(qtundo-format)"
@@ -2281,7 +2281,7 @@ msgstr "Hafta %1-%2"
 #, kde-kuit-format
 msgctxt "1=calendar name"
 msgid "%1 (Default calendar)"
-msgstr "%1 (Öntanımlı takvim)"
+msgstr "%1 (Varsayılan takvim)"
 
 #: models/kptcalendarmodel.cpp:308 models/kptcalendarmodel.cpp:317
 #: models/ResourceGroupModel.cpp:92 models/ResourceGroupModel.cpp:101
@@ -2319,12 +2319,12 @@ msgstr "Takvim adını değiştir"
 #: models/kptcalendarmodel.cpp:340
 msgctxt "(qtundo-format)"
 msgid "De-select as default calendar"
-msgstr "Öntanımlı takvim yapma"
+msgstr "Varsayılan takvim yapma"
 
 #: models/kptcalendarmodel.cpp:346
 msgctxt "(qtundo-format)"
 msgid "Select as default calendar"
-msgstr "Öntanımlı takvimi yap"
+msgstr "Varsayılan takvimi yap"
 
 #: models/kptcalendarmodel.cpp:406
 msgctxt "(qtundo-format)"
@@ -2334,7 +2334,7 @@ msgstr "Takvim saat dilimini değiştir"
 #: models/kptcalendarmodel.cpp:423 models/kptcalendarmodel.cpp:440
 #, kde-format
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: models/kptcalendarmodel.cpp:433
 #, kde-kuit-format
@@ -2346,7 +2346,7 @@ msgstr "Tatilleri gösterme"
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Default region: <emphasis>%1</emphasis>"
-msgstr "Öntanımlı bölge: <emphasis>%1</emphasis>"
+msgstr "Varsayılan bölge: <emphasis>%1</emphasis>"
 
 #: models/kptcalendarmodel.cpp:476
 msgctxt "(qtundo-format)"
@@ -3149,7 +3149,7 @@ msgid ""
 "project scheduler.</para>"
 msgstr ""
 "<para>Proje zamanlamasını hesaplamada kullanılan zamanlayıcı.</"
-"para><para>Öntanımlı dahili zamanlayıcı Ağ Zamanlayıcısıdır.</"
+"para><para>Varsayılan dahili zamanlayıcı Ağ Zamanlayıcısıdır.</"
 "para><para>Mevcut kullanılabilir olan diğer zamanlayıcılar sisteminizde "
 "libRCPS kurulu ise RCPS'dir. RCPS genetik tabanlı özkaynak kısıtlamalı proje "
 "zamanlayıcısıdır.</para>"
@@ -5492,7 +5492,7 @@ msgstr "Gereken: %1"
 #, kde-format
 msgctxt "Default (calendar name)"
 msgid "Default (%1)"
-msgstr "Öntanımlı (%1)"
+msgstr "Varsayılan (%1)"
 
 #: models/ResourceModel.cpp:223
 #, kde-kuit-format
@@ -5510,7 +5510,7 @@ msgstr "Takvim yok"
 #, kde-kuit-format
 msgctxt "@info:tooltip 1=calendar name"
 msgid "Using default calendar: %1"
-msgstr "Öntanımlı takvim kullanılıyor: %1"
+msgstr "Varsayılan takvim kullanılıyor: %1"
 
 #: models/ResourceModel.cpp:287
 #, kde-kuit-format
@@ -6583,8 +6583,8 @@ msgstr ""
 "tanımlanmamışsa üst takvim denetlenir. <emphasis>Tanımlanmamış</emphasis> "
 "bir gün bir özkaynak tarafından kullanılırsa <emphasis>Tatil günü</"
 "emphasis>, bir görev tarafından kullanılmışsa <emphasis>tüm gün uygun</"
-"emphasis> olarak varsayılır.</para><para>Bir takvim <emphasis>Öntanımlı "
-"takvim</emphasis> olarak tanımlanabilir. Öntanımlı takvim özkaynaklar "
+"emphasis> olarak varsayılır.</para><para>Bir takvim <emphasis>Varsayılan "
+"takvim</emphasis> olarak tanımlanabilir. Varsayılan takvim özkaynaklar "
 "takvimi ayrıca ayarlanmadığında bir çalışma kaynağınca kullanılır.<nl/><link "
 "url='%1'>Daha Fazla...</link></para>"
 
@@ -8792,13 +8792,13 @@ msgstr "Ayırıcı:"
 #, kde-format
 msgctxt "@info:tooltip Work Breakdown Structure code"
 msgid "Define default WBS code"
-msgstr "Öntanımlı WBS kodunu tanımla"
+msgstr "Varsayılan WBS kodunu tanımla"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/kptwbsdefinitionpanelbase.ui:98
 #, kde-format
 msgid "Default Definition"
-msgstr "Öntanımlı Tanımlamalar"
+msgstr "Varsayılan Tanımlamalar"
 
 #. i18n: ectx: property (toolTip), widget (QGroupBox, levelsGroup)
 #: ui/kptwbsdefinitionpanelbase.ui:148
@@ -9215,7 +9215,7 @@ msgid ""
 msgstr ""
 "<title>Görev Bağımlılığı Penceresi</title><para>Görev bağımlılığı penceresi, "
 "seçili bir göreve kolaylıkla bir önceki eklemenize olanak verir.<nl/"
-">Açıldığında, bir önceki görevi, öntanımlı önceki olarak sunar. Bu, genelde "
+">Açıldığında, bir önceki görevi, varsayılan önceki olarak sunar. Bu, genelde "
 "istenen öncekidir ve yalnızca <interface>Tamam</interface>'a basarak "
 "kolaylıkla eklenebilir.<nl/>Olası öncekilerin açılır menüsü, en olası "
 "görevlerle ilk önce listelenecek biçimde sıralanır.</para>"
